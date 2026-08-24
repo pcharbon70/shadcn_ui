@@ -7,7 +7,8 @@ defmodule ShadcnUI.Forms.FormContractTest do
 
   # covers: shadcn_ui.form.normalization shadcn_ui.form.explicit_identity
   # covers: shadcn_ui.form.error_ownership shadcn_ui.form.pending_snapshot
-  # covers: shadcn_ui.form.validation_boundary
+  # covers: shadcn_ui.form.validation_boundary shadcn_ui.form.deterministic_relationships
+  # covers: shadcn_ui.form.invalid_state shadcn_ui.form.protected_globals
 
   defmodule EscapeFixture do
     use Phoenix.Component
@@ -186,6 +187,118 @@ defmodule ShadcnUI.Forms.FormContractTest do
 
     assert normalized.errors_visible?
     assert normalized.pending?
+  end
+
+  test "derives stable label, help, repeated-error, summary, and option IDs" do
+    normalized =
+      FormContract.normalize!(
+        id: "profile_language",
+        name: "profile[language]",
+        errors: ["is unavailable", "is unavailable"],
+        error_mode: :always
+      )
+
+    first = FormContract.relationships(normalized, help: true)
+    second = FormContract.relationships(normalized, help: true)
+
+    assert first == second
+    assert first.label_id == "profile_language-label"
+    assert first.help_id == "profile_language-help"
+
+    assert first.error_ids == [
+             "profile_language-error-1",
+             "profile_language-error-2"
+           ]
+
+    assert FormContract.summary_item_id("profile_language", 2) ==
+             "profile_language-summary-2"
+
+    string_id = FormContract.option_id("profile_language", "north america/fr")
+    atom_id = FormContract.option_id("profile_language", :north_america_fr)
+    integer_id = FormContract.option_id("profile_language", 42)
+
+    assert string_id =~ ~r/^profile_language-option-[A-Za-z0-9_-]+$/
+    assert Enum.uniq([string_id, atom_id, integer_id]) |> length() == 3
+    refute string_id =~ "north america"
+  end
+
+  test "assembles ordered distinct descriptions and visible invalid relationships" do
+    visible =
+      FormContract.normalize!(
+        id: "email",
+        name: "email",
+        errors: ["Invalid", "Invalid"],
+        error_mode: :always
+      )
+
+    relationships =
+      FormContract.relationships(visible,
+        help: true,
+        describedby: ["caller-one caller-two", "caller-one", nil]
+      )
+
+    assert relationships.describedby ==
+             "caller-one caller-two email-help email-error-1 email-error-2"
+
+    assert relationships.aria_invalid == "true"
+
+    hidden =
+      visible
+      |> Map.put(:errors, [])
+      |> Map.put(:errors_visible?, false)
+      |> FormContract.relationships(describedby: "caller-only")
+
+    assert hidden.describedby == "caller-only"
+    assert hidden.aria_invalid == false
+    assert hidden.error_ids == []
+  end
+
+  test "protects relationship semantics while retaining unrelated caller globals" do
+    globals = %{
+      "id" => "wrong-id",
+      "name" => "wrong-name",
+      "for" => "wrong-target",
+      "type" => "button",
+      "role" => "combobox",
+      "aria-invalid" => "false",
+      "aria-describedby" => "wrong-description",
+      "disabled" => true,
+      "class" => "consumer-class",
+      "autocomplete" => "email",
+      "aria-label" => "Email",
+      "data-state" => "ready",
+      "phx-change" => "validate",
+      "data-on:change" => "$validate()"
+    }
+
+    safe = FormContract.protect_control_globals(globals, [:disabled])
+
+    assert safe == %{
+             "class" => "consumer-class",
+             "autocomplete" => "email",
+             "aria-label" => "Email",
+             "data-state" => "ready",
+             "phx-change" => "validate",
+             "data-on:change" => "$validate()"
+           }
+  end
+
+  test "rejects unstable relationship inputs without creating atoms" do
+    assert_raise ArgumentError, ~r/positive integer/, fn ->
+      FormContract.error_id("email", 0)
+    end
+
+    assert_raise ArgumentError, ~r/stable strings, atoms, or integers/, fn ->
+      FormContract.option_id("email", %{request: "derived"})
+    end
+
+    before_count = :erlang.system_info(:atom_count)
+
+    for index <- 1..500 do
+      FormContract.option_id("choice", "request-key-#{index}")
+    end
+
+    assert :erlang.system_info(:atom_count) == before_count
   end
 
   defp form_field(options) do

@@ -34,29 +34,29 @@ Back to wave: [README](./README.md)
       - [x] 1.1.2.3 Subtask - Add presentation-only pending normalization that never disables a control or prevents submission automatically.
       - [x] 1.1.2.4 Subtask - Test that invalid and pending snapshots execute no validation, persistence, authorization, event, or application operation.
 
-  - [ ] 1.2 Section - Deterministic relationship context.
+  - [x] 1.2 Section - Deterministic relationship context.
 
     This section centralizes label, help, error, group, and caller-description
     relationships so components cannot drift apart during later implementation.
 
-    - [ ] 1.2.1 Task - Build stable relationship identifiers.
+    - [x] 1.2.1 Task - Build stable relationship identifiers.
 
       Relationship helpers should derive predictable suffixes and preserve every
       meaningful repeated message without random or process-global identity.
 
-      - [ ] 1.2.1.1 Subtask - Derive label, help, error, summary-item, and repeated-option IDs from one normalized base ID.
-      - [ ] 1.2.1.2 Subtask - Give repeated errors stable ordinal IDs while retaining equal messages as distinct entries.
-      - [ ] 1.2.1.3 Subtask - Normalize stable option keys into collision-free URL-safe control IDs without using translated labels or list position.
+      - [x] 1.2.1.1 Subtask - Derive label, help, error, summary-item, and repeated-option IDs from one normalized base ID.
+      - [x] 1.2.1.2 Subtask - Give repeated errors stable ordinal IDs while retaining equal messages as distinct entries.
+      - [x] 1.2.1.3 Subtask - Normalize stable option keys into collision-free URL-safe control IDs without using translated labels or list position.
 
-    - [ ] 1.2.2 Task - Assemble and protect accessibility attributes.
+    - [x] 1.2.2 Task - Assemble and protect accessibility attributes.
 
       Derived relationships should remain authoritative while unrelated caller
       attributes continue through the shared component contract.
 
-      - [ ] 1.2.2.1 Subtask - Merge ordered distinct caller descriptions, visible help, and visible error IDs into `aria-describedby`.
-      - [ ] 1.2.2.2 Subtask - Emit protected `aria-invalid="true"` only when errors are visible and eliminate dangling references when hidden.
-      - [ ] 1.2.2.3 Subtask - Protect IDs, names, label targets, group semantics, native types, invalid state, and derived relationships from conflicting globals.
-      - [ ] 1.2.2.4 Subtask - Pass unrelated documented native, `aria-*`, `data-*`, `phx-*`, and `data-on-*` attributes with deterministic class merging.
+      - [x] 1.2.2.1 Subtask - Merge ordered distinct caller descriptions, visible help, and visible error IDs into `aria-describedby`.
+      - [x] 1.2.2.2 Subtask - Emit protected `aria-invalid="true"` only when errors are visible and eliminate dangling references when hidden.
+      - [x] 1.2.2.3 Subtask - Protect IDs, names, label targets, group semantics, native types, invalid state, and derived relationships from conflicting globals.
+      - [x] 1.2.2.4 Subtask - Pass unrelated documented native, `aria-*`, `data-*`, `phx-*`, and `data-on-*` attributes with deterministic class merging.
 
   - [ ] 1.3 Section - Field fragments and Error Summary.
 
