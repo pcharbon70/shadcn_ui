@@ -165,6 +165,22 @@ The application owns image URLs, privacy, loading and failure policy, caching,
 uploads, and identity records. Avatar uses no inline failure handler, provider,
 or package-owned image state.
 
+### Skeleton
+
+Skeleton renders a decorative `aria-hidden="true"` rectangle, circle, or text
+shape with bounded size guidance. Pulse is a presentation snapshot and becomes
+a static block when reduced motion is requested.
+
+```heex
+<section aria-busy="true" aria-label="Loading profile">
+  <.skeleton shape={:circle} size={:large} />
+  <.skeleton shape={:text} />
+</section>
+```
+
+The caller labels meaningful loading regions and owns loading detection,
+announcements, errors, replacement timing, and final content layout.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

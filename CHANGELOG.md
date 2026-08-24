@@ -18,3 +18,5 @@ All notable changes to ShadcnUI will be documented in this file.
   navigation, selection, data, or workflow behavior.
 - Add the initials-first Avatar component with optional caller-owned imagery,
   closed sizes, and bounded stack presentation.
+- Add the decorative Skeleton component with closed geometry, protected hidden
+  semantics, and a static reduced-motion fallback.

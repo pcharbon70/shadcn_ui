@@ -39,7 +39,7 @@ defmodule ShadcnUI.MixProject do
       # package. ShadcnUI does not use LiveView routes, sockets, or processes.
       {:phoenix_live_view, "~> 1.2"},
       {:spec_led_ex,
-       git: "https://github.com/specleddev/specled_ex.git",
+       git: "https://github.com/specleddev/spec_led_ex.git",
        ref: "f0d20dba6786a8f1dff0d7365a113b23db696fc1",
        only: [:dev, :test],
        runtime: false}

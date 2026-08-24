@@ -164,6 +164,10 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  [data-shadcn-ui-skeleton] {
+    animation: none !important;
+  }
 }
 
 @media (forced-colors: active) {

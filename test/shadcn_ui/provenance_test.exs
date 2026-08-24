@@ -142,6 +142,20 @@ defmodule ShadcnUI.ProvenanceTest do
     assert avatar["localChanges"] =~ "caller-owned image loading"
   end
 
+  test "maps Skeleton to the exact reviewed component and basic demo sources" do
+    skeleton = Enum.find(manifest()["adaptations"], &(&1["id"] == "foundation.skeleton"))
+
+    assert skeleton["localPaths"] == ["lib/shadcn_ui/components/foundation/skeleton.ex"]
+
+    assert skeleton["upstreamPaths"] == [
+             "src/content/components/skeleton.mdx",
+             "src/demos/skeleton/basic.html"
+           ]
+
+    assert skeleton["localChanges"] =~ "decorative HEEX placeholder"
+    assert skeleton["localChanges"] =~ "reduced-motion-safe snapshot"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)

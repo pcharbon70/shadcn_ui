@@ -33,29 +33,29 @@ Back to wave: [README](./README.md)
       - [x] 4.1.2.3 Subtask - Assert no onerror, remote provider, upload, random color, or package-owned image lifecycle enters markup or dependencies.
       - [x] 4.1.2.4 Subtask - Add provenance coverage for the adapted upstream Avatar markup.
 
-  - [ ] 4.2 Section - Skeleton component.
+  - [x] 4.2 Section - Skeleton component.
 
     This section implements a decorative placeholder that communicates shape
     visually without claiming to own or announce application loading state.
 
-    - [ ] 4.2.1 Task - Define the Skeleton public API and accessibility boundary.
+    - [x] 4.2.1 Task - Define the Skeleton public API and accessibility boundary.
 
       Skeleton should remain hidden from assistive technology and require the
       caller to label any meaningful loading region separately.
 
-      - [ ] 4.2.1.1 Subtask - Declare closed rectangle/circle/text shape guidance, bounded size guidance, pulse presentation, class, and passive supported globals.
-      - [ ] 4.2.1.2 Subtask - Render deterministic `aria-hidden="true"` and reject caller role, live-region, label, and interactive semantics.
-      - [ ] 4.2.1.3 Subtask - Document caller ownership of loading detection, announcements, replacement timing, errors, and content layout.
+      - [x] 4.2.1.1 Subtask - Declare closed rectangle/circle/text shape guidance, bounded size guidance, pulse presentation, class, and passive supported globals.
+      - [x] 4.2.1.2 Subtask - Render deterministic `aria-hidden="true"` and reject caller role, live-region, label, and interactive semantics.
+      - [x] 4.2.1.3 Subtask - Document caller ownership of loading detection, announcements, replacement timing, errors, and content layout.
 
-    - [ ] 4.2.2 Task - Implement Skeleton presentation and tests.
+    - [x] 4.2.2 Task - Implement Skeleton presentation and tests.
 
       Shape and pulse classes should use semantic muted tokens and become calm
       static blocks under reduced motion.
 
-      - [ ] 4.2.2.1 Subtask - Implement fixed shape, size, radius, muted color, and pulse class mappings.
-      - [ ] 4.2.2.2 Subtask - Add reduced-motion CSS that removes pulse without hiding the placeholder or changing its dimensions.
-      - [ ] 4.2.2.3 Subtask - Test every shape and size, caller classes, protected hidden semantics, deterministic output, and absence of loading lifecycle behavior.
-      - [ ] 4.2.2.4 Subtask - Add provenance coverage for the adapted upstream Skeleton markup.
+      - [x] 4.2.2.1 Subtask - Implement fixed shape, size, radius, muted color, and pulse class mappings.
+      - [x] 4.2.2.2 Subtask - Add reduced-motion CSS that removes pulse without hiding the placeholder or changing its dimensions.
+      - [x] 4.2.2.3 Subtask - Test every shape and size, caller classes, protected hidden semantics, deterministic output, and absence of loading lifecycle behavior.
+      - [x] 4.2.2.4 Subtask - Add provenance coverage for the adapted upstream Skeleton markup.
 
   - [ ] 4.3 Section - Phase 4 Integration Tests.
 
