@@ -62,14 +62,23 @@ Back to wave: [README](./README.md)
     This section proves Avatar and Skeleton fallbacks and completes package-level
     integration coverage for all six foundation components.
 
-    - [ ] 4.3.1 Task - Run identity-and-loading rendering integration tests.
+    Verification note (2026-08-24): public rendering, fallback semantics,
+    dimensions, responsive class mappings, light/dark theme, forced-colors,
+    reduced-motion, deterministic asset, package precommit, and SpecLed
+    index/validation checks pass. Browser-only broken-image, zoom, contrast, and
+    rendered overlap checks remain pending because the Codex in-app browser
+    could not initialize its local runtime assets. `mix spec.check --base main`
+    also remains pending because Windows Erlang rejects SpecLed's Git-shell port
+    launch with `:einval`; its underlying commands pass when run directly.
+
+    - [x] 4.3.1 Task - Run identity-and-loading rendering integration tests.
 
       Fixtures should demonstrate meaningful identity, decorative stacking, and
       caller-labelled loading regions without component-owned behavior.
 
-      - [ ] 4.3.1.1 Subtask - Render initials, image-enhanced, stacked, and content-loading compositions through `use ShadcnUI`.
-      - [ ] 4.3.1.2 Subtask - Assert alt/fallback treatment, hidden Skeleton semantics, dimensions, globals, escaping, and caller-owned labels.
-      - [ ] 4.3.1.3 Subtask - Run the complete six-component public import, metadata, dependency, provenance, and release-content audit.
+      - [x] 4.3.1.1 Subtask - Render initials, image-enhanced, stacked, and content-loading compositions through `use ShadcnUI`.
+      - [x] 4.3.1.2 Subtask - Assert alt/fallback treatment, hidden Skeleton semantics, dimensions, globals, escaping, and caller-owned labels.
+      - [x] 4.3.1.3 Subtask - Run the complete six-component public import, metadata, dependency, provenance, and release-content audit.
 
     - [ ] 4.3.2 Task - Run identity-and-loading browser and asset integration tests.
 
@@ -77,5 +86,5 @@ Back to wave: [README](./README.md)
       preferences, responsive stacks, and stylesheet completeness.
 
       - [ ] 4.3.2.1 Subtask - Exercise image unavailable presentation, initials readability, stack overlap, light/dark themes, narrow widths, zoom, forced colors, and reduced motion.
-      - [ ] 4.3.2.2 Subtask - Rebuild the stylesheet and verify Avatar and Skeleton classes, token references, and reduced-motion output.
+      - [x] 4.3.2.2 Subtask - Rebuild the stylesheet and verify Avatar and Skeleton classes, token references, and reduced-motion output.
       - [ ] 4.3.2.3 Subtask - Run `mix precommit`, the Phase 4 integration suite, `mix spec.check --base main`, and `git diff --check`.

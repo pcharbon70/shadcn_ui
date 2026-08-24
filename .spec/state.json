@@ -95,41 +95,6 @@
       "entity_id": "shadcn_ui.foundation_components",
       "file": ".spec/specs/foundation_components.spec.md",
       "level": "warning",
-      "message": "Verification target test/shadcn_ui/foundation_components_test.exs does not reference covered requirement: shadcn_ui.foundation.avatar"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.foundation_components",
-      "file": ".spec/specs/foundation_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/foundation_components_test.exs does not reference covered requirement: shadcn_ui.foundation.avatar_stack"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.foundation_components",
-      "file": ".spec/specs/foundation_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/foundation_components_test.exs does not reference covered requirement: shadcn_ui.foundation.skeleton"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.foundation_components",
-      "file": ".spec/specs/foundation_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.avatar"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.foundation_components",
-      "file": ".spec/specs/foundation_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.avatar_stack"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.foundation_components",
-      "file": ".spec/specs/foundation_components.spec.md",
-      "level": "warning",
       "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.badge"
     },
     {
@@ -145,13 +110,6 @@
       "file": ".spec/specs/foundation_components.spec.md",
       "level": "warning",
       "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.button_content"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.foundation_components",
-      "file": ".spec/specs/foundation_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.skeleton"
     },
     {
       "code": "surface_target_missing",
@@ -1290,7 +1248,7 @@
     "decision_parse_errors": 0,
     "decisions": 7,
     "exceptions": 0,
-    "findings": 29,
+    "findings": 23,
     "requirements": 57,
     "scenarios": 0,
     "subjects": 6,
@@ -1821,7 +1779,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/foundation_components_test.exs",
         "verification_index": 6
@@ -1832,7 +1790,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/foundation_components_test.exs",
         "verification_index": 6
@@ -1898,7 +1856,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/foundation_components_test.exs",
         "verification_index": 6
@@ -1931,7 +1889,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 7
@@ -1942,7 +1900,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 7
@@ -2008,7 +1966,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 7
@@ -3084,9 +3042,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 74,
+      "claimed": 68,
       "executed": 0,
-      "linked": 88
+      "linked": 94
     },
     "threshold_failures": 0
   },

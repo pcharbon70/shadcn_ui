@@ -6,6 +6,8 @@ defmodule ShadcnUI.FoundationComponentsTest do
   # covers: shadcn_ui.foundation.button shadcn_ui.foundation.button_content
   # covers: shadcn_ui.foundation.badge shadcn_ui.foundation.alert
   # covers: shadcn_ui.foundation.alert_ownership shadcn_ui.foundation.card
+  # covers: shadcn_ui.foundation.avatar shadcn_ui.foundation.avatar_stack
+  # covers: shadcn_ui.foundation.skeleton
   # covers: shadcn_ui.foundation.shared_contract
 
   @button_variants [:default, :secondary, :destructive, :outline, :ghost, :link]

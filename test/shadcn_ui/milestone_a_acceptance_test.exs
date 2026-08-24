@@ -12,7 +12,9 @@ defmodule ShadcnUI.MilestoneAAcceptanceTest do
   # covers: shadcn_ui.component.deterministic_identity
   # covers: shadcn_ui.component.presentation_snapshot shadcn_ui.component.progressive_floor
   # covers: shadcn_ui.foundation.alert shadcn_ui.foundation.alert_ownership
-  # covers: shadcn_ui.foundation.card shadcn_ui.foundation.shared_contract
+  # covers: shadcn_ui.foundation.card shadcn_ui.foundation.avatar
+  # covers: shadcn_ui.foundation.avatar_stack shadcn_ui.foundation.skeleton
+  # covers: shadcn_ui.foundation.shared_contract
   # covers: shadcn_ui.stylesheet.canonical_asset shadcn_ui.stylesheet.prefixed_isolation
   # covers: shadcn_ui.stylesheet.semantic_tokens shadcn_ui.stylesheet.scoped_dark_theme
   # covers: shadcn_ui.stylesheet.asset_path shadcn_ui.stylesheet.no_runtime_assets
@@ -70,13 +72,8 @@ defmodule ShadcnUI.MilestoneAAcceptanceTest do
     assert Map.has_key?(ShadcnUI.Components.Foundation.Badge.__components__(), :badge)
     assert Map.has_key?(ShadcnUI.Components.Foundation.Alert.__components__(), :alert)
     assert Map.has_key?(ShadcnUI.Components.Foundation.Card.__components__(), :card)
-
-    for module <- [
-          ShadcnUI.Components.Foundation.Avatar,
-          ShadcnUI.Components.Foundation.Skeleton
-        ] do
-      assert module.__components__() == %{}
-    end
+    assert Map.has_key?(ShadcnUI.Components.Foundation.Avatar.__components__(), :avatar)
+    assert Map.has_key?(ShadcnUI.Components.Foundation.Skeleton.__components__(), :skeleton)
   end
 
   test "consumer HEEX preserves deterministic classes, globals, and escaping" do
