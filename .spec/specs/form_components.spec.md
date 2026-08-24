@@ -107,6 +107,11 @@ surface:
   target: test/shadcn_ui/components/forms/text_controls_test.exs
   covers:
     - shadcn_ui.forms.input
+    - shadcn_ui.forms.shared_contract
+
+- kind: test_file
+  target: test/shadcn_ui/components/forms/textarea_test.exs
+  covers:
     - shadcn_ui.forms.textarea
     - shadcn_ui.forms.shared_contract
 

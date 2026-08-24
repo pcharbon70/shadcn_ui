@@ -249,6 +249,13 @@ defmodule ShadcnUI.Components.Forms.TextControlsTest do
 
   test "unknown request types do not create atoms" do
     render_input(id: "warmup", name: "warmup")
+
+    for index <- 1..20 do
+      assert_raise ArgumentError, fn ->
+        render_input(type: "warmup-type-#{index}", id: "value", name: "value")
+      end
+    end
+
     before_count = :erlang.system_info(:atom_count)
 
     for index <- 1..500 do

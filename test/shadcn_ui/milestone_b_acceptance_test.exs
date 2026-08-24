@@ -11,6 +11,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
   # covers: shadcn_ui.form.validation_boundary shadcn_ui.form.native_submission
   # covers: shadcn_ui.forms.field_composition shadcn_ui.forms.field_fragments
   # covers: shadcn_ui.forms.error_summary shadcn_ui.forms.shared_contract
+  # covers: shadcn_ui.forms.input shadcn_ui.forms.textarea
   # covers: shadcn_ui.provenance.pinned_revision shadcn_ui.provenance.component_mapping
 
   defmodule Fixture do
@@ -49,6 +50,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
         data-owner="application"
       >
         <:label>{@label}</:label>
+
         <:control :let={control}>
           <input
             id={control.id}
@@ -62,6 +64,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
             autocomplete="email"
           />
         </:control>
+
         <:help>{@help}</:help>
       </.field>
       """
@@ -79,7 +82,6 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
             {"settings_locale", "Choisissez une langue prise en charge"}
           ]}
         />
-
         <.field
           id="settings_email"
           name="settings[email]"
@@ -91,6 +93,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
           <:label>
             A deliberately long account email label that wraps at narrow viewport widths
           </:label>
+
           <:control :let={control}>
             <input
               id={control.id}
@@ -101,6 +104,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
               aria-invalid={control.aria_invalid}
             />
           </:control>
+
           <:help>Long translated guidance remains visible and associated with this control.</:help>
         </.field>
 
@@ -117,6 +121,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
             pending
           >
             <:label>Langue préférée pour les communications très détaillées</:label>
+
             <:control :let={control}>
               <input
                 id={control.id}
@@ -126,6 +131,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
                 aria-invalid={control.aria_invalid}
               />
             </:control>
+
             <:help>La sélection demeure sous le contrôle de l’application.</:help>
           </.field>
         </div>
@@ -273,6 +279,15 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
              adaptation["id"] == "forms.label" and
                adaptation["localPaths"] == ["lib/shadcn_ui/components/forms/label.ex"]
            end)
+
+    for {id, path} <- [
+          {"forms.input", "lib/shadcn_ui/components/forms/input.ex"},
+          {"forms.textarea", "lib/shadcn_ui/components/forms/textarea.ex"}
+        ] do
+      assert Enum.any?(provenance["adaptations"], fn adaptation ->
+               adaptation["id"] == id and path in adaptation["localPaths"]
+             end)
+    end
   end
 
   defp render_one(overrides) do

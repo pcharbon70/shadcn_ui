@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 2 Phase - Deliver the common text-entry controls on the shared native form
+- [x] 2 Phase - Deliver the common text-entry controls on the shared native form
   contract with documented constraints and safe progressive sizing.
 
   This phase implements Input and Textarea for ordinary CRUD workflows. Both
@@ -59,27 +59,27 @@ Back to wave: [README](./README.md)
       - [x] 2.2.2.3 Subtask - Verify long, empty, multiline, translated, and constrained values do not collapse, overflow essential content, or hide focus.
       - [x] 2.2.2.4 Subtask - Document the difference between native resize policy, content-sizing enhancement, and caller-owned dynamic behavior.
 
-  - [ ] 2.3 Section - Phase 2 Integration Tests.
+  - [x] 2.3 Section - Phase 2 Integration Tests.
 
     This section verifies common text entry through real field compositions and
     native form submission without relying on a component runtime.
 
-    - [ ] 2.3.1 Task - Verify Input and Textarea semantic contracts.
+    - [x] 2.3.1 Task - Verify Input and Textarea semantic contracts.
 
       Rendering tests should cover the complete closed API and shared
       relationship behavior in explicit and FormField modes.
 
-      - [ ] 2.3.1.1 Subtask - Test all supported Input types and reject excluded or unknown types without atom creation.
-      - [ ] 2.3.1.2 Subtask - Test Input and Textarea identity, value, errors, constraints, globals, required, disabled, readonly, invalid, and pending snapshots.
-      - [ ] 2.3.1.3 Subtask - Assert labels, help, repeated errors, caller descriptions, protected attributes, and escaped values remain deterministic.
-      - [ ] 2.3.1.4 Subtask - Audit rendered markup for absent parsing, reveal controls, counters, events, hooks, scripts, and hidden synchronized values.
+      - [x] 2.3.1.1 Subtask - Test all supported Input types and reject excluded or unknown types without atom creation.
+      - [x] 2.3.1.2 Subtask - Test Input and Textarea identity, value, errors, constraints, globals, required, disabled, readonly, invalid, and pending snapshots.
+      - [x] 2.3.1.3 Subtask - Assert labels, help, repeated errors, caller descriptions, protected attributes, and escaped values remain deterministic.
+      - [x] 2.3.1.4 Subtask - Audit rendered markup for absent parsing, reveal controls, counters, events, hooks, scripts, and hidden synchronized values.
 
-    - [ ] 2.3.2 Task - Verify native entry and fallback behavior.
+    - [x] 2.3.2 Task - Verify native entry and fallback behavior.
 
       Browser and submission fixtures should prove that styled controls retain
       their platform behavior under stress and reduced enhancement.
 
-      - [ ] 2.3.2.1 Subtask - Submit realistic explicit and FormField Input and Textarea values through an ordinary Phoenix form fixture.
-      - [ ] 2.3.2.2 Subtask - Verify tab order, label focus, text entry, native constraints, zoom, forced colors, and light/dark focus visibility.
-      - [ ] 2.3.2.3 Subtask - Verify Textarea fixed sizing with enhancement disabled and content sizing only when capability support is present.
-      - [ ] 2.3.2.4 Subtask - Run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 2.3.2.1 Subtask - Submit realistic explicit and FormField Input and Textarea values through an ordinary Phoenix form fixture.
+      - [x] 2.3.2.2 Subtask - Verify tab order, label focus, text entry, native constraints, zoom, forced colors, and light/dark focus visibility.
+      - [x] 2.3.2.3 Subtask - Verify Textarea fixed sizing with enhancement disabled and content sizing only when capability support is present.
+      - [x] 2.3.2.4 Subtask - Run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.
