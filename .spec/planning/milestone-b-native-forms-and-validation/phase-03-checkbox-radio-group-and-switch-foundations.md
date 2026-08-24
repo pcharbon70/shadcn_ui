@@ -59,20 +59,20 @@ Back to wave: [README](./README.md)
       - [x] 3.2.2.3 Subtask - Preserve native arrow-key movement, Space selection, tab-stop behavior, form reset, and scalar submission.
       - [x] 3.2.2.4 Subtask - Protect fieldset, legend, type, shared name, selected value, option IDs, and derived relationships from globals.
 
-  - [ ] 3.3 Section - Switch presentation boundary.
+  - [x] 3.3 Section - Switch presentation boundary.
 
     This section exposes the familiar switch appearance while making its native
     checkbox identity and caller-owned checked state unambiguous.
 
-    - [ ] 3.3.1 Task - Implement Switch as a styled checkbox.
+    - [x] 3.3.1 Task - Implement Switch as a styled checkbox.
 
       Switch should reuse Checkbox normalization and submission rather than
       introducing a role-only element or synchronized state.
 
-      - [ ] 3.3.1.1 Subtask - Render one native checkbox and reuse boolean FormField, explicit, sentinel, checked, disabled, help, and error behavior.
-      - [ ] 3.3.1.2 Subtask - Add closed switch track and thumb presentation while retaining a visible native focus indicator and adequate pointer target.
-      - [ ] 3.3.1.3 Subtask - Keep label text visible by default and require an explicit nonblank accessible label for visually hidden-label usage.
-      - [ ] 3.3.1.4 Subtask - Add no package event, toggle method, transition state, role-only imitation, or hidden mirrored checked value.
+      - [x] 3.3.1.1 Subtask - Render one native checkbox and reuse boolean FormField, explicit, sentinel, checked, disabled, help, and error behavior.
+      - [x] 3.3.1.2 Subtask - Add closed switch track and thumb presentation while retaining a visible native focus indicator and adequate pointer target.
+      - [x] 3.3.1.3 Subtask - Keep label text visible by default and require an explicit nonblank accessible label for visually hidden-label usage.
+      - [x] 3.3.1.4 Subtask - Add no package event, toggle method, transition state, role-only imitation, or hidden mirrored checked value.
 
   - [ ] 3.4 Section - Phase 3 Integration Tests.
 

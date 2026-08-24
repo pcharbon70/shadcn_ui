@@ -163,6 +163,44 @@
   }
 }
 
+[data-shadcn-ui-switch] .shadcn-ui-switch-control {
+  appearance: none;
+  position: relative;
+  inline-size: 2.25rem;
+  block-size: 1.25rem;
+  min-inline-size: 2.25rem;
+  border-radius: 9999px;
+  background: var(--shadcn-ui-muted);
+  cursor: pointer;
+}
+
+[data-shadcn-ui-switch] .shadcn-ui-switch-control::before {
+  content: "";
+  position: absolute;
+  inset-block-start: 0.125rem;
+  inset-inline-start: 0.125rem;
+  inline-size: 0.875rem;
+  block-size: 0.875rem;
+  border-radius: 9999px;
+  background: var(--shadcn-ui-background);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+  transition: transform var(--shadcn-ui-motion-normal) var(--shadcn-ui-ease-standard);
+}
+
+[data-shadcn-ui-switch] .shadcn-ui-switch-control:checked {
+  border-color: var(--shadcn-ui-primary);
+  background: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-switch] .shadcn-ui-switch-control:checked::before {
+  transform: translateX(1rem);
+}
+
+[data-shadcn-ui-switch] .shadcn-ui-switch-control:focus-visible {
+  outline: 2px solid var(--shadcn-ui-ring);
+  outline-offset: 2px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-shadcn-ui],
   [data-shadcn-ui]::before,
@@ -237,5 +275,16 @@
   [data-shadcn-ui-radio-group][aria-invalid="true"] {
     outline: 1px solid Mark;
     outline-offset: 0.125rem;
+  }
+
+  [data-shadcn-ui-switch] .shadcn-ui-switch-control {
+    appearance: auto;
+    inline-size: 1rem;
+    block-size: 1rem;
+    min-inline-size: 1rem;
+  }
+
+  [data-shadcn-ui-switch] .shadcn-ui-switch-control::before {
+    content: none;
   }
 }

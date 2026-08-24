@@ -335,6 +335,26 @@ option-local disabling applies only to that radio. Arrow-key movement, Space
 selection, tab-stop behavior, reset, and scalar submission remain native.
 There is intentionally no readonly radio state or package-owned selection.
 
+### Switch
+
+Switch is the same native boolean checkbox and hidden sentinel contract with a
+track-and-thumb presentation. It does not use `role="switch"`, generic elements,
+a mirrored checked value, or package-owned toggle state.
+
+```heex
+<.switch field={@form[:notifications]}>
+  <:label>Email notifications</:label>
+  <:help>Receive operational updates.</:help>
+</.switch>
+```
+
+Labels are visible by default. For a deliberately visually hidden label, set
+`label_visibility={:hidden}` and provide a separate nonblank
+`accessible_label`; omission fails rather than rendering an unnamed control.
+In forced-colors mode the presentation falls back to the platform's visible
+native checkbox. Label activation, Space toggling, focus, reset, checked values,
+and submission remain native and identical to Checkbox.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

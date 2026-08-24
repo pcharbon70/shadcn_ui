@@ -35,3 +35,5 @@ All notable changes to ShadcnUI will be documented in this file.
   value modes, shared relationships, and caller-owned checked state.
 - Add the native Radio Group component with validated stable option identity,
   fieldset semantics, scalar selection, and group or option disabled states.
+- Add Switch as a track-and-thumb presentation of the native boolean Checkbox
+  contract with an explicit accessible-label rule for hidden labels.

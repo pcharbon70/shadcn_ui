@@ -99,6 +99,7 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Forms.Input,
           ShadcnUI.Components.Forms.Label,
           ShadcnUI.Components.Forms.RadioGroup,
+          ShadcnUI.Components.Forms.Switch,
           ShadcnUI.Components.Forms.Textarea
         ],
         "Package contract": [ShadcnUI, ShadcnUI.Component]

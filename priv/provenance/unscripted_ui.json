@@ -69,6 +69,12 @@
       "localChanges": "Adapt native radio-group presentation into a validated HEEX fieldset with deterministic option identity and caller-owned selection."
     },
     {
+      "id": "forms.switch",
+      "localPaths": ["lib/shadcn_ui/components/forms/switch.ex"],
+      "upstreamPaths": ["src/content/components/switch.mdx", "src/demos/switch/basic.html"],
+      "localChanges": "Adapt switch track-and-thumb presentation onto the native boolean Checkbox HEEX contract without adding a second state model."
+    },
+    {
       "id": "forms.textarea",
       "localPaths": ["lib/shadcn_ui/components/forms/textarea.ex"],
       "upstreamPaths": ["src/content/components/textarea.mdx", "src/demos/textarea/basic.html"],

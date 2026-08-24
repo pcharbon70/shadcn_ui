@@ -4,7 +4,7 @@ defmodule ShadcnUI.Components.Forms.ChoiceControlsTest do
   alias Phoenix.HTML.FormField
   alias Phoenix.HTML.Safe
 
-  # covers: shadcn_ui.forms.checkbox shadcn_ui.forms.radio_group
+  # covers: shadcn_ui.forms.checkbox shadcn_ui.forms.radio_group shadcn_ui.forms.switch
   # covers: shadcn_ui.forms.shared_contract
 
   defmodule Fixture do
@@ -100,6 +100,52 @@ defmodule ShadcnUI.Components.Forms.ChoiceControlsTest do
         <:legend>Preferred contact method</:legend>
         <:help>Choose one available method.</:help>
       </.radio_group>
+      """
+    end
+
+    attr :field, :any, default: nil
+    attr :id, :string, default: nil
+    attr :name, :string, default: nil
+    attr :value, :any, default: {:shadcn_ui, :not_provided}
+    attr :checked, :boolean, default: nil
+    attr :errors, :any, default: {:shadcn_ui, :not_provided}
+    attr :error_mode, :atom, default: :used_input
+    attr :pending, :boolean, default: false
+    attr :required, :boolean, default: false
+    attr :disabled, :boolean, default: false
+    attr :label_visibility, :atom, default: :visible
+    attr :accessible_label, :string, default: nil
+
+    def switch_fixture(assigns) do
+      ~H"""
+      <.switch
+        field={@field}
+        id={@id}
+        name={@name}
+        value={@value}
+        checked={@checked}
+        checked_value="enabled"
+        unchecked_value="disabled"
+        errors={@errors}
+        error_mode={@error_mode}
+        pending={@pending}
+        required={@required}
+        disabled={@disabled}
+        form="settings"
+        label_visibility={@label_visibility}
+        accessible_label={@accessible_label}
+        describedby="caller-help"
+        class="consumer-switch"
+        field_class="consumer-field"
+        label_class="consumer-label"
+        autofocus
+        aria-invalid="false"
+        data-state="ready"
+        phx-click="caller-owned"
+      >
+        <:label>Email notifications</:label>
+        <:help>Receive operational updates.</:help>
+      </.switch>
       """
     end
   end
@@ -351,6 +397,109 @@ defmodule ShadcnUI.Components.Forms.ChoiceControlsTest do
     refute source =~ ~r/(handle_event|push_event|JS\.|<script|javascript:|role="radio")/
   end
 
+  test "switch reuses one native boolean checkbox and sentinel submission model" do
+    html =
+      render_switch(
+        id: "settings_notifications",
+        name: "settings[notifications]",
+        value: "enabled",
+        checked: true,
+        required: true
+      )
+
+    assert html =~ ~s(data-shadcn-ui-switch)
+    assert html =~ ~s(type="hidden")
+    assert html =~ ~s(type="checkbox")
+    assert length(Regex.scan(~r/name="settings\[notifications\]"/, html)) == 2
+    assert html =~ ~s(value="disabled")
+    assert html =~ ~s(value="enabled" checked)
+    assert html =~ "shadcn-ui-switch-control"
+    assert html =~ "Email notifications"
+    assert html =~ ~s(for="settings_notifications")
+    refute html =~ ~s(role="switch")
+  end
+
+  test "switch FormField and explicit states match Checkbox relationships" do
+    field = form_field(:notifications, true)
+    derived = render_switch(field: field, errors: ["Review setting"], error_mode: :always)
+
+    assert derived =~ ~s(id="settings_notifications")
+    assert derived =~ ~s(name="settings[notifications]")
+    assert derived =~ " checked"
+
+    assert derived =~
+             ~s(aria-describedby="caller-help settings_notifications-help settings_notifications-error-1")
+
+    assert derived =~ ~s(aria-invalid="true")
+
+    explicit =
+      render_switch(
+        id: "alerts",
+        name: "alerts",
+        checked: false,
+        disabled: true,
+        pending: true
+      )
+
+    refute explicit =~ " checked"
+    assert explicit =~ ~r/<input[^>]*type="hidden"[^>]* disabled[^>]*>/
+    assert explicit =~ ~r/<input[^>]*type="checkbox"[^>]* disabled[^>]*>/
+    assert explicit =~ ~s(data-pending="true")
+  end
+
+  test "switch requires a nonblank explicit accessible label only when visually hidden" do
+    visible = render_switch(id: "visible", name: "visible")
+    assert visible =~ "Email notifications"
+    refute visible =~ "sui:sr-only"
+
+    hidden =
+      render_switch(
+        id: "hidden",
+        name: "hidden",
+        label_visibility: :hidden,
+        accessible_label: "Enable email notifications"
+      )
+
+    assert hidden =~ "Enable email notifications"
+    assert hidden =~ "sui:sr-only"
+    refute hidden =~ ">Email notifications<"
+
+    for label <- [nil, "", "   "] do
+      assert_raise ArgumentError, ~r/accessible_label must be a nonblank string/, fn ->
+        render_switch(
+          id: "unnamed",
+          name: "unnamed",
+          label_visibility: :hidden,
+          accessible_label: label
+        )
+      end
+    end
+  end
+
+  test "switch CSS provides track, thumb, focus, reduced-motion, and forced-color fallback" do
+    css = File.read!("assets/shadcn_ui.css")
+
+    assert css =~ "[data-shadcn-ui-switch] .shadcn-ui-switch-control"
+    assert css =~ ".shadcn-ui-switch-control::before"
+    assert css =~ ".shadcn-ui-switch-control:checked::before"
+    assert css =~ "transform: translateX(1rem)"
+    assert css =~ ".shadcn-ui-switch-control:focus-visible"
+    assert css =~ "outline: 2px solid var(--shadcn-ui-ring)"
+    assert css =~ "@media (prefers-reduced-motion: reduce)"
+    assert css =~ "@media (forced-colors: active)"
+    assert css =~ "appearance: auto"
+
+    metadata = ShadcnUI.Components.Forms.Switch.__components__().switch
+
+    refute Enum.any?(
+             metadata.attrs,
+             &(&1.name in [:mode, :on_toggle, :toggle, :transition_state])
+           )
+
+    source = File.read!("lib/shadcn_ui/components/forms/switch.ex")
+    refute source =~ ~r/(handle_event|push_event|JS\.|<script|javascript:|role="switch")/
+  end
+
   defp render_checkbox(overrides) do
     %{
       field: nil,
@@ -391,6 +540,28 @@ defmodule ShadcnUI.Components.Forms.ChoiceControlsTest do
     }
     |> Map.merge(Map.new(overrides))
     |> Fixture.radio_fixture()
+    |> Safe.to_iodata()
+    |> IO.iodata_to_binary()
+  end
+
+  defp render_switch(overrides) do
+    %{
+      field: nil,
+      id: nil,
+      name: nil,
+      value: {:shadcn_ui, :not_provided},
+      checked: nil,
+      errors: {:shadcn_ui, :not_provided},
+      error_mode: :used_input,
+      pending: false,
+      required: false,
+      disabled: false,
+      label_visibility: :visible,
+      accessible_label: nil,
+      __changed__: nil
+    }
+    |> Map.merge(Map.new(overrides))
+    |> Fixture.switch_fixture()
     |> Safe.to_iodata()
     |> IO.iodata_to_binary()
   end

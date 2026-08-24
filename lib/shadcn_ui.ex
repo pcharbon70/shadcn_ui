@@ -26,6 +26,7 @@ defmodule ShadcnUI do
     ShadcnUI.Components.Forms.Input,
     ShadcnUI.Components.Forms.Label,
     ShadcnUI.Components.Forms.RadioGroup,
+    ShadcnUI.Components.Forms.Switch,
     ShadcnUI.Components.Forms.Textarea
   ]
 
