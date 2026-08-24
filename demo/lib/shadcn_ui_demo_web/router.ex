@@ -13,6 +13,9 @@ defmodule ShadcnUIDemoWeb.Router do
   scope "/", ShadcnUIDemoWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", GalleryController, :landing
+    get "/components/:category", GalleryController, :category
+    get "/components/:category/:component", GalleryController, :component
+    get "/*path", GalleryController, :not_found
   end
 end

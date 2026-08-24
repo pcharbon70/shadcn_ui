@@ -34,38 +34,38 @@ Back to wave: [README](./README.md)
       - [x] 5.1.2.3 Subtask - Keep optional theme persistence and source-copy behavior in one explicit demo-only module that implements no component behavior.
       - [x] 5.1.2.4 Subtask - Add clean locked-build and generated-hash verification.
 
-  - [ ] 5.2 Section - Closed catalogue, routes, and semantic shell.
+  - [x] 5.2 Section - Closed catalogue, routes, and semantic shell.
 
     This section establishes stable information architecture and safe route
     resolution for the Foundation catalogue.
 
-    - [ ] 5.2.1 Task - Implement the immutable gallery catalogue.
+    - [x] 5.2.1 Task - Implement the immutable gallery catalogue.
 
       Authored metadata should drive navigation and completeness checks without
       turning request values into executable runtime discovery.
 
-      - [ ] 5.2.1.1 Subtask - Define the ordered Foundation category and Button, Badge, Alert, Card, Avatar, and Skeleton leaves with unique labels, slugs, paths, and explicit render identities.
-      - [ ] 5.2.1.2 Subtask - Resolve route strings only through closed catalogue lookups and never create atoms or select modules, functions, templates, callbacks, or assets dynamically.
-      - [ ] 5.2.1.3 Subtask - Add uniqueness, completeness, atom-growth, unknown-path, mismatched-category, and deterministic non-reflecting 404 tests.
+      - [x] 5.2.1.1 Subtask - Define the ordered Foundation category and Button, Badge, Alert, Card, Avatar, and Skeleton leaves with unique labels, slugs, paths, and explicit render identities.
+      - [x] 5.2.1.2 Subtask - Resolve route strings only through closed catalogue lookups and never create atoms or select modules, functions, templates, callbacks, or assets dynamically.
+      - [x] 5.2.1.3 Subtask - Add uniqueness, completeness, atom-growth, unknown-path, mismatched-category, and deterministic non-reflecting 404 tests.
 
-    - [ ] 5.2.2 Task - Implement canonical controller routes.
+    - [x] 5.2.2 Task - Implement canonical controller routes.
 
       Every local and exported page should have a stable ordinary URL and
       accurate navigation state without a client router.
 
-      - [ ] 5.2.2.1 Subtask - Add landing, category, component, and deterministic not-found controller actions and templates.
-      - [ ] 5.2.2.2 Subtask - Use ordinary links for every destination and expose exactly one accurate current-page marker.
-      - [ ] 5.2.2.3 Subtask - Test every route directly in light, dark, default, invalid-theme, and script-disabled conditions.
+      - [x] 5.2.2.1 Subtask - Add landing, category, component, and deterministic not-found controller actions and templates.
+      - [x] 5.2.2.2 Subtask - Use ordinary links for every destination and expose exactly one accurate current-page marker.
+      - [x] 5.2.2.3 Subtask - Test every route directly in light, dark, default, invalid-theme, and script-disabled conditions.
 
-    - [ ] 5.2.3 Task - Implement the responsive semantic gallery shell.
+    - [x] 5.2.3 Task - Implement the responsive semantic gallery shell.
 
       The shell should keep navigation before content in the DOM and remain
       understandable across keyboard, narrow viewport, and zoom conditions.
 
-      - [ ] 5.2.3.1 Subtask - Add a skip link, named left navigation, breadcrumb, one main landmark, unique page heading, masthead, and version/provenance context.
-      - [ ] 5.2.3.2 Subtask - Add consumer-only responsive CSS that stacks navigation before content without resize observation, DOM relocation, or widget roles.
-      - [ ] 5.2.3.3 Subtask - Add explicit light/dark controls using `data-shadcn-theme`, safe light default, and visible focus treatment.
-      - [ ] 5.2.3.4 Subtask - Test DOM order, landmarks, current links, focus order, long labels, overflow, and 200 percent zoom.
+      - [x] 5.2.3.1 Subtask - Add a skip link, named left navigation, breadcrumb, one main landmark, unique page heading, masthead, and version/provenance context.
+      - [x] 5.2.3.2 Subtask - Add consumer-only responsive CSS that stacks navigation before content without resize observation, DOM relocation, or widget roles.
+      - [x] 5.2.3.3 Subtask - Add explicit light/dark controls using `data-shadcn-theme`, safe light default, and visible focus treatment.
+      - [x] 5.2.3.4 Subtask - Test DOM order, landmarks, current links, focus order, long labels, overflow, and 200 percent zoom.
 
   - [ ] 5.3 Section - Foundation component reference pages.
 
