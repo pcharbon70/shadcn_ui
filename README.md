@@ -34,3 +34,18 @@ or state synchronization. Applications own all behavior and transport choices.
 `ShadcnUI.stylesheet_path/0` returns the absolute path to the compiled package
 stylesheet. The consuming application owns copying, bundling, or serving that
 file. This internal `0.x` package is not yet published to Hex.
+
+## Component contract
+
+Components use closed atom or string values declared through
+`Phoenix.Component` metadata. Those values select complete `sui:`-prefixed
+class strings; request strings are never converted into atoms or interpolated
+into utility names. Caller classes follow required package classes in stable
+order.
+
+Primary trusted HEEx belongs in `inner_block`, while named slots represent only
+distinct semantic regions. Text remains escaped and there is no raw-HTML string
+API. Documented native, `aria-*`, `data-*`, `phx-*`, and `data-on-*` attributes
+pass through unless they conflict with a component's required native or
+accessibility semantics. Rendered state is a snapshot; applications continue to
+own lifecycle, commands, navigation, and outcomes.

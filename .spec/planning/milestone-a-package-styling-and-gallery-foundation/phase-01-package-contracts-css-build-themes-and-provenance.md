@@ -36,29 +36,29 @@ Back to wave: [README](./README.md)
       - [x] 1.1.2.3 Subtask - Add audits rejecting Dstar, Datastar, Ash, Electron, controllers, endpoints, processes, and application frameworks from runtime sources and dependencies.
       - [x] 1.1.2.4 Subtask - Add clean archive-content verification that excludes demo, tests, Node modules, generated docs, build output, and static export output.
 
-  - [ ] 1.2 Section - Shared HEEX API conventions.
+  - [x] 1.2 Section - Shared HEEX API conventions.
 
     This section implements the internal fixed mappings and caller composition
     rules that keep every public function predictable and safe.
 
-    - [ ] 1.2.1 Task - Implement closed class and state mappings.
+    - [x] 1.2.1 Task - Implement closed class and state mappings.
 
       Internal helpers should return complete statically discoverable prefixed
       classes without turning arbitrary caller values into CSS or atoms.
 
-      - [ ] 1.2.1.1 Subtask - Add fixed mappings for shared variants, sizes, radii, focus treatment, disabled presentation, and motion classes used by Milestone A.
-      - [ ] 1.2.1.2 Subtask - Return fixed class lists or `nil` only and reject arbitrary modifier interpolation.
-      - [ ] 1.2.1.3 Subtask - Test unknown values, atom-count stability, deterministic class order, and static Tailwind source discovery.
+      - [x] 1.2.1.1 Subtask - Add fixed mappings for shared variants, sizes, radii, focus treatment, disabled presentation, and motion classes used by Milestone A.
+      - [x] 1.2.1.2 Subtask - Return fixed class lists or `nil` only and reject arbitrary modifier interpolation.
+      - [x] 1.2.1.3 Subtask - Test unknown values, atom-count stability, deterministic class order, and static Tailwind source discovery.
 
-    - [ ] 1.2.2 Task - Standardize globals, slots, and protected semantics.
+    - [x] 1.2.2 Task - Standardize globals, slots, and protected semantics.
 
       Public functions should compose caller attributes and trusted HEEX while
       retaining the native and accessibility semantics promised by the package.
 
-      - [ ] 1.2.2.1 Subtask - Define consistent caller `class` merging and documented native, `aria-*`, `data-*`, `phx-*`, and `data-on-*` pass-through.
-      - [ ] 1.2.2.2 Subtask - Protect mandatory types, disabled state, roles, accessible names, hidden treatment, and deterministic relationships from conflicting globals.
-      - [ ] 1.2.2.3 Subtask - Use `inner_block` for primary content and named slots only for semantically distinct regions.
-      - [ ] 1.2.2.4 Subtask - Add escaping and raw-HTML rejection tests using real HEEX caller fixtures.
+      - [x] 1.2.2.1 Subtask - Define consistent caller `class` merging and documented native, `aria-*`, `data-*`, `phx-*`, and `data-on-*` pass-through.
+      - [x] 1.2.2.2 Subtask - Protect mandatory types, disabled state, roles, accessible names, hidden treatment, and deterministic relationships from conflicting globals.
+      - [x] 1.2.2.3 Subtask - Use `inner_block` for primary content and named slots only for semantically distinct regions.
+      - [x] 1.2.2.4 Subtask - Add escaping and raw-HTML rejection tests using real HEEX caller fixtures.
 
   - [ ] 1.3 Section - Isolated Tailwind build and compiled stylesheet.
 
