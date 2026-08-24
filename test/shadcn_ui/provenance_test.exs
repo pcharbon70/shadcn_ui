@@ -114,6 +114,20 @@ defmodule ShadcnUI.ProvenanceTest do
     assert alert["localChanges"] =~ "caller-owned lifecycle"
   end
 
+  test "maps Card to the exact reviewed component and basic demo sources" do
+    card = Enum.find(manifest()["adaptations"], &(&1["id"] == "foundation.card"))
+
+    assert card["localPaths"] == ["lib/shadcn_ui/components/foundation/card.ex"]
+
+    assert card["upstreamPaths"] == [
+             "src/content/components/card.mdx",
+             "src/demos/card/basic.html"
+           ]
+
+    assert card["localChanges"] =~ "composable semantic HEEX regions"
+    assert card["localChanges"] =~ "without assigning workflow behavior"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)

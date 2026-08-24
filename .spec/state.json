@@ -102,13 +102,6 @@
       "entity_id": "shadcn_ui.foundation_components",
       "file": ".spec/specs/foundation_components.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/card_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.foundation_components",
-      "file": ".spec/specs/foundation_components.spec.md",
-      "level": "warning",
       "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/skeleton_test.exs"
     },
     {
@@ -1360,7 +1353,7 @@
     "decision_parse_errors": 0,
     "decisions": 7,
     "exceptions": 0,
-    "findings": 39,
+    "findings": 38,
     "requirements": 57,
     "scenarios": 0,
     "subjects": 6,
@@ -1792,7 +1785,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/components/foundation/card_test.exs",
         "verification_index": 3
@@ -1803,7 +1796,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/components/foundation/card_test.exs",
         "verification_index": 3
@@ -3154,9 +3147,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 88,
+      "claimed": 86,
       "executed": 0,
-      "linked": 74
+      "linked": 76
     },
     "threshold_failures": 0
   },

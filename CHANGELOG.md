@@ -14,3 +14,5 @@ All notable changes to ShadcnUI will be documented in this file.
   link, button, selection, or dismissal behavior.
 - Add the Alert component with explicit announcement policy, composable icon
   and actions regions, and caller-owned lifecycle behavior.
+- Add the Card component with deterministic composable regions and no inferred
+  navigation, selection, data, or workflow behavior.

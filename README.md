@@ -132,6 +132,25 @@ Announcement behavior is selected independently with `:none`, `:polite`, or
 The application owns when the alert is inserted, its lifecycle, dismissal,
 retry behavior, action handling, and command outcomes.
 
+### Card
+
+Card renders one neutral bordered surface with required primary content and
+optional `header`, `title`, `description`, `actions`, and `footer` slots. Slot
+content retains the caller's native headings, links, forms, and controls.
+
+```heex
+<.card>
+  <:title><h3>Notifications</h3></:title>
+  <:description>Choose what you want to hear about.</:description>
+  <form id="notifications">...</form>
+  <:footer><.button type="submit" form="notifications">Save</.button></:footer>
+</.card>
+```
+
+Card does not infer a destination, click behavior, selection, loading state,
+record model, or workflow role. Applications own data, navigation, submission,
+commands, and outcomes.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

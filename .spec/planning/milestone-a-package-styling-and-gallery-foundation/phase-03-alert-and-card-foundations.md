@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 3.1.2.3 Subtask - Test absent or blank visible content rejection and absence of dismissal or command behavior.
       - [x] 3.1.2.4 Subtask - Add provenance coverage for the adapted upstream Alert markup.
 
-  - [ ] 3.2 Section - Card component.
+  - [x] 3.2 Section - Card component.
 
     This section implements a neutral content surface that preserves the meaning
     and behavior of caller-authored headings, links, forms, and controls.
 
-    - [ ] 3.2.1 Task - Define the Card composition API.
+    - [x] 3.2.1 Task - Define the Card composition API.
 
       Card should provide spacing and surface regions without becoming a record,
       navigation destination, form, or workflow abstraction.
 
-      - [ ] 3.2.1.1 Subtask - Declare optional header, title, description, actions, content, and footer regions with explicit required primary content policy.
-      - [ ] 3.2.1.2 Subtask - Keep caller headings and interactive elements unchanged and avoid card-wide implicit click behavior.
-      - [ ] 3.2.1.3 Subtask - Define deterministic region omission and ordering when optional slots are absent.
-      - [ ] 3.2.1.4 Subtask - Document application ownership of data, destination, selection, submission, loading, and command outcomes.
+      - [x] 3.2.1.1 Subtask - Declare optional header, title, description, actions, content, and footer regions with explicit required primary content policy.
+      - [x] 3.2.1.2 Subtask - Keep caller headings and interactive elements unchanged and avoid card-wide implicit click behavior.
+      - [x] 3.2.1.3 Subtask - Define deterministic region omission and ordering when optional slots are absent.
+      - [x] 3.2.1.4 Subtask - Document application ownership of data, destination, selection, submission, loading, and command outcomes.
 
-    - [ ] 3.2.2 Task - Implement Card presentation and tests.
+    - [x] 3.2.2 Task - Implement Card presentation and tests.
 
       The surface should use semantic tokens and remain stable with sparse,
       dense, long, and interactive caller content.
 
-      - [ ] 3.2.2.1 Subtask - Implement fixed surface, border, radius, shadow, header, content, actions, and footer class mappings.
-      - [ ] 3.2.2.2 Subtask - Test all region combinations, heading preservation, nested links/buttons/forms, escaping, globals, long content, and deterministic order.
-      - [ ] 3.2.2.3 Subtask - Assert Card adds no click handler, destination inference, selected state, workflow role, or application data model.
-      - [ ] 3.2.2.4 Subtask - Add provenance coverage for the adapted upstream Card markup.
+      - [x] 3.2.2.1 Subtask - Implement fixed surface, border, radius, shadow, header, content, actions, and footer class mappings.
+      - [x] 3.2.2.2 Subtask - Test all region combinations, heading preservation, nested links/buttons/forms, escaping, globals, long content, and deterministic order.
+      - [x] 3.2.2.3 Subtask - Assert Card adds no click handler, destination inference, selected state, workflow role, or application data model.
+      - [x] 3.2.2.4 Subtask - Add provenance coverage for the adapted upstream Card markup.
 
   - [ ] 3.3 Section - Phase 3 Integration Tests.
 
