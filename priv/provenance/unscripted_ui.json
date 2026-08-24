@@ -51,6 +51,12 @@
       "localChanges": "Adapt native label presentation into a protected HEEX relationship primitive with explicit required and optional indicators."
     },
     {
+      "id": "forms.input",
+      "localPaths": ["lib/shadcn_ui/components/forms/input.ex"],
+      "upstreamPaths": ["src/content/components/input.mdx", "src/demos/input/basic.html", "src/demos/input/numeric.html"],
+      "localChanges": "Adapt native input presentation into a closed HEEX text-entry API with shared FormField relationships and caller-owned lifecycle."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

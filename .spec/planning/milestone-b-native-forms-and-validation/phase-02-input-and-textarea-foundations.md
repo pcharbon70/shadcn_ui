@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   controls preserve native value and validation behavior while keeping parsing,
   submission, and request state outside the package.
 
-  - [ ] 2.1 Section - Text-like Input foundation.
+  - [x] 2.1 Section - Text-like Input foundation.
 
     This section adds one closed Input API whose native types and constraints are
     explicit enough to remain statically styled and semantically testable.
 
-    - [ ] 2.1.1 Task - Implement native Input rendering and normalization.
+    - [x] 2.1.1 Task - Implement native Input rendering and normalization.
 
       Input should reuse the shared field contract instead of recreating type,
       identity, error, or relationship rules.
 
-      - [ ] 2.1.1.1 Subtask - Support `text`, `email`, `password`, `search`, `tel`, `url`, `number`, `date`, `datetime-local`, `month`, `week`, and `time` through a closed mapping.
-      - [ ] 2.1.1.2 Subtask - Resolve FormField and explicit ID, name, value, and errors through the shared normalizer.
-      - [ ] 2.1.1.3 Subtask - Pass documented autocomplete, inputmode, placeholder, minlength, maxlength, pattern, min, max, step, required, disabled, readonly, and form attributes where valid.
-      - [ ] 2.1.1.4 Subtask - Reject checkbox, radio, range, file, color, hidden, arbitrary type strings, raw HTML, and structural replacement through Input.
+      - [x] 2.1.1.1 Subtask - Support `text`, `email`, `password`, `search`, `tel`, `url`, `number`, `date`, `datetime-local`, `month`, `week`, and `time` through a closed mapping.
+      - [x] 2.1.1.2 Subtask - Resolve FormField and explicit ID, name, value, and errors through the shared normalizer.
+      - [x] 2.1.1.3 Subtask - Pass documented autocomplete, inputmode, placeholder, minlength, maxlength, pattern, min, max, step, required, disabled, readonly, and form attributes where valid.
+      - [x] 2.1.1.4 Subtask - Reject checkbox, radio, range, file, color, hidden, arbitrary type strings, raw HTML, and structural replacement through Input.
 
-    - [ ] 2.1.2 Task - Implement Input presentation and protected semantics.
+    - [x] 2.1.2 Task - Implement Input presentation and protected semantics.
 
       Shadcn-style visuals should make state apparent without changing the native
       element or claiming application validation has occurred.
 
-      - [ ] 2.1.2.1 Subtask - Add closed size and visual-state classes using semantic input, invalid, foreground, and ring tokens.
-      - [ ] 2.1.2.2 Subtask - Preserve native disabled, readonly, required, autofill, focus-visible, and constraint-validation behavior.
-      - [ ] 2.1.2.3 Subtask - Add optional leading and trailing decorative or trusted HEEX regions without obscuring the label, value, focus ring, or pointer target.
-      - [ ] 2.1.2.4 Subtask - Keep pending presentation independent from disabled state, validation, value mutation, submission, and duplicate prevention.
+      - [x] 2.1.2.1 Subtask - Add closed size and visual-state classes using semantic input, invalid, foreground, and ring tokens.
+      - [x] 2.1.2.2 Subtask - Preserve native disabled, readonly, required, autofill, focus-visible, and constraint-validation behavior.
+      - [x] 2.1.2.3 Subtask - Add optional leading and trailing decorative or trusted HEEX regions without obscuring the label, value, focus ring, or pointer target.
+      - [x] 2.1.2.4 Subtask - Keep pending presentation independent from disabled state, validation, value mutation, submission, and duplicate prevention.
 
   - [ ] 2.2 Section - Textarea foundation and sizing fallback.
 

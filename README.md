@@ -228,6 +228,32 @@ linked entries use ordinary fragments. It does not announce, focus, scroll, or
 navigate by itself. Applications continue to own translation, validation,
 submission, persistence, authorization, and request lifecycle.
 
+### Input
+
+Input composes the shared field relationships around one native `input`. Its
+closed types are `text`, `email`, `password`, `search`, `tel`, `url`, `number`,
+`date`, `datetime-local`, `month`, `week`, and `time`. Native constraints,
+autofill, focus, keyboard entry, and ordinary form submission remain browser
+behavior.
+
+```heex
+<.input
+  field={@form[:email]}
+  type="email"
+  autocomplete="email"
+  required
+  error_mode={:used_input}
+>
+  <:label>Email address</:label>
+  <:leading><span aria-hidden="true">@</span></:leading>
+  <:help>Use the address associated with your account.</:help>
+</.input>
+```
+
+`pending` changes only presentation and never disables the input, changes its
+value, validates, submits, or prevents duplicate requests. Leading and trailing
+slots are presentational regions and do not replace the native value or label.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

@@ -193,4 +193,12 @@
     outline: 1px dashed CanvasText;
     outline-offset: 0.25rem;
   }
+
+  [data-shadcn-ui-input][aria-invalid="true"] {
+    border-color: Mark;
+  }
+
+  [data-shadcn-ui-input][readonly] {
+    border-style: dashed;
+  }
 }

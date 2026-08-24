@@ -27,3 +27,5 @@ All notable changes to ShadcnUI will be documented in this file.
   grouped ExDoc configuration, and the audited internal `0.1.0` release boundary.
 - Add the shared Milestone B form normalization and deterministic accessibility
   contract plus Field, Label, Help, Field Errors, and Error Summary primitives.
+- Add the native text-like Input component with closed types, native constraints,
+  optional presentational regions, and caller-owned pending state.
