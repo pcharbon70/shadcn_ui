@@ -117,31 +117,31 @@ Back to wave: [README](./README.md)
       - [x] 5.4.2.3 Subtask - Use least-privilege deployment permissions, environment secrets, concurrency control, and immutable build provenance without committing credentials.
       - [ ] 5.4.2.4 Subtask - Add post-deployment smoke checks for the canonical landing, every direct component URL, local CSS and script assets, theme default, navigation, and displayed revision.
 
-  - [ ] 5.5 Section - Package documentation and release readiness.
+  - [x] 5.5 Section - Package documentation and release readiness.
 
     This section completes the maintainer and consumer documentation and proves
     the initial internal release boundary.
 
-    - [ ] 5.5.1 Task - Complete consumer and maintainer guidance.
+    - [x] 5.5.1 Task - Complete consumer and maintainer guidance.
 
       Documentation should explain installation, assets, themes, public APIs,
       ownership, browser fallbacks, provenance, and gallery workflows from a
       clean checkout.
 
-      - [ ] 5.5.1.1 Subtask - Document path installation, `use ShadcnUI`, stylesheet copying/serving, token overrides, light/dark scoping, reduced motion, and no consumer Tailwind or JavaScript requirement.
-      - [ ] 5.5.1.2 Subtask - Document all six components with closed attributes, slots, semantics, application ownership, and HEEX examples.
-      - [ ] 5.5.1.3 Subtask - Document locked asset builds, provenance updates, demo startup, static export, online deployment, smoke checks, and rollback.
-      - [ ] 5.5.1.4 Subtask - Update changelog, ExDoc configuration and groups, package metadata, notices, and the canonical online gallery link.
+      - [x] 5.5.1.1 Subtask - Document path installation, `use ShadcnUI`, stylesheet copying/serving, token overrides, light/dark scoping, reduced motion, and no consumer Tailwind or JavaScript requirement.
+      - [x] 5.5.1.2 Subtask - Document all six components with closed attributes, slots, semantics, application ownership, and HEEX examples.
+      - [x] 5.5.1.3 Subtask - Document locked asset builds, provenance updates, demo startup, static export, online deployment, smoke checks, and rollback.
+      - [x] 5.5.1.4 Subtask - Update changelog, ExDoc configuration and groups, package metadata, notices, and the canonical online gallery link.
 
-    - [ ] 5.5.2 Task - Audit Milestone A release contents and boundaries.
+    - [x] 5.5.2 Task - Audit Milestone A release contents and boundaries.
 
       The internal release candidate should contain exactly the documented
       runtime sources and assets and no gallery or tooling leakage.
 
-      - [ ] 5.5.2.1 Subtask - Build docs and the package archive from clean locked Elixir and npm dependencies.
-      - [ ] 5.5.2.2 Subtask - Verify the archive contains public modules, compiled CSS, README, changelog, provenance manifest, notices, and required Mix metadata only.
-      - [ ] 5.5.2.3 Subtask - Reject demo sources, scripts, workflows, tests, Node modules, dependencies, generated docs, export output, remote assets, and credentials.
-      - [ ] 5.5.2.4 Subtask - Record the package as an internal `0.1.0` candidate without publishing to Hex.
+      - [x] 5.5.2.1 Subtask - Build docs and the package archive from clean locked Elixir and npm dependencies.
+      - [x] 5.5.2.2 Subtask - Verify the archive contains public modules, compiled CSS, README, changelog, provenance manifest, notices, and required Mix metadata only.
+      - [x] 5.5.2.3 Subtask - Reject demo sources, scripts, workflows, tests, Node modules, dependencies, generated docs, export output, remote assets, and credentials.
+      - [x] 5.5.2.4 Subtask - Record the package as an internal `0.1.0` candidate without publishing to Hex.
 
   - [ ] 5.6 Section - Phase 5 Integration Tests.
 

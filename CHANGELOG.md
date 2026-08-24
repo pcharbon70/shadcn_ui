@@ -20,3 +20,8 @@ All notable changes to ShadcnUI will be documented in this file.
   closed sizes, and bounded stack presentation.
 - Add the decorative Skeleton component with closed geometry, protected hidden
   semantics, and a static reduced-motion fallback.
+- Add the separate controller-rendered Foundation gallery, closed catalogue,
+  one reference page per component, local fingerprinted assets, and deterministic
+  static export.
+- Add GitHub Pages publication metadata, consumer and maintainer guidance,
+  grouped ExDoc configuration, and the audited internal `0.1.0` release boundary.

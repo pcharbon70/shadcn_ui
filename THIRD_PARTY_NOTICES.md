@@ -12,6 +12,10 @@ Pinned revision: `bd8f403030c8d1f46804da6eda733fde7e908e63`
 Substantially adapted markup, Tailwind utility patterns, theme conventions, and
 progressive-enhancement research retain the following upstream license:
 
+The package gallery uses only local fixtures and package-owned assets. It does
+not copy the upstream documentation site, branding, fonts, images, or runtime
+resources.
+
 ```text
 MIT License
 

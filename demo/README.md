@@ -1,18 +1,33 @@
-# ShadcnUIDemo
+# ShadcnUI gallery
 
-To start your Phoenix server:
+This is a separate, controller-rendered Phoenix reference consumer for the
+ShadcnUI package. It owns gallery routes, fixtures, theme persistence, source
+copying, and publication; none of those concerns enter the component package.
 
-* Run `mix setup` to install and setup dependencies
-* Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+From a clean checkout:
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+```console
+mix deps.get --locked
+npm ci
+npm run assets:build
+mix phx.server
+```
 
-Ready to run in production? Please [check our deployment guides](https://phoenix.hexdocs.pm/deployment.html).
+Visit <http://localhost:4000/>. The package CSS and gallery shell assets are
+local and fingerprinted. No remote font, image, script, analytics, or runtime
+resource is required.
 
-## Learn more
+## Verification and export
 
-* Official website: https://www.phoenixframework.org/
-* Guides: https://phoenix.hexdocs.pm/overview.html
-* Docs: https://phoenix.hexdocs.pm
-* Forum: https://elixirforum.com/c/phoenix-forum
-* Source: https://github.com/phoenixframework/phoenix
+```console
+npm run assets:check
+mix test
+mix gallery.export
+npm run export:check
+npm run smoke -- http://localhost:4000
+```
+
+The export is written to ignored build output and includes a route and content
+hash manifest. Deployment publishes that exact verified artifact. See
+[`DEPLOYMENT.md`](./DEPLOYMENT.md) for the canonical URL, owner, permissions,
+post-deployment smoke test, retention, and rollback procedure.

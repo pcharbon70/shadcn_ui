@@ -42,7 +42,18 @@ defmodule ShadcnUI.PackageTest do
       |> Keyword.fetch!(:deps)
       |> Enum.map(&elem(&1, 0))
 
-    assert dependencies == [:phoenix_html, :phoenix_live_view, :spec_led_ex]
+    assert dependencies == [:phoenix_html, :phoenix_live_view, :ex_doc, :spec_led_ex]
+
+    ex_doc_options =
+      Mix.Project.config()
+      |> Keyword.fetch!(:deps)
+      |> Enum.find_value(fn
+        {:ex_doc, _requirement, options} -> options
+        _dependency -> nil
+      end)
+
+    assert ex_doc_options[:runtime] == false
+    assert ex_doc_options[:only] == :dev
 
     specled_options =
       Mix.Project.config()
@@ -61,7 +72,11 @@ defmodule ShadcnUI.PackageTest do
     package = Mix.Project.config()[:package]
 
     assert package[:licenses] == ["LicenseRef-LECO-Proprietary"]
-    assert package[:links] == %{"GitHub" => "https://github.com/Leco-Industries-Inc/leco_apps"}
+
+    assert package[:links] == %{
+             "Gallery" => "https://leco-industries-inc.github.io/leco_apps/shadcn-ui/",
+             "GitHub" => "https://github.com/Leco-Industries-Inc/leco_apps"
+           }
 
     assert package[:files] == [
              "lib",

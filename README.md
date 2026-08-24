@@ -16,6 +16,10 @@ Milestone A is establishing the package boundary, stylesheet, foundation
 components, and gallery. See [`.spec/milestones`](./.spec/milestones/README.md)
 for the roadmap.
 
+The canonical gallery is
+<https://leco-industries-inc.github.io/leco_apps/shadcn-ui/>. It is a separate
+Phoenix reference consumer and is not part of the package runtime or archive.
+
 ## Installation
 
 During monorepo development, add the package as a path dependency:
@@ -37,6 +41,12 @@ or state synchronization. Applications own all behavior and transport choices.
 `ShadcnUI.stylesheet_path/0` returns the absolute path to the compiled package
 stylesheet. The consuming application owns copying, bundling, or serving that
 file. This internal `0.x` package is not yet published to Hex.
+
+For example, an application can copy that returned file into its own static
+asset directory during its existing asset build and reference the resulting
+local URL from its root layout. Consumers do not need Tailwind, Node, or
+component JavaScript at runtime or build time; the package's maintainers use
+Node only to reproduce the committed CSS artifact.
 
 The package metadata is proprietary and supports local archive verification;
 it does not configure or authorize publication to Hex.
@@ -61,6 +71,13 @@ Light tokens are the safe default. Place `data-shadcn-theme="dark"` or
 explicit scope. Missing and unsupported values inherit the light defaults.
 Consumers may override documented `--shadcn-ui-*` properties in any narrower
 scope without rebuilding the stylesheet.
+
+```css
+.account-preview {
+  --shadcn-ui-primary: #075985;
+  --shadcn-ui-primary-foreground: #ffffff;
+}
+```
 
 The stylesheet provides an sRGB baseline and uses OKLCH only behind a feature
 query. Native meaning and content remain the acceptance floor when optional CSS
@@ -197,3 +214,19 @@ revision, review the commit range and license, compare every mapped upstream
 path, preserve the local HEEX and accessibility contracts, update the manifest
 pin and change summaries, rebuild the stylesheet, and run provenance, package,
 component, and integration tests in the same change.
+
+## Maintainer workflows
+
+From `packages/shadcn_ui`, install exactly the locked JavaScript dependencies
+and verify the committed stylesheet with `npm ci`, `npm run assets:build`, and
+`npm run assets:check`. Run `mix precommit`, `mix docs`, and
+`mix hex.build` with locked Mix dependencies before accepting an internal
+candidate. `mix hex.publish` is intentionally outside the Milestone A workflow.
+
+The gallery is maintained independently under `demo`. From that directory,
+run `mix deps.get --locked`, `npm ci`, `npm run assets:build`, `mix test`, and
+`mix gallery.export`. `npm run export:check` audits the export and
+`npm run smoke -- <base-url>` checks a deployed artifact. See the
+[deployment runbook](https://github.com/Leco-Industries-Inc/leco_apps/blob/main/packages/shadcn_ui/demo/DEPLOYMENT.md)
+for the approved GitHub Pages environment, retention, exact-artifact deployment,
+and rollback procedure.
