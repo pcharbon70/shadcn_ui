@@ -58,30 +58,30 @@ Back to wave: [README](./README.md)
       - [x] 1.2.2.3 Subtask - Protect IDs, names, label targets, group semantics, native types, invalid state, and derived relationships from conflicting globals.
       - [x] 1.2.2.4 Subtask - Pass unrelated documented native, `aria-*`, `data-*`, `phx-*`, and `data-on-*` attributes with deterministic class merging.
 
-  - [ ] 1.3 Section - Field fragments and Error Summary.
+  - [x] 1.3 Section - Field fragments and Error Summary.
 
     This section exposes the semantic composition pieces applications need to
     build complete forms without adopting a package-owned form builder.
 
-    - [ ] 1.3.1 Task - Implement Field, Label, Help, and Field Errors.
+    - [x] 1.3.1 Task - Implement Field, Label, Help, and Field Errors.
 
       The primitives should cooperate through explicit relationship data while
       preserving caller-owned control content and message lifecycle.
 
-      - [ ] 1.3.1.1 Subtask - Implement Field as a relationship-aware layout wrapper with a required caller-owned control slot.
-      - [ ] 1.3.1.2 Subtask - Implement native Label with a protected `for` target and required escaped or trusted HEEX content.
-      - [ ] 1.3.1.3 Subtask - Implement Help and repeated Field Errors with deterministic IDs, escaped strings, and no default live-region role.
-      - [ ] 1.3.1.4 Subtask - Add required, optional, invalid, disabled, pending, long-content, narrow, and theme styling using semantic tokens.
+      - [x] 1.3.1.1 Subtask - Implement Field as a relationship-aware layout wrapper with a required caller-owned control slot.
+      - [x] 1.3.1.2 Subtask - Implement native Label with a protected `for` target and required escaped or trusted HEEX content.
+      - [x] 1.3.1.3 Subtask - Implement Help and repeated Field Errors with deterministic IDs, escaped strings, and no default live-region role.
+      - [x] 1.3.1.4 Subtask - Add required, optional, invalid, disabled, pending, long-content, narrow, and theme styling using semantic tokens.
 
-    - [ ] 1.3.2 Task - Implement Error Summary without behavior overstatement.
+    - [x] 1.3.2 Task - Implement Error Summary without behavior overstatement.
 
       The summary should make server errors easy to find while leaving focus,
       scrolling, announcement, and navigation policy to the consuming app.
 
-      - [ ] 1.3.2.1 Subtask - Render an escaped heading and deterministic list of form- or field-level messages.
-      - [ ] 1.3.2.2 Subtask - Link field messages through ordinary fragments to explicit control IDs and preserve repeated messages distinctly.
-      - [ ] 1.3.2.3 Subtask - Add no default alert role, tabindex, autofocus, script, focus movement, or scroll behavior.
-      - [ ] 1.3.2.4 Subtask - Test caller-selected announcement globals without weakening mandatory summary and link semantics.
+      - [x] 1.3.2.1 Subtask - Render an escaped heading and deterministic list of form- or field-level messages.
+      - [x] 1.3.2.2 Subtask - Link field messages through ordinary fragments to explicit control IDs and preserve repeated messages distinctly.
+      - [x] 1.3.2.3 Subtask - Add no default alert role, tabindex, autofocus, script, focus movement, or scroll behavior.
+      - [x] 1.3.2.4 Subtask - Test caller-selected announcement globals without weakening mandatory summary and link semantics.
 
   - [ ] 1.4 Section - Phase 1 Integration Tests.
 

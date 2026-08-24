@@ -17,7 +17,12 @@ defmodule ShadcnUI do
     ShadcnUI.Components.Foundation.Badge,
     ShadcnUI.Components.Foundation.Button,
     ShadcnUI.Components.Foundation.Card,
-    ShadcnUI.Components.Foundation.Skeleton
+    ShadcnUI.Components.Foundation.Skeleton,
+    ShadcnUI.Components.Forms.ErrorSummary,
+    ShadcnUI.Components.Forms.Field,
+    ShadcnUI.Components.Forms.FieldErrors,
+    ShadcnUI.Components.Forms.Help,
+    ShadcnUI.Components.Forms.Label
   ]
 
   @doc """

@@ -198,6 +198,36 @@ a static block when reduced motion is requested.
 The caller labels meaningful loading regions and owns loading detection,
 announcements, errors, replacement timing, and final content layout.
 
+### Form field composition
+
+Milestone B form primitives share one deterministic relationship contract.
+`field` accepts either a `Phoenix.HTML.FormField` or explicit identity, value,
+and error data. The caller owns the native control through the required control
+slot and receives the normalized attributes through `:let`.
+
+```heex
+<.field field={@form[:email]} error_mode={:used_input} required>
+  <:label>Email address</:label>
+  <:control :let={field}>
+    <input
+      id={field.id}
+      name={field.name}
+      value={field.value}
+      required={field.required}
+      aria-describedby={field.aria_describedby}
+      aria-invalid={field.aria_invalid}
+    />
+  </:control>
+  <:help>Use the address associated with your account.</:help>
+</.field>
+```
+
+`label`, `help`, and `field_errors` are also available as explicit fragments.
+`error_summary` accepts form-level strings and `{control_id, message}` entries;
+linked entries use ordinary fragments. It does not announce, focus, scroll, or
+navigate by itself. Applications continue to own translation, validation,
+submission, persistence, authorization, and request lifecycle.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

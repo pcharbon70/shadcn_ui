@@ -90,6 +90,13 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Foundation.Card,
           ShadcnUI.Components.Foundation.Skeleton
         ],
+        "Form components": [
+          ShadcnUI.Components.Forms.ErrorSummary,
+          ShadcnUI.Components.Forms.Field,
+          ShadcnUI.Components.Forms.FieldErrors,
+          ShadcnUI.Components.Forms.Help,
+          ShadcnUI.Components.Forms.Label
+        ],
         "Package contract": [ShadcnUI, ShadcnUI.Component]
       ]
     ]

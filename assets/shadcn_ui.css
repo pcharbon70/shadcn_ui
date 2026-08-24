@@ -180,4 +180,17 @@
     color: GrayText;
     opacity: 1;
   }
+
+  [data-shadcn-ui-field][data-invalid="true"] {
+    border-color: Mark;
+  }
+
+  [data-shadcn-ui-field-error] {
+    color: Mark;
+  }
+
+  [data-shadcn-ui-field][data-pending="true"] {
+    outline: 1px dashed CanvasText;
+    outline-offset: 0.25rem;
+  }
 }
