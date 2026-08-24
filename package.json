@@ -1,0 +1,14 @@
+{
+  "name": "@leco/shadcn-ui-assets",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pinned build tooling for the ShadcnUI compiled stylesheet.",
+  "scripts": {
+    "assets:build": "node ./scripts/build-assets.mjs",
+    "assets:check": "node ./scripts/check-assets.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "tailwindcss": "4.3.3"
+  }
+}

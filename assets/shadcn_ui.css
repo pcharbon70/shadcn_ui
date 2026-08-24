@@ -1,0 +1,23 @@
+@import "tailwindcss/theme.css" prefix(sui);
+@import "tailwindcss/utilities.css" prefix(sui);
+
+@source "../lib/**/*.ex";
+@source "./**/*.css";
+
+/*
+ * ShadcnUI intentionally excludes Tailwind Preflight. This bounded foundation
+ * applies only to elements that explicitly opt into the component namespace.
+ */
+@layer base {
+  [data-shadcn-ui],
+  [data-shadcn-ui]::before,
+  [data-shadcn-ui]::after {
+    box-sizing: border-box;
+    border-style: solid;
+    border-width: 0;
+  }
+
+  [data-shadcn-ui][hidden] {
+    display: none !important;
+  }
+}

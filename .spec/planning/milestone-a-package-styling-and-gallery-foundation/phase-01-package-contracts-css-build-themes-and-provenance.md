@@ -60,30 +60,30 @@ Back to wave: [README](./README.md)
       - [x] 1.2.2.3 Subtask - Use `inner_block` for primary content and named slots only for semantically distinct regions.
       - [x] 1.2.2.4 Subtask - Add escaping and raw-HTML rejection tests using real HEEX caller fixtures.
 
-  - [ ] 1.3 Section - Isolated Tailwind build and compiled stylesheet.
+  - [x] 1.3 Section - Isolated Tailwind build and compiled stylesheet.
 
     This section creates the package-local authoring toolchain and the ordinary
     CSS artifact consumed by Phoenix applications.
 
-    - [ ] 1.3.1 Task - Configure the pinned CSS build.
+    - [x] 1.3.1 Task - Configure the pinned CSS build.
 
       The build should scan explicit package sources, generate only `sui`-
       prefixed utilities, and never rely on a consumer Tailwind configuration.
 
-      - [ ] 1.3.1.1 Subtask - Add a package npm manifest and lockfile with exact Tailwind CSS v4 and CLI/build dependencies.
-      - [ ] 1.3.1.2 Subtask - Add authored asset entrypoints with explicit source registration and the fixed Tailwind prefix.
-      - [ ] 1.3.1.3 Subtask - Exclude unrestricted Preflight and author only the bounded element and pseudo-element foundation required by documented components.
-      - [ ] 1.3.1.4 Subtask - Add deterministic `assets:build` and `assets:check` commands that write and compare `priv/static/shadcn_ui.css`.
+      - [x] 1.3.1.1 Subtask - Add a package npm manifest and lockfile with exact Tailwind CSS v4 and CLI/build dependencies.
+      - [x] 1.3.1.2 Subtask - Add authored asset entrypoints with explicit source registration and the fixed Tailwind prefix.
+      - [x] 1.3.1.3 Subtask - Exclude unrestricted Preflight and author only the bounded element and pseudo-element foundation required by documented components.
+      - [x] 1.3.1.4 Subtask - Add deterministic `assets:build` and `assets:check` commands that write and compare `priv/static/shadcn_ui.css`.
 
-    - [ ] 1.3.2 Task - Audit CSS isolation and runtime safety.
+    - [x] 1.3.2 Task - Audit CSS isolation and runtime safety.
 
       The canonical artifact should coexist with BulmaUI and contain no hidden
       network, script, or consumer build dependency.
 
-      - [ ] 1.3.2.1 Subtask - Assert every generated utility and Tailwind-owned variable is prefixed and reject known unprefixed utility selectors.
-      - [ ] 1.3.2.2 Subtask - Reject unrestricted resets, remote imports, remote fonts, script syntax, and runtime URLs.
-      - [ ] 1.3.2.3 Subtask - Add a mixed BulmaUI/ShadcnUI fixture proving common native elements and Bulma classes are not globally restyled.
-      - [ ] 1.3.2.4 Subtask - Prove a consumer fixture renders correctly using only the compiled artifact and no Node installation in its build path.
+      - [x] 1.3.2.1 Subtask - Assert every generated utility and Tailwind-owned variable is prefixed and reject known unprefixed utility selectors.
+      - [x] 1.3.2.2 Subtask - Reject unrestricted resets, remote imports, remote fonts, script syntax, and runtime URLs.
+      - [x] 1.3.2.3 Subtask - Add a mixed BulmaUI/ShadcnUI fixture proving common native elements and Bulma classes are not globally restyled.
+      - [x] 1.3.2.4 Subtask - Prove a consumer fixture renders correctly using only the compiled artifact and no Node installation in its build path.
 
   - [ ] 1.4 Section - Semantic tokens, themes, and motion baseline.
 

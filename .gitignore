@@ -7,11 +7,15 @@
 # The directory Mix downloads your dependencies sources to.
 /deps/
 
+# Package-local CSS authoring dependencies.
+/node_modules/
+
 # Where third-party dependencies like ExDoc output generated docs.
 /doc/
 
 # Temporary files, for example, from tests.
 /tmp/
+/priv/static/.shadcn_ui-*.css
 
 # If the VM crashes, it generates a dump, let's ignore it too.
 erl_crash.dump

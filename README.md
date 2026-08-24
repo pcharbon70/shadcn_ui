@@ -35,6 +35,19 @@ or state synchronization. Applications own all behavior and transport choices.
 stylesheet. The consuming application owns copying, bundling, or serving that
 file. This internal `0.x` package is not yet published to Hex.
 
+Contributors build the stylesheet with pinned package-local tooling:
+
+```console
+npm ci
+npm run assets:build
+npm run assets:check
+```
+
+Tailwind CSS is not a consumer dependency. The build scans only package source,
+uses the fixed `sui` prefix, excludes unrestricted Preflight, and emits one
+minified `priv/static/shadcn_ui.css` artifact. Milestone A ships no component
+JavaScript.
+
 ## Component contract
 
 Components use closed atom or string values declared through
