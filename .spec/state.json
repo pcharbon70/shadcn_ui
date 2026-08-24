@@ -1,39 +1,3167 @@
 {
   "decisions": {
-    "items": []
+    "items": [
+      {
+        "affects": [
+          "shadcn_ui.package",
+          "shadcn_ui.gallery",
+          "shadcn_ui.stylesheet",
+          "shadcn_ui.provenance"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/gallery-static-publication.md",
+        "id": "shadcn_ui.gallery_static_publication",
+        "status": "accepted",
+        "title": "Keep the Gallery Separate and Publish a Static Export"
+      },
+      {
+        "affects": [
+          "shadcn_ui.package",
+          "shadcn_ui.stylesheet",
+          "shadcn_ui.gallery"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/isolated-compiled-css.md",
+        "id": "shadcn_ui.isolated_compiled_css",
+        "status": "accepted",
+        "title": "Compile Isolated CSS as a Package-Owned Build Artifact"
+      },
+      {
+        "affects": [
+          "shadcn_ui.component_contract",
+          "shadcn_ui.foundation_components",
+          "shadcn_ui.stylesheet",
+          "shadcn_ui.gallery"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/progressive-enhancement-baseline.md",
+        "id": "shadcn_ui.progressive_enhancement_baseline",
+        "status": "accepted",
+        "title": "Adopt Progressive Enhancement With Explicit Fallback Evidence"
+      },
+      {
+        "affects": [
+          "shadcn_ui.stylesheet",
+          "shadcn_ui.foundation_components",
+          "shadcn_ui.gallery"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/scoped-theme-token-contract.md",
+        "id": "shadcn_ui.scoped_theme_token_contract",
+        "status": "accepted",
+        "title": "Scope Semantic Tokens and Theme Selection"
+      },
+      {
+        "affects": [
+          "shadcn_ui.component_contract",
+          "shadcn_ui.foundation_components"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/semantic-component-api-and-accessibility.md",
+        "id": "shadcn_ui.semantic_component_api_and_accessibility",
+        "status": "accepted",
+        "title": "Use Explicit Semantic Component APIs and Accessibility Contracts"
+      },
+      {
+        "affects": [
+          "shadcn_ui.package",
+          "shadcn_ui.component_contract",
+          "shadcn_ui.gallery"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/transport-neutral-phoenix-package.md",
+        "id": "shadcn_ui.transport_neutral_phoenix_package",
+        "status": "accepted",
+        "title": "Keep ShadcnUI an Independent Transport-Neutral Phoenix Package"
+      },
+      {
+        "affects": [
+          "shadcn_ui.package",
+          "shadcn_ui.provenance",
+          "shadcn_ui.foundation_components",
+          "shadcn_ui.gallery"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/upstream-provenance.md",
+        "id": "shadcn_ui.upstream_provenance",
+        "status": "accepted",
+        "title": "Track Upstream Provenance Without Automatic Synchronization"
+      }
+    ]
   },
-  "findings": [],
+  "findings": [
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.component_contract",
+      "file": ".spec/specs/component_contract.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/component_contract_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.component_contract",
+      "file": ".spec/specs/component_contract.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/component_contract_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.component_contract",
+      "file": ".spec/specs/component_contract.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/foundation_components_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/alert_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/avatar_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/badge_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/button_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/card_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/skeleton_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/foundation_components_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/browser/milestone-a-gallery.spec.mjs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: demo/test/shadcn_ui_demo/boundary_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: demo/test/shadcn_ui_demo/gallery_catalog_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: demo/test/shadcn_ui_demo/static_export_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/browser/milestone-a-gallery.spec.mjs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.package",
+      "file": ".spec/specs/package.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.package",
+      "file": ".spec/specs/package.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: package-lock.json"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.package",
+      "file": ".spec/specs/package.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: package.json"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.package",
+      "file": ".spec/specs/package.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: priv/static/shadcn_ui.css"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.package",
+      "file": ".spec/specs/package.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.package",
+      "file": ".spec/specs/package.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/package_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.package",
+      "file": ".spec/specs/package.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.package",
+      "file": ".spec/specs/package.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/package_test.exs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.provenance",
+      "file": ".spec/specs/provenance.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: THIRD_PARTY_NOTICES.md"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.provenance",
+      "file": ".spec/specs/provenance.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: priv/provenance/unscripted_ui.json"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.provenance",
+      "file": ".spec/specs/provenance.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/provenance_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.provenance",
+      "file": ".spec/specs/provenance.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.provenance",
+      "file": ".spec/specs/provenance.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/provenance_test.exs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: package-lock.json"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: package.json"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: priv/static/shadcn_ui.css"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/stylesheet_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/stylesheet_test.exs"
+    }
+  ],
   "index": {
     "exceptions": [],
-    "requirements": [],
+    "requirements": [
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.classes_and_globals",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Components shall preserve required prefixed classes while accepting caller classes and documented native, aria-*, data-*, phx-*, and data-on-* global attributes that do not contradict protected semantics.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.closed_values",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Variants, sizes, element choices, and semantic states shall use closed documented values mapped to complete static classes and deterministic markup without request-derived atoms or arbitrary utility interpolation.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.deterministic_identity",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Components shall require or deterministically derive IDs only for real HTML relationships and shall not use random or process-global render-time identity.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.native_semantics",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Components shall prefer native elements and shall not add an ARIA role, state, or keyboard claim that exceeds the behavior implemented by their HTML and documented optional runtime boundary.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.presentation_snapshot",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Loading, disabled, image fallback, dismissal, and other state attributes shall describe the rendered snapshot only; lifecycle and outcomes remain caller-owned.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.progressive_floor",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Required content, native operations, focus visibility, and semantic meaning shall remain available when optional CSS enhancements or JavaScript are absent.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.protected_accessibility",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Mandatory element type, disabled state, roles, accessible names, hidden treatment, and relationships derived from explicit component attributes shall take precedence over conflicting caller globals.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.safe_content",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Caller text shall remain escaped and ShadcnUI shall expose no raw-HTML string attribute or convenience API that converts caller strings into trusted markup.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.slots",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Components shall use inner_block for primary trusted HEEX and named slots only for semantically distinct regions, with required content declared through Phoenix.Component metadata.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component.stateless_heex",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Public components shall be stateless Phoenix function components rendered with HEEx and shall not own requests, navigation, application commands, state transitions, or client behavior.",
+        "subject_id": "shadcn_ui.component_contract"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.alert",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Alert shall render a visible title and/or description with optional icon and actions slots, closed default and destructive variants, and an explicit none, polite, or assertive announcement policy that produces deterministic native region semantics.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.alert_ownership",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Alert shall not infer urgency from color and shall leave appearance timing, lifecycle, dismissal, retry, and action outcomes to the caller.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.avatar",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Avatar shall render required escaped initials as the always-present fallback and may layer one caller-owned image with required source and nonblank alternative text without onerror JavaScript, remote lookup, upload, or image-provider behavior.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.avatar_stack",
+        "priority": "should",
+        "stability": "evolving",
+        "statement": "Avatar shall support closed sizes and bounded stack presentation while keeping each meaningful image or text alternative available and avoiding duplicate accessible names from decorative overlap.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.badge",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Badge shall render a noninteractive span with required content and closed default, secondary, destructive, and outline variants without accepting destinations, button behavior, dismissal, or package-owned state.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.button",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Button shall render a native button with required escaped or trusted slot content, types button, submit, and reset, variants default, secondary, destructive, outline, ghost, and link, sizes small, default, large, and icon, plus explicit disabled and presentation-only loading snapshots.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.button_content",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Button shall support optional leading and trailing slots, require a nonblank accessible label for icon-only presentation, preserve native disabled semantics, and leave activation, submission, duplicate prevention, and command outcomes to the caller.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.card",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Card shall render one bordered content surface with optional header, title, description, footer, and actions composition while preserving caller-authored headings, links, forms, and controls without assigning workflow semantics.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.shared_contract",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "All six foundation components shall follow the shared closed-value, slot, escaping, caller-global, protected-semantics, deterministic identity, presentation snapshot, and progressive-floor requirements.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation.skeleton",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Skeleton shall render a decorative aria-hidden placeholder with closed shape and size guidance, optional caller classes, pulse presentation, and a static reduced-motion fallback without announcing loading or owning its lifecycle.",
+        "subject_id": "shadcn_ui.foundation_components"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.closed_catalog",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The gallery shall own one immutable ordered catalogue with stable Foundation category and Button, Badge, Alert, Card, Avatar, and Skeleton leaves whose request slugs resolve only through closed strings to explicit render identities.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.component_guidance",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Each component page shall provide practical purpose, usage guidance, rendered variants and semantic states, HEEX source, application ownership, accessibility, theme behavior, progressive fallback, and provenance in plain English.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.controller_rendered",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Gallery source pages shall use ordinary controller-rendered HEEx without LiveView routes, sockets, hooks, processes, or state synchronization.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.demo_only_script",
+        "priority": "should",
+        "stability": "stable",
+        "statement": "Optional theme persistence and source-copy behavior shall live in an explicit demo-only script, shall not implement component behavior, and shall be excluded from package release contents.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.deterministic_assets",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Gallery dependency and asset locks shall produce only local fingerprinted CSS, JavaScript, images, and fonts without remote runtime imports or globally installed tools.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.excluded_from_package",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Demo source, dependencies, scripts, tests, generated assets, static export output, deployment configuration, and credentials shall remain outside the ShadcnUI release allowlist.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.no_application_frameworks",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The gallery shall add no Ecto, Dstar, Datastar, Ash, authentication, Electron capability, or application behavior framework.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.online_publication",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "CI shall publish the verified static artifact to an approved HTTPS host, expose its canonical URL, run direct-route and asset smoke checks, and retain a documented rollback procedure without placing credentials in the repository.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.safe_resolution",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Request input shall never create atoms or select modules, functions, templates, callbacks, asset paths, or executable code dynamically, and unknown or mismatched routes shall return a deterministic non-reflecting 404.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.semantic_shell",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Every page shall provide a skip link, named navigation before main content, breadcrumb, one main landmark and page heading, visible focus treatment, responsive stacking, and no menu, tab, tree, or client-router role overstatement.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.separate_application",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The gallery shall be a separate Phoenix application under demo that consumes ShadcnUI through a path dependency.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.stable_routes",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The gallery shall provide stable controller and exported routes for a categorized landing, Foundation category, and one page per Milestone A component with ordinary links and accurate current-page state.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.static_export",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "A deterministic command shall request the complete closed controller route inventory and write equivalent self-contained static HTML and local assets to ignored export output.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery.theme_matrix",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Every Milestone A page shall render under explicit light and dark data-shadcn-theme scopes, default safely to light, preserve readable focus and content at narrow widths, and keep core content usable when demo-only scripting is disabled.",
+        "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.explicit_release_files",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The package shall use an explicit release-file allowlist containing runtime modules, the compiled stylesheet, required notices, README, changelog, and Mix metadata while excluding demo, tests, build tools, dependencies, generated documentation, and mutable output.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.heex_infrastructure_only",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The phoenix_live_view dependency shall provide Phoenix.Component and HEEx infrastructure only; ShadcnUI shall define no LiveView route, socket, process, hook, navigation, or state synchronization.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.independent_mix_project",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "ShadcnUI shall compile, test, build documentation, and build its release archive as an independent Mix project.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.no_consumer_asset_toolchain",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "A package consumer shall use the distributed stylesheet without installing Node.js, Tailwind CSS, or a ShadcnUI JavaScript runtime.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.public_import_surface",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "use ShadcnUI shall import public defining component modules directly and preserve Phoenix compile-time attribute and slot metadata at caller sites.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.transport_neutral",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Runtime dependencies and release sources shall contain no controller, endpoint, Dstar, Datastar, Ash, Electron, persistence, authorization, request, or application-state implementation.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/provenance.spec.md",
+        "id": "shadcn_ui.provenance.component_mapping",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "A machine-readable package-owned manifest shall map every substantially adapted component or CSS block to its upstream source path, pinned commit, and concise local-change summary.",
+        "subject_id": "shadcn_ui.provenance"
+      },
+      {
+        "file": ".spec/specs/provenance.spec.md",
+        "id": "shadcn_ui.provenance.independent_identity",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Public documentation shall describe ShadcnUI as an independent Phoenix adaptation and shall not imply official affiliation with shadcn or unscripted/ui.",
+        "subject_id": "shadcn_ui.provenance"
+      },
+      {
+        "file": ".spec/specs/provenance.spec.md",
+        "id": "shadcn_ui.provenance.mit_notice",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "THIRD_PARTY_NOTICES.md shall preserve the complete required unscripted/ui MIT copyright and permission notice for copied or substantially adapted material.",
+        "subject_id": "shadcn_ui.provenance"
+      },
+      {
+        "file": ".spec/specs/provenance.spec.md",
+        "id": "shadcn_ui.provenance.no_upstream_runtime",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Unscripted/ui shall not be a runtime or build Git dependency, submodule, vendored source tree, registry, or automatic synchronization target.",
+        "subject_id": "shadcn_ui.provenance"
+      },
+      {
+        "file": ".spec/specs/provenance.spec.md",
+        "id": "shadcn_ui.provenance.pinned_revision",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The package shall identify the reviewed unscripted/ui repository URL and exact source commit used for every Milestone A adaptation.",
+        "subject_id": "shadcn_ui.provenance"
+      },
+      {
+        "file": ".spec/specs/provenance.spec.md",
+        "id": "shadcn_ui.provenance.site_assets_excluded",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Remote demo images, fonts, analytics, documentation-site scripts, and site-only content shall remain outside ShadcnUI release contents.",
+        "subject_id": "shadcn_ui.provenance"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.asset_path",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "ShadcnUI.stylesheet_path/0 shall resolve the packaged artifact through Application.app_dir/2 without copying, serving, or injecting it.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.canonical_asset",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "ShadcnUI shall distribute one deterministic minified CSS artifact at priv/static/shadcn_ui.css.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.consumer_overrides",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Consumers shall be able to override documented --shadcn-ui-* properties within their own scope without rebuilding the package stylesheet.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.explicit_sources",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The CSS build shall scan only explicit ShadcnUI HEEX and asset sources, and every closed component value shall map to complete statically discoverable class strings.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.no_runtime_assets",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestone A shall ship no component JavaScript.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.pinned_build",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The package-local npm manifest and lockfile shall pin Tailwind CSS v4 and every asset-build dependency used to produce the canonical artifact.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.prefixed_isolation",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Generated utilities and Tailwind-owned variables shall use the sui prefix, and the artifact shall not include unrestricted Tailwind Preflight or unprefixed utility selectors.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.reduced_motion",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The stylesheet shall preserve state and meaning while disabling or shortening nonessential Milestone A animation under prefers-reduced-motion.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.reproducible_output",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "A clean locked asset build shall reproduce the committed canonical artifact byte-for-byte and fail when generated output is stale.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.scoped_dark_theme",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Dark token values shall activate only beneath data-shadcn-theme=\"dark\", explicit light shall activate beneath data-shadcn-theme=\"light\", and missing or invalid values shall retain light defaults.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.semantic_tokens",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Public semantic colors, foreground pairs, border, input, focus ring, radius, and motion tokens shall use documented --shadcn-ui-* custom properties with complete light defaults.",
+        "subject_id": "shadcn_ui.stylesheet"
+      }
+    ],
     "scenarios": [],
-    "subjects": [],
-    "verifications": []
+    "subjects": [
+      {
+        "file": ".spec/specs/component_contract.spec.md",
+        "id": "shadcn_ui.component_contract",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.transport_neutral_phoenix_package",
+            "shadcn_ui.semantic_component_api_and_accessibility",
+            "shadcn_ui.progressive_enhancement_baseline"
+          ],
+          "id": "shadcn_ui.component_contract",
+          "kind": "policy",
+          "status": "active",
+          "summary": "Shared public HEEX API, semantic rendering, accessibility, and ownership rules.",
+          "surface": [
+            "lib/shadcn_ui.ex",
+            "lib/shadcn_ui/components/**/*.ex",
+            "test/shadcn_ui/component_contract_test.exs",
+            "test/shadcn_ui/components/**/*.exs",
+            "README.md"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Shared component contract"
+      },
+      {
+        "file": ".spec/specs/foundation_components.spec.md",
+        "id": "shadcn_ui.foundation_components",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.semantic_component_api_and_accessibility",
+            "shadcn_ui.scoped_theme_token_contract",
+            "shadcn_ui.progressive_enhancement_baseline",
+            "shadcn_ui.upstream_provenance"
+          ],
+          "id": "shadcn_ui.foundation_components",
+          "kind": "package",
+          "status": "active",
+          "summary": "Button, Badge, Alert, Card, Avatar, and Skeleton rendering contracts.",
+          "surface": [
+            "lib/shadcn_ui/components/foundation/**/*.ex",
+            "test/shadcn_ui/components/foundation/**/*.exs",
+            "test/shadcn_ui/foundation_components_test.exs",
+            "README.md"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Milestone A foundation components"
+      },
+      {
+        "file": ".spec/specs/gallery.spec.md",
+        "id": "shadcn_ui.gallery",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.transport_neutral_phoenix_package",
+            "shadcn_ui.scoped_theme_token_contract",
+            "shadcn_ui.progressive_enhancement_baseline",
+            "shadcn_ui.gallery_static_publication"
+          ],
+          "id": "shadcn_ui.gallery",
+          "kind": "application",
+          "status": "active",
+          "summary": "Separate controller-rendered Phoenix consumer with deterministic static online publication.",
+          "surface": [
+            "demo/**",
+            "scripts/**",
+            "test/browser/milestone-a-gallery.spec.mjs",
+            "test/shadcn_ui/milestone_a_acceptance_test.exs",
+            "README.md"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Online component gallery"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.transport_neutral_phoenix_package",
+            "shadcn_ui.isolated_compiled_css",
+            "shadcn_ui.upstream_provenance"
+          ],
+          "id": "shadcn_ui.package",
+          "kind": "package",
+          "status": "active",
+          "summary": "Independently buildable transport-neutral Phoenix function-component package.",
+          "surface": [
+            "mix.exs",
+            "mix.lock",
+            "package.json",
+            "package-lock.json",
+            "lib/shadcn_ui.ex",
+            "lib/shadcn_ui/**/*.ex",
+            "priv/static/shadcn_ui.css",
+            "README.md",
+            "CHANGELOG.md",
+            "THIRD_PARTY_NOTICES.md",
+            "test/shadcn_ui/package_test.exs",
+            "test/shadcn_ui/milestone_a_acceptance_test.exs"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "ShadcnUI package"
+      },
+      {
+        "file": ".spec/specs/provenance.spec.md",
+        "id": "shadcn_ui.provenance",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.upstream_provenance"
+          ],
+          "id": "shadcn_ui.provenance",
+          "kind": "policy",
+          "status": "active",
+          "summary": "Auditable pinned provenance for substantially adapted unscripted/ui material.",
+          "surface": [
+            "THIRD_PARTY_NOTICES.md",
+            "priv/provenance/unscripted_ui.json",
+            "README.md",
+            "test/shadcn_ui/provenance_test.exs"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Upstream provenance and attribution"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.isolated_compiled_css",
+            "shadcn_ui.scoped_theme_token_contract",
+            "shadcn_ui.progressive_enhancement_baseline"
+          ],
+          "id": "shadcn_ui.stylesheet",
+          "kind": "package",
+          "status": "active",
+          "summary": "Deterministic isolated CSS distribution and namespaced shadcn-style theme contract.",
+          "surface": [
+            "assets/**",
+            "package.json",
+            "package-lock.json",
+            "priv/static/shadcn_ui.css",
+            "lib/shadcn_ui.ex",
+            "README.md",
+            "test/shadcn_ui/stylesheet_test.exs"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Stylesheet, token, and theme distribution"
+      }
+    ],
+    "verifications": [
+      {
+        "covers": [
+          "shadcn_ui.component.stateless_heex",
+          "shadcn_ui.component.closed_values",
+          "shadcn_ui.component.classes_and_globals",
+          "shadcn_ui.component.slots",
+          "shadcn_ui.component.safe_content",
+          "shadcn_ui.component.native_semantics",
+          "shadcn_ui.component.protected_accessibility",
+          "shadcn_ui.component.deterministic_identity",
+          "shadcn_ui.component.presentation_snapshot",
+          "shadcn_ui.component.progressive_floor"
+        ],
+        "execute": true,
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit"
+      },
+      {
+        "covers": [
+          "shadcn_ui.component.stateless_heex",
+          "shadcn_ui.component.closed_values",
+          "shadcn_ui.component.classes_and_globals",
+          "shadcn_ui.component.slots",
+          "shadcn_ui.component.safe_content",
+          "shadcn_ui.component.native_semantics",
+          "shadcn_ui.component.protected_accessibility",
+          "shadcn_ui.component.deterministic_identity",
+          "shadcn_ui.component.presentation_snapshot",
+          "shadcn_ui.component.progressive_floor"
+        ],
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.component.stateless_heex",
+          "shadcn_ui.component.closed_values",
+          "shadcn_ui.component.classes_and_globals",
+          "shadcn_ui.component.slots",
+          "shadcn_ui.component.safe_content",
+          "shadcn_ui.component.native_semantics",
+          "shadcn_ui.component.protected_accessibility",
+          "shadcn_ui.component.deterministic_identity",
+          "shadcn_ui.component.presentation_snapshot",
+          "shadcn_ui.component.progressive_floor"
+        ],
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.foundation.button",
+          "shadcn_ui.foundation.button_content",
+          "shadcn_ui.foundation.shared_contract"
+        ],
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/button_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.foundation.badge",
+          "shadcn_ui.foundation.shared_contract"
+        ],
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/badge_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.foundation.alert",
+          "shadcn_ui.foundation.alert_ownership",
+          "shadcn_ui.foundation.shared_contract"
+        ],
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/alert_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.foundation.card",
+          "shadcn_ui.foundation.shared_contract"
+        ],
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/card_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.foundation.avatar",
+          "shadcn_ui.foundation.avatar_stack",
+          "shadcn_ui.foundation.shared_contract"
+        ],
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/avatar_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.foundation.skeleton",
+          "shadcn_ui.foundation.shared_contract"
+        ],
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/skeleton_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.foundation.button",
+          "shadcn_ui.foundation.button_content",
+          "shadcn_ui.foundation.badge",
+          "shadcn_ui.foundation.alert",
+          "shadcn_ui.foundation.alert_ownership",
+          "shadcn_ui.foundation.card",
+          "shadcn_ui.foundation.avatar",
+          "shadcn_ui.foundation.avatar_stack",
+          "shadcn_ui.foundation.skeleton",
+          "shadcn_ui.foundation.shared_contract"
+        ],
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.foundation.button",
+          "shadcn_ui.foundation.button_content",
+          "shadcn_ui.foundation.badge",
+          "shadcn_ui.foundation.alert",
+          "shadcn_ui.foundation.alert_ownership",
+          "shadcn_ui.foundation.card",
+          "shadcn_ui.foundation.avatar",
+          "shadcn_ui.foundation.avatar_stack",
+          "shadcn_ui.foundation.skeleton",
+          "shadcn_ui.foundation.shared_contract"
+        ],
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.separate_application",
+          "shadcn_ui.gallery.controller_rendered",
+          "shadcn_ui.gallery.no_application_frameworks",
+          "shadcn_ui.gallery.demo_only_script",
+          "shadcn_ui.gallery.deterministic_assets",
+          "shadcn_ui.gallery.excluded_from_package"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/boundary_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.closed_catalog",
+          "shadcn_ui.gallery.safe_resolution",
+          "shadcn_ui.gallery.stable_routes"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/gallery_catalog_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.safe_resolution",
+          "shadcn_ui.gallery.stable_routes",
+          "shadcn_ui.gallery.semantic_shell",
+          "shadcn_ui.gallery.component_guidance",
+          "shadcn_ui.gallery.theme_matrix"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.closed_catalog",
+          "shadcn_ui.gallery.deterministic_assets",
+          "shadcn_ui.gallery.static_export",
+          "shadcn_ui.gallery.excluded_from_package"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/static_export_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.stable_routes",
+          "shadcn_ui.gallery.semantic_shell",
+          "shadcn_ui.gallery.component_guidance",
+          "shadcn_ui.gallery.theme_matrix",
+          "shadcn_ui.gallery.demo_only_script"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/browser/milestone-a-gallery.spec.mjs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.static_export",
+          "shadcn_ui.gallery.online_publication"
+        ],
+        "execute": true,
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "command",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "npm run gallery:smoke"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.separate_application",
+          "shadcn_ui.gallery.controller_rendered",
+          "shadcn_ui.gallery.no_application_frameworks",
+          "shadcn_ui.gallery.closed_catalog",
+          "shadcn_ui.gallery.safe_resolution",
+          "shadcn_ui.gallery.stable_routes",
+          "shadcn_ui.gallery.semantic_shell",
+          "shadcn_ui.gallery.component_guidance",
+          "shadcn_ui.gallery.theme_matrix",
+          "shadcn_ui.gallery.demo_only_script",
+          "shadcn_ui.gallery.deterministic_assets",
+          "shadcn_ui.gallery.static_export",
+          "shadcn_ui.gallery.online_publication",
+          "shadcn_ui.gallery.excluded_from_package"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.package.independent_mix_project",
+          "shadcn_ui.package.heex_infrastructure_only",
+          "shadcn_ui.package.transport_neutral",
+          "shadcn_ui.package.public_import_surface",
+          "shadcn_ui.package.explicit_release_files",
+          "shadcn_ui.package.no_consumer_asset_toolchain"
+        ],
+        "execute": true,
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit"
+      },
+      {
+        "covers": [
+          "shadcn_ui.package.independent_mix_project",
+          "shadcn_ui.package.heex_infrastructure_only",
+          "shadcn_ui.package.transport_neutral",
+          "shadcn_ui.package.public_import_surface",
+          "shadcn_ui.package.explicit_release_files",
+          "shadcn_ui.package.no_consumer_asset_toolchain"
+        ],
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.package.independent_mix_project",
+          "shadcn_ui.package.heex_infrastructure_only",
+          "shadcn_ui.package.transport_neutral",
+          "shadcn_ui.package.public_import_surface",
+          "shadcn_ui.package.explicit_release_files",
+          "shadcn_ui.package.no_consumer_asset_toolchain"
+        ],
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.provenance.pinned_revision",
+          "shadcn_ui.provenance.component_mapping",
+          "shadcn_ui.provenance.mit_notice",
+          "shadcn_ui.provenance.no_upstream_runtime",
+          "shadcn_ui.provenance.site_assets_excluded",
+          "shadcn_ui.provenance.independent_identity"
+        ],
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/provenance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.provenance.pinned_revision",
+          "shadcn_ui.provenance.component_mapping",
+          "shadcn_ui.provenance.mit_notice",
+          "shadcn_ui.provenance.no_upstream_runtime",
+          "shadcn_ui.provenance.site_assets_excluded",
+          "shadcn_ui.provenance.independent_identity"
+        ],
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.stylesheet.canonical_asset",
+          "shadcn_ui.stylesheet.pinned_build",
+          "shadcn_ui.stylesheet.explicit_sources",
+          "shadcn_ui.stylesheet.prefixed_isolation",
+          "shadcn_ui.stylesheet.semantic_tokens",
+          "shadcn_ui.stylesheet.scoped_dark_theme",
+          "shadcn_ui.stylesheet.consumer_overrides",
+          "shadcn_ui.stylesheet.reduced_motion",
+          "shadcn_ui.stylesheet.no_runtime_assets",
+          "shadcn_ui.stylesheet.reproducible_output"
+        ],
+        "execute": true,
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check"
+      },
+      {
+        "covers": [
+          "shadcn_ui.stylesheet.canonical_asset",
+          "shadcn_ui.stylesheet.pinned_build",
+          "shadcn_ui.stylesheet.explicit_sources",
+          "shadcn_ui.stylesheet.prefixed_isolation",
+          "shadcn_ui.stylesheet.semantic_tokens",
+          "shadcn_ui.stylesheet.scoped_dark_theme",
+          "shadcn_ui.stylesheet.consumer_overrides",
+          "shadcn_ui.stylesheet.asset_path",
+          "shadcn_ui.stylesheet.reduced_motion",
+          "shadcn_ui.stylesheet.no_runtime_assets",
+          "shadcn_ui.stylesheet.reproducible_output"
+        ],
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.stylesheet.canonical_asset",
+          "shadcn_ui.stylesheet.prefixed_isolation",
+          "shadcn_ui.stylesheet.semantic_tokens",
+          "shadcn_ui.stylesheet.scoped_dark_theme",
+          "shadcn_ui.stylesheet.asset_path",
+          "shadcn_ui.stylesheet.no_runtime_assets",
+          "shadcn_ui.stylesheet.reproducible_output"
+        ],
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs"
+      }
+    ]
   },
   "specification_version": "1.0",
   "summary": {
     "decision_parse_errors": 0,
-    "decisions": 0,
+    "decisions": 7,
     "exceptions": 0,
-    "findings": 0,
-    "requirements": 0,
+    "findings": 39,
+    "requirements": 57,
     "scenarios": 0,
-    "subjects": 0,
-    "verifications": 0
+    "subjects": 6,
+    "verifications": 26
   },
   "verification": {
-    "claims": [],
+    "claims": [
+      {
+        "cover_id": "shadcn_ui.component.classes_and_globals",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.closed_values",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.deterministic_identity",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.native_semantics",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.presentation_snapshot",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.progressive_floor",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.protected_accessibility",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.safe_content",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.slots",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.stateless_heex",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.component.classes_and_globals",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.closed_values",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.deterministic_identity",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.native_semantics",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.presentation_snapshot",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.progressive_floor",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.protected_accessibility",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.safe_content",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.slots",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.stateless_heex",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/component_contract_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.component.classes_and_globals",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.closed_values",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.deterministic_identity",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.native_semantics",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.presentation_snapshot",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.progressive_floor",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.protected_accessibility",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.safe_content",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.slots",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.component.stateless_heex",
+        "file": ".spec/specs/component_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.component_contract",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.button",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/button_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.button_content",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/button_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.shared_contract",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/button_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.badge",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/badge_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.shared_contract",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/badge_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.alert",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/alert_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.alert_ownership",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/alert_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.shared_contract",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/alert_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.card",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/card_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.shared_contract",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/card_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.avatar",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/avatar_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.avatar_stack",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/avatar_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.shared_contract",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/avatar_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.shared_contract",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/skeleton_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.skeleton",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/components/foundation/skeleton_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.alert",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.alert_ownership",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.avatar",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.avatar_stack",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.badge",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.button",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.button_content",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.card",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.shared_contract",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.skeleton",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/foundation_components_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.alert",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.alert_ownership",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.avatar",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.avatar_stack",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.badge",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.button",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.button_content",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.card",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.shared_contract",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.foundation.skeleton",
+        "file": ".spec/specs/foundation_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.foundation_components",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.controller_rendered",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/boundary_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.demo_only_script",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/boundary_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.deterministic_assets",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/boundary_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.excluded_from_package",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/boundary_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.no_application_frameworks",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/boundary_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.separate_application",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/boundary_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.closed_catalog",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/gallery_catalog_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.safe_resolution",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/gallery_catalog_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.stable_routes",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/gallery_catalog_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.component_guidance",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.safe_resolution",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.semantic_shell",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.stable_routes",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.theme_matrix",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.closed_catalog",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/static_export_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.deterministic_assets",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/static_export_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.excluded_from_package",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/static_export_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.static_export",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/shadcn_ui_demo/static_export_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.component_guidance",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/browser/milestone-a-gallery.spec.mjs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.demo_only_script",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/browser/milestone-a-gallery.spec.mjs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.semantic_shell",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/browser/milestone-a-gallery.spec.mjs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.stable_routes",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/browser/milestone-a-gallery.spec.mjs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.theme_matrix",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/browser/milestone-a-gallery.spec.mjs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.online_publication",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "npm run gallery:smoke",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.static_export",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "npm run gallery:smoke",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.closed_catalog",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.component_guidance",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.controller_rendered",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.demo_only_script",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.deterministic_assets",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.excluded_from_package",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.no_application_frameworks",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.online_publication",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.safe_resolution",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.semantic_shell",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.separate_application",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.stable_routes",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.static_export",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.theme_matrix",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.package.explicit_release_files",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.package.heex_infrastructure_only",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.package.independent_mix_project",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.package.no_consumer_asset_toolchain",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.package.public_import_surface",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.package.transport_neutral",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.package.explicit_release_files",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.package.heex_infrastructure_only",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.package.independent_mix_project",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.package.no_consumer_asset_toolchain",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.package.public_import_surface",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.package.transport_neutral",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.package.explicit_release_files",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.package.heex_infrastructure_only",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.package.independent_mix_project",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.package.no_consumer_asset_toolchain",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.package.public_import_surface",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.package.transport_neutral",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.component_mapping",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/provenance_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.independent_identity",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/provenance_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.mit_notice",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/provenance_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.no_upstream_runtime",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/provenance_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.pinned_revision",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/provenance_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.site_assets_excluded",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/provenance_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.component_mapping",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.independent_identity",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.mit_notice",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.no_upstream_runtime",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.pinned_revision",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.provenance.site_assets_excluded",
+        "file": ".spec/specs/provenance.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.provenance",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.canonical_asset",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.consumer_overrides",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.explicit_sources",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.no_runtime_assets",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.pinned_build",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.prefixed_isolation",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.reduced_motion",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.reproducible_output",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.scoped_dark_theme",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.semantic_tokens",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.asset_path",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.canonical_asset",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.consumer_overrides",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.explicit_sources",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.no_runtime_assets",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.pinned_build",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.prefixed_isolation",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.reduced_motion",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.reproducible_output",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.scoped_dark_theme",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.semantic_tokens",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.asset_path",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.canonical_asset",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.no_runtime_assets",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.prefixed_isolation",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.reproducible_output",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.scoped_dark_theme",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.semantic_tokens",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
+        "verification_index": 2
+      }
+    ],
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 0,
+      "claimed": 162,
       "executed": 0,
       "linked": 0
     },
     "threshold_failures": 0
   },
   "workspace": {
-    "decision_count": 0,
-    "spec_count": 0
+    "decision_count": 7,
+    "spec_count": 6
   }
 }

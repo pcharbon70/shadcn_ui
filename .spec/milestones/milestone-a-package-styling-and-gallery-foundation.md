@@ -87,3 +87,8 @@ Milestone A component in light and dark themes.
 Forms, composite navigation, overlays, advanced motion, application-specific
 screens, theme marketplaces, a source-copy registry, and a general JavaScript
 runtime remain outside Milestone A.
+
+## Implementation plan
+
+The non-normative phased implementation checklist is maintained in
+[`.spec/planning/milestone-a-package-styling-and-gallery-foundation`](../planning/milestone-a-package-styling-and-gallery-foundation/README.md).

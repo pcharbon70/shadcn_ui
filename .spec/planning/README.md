@@ -6,3 +6,7 @@ phase, section, task, and subtask hierarchy, with a description for every phase,
 section, and task and an integration-test section at the end of every phase.
 
 Plans are non-normative and must not rewrite completed milestone history.
+
+## Active plans
+
+1. [Milestone A - Package, Styling, and Gallery Foundation](./milestone-a-package-styling-and-gallery-foundation/README.md)
