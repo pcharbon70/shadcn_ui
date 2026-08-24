@@ -97,24 +97,24 @@ Back to wave: [README](./README.md)
     This section converts the verified controller-rendered route inventory into
     a portable online artifact and publishes it without expanding package runtime.
 
-    - [ ] 5.4.1 Task - Implement the closed static export.
+    - [x] 5.4.1 Task - Implement the closed static export.
 
       Export should prove parity with controller responses and include only local
       fingerprinted assets and canonical routes.
 
-      - [ ] 5.4.1.1 Subtask - Add an export command that starts or invokes the demo in a production-like environment and requests every closed landing, category, component, theme, and not-found fixture required for publication.
-      - [ ] 5.4.1.2 Subtask - Rewrite or generate host-relative links deterministically, copy fingerprinted local assets, and emit a route manifest and content hashes.
-      - [ ] 5.4.1.3 Subtask - Compare exported landmarks, headings, examples, source, theme markers, asset references, and status expectations with controller responses.
-      - [ ] 5.4.1.4 Subtask - Reject unregistered pages, remote runtime URLs, source maps containing repository secrets, mutable timestamps, and files outside ignored export output.
+      - [x] 5.4.1.1 Subtask - Add an export command that starts or invokes the demo in a production-like environment and requests every closed landing, category, component, theme, and not-found fixture required for publication.
+      - [x] 5.4.1.2 Subtask - Rewrite or generate host-relative links deterministically, copy fingerprinted local assets, and emit a route manifest and content hashes.
+      - [x] 5.4.1.3 Subtask - Compare exported landmarks, headings, examples, source, theme markers, asset references, and status expectations with controller responses.
+      - [x] 5.4.1.4 Subtask - Reject unregistered pages, remote runtime URLs, source maps containing repository secrets, mutable timestamps, and files outside ignored export output.
 
     - [ ] 5.4.2 Task - Configure secure online publication.
 
       CI should publish only the verified artifact to an approved static host
       while keeping provider credentials and rollback outside package code.
 
-      - [ ] 5.4.2.1 Subtask - Record the approved host, canonical HTTPS URL, repository environment, deployment owner, credential names, retention, and rollback procedure.
-      - [ ] 5.4.2.2 Subtask - Add a path-filtered workflow that performs locked package, asset, demo, browser, and export checks before uploading the exact hashed artifact.
-      - [ ] 5.4.2.3 Subtask - Use least-privilege deployment permissions, environment secrets, concurrency control, and immutable build provenance without committing credentials.
+      - [x] 5.4.2.1 Subtask - Record the approved host, canonical HTTPS URL, repository environment, deployment owner, credential names, retention, and rollback procedure.
+      - [x] 5.4.2.2 Subtask - Add a path-filtered workflow that performs locked package, asset, demo, browser, and export checks before uploading the exact hashed artifact.
+      - [x] 5.4.2.3 Subtask - Use least-privilege deployment permissions, environment secrets, concurrency control, and immutable build provenance without committing credentials.
       - [ ] 5.4.2.4 Subtask - Add post-deployment smoke checks for the canonical landing, every direct component URL, local CSS and script assets, theme default, navigation, and displayed revision.
 
   - [ ] 5.5 Section - Package documentation and release readiness.
