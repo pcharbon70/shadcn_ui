@@ -58,6 +58,7 @@ defmodule ShadcnUI.MixProject do
       files: [
         "lib",
         "priv/static/shadcn_ui.css",
+        "priv/provenance",
         "mix.exs",
         "README.md",
         "CHANGELOG.md",

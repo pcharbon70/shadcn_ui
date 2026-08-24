@@ -9,6 +9,9 @@ platform can do so reliably. The package remains transport-neutral and does not
 own controllers, routes, application state, domain operations, Dstar, Datastar,
 Ash, or Electron capabilities.
 
+ShadcnUI is an independent Phoenix adaptation. It is not an official shadcn/ui
+or unscripted/ui project and is not endorsed by either project.
+
 Milestone A is establishing the package boundary, stylesheet, foundation
 components, and gallery. See [`.spec/milestones`](./.spec/milestones/README.md)
 for the roadmap.
@@ -76,3 +79,20 @@ API. Documented native, `aria-*`, `data-*`, `phx-*`, and `data-on-*` attributes
 pass through unless they conflict with a component's required native or
 accessibility semantics. Rendered state is a snapshot; applications continue to
 own lifecycle, commands, navigation, and outcomes.
+
+## Upstream provenance
+
+Substantially adapted unscripted/ui material is mapped in
+`priv/provenance/unscripted_ui.json` to the exact reviewed upstream commit,
+source paths, local paths, and local-change summaries. The complete required MIT
+notice is preserved in `THIRD_PARTY_NOTICES.md`. Unscripted/ui is not a runtime
+or build dependency, vendored tree, submodule, registry, or generated source
+feed.
+
+### Reviewing a later upstream revision
+
+ShadcnUI does not automatically synchronize with upstream. To adopt a later
+revision, review the commit range and license, compare every mapped upstream
+path, preserve the local HEEX and accessibility contracts, update the manifest
+pin and change summaries, rebuild the stylesheet, and run provenance, package,
+component, and integration tests in the same change.

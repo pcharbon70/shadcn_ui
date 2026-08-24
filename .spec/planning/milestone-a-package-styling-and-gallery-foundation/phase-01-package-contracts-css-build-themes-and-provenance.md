@@ -109,28 +109,28 @@ Back to wave: [README](./README.md)
       - [x] 1.4.2.2 Subtask - Add `prefers-reduced-motion` treatment for all current and reserved Milestone A transitions and animations.
       - [x] 1.4.2.3 Subtask - Document the semantic baseline, enhancement, and fallback vocabulary used by component pages and future specs.
 
-  - [ ] 1.5 Section - Upstream provenance and legal boundary.
+  - [x] 1.5 Section - Upstream provenance and legal boundary.
 
     This section makes every substantially adapted source fragment auditable
     without turning unscripted/ui into a package dependency.
 
-    - [ ] 1.5.1 Task - Publish the provenance records.
+    - [x] 1.5.1 Task - Publish the provenance records.
 
       The package should identify the exact reviewed source and preserve the
       required license notice in both human- and machine-inspectable forms.
 
-      - [ ] 1.5.1.1 Subtask - Add `THIRD_PARTY_NOTICES.md` with the complete unscripted/ui MIT notice and independent-project wording.
-      - [ ] 1.5.1.2 Subtask - Add the provenance manifest with repository URL, pinned commit, component source paths, CSS source paths, and local-change summaries.
-      - [ ] 1.5.1.3 Subtask - Add schema and completeness tests tying every Milestone A component to a reviewed provenance entry.
+      - [x] 1.5.1.1 Subtask - Add `THIRD_PARTY_NOTICES.md` with the complete unscripted/ui MIT notice and independent-project wording.
+      - [x] 1.5.1.2 Subtask - Add the provenance manifest with repository URL, pinned commit, component source paths, CSS source paths, and local-change summaries.
+      - [x] 1.5.1.3 Subtask - Add schema and completeness tests tying every Milestone A component to a reviewed provenance entry.
 
-    - [ ] 1.5.2 Task - Enforce source and asset exclusions.
+    - [x] 1.5.2 Task - Enforce source and asset exclusions.
 
       Release evidence should reject upstream site infrastructure and automatic
       synchronization mechanisms that are outside the adaptation contract.
 
-      - [ ] 1.5.2.1 Subtask - Reject an unscripted/ui Git dependency, submodule, vendored repository, registry, or generated source-copy directory.
-      - [ ] 1.5.2.2 Subtask - Reject remote demo images, fonts, analytics, documentation scripts, and other site-only files from release contents.
-      - [ ] 1.5.2.3 Subtask - Document the explicit review workflow for adopting a later upstream revision.
+      - [x] 1.5.2.1 Subtask - Reject an unscripted/ui Git dependency, submodule, vendored repository, registry, or generated source-copy directory.
+      - [x] 1.5.2.2 Subtask - Reject remote demo images, fonts, analytics, documentation scripts, and other site-only files from release contents.
+      - [x] 1.5.2.3 Subtask - Document the explicit review workflow for adopting a later upstream revision.
 
   - [ ] 1.6 Section - Phase 1 Integration Tests.
 

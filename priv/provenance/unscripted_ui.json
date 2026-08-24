@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "name": "unscripted/ui",
+    "repository": "https://github.com/timoransky/unscripted-ui",
+    "commit": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+    "license": "MIT",
+    "licenseNoticeFile": "THIRD_PARTY_NOTICES.md"
+  },
+  "adaptations": [
+    {
+      "id": "foundation.alert",
+      "localPaths": ["lib/shadcn_ui/components/foundation/alert.ex"],
+      "upstreamPaths": ["src/content/components/alert.mdx", "src/demos/alert/variants.html"],
+      "localChanges": "Adapt native alert markup into a stateless HEEX API with explicit announcement semantics and caller-owned lifecycle."
+    },
+    {
+      "id": "foundation.avatar",
+      "localPaths": ["lib/shadcn_ui/components/foundation/avatar.ex"],
+      "upstreamPaths": ["src/content/components/avatar.mdx", "src/demos/avatar/basic.html"],
+      "localChanges": "Adapt avatar presentation into an initials-first HEEX fallback with caller-owned image loading."
+    },
+    {
+      "id": "foundation.badge",
+      "localPaths": ["lib/shadcn_ui/components/foundation/badge.ex"],
+      "upstreamPaths": ["src/content/components/badge.mdx", "src/demos/badge/variants.html"],
+      "localChanges": "Adapt passive badge variants into a closed noninteractive HEEX component contract."
+    },
+    {
+      "id": "foundation.button",
+      "localPaths": ["lib/shadcn_ui/components/foundation/button.ex"],
+      "upstreamPaths": ["src/content/components/button.mdx", "src/demos/button/variants.html"],
+      "localChanges": "Adapt button utility patterns to native HEEX button semantics, closed variants, and caller-owned activation."
+    },
+    {
+      "id": "foundation.card",
+      "localPaths": ["lib/shadcn_ui/components/foundation/card.ex"],
+      "upstreamPaths": ["src/content/components/card.mdx", "src/demos/card/basic.html"],
+      "localChanges": "Adapt card markup into composable semantic HEEX regions without assigning workflow behavior."
+    },
+    {
+      "id": "foundation.skeleton",
+      "localPaths": ["lib/shadcn_ui/components/foundation/skeleton.ex"],
+      "upstreamPaths": ["src/content/components/skeleton.mdx", "src/demos/skeleton/basic.html"],
+      "localChanges": "Adapt skeleton presentation into a decorative HEEX placeholder with a reduced-motion-safe snapshot."
+    },
+    {
+      "id": "stylesheet.semantic-foundation",
+      "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
+      "upstreamPaths": ["src/styles/global.css"],
+      "localChanges": "Namespace semantic tokens, prefix generated utilities, remove Preflight, add sRGB fallback, and scope theme and reduced-motion behavior."
+    }
+  ],
+  "excludedSiteMaterial": [
+    "public/fonts",
+    "public/og.png",
+    "public/claude-fu.gif",
+    "src/scripts/site.ts",
+    "analytics",
+    "documentation application source"
+  ]
+}

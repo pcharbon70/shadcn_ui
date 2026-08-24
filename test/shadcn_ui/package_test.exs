@@ -54,6 +54,7 @@ defmodule ShadcnUI.PackageTest do
     assert Mix.Project.config()[:package][:files] == [
              "lib",
              "priv/static/shadcn_ui.css",
+             "priv/provenance",
              "mix.exs",
              "README.md",
              "CHANGELOG.md",
