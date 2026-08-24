@@ -4,6 +4,136 @@
 @source "../lib/**/*.ex";
 @source "./**/*.css";
 
+/* Public light defaults use broadly supported sRGB values. */
+:root,
+[data-shadcn-theme="light"] {
+  --shadcn-ui-background: #ffffff;
+  --shadcn-ui-foreground: #252525;
+  --shadcn-ui-card: #ffffff;
+  --shadcn-ui-card-foreground: #252525;
+  --shadcn-ui-popover: #ffffff;
+  --shadcn-ui-popover-foreground: #252525;
+  --shadcn-ui-primary: #353535;
+  --shadcn-ui-primary-foreground: #fafafa;
+  --shadcn-ui-secondary: #f5f5f5;
+  --shadcn-ui-secondary-foreground: #353535;
+  --shadcn-ui-muted: #f5f5f5;
+  --shadcn-ui-muted-foreground: #737373;
+  --shadcn-ui-accent: #f5f5f5;
+  --shadcn-ui-accent-foreground: #353535;
+  --shadcn-ui-destructive: #dc2626;
+  --shadcn-ui-destructive-foreground: #ffffff;
+  --shadcn-ui-border: #e5e5e5;
+  --shadcn-ui-input: #e5e5e5;
+  --shadcn-ui-ring: #a3a3a3;
+  --shadcn-ui-radius-sm: 0.25rem;
+  --shadcn-ui-radius-md: 0.375rem;
+  --shadcn-ui-radius-lg: 0.5rem;
+  --shadcn-ui-radius-xl: 0.75rem;
+  --shadcn-ui-motion-fast: 100ms;
+  --shadcn-ui-motion-normal: 150ms;
+  --shadcn-ui-motion-slow: 250ms;
+  --shadcn-ui-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-shadcn-theme="dark"] {
+  --shadcn-ui-background: #252525;
+  --shadcn-ui-foreground: #fafafa;
+  --shadcn-ui-card: #353535;
+  --shadcn-ui-card-foreground: #fafafa;
+  --shadcn-ui-popover: #353535;
+  --shadcn-ui-popover-foreground: #fafafa;
+  --shadcn-ui-primary: #e5e5e5;
+  --shadcn-ui-primary-foreground: #353535;
+  --shadcn-ui-secondary: #454545;
+  --shadcn-ui-secondary-foreground: #fafafa;
+  --shadcn-ui-muted: #454545;
+  --shadcn-ui-muted-foreground: #b8b8b8;
+  --shadcn-ui-accent: #454545;
+  --shadcn-ui-accent-foreground: #fafafa;
+  --shadcn-ui-destructive: #ef4444;
+  --shadcn-ui-destructive-foreground: #ffffff;
+  --shadcn-ui-border: #ffffff26;
+  --shadcn-ui-input: #ffffff26;
+  --shadcn-ui-ring: #737373;
+}
+
+/* OKLCH is an enhancement; unsupported browsers retain the sRGB baseline. */
+@supports (color: oklch(1 0 0)) {
+  :root,
+  [data-shadcn-theme="light"] {
+    --shadcn-ui-background: oklch(1 0 0);
+    --shadcn-ui-foreground: oklch(0.145 0 0);
+    --shadcn-ui-card: oklch(1 0 0);
+    --shadcn-ui-card-foreground: oklch(0.145 0 0);
+    --shadcn-ui-popover: oklch(1 0 0);
+    --shadcn-ui-popover-foreground: oklch(0.145 0 0);
+    --shadcn-ui-primary: oklch(0.205 0 0);
+    --shadcn-ui-primary-foreground: oklch(0.985 0 0);
+    --shadcn-ui-secondary: oklch(0.97 0 0);
+    --shadcn-ui-secondary-foreground: oklch(0.205 0 0);
+    --shadcn-ui-muted: oklch(0.97 0 0);
+    --shadcn-ui-muted-foreground: oklch(0.556 0 0);
+    --shadcn-ui-accent: oklch(0.97 0 0);
+    --shadcn-ui-accent-foreground: oklch(0.205 0 0);
+    --shadcn-ui-destructive: oklch(0.577 0.245 27.325);
+    --shadcn-ui-destructive-foreground: oklch(1 0 0);
+    --shadcn-ui-border: oklch(0.922 0 0);
+    --shadcn-ui-input: oklch(0.922 0 0);
+    --shadcn-ui-ring: oklch(0.708 0 0);
+  }
+
+  [data-shadcn-theme="dark"] {
+    --shadcn-ui-background: oklch(0.145 0 0);
+    --shadcn-ui-foreground: oklch(0.985 0 0);
+    --shadcn-ui-card: oklch(0.205 0 0);
+    --shadcn-ui-card-foreground: oklch(0.985 0 0);
+    --shadcn-ui-popover: oklch(0.205 0 0);
+    --shadcn-ui-popover-foreground: oklch(0.985 0 0);
+    --shadcn-ui-primary: oklch(0.922 0 0);
+    --shadcn-ui-primary-foreground: oklch(0.205 0 0);
+    --shadcn-ui-secondary: oklch(0.269 0 0);
+    --shadcn-ui-secondary-foreground: oklch(0.985 0 0);
+    --shadcn-ui-muted: oklch(0.269 0 0);
+    --shadcn-ui-muted-foreground: oklch(0.708 0 0);
+    --shadcn-ui-accent: oklch(0.269 0 0);
+    --shadcn-ui-accent-foreground: oklch(0.985 0 0);
+    --shadcn-ui-destructive: oklch(0.704 0.191 22.216);
+    --shadcn-ui-destructive-foreground: oklch(1 0 0);
+    --shadcn-ui-border: oklch(1 0 0 / 15%);
+    --shadcn-ui-input: oklch(1 0 0 / 15%);
+    --shadcn-ui-ring: oklch(0.556 0 0);
+  }
+}
+
+@theme inline {
+  --color-background: var(--shadcn-ui-background);
+  --color-foreground: var(--shadcn-ui-foreground);
+  --color-card: var(--shadcn-ui-card);
+  --color-card-foreground: var(--shadcn-ui-card-foreground);
+  --color-popover: var(--shadcn-ui-popover);
+  --color-popover-foreground: var(--shadcn-ui-popover-foreground);
+  --color-primary: var(--shadcn-ui-primary);
+  --color-primary-foreground: var(--shadcn-ui-primary-foreground);
+  --color-secondary: var(--shadcn-ui-secondary);
+  --color-secondary-foreground: var(--shadcn-ui-secondary-foreground);
+  --color-muted: var(--shadcn-ui-muted);
+  --color-muted-foreground: var(--shadcn-ui-muted-foreground);
+  --color-accent: var(--shadcn-ui-accent);
+  --color-accent-foreground: var(--shadcn-ui-accent-foreground);
+  --color-destructive: var(--shadcn-ui-destructive);
+  --color-destructive-foreground: var(--shadcn-ui-destructive-foreground);
+  --color-border: var(--shadcn-ui-border);
+  --color-input: var(--shadcn-ui-input);
+  --color-ring: var(--shadcn-ui-ring);
+  --radius-sm: var(--shadcn-ui-radius-sm);
+  --radius-md: var(--shadcn-ui-radius-md);
+  --radius-lg: var(--shadcn-ui-radius-lg);
+  --radius-xl: var(--shadcn-ui-radius-xl);
+  --default-transition-duration: var(--shadcn-ui-motion-normal);
+  --default-transition-timing-function: var(--shadcn-ui-ease-standard);
+}
+
 /*
  * ShadcnUI intentionally excludes Tailwind Preflight. This bounded foundation
  * applies only to elements that explicitly opt into the component namespace.
@@ -19,5 +149,19 @@
 
   [data-shadcn-ui][hidden] {
     display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-shadcn-ui],
+  [data-shadcn-ui]::before,
+  [data-shadcn-ui]::after,
+  [data-shadcn-ui] *,
+  [data-shadcn-ui] *::before,
+  [data-shadcn-ui] *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

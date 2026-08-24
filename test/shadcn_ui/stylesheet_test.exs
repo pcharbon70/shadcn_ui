@@ -67,4 +67,59 @@ defmodule ShadcnUI.StylesheetTest do
     assert consumer =~ ~s(href="shadcn_ui.css")
     refute consumer =~ ~r/<script|node_modules|tailwind/i
   end
+
+  test "defines complete namespaced light defaults and scoped dark values" do
+    source = File.read!(@source)
+
+    for token <- ~w(
+      background foreground card card-foreground popover popover-foreground
+      primary primary-foreground secondary secondary-foreground muted
+      muted-foreground accent accent-foreground destructive
+      destructive-foreground border input ring radius-sm radius-md radius-lg
+      radius-xl motion-fast motion-normal motion-slow ease-standard
+    ) do
+      assert source =~ "--shadcn-ui-#{token}:"
+    end
+
+    assert source =~ ~s([data-shadcn-theme="light"])
+    assert source =~ ~s([data-shadcn-theme="dark"])
+    refute source =~ ".dark"
+    refute source =~ "color-scheme:"
+    refute source =~ ~r/--(?:background|foreground|primary|ring):/
+  end
+
+  test "maps semantic tokens through a progressive color enhancement" do
+    source = File.read!(@source)
+    css = File.read!(@stylesheet)
+
+    assert source =~ "@supports (color: oklch(1 0 0))"
+    assert source =~ "--color-primary: var(--shadcn-ui-primary)"
+    assert source =~ "--color-ring: var(--shadcn-ui-ring)"
+    assert css =~ "var(--shadcn-ui-primary)"
+    assert css =~ "var(--shadcn-ui-ring)"
+    assert css =~ ".sui\\:bg-primary"
+  end
+
+  test "supports nested theme scopes and consumer token overrides" do
+    fixture = File.read!("test/fixtures/theme_scopes.html")
+
+    assert fixture =~ ~s(data-shadcn-theme="light")
+    assert fixture =~ ~s(data-shadcn-theme="dark")
+    assert fixture =~ ~s(data-shadcn-theme="unsupported")
+    assert fixture =~ "--shadcn-ui-primary: rebeccapurple"
+  end
+
+  test "provides visible focus and a scoped reduced-motion fallback" do
+    source = File.read!(@source)
+    css = File.read!(@stylesheet)
+    focus = ShadcnUI.Component.classes_for(:focus, :default)
+
+    assert "sui:focus-visible:outline-2" in focus
+    assert "sui:focus-visible:ring-2" in focus
+    assert "sui:focus-visible:outline-ring" in focus
+    assert source =~ "@media (prefers-reduced-motion: reduce)"
+    assert source =~ "animation-duration: 0.01ms !important"
+    assert source =~ "transition-duration: 0.01ms !important"
+    assert css =~ "prefers-reduced-motion:reduce"
+  end
 end

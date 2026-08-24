@@ -48,6 +48,20 @@ uses the fixed `sui` prefix, excludes unrestricted Preflight, and emits one
 minified `priv/static/shadcn_ui.css` artifact. Milestone A ships no component
 JavaScript.
 
+### Themes and progressive baseline
+
+Light tokens are the safe default. Place `data-shadcn-theme="dark"` or
+`data-shadcn-theme="light"` on the document or a component ancestor to create an
+explicit scope. Missing and unsupported values inherit the light defaults.
+Consumers may override documented `--shadcn-ui-*` properties in any narrower
+scope without rebuilding the stylesheet.
+
+The stylesheet provides an sRGB baseline and uses OKLCH only behind a feature
+query. Native meaning and content remain the acceptance floor when optional CSS
+is unavailable. Focus uses visible outline and ring geometry, and
+`prefers-reduced-motion` shortens nonessential animation and transition timing
+without hiding state or content.
+
 ## Component contract
 
 Components use closed atom or string values declared through

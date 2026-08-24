@@ -31,10 +31,13 @@ defmodule ShadcnUI.Component do
     },
     focus: %{
       default: [
-        "sui:outline-none",
+        "sui:focus-visible:outline-2",
+        "sui:focus-visible:outline-offset-2",
+        "sui:focus-visible:outline-ring",
         "sui:focus-visible:ring-2",
         "sui:focus-visible:ring-ring",
-        "sui:focus-visible:ring-offset-2"
+        "sui:focus-visible:ring-offset-2",
+        "sui:focus-visible:ring-offset-background"
       ]
     },
     disabled: %{

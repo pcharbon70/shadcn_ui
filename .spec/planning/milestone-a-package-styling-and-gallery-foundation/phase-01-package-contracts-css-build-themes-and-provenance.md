@@ -85,29 +85,29 @@ Back to wave: [README](./README.md)
       - [x] 1.3.2.3 Subtask - Add a mixed BulmaUI/ShadcnUI fixture proving common native elements and Bulma classes are not globally restyled.
       - [x] 1.3.2.4 Subtask - Prove a consumer fixture renders correctly using only the compiled artifact and no Node installation in its build path.
 
-  - [ ] 1.4 Section - Semantic tokens, themes, and motion baseline.
+  - [x] 1.4 Section - Semantic tokens, themes, and motion baseline.
 
     This section supplies the namespaced shadcn-style design vocabulary shared
     by all Milestone A component classes.
 
-    - [ ] 1.4.1 Task - Implement light and dark semantic tokens.
+    - [x] 1.4.1 Task - Implement light and dark semantic tokens.
 
       The token layer should cover required semantic roles without leaking
       generic variable names or global color-mode selectors.
 
-      - [ ] 1.4.1.1 Subtask - Define complete light `--shadcn-ui-*` surface, foreground, card, popover, primary, secondary, muted, accent, destructive, border, input, ring, radius, and timing tokens.
-      - [ ] 1.4.1.2 Subtask - Define paired dark values only beneath `[data-shadcn-theme="dark"]` and explicit light values beneath `[data-shadcn-theme="light"]`.
-      - [ ] 1.4.1.3 Subtask - Map prefixed Tailwind theme variables to public semantic tokens and avoid hard-coded theme colors in component utilities.
-      - [ ] 1.4.1.4 Subtask - Test missing and invalid theme values, nested consumer overrides, foreground pairing, and mixed design-system pages.
+      - [x] 1.4.1.1 Subtask - Define complete light `--shadcn-ui-*` surface, foreground, card, popover, primary, secondary, muted, accent, destructive, border, input, ring, radius, and timing tokens.
+      - [x] 1.4.1.2 Subtask - Define paired dark values only beneath `[data-shadcn-theme="dark"]` and explicit light values beneath `[data-shadcn-theme="light"]`.
+      - [x] 1.4.1.3 Subtask - Map prefixed Tailwind theme variables to public semantic tokens and avoid hard-coded theme colors in component utilities.
+      - [x] 1.4.1.4 Subtask - Test missing and invalid theme values, nested consumer overrides, foreground pairing, and mixed design-system pages.
 
-    - [ ] 1.4.2 Task - Implement the progressive and reduced-motion floor.
+    - [x] 1.4.2 Task - Implement the progressive and reduced-motion floor.
 
       Shared CSS should retain content, state, and focus when enhancement or
       motion is unavailable.
 
-      - [ ] 1.4.2.1 Subtask - Add consistent visible focus treatment that does not depend on color theme alone.
-      - [ ] 1.4.2.2 Subtask - Add `prefers-reduced-motion` treatment for all current and reserved Milestone A transitions and animations.
-      - [ ] 1.4.2.3 Subtask - Document the semantic baseline, enhancement, and fallback vocabulary used by component pages and future specs.
+      - [x] 1.4.2.1 Subtask - Add consistent visible focus treatment that does not depend on color theme alone.
+      - [x] 1.4.2.2 Subtask - Add `prefers-reduced-motion` treatment for all current and reserved Milestone A transitions and animations.
+      - [x] 1.4.2.3 Subtask - Document the semantic baseline, enhancement, and fallback vocabulary used by component pages and future specs.
 
   - [ ] 1.5 Section - Upstream provenance and legal boundary.
 

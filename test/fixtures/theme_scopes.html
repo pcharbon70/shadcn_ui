@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <section data-shadcn-theme="light">
+      <div data-shadcn-ui>Explicit light</div>
+    </section>
+    <section data-shadcn-theme="dark">
+      <div data-shadcn-ui>Explicit dark</div>
+      <div style="--shadcn-ui-primary: rebeccapurple">
+        <button data-shadcn-ui class="sui:bg-primary">Consumer override</button>
+      </div>
+      <section data-shadcn-theme="light">
+        <div data-shadcn-ui>Nested explicit light</div>
+      </section>
+    </section>
+    <section data-shadcn-theme="unsupported">
+      <div data-shadcn-ui>Invalid values inherit light defaults</div>
+    </section>
+  </body>
+</html>
