@@ -152,6 +152,17 @@
   }
 }
 
+/* Stable native fallback; capable browsers may opt into content sizing below. */
+[data-shadcn-ui-textarea] {
+  min-height: 6rem;
+}
+
+@supports (field-sizing: content) {
+  [data-shadcn-ui-textarea][data-sizing="content"] {
+    field-sizing: content;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-shadcn-ui],
   [data-shadcn-ui]::before,
@@ -199,6 +210,14 @@
   }
 
   [data-shadcn-ui-input][readonly] {
+    border-style: dashed;
+  }
+
+  [data-shadcn-ui-textarea][aria-invalid="true"] {
+    border-color: Mark;
+  }
+
+  [data-shadcn-ui-textarea][readonly] {
     border-style: dashed;
   }
 }

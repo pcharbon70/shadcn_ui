@@ -23,7 +23,8 @@ defmodule ShadcnUI do
     ShadcnUI.Components.Forms.FieldErrors,
     ShadcnUI.Components.Forms.Help,
     ShadcnUI.Components.Forms.Input,
-    ShadcnUI.Components.Forms.Label
+    ShadcnUI.Components.Forms.Label,
+    ShadcnUI.Components.Forms.Textarea
   ]
 
   @doc """

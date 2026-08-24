@@ -29,3 +29,5 @@ All notable changes to ShadcnUI will be documented in this file.
   contract plus Field, Label, Help, Field Errors, and Error Summary primitives.
 - Add the native text-like Input component with closed types, native constraints,
   optional presentational regions, and caller-owned pending state.
+- Add the native Textarea component with closed resize policies, escaped content,
+  and capability-gated CSS content sizing over a stable native fallback.

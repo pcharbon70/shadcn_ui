@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 2.1.2.3 Subtask - Add optional leading and trailing decorative or trusted HEEX regions without obscuring the label, value, focus ring, or pointer target.
       - [x] 2.1.2.4 Subtask - Keep pending presentation independent from disabled state, validation, value mutation, submission, and duplicate prevention.
 
-  - [ ] 2.2 Section - Textarea foundation and sizing fallback.
+  - [x] 2.2 Section - Textarea foundation and sizing fallback.
 
     This section adds multiline entry with escaped element content and a clearly
     separated native fallback and platform enhancement.
 
-    - [ ] 2.2.1 Task - Implement native Textarea rendering.
+    - [x] 2.2.1 Task - Implement native Textarea rendering.
 
       Textarea should share Input's field relationships while respecting the
       distinct native rule that its value is element content.
 
-      - [ ] 2.2.1.1 Subtask - Resolve FormField and explicit identity, value, and errors through the shared normalizer.
-      - [ ] 2.2.1.2 Subtask - Render the normalized value as escaped textarea content rather than a conflicting `value` attribute.
-      - [ ] 2.2.1.3 Subtask - Support documented rows, cols, minlength, maxlength, placeholder, autocomplete, required, disabled, readonly, and form attributes.
-      - [ ] 2.2.1.4 Subtask - Add closed vertical, horizontal, both, and fixed resize policies without auto-grow script or measurement state.
+      - [x] 2.2.1.1 Subtask - Resolve FormField and explicit identity, value, and errors through the shared normalizer.
+      - [x] 2.2.1.2 Subtask - Render the normalized value as escaped textarea content rather than a conflicting `value` attribute.
+      - [x] 2.2.1.3 Subtask - Support documented rows, cols, minlength, maxlength, placeholder, autocomplete, required, disabled, readonly, and form attributes.
+      - [x] 2.2.1.4 Subtask - Add closed vertical, horizontal, both, and fixed resize policies without auto-grow script or measurement state.
 
-    - [ ] 2.2.2 Task - Implement progressive content sizing.
+    - [x] 2.2.2 Task - Implement progressive content sizing.
 
       Content sizing should improve capable browsers while leaving a stable
       fixed-size control everywhere else.
 
-      - [ ] 2.2.2.1 Subtask - Define a usable minimum-height and documented resize fallback outside every feature query.
-      - [ ] 2.2.2.2 Subtask - Apply `field-sizing: content` only inside a capability query and only for the explicit enhancement value.
-      - [ ] 2.2.2.3 Subtask - Verify long, empty, multiline, translated, and constrained values do not collapse, overflow essential content, or hide focus.
-      - [ ] 2.2.2.4 Subtask - Document the difference between native resize policy, content-sizing enhancement, and caller-owned dynamic behavior.
+      - [x] 2.2.2.1 Subtask - Define a usable minimum-height and documented resize fallback outside every feature query.
+      - [x] 2.2.2.2 Subtask - Apply `field-sizing: content` only inside a capability query and only for the explicit enhancement value.
+      - [x] 2.2.2.3 Subtask - Verify long, empty, multiline, translated, and constrained values do not collapse, overflow essential content, or hide focus.
+      - [x] 2.2.2.4 Subtask - Document the difference between native resize policy, content-sizing enhancement, and caller-owned dynamic behavior.
 
   - [ ] 2.3 Section - Phase 2 Integration Tests.
 

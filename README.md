@@ -254,6 +254,31 @@ behavior.
 value, validates, submits, or prevents duplicate requests. Leading and trailing
 slots are presentational regions and do not replace the native value or label.
 
+### Textarea
+
+Textarea composes the same field relationships around a native `textarea` and
+renders the normalized value as escaped element content. Resize policy is a
+closed choice of `:vertical`, `:horizontal`, `:both`, or `:fixed`.
+
+```heex
+<.textarea
+  field={@form[:biography]}
+  rows={5}
+  maxlength={1_000}
+  resize={:vertical}
+  sizing={:content}
+>
+  <:label>Biography</:label>
+  <:help>Briefly describe your role.</:help>
+</.textarea>
+```
+
+The default `sizing={:fixed}` uses the native box and resize behavior with a
+usable minimum height. `sizing={:content}` opts into `field-sizing: content`
+only in browsers that support it; the same fixed-size fallback remains
+otherwise. ShadcnUI provides no auto-grow script or measurement state. Any
+dynamic sizing policy beyond that CSS enhancement belongs to the application.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

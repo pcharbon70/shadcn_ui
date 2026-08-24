@@ -57,6 +57,12 @@
       "localChanges": "Adapt native input presentation into a closed HEEX text-entry API with shared FormField relationships and caller-owned lifecycle."
     },
     {
+      "id": "forms.textarea",
+      "localPaths": ["lib/shadcn_ui/components/forms/textarea.ex"],
+      "upstreamPaths": ["src/content/components/textarea.mdx", "src/demos/textarea/basic.html"],
+      "localChanges": "Adapt native textarea presentation into a relationship-aware HEEX API with closed resize policy and progressive CSS content sizing."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],
