@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   useful local and online reference with one page per component, verified themes
   and fallbacks, reproducible assets, and release-readiness evidence.
 
-  - [ ] 5.1 Section - Controller-rendered gallery application and assets.
+  - [x] 5.1 Section - Controller-rendered gallery application and assets.
 
     This section creates the real Phoenix consumer and its deterministic local
     asset workflow without adding an application framework to ShadcnUI.
 
-    - [ ] 5.1.1 Task - Scaffold the separate Phoenix demo application.
+    - [x] 5.1.1 Task - Scaffold the separate Phoenix demo application.
 
       The demo should depend on ShadcnUI through the public path interface and
       use ordinary controller-rendered HEEX only.
 
-      - [ ] 5.1.1.1 Subtask - Generate `demo` as a minimal Phoenix 1.8 application with path dependency `{:shadcn_ui, path: ".."}` and no Ecto.
-      - [ ] 5.1.1.2 Subtask - Remove or prohibit LiveView routes, sockets, hooks, processes, state synchronization, Dstar, Datastar, Ash, authentication, and Electron integration.
-      - [ ] 5.1.1.3 Subtask - Add boundary tests that inspect demo dependencies, routes, configuration, sources, and the package release allowlist.
-      - [ ] 5.1.1.4 Subtask - Keep installed dependencies, build output, logs, generated assets, and exported pages ignored.
+      - [x] 5.1.1.1 Subtask - Generate `demo` as a minimal Phoenix 1.8 application with path dependency `{:shadcn_ui, path: ".."}` and no Ecto.
+      - [x] 5.1.1.2 Subtask - Remove or prohibit LiveView routes, sockets, hooks, processes, state synchronization, Dstar, Datastar, Ash, authentication, and Electron integration.
+      - [x] 5.1.1.3 Subtask - Add boundary tests that inspect demo dependencies, routes, configuration, sources, and the package release allowlist.
+      - [x] 5.1.1.4 Subtask - Keep installed dependencies, build output, logs, generated assets, and exported pages ignored.
 
-    - [ ] 5.1.2 Task - Build deterministic local gallery assets.
+    - [x] 5.1.2 Task - Build deterministic local gallery assets.
 
       The gallery should load the committed package stylesheet and bounded
       consumer-shell assets without remote runtime resources.
 
-      - [ ] 5.1.2.1 Subtask - Add locked demo asset dependencies and a build that copies or fingerprints `ShadcnUI.stylesheet_path/0` output plus demo-only shell CSS and script.
-      - [ ] 5.1.2.2 Subtask - Add a local system-font policy and reject remote imports, fonts, scripts, images, analytics, and runtime URLs.
-      - [ ] 5.1.2.3 Subtask - Keep optional theme persistence and source-copy behavior in one explicit demo-only module that implements no component behavior.
-      - [ ] 5.1.2.4 Subtask - Add clean locked-build and generated-hash verification.
+      - [x] 5.1.2.1 Subtask - Add locked demo asset dependencies and a build that copies or fingerprints `ShadcnUI.stylesheet_path/0` output plus demo-only shell CSS and script.
+      - [x] 5.1.2.2 Subtask - Add a local system-font policy and reject remote imports, fonts, scripts, images, analytics, and runtime URLs.
+      - [x] 5.1.2.3 Subtask - Keep optional theme persistence and source-copy behavior in one explicit demo-only module that implements no component behavior.
+      - [x] 5.1.2.4 Subtask - Add clean locked-build and generated-hash verification.
 
   - [ ] 5.2 Section - Closed catalogue, routes, and semantic shell.
 

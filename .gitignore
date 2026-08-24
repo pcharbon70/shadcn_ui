@@ -16,6 +16,11 @@
 # Temporary files, for example, from tests.
 /tmp/
 /priv/static/.shadcn_ui-*.css
+/demo/export/
+/demo/priv/static/assets/gallery-*.css
+/demo/priv/static/assets/gallery-*.js
+/demo/priv/static/assets/shadcn-*.css
+/demo/priv/static/assets/manifest.json
 
 # If the VM crashes, it generates a dump, let's ignore it too.
 erl_crash.dump

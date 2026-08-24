@@ -1,0 +1,9 @@
+{
+  "name": "@leco/shadcn-ui-gallery",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "assets:build": "node scripts/build-assets.mjs",
+    "assets:check": "node scripts/check-assets.mjs"
+  }
+}
