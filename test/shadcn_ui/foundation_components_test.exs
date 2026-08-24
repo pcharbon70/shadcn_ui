@@ -4,7 +4,9 @@ defmodule ShadcnUI.FoundationComponentsTest do
   alias Phoenix.HTML.Safe
 
   # covers: shadcn_ui.foundation.button shadcn_ui.foundation.button_content
-  # covers: shadcn_ui.foundation.badge shadcn_ui.foundation.shared_contract
+  # covers: shadcn_ui.foundation.badge shadcn_ui.foundation.alert
+  # covers: shadcn_ui.foundation.alert_ownership shadcn_ui.foundation.card
+  # covers: shadcn_ui.foundation.shared_contract
 
   @button_variants [:default, :secondary, :destructive, :outline, :ghost, :link]
   @button_sizes [:small, :default, :large, :icon]

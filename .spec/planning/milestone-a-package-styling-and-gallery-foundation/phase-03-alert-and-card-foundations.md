@@ -64,14 +64,24 @@ Back to wave: [README](./README.md)
     This section proves Alert and Card composition through public HEEX and the
     shared stylesheet without semantic or behavior leakage.
 
-    - [ ] 3.3.1 Task - Run feedback-and-surface rendering integration tests.
+    Verification note (2026-08-24): public rendering, semantic composition,
+    long-content, narrow-width, light/dark theme, forced-colors, reduced-motion,
+    deterministic asset, package precommit, and SpecLed index/validation checks
+    pass. Browser-only keyboard, zoom, and rendered accessibility checks remain
+    pending because the Codex in-app browser could not initialize its local
+    runtime assets. `mix spec.check --base main` also remains pending because
+    Windows Erlang rejects SpecLed's Git-shell port launch with `:einval`; its
+    underlying `mix precommit`, `mix spec.index`, and `mix spec.validate`
+    commands pass when run directly.
+
+    - [x] 3.3.1 Task - Run feedback-and-surface rendering integration tests.
 
       Representative compositions should combine both components with Phase 2
       primitives while retaining explicit ownership and accessibility state.
 
-      - [ ] 3.3.1.1 Subtask - Render default and destructive alerts inside sparse and dense cards with caller Button and Badge content.
-      - [ ] 3.3.1.2 Subtask - Assert announcement policy, headings, slot order, nested native semantics, globals, escaping, and application-boundary text.
-      - [ ] 3.3.1.3 Subtask - Audit both modules for event handling, implicit workflows, arbitrary utilities, and raw HTML.
+      - [x] 3.3.1.1 Subtask - Render default and destructive alerts inside sparse and dense cards with caller Button and Badge content.
+      - [x] 3.3.1.2 Subtask - Assert announcement policy, headings, slot order, nested native semantics, globals, escaping, and application-boundary text.
+      - [x] 3.3.1.3 Subtask - Audit both modules for event handling, implicit workflows, arbitrary utilities, and raw HTML.
 
     - [ ] 3.3.2 Task - Run feedback-and-surface browser and asset integration tests.
 
@@ -79,5 +89,5 @@ Back to wave: [README](./README.md)
       themes, content stress, and isolated styles.
 
       - [ ] 3.3.2.1 Subtask - Exercise light/dark rendering, keyboard focus through card actions, long descriptions, narrow widths, zoom, forced colors, and reduced motion.
-      - [ ] 3.3.2.2 Subtask - Rebuild the stylesheet and verify all Alert and Card classes and tokens are present and deterministic.
+      - [x] 3.3.2.2 Subtask - Rebuild the stylesheet and verify all Alert and Card classes and tokens are present and deterministic.
       - [ ] 3.3.2.3 Subtask - Run `mix precommit`, the Phase 3 integration suite, `mix spec.check --base main`, and `git diff --check`.
