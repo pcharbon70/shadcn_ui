@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   Its outcome is a tested private normalizer and public field primitives that
   render deterministic relationships without owning a form lifecycle.
 
-  - [ ] 1.1 Section - FormField normalization and validation ownership.
+  - [x] 1.1 Section - FormField normalization and validation ownership.
 
     This section creates a single private boundary for resolving explicit and
     Phoenix form data, error visibility, translation, and presentation state.
 
-    - [ ] 1.1.1 Task - Implement normalized field identity and value data.
+    - [x] 1.1.1 Task - Implement normalized field identity and value data.
 
       The normalizer should give every applicable control the same precedence,
       failure, escaping, and stable-identity behavior.
 
-      - [ ] 1.1.1.1 Subtask - Accept `Phoenix.HTML.FormField` or explicit ID, name, value, and error inputs with documented explicit-over-derived precedence.
-      - [ ] 1.1.1.2 Subtask - Require nonblank normalized IDs and names for submitted visible controls and reject contradictory identity.
-      - [ ] 1.1.1.3 Subtask - Keep normalized values as caller data suitable for native markup without mutating forms, changesets, or parameter maps.
-      - [ ] 1.1.1.4 Subtask - Add shared fixtures proving atom-count stability, deterministic output, escaping, and server-rerender identity.
+      - [x] 1.1.1.1 Subtask - Accept `Phoenix.HTML.FormField` or explicit ID, name, value, and error inputs with documented explicit-over-derived precedence.
+      - [x] 1.1.1.2 Subtask - Require nonblank normalized IDs and names for submitted visible controls and reject contradictory identity.
+      - [x] 1.1.1.3 Subtask - Keep normalized values as caller data suitable for native markup without mutating forms, changesets, or parameter maps.
+      - [x] 1.1.1.4 Subtask - Add shared fixtures proving atom-count stability, deterministic output, escaping, and server-rerender identity.
 
-    - [ ] 1.1.2 Task - Implement caller-owned error and pending policy.
+    - [x] 1.1.2 Task - Implement caller-owned error and pending policy.
 
       Error and pending inputs should describe one render snapshot without
       creating translation, validation, authorization, or request behavior.
 
-      - [ ] 1.1.2.1 Subtask - Add closed used-input, always, and hidden error modes with no inferred submission state.
-      - [ ] 1.1.2.2 Subtask - Support escaped explicit strings and raw FormField tuples through a caller translator or deterministic placeholder interpolation.
-      - [ ] 1.1.2.3 Subtask - Add presentation-only pending normalization that never disables a control or prevents submission automatically.
-      - [ ] 1.1.2.4 Subtask - Test that invalid and pending snapshots execute no validation, persistence, authorization, event, or application operation.
+      - [x] 1.1.2.1 Subtask - Add closed used-input, always, and hidden error modes with no inferred submission state.
+      - [x] 1.1.2.2 Subtask - Support escaped explicit strings and raw FormField tuples through a caller translator or deterministic placeholder interpolation.
+      - [x] 1.1.2.3 Subtask - Add presentation-only pending normalization that never disables a control or prevents submission automatically.
+      - [x] 1.1.2.4 Subtask - Test that invalid and pending snapshots execute no validation, persistence, authorization, event, or application operation.
 
   - [ ] 1.2 Section - Deterministic relationship context.
 
