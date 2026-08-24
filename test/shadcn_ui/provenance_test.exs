@@ -72,6 +72,21 @@ defmodule ShadcnUI.ProvenanceTest do
     end
   end
 
+  test "maps Button to the exact reviewed component and variant sources" do
+    button =
+      Enum.find(manifest()["adaptations"], &(&1["id"] == "foundation.button"))
+
+    assert button["localPaths"] == ["lib/shadcn_ui/components/foundation/button.ex"]
+
+    assert button["upstreamPaths"] == [
+             "src/content/components/button.mdx",
+             "src/demos/button/variants.html"
+           ]
+
+    assert button["localChanges"] =~ "native HEEX button semantics"
+    assert button["localChanges"] =~ "caller-owned activation"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)

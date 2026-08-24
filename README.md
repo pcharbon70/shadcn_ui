@@ -83,6 +83,24 @@ pass through unless they conflict with a component's required native or
 accessibility semantics. Rendered state is a snapshot; applications continue to
 own lifecycle, commands, navigation, and outcomes.
 
+### Button
+
+Button renders one native `button` with `button`, `submit`, and `reset` types;
+`default`, `secondary`, `destructive`, `outline`, `ghost`, and `link` variants;
+and `small`, `default`, `large`, and `icon` sizes. Icon-only presentation
+requires a nonblank `accessible_label`. Optional `leading` and `trailing` slots
+accept trusted HEEX around the required primary content.
+
+```heex
+<.button type="submit" variant={:default}>
+  Save changes
+</.button>
+```
+
+`loading` is a busy presentation snapshot. It does not disable the native
+button, prevent duplicate submission, authorize a command, or manage a request;
+the consuming application owns all of those outcomes.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

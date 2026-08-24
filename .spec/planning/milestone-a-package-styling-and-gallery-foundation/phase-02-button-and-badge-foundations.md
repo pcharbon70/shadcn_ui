@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   component APIs without hiding native button behavior or turning passive labels
   into controls.
 
-  - [ ] 2.1 Section - Button component.
+  - [x] 2.1 Section - Button component.
 
     This section implements the native action primitive with explicit variants,
     sizes, content regions, and caller-owned activation.
 
-    - [ ] 2.1.1 Task - Define the Button public API and semantic markup.
+    - [x] 2.1.1 Task - Define the Button public API and semantic markup.
 
       Button should preserve native submission and disabled behavior while
       exposing only the shadcn-style choices the package can guarantee.
 
-      - [ ] 2.1.1.1 Subtask - Declare required content, button/submit/reset type, default/secondary/destructive/outline/ghost/link variant, small/default/large/icon size, disabled, loading presentation, accessible label, class, and supported global attributes.
-      - [ ] 2.1.1.2 Subtask - Add optional leading and trailing slots and prevent empty icon-only buttons by requiring a nonblank accessible label.
-      - [ ] 2.1.1.3 Subtask - Render native `disabled` when requested and keep loading presentation separate from caller-owned duplicate-submission prevention.
-      - [ ] 2.1.1.4 Subtask - Protect type, disabled state, and icon-only accessible naming from conflicting caller globals.
+      - [x] 2.1.1.1 Subtask - Declare required content, button/submit/reset type, default/secondary/destructive/outline/ghost/link variant, small/default/large/icon size, disabled, loading presentation, accessible label, class, and supported global attributes.
+      - [x] 2.1.1.2 Subtask - Add optional leading and trailing slots and prevent empty icon-only buttons by requiring a nonblank accessible label.
+      - [x] 2.1.1.3 Subtask - Render native `disabled` when requested and keep loading presentation separate from caller-owned duplicate-submission prevention.
+      - [x] 2.1.1.4 Subtask - Protect type, disabled state, and icon-only accessible naming from conflicting caller globals.
 
-    - [ ] 2.1.2 Task - Implement Button presentation and tests.
+    - [x] 2.1.2 Task - Implement Button presentation and tests.
 
       Fixed `sui`-prefixed class mappings should cover every public combination
       and use semantic tokens rather than theme-specific colors.
 
-      - [ ] 2.1.2.1 Subtask - Implement base layout, focus, disabled, loading, six variant, and four size class mappings.
-      - [ ] 2.1.2.2 Subtask - Test every type, variant, size, state, slot, caller class, global attribute, escaped label, and protected semantic outcome.
-      - [ ] 2.1.2.3 Subtask - Test that Button emits no event handler, request, command authorization, state transition, or JavaScript dependency.
-      - [ ] 2.1.2.4 Subtask - Add provenance coverage for the adapted upstream Button markup.
+      - [x] 2.1.2.1 Subtask - Implement base layout, focus, disabled, loading, six variant, and four size class mappings.
+      - [x] 2.1.2.2 Subtask - Test every type, variant, size, state, slot, caller class, global attribute, escaped label, and protected semantic outcome.
+      - [x] 2.1.2.3 Subtask - Test that Button emits no event handler, request, command authorization, state transition, or JavaScript dependency.
+      - [x] 2.1.2.4 Subtask - Add provenance coverage for the adapted upstream Button markup.
 
   - [ ] 2.2 Section - Badge component.
 

@@ -82,12 +82,16 @@ defmodule ShadcnUI.Component do
   @spec protect_globals(map(), [atom() | String.t()]) :: map()
   def protect_globals(globals, protected) when is_map(globals) and is_list(protected) do
     protected_keys =
-      Enum.flat_map(protected, fn key ->
+      protected
+      |> Enum.flat_map(fn key ->
         string_key = to_string(key)
-        [key, string_key, String.replace(string_key, "_", "-")]
+        [string_key, String.replace(string_key, "_", "-")]
       end)
+      |> MapSet.new()
 
-    Map.drop(globals, protected_keys)
+    Map.reject(globals, fn {key, _value} ->
+      MapSet.member?(protected_keys, to_string(key))
+    end)
   end
 
   defp normalize_class(nil), do: []
