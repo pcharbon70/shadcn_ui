@@ -1,6 +1,13 @@
 defmodule ShadcnUI.PackageTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.package.independent_mix_project
+  # covers: shadcn_ui.package.heex_infrastructure_only
+  # covers: shadcn_ui.package.transport_neutral
+  # covers: shadcn_ui.package.public_import_surface
+  # covers: shadcn_ui.package.explicit_release_files
+  # covers: shadcn_ui.package.no_consumer_asset_toolchain
+
   defmodule ConsumerFixture do
     use ShadcnUI
   end
@@ -51,7 +58,12 @@ defmodule ShadcnUI.PackageTest do
   end
 
   test "uses an explicit package release allowlist" do
-    assert Mix.Project.config()[:package][:files] == [
+    package = Mix.Project.config()[:package]
+
+    assert package[:licenses] == ["LicenseRef-LECO-Proprietary"]
+    assert package[:links] == %{"GitHub" => "https://github.com/Leco-Industries-Inc/leco_apps"}
+
+    assert package[:files] == [
              "lib",
              "priv/static/shadcn_ui.css",
              "priv/provenance",

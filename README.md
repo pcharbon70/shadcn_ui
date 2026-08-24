@@ -38,6 +38,9 @@ or state synchronization. Applications own all behavior and transport choices.
 stylesheet. The consuming application owns copying, bundling, or serving that
 file. This internal `0.x` package is not yet published to Hex.
 
+The package metadata is proprietary and supports local archive verification;
+it does not configure or authorize publication to Hex.
+
 Contributors build the stylesheet with pinned package-local tooling:
 
 ```console

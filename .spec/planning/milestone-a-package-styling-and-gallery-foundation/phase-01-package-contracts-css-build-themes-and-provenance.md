@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 1 Phase - Establish the runtime boundary, public component infrastructure,
+- [x] 1 Phase - Establish the runtime boundary, public component infrastructure,
   isolated asset pipeline, token contract, and provenance evidence required by
   every Milestone A component.
 
@@ -132,26 +132,26 @@ Back to wave: [README](./README.md)
       - [x] 1.5.2.2 Subtask - Reject remote demo images, fonts, analytics, documentation scripts, and other site-only files from release contents.
       - [x] 1.5.2.3 Subtask - Document the explicit review workflow for adopting a later upstream revision.
 
-  - [ ] 1.6 Section - Phase 1 Integration Tests.
+  - [x] 1.6 Section - Phase 1 Integration Tests.
 
     This section proves the independent package, public HEEX boundary, compiled
     CSS, theme system, and provenance contract before components depend on them.
 
-    - [ ] 1.6.1 Task - Run package and component-foundation integration tests.
+    - [x] 1.6.1 Task - Run package and component-foundation integration tests.
 
       Tests should compile a real consumer fixture and audit dependency and
       release surfaces rather than relying on source descriptions alone.
 
-      - [ ] 1.6.1.1 Subtask - Compile a fixture using `use ShadcnUI` and assert public metadata, escaped content, globals, and deterministic classes.
-      - [ ] 1.6.1.2 Subtask - Audit runtime dependencies, source modules, release files, and absent application frameworks.
-      - [ ] 1.6.1.3 Subtask - Build an archive and verify only approved files and notices are included.
+      - [x] 1.6.1.1 Subtask - Compile a fixture using `use ShadcnUI` and assert public metadata, escaped content, globals, and deterministic classes.
+      - [x] 1.6.1.2 Subtask - Audit runtime dependencies, source modules, release files, and absent application frameworks.
+      - [x] 1.6.1.3 Subtask - Build an archive and verify only approved files and notices are included.
 
-    - [ ] 1.6.2 Task - Run CSS, theme, and provenance integration tests.
+    - [x] 1.6.2 Task - Run CSS, theme, and provenance integration tests.
 
       The tests should rebuild the artifact and prove isolation and attribution
       from a clean locked dependency state.
 
-      - [ ] 1.6.2.1 Subtask - Run locked npm installation, deterministic asset rebuild, byte comparison, prefix audit, reset audit, and remote-URL audit.
-      - [ ] 1.6.2.2 Subtask - Render light, dark, invalid-theme, reduced-motion, consumer-override, and BulmaUI coexistence fixtures.
-      - [ ] 1.6.2.3 Subtask - Validate provenance completeness, exact source pin, required MIT notice, and excluded site assets.
-      - [ ] 1.6.2.4 Subtask - Run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 1.6.2.1 Subtask - Run locked npm installation, deterministic asset rebuild, byte comparison, prefix audit, reset audit, and remote-URL audit.
+      - [x] 1.6.2.2 Subtask - Render light, dark, invalid-theme, reduced-motion, consumer-override, and BulmaUI coexistence fixtures.
+      - [x] 1.6.2.3 Subtask - Validate provenance completeness, exact source pin, required MIT notice, and excluded site assets.
+      - [x] 1.6.2.4 Subtask - Run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.

@@ -1,6 +1,11 @@
 defmodule ShadcnUI.ProvenanceTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.provenance.pinned_revision shadcn_ui.provenance.component_mapping
+  # covers: shadcn_ui.provenance.mit_notice shadcn_ui.provenance.no_upstream_runtime
+  # covers: shadcn_ui.provenance.site_assets_excluded
+  # covers: shadcn_ui.provenance.independent_identity
+
   @manifest_path "priv/provenance/unscripted_ui.json"
   @schema_path "priv/provenance/unscripted_ui.schema.json"
   @commit "bd8f403030c8d1f46804da6eda733fde7e908e63"

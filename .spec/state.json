@@ -92,27 +92,6 @@
   "findings": [
     {
       "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.component_contract",
-      "file": ".spec/specs/component_contract.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/component_contract_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.component_contract",
-      "file": ".spec/specs/component_contract.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/component_contract_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.component_contract",
-      "file": ".spec/specs/component_contract.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
-    },
-    {
-      "code": "surface_target_missing",
       "entity_id": "shadcn_ui.foundation_components",
       "file": ".spec/specs/foundation_components.spec.md",
       "level": "warning",
@@ -168,11 +147,74 @@
       "message": "Verification target file does not exist: test/shadcn_ui/foundation_components_test.exs"
     },
     {
-      "code": "verification_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.foundation_components",
       "file": ".spec/specs/foundation_components.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.alert"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.alert_ownership"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.avatar"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.avatar_stack"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.badge"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.button"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.button_content"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.card"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.shared_contract"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.foundation_components",
+      "file": ".spec/specs/foundation_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.foundation.skeleton"
     },
     {
       "code": "surface_target_missing",
@@ -180,13 +222,6 @@
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
       "message": "Surface entry does not exist: test/browser/milestone-a-gallery.spec.mjs"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.gallery",
-      "file": ".spec/specs/gallery.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
     },
     {
       "code": "verification_target_missing",
@@ -224,144 +259,102 @@
       "message": "Verification target file does not exist: test/browser/milestone-a-gallery.spec.mjs"
     },
     {
-      "code": "verification_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.gallery",
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.closed_catalog"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: THIRD_PARTY_NOTICES.md"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.component_guidance"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: package-lock.json"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.controller_rendered"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: package.json"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.demo_only_script"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: priv/static/shadcn_ui.css"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.deterministic_assets"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.excluded_from_package"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/package_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.no_application_frameworks"
     },
     {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.online_publication"
     },
     {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/package_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.safe_resolution"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.provenance",
-      "file": ".spec/specs/provenance.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: THIRD_PARTY_NOTICES.md"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.semantic_shell"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.provenance",
-      "file": ".spec/specs/provenance.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: priv/provenance/unscripted_ui.json"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.separate_application"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.provenance",
-      "file": ".spec/specs/provenance.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/provenance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.stable_routes"
     },
     {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.provenance",
-      "file": ".spec/specs/provenance.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.static_export"
     },
     {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.provenance",
-      "file": ".spec/specs/provenance.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/provenance_test.exs"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.stylesheet",
-      "file": ".spec/specs/stylesheet.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: package-lock.json"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.stylesheet",
-      "file": ".spec/specs/stylesheet.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: package.json"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.stylesheet",
-      "file": ".spec/specs/stylesheet.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: priv/static/shadcn_ui.css"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.stylesheet",
-      "file": ".spec/specs/stylesheet.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/stylesheet_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.stylesheet",
-      "file": ".spec/specs/stylesheet.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_a_acceptance_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.stylesheet",
-      "file": ".spec/specs/stylesheet.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/stylesheet_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.theme_matrix"
     }
   ],
   "index": {
@@ -1360,7 +1353,7 @@
     "decision_parse_errors": 0,
     "decisions": 7,
     "exceptions": 0,
-    "findings": 39,
+    "findings": 38,
     "requirements": 57,
     "scenarios": 0,
     "subjects": 6,
@@ -1484,7 +1477,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1495,7 +1488,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1506,7 +1499,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1517,7 +1510,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1528,7 +1521,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1539,7 +1532,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1550,7 +1543,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1561,7 +1554,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1572,7 +1565,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1583,7 +1576,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/component_contract_test.exs",
         "verification_index": 1
@@ -1594,7 +1587,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1605,7 +1598,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1616,7 +1609,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1627,7 +1620,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1638,7 +1631,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1649,7 +1642,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1660,7 +1653,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1671,7 +1664,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1682,7 +1675,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -1693,7 +1686,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -2584,7 +2577,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/package_test.exs",
         "verification_index": 1
@@ -2595,7 +2588,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/package_test.exs",
         "verification_index": 1
@@ -2606,7 +2599,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/package_test.exs",
         "verification_index": 1
@@ -2617,7 +2610,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/package_test.exs",
         "verification_index": 1
@@ -2628,7 +2621,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/package_test.exs",
         "verification_index": 1
@@ -2639,7 +2632,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/package_test.exs",
         "verification_index": 1
@@ -2650,7 +2643,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -2661,7 +2654,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -2672,7 +2665,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -2683,7 +2676,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -2694,7 +2687,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -2705,7 +2698,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -2716,7 +2709,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/provenance_test.exs",
         "verification_index": 0
@@ -2727,7 +2720,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/provenance_test.exs",
         "verification_index": 0
@@ -2738,7 +2731,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/provenance_test.exs",
         "verification_index": 0
@@ -2749,7 +2742,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/provenance_test.exs",
         "verification_index": 0
@@ -2760,7 +2753,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/provenance_test.exs",
         "verification_index": 0
@@ -2771,7 +2764,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/provenance_test.exs",
         "verification_index": 0
@@ -2782,7 +2775,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 1
@@ -2793,7 +2786,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 1
@@ -2804,7 +2797,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 1
@@ -2815,7 +2808,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 1
@@ -2826,7 +2819,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 1
@@ -2837,7 +2830,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.provenance",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 1
@@ -2958,7 +2951,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -2969,7 +2962,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -2980,7 +2973,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -2991,7 +2984,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -3002,7 +2995,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -3013,7 +3006,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -3024,7 +3017,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -3035,7 +3028,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -3046,7 +3039,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -3057,7 +3050,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -3068,7 +3061,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/stylesheet_test.exs",
         "verification_index": 1
@@ -3079,7 +3072,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -3090,7 +3083,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -3101,7 +3094,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -3112,7 +3105,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -3123,7 +3116,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -3134,7 +3127,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -3145,7 +3138,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
@@ -3154,9 +3147,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 162,
+      "claimed": 100,
       "executed": 0,
-      "linked": 0
+      "linked": 62
     },
     "threshold_failures": 0
   },

@@ -27,6 +27,10 @@ defmodule ShadcnUI.MixProject do
     ]
   end
 
+  def cli do
+    [preferred_envs: [precommit: :test, "spec.check": :test]]
+  end
+
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
@@ -55,6 +59,8 @@ defmodule ShadcnUI.MixProject do
 
   defp package do
     [
+      licenses: ["LicenseRef-LECO-Proprietary"],
+      links: %{"GitHub" => @source_url},
       files: [
         "lib",
         "priv/static/shadcn_ui.css",

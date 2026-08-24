@@ -1,6 +1,14 @@
 defmodule ShadcnUI.ComponentContractTest do
   use ExUnit.Case, async: false
 
+  # covers: shadcn_ui.component.stateless_heex shadcn_ui.component.closed_values
+  # covers: shadcn_ui.component.classes_and_globals shadcn_ui.component.slots
+  # covers: shadcn_ui.component.safe_content shadcn_ui.component.native_semantics
+  # covers: shadcn_ui.component.protected_accessibility
+  # covers: shadcn_ui.component.deterministic_identity
+  # covers: shadcn_ui.component.presentation_snapshot
+  # covers: shadcn_ui.component.progressive_floor
+
   alias Phoenix.HTML.Safe
   alias ShadcnUI.Component
 

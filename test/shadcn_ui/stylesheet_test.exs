@@ -1,6 +1,13 @@
 defmodule ShadcnUI.StylesheetTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.stylesheet.canonical_asset shadcn_ui.stylesheet.pinned_build
+  # covers: shadcn_ui.stylesheet.explicit_sources shadcn_ui.stylesheet.prefixed_isolation
+  # covers: shadcn_ui.stylesheet.semantic_tokens shadcn_ui.stylesheet.scoped_dark_theme
+  # covers: shadcn_ui.stylesheet.consumer_overrides shadcn_ui.stylesheet.asset_path
+  # covers: shadcn_ui.stylesheet.reduced_motion shadcn_ui.stylesheet.no_runtime_assets
+  # covers: shadcn_ui.stylesheet.reproducible_output
+
   @stylesheet Path.expand("../../priv/static/shadcn_ui.css", __DIR__)
   @source Path.expand("../../assets/shadcn_ui.css", __DIR__)
 
