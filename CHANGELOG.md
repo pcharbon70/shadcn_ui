@@ -16,3 +16,5 @@ All notable changes to ShadcnUI will be documented in this file.
   and actions regions, and caller-owned lifecycle behavior.
 - Add the Card component with deterministic composable regions and no inferred
   navigation, selection, data, or workflow behavior.
+- Add the initials-first Avatar component with optional caller-owned imagery,
+  closed sizes, and bounded stack presentation.

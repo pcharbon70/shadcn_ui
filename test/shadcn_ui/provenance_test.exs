@@ -128,6 +128,20 @@ defmodule ShadcnUI.ProvenanceTest do
     assert card["localChanges"] =~ "without assigning workflow behavior"
   end
 
+  test "maps Avatar to the exact reviewed component and basic demo sources" do
+    avatar = Enum.find(manifest()["adaptations"], &(&1["id"] == "foundation.avatar"))
+
+    assert avatar["localPaths"] == ["lib/shadcn_ui/components/foundation/avatar.ex"]
+
+    assert avatar["upstreamPaths"] == [
+             "src/content/components/avatar.mdx",
+             "src/demos/avatar/basic.html"
+           ]
+
+    assert avatar["localChanges"] =~ "initials-first HEEX fallback"
+    assert avatar["localChanges"] =~ "caller-owned image loading"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)

@@ -151,6 +151,20 @@ Card does not infer a destination, click behavior, selection, loading state,
 record model, or workflow role. Applications own data, navigation, submission,
 commands, and outcomes.
 
+### Avatar
+
+Avatar keeps required initials in the DOM and may layer one caller-owned image
+as an enhancement. Image source and nonblank alternative text must be supplied
+together. Closed sizes and stack positions keep overlap bounded.
+
+```heex
+<.avatar initials="PC" image_src="/people/pascal.jpg" image_alt="Pascal Charbonneau" />
+```
+
+The application owns image URLs, privacy, loading and failure policy, caching,
+uploads, and identity records. Avatar uses no inline failure handler, provider,
+or package-owned image state.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

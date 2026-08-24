@@ -8,30 +8,30 @@ Back to wave: [README](./README.md)
   This phase completes the foundation catalogue while avoiding image-event
   JavaScript, remote providers, and misleading loading announcements.
 
-  - [ ] 4.1 Section - Avatar component.
+  - [x] 4.1 Section - Avatar component.
 
     This section implements initials-first identity presentation with an optional
     caller-owned image layered as an enhancement.
 
-    - [ ] 4.1.1 Task - Define the Avatar public API and fallback semantics.
+    - [x] 4.1.1 Task - Define the Avatar public API and fallback semantics.
 
       Avatar should keep an accessible text fallback in the DOM without relying
       on `onerror`, remote lookup, upload, or image-provider behavior.
 
-      - [ ] 4.1.1.1 Subtask - Declare required escaped initials, optional image source and required nonblank alt when present, closed sizes, optional stack position, class, and supported globals.
-      - [ ] 4.1.1.2 Subtask - Render initials as the stable baseline and layer the caller image without inline handlers or package image state.
-      - [ ] 4.1.1.3 Subtask - Prevent duplicate accessible names between meaningful images, fallback text, and decorative stacked presentation.
-      - [ ] 4.1.1.4 Subtask - Document caller ownership of image URLs, privacy, loading, failure policy, caching, upload, and identity records.
+      - [x] 4.1.1.1 Subtask - Declare required escaped initials, optional image source and required nonblank alt when present, closed sizes, optional stack position, class, and supported globals.
+      - [x] 4.1.1.2 Subtask - Render initials as the stable baseline and layer the caller image without inline handlers or package image state.
+      - [x] 4.1.1.3 Subtask - Prevent duplicate accessible names between meaningful images, fallback text, and decorative stacked presentation.
+      - [x] 4.1.1.4 Subtask - Document caller ownership of image URLs, privacy, loading, failure policy, caching, upload, and identity records.
 
-    - [ ] 4.1.2 Task - Implement Avatar presentation and tests.
+    - [x] 4.1.2 Task - Implement Avatar presentation and tests.
 
       Fixed token-driven sizes and overlap should preserve circular cropping,
       focus-independent meaning, and fallback readability.
 
-      - [ ] 4.1.2.1 Subtask - Implement initials, image overlay, closed size, ring, background, foreground, and bounded stack class mappings.
-      - [ ] 4.1.2.2 Subtask - Test initials-only, image-enhanced, missing invalid combinations, escaped initials, meaningful alt, globals, sizes, and stack presentation.
-      - [ ] 4.1.2.3 Subtask - Assert no onerror, remote provider, upload, random color, or package-owned image lifecycle enters markup or dependencies.
-      - [ ] 4.1.2.4 Subtask - Add provenance coverage for the adapted upstream Avatar markup.
+      - [x] 4.1.2.1 Subtask - Implement initials, image overlay, closed size, ring, background, foreground, and bounded stack class mappings.
+      - [x] 4.1.2.2 Subtask - Test initials-only, image-enhanced, missing invalid combinations, escaped initials, meaningful alt, globals, sizes, and stack presentation.
+      - [x] 4.1.2.3 Subtask - Assert no onerror, remote provider, upload, random color, or package-owned image lifecycle enters markup or dependencies.
+      - [x] 4.1.2.4 Subtask - Add provenance coverage for the adapted upstream Avatar markup.
 
   - [ ] 4.2 Section - Skeleton component.
 
