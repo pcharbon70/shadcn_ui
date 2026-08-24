@@ -10,31 +10,31 @@ Back to wave: [README](./README.md)
   added. Its outcome is a reproducible package artifact and tested public
   foundation that later phases can extend without changing consumer tooling.
 
-  - [ ] 1.1 Section - Independent package and public import boundary.
+  - [x] 1.1 Section - Independent package and public import boundary.
 
     This section turns the initialized Mix project into a deliberate runtime and
     release surface while keeping HEEX infrastructure separate from the LiveView
     application model.
 
-    - [ ] 1.1.1 Task - Implement the ShadcnUI package entry point.
+    - [x] 1.1.1 Task - Implement the ShadcnUI package entry point.
 
       The entry module should expose stable package helpers and import defining
       component modules without hiding Phoenix compile-time metadata.
 
-      - [ ] 1.1.1.1 Subtask - Add `stylesheet_path/0` using `Application.app_dir/2` with documentation that consumers own copying, bundling, and serving.
-      - [ ] 1.1.1.2 Subtask - Add the `__using__/1` import surface and an initial category module structure that can accept all six foundation components.
-      - [ ] 1.1.1.3 Subtask - Document that `phoenix_live_view` supplies HEEX infrastructure only and add no route, socket, process, hook, or navigation.
-      - [ ] 1.1.1.4 Subtask - Replace scaffold-only tests with package-boundary and compile-time metadata fixtures.
+      - [x] 1.1.1.1 Subtask - Add `stylesheet_path/0` using `Application.app_dir/2` with documentation that consumers own copying, bundling, and serving.
+      - [x] 1.1.1.2 Subtask - Add the `__using__/1` import surface and an initial category module structure that can accept all six foundation components.
+      - [x] 1.1.1.3 Subtask - Document that `phoenix_live_view` supplies HEEX infrastructure only and add no route, socket, process, hook, or navigation.
+      - [x] 1.1.1.4 Subtask - Replace scaffold-only tests with package-boundary and compile-time metadata fixtures.
 
-    - [ ] 1.1.2 Task - Lock the runtime and release manifests.
+    - [x] 1.1.2 Task - Lock the runtime and release manifests.
 
       The dependency graph and package file allowlist should make excluded
       application, build, demo, and mutable artifacts mechanically inspectable.
 
-      - [ ] 1.1.2.1 Subtask - Keep runtime dependencies limited to Phoenix HTML and component infrastructure and development dependencies explicitly non-runtime.
-      - [ ] 1.1.2.2 Subtask - Add the exact runtime, stylesheet, notice, README, changelog, and Mix metadata release allowlist.
-      - [ ] 1.1.2.3 Subtask - Add audits rejecting Dstar, Datastar, Ash, Electron, controllers, endpoints, processes, and application frameworks from runtime sources and dependencies.
-      - [ ] 1.1.2.4 Subtask - Add clean archive-content verification that excludes demo, tests, Node modules, generated docs, build output, and static export output.
+      - [x] 1.1.2.1 Subtask - Keep runtime dependencies limited to Phoenix HTML and component infrastructure and development dependencies explicitly non-runtime.
+      - [x] 1.1.2.2 Subtask - Add the exact runtime, stylesheet, notice, README, changelog, and Mix metadata release allowlist.
+      - [x] 1.1.2.3 Subtask - Add audits rejecting Dstar, Datastar, Ash, Electron, controllers, endpoints, processes, and application frameworks from runtime sources and dependencies.
+      - [x] 1.1.2.4 Subtask - Add clean archive-content verification that excludes demo, tests, Node modules, generated docs, build output, and static export output.
 
   - [ ] 1.2 Section - Shared HEEX API conventions.
 

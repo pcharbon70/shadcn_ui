@@ -3,8 +3,40 @@ defmodule ShadcnUI do
   Transport-neutral Phoenix function components built from semantic HTML and
   shadcn-style CSS tokens.
 
-  The package is currently in its architecture and milestone-definition stage.
-  Public component imports and the packaged stylesheet will be introduced by
-  the implementation milestones documented under `.spec/milestones`.
+  `use ShadcnUI` imports each public defining component module directly. This
+  preserves the `Phoenix.Component` attribute and slot metadata at caller sites
+  without selecting a controller, LiveView, Dstar, or other application model.
+
+  Applications remain responsible for copying, bundling, or serving the
+  stylesheet returned by `stylesheet_path/0`.
   """
+
+  @component_modules [
+    ShadcnUI.Components.Foundation.Alert,
+    ShadcnUI.Components.Foundation.Avatar,
+    ShadcnUI.Components.Foundation.Badge,
+    ShadcnUI.Components.Foundation.Button,
+    ShadcnUI.Components.Foundation.Card,
+    ShadcnUI.Components.Foundation.Skeleton
+  ]
+
+  @doc """
+  Imports the public defining component modules.
+
+  The package provides HEEx infrastructure only. It does not install routes,
+  sockets, processes, hooks, navigation, or state synchronization.
+  """
+  defmacro __using__(_options) do
+    imports = Enum.map(@component_modules, &quote(do: import(unquote(&1))))
+
+    quote do
+      (unquote_splicing(imports))
+    end
+  end
+
+  @doc "Returns the absolute path to the packaged, compiled stylesheet."
+  @spec stylesheet_path() :: String.t()
+  def stylesheet_path do
+    Application.app_dir(:shadcn_ui, "priv/static/shadcn_ui.css")
+  end
 end

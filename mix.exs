@@ -9,7 +9,6 @@ defmodule ShadcnUI.MixProject do
       app: :shadcn_ui,
       version: @version,
       elixir: "~> 1.17",
-      compilers: [:phoenix_live_view] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
@@ -56,7 +55,14 @@ defmodule ShadcnUI.MixProject do
 
   defp package do
     [
-      files: ["lib", "priv/static/shadcn_ui.css", "mix.exs", "README.md", "CHANGELOG.md"]
+      files: [
+        "lib",
+        "priv/static/shadcn_ui.css",
+        "mix.exs",
+        "README.md",
+        "CHANGELOG.md",
+        "THIRD_PARTY_NOTICES.md"
+      ]
     ]
   end
 end
