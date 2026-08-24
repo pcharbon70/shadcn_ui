@@ -34,28 +34,28 @@ Back to wave: [README](./README.md)
       - [x] 2.1.2.3 Subtask - Test that Button emits no event handler, request, command authorization, state transition, or JavaScript dependency.
       - [x] 2.1.2.4 Subtask - Add provenance coverage for the adapted upstream Button markup.
 
-  - [ ] 2.2 Section - Badge component.
+  - [x] 2.2 Section - Badge component.
 
     This section implements a compact passive label whose visual variants never
     imply link, button, dismissal, or selection behavior.
 
-    - [ ] 2.2.1 Task - Define the Badge public API and semantic markup.
+    - [x] 2.2.1 Task - Define the Badge public API and semantic markup.
 
       Badge should remain a native inline text container with required content
       and a deliberately small presentation vocabulary.
 
-      - [ ] 2.2.1.1 Subtask - Declare required content, default/secondary/destructive/outline variant, class, and supported passive global attributes.
-      - [ ] 2.2.1.2 Subtask - Render a span, reject destination and button attributes, and preserve caller text escaping.
-      - [ ] 2.2.1.3 Subtask - Document that status lifecycle, selection, dismissal, and interactivity belong to surrounding application markup.
+      - [x] 2.2.1.1 Subtask - Declare required content, default/secondary/destructive/outline variant, class, and supported passive global attributes.
+      - [x] 2.2.1.2 Subtask - Render a span, reject destination and button attributes, and preserve caller text escaping.
+      - [x] 2.2.1.3 Subtask - Document that status lifecycle, selection, dismissal, and interactivity belong to surrounding application markup.
 
-    - [ ] 2.2.2 Task - Implement Badge presentation and tests.
+    - [x] 2.2.2 Task - Implement Badge presentation and tests.
 
       Token-driven fixed classes should remain legible in both themes and under
       high-contrast and narrow-content conditions.
 
-      - [ ] 2.2.2.1 Subtask - Implement base geometry and four fixed semantic-token variant mappings.
-      - [ ] 2.2.2.2 Subtask - Test variants, long and escaped content, caller classes, globals, deterministic output, and absence of interactive semantics.
-      - [ ] 2.2.2.3 Subtask - Add provenance coverage for the adapted upstream Badge markup.
+      - [x] 2.2.2.1 Subtask - Implement base geometry and four fixed semantic-token variant mappings.
+      - [x] 2.2.2.2 Subtask - Test variants, long and escaped content, caller classes, globals, deterministic output, and absence of interactive semantics.
+      - [x] 2.2.2.3 Subtask - Add provenance coverage for the adapted upstream Badge markup.
 
   - [ ] 2.3 Section - Phase 2 Integration Tests.
 

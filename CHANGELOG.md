@@ -10,3 +10,5 @@ All notable changes to ShadcnUI will be documented in this file.
 - Pin and document the reviewed unscripted/ui source provenance and MIT notice.
 - Add the native Button component with closed variants, sizes, slots, and
   presentation-only loading state.
+- Add the passive Badge component with four closed semantic variants and no
+  link, button, selection, or dismissal behavior.

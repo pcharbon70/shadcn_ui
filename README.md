@@ -101,6 +101,20 @@ accept trusted HEEX around the required primary content.
 button, prevent duplicate submission, authorize a command, or manage a request;
 the consuming application owns all of those outcomes.
 
+### Badge
+
+Badge renders one passive `span` with `default`, `secondary`, `destructive`, and
+`outline` variants. Its required text is the accessible status information, so
+the component never relies on color alone.
+
+```heex
+<.badge variant={:secondary}>Pending review</.badge>
+```
+
+Badge deliberately rejects link, button, focus, and activation attributes. Use
+application-owned link or button markup when the content navigates, selects,
+dismisses, or performs an action.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

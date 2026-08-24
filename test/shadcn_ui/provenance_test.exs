@@ -87,6 +87,19 @@ defmodule ShadcnUI.ProvenanceTest do
     assert button["localChanges"] =~ "caller-owned activation"
   end
 
+  test "maps Badge to the exact reviewed component and variant sources" do
+    badge = Enum.find(manifest()["adaptations"], &(&1["id"] == "foundation.badge"))
+
+    assert badge["localPaths"] == ["lib/shadcn_ui/components/foundation/badge.ex"]
+
+    assert badge["upstreamPaths"] == [
+             "src/content/components/badge.mdx",
+             "src/demos/badge/variants.html"
+           ]
+
+    assert badge["localChanges"] =~ "closed noninteractive HEEX component contract"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)
