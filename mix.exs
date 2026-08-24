@@ -42,7 +42,7 @@ defmodule ShadcnUI.MixProject do
       {:phoenix_live_view, "~> 1.2"},
       {:ex_doc, "~> 0.40.3", only: :dev, runtime: false},
       {:spec_led_ex,
-       git: "https://github.com/specleddev/spec_led_ex.git",
+       git: "https://github.com/specleddev/specled_ex.git",
        ref: "f0d20dba6786a8f1dff0d7365a113b23db696fc1",
        only: [:dev, :test],
        runtime: false}

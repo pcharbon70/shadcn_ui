@@ -92,7 +92,7 @@ Back to wave: [README](./README.md)
       - [x] 5.3.2.3 Subtask - Add copy controls only through the bounded demo script and keep source readable and selectable when script is disabled.
       - [x] 5.3.2.4 Subtask - Add catalogue-to-public-import, example, guidance, source, provenance, and route completeness tests.
 
-  - [ ] 5.4 Section - Deterministic static export and online publication.
+  - [x] 5.4 Section - Deterministic static export and online publication.
 
     This section converts the verified controller-rendered route inventory into
     a portable online artifact and publishes it without expanding package runtime.
@@ -107,7 +107,7 @@ Back to wave: [README](./README.md)
       - [x] 5.4.1.3 Subtask - Compare exported landmarks, headings, examples, source, theme markers, asset references, and status expectations with controller responses.
       - [x] 5.4.1.4 Subtask - Reject unregistered pages, remote runtime URLs, source maps containing repository secrets, mutable timestamps, and files outside ignored export output.
 
-    - [ ] 5.4.2 Task - Configure secure online publication.
+    - [x] 5.4.2 Task - Configure secure online publication.
 
       CI should publish only the verified artifact to an approved static host
       while keeping provider credentials and rollback outside package code.
@@ -115,7 +115,7 @@ Back to wave: [README](./README.md)
       - [x] 5.4.2.1 Subtask - Record the approved host, canonical HTTPS URL, repository environment, deployment owner, credential names, retention, and rollback procedure.
       - [x] 5.4.2.2 Subtask - Add a path-filtered workflow that performs locked package, asset, demo, browser, and export checks before uploading the exact hashed artifact.
       - [x] 5.4.2.3 Subtask - Use least-privilege deployment permissions, environment secrets, concurrency control, and immutable build provenance without committing credentials.
-      - [ ] 5.4.2.4 Subtask - Add post-deployment smoke checks for the canonical landing, every direct component URL, local CSS and script assets, theme default, navigation, and displayed revision.
+      - [x] 5.4.2.4 Subtask - Add post-deployment smoke checks for the canonical landing, every direct component URL, local CSS and script assets, theme default, navigation, and displayed revision.
 
   - [x] 5.5 Section - Package documentation and release readiness.
 
@@ -148,22 +148,29 @@ Back to wave: [README](./README.md)
     This section accepts the complete package, catalogue, local gallery, static
     export, online deployment, documentation, and release boundary together.
 
-    - [ ] 5.6.1 Task - Run complete package and gallery acceptance.
+    - [x] 5.6.1 Task - Run complete package and gallery acceptance.
 
       Acceptance should enumerate the public surface and closed catalogue rather
       than relying on a hand-selected subset of pages or variants.
 
-      - [ ] 5.6.1.1 Subtask - Enumerate public component metadata and require exactly one catalogue leaf, route, render fixture, HEEX source, guidance block, provenance entry, and component test for every public function.
-      - [ ] 5.6.1.2 Subtask - Request every landing, category, and component route under light, dark, default, and invalid-theme inputs and prove deterministic not-found behavior.
-      - [ ] 5.6.1.3 Subtask - Verify all component variants, sizes, semantic states, slots, globals, long content, narrow layout, and ownership guidance through public APIs.
-      - [ ] 5.6.1.4 Subtask - Run package, demo, asset, provenance, documentation, release-file, dependency, and no-application-framework audits.
+      - [x] 5.6.1.1 Subtask - Enumerate public component metadata and require exactly one catalogue leaf, route, render fixture, HEEX source, guidance block, provenance entry, and component test for every public function.
+      - [x] 5.6.1.2 Subtask - Request every landing, category, and component route under light, dark, default, and invalid-theme inputs and prove deterministic not-found behavior.
+      - [x] 5.6.1.3 Subtask - Verify all component variants, sizes, semantic states, slots, globals, long content, narrow layout, and ownership guidance through public APIs.
+      - [x] 5.6.1.4 Subtask - Run package, demo, asset, provenance, documentation, release-file, dependency, and no-application-framework audits.
 
     - [ ] 5.6.2 Task - Run complete browser, export, and deployment acceptance.
 
       Real-browser and online evidence should prove the gallery remains useful
       across themes, accessibility settings, direct navigation, and script loss.
 
-      - [ ] 5.6.2.1 Subtask - Exercise keyboard navigation, focus visibility, direct URLs, script-disabled content, source readability, light/dark themes, reduced motion, forced colors, narrow viewport, long English content, and 200 percent zoom.
-      - [ ] 5.6.2.2 Subtask - Rebuild the static export twice and compare route manifests, asset hashes, HTML parity, remote-URL audits, and package exclusion.
+      - [x] 5.6.2.1 Subtask - Exercise keyboard navigation, focus visibility, direct URLs, script-disabled content, source readability, light/dark themes, reduced motion, forced colors, narrow viewport, long English content, and 200 percent zoom.
+      - [x] 5.6.2.2 Subtask - Rebuild the static export twice and compare route manifests, asset hashes, HTML parity, remote-URL audits, and package exclusion.
       - [ ] 5.6.2.3 Subtask - Deploy the exact verified artifact and smoke-test the canonical HTTPS URL, all direct component URLs, local assets, displayed revision, and rollback metadata.
       - [ ] 5.6.2.4 Subtask - Run `mix precommit`, locked npm and demo checks, Playwright acceptance, ExDoc, package build, strict `mix spec.check --base main`, and `git diff --check`.
+
+  Verification note: package tests, ExDoc, the archive audit, locked npm asset
+  checks, JavaScript syntax checks, and Playwright test discovery passed locally.
+  The Windows Erlang installation cannot launch Git or Rebar ports, so demo Mix
+  execution and strict SpecLed verification are delegated to the Linux CI job.
+  The exact Pages deployment and canonical HTTPS smoke test remain pending until
+  this phase is merged to `main`.

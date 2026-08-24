@@ -62,7 +62,12 @@ defmodule ShadcnUIDemo.MixProject do
   defp aliases do
     [
       setup: ["deps.get"],
-      precommit: ["compile --warnings-as-errors", "deps.unlock --unused", "format", "test"]
+      precommit: [
+        "format --check-formatted",
+        "deps.unlock --check-unused",
+        "compile --warnings-as-errors",
+        "test"
+      ]
     ]
   end
 end

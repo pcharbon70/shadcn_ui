@@ -23,6 +23,9 @@ erl_crash.dump
 /tmp/
 /logs/
 /export/
+/pages/
+/playwright-report/
+/test-results/
 /priv/static/assets/gallery-*.css
 /priv/static/assets/gallery-*.js
 /priv/static/assets/shadcn-*.css

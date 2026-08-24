@@ -6,6 +6,11 @@
     "assets:build": "node scripts/build-assets.mjs",
     "assets:check": "node scripts/check-assets.mjs",
     "export:check": "node scripts/check-export.mjs",
+    "export:determinism": "node scripts/check-export-determinism.mjs",
+    "browser:test": "playwright test",
     "smoke": "node scripts/smoke-gallery.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1"
   }
 }
