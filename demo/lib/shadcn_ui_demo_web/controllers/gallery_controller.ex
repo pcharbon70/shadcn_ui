@@ -2,6 +2,7 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   use ShadcnUIDemoWeb, :controller
 
   alias ShadcnUIDemo.Catalogue
+  alias ShadcnUIDemo.Reference
 
   def landing(conn, params) do
     render_page(conn, params, %{kind: :landing, title: "ShadcnUI Gallery", path: "/"})
@@ -16,7 +17,8 @@ defmodule ShadcnUIDemoWeb.GalleryController do
 
   def component(conn, %{"category" => category, "component" => component} = params) do
     case Catalogue.lookup_component(category, component) do
-      {:ok, item} -> render_page(conn, params, Map.merge(item, %{kind: :component, title: item.label}))
+      {:ok, item} ->
+        render_page(conn, params, Map.merge(item, %{kind: :component, title: item.label, reference: Reference.fetch!(item.render)}))
       :error -> not_found(conn, params)
     end
   end

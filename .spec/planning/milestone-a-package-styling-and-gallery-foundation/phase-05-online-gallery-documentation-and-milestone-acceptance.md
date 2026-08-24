@@ -67,30 +67,30 @@ Back to wave: [README](./README.md)
       - [x] 5.2.3.3 Subtask - Add explicit light/dark controls using `data-shadcn-theme`, safe light default, and visible focus treatment.
       - [x] 5.2.3.4 Subtask - Test DOM order, landmarks, current links, focus order, long labels, overflow, and 200 percent zoom.
 
-  - [ ] 5.3 Section - Foundation component reference pages.
+  - [x] 5.3 Section - Foundation component reference pages.
 
     This section provides one practical, inspectable page for every Milestone A
     component using only public APIs and demo-owned fixtures.
 
-    - [ ] 5.3.1 Task - Author complete component examples.
+    - [x] 5.3.1 Task - Author complete component examples.
 
       Each page should demonstrate meaningful supported combinations rather than
       repeating generic internal headings or inert fake application controls.
 
-      - [ ] 5.3.1.1 Subtask - Add Button and Badge pages covering all closed variants, sizes, disabled/loading snapshots, icon-only naming, passive semantics, caller globals, and long content.
-      - [ ] 5.3.1.2 Subtask - Add Alert and Card pages covering announcement policies, destructive presentation, optional regions, nested native controls, sparse/dense composition, and ownership boundaries.
-      - [ ] 5.3.1.3 Subtask - Add Avatar and Skeleton pages covering initials, image enhancement, stacks, unavailable imagery, shape/size guidance, caller-labelled loading regions, and reduced motion.
-      - [ ] 5.3.1.4 Subtask - Render every example in English with local fixtures and no remote media, placeholder destination, package-private helper, or application workflow.
+      - [x] 5.3.1.1 Subtask - Add Button and Badge pages covering all closed variants, sizes, disabled/loading snapshots, icon-only naming, passive semantics, caller globals, and long content.
+      - [x] 5.3.1.2 Subtask - Add Alert and Card pages covering announcement policies, destructive presentation, optional regions, nested native controls, sparse/dense composition, and ownership boundaries.
+      - [x] 5.3.1.3 Subtask - Add Avatar and Skeleton pages covering initials, image enhancement, stacks, unavailable imagery, shape/size guidance, caller-labelled loading regions, and reduced motion.
+      - [x] 5.3.1.4 Subtask - Render every example in English with local fixtures and no remote media, placeholder destination, package-private helper, or application workflow.
 
-    - [ ] 5.3.2 Task - Publish practical guidance and HEEX source.
+    - [x] 5.3.2 Task - Publish practical guidance and HEEX source.
 
       Pages should explain what callers need to know without exposing internal
       verification taxonomy as user-facing documentation.
 
-      - [ ] 5.3.2.1 Subtask - Add “What it is,” “When to use it,” “Examples,” “Application responsibilities,” “Accessibility,” “Themes,” “Fallback,” and “Provenance” content where relevant.
-      - [ ] 5.3.2.2 Subtask - Store authored HEEX snippets beside explicit render fixtures and display escaped source without evaluating request-selected code.
-      - [ ] 5.3.2.3 Subtask - Add copy controls only through the bounded demo script and keep source readable and selectable when script is disabled.
-      - [ ] 5.3.2.4 Subtask - Add catalogue-to-public-import, example, guidance, source, provenance, and route completeness tests.
+      - [x] 5.3.2.1 Subtask - Add “What it is,” “When to use it,” “Examples,” “Application responsibilities,” “Accessibility,” “Themes,” “Fallback,” and “Provenance” content where relevant.
+      - [x] 5.3.2.2 Subtask - Store authored HEEX snippets beside explicit render fixtures and display escaped source without evaluating request-selected code.
+      - [x] 5.3.2.3 Subtask - Add copy controls only through the bounded demo script and keep source readable and selectable when script is disabled.
+      - [x] 5.3.2.4 Subtask - Add catalogue-to-public-import, example, guidance, source, provenance, and route completeness tests.
 
   - [ ] 5.4 Section - Deterministic static export and online publication.
 

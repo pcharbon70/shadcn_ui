@@ -63,6 +63,7 @@ defmodule ShadcnUIDemoWeb do
       # HTML escaping functionality
       import Phoenix.HTML
       use ShadcnUI
+      import ShadcnUIDemoWeb.ReferenceComponents
 
       # Common modules used in templates
       alias ShadcnUIDemoWeb.Layouts
