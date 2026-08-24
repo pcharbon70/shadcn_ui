@@ -18,12 +18,12 @@ surface:
 
 ```spec-requirements
 - id: shadcn_ui.provenance.pinned_revision
-  statement: The package shall identify the reviewed unscripted/ui repository URL and exact source commit used for every Milestone A adaptation.
+  statement: The package shall identify the reviewed unscripted/ui repository URL and exact source commit used for every released adaptation.
   priority: must
   stability: stable
 
 - id: shadcn_ui.provenance.component_mapping
-  statement: A machine-readable package-owned manifest shall map every substantially adapted component or CSS block to its upstream source path, pinned commit, and concise local-change summary.
+  statement: A machine-readable package-owned manifest shall map every substantially adapted component or CSS block in the current catalogue to its upstream source path, pinned commit, and concise local-change summary.
   priority: must
   stability: stable
 

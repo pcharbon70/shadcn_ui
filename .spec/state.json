@@ -3,6 +3,45 @@
     "items": [
       {
         "affects": [
+          "shadcn_ui.component_contract",
+          "shadcn_ui.form_contract",
+          "shadcn_ui.form_components",
+          "shadcn_ui.form_gallery",
+          "shadcn_ui.stylesheet"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/deterministic-native-form-accessibility.md",
+        "id": "shadcn_ui.deterministic_form_accessibility",
+        "status": "accepted",
+        "title": "Make Native Form Accessibility Relationships Deterministic"
+      },
+      {
+        "affects": [
+          "shadcn_ui.form_components",
+          "shadcn_ui.form_gallery",
+          "shadcn_ui.stylesheet"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/enhanced-select-progressive-boundary.md",
+        "id": "shadcn_ui.enhanced_select_boundary",
+        "status": "accepted",
+        "title": "Enhance Select Through A Capability-Gated Native Fallback"
+      },
+      {
+        "affects": [
+          "shadcn_ui.component_contract",
+          "shadcn_ui.form_contract",
+          "shadcn_ui.form_components",
+          "shadcn_ui.form_gallery"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/form-field-normalization-and-validation-ownership.md",
+        "id": "shadcn_ui.form_field_normalization",
+        "status": "accepted",
+        "title": "Normalize Phoenix Form Fields Without Owning Validation"
+      },
+      {
+        "affects": [
           "shadcn_ui.package",
           "shadcn_ui.gallery",
           "shadcn_ui.stylesheet",
@@ -25,6 +64,19 @@
         "id": "shadcn_ui.isolated_compiled_css",
         "status": "accepted",
         "title": "Compile Isolated CSS as a Package-Owned Build Artifact"
+      },
+      {
+        "affects": [
+          "shadcn_ui.form_contract",
+          "shadcn_ui.form_components",
+          "shadcn_ui.package",
+          "shadcn_ui.stylesheet"
+        ],
+        "date": "2026-08-24",
+        "file": ".spec/decisions/native-form-control-and-submission-boundary.md",
+        "id": "shadcn_ui.native_form_boundary",
+        "status": "accepted",
+        "title": "Preserve Native Control And Submission Semantics"
       },
       {
         "affects": [
@@ -91,6 +143,125 @@
   },
   "findings": [
     {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/form_components_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/forms/choice_controls_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/forms/field_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/forms/range_and_measurement_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/forms/select_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/components/forms/text_controls_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/form_components_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.form_contract",
+      "file": ".spec/specs/form_contract.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/forms/form_contract_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_contract",
+      "file": ".spec/specs/form_contract.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/forms/form_contract_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_contract",
+      "file": ".spec/specs/form_contract.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/browser/milestone-b-forms.spec.mjs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: demo/test/shadcn_ui_demo/form_catalog_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: demo/test/shadcn_ui_demo_web/controllers/form_submission_controller_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/browser/milestone-b-forms.spec.mjs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+    },
+    {
       "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.foundation_components",
       "file": ".spec/specs/foundation_components.spec.md",
@@ -119,6 +290,20 @@
       "message": "Surface entry does not exist: test/browser/milestone-a-gallery.spec.mjs"
     },
     {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/browser/milestone-b-forms.spec.mjs"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+    },
+    {
       "code": "verification_target_missing",
       "entity_id": "shadcn_ui.gallery",
       "file": ".spec/specs/gallery.spec.md",
@@ -144,14 +329,49 @@
       "entity_id": "shadcn_ui.gallery",
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs"
+      "message": "Verification target file does not exist: test/browser/milestone-a-gallery.spec.mjs"
     },
     {
       "code": "verification_target_missing",
       "entity_id": "shadcn_ui.gallery",
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/browser/milestone-a-gallery.spec.mjs"
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs does not reference covered requirement: shadcn_ui.gallery.component_guidance"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs does not reference covered requirement: shadcn_ui.gallery.safe_resolution"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs does not reference covered requirement: shadcn_ui.gallery.semantic_shell"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs does not reference covered requirement: shadcn_ui.gallery.stable_routes"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs does not reference covered requirement: shadcn_ui.gallery.theme_matrix"
     },
     {
       "code": "verification_target_missing_reference",
@@ -250,6 +470,34 @@
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
       "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.theme_matrix"
+    },
+    {
+      "code": "surface_target_missing",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Surface entry does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/stylesheet_test.exs does not reference covered requirement: shadcn_ui.stylesheet.form_fallbacks"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/stylesheet_test.exs does not reference covered requirement: shadcn_ui.stylesheet.form_resilience"
     }
   ],
   "index": {
@@ -336,6 +584,270 @@
         "subject_id": "shadcn_ui.component_contract"
       },
       {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.checkbox",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Checkbox shall render a real checkbox with deterministic label, help, and error relationships; boolean mode shall emit a same-name hidden unchecked sentinel before the visible control, while explicit multiple-value mode shall normalize a repeated-value name and emit no sentinel.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.enhanced_select",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Enhanced Select shall render one native select with the same value and submission contract as Native Select, activate customizable-select presentation only inside required capability queries, and fall back to a visible operable classic select without mirrored controls, hidden duplicate values, script, or popup state.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.error_summary",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Error Summary shall render an escaped heading and ordered form- or field-level messages with stable ordinary fragment links to explicit control IDs while leaving announcement, focus, scrolling, and navigation behavior to the caller.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.field_composition",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Field shall compose Label, Help, and Field Errors around caller-owned control content through one deterministic relationship context without generating a form, changeset, value, submission, or validation lifecycle.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.field_fragments",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Label shall render a native label with a protected target, Help shall render escaped descriptive content, and Field Errors shall preserve the order and distinct identity of every visible escaped message without a default live-region role.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.input",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Input shall render a closed set of text-like native types comprising text, email, password, search, tel, url, number, date, datetime-local, month, week, and time with normalized identity and value, documented constraints and input modes, protected semantics, and caller-owned pending presentation.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.meter",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Meter shall render a native meter element for a scalar measurement with required value and documented min, max, low, high, and optimum inputs, a required accessible name, and no task-progress meaning or package-owned measurement behavior.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.native_select",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Native Select shall render one native select with escaped caller option and optgroup data, deterministic option values, single or native multiple selection, normalized repeated-value naming, native disabled states, and no combobox or listbox role overstatement.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.progress",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Progress shall render a native progress element for task completion with optional determinate value and max or an indeterminate state, a required accessible name, and no polling, estimation, announcement, or lifecycle behavior.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.radio_group",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Radio Group shall render one native fieldset and legend with deterministic native radio IDs from stable caller option keys, scalar selected value, shared help and errors, group and option disabled states, and no package-owned selection state.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.shared_contract",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Every Milestone B component shall follow shared FormField or explicit normalization where applicable, deterministic relationships, escaping, protected globals, native semantics, presentation-only pending state, and caller-owned validation and operations.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.slider",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Slider shall render one input type range with normalized identity and value, native min, max, step, required label and optional value description, keyboard and form behavior, and no package-owned drag or synchronized hidden state.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.switch",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Switch shall be a presentation of one native checkbox with the same FormField normalization, submitted values, label, checked, required, disabled, help, and error semantics as Checkbox and shall not expose a second state model or role-only imitation.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.forms.textarea",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Textarea shall render escaped normalized value as native textarea content, support documented constraints and fixed resize policies, use field-sizing content only as a feature-gated enhancement, and retain a usable fixed minimum-height fallback.",
+        "subject_id": "shadcn_ui.form_components"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.deterministic_relationships",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Labels, help, and repeated visible errors shall use deterministic IDs and native associations derived from the normalized control ID, and aria-describedby shall preserve ordered distinct caller references before rendered help and errors.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.error_ownership",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Error visibility shall use closed used-input, always, and hidden modes; explicit errors shall be escaped strings; raw field errors shall use a caller translator or deterministic interpolation; and ShadcnUI shall not own a Gettext backend or infer submission state.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.explicit_identity",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Every submitted visible control rendered without a FormField shall require nonblank normalized ID and name values and shall fail clearly for missing or contradictory identity rather than emitting partially associated markup.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.invalid_state",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Visible errors shall produce protected aria-invalid state and references to every visible error, while hidden errors shall produce neither invalid state nor dangling accessibility references.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.native_states",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Required, disabled, readonly, checked, selected, multiple, and supported constraint states shall use native HTML attributes where applicable, with visual indicators supplementing rather than replacing native semantics.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.native_submission",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Controls shall submit ordinary browser form values without package-owned event handlers, hidden mirrored state except the documented checkbox sentinel, client synchronization, or a ShadcnUI JavaScript runtime.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.normalization",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Applicable controls shall accept Phoenix.HTML.FormField or explicit inputs through one normalization contract in which the field provides ID, name, value, and raw-error defaults and documented explicit inputs take precedence.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.pending_snapshot",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Pending presentation shall describe only the rendered snapshot and shall not mutate a value, disable a control automatically, prevent duplicate submission, run validation, or own request lifecycle.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.protected_globals",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Mandatory IDs, names, label targets, group semantics, native types, invalid state, and derived accessibility relationships shall take precedence over conflicting caller globals while unrelated documented native, aria-*, data-*, phx-*, and data-on-* attributes pass through.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form.validation_boundary",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Browser constraints, server errors, valid or invalid styling, and pending presentation shall never authorize, persist, submit, or execute an application operation, and consumers shall validate and authorize all submitted values.",
+        "subject_id": "shadcn_ui.form_contract"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.browser_behavior",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Browser tests shall verify tab order, native label activation, checkbox and radio keyboard behavior, select fallback, slider keys, native submission values, validation presentation, and absence of package-owned client behavior.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.catalog",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "The gallery shall add one stable Forms category and a dedicated page for Field, Label, Help, Field Errors, Error Summary, Input, Textarea, Checkbox, Radio Group, Switch, Native Select, Enhanced Select, Slider, Progress, and Meter through the closed catalogue and static route inventory.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.compositions",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "The gallery shall provide complete sign-in, profile, and settings form compositions using only caller-owned sample data and ordinary controller-rendered submissions.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.content_stress",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Form examples shall cover long labels, translated text, repeated errors, repeated groups, narrow layouts, 200 percent zoom, keyboard focus, forced colors, light and dark themes, and operation without demo-only JavaScript.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.modes",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Applicable component pages shall present explicit-ID and Phoenix.HTML.FormField examples side by side with equivalent identity, value, error, and accessibility relationships.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.select_fallback",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Native and Enhanced Select pages shall show their common value contract, capability-gated enhanced presentation, and exact unsupported or CSS-disabled classic fallback without hidden or duplicated values.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.semantic_guidance",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Guidance shall explain native semantics, FormField and explicit precedence, validation and translation ownership, protected relationships, native constraints, pending presentation, and the distinction between task Progress and scalar Meter in plain language.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.states",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Component pages shall demonstrate applicable pristine, used, valid, invalid, disabled, readonly, required, pending, checked, selected, multiple, indeterminate, and server-error snapshots without implying package-owned transitions.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery.submission_fixture",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "A demo endpoint shall receive realistic native form submissions, render escaped deterministic received values for test evidence, and perform no persistence, authentication, authorization, or domain operation.",
+        "subject_id": "shadcn_ui.form_gallery"
+      },
+      {
         "file": ".spec/specs/foundation_components.spec.md",
         "id": "shadcn_ui.foundation.alert",
         "priority": "must",
@@ -420,7 +932,7 @@
         "id": "shadcn_ui.gallery.closed_catalog",
         "priority": "must",
         "stability": "stable",
-        "statement": "The gallery shall own one immutable ordered catalogue with stable Foundation category and Button, Badge, Alert, Card, Avatar, and Skeleton leaves whose request slugs resolve only through closed strings to explicit render identities.",
+        "statement": "The gallery shall own one immutable ordered catalogue with stable Foundation and Forms categories and the complete Milestone A and B component leaves whose request slugs resolve only through closed strings to explicit render identities.",
         "subject_id": "shadcn_ui.gallery"
       },
       {
@@ -508,7 +1020,7 @@
         "id": "shadcn_ui.gallery.stable_routes",
         "priority": "must",
         "stability": "stable",
-        "statement": "The gallery shall provide stable controller and exported routes for a categorized landing, Foundation category, and one page per Milestone A component with ordinary links and accurate current-page state.",
+        "statement": "The gallery shall provide stable controller and exported routes for a categorized landing, every current category, and one page per current component with ordinary links and accurate current-page state.",
         "subject_id": "shadcn_ui.gallery"
       },
       {
@@ -524,7 +1036,7 @@
         "id": "shadcn_ui.gallery.theme_matrix",
         "priority": "must",
         "stability": "stable",
-        "statement": "Every Milestone A page shall render under explicit light and dark data-shadcn-theme scopes, default safely to light, preserve readable focus and content at narrow widths, and keep core content usable when demo-only scripting is disabled.",
+        "statement": "Every current component page shall render under explicit light and dark data-shadcn-theme scopes, default safely to light, preserve readable focus and content at narrow widths, and keep core content usable when demo-only scripting is disabled.",
         "subject_id": "shadcn_ui.gallery"
       },
       {
@@ -580,7 +1092,7 @@
         "id": "shadcn_ui.provenance.component_mapping",
         "priority": "must",
         "stability": "stable",
-        "statement": "A machine-readable package-owned manifest shall map every substantially adapted component or CSS block to its upstream source path, pinned commit, and concise local-change summary.",
+        "statement": "A machine-readable package-owned manifest shall map every substantially adapted component or CSS block in the current catalogue to its upstream source path, pinned commit, and concise local-change summary.",
         "subject_id": "shadcn_ui.provenance"
       },
       {
@@ -612,7 +1124,7 @@
         "id": "shadcn_ui.provenance.pinned_revision",
         "priority": "must",
         "stability": "stable",
-        "statement": "The package shall identify the reviewed unscripted/ui repository URL and exact source commit used for every Milestone A adaptation.",
+        "statement": "The package shall identify the reviewed unscripted/ui repository URL and exact source commit used for every released adaptation.",
         "subject_id": "shadcn_ui.provenance"
       },
       {
@@ -657,10 +1169,26 @@
       },
       {
         "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.form_fallbacks",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Textarea field-sizing content and customizable-select styling shall activate only inside capability queries, while fixed textarea sizing and classic native select presentation remain visible, operable, and semantically complete fallbacks.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
+        "id": "shadcn_ui.stylesheet.form_resilience",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Form controls, labels, help, errors, focus, disabled state, checked or selected state, progress, and meter meaning shall remain distinguishable at narrow widths, 200 percent zoom, and in forced-colors mode without relying on color alone.",
+        "subject_id": "shadcn_ui.stylesheet"
+      },
+      {
+        "file": ".spec/specs/stylesheet.spec.md",
         "id": "shadcn_ui.stylesheet.no_runtime_assets",
         "priority": "must",
         "stability": "stable",
-        "statement": "The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestone A shall ship no component JavaScript.",
+        "statement": "The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestones A and B shall ship no component JavaScript.",
         "subject_id": "shadcn_ui.stylesheet"
       },
       {
@@ -684,7 +1212,7 @@
         "id": "shadcn_ui.stylesheet.reduced_motion",
         "priority": "must",
         "stability": "stable",
-        "statement": "The stylesheet shall preserve state and meaning while disabling or shortening nonessential Milestone A animation under prefers-reduced-motion.",
+        "statement": "The stylesheet shall preserve state and meaning while disabling or shortening nonessential component animation under prefers-reduced-motion.",
         "subject_id": "shadcn_ui.stylesheet"
       },
       {
@@ -708,7 +1236,7 @@
         "id": "shadcn_ui.stylesheet.semantic_tokens",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Public semantic colors, foreground pairs, border, input, focus ring, radius, and motion tokens shall use documented --shadcn-ui-* custom properties with complete light defaults.",
+        "statement": "Public semantic colors, foreground pairs, border, input, invalid, focus ring, radius, control sizing, and motion tokens shall use documented --shadcn-ui-* custom properties with complete light defaults.",
         "subject_id": "shadcn_ui.stylesheet"
       }
     ],
@@ -737,6 +1265,80 @@
           "verification_minimum_strength": null
         },
         "title": "Shared component contract"
+      },
+      {
+        "file": ".spec/specs/form_components.spec.md",
+        "id": "shadcn_ui.form_components",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.form_field_normalization",
+            "shadcn_ui.deterministic_form_accessibility",
+            "shadcn_ui.native_form_boundary",
+            "shadcn_ui.enhanced_select_boundary",
+            "shadcn_ui.scoped_theme_token_contract"
+          ],
+          "id": "shadcn_ui.form_components",
+          "kind": "package",
+          "status": "active",
+          "summary": "Field composition, native controls, enhanced select, range, progress, and meter rendering contracts.",
+          "surface": [
+            "lib/shadcn_ui/components/forms/**/*.ex",
+            "test/shadcn_ui/components/forms/**/*.exs",
+            "test/shadcn_ui/form_components_test.exs",
+            "README.md"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Milestone B native form components"
+      },
+      {
+        "file": ".spec/specs/form_contract.spec.md",
+        "id": "shadcn_ui.form_contract",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.form_field_normalization",
+            "shadcn_ui.deterministic_form_accessibility",
+            "shadcn_ui.native_form_boundary",
+            "shadcn_ui.semantic_component_api_and_accessibility"
+          ],
+          "id": "shadcn_ui.form_contract",
+          "kind": "policy",
+          "status": "active",
+          "summary": "Shared FormField normalization, identity, validation presentation, accessibility, and ownership rules.",
+          "surface": [
+            "lib/shadcn_ui/components/forms/**/*.ex",
+            "test/shadcn_ui/forms/form_contract_test.exs",
+            "test/shadcn_ui/components/forms/**/*.exs",
+            "README.md"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Shared native form contract"
+      },
+      {
+        "file": ".spec/specs/form_gallery.spec.md",
+        "id": "shadcn_ui.form_gallery",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.form_field_normalization",
+            "shadcn_ui.deterministic_form_accessibility",
+            "shadcn_ui.native_form_boundary",
+            "shadcn_ui.enhanced_select_boundary",
+            "shadcn_ui.gallery_static_publication"
+          ],
+          "id": "shadcn_ui.form_gallery",
+          "kind": "application",
+          "status": "active",
+          "summary": "Dedicated form catalogue, realistic native submissions, browser fallback evidence, and Milestone B guidance.",
+          "surface": [
+            "demo/**",
+            "test/browser/milestone-b-forms.spec.mjs",
+            "test/shadcn_ui/milestone_b_acceptance_test.exs",
+            "README.md"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Milestone B form gallery and acceptance"
       },
       {
         "file": ".spec/specs/foundation_components.spec.md",
@@ -770,7 +1372,9 @@
             "shadcn_ui.transport_neutral_phoenix_package",
             "shadcn_ui.scoped_theme_token_contract",
             "shadcn_ui.progressive_enhancement_baseline",
-            "shadcn_ui.gallery_static_publication"
+            "shadcn_ui.gallery_static_publication",
+            "shadcn_ui.deterministic_form_accessibility",
+            "shadcn_ui.enhanced_select_boundary"
           ],
           "id": "shadcn_ui.gallery",
           "kind": "application",
@@ -780,7 +1384,9 @@
             "demo/**",
             "scripts/**",
             "test/browser/milestone-a-gallery.spec.mjs",
+            "test/browser/milestone-b-forms.spec.mjs",
             "test/shadcn_ui/milestone_a_acceptance_test.exs",
+            "test/shadcn_ui/milestone_b_acceptance_test.exs",
             "README.md"
           ],
           "verification_minimum_strength": null
@@ -846,7 +1452,9 @@
           "decisions": [
             "shadcn_ui.isolated_compiled_css",
             "shadcn_ui.scoped_theme_token_contract",
-            "shadcn_ui.progressive_enhancement_baseline"
+            "shadcn_ui.progressive_enhancement_baseline",
+            "shadcn_ui.deterministic_form_accessibility",
+            "shadcn_ui.enhanced_select_boundary"
           ],
           "id": "shadcn_ui.stylesheet",
           "kind": "package",
@@ -859,7 +1467,8 @@
             "priv/static/shadcn_ui.css",
             "lib/shadcn_ui.ex",
             "README.md",
-            "test/shadcn_ui/stylesheet_test.exs"
+            "test/shadcn_ui/stylesheet_test.exs",
+            "test/shadcn_ui/milestone_b_acceptance_test.exs"
           ],
           "verification_minimum_strength": null
         },
@@ -921,6 +1530,208 @@
         "kind": "test_file",
         "subject_id": "shadcn_ui.component_contract",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.forms.field_composition",
+          "shadcn_ui.forms.field_fragments",
+          "shadcn_ui.forms.error_summary",
+          "shadcn_ui.forms.shared_contract"
+        ],
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/field_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.forms.input",
+          "shadcn_ui.forms.textarea",
+          "shadcn_ui.forms.shared_contract"
+        ],
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/text_controls_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.forms.checkbox",
+          "shadcn_ui.forms.radio_group",
+          "shadcn_ui.forms.switch",
+          "shadcn_ui.forms.shared_contract"
+        ],
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/choice_controls_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.forms.native_select",
+          "shadcn_ui.forms.enhanced_select",
+          "shadcn_ui.forms.shared_contract"
+        ],
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/select_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.forms.slider",
+          "shadcn_ui.forms.progress",
+          "shadcn_ui.forms.meter",
+          "shadcn_ui.forms.shared_contract"
+        ],
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.forms.field_composition",
+          "shadcn_ui.forms.field_fragments",
+          "shadcn_ui.forms.error_summary",
+          "shadcn_ui.forms.input",
+          "shadcn_ui.forms.textarea",
+          "shadcn_ui.forms.checkbox",
+          "shadcn_ui.forms.radio_group",
+          "shadcn_ui.forms.switch",
+          "shadcn_ui.forms.native_select",
+          "shadcn_ui.forms.enhanced_select",
+          "shadcn_ui.forms.slider",
+          "shadcn_ui.forms.progress",
+          "shadcn_ui.forms.meter",
+          "shadcn_ui.forms.shared_contract"
+        ],
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.forms.field_composition",
+          "shadcn_ui.forms.field_fragments",
+          "shadcn_ui.forms.error_summary",
+          "shadcn_ui.forms.input",
+          "shadcn_ui.forms.textarea",
+          "shadcn_ui.forms.checkbox",
+          "shadcn_ui.forms.radio_group",
+          "shadcn_ui.forms.switch",
+          "shadcn_ui.forms.native_select",
+          "shadcn_ui.forms.enhanced_select",
+          "shadcn_ui.forms.slider",
+          "shadcn_ui.forms.progress",
+          "shadcn_ui.forms.meter",
+          "shadcn_ui.forms.shared_contract"
+        ],
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.form.normalization",
+          "shadcn_ui.form.explicit_identity",
+          "shadcn_ui.form.error_ownership",
+          "shadcn_ui.form.deterministic_relationships",
+          "shadcn_ui.form.invalid_state",
+          "shadcn_ui.form.native_states",
+          "shadcn_ui.form.protected_globals",
+          "shadcn_ui.form.pending_snapshot",
+          "shadcn_ui.form.validation_boundary",
+          "shadcn_ui.form.native_submission"
+        ],
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.form.normalization",
+          "shadcn_ui.form.explicit_identity",
+          "shadcn_ui.form.error_ownership",
+          "shadcn_ui.form.deterministic_relationships",
+          "shadcn_ui.form.invalid_state",
+          "shadcn_ui.form.native_states",
+          "shadcn_ui.form.protected_globals",
+          "shadcn_ui.form.pending_snapshot",
+          "shadcn_ui.form.validation_boundary",
+          "shadcn_ui.form.native_submission"
+        ],
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.form.normalization",
+          "shadcn_ui.form.deterministic_relationships",
+          "shadcn_ui.form.native_submission"
+        ],
+        "execute": true,
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "command",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "mix precommit"
+      },
+      {
+        "covers": [
+          "shadcn_ui.form_gallery.catalog",
+          "shadcn_ui.form_gallery.states",
+          "shadcn_ui.form_gallery.modes",
+          "shadcn_ui.form_gallery.semantic_guidance"
+        ],
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "demo/test/shadcn_ui_demo/form_catalog_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.form_gallery.compositions",
+          "shadcn_ui.form_gallery.submission_fixture"
+        ],
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/form_submission_controller_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.form_gallery.states",
+          "shadcn_ui.form_gallery.modes",
+          "shadcn_ui.form_gallery.select_fallback",
+          "shadcn_ui.form_gallery.content_stress",
+          "shadcn_ui.form_gallery.browser_behavior"
+        ],
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/browser/milestone-b-forms.spec.mjs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.form_gallery.catalog",
+          "shadcn_ui.form_gallery.states",
+          "shadcn_ui.form_gallery.modes",
+          "shadcn_ui.form_gallery.compositions",
+          "shadcn_ui.form_gallery.submission_fixture",
+          "shadcn_ui.form_gallery.select_fallback",
+          "shadcn_ui.form_gallery.semantic_guidance",
+          "shadcn_ui.form_gallery.content_stress",
+          "shadcn_ui.form_gallery.browser_behavior"
+        ],
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs"
       },
       {
         "covers": [
@@ -1119,6 +1930,23 @@
       },
       {
         "covers": [
+          "shadcn_ui.gallery.closed_catalog",
+          "shadcn_ui.gallery.safe_resolution",
+          "shadcn_ui.gallery.stable_routes",
+          "shadcn_ui.gallery.semantic_shell",
+          "shadcn_ui.gallery.component_guidance",
+          "shadcn_ui.gallery.theme_matrix",
+          "shadcn_ui.gallery.deterministic_assets",
+          "shadcn_ui.gallery.static_export",
+          "shadcn_ui.gallery.excluded_from_package"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.package.independent_mix_project",
           "shadcn_ui.package.heex_infrastructure_only",
           "shadcn_ui.package.transport_neutral",
@@ -1199,7 +2027,9 @@
           "shadcn_ui.stylesheet.consumer_overrides",
           "shadcn_ui.stylesheet.reduced_motion",
           "shadcn_ui.stylesheet.no_runtime_assets",
-          "shadcn_ui.stylesheet.reproducible_output"
+          "shadcn_ui.stylesheet.reproducible_output",
+          "shadcn_ui.stylesheet.form_fallbacks",
+          "shadcn_ui.stylesheet.form_resilience"
         ],
         "execute": true,
         "file": ".spec/specs/stylesheet.spec.md",
@@ -1219,7 +2049,9 @@
           "shadcn_ui.stylesheet.asset_path",
           "shadcn_ui.stylesheet.reduced_motion",
           "shadcn_ui.stylesheet.no_runtime_assets",
-          "shadcn_ui.stylesheet.reproducible_output"
+          "shadcn_ui.stylesheet.reproducible_output",
+          "shadcn_ui.stylesheet.form_fallbacks",
+          "shadcn_ui.stylesheet.form_resilience"
         ],
         "file": ".spec/specs/stylesheet.spec.md",
         "kind": "test_file",
@@ -1240,19 +2072,32 @@
         "kind": "test_file",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.stylesheet.semantic_tokens",
+          "shadcn_ui.stylesheet.reduced_motion",
+          "shadcn_ui.stylesheet.no_runtime_assets",
+          "shadcn_ui.stylesheet.form_fallbacks",
+          "shadcn_ui.stylesheet.form_resilience"
+        ],
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs"
       }
     ]
   },
   "specification_version": "1.0",
   "summary": {
     "decision_parse_errors": 0,
-    "decisions": 7,
+    "decisions": 11,
     "exceptions": 0,
-    "findings": 23,
-    "requirements": 57,
+    "findings": 51,
+    "requirements": 92,
     "scenarios": 0,
-    "subjects": 6,
-    "verifications": 26
+    "subjects": 9,
+    "verifications": 42
   },
   "verification": {
     "claims": [
@@ -1587,6 +2432,985 @@
         "verification_index": 2
       },
       {
+        "cover_id": "shadcn_ui.forms.error_summary",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/field_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.forms.field_composition",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/field_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.forms.field_fragments",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/field_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.forms.shared_contract",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/field_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.forms.input",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/text_controls_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.forms.shared_contract",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/text_controls_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.forms.textarea",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/text_controls_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.forms.checkbox",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/choice_controls_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.forms.radio_group",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/choice_controls_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.forms.shared_contract",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/choice_controls_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.forms.switch",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/choice_controls_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.forms.enhanced_select",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/select_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.forms.native_select",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/select_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.forms.shared_contract",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/select_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.forms.meter",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.forms.progress",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.forms.shared_contract",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.forms.slider",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.forms.checkbox",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.enhanced_select",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.error_summary",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.field_composition",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.field_fragments",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.input",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.meter",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.native_select",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.progress",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.radio_group",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.shared_contract",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.slider",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.switch",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.textarea",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/form_components_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.forms.checkbox",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.enhanced_select",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.error_summary",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.field_composition",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.field_fragments",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.input",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.meter",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.native_select",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.progress",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.radio_group",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.shared_contract",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.slider",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.switch",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.forms.textarea",
+        "file": ".spec/specs/form_components.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_components",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.form.deterministic_relationships",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.error_ownership",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.explicit_identity",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.invalid_state",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.native_states",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.native_submission",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.normalization",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.pending_snapshot",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.protected_globals",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.validation_boundary",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/forms/form_contract_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form.deterministic_relationships",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.error_ownership",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.explicit_identity",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.invalid_state",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.native_states",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.native_submission",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.normalization",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.pending_snapshot",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.protected_globals",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.validation_boundary",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form.deterministic_relationships",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "mix precommit",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.form.native_submission",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "mix precommit",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.form.normalization",
+        "file": ".spec/specs/form_contract.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_contract",
+        "target": "mix precommit",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.catalog",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "demo/test/shadcn_ui_demo/form_catalog_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.modes",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "demo/test/shadcn_ui_demo/form_catalog_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.semantic_guidance",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "demo/test/shadcn_ui_demo/form_catalog_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.states",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "demo/test/shadcn_ui_demo/form_catalog_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.compositions",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/form_submission_controller_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.submission_fixture",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "demo/test/shadcn_ui_demo_web/controllers/form_submission_controller_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.browser_behavior",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/browser/milestone-b-forms.spec.mjs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.content_stress",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/browser/milestone-b-forms.spec.mjs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.modes",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/browser/milestone-b-forms.spec.mjs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.select_fallback",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/browser/milestone-b-forms.spec.mjs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.states",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/browser/milestone-b-forms.spec.mjs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.browser_behavior",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.catalog",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.compositions",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.content_stress",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.modes",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.select_fallback",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.semantic_guidance",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.states",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.form_gallery.submission_fixture",
+        "file": ".spec/specs/form_gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.form_gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
         "cover_id": "shadcn_ui.foundation.button",
         "file": ".spec/specs/foundation_components.spec.md",
         "kind": "test_file",
@@ -2401,6 +4225,105 @@
         "verification_index": 6
       },
       {
+        "cover_id": "shadcn_ui.gallery.closed_catalog",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.component_guidance",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.deterministic_assets",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.excluded_from_package",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.safe_resolution",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.semantic_shell",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.stable_routes",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.static_export",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.theme_matrix",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 7
+      },
+      {
         "cover_id": "shadcn_ui.package.explicit_release_files",
         "file": ".spec/specs/package.spec.md",
         "kind": "command",
@@ -2764,6 +4687,28 @@
         "verification_index": 0
       },
       {
+        "cover_id": "shadcn_ui.stylesheet.form_fallbacks",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.form_resilience",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "npm run assets:check",
+        "verification_index": 0
+      },
+      {
         "cover_id": "shadcn_ui.stylesheet.no_runtime_assets",
         "file": ".spec/specs/stylesheet.spec.md",
         "kind": "command",
@@ -2885,6 +4830,28 @@
         "verification_index": 1
       },
       {
+        "cover_id": "shadcn_ui.stylesheet.form_fallbacks",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.form_resilience",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/stylesheet_test.exs",
+        "verification_index": 1
+      },
+      {
         "cover_id": "shadcn_ui.stylesheet.no_runtime_assets",
         "file": ".spec/specs/stylesheet.spec.md",
         "kind": "test_file",
@@ -3037,19 +5004,74 @@
         "subject_id": "shadcn_ui.stylesheet",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
         "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.form_fallbacks",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.form_resilience",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.no_runtime_assets",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.reduced_motion",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.stylesheet.semantic_tokens",
+        "file": ".spec/specs/stylesheet.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.stylesheet",
+        "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
+        "verification_index": 3
       }
     ],
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 68,
+      "claimed": 175,
       "executed": 0,
       "linked": 94
     },
     "threshold_failures": 0
   },
   "workspace": {
-    "decision_count": 7,
-    "spec_count": 6
+    "decision_count": 11,
+    "spec_count": 9
   }
 }

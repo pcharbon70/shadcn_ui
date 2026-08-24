@@ -10,3 +10,4 @@ Plans are non-normative and must not rewrite completed milestone history.
 ## Active plans
 
 1. [Milestone A - Package, Styling, and Gallery Foundation](./milestone-a-package-styling-and-gallery-foundation/README.md)
+2. [Milestone B - Native Forms and Validation](./milestone-b-native-forms-and-validation/README.md)

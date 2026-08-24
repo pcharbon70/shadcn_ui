@@ -10,11 +10,15 @@ decisions:
   - shadcn_ui.scoped_theme_token_contract
   - shadcn_ui.progressive_enhancement_baseline
   - shadcn_ui.gallery_static_publication
+  - shadcn_ui.deterministic_form_accessibility
+  - shadcn_ui.enhanced_select_boundary
 surface:
   - demo/**
   - scripts/**
   - test/browser/milestone-a-gallery.spec.mjs
+  - test/browser/milestone-b-forms.spec.mjs
   - test/shadcn_ui/milestone_a_acceptance_test.exs
+  - test/shadcn_ui/milestone_b_acceptance_test.exs
   - README.md
 ```
 
@@ -37,7 +41,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery.closed_catalog
-  statement: The gallery shall own one immutable ordered catalogue with stable Foundation category and Button, Badge, Alert, Card, Avatar, and Skeleton leaves whose request slugs resolve only through closed strings to explicit render identities.
+  statement: The gallery shall own one immutable ordered catalogue with stable Foundation and Forms categories and the complete Milestone A and B component leaves whose request slugs resolve only through closed strings to explicit render identities.
   priority: must
   stability: stable
 
@@ -47,7 +51,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery.stable_routes
-  statement: The gallery shall provide stable controller and exported routes for a categorized landing, Foundation category, and one page per Milestone A component with ordinary links and accurate current-page state.
+  statement: The gallery shall provide stable controller and exported routes for a categorized landing, every current category, and one page per current component with ordinary links and accurate current-page state.
   priority: must
   stability: stable
 
@@ -62,7 +66,7 @@ surface:
   stability: evolving
 
 - id: shadcn_ui.gallery.theme_matrix
-  statement: Every Milestone A page shall render under explicit light and dark data-shadcn-theme scopes, default safely to light, preserve readable focus and content at narrow widths, and keep core content usable when demo-only scripting is disabled.
+  statement: Every current component page shall render under explicit light and dark data-shadcn-theme scopes, default safely to light, preserve readable focus and content at narrow widths, and keep core content usable when demo-only scripting is disabled.
   priority: must
   stability: stable
 
@@ -161,5 +165,18 @@ surface:
     - shadcn_ui.gallery.deterministic_assets
     - shadcn_ui.gallery.static_export
     - shadcn_ui.gallery.online_publication
+    - shadcn_ui.gallery.excluded_from_package
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_b_acceptance_test.exs
+  covers:
+    - shadcn_ui.gallery.closed_catalog
+    - shadcn_ui.gallery.safe_resolution
+    - shadcn_ui.gallery.stable_routes
+    - shadcn_ui.gallery.semantic_shell
+    - shadcn_ui.gallery.component_guidance
+    - shadcn_ui.gallery.theme_matrix
+    - shadcn_ui.gallery.deterministic_assets
+    - shadcn_ui.gallery.static_export
     - shadcn_ui.gallery.excluded_from_package
 ```

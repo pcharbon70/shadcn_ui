@@ -19,3 +19,10 @@ silently accept those decisions.
 5. [Track upstream provenance without automatic synchronization](./upstream-provenance.md)
 6. [Adopt progressive enhancement with explicit fallback evidence](./progressive-enhancement-baseline.md)
 7. [Keep the gallery separate and publish a static export](./gallery-static-publication.md)
+
+## Milestone B decisions
+
+1. [Normalize Phoenix form fields without owning validation](./form-field-normalization-and-validation-ownership.md)
+2. [Make native form accessibility relationships deterministic](./deterministic-native-form-accessibility.md)
+3. [Preserve native control and submission semantics](./native-form-control-and-submission-boundary.md)
+4. [Enhance select controls through a capability-gated native fallback](./enhanced-select-progressive-boundary.md)

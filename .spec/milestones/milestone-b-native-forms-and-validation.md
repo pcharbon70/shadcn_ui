@@ -79,3 +79,17 @@ and HEEX usage for the complete form catalogue.
 Comboboxes, listboxes, date pickers, rich editors, asynchronous validation,
 domain-specific fields, and client-owned form frameworks remain outside this
 milestone unless separately specified later.
+
+## Accepted architecture and current truth
+
+- [FormField normalization and validation ownership](../decisions/form-field-normalization-and-validation-ownership.md)
+- [Deterministic native form accessibility](../decisions/deterministic-native-form-accessibility.md)
+- [Native control and submission boundary](../decisions/native-form-control-and-submission-boundary.md)
+- [Enhanced Select progressive boundary](../decisions/enhanced-select-progressive-boundary.md)
+- [Shared native form contract](../specs/form_contract.spec.md)
+- [Milestone B native form components](../specs/form_components.spec.md)
+- [Milestone B form gallery and acceptance](../specs/form_gallery.spec.md)
+
+## Implementation plan
+
+[Milestone B - Native Forms and Validation](../planning/milestone-b-native-forms-and-validation/README.md)

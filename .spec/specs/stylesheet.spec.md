@@ -9,6 +9,8 @@ decisions:
   - shadcn_ui.isolated_compiled_css
   - shadcn_ui.scoped_theme_token_contract
   - shadcn_ui.progressive_enhancement_baseline
+  - shadcn_ui.deterministic_form_accessibility
+  - shadcn_ui.enhanced_select_boundary
 surface:
   - assets/**
   - package.json
@@ -17,6 +19,7 @@ surface:
   - lib/shadcn_ui.ex
   - README.md
   - test/shadcn_ui/stylesheet_test.exs
+  - test/shadcn_ui/milestone_b_acceptance_test.exs
 ```
 
 ## Requirements
@@ -43,7 +46,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.stylesheet.semantic_tokens
-  statement: Public semantic colors, foreground pairs, border, input, focus ring, radius, and motion tokens shall use documented --shadcn-ui-* custom properties with complete light defaults.
+  statement: Public semantic colors, foreground pairs, border, input, invalid, focus ring, radius, control sizing, and motion tokens shall use documented --shadcn-ui-* custom properties with complete light defaults.
   priority: must
   stability: evolving
 
@@ -63,12 +66,12 @@ surface:
   stability: stable
 
 - id: shadcn_ui.stylesheet.reduced_motion
-  statement: The stylesheet shall preserve state and meaning while disabling or shortening nonessential Milestone A animation under prefers-reduced-motion.
+  statement: The stylesheet shall preserve state and meaning while disabling or shortening nonessential component animation under prefers-reduced-motion.
   priority: must
   stability: stable
 
 - id: shadcn_ui.stylesheet.no_runtime_assets
-  statement: The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestone A shall ship no component JavaScript.
+  statement: The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestones A and B shall ship no component JavaScript.
   priority: must
   stability: stable
 
@@ -76,6 +79,16 @@ surface:
   statement: A clean locked asset build shall reproduce the committed canonical artifact byte-for-byte and fail when generated output is stale.
   priority: must
   stability: stable
+
+- id: shadcn_ui.stylesheet.form_fallbacks
+  statement: Textarea field-sizing content and customizable-select styling shall activate only inside capability queries, while fixed textarea sizing and classic native select presentation remain visible, operable, and semantically complete fallbacks.
+  priority: must
+  stability: evolving
+
+- id: shadcn_ui.stylesheet.form_resilience
+  statement: Form controls, labels, help, errors, focus, disabled state, checked or selected state, progress, and meter meaning shall remain distinguishable at narrow widths, 200 percent zoom, and in forced-colors mode without relying on color alone.
+  priority: must
+  stability: evolving
 ```
 
 ## Verification
@@ -95,6 +108,8 @@ surface:
     - shadcn_ui.stylesheet.reduced_motion
     - shadcn_ui.stylesheet.no_runtime_assets
     - shadcn_ui.stylesheet.reproducible_output
+    - shadcn_ui.stylesheet.form_fallbacks
+    - shadcn_ui.stylesheet.form_resilience
 
 - kind: test_file
   target: test/shadcn_ui/stylesheet_test.exs
@@ -110,6 +125,8 @@ surface:
     - shadcn_ui.stylesheet.reduced_motion
     - shadcn_ui.stylesheet.no_runtime_assets
     - shadcn_ui.stylesheet.reproducible_output
+    - shadcn_ui.stylesheet.form_fallbacks
+    - shadcn_ui.stylesheet.form_resilience
 
 - kind: test_file
   target: test/shadcn_ui/milestone_a_acceptance_test.exs
@@ -121,4 +138,13 @@ surface:
     - shadcn_ui.stylesheet.asset_path
     - shadcn_ui.stylesheet.no_runtime_assets
     - shadcn_ui.stylesheet.reproducible_output
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_b_acceptance_test.exs
+  covers:
+    - shadcn_ui.stylesheet.semantic_tokens
+    - shadcn_ui.stylesheet.reduced_motion
+    - shadcn_ui.stylesheet.no_runtime_assets
+    - shadcn_ui.stylesheet.form_fallbacks
+    - shadcn_ui.stylesheet.form_resilience
 ```
