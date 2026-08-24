@@ -115,6 +115,23 @@ Badge deliberately rejects link, button, focus, and activation attributes. Use
 application-owned link or button markup when the content navigates, selects,
 dismisses, or performs an action.
 
+### Alert
+
+Alert renders visible feedback with optional icon and actions regions, visible
+title and/or description text, and `default` or `destructive` presentation.
+Announcement behavior is selected independently with `:none`, `:polite`, or
+`:assertive`; destructive color never implies announcement urgency.
+
+```heex
+<.alert announcement={:polite} title="Draft saved">
+  <:icon><.check_icon aria-hidden="true" /></:icon>
+  <:actions><.button variant={:outline}>View draft</.button></:actions>
+</.alert>
+```
+
+The application owns when the alert is inserted, its lifecycle, dismissal,
+retry behavior, action handling, and command outcomes.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

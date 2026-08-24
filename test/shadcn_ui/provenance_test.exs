@@ -100,6 +100,20 @@ defmodule ShadcnUI.ProvenanceTest do
     assert badge["localChanges"] =~ "closed noninteractive HEEX component contract"
   end
 
+  test "maps Alert to the exact reviewed component and variant sources" do
+    alert = Enum.find(manifest()["adaptations"], &(&1["id"] == "foundation.alert"))
+
+    assert alert["localPaths"] == ["lib/shadcn_ui/components/foundation/alert.ex"]
+
+    assert alert["upstreamPaths"] == [
+             "src/content/components/alert.mdx",
+             "src/demos/alert/variants.html"
+           ]
+
+    assert alert["localChanges"] =~ "explicit announcement semantics"
+    assert alert["localChanges"] =~ "caller-owned lifecycle"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)

@@ -12,3 +12,5 @@ All notable changes to ShadcnUI will be documented in this file.
   presentation-only loading state.
 - Add the passive Badge component with four closed semantic variants and no
   link, button, selection, or dismissal behavior.
+- Add the Alert component with explicit announcement policy, composable icon
+  and actions regions, and caller-owned lifecycle behavior.

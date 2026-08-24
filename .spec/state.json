@@ -95,13 +95,6 @@
       "entity_id": "shadcn_ui.foundation_components",
       "file": ".spec/specs/foundation_components.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/alert_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.foundation_components",
-      "file": ".spec/specs/foundation_components.spec.md",
-      "level": "warning",
       "message": "Verification target file does not exist: test/shadcn_ui/components/foundation/avatar_test.exs"
     },
     {
@@ -1367,7 +1360,7 @@
     "decision_parse_errors": 0,
     "decisions": 7,
     "exceptions": 0,
-    "findings": 40,
+    "findings": 39,
     "requirements": 57,
     "scenarios": 0,
     "subjects": 6,
@@ -1766,7 +1759,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/components/foundation/alert_test.exs",
         "verification_index": 2
@@ -1777,7 +1770,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/components/foundation/alert_test.exs",
         "verification_index": 2
@@ -1788,7 +1781,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.foundation_components",
         "target": "test/shadcn_ui/components/foundation/alert_test.exs",
         "verification_index": 2
@@ -3161,9 +3154,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 91,
+      "claimed": 88,
       "executed": 0,
-      "linked": 71
+      "linked": 74
     },
     "threshold_failures": 0
   },

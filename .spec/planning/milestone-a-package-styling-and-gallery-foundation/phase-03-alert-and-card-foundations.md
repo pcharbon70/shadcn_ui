@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   not infer announcement urgency and visual grouping does not invent application
   meaning.
 
-  - [ ] 3.1 Section - Alert component.
+  - [x] 3.1 Section - Alert component.
 
     This section implements visible feedback with explicit announcement policy
     and optional caller-authored icon and action regions.
 
-    - [ ] 3.1.1 Task - Define the Alert public API and announcement semantics.
+    - [x] 3.1.1 Task - Define the Alert public API and announcement semantics.
 
       Alert should separate visible presentation from live-region behavior so
       applications deliberately choose whether new content is announced.
 
-      - [ ] 3.1.1.1 Subtask - Declare default/destructive variant, none/polite/assertive announcement policy, optional title and description, icon and actions slots, class, and supported globals.
-      - [ ] 3.1.1.2 Subtask - Require at least one visible title or description and derive deterministic role/live attributes only from announcement policy.
-      - [ ] 3.1.1.3 Subtask - Protect announcement semantics from conflicting globals and keep destructive color independent from urgency.
-      - [ ] 3.1.1.4 Subtask - Document caller ownership of insertion timing, dismissal, retry, action outcomes, and lifecycle.
+      - [x] 3.1.1.1 Subtask - Declare default/destructive variant, none/polite/assertive announcement policy, optional title and description, icon and actions slots, class, and supported globals.
+      - [x] 3.1.1.2 Subtask - Require at least one visible title or description and derive deterministic role/live attributes only from announcement policy.
+      - [x] 3.1.1.3 Subtask - Protect announcement semantics from conflicting globals and keep destructive color independent from urgency.
+      - [x] 3.1.1.4 Subtask - Document caller ownership of insertion timing, dismissal, retry, action outcomes, and lifecycle.
 
-    - [ ] 3.1.2 Task - Implement Alert presentation and tests.
+    - [x] 3.1.2 Task - Implement Alert presentation and tests.
 
       The alert layout should remain coherent with absent optional regions, long
       text, nested native controls, and both supported themes.
 
-      - [ ] 3.1.2.1 Subtask - Implement token-driven grid, icon, title, description, action, default, and destructive class mappings.
-      - [ ] 3.1.2.2 Subtask - Test every announcement policy, variant, region combination, escaped content, trusted slots, globals, and protected semantics.
-      - [ ] 3.1.2.3 Subtask - Test absent or blank visible content rejection and absence of dismissal or command behavior.
-      - [ ] 3.1.2.4 Subtask - Add provenance coverage for the adapted upstream Alert markup.
+      - [x] 3.1.2.1 Subtask - Implement token-driven grid, icon, title, description, action, default, and destructive class mappings.
+      - [x] 3.1.2.2 Subtask - Test every announcement policy, variant, region combination, escaped content, trusted slots, globals, and protected semantics.
+      - [x] 3.1.2.3 Subtask - Test absent or blank visible content rejection and absence of dismissal or command behavior.
+      - [x] 3.1.2.4 Subtask - Add provenance coverage for the adapted upstream Alert markup.
 
   - [ ] 3.2 Section - Card component.
 
