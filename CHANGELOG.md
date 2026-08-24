@@ -25,3 +25,5 @@ All notable changes to ShadcnUI will be documented in this file.
   static export.
 - Add GitHub Pages publication metadata, consumer and maintainer guidance,
   grouped ExDoc configuration, and the audited internal `0.1.0` release boundary.
+- Add the shared Milestone B form normalization and deterministic accessibility
+  contract plus Field, Label, Help, Field Errors, and Error Summary primitives.

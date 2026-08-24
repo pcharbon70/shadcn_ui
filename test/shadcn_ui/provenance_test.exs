@@ -156,6 +156,19 @@ defmodule ShadcnUI.ProvenanceTest do
     assert skeleton["localChanges"] =~ "reduced-motion-safe snapshot"
   end
 
+  test "maps the Milestone B Label adaptation to the reviewed native sources" do
+    label = Enum.find(manifest()["adaptations"], &(&1["id"] == "forms.label"))
+
+    assert label["localPaths"] == ["lib/shadcn_ui/components/forms/label.ex"]
+
+    assert label["upstreamPaths"] == [
+             "src/content/components/label.mdx",
+             "src/demos/label/basic.html"
+           ]
+
+    assert label["localChanges"] =~ "protected HEEX relationship primitive"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)

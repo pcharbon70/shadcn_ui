@@ -45,6 +45,12 @@
       "localChanges": "Adapt skeleton presentation into a decorative HEEX placeholder with a reduced-motion-safe snapshot."
     },
     {
+      "id": "forms.label",
+      "localPaths": ["lib/shadcn_ui/components/forms/label.ex"],
+      "upstreamPaths": ["src/content/components/label.mdx", "src/demos/label/basic.html"],
+      "localChanges": "Adapt native label presentation into a protected HEEX relationship primitive with explicit required and optional indicators."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

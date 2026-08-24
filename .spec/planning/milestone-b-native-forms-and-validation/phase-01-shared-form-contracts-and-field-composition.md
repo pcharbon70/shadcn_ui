@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 1 Phase - Establish one normalization, accessibility, validation-
+- [x] 1 Phase - Establish one normalization, accessibility, validation-
   ownership, and field-composition foundation for every Milestone B control.
 
   This phase implements the high-risk shared rules before individual controls.
@@ -83,27 +83,27 @@ Back to wave: [README](./README.md)
       - [x] 1.3.2.3 Subtask - Add no default alert role, tabindex, autofocus, script, focus movement, or scroll behavior.
       - [x] 1.3.2.4 Subtask - Test caller-selected announcement globals without weakening mandatory summary and link semantics.
 
-  - [ ] 1.4 Section - Phase 1 Integration Tests.
+  - [x] 1.4 Section - Phase 1 Integration Tests.
 
     This section proves that the shared normalizer, relationship context, field
     fragments, and summary work together before individual controls depend on
     them.
 
-    - [ ] 1.4.1 Task - Verify explicit and FormField contract equivalence.
+    - [x] 1.4.1 Task - Verify explicit and FormField contract equivalence.
 
       Integration fixtures should render the same semantic field composition
       from both input modes across error and presentation policies.
 
-      - [ ] 1.4.1.1 Subtask - Render explicit and FormField fixtures with matching IDs, names, values, labels, help, errors, and globals.
-      - [ ] 1.4.1.2 Subtask - Verify used-input, always, and hidden modes with translated, interpolated, repeated, and escaped messages.
-      - [ ] 1.4.1.3 Subtask - Rerender fixtures and assert stable IDs, relationship order, protected attributes, and no atom growth.
+      - [x] 1.4.1.1 Subtask - Render explicit and FormField fixtures with matching IDs, names, values, labels, help, errors, and globals.
+      - [x] 1.4.1.2 Subtask - Verify used-input, always, and hidden modes with translated, interpolated, repeated, and escaped messages.
+      - [x] 1.4.1.3 Subtask - Rerender fixtures and assert stable IDs, relationship order, protected attributes, and no atom growth.
 
-    - [ ] 1.4.2 Task - Verify composed accessibility and package boundaries.
+    - [x] 1.4.2 Task - Verify composed accessibility and package boundaries.
 
       Tests should cover content stress and absence of hidden behavior as part of
       the contract rather than treating them as later gallery polish.
 
-      - [ ] 1.4.2.1 Subtask - Compose multiple Fields and one Error Summary with unique fragments and complete non-dangling references.
-      - [ ] 1.4.2.2 Subtask - Exercise long labels, translated and repeated errors, narrow layout, light/dark themes, zoom, and forced colors.
-      - [ ] 1.4.2.3 Subtask - Audit dependencies and rendered markup for absent Gettext backend, form mutation, events, scripts, application operations, and component state.
-      - [ ] 1.4.2.4 Subtask - Run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 1.4.2.1 Subtask - Compose multiple Fields and one Error Summary with unique fragments and complete non-dangling references.
+      - [x] 1.4.2.2 Subtask - Exercise long labels, translated and repeated errors, narrow layout, light/dark themes, zoom, and forced colors.
+      - [x] 1.4.2.3 Subtask - Audit dependencies and rendered markup for absent Gettext backend, form mutation, events, scripts, application operations, and component state.
+      - [x] 1.4.2.4 Subtask - Run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.

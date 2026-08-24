@@ -161,13 +161,6 @@
       "entity_id": "shadcn_ui.form_components",
       "file": ".spec/specs/form_components.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/components/forms/field_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
       "message": "Verification target file does not exist: test/shadcn_ui/components/forms/range_and_measurement_test.exs"
     },
     {
@@ -192,32 +185,88 @@
       "message": "Verification target file does not exist: test/shadcn_ui/form_components_test.exs"
     },
     {
-      "code": "verification_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.form_components",
       "file": ".spec/specs/form_components.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.checkbox"
     },
     {
-      "code": "surface_target_missing",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.enhanced_select"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.input"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.meter"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.native_select"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.progress"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.radio_group"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.slider"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.switch"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_components",
+      "file": ".spec/specs/form_components.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.textarea"
+    },
+    {
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.form_contract",
       "file": ".spec/specs/form_contract.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/forms/form_contract_test.exs"
+      "message": "Verification target test/shadcn_ui/forms/form_contract_test.exs does not reference covered requirement: shadcn_ui.form.native_states"
     },
     {
-      "code": "verification_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.form_contract",
       "file": ".spec/specs/form_contract.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/forms/form_contract_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.form_contract",
-      "file": ".spec/specs/form_contract.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/forms/form_contract_test.exs does not reference covered requirement: shadcn_ui.form.native_submission"
     },
     {
       "code": "surface_target_missing",
@@ -225,13 +274,6 @@
       "file": ".spec/specs/form_gallery.spec.md",
       "level": "warning",
       "message": "Surface entry does not exist: test/browser/milestone-b-forms.spec.mjs"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.form_gallery",
-      "file": ".spec/specs/form_gallery.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
     },
     {
       "code": "verification_target_missing",
@@ -255,11 +297,67 @@
       "message": "Verification target file does not exist: test/browser/milestone-b-forms.spec.mjs"
     },
     {
-      "code": "verification_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.form_gallery",
       "file": ".spec/specs/form_gallery.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.browser_behavior"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.catalog"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.compositions"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.content_stress"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.modes"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.select_fallback"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.semantic_guidance"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.states"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.form_gallery",
+      "file": ".spec/specs/form_gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.form_gallery.submission_fixture"
     },
     {
       "code": "verification_target_missing_reference",
@@ -297,13 +395,6 @@
       "message": "Surface entry does not exist: test/browser/milestone-b-forms.spec.mjs"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.gallery",
-      "file": ".spec/specs/gallery.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
-    },
-    {
       "code": "verification_target_missing",
       "entity_id": "shadcn_ui.gallery",
       "file": ".spec/specs/gallery.spec.md",
@@ -330,13 +421,6 @@
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
       "message": "Verification target file does not exist: test/browser/milestone-a-gallery.spec.mjs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.gallery",
-      "file": ".spec/specs/gallery.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
     },
     {
       "code": "verification_target_missing_reference",
@@ -472,18 +556,102 @@
       "message": "Verification target test/shadcn_ui/milestone_a_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.theme_matrix"
     },
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.stylesheet",
-      "file": ".spec/specs/stylesheet.spec.md",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.closed_catalog"
     },
     {
-      "code": "verification_target_missing",
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.component_guidance"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.deterministic_assets"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.excluded_from_package"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.safe_resolution"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.semantic_shell"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.stable_routes"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.static_export"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.gallery",
+      "file": ".spec/specs/gallery.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.theme_matrix"
+    },
+    {
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.stylesheet",
       "file": ".spec/specs/stylesheet.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_b_acceptance_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.stylesheet.form_fallbacks"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.stylesheet.form_resilience"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.stylesheet.no_runtime_assets"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.stylesheet.reduced_motion"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.stylesheet",
+      "file": ".spec/specs/stylesheet.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.stylesheet.semantic_tokens"
     },
     {
       "code": "verification_target_missing_reference",
@@ -2093,7 +2261,7 @@
     "decision_parse_errors": 0,
     "decisions": 11,
     "exceptions": 0,
-    "findings": 51,
+    "findings": 75,
     "requirements": 92,
     "scenarios": 0,
     "subjects": 9,
@@ -2437,7 +2605,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/field_test.exs",
         "verification_index": 0
@@ -2448,7 +2616,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/field_test.exs",
         "verification_index": 0
@@ -2459,7 +2627,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/field_test.exs",
         "verification_index": 0
@@ -2470,7 +2638,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/field_test.exs",
         "verification_index": 0
@@ -2811,7 +2979,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 6
@@ -2822,7 +2990,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 6
@@ -2833,7 +3001,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 6
@@ -2899,7 +3067,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 6
@@ -2943,7 +3111,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/forms/form_contract_test.exs",
         "verification_index": 0
@@ -2954,7 +3122,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/forms/form_contract_test.exs",
         "verification_index": 0
@@ -2965,7 +3133,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/forms/form_contract_test.exs",
         "verification_index": 0
@@ -2976,7 +3144,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/forms/form_contract_test.exs",
         "verification_index": 0
@@ -3009,7 +3177,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/forms/form_contract_test.exs",
         "verification_index": 0
@@ -3020,7 +3188,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/forms/form_contract_test.exs",
         "verification_index": 0
@@ -3031,7 +3199,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/forms/form_contract_test.exs",
         "verification_index": 0
@@ -3042,7 +3210,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/forms/form_contract_test.exs",
         "verification_index": 0
@@ -3053,7 +3221,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3064,7 +3232,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3075,7 +3243,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3086,7 +3254,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3097,7 +3265,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3108,7 +3276,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3119,7 +3287,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3130,7 +3298,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3141,7 +3309,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -3152,7 +3320,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_contract",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 1
@@ -5064,9 +5232,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 175,
+      "claimed": 149,
       "executed": 0,
-      "linked": 94
+      "linked": 120
     },
     "threshold_failures": 0
   },
