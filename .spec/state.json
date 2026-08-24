@@ -1,0 +1,39 @@
+{
+  "decisions": {
+    "items": []
+  },
+  "findings": [],
+  "index": {
+    "exceptions": [],
+    "requirements": [],
+    "scenarios": [],
+    "subjects": [],
+    "verifications": []
+  },
+  "specification_version": "1.0",
+  "summary": {
+    "decision_parse_errors": 0,
+    "decisions": 0,
+    "exceptions": 0,
+    "findings": 0,
+    "requirements": 0,
+    "scenarios": 0,
+    "subjects": 0,
+    "verifications": 0
+  },
+  "verification": {
+    "claims": [],
+    "cli_minimum_strength": null,
+    "default_minimum_strength": "claimed",
+    "strength_summary": {
+      "claimed": 0,
+      "executed": 0,
+      "linked": 0
+    },
+    "threshold_failures": 0
+  },
+  "workspace": {
+    "decision_count": 0,
+    "spec_count": 0
+  }
+}
