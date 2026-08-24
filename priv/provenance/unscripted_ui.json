@@ -63,6 +63,12 @@
       "localChanges": "Adapt native checkbox presentation into explicit boolean and repeated-value HEEX modes with deterministic field relationships."
     },
     {
+      "id": "forms.radio_group",
+      "localPaths": ["lib/shadcn_ui/components/forms/radio_group.ex"],
+      "upstreamPaths": ["src/content/components/radio-group.mdx", "src/demos/radio-group/basic.html"],
+      "localChanges": "Adapt native radio-group presentation into a validated HEEX fieldset with deterministic option identity and caller-owned selection."
+    },
+    {
       "id": "forms.textarea",
       "localPaths": ["lib/shadcn_ui/components/forms/textarea.ex"],
       "upstreamPaths": ["src/content/components/textarea.mdx", "src/demos/textarea/basic.html"],

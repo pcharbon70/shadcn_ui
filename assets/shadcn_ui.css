@@ -229,4 +229,13 @@
     outline: 1px solid Mark;
     outline-offset: 0.125rem;
   }
+
+  [data-shadcn-ui-radio] {
+    forced-color-adjust: auto;
+  }
+
+  [data-shadcn-ui-radio-group][aria-invalid="true"] {
+    outline: 1px solid Mark;
+    outline-offset: 0.125rem;
+  }
 }

@@ -4,7 +4,8 @@ defmodule ShadcnUI.Components.Forms.ChoiceControlsTest do
   alias Phoenix.HTML.FormField
   alias Phoenix.HTML.Safe
 
-  # covers: shadcn_ui.forms.checkbox shadcn_ui.forms.shared_contract
+  # covers: shadcn_ui.forms.checkbox shadcn_ui.forms.radio_group
+  # covers: shadcn_ui.forms.shared_contract
 
   defmodule Fixture do
     use Phoenix.Component
@@ -55,6 +56,50 @@ defmodule ShadcnUI.Components.Forms.ChoiceControlsTest do
         <:label>Enable reports</:label>
         <:help>Reports can be changed later.</:help>
       </.checkbox>
+      """
+    end
+
+    attr :field, :any, default: nil
+    attr :id, :string, default: nil
+    attr :name, :string, default: nil
+    attr :selected, :any, default: {:shadcn_ui, :not_provided}
+    attr :options, :list, required: true
+    attr :errors, :any, default: {:shadcn_ui, :not_provided}
+    attr :error_mode, :atom, default: :used_input
+    attr :pending, :boolean, default: false
+    attr :required, :boolean, default: false
+    attr :disabled, :boolean, default: false
+    attr :layout, :atom, default: :vertical
+
+    def radio_fixture(assigns) do
+      ~H"""
+      <.radio_group
+        field={@field}
+        id={@id}
+        name={@name}
+        selected={@selected}
+        options={@options}
+        errors={@errors}
+        error_mode={@error_mode}
+        pending={@pending}
+        required={@required}
+        disabled={@disabled}
+        layout={@layout}
+        form="settings"
+        describedby="caller-help caller-help"
+        class="consumer-group"
+        options_class="consumer-options"
+        option_class="consumer-option"
+        legend_class="consumer-legend"
+        aria-label="Wrong legend"
+        aria-labelledby="wrong-label"
+        aria-invalid="false"
+        data-state="ready"
+        phx-change="caller-owned"
+      >
+        <:legend>Preferred contact method</:legend>
+        <:help>Choose one available method.</:help>
+      </.radio_group>
       """
     end
   end
@@ -184,6 +229,128 @@ defmodule ShadcnUI.Components.Forms.ChoiceControlsTest do
     refute source =~ ~r/(handle_event|push_event|JS\.|<script|javascript:|role="checkbox")/
   end
 
+  test "radio group renders one native fieldset, legend, and stable native options" do
+    html =
+      render_radio(
+        id: "settings_contact",
+        name: "settings[contact]",
+        selected: "phone",
+        options: radio_options(),
+        required: true
+      )
+
+    assert html =~ ~s(<fieldset)
+    assert html =~ ~s(id="settings_contact")
+    assert html =~ ~s(<legend id="settings_contact-label")
+    assert html =~ "Preferred contact method"
+    assert length(Regex.scan(~r/type="radio"/, html)) == 3
+    assert length(Regex.scan(~r/name="settings\[contact\]"/, html)) == 3
+    assert length(Regex.scan(~r/ required/, html)) >= 3
+    assert length(Regex.scan(~r/ checked/, html)) == 1
+    assert html =~ ~s(value="phone" checked)
+
+    ids = Regex.scan(~r/id="(settings_contact-option-[^"]+)"/, html, capture: :all_but_first)
+    assert length(ids) == 3
+    assert length(Enum.uniq(ids)) == 3
+
+    for [id] <- ids do
+      assert html =~ ~s(for="#{id}")
+    end
+  end
+
+  test "radio group derives FormField selection with explicit precedence and stable reorder IDs" do
+    field = form_field(:contact, "email")
+    derived = render_radio(field: field, options: radio_options())
+    assert derived =~ ~s(id="settings_contact")
+    assert derived =~ ~s(name="settings[contact]")
+    assert derived =~ ~s(value="email" checked)
+
+    explicit = render_radio(field: field, selected: "sms", options: radio_options())
+    assert explicit =~ ~s(value="sms" checked)
+    refute explicit =~ ~s(value="email" checked)
+
+    reordered = render_radio(field: field, options: Enum.reverse(radio_options()))
+
+    original_ids = Regex.scan(~r/id="(settings_contact-option-[^"]+)"/, derived)
+    reordered_ids = Regex.scan(~r/id="(settings_contact-option-[^"]+)"/, reordered)
+    assert Enum.sort(original_ids) == Enum.sort(reordered_ids)
+  end
+
+  test "radio group supports group and option disabled states without readonly semantics" do
+    html =
+      render_radio(
+        id: "contact",
+        name: "contact",
+        options: radio_options(),
+        disabled: true
+      )
+
+    assert html =~ ~r/<fieldset[^>]* disabled[^>]*>/
+    assert html =~ ~s(value="sms" disabled)
+    refute html =~ " readonly"
+
+    enabled = render_radio(id: "contact", name: "contact", options: radio_options())
+    refute enabled =~ ~r/<fieldset[^>]* disabled[^>]*>/
+    assert length(Regex.scan(~r/type="radio"[^>]* disabled/, enabled)) == 1
+  end
+
+  test "radio group connects shared descriptions and protects fieldset semantics" do
+    html =
+      render_radio(
+        id: "contact",
+        name: "contact",
+        options: radio_options(),
+        errors: ["Choose a method", "Choose a method"],
+        error_mode: :always,
+        pending: true
+      )
+
+    assert html =~ ~s(aria-labelledby="contact-label")
+    assert html =~ ~s(aria-describedby="caller-help contact-help contact-error-1 contact-error-2")
+    assert html =~ ~s(aria-invalid="true")
+    assert html =~ ~s(data-pending="true")
+    assert html =~ ~s(data-state="ready")
+    assert html =~ ~s(phx-change="caller-owned")
+    refute html =~ "Wrong legend"
+    refute html =~ "wrong-label"
+    refute html =~ ~s(aria-invalid="false")
+    refute html =~ ~s(role="radiogroup")
+  end
+
+  test "radio group rejects invalid, duplicate, or executable option structures" do
+    invalid_options = [
+      [],
+      [%{key: "email", value: "email"}],
+      [%{key: "email", value: "", label: "Email"}],
+      [%{key: %{request: true}, value: "email", label: "Email"}],
+      [%{key: "email", value: "email", label: "Email", execute: fn -> :bad end}],
+      [
+        %{key: "duplicate", value: "email", label: "Email"},
+        %{key: "duplicate", value: "phone", label: "Phone"}
+      ],
+      [
+        %{key: "email", value: "same", label: "Email"},
+        %{key: "phone", value: "same", label: "Phone"}
+      ]
+    ]
+
+    for options <- invalid_options do
+      assert_raise ArgumentError, fn ->
+        render_radio(id: "contact", name: "contact", options: options)
+      end
+    end
+
+    assert_raise ArgumentError, ~r/scalar or nil/, fn ->
+      render_radio(id: "contact", name: "contact", selected: ["email"], options: radio_options())
+    end
+
+    metadata = ShadcnUI.Components.Forms.RadioGroup.__components__().radio_group
+    refute Enum.any?(metadata.attrs, &(&1.name in [:readonly, :on_change, :select, :html]))
+
+    source = File.read!("lib/shadcn_ui/components/forms/radio_group.ex")
+    refute source =~ ~r/(handle_event|push_event|JS\.|<script|javascript:|role="radio")/
+  end
+
   defp render_checkbox(overrides) do
     %{
       field: nil,
@@ -205,6 +372,35 @@ defmodule ShadcnUI.Components.Forms.ChoiceControlsTest do
     |> Fixture.checkbox_fixture()
     |> Safe.to_iodata()
     |> IO.iodata_to_binary()
+  end
+
+  defp render_radio(overrides) do
+    %{
+      field: nil,
+      id: nil,
+      name: nil,
+      selected: {:shadcn_ui, :not_provided},
+      options: radio_options(),
+      errors: {:shadcn_ui, :not_provided},
+      error_mode: :used_input,
+      pending: false,
+      required: false,
+      disabled: false,
+      layout: :vertical,
+      __changed__: nil
+    }
+    |> Map.merge(Map.new(overrides))
+    |> Fixture.radio_fixture()
+    |> Safe.to_iodata()
+    |> IO.iodata_to_binary()
+  end
+
+  defp radio_options do
+    [
+      %{key: "email-key", value: "email", label: "Email"},
+      %{key: :phone_key, value: "phone", label: "Phone"},
+      %{key: 3, value: "sms", label: "SMS", disabled: true}
+    ]
   end
 
   defp form_field(key, value) do

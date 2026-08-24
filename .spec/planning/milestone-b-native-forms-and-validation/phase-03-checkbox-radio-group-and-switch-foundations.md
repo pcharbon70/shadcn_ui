@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 3.1.2.3 Subtask - Preserve native Space activation, form reset, focus, high-contrast, and ordinary submission behavior.
       - [x] 3.1.2.4 Subtask - Protect type, ID, name, checked, disabled, invalid, and relationship attributes from contradictory globals.
 
-  - [ ] 3.2 Section - Radio Group foundation.
+  - [x] 3.2 Section - Radio Group foundation.
 
     This section provides one semantically grouped exclusive choice with stable
     option identity independent of display order and translated labels.
 
-    - [ ] 3.2.1 Task - Implement native group and option normalization.
+    - [x] 3.2.1 Task - Implement native group and option normalization.
 
       Radio Group should accept bounded caller data and emit a predictable
       fieldset rather than a custom selection widget.
 
-      - [ ] 3.2.1.1 Subtask - Render one native fieldset, one required legend, and repeated real radio inputs from validated caller option maps.
-      - [ ] 3.2.1.2 Subtask - Resolve group ID, name, scalar selected value, help, and errors from FormField or explicit data.
-      - [ ] 3.2.1.3 Subtask - Derive option IDs from stable explicit keys and reject duplicate keys, values, missing labels, and executable structures.
-      - [ ] 3.2.1.4 Subtask - Support fieldset-wide and option-local disabled states without inventing readonly radio semantics.
+      - [x] 3.2.1.1 Subtask - Render one native fieldset, one required legend, and repeated real radio inputs from validated caller option maps.
+      - [x] 3.2.1.2 Subtask - Resolve group ID, name, scalar selected value, help, and errors from FormField or explicit data.
+      - [x] 3.2.1.3 Subtask - Derive option IDs from stable explicit keys and reject duplicate keys, values, missing labels, and executable structures.
+      - [x] 3.2.1.4 Subtask - Support fieldset-wide and option-local disabled states without inventing readonly radio semantics.
 
-    - [ ] 3.2.2 Task - Implement Radio Group relationships and presentation.
+    - [x] 3.2.2 Task - Implement Radio Group relationships and presentation.
 
       Shared help and errors should describe the group while each option retains
       a direct native label and native keyboard behavior.
 
-      - [ ] 3.2.2.1 Subtask - Associate every option label with its radio and connect group help and visible errors deterministically.
-      - [ ] 3.2.2.2 Subtask - Add selected, unselected, focus-visible, required, disabled, invalid, and pending styling through semantic tokens.
-      - [ ] 3.2.2.3 Subtask - Preserve native arrow-key movement, Space selection, tab-stop behavior, form reset, and scalar submission.
-      - [ ] 3.2.2.4 Subtask - Protect fieldset, legend, type, shared name, selected value, option IDs, and derived relationships from globals.
+      - [x] 3.2.2.1 Subtask - Associate every option label with its radio and connect group help and visible errors deterministically.
+      - [x] 3.2.2.2 Subtask - Add selected, unselected, focus-visible, required, disabled, invalid, and pending styling through semantic tokens.
+      - [x] 3.2.2.3 Subtask - Preserve native arrow-key movement, Space selection, tab-stop behavior, form reset, and scalar submission.
+      - [x] 3.2.2.4 Subtask - Protect fieldset, legend, type, shared name, selected value, option IDs, and derived relationships from globals.
 
   - [ ] 3.3 Section - Switch presentation boundary.
 

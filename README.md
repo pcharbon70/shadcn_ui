@@ -308,6 +308,33 @@ does not submit either value. Multiple-value checkboxes require unique IDs and
 an explicit nonblank option value. Validation, checked-state changes, reset,
 submission, persistence, and pending lifecycle remain caller-owned.
 
+### Radio Group
+
+Radio Group renders one native `fieldset`, one required legend slot, and real
+radio inputs. Every option is a plain map with explicit stable `key`, nonblank
+string `value` and `label`, and optional boolean `disabled`. Keys and values
+must be unique.
+
+```heex
+<.radio_group
+  field={@form[:contact_method]}
+  options={[
+    %{key: "email", value: "email", label: "Email"},
+    %{key: "phone", value: "phone", label: "Phone", disabled: true}
+  ]}
+  required
+>
+  <:legend>Preferred contact method</:legend>
+  <:help>Choose one available method.</:help>
+</.radio_group>
+```
+
+The group derives one scalar selected value from the FormField unless
+`selected` is explicit. `disabled` applies native fieldset disabling;
+option-local disabling applies only to that radio. Arrow-key movement, Space
+selection, tab-stop behavior, reset, and scalar submission remain native.
+There is intentionally no readonly radio state or package-owned selection.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

@@ -33,3 +33,5 @@ All notable changes to ShadcnUI will be documented in this file.
   and capability-gated CSS content sizing over a stable native fallback.
 - Add the native Checkbox component with explicit boolean sentinel and repeated-
   value modes, shared relationships, and caller-owned checked state.
+- Add the native Radio Group component with validated stable option identity,
+  fieldset semantics, scalar selection, and group or option disabled states.
