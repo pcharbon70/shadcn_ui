@@ -165,3 +165,15 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+@media (forced-colors: active) {
+  [data-shadcn-ui]:focus-visible {
+    outline-color: Highlight;
+  }
+
+  [data-shadcn-ui][disabled] {
+    border-color: GrayText;
+    color: GrayText;
+    opacity: 1;
+  }
+}

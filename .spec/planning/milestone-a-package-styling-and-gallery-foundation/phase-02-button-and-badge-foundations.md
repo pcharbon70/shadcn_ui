@@ -62,14 +62,22 @@ Back to wave: [README](./README.md)
     This section proves Button and Badge together through the public import and
     compiled stylesheet under representative consumer conditions.
 
-    - [ ] 2.3.1 Task - Run action-and-label rendering integration tests.
+    Verification note (2026-08-24): rendering, package, asset, theme, narrow-
+    content, reduced-motion, and forced-colors assertions pass. The browser-only
+    interaction check remains pending because the Codex in-app browser control
+    session cannot initialize its local assets on this workstation. SpecLed
+    indexing and validation pass, while `spec.check` remains blocked by the
+    documented Windows Erlang `open_port :einval` failure when it launches Git's
+    shell.
+
+    - [x] 2.3.1 Task - Run action-and-label rendering integration tests.
 
       Integration fixtures should use only public ShadcnUI imports and verify
       semantic distinctions across the complete closed state matrix.
 
-      - [ ] 2.3.1.1 Subtask - Compile a consumer fixture through `use ShadcnUI` and render every Button and Badge variant and size.
-      - [ ] 2.3.1.2 Subtask - Assert native button types, disabled behavior, icon-only naming, passive Badge semantics, escaping, globals, and deterministic class order.
-      - [ ] 2.3.1.3 Subtask - Audit the two modules for transport, event, random identity, arbitrary utility, and raw-HTML behavior.
+      - [x] 2.3.1.1 Subtask - Compile a consumer fixture through `use ShadcnUI` and render every Button and Badge variant and size.
+      - [x] 2.3.1.2 Subtask - Assert native button types, disabled behavior, icon-only naming, passive Badge semantics, escaping, globals, and deterministic class order.
+      - [x] 2.3.1.3 Subtask - Audit the two modules for transport, event, random identity, arbitrary utility, and raw-HTML behavior.
 
     - [ ] 2.3.2 Task - Run action-and-label browser and asset integration tests.
 
@@ -77,5 +85,5 @@ Back to wave: [README](./README.md)
       isolation without adding a component runtime.
 
       - [ ] 2.3.2.1 Subtask - Exercise keyboard focus, disabled activation prevention, light/dark contrast, long labels, narrow layout, zoom, and forced colors.
-      - [ ] 2.3.2.2 Subtask - Rebuild the stylesheet and prove all new classes are prefixed, present, deterministic, and token-driven.
+      - [x] 2.3.2.2 Subtask - Rebuild the stylesheet and prove all new classes are prefixed, present, deterministic, and token-driven.
       - [ ] 2.3.2.3 Subtask - Run `mix precommit`, the Phase 2 integration suite, `mix spec.check --base main`, and `git diff --check`.

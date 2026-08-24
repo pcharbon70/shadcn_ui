@@ -62,6 +62,17 @@ defmodule ShadcnUI.MilestoneAAcceptanceTest do
 
     for module <- @foundation_modules do
       assert function_exported?(module, :__components__, 0)
+    end
+
+    assert Map.has_key?(ShadcnUI.Components.Foundation.Button.__components__(), :button)
+    assert Map.has_key?(ShadcnUI.Components.Foundation.Badge.__components__(), :badge)
+
+    for module <- [
+          ShadcnUI.Components.Foundation.Alert,
+          ShadcnUI.Components.Foundation.Avatar,
+          ShadcnUI.Components.Foundation.Card,
+          ShadcnUI.Components.Foundation.Skeleton
+        ] do
       assert module.__components__() == %{}
     end
   end

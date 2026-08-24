@@ -50,8 +50,9 @@ defmodule ShadcnUI.ComponentContractTest do
         class={@classes}
         aria-label={@label}
       >
-        <span :if={@leading != []} aria-hidden="true">{render_slot(@leading)}</span>
-        {render_slot(@inner_block)}
+        <span :if={@leading != []} aria-hidden="true">{render_slot(@leading)}</span> {render_slot(
+          @inner_block
+        )}
       </button>
       """
     end

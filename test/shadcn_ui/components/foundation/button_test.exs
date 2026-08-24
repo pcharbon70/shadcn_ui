@@ -91,10 +91,10 @@ defmodule ShadcnUI.Components.Foundation.ButtonTest do
     }
 
     sizes = %{
-      small: ~w(sui:h-8 sui:px-3 sui:text-xs),
-      default: ~w(sui:h-9 sui:px-4 sui:py-2),
-      large: ~w(sui:h-10 sui:px-8),
-      icon: ~w(sui:size-9 sui:p-0)
+      small: ~w(sui:min-h-8 sui:px-3 sui:py-1 sui:text-xs),
+      default: ~w(sui:min-h-9 sui:px-4 sui:py-2),
+      large: ~w(sui:min-h-10 sui:px-8 sui:py-2),
+      icon: ~w(sui:size-9 sui:shrink-0 sui:p-0)
     }
 
     for {variant, variant_classes} <- variants,
@@ -103,9 +103,10 @@ defmodule ShadcnUI.Components.Foundation.ButtonTest do
       html = render_button(variant: variant, size: size, accessible_label: label)
       classes = attribute(html, "class")
 
-      assert Enum.take(classes, 9) == ~w(
+      assert Enum.take(classes, 11) == ~w(
                sui:inline-flex sui:cursor-pointer sui:items-center sui:justify-center
-               sui:gap-2 sui:whitespace-nowrap sui:rounded-lg sui:text-sm sui:font-medium
+               sui:gap-2 sui:max-w-full sui:whitespace-normal sui:text-center
+               sui:rounded-lg sui:text-sm sui:font-medium
              )
 
       assert Enum.all?(variant_classes ++ size_classes, &(&1 in classes))

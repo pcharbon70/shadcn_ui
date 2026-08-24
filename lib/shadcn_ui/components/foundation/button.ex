@@ -16,7 +16,9 @@ defmodule ShadcnUI.Components.Foundation.Button do
     "sui:items-center",
     "sui:justify-center",
     "sui:gap-2",
-    "sui:whitespace-nowrap",
+    "sui:max-w-full",
+    "sui:whitespace-normal",
+    "sui:text-center",
     "sui:rounded-lg",
     "sui:text-sm",
     "sui:font-medium"
@@ -65,6 +67,13 @@ defmodule ShadcnUI.Components.Foundation.Button do
       "sui:transition-colors",
       "sui:hover:underline"
     ]
+  }
+
+  @size_classes %{
+    small: ["sui:min-h-8", "sui:px-3", "sui:py-1", "sui:text-xs"],
+    default: ["sui:min-h-9", "sui:px-4", "sui:py-2"],
+    large: ["sui:min-h-10", "sui:px-8", "sui:py-2"],
+    icon: ["sui:size-9", "sui:shrink-0", "sui:p-0"]
   }
 
   @loading_classes ["sui:cursor-wait", "sui:opacity-70"]
@@ -119,7 +128,7 @@ defmodule ShadcnUI.Components.Foundation.Button do
         class_names([
           @base_classes,
           Map.fetch!(@variant_classes, assigns.variant),
-          classes_for(:size, assigns.size),
+          Map.fetch!(@size_classes, assigns.size),
           classes_for(:focus, :default),
           classes_for(:disabled, :default),
           assigns.loading && @loading_classes,

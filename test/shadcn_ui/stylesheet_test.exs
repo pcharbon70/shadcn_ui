@@ -129,4 +129,20 @@ defmodule ShadcnUI.StylesheetTest do
     assert source =~ "transition-duration: 0.01ms !important"
     assert css =~ "prefers-reduced-motion:reduce"
   end
+
+  test "preserves focus and disabled state in forced colors" do
+    source = File.read!(@source)
+    css = File.read!(@stylesheet)
+
+    assert source =~ "@media (forced-colors: active)"
+    assert source =~ "[data-shadcn-ui]:focus-visible"
+    assert source =~ "outline-color: Highlight"
+    assert source =~ "[data-shadcn-ui][disabled]"
+    assert source =~ "color: GrayText"
+    assert source =~ "opacity: 1"
+
+    assert css =~ "forced-colors:active"
+    assert css =~ "outline-color:highlight"
+    assert css =~ "color:graytext"
+  end
 end

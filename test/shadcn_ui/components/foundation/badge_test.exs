@@ -56,9 +56,10 @@ defmodule ShadcnUI.Components.Foundation.BadgeTest do
     for {variant, expected_variant_classes} <- variants do
       classes = variant |> render_badge() |> attribute("class")
 
-      assert Enum.take(classes, 8) == ~w(
-               sui:inline-flex sui:items-center sui:whitespace-nowrap sui:rounded-full
-               sui:px-2.5 sui:py-0.5 sui:text-xs sui:font-medium
+      assert Enum.take(classes, 11) == ~w(
+               sui:inline-flex sui:items-center sui:max-w-full sui:whitespace-normal
+               sui:break-words sui:text-center sui:rounded-full sui:px-2.5
+               sui:py-0.5 sui:text-xs sui:font-medium
              )
 
       assert Enum.all?(expected_variant_classes, &(&1 in classes))

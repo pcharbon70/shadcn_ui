@@ -12,7 +12,10 @@ defmodule ShadcnUI.Components.Foundation.Badge do
   @base_classes [
     "sui:inline-flex",
     "sui:items-center",
-    "sui:whitespace-nowrap",
+    "sui:max-w-full",
+    "sui:whitespace-normal",
+    "sui:break-words",
+    "sui:text-center",
     "sui:rounded-full",
     "sui:px-2.5",
     "sui:py-0.5",
