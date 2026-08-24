@@ -220,4 +220,13 @@
   [data-shadcn-ui-textarea][readonly] {
     border-style: dashed;
   }
+
+  [data-shadcn-ui-checkbox] {
+    forced-color-adjust: auto;
+  }
+
+  [data-shadcn-ui-checkbox][aria-invalid="true"] {
+    outline: 1px solid Mark;
+    outline-offset: 0.125rem;
+  }
 }

@@ -279,6 +279,35 @@ only in browsers that support it; the same fixed-size fallback remains
 otherwise. ShadcnUI provides no auto-grow script or measurement state. Any
 dynamic sizing policy beyond that CSS enhancement belongs to the application.
 
+### Checkbox
+
+Checkbox always renders a real native checkbox. Boolean mode emits Phoenix's
+same-name hidden unchecked sentinel immediately before the visible control;
+multiple mode appends `[]` to the name and emits no sentinel.
+
+```heex
+<.checkbox field={@form[:enabled]} mode={:boolean}>
+  <:label>Enable reports</:label>
+  <:help>This preference can be changed later.</:help>
+</.checkbox>
+
+<.checkbox
+  id="feature-exports"
+  name="settings[features]"
+  mode={:multiple}
+  value="exports"
+  checked={"exports" in @selected_features}
+>
+  <:label>Exports</:label>
+</.checkbox>
+```
+
+Boolean `checked_value` and `unchecked_value` default to `"true"` and
+`"false"`. The sentinel mirrors `disabled` and `form`, so a disabled checkbox
+does not submit either value. Multiple-value checkboxes require unique IDs and
+an explicit nonblank option value. Validation, checked-state changes, reset,
+submission, persistence, and pending lifecycle remain caller-owned.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

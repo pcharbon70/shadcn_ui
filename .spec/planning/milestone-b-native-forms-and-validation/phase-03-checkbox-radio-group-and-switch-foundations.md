@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   selection in generic elements. Its outcome is predictable native keyboard,
   label, grouping, and submission behavior under shadcn-style presentation.
 
-  - [ ] 3.1 Section - Checkbox value and relationship foundation.
+  - [x] 3.1 Section - Checkbox value and relationship foundation.
 
     This section defines boolean and repeated-value checkbox modes explicitly so
     hidden sentinels never conflict with multi-value submissions.
 
-    - [ ] 3.1.1 Task - Implement native Checkbox normalization and values.
+    - [x] 3.1.1 Task - Implement native Checkbox normalization and values.
 
       Checkbox should derive checked state from normalized data while leaving the
       submitted parameter authoritative for the consuming application.
 
-      - [ ] 3.1.1.1 Subtask - Render one real `input type="checkbox"` with explicit and FormField identity, value, checked, errors, and disabled state.
-      - [ ] 3.1.1.2 Subtask - In boolean mode emit a same-name hidden unchecked sentinel immediately before the visible checkbox and mirror documented form and disabled semantics.
-      - [ ] 3.1.1.3 Subtask - In multiple-value mode normalize a repeated `[]` name, accept an explicit option value, and emit no unchecked sentinel.
-      - [ ] 3.1.1.4 Subtask - Normalize documented Phoenix truthy values without parsing domain data or mutating the form.
+      - [x] 3.1.1.1 Subtask - Render one real `input type="checkbox"` with explicit and FormField identity, value, checked, errors, and disabled state.
+      - [x] 3.1.1.2 Subtask - In boolean mode emit a same-name hidden unchecked sentinel immediately before the visible checkbox and mirror documented form and disabled semantics.
+      - [x] 3.1.1.3 Subtask - In multiple-value mode normalize a repeated `[]` name, accept an explicit option value, and emit no unchecked sentinel.
+      - [x] 3.1.1.4 Subtask - Normalize documented Phoenix truthy values without parsing domain data or mutating the form.
 
-    - [ ] 3.1.2 Task - Implement Checkbox composition and presentation.
+    - [x] 3.1.2 Task - Implement Checkbox composition and presentation.
 
       The visible label and supporting content should remain associated with the
       native input across compact, long, invalid, and disabled presentations.
 
-      - [ ] 3.1.2.1 Subtask - Associate the label directly with the checkbox and keep shared help and errors outside the label text.
-      - [ ] 3.1.2.2 Subtask - Add checked, unchecked, focus-visible, required, disabled, invalid, and pending styling without hiding native semantics.
-      - [ ] 3.1.2.3 Subtask - Preserve native Space activation, form reset, focus, high-contrast, and ordinary submission behavior.
-      - [ ] 3.1.2.4 Subtask - Protect type, ID, name, checked, disabled, invalid, and relationship attributes from contradictory globals.
+      - [x] 3.1.2.1 Subtask - Associate the label directly with the checkbox and keep shared help and errors outside the label text.
+      - [x] 3.1.2.2 Subtask - Add checked, unchecked, focus-visible, required, disabled, invalid, and pending styling without hiding native semantics.
+      - [x] 3.1.2.3 Subtask - Preserve native Space activation, form reset, focus, high-contrast, and ordinary submission behavior.
+      - [x] 3.1.2.4 Subtask - Protect type, ID, name, checked, disabled, invalid, and relationship attributes from contradictory globals.
 
   - [ ] 3.2 Section - Radio Group foundation.
 

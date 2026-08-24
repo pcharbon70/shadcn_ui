@@ -57,6 +57,12 @@
       "localChanges": "Adapt native input presentation into a closed HEEX text-entry API with shared FormField relationships and caller-owned lifecycle."
     },
     {
+      "id": "forms.checkbox",
+      "localPaths": ["lib/shadcn_ui/components/forms/checkbox.ex"],
+      "upstreamPaths": ["src/content/components/checkbox.mdx", "src/demos/checkbox/basic.html"],
+      "localChanges": "Adapt native checkbox presentation into explicit boolean and repeated-value HEEX modes with deterministic field relationships."
+    },
+    {
       "id": "forms.textarea",
       "localPaths": ["lib/shadcn_ui/components/forms/textarea.ex"],
       "upstreamPaths": ["src/content/components/textarea.mdx", "src/demos/textarea/basic.html"],

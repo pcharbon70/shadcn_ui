@@ -31,3 +31,5 @@ All notable changes to ShadcnUI will be documented in this file.
   optional presentational regions, and caller-owned pending state.
 - Add the native Textarea component with closed resize policies, escaped content,
   and capability-gated CSS content sizing over a stable native fallback.
+- Add the native Checkbox component with explicit boolean sentinel and repeated-
+  value modes, shared relationships, and caller-owned checked state.
