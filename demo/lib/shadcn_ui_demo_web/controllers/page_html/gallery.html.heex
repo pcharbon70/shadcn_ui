@@ -13,6 +13,11 @@
   <p :if={@page.kind == :category && @page.slug == "forms"}>
     Fifteen native form primitives, controls, and measurement surfaces.
   </p>
+  <nav :if={@page.kind == :category && @page.slug == "forms"} aria-label="Complete form examples">
+    <a href="/forms/sign-in">Sign in composition</a>
+    <a href="/forms/profile">Profile composition</a>
+    <a href="/forms/settings">Settings composition</a>
+  </nav>
   <div :if={@page.kind == :component} class="gallery-reference">
     <section><h2>What it is</h2><p>{@page.reference.what}</p></section>
     <section><h2>When to use it</h2><p>{@page.reference.when}</p></section>

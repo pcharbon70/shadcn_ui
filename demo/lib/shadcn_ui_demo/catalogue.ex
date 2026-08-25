@@ -45,6 +45,7 @@ defmodule ShadcnUIDemo.Catalogue do
               end)
 
   def categories, do: @categories
+  def form_routes, do: ["/forms/sign-in", "/forms/profile", "/forms/settings"]
   def category, do: hd(@categories)
   def components, do: @components
   def components(category) when is_binary(category), do: Enum.filter(@components, &(&1.category == category))

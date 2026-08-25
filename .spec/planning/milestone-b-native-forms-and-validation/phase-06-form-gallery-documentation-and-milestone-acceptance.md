@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 6.1.2.3 Subtask - Include purpose, usage, native semantics, HEEX source, relationships, ownership, fallback, theme, and provenance guidance in plain language.
       - [x] 6.1.2.4 Subtask - Explain Checkbox versus Switch, Native versus Enhanced Select, and Progress versus Meter with concrete application examples.
 
-  - [ ] 6.2 Section - Complete forms and native submission evidence.
+  - [x] 6.2 Section - Complete forms and native submission evidence.
 
     This section demonstrates how package components compose into useful forms
     while making clear that demo data and responses are caller-owned fixtures.
 
-    - [ ] 6.2.1 Task - Build sign-in, profile, and settings compositions.
+    - [x] 6.2.1 Task - Build sign-in, profile, and settings compositions.
 
       Complete examples should exercise cross-component relationships and normal
       browser form behavior without adding persistence or domain operations.
 
-      - [ ] 6.2.1.1 Subtask - Build sign-in with email, password, remember-me Checkbox, errors, pending snapshot, and submit Button.
-      - [ ] 6.2.1.2 Subtask - Build profile with text fields, Textarea, Native Select, Radio Group, Slider, repeated errors, and Error Summary.
-      - [ ] 6.2.1.3 Subtask - Build settings with Switch, multiple Checkbox values, Enhanced Select, Progress, Meter, disabled and readonly states, and submit Button.
-      - [ ] 6.2.1.4 Subtask - Use deterministic caller-owned sample FormFields and explicit data with no authentication, persistence, authorization, or changeset mutation.
+      - [x] 6.2.1.1 Subtask - Build sign-in with email, password, remember-me Checkbox, errors, pending snapshot, and submit Button.
+      - [x] 6.2.1.2 Subtask - Build profile with text fields, Textarea, Native Select, Radio Group, Slider, repeated errors, and Error Summary.
+      - [x] 6.2.1.3 Subtask - Build settings with Switch, multiple Checkbox values, Enhanced Select, Progress, Meter, disabled and readonly states, and submit Button.
+      - [x] 6.2.1.4 Subtask - Use deterministic caller-owned sample FormFields and explicit data with no authentication, persistence, authorization, or changeset mutation.
 
-    - [ ] 6.2.2 Task - Add a harmless native-submission fixture.
+    - [x] 6.2.2 Task - Add a harmless native-submission fixture.
 
       The demo endpoint should provide inspectable evidence of received browser
       values without being mistaken for an application workflow.
 
-      - [ ] 6.2.2.1 Subtask - Add an ordinary controller endpoint that accepts only documented demo fields and performs no domain operation.
-      - [ ] 6.2.2.2 Subtask - Render escaped deterministic received values, including unchecked sentinels, repeated checkbox values, radio, single/multiple select, slider, input, and textarea data.
-      - [ ] 6.2.2.3 Subtask - Preserve Phoenix CSRF for source pages while keeping static-export pages explicitly non-submitting or directed to documented local demonstration behavior.
-      - [ ] 6.2.2.4 Subtask - Add controller tests rejecting unexpected reflection, executable data, persistence, authentication, authorization, and stateful side effects.
+      - [x] 6.2.2.1 Subtask - Add an ordinary controller endpoint that accepts only documented demo fields and performs no domain operation.
+      - [x] 6.2.2.2 Subtask - Render escaped deterministic received values, including unchecked sentinels, repeated checkbox values, radio, single/multiple select, slider, input, and textarea data.
+      - [x] 6.2.2.3 Subtask - Preserve Phoenix CSRF for source pages while keeping static-export pages explicitly non-submitting or directed to documented local demonstration behavior.
+      - [x] 6.2.2.4 Subtask - Add controller tests rejecting unexpected reflection, executable data, persistence, authentication, authorization, and stateful side effects.
 
   - [ ] 6.3 Section - Public documentation, fallback evidence, and provenance.
 

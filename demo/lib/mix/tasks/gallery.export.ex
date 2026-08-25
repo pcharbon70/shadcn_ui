@@ -29,9 +29,9 @@ defmodule Mix.Tasks.Gallery.Export do
   end
 
   defp default_entries do
-    Enum.map(ShadcnUIDemo.Catalogue.routes(), fn route ->
-      export_entry(route, route_file(route), 200)
-    end)
+    gallery = Enum.map(ShadcnUIDemo.Catalogue.routes(), &export_entry(&1, route_file(&1), 200))
+    forms = Enum.map(ShadcnUIDemo.Catalogue.form_routes(), &export_entry(&1 <> "?static=1", route_file(&1), 200))
+    gallery ++ forms
   end
 
   defp theme_entries(theme) do
@@ -122,7 +122,7 @@ defmodule Mix.Tasks.Gallery.Export do
     base = "https://leco-industries-inc.github.io/leco_apps/shadcn-ui"
 
     urls =
-      ShadcnUIDemo.Catalogue.routes()
+      (ShadcnUIDemo.Catalogue.routes() ++ ShadcnUIDemo.Catalogue.form_routes())
       |> Enum.map_join("", &"<url><loc>#{base}#{&1}</loc></url>")
 
     File.write!(Path.join(@output, "sitemap.xml"), "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>")

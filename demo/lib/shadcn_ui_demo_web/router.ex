@@ -14,6 +14,8 @@ defmodule ShadcnUIDemoWeb.Router do
     pipe_through :browser
 
     get "/", GalleryController, :landing
+    get "/forms/:form", FormController, :show
+    post "/forms/submit", FormController, :submit
     get "/components/:category", GalleryController, :category
     get "/components/:category/:component", GalleryController, :component
     get "/*path", GalleryController, :not_found
