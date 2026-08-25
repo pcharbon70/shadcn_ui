@@ -15,9 +15,11 @@ decisions:
 surface:
   - priv/compatibility/native_overlays.json
   - priv/compatibility/native_overlays.schema.json
+  - lib/shadcn_ui/components/overlays/overlay_contract.ex
   - lib/shadcn_ui/components/overlays/**/*.ex
   - test/shadcn_ui/components/overlays/overlay_capability_manifest_test.exs
   - test/shadcn_ui/components/overlays/**/*.exs
+  - test/fixtures/milestone_d_overlay_contract.html
   - test/fixtures/milestone_d_*.html
   - test/browser/milestone-d-*.spec.mjs
   - README.md

@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 1.1.2.3 Subtask - Define the caller-owned ordinary destination, visible content, or non-overlay operation required when an HTML capability is unavailable.
       - [x] 1.1.2.4 Subtask - Keep capability display or test helpers in demo and test surfaces excluded from package release contents.
 
-  - [ ] 1.2 Section - Shared identity, invocation, state, and fallback contract.
+  - [x] 1.2 Section - Shared identity, invocation, state, and fallback contract.
 
     This section provides reusable internal helpers and public rules so each
     component does not invent incompatible overlay relationships or ownership.
 
-    - [ ] 1.2.1 Task - Implement deterministic overlay identity and native relationships.
+    - [x] 1.2.1 Task - Implement deterministic overlay identity and native relationships.
 
       Invokers, surfaces, labels, descriptions, and explicit exits should share
       one validated derivation model with protected native semantics.
 
-      - [ ] 1.2.1.1 Subtask - Add internal normalization for nonblank base IDs, stable keys, invoker IDs, surface IDs, title IDs, description IDs, close IDs, and initial-focus targets.
-      - [ ] 1.2.1.2 Subtask - Add closed native dialog commands, Popover target actions, dismissal policies, modes, and logical placement values mapped without request-derived atoms.
-      - [ ] 1.2.1.3 Subtask - Protect command targets, Popover targets, IDs, names, roles, native elements, open state, closedby, autofocus, and derived relationships from conflicting globals.
-      - [ ] 1.2.1.4 Subtask - Preserve unrelated class, native, aria-*, data-*, phx-*, and data-on-* globals in deterministic order.
+      - [x] 1.2.1.1 Subtask - Add internal normalization for nonblank base IDs, stable keys, invoker IDs, surface IDs, title IDs, description IDs, close IDs, and initial-focus targets.
+      - [x] 1.2.1.2 Subtask - Add closed native dialog commands, Popover target actions, dismissal policies, modes, and logical placement values mapped without request-derived atoms.
+      - [x] 1.2.1.3 Subtask - Protect command targets, Popover targets, IDs, names, roles, native elements, open state, closedby, autofocus, and derived relationships from conflicting globals.
+      - [x] 1.2.1.4 Subtask - Preserve unrelated class, native, aria-*, data-*, phx-*, and data-on-* globals in deterministic order.
 
-    - [ ] 1.2.2 Task - Define browser-local state and DOM-replacement ownership.
+    - [x] 1.2.2 Task - Define browser-local state and DOM-replacement ownership.
 
       The package should state exactly what a server-rendered snapshot means and
       what may be lost when an application replaces an open overlay subtree.
 
-      - [ ] 1.2.2.1 Subtask - Document browser-local open state, native toggle and close behavior, caller-owned server state, and the absence of synchronization or persistence.
-      - [ ] 1.2.2.2 Subtask - Define replacement outcomes for controller navigation, Phoenix patches, Dstar, and LiveView without importing any transport dependency.
-      - [ ] 1.2.2.3 Subtask - Bound nesting to one native Popover inside a Dialog-family surface and reject nested modals, arbitrary stacks, submenus, and virtual anchors.
-      - [ ] 1.2.2.4 Subtask - Add shared capability-gated CSS foundations for backdrops, top-layer sizing, anchor fallbacks, discrete transitions, reduced motion, forced colors, and safe bounded placement.
+      - [x] 1.2.2.1 Subtask - Document browser-local open state, native toggle and close behavior, caller-owned server state, and the absence of synchronization or persistence.
+      - [x] 1.2.2.2 Subtask - Define replacement outcomes for controller navigation, Phoenix patches, Dstar, and LiveView without importing any transport dependency.
+      - [x] 1.2.2.3 Subtask - Bound nesting to one native Popover inside a Dialog-family surface and reject nested modals, arbitrary stacks, submenus, and virtual anchors.
+      - [x] 1.2.2.4 Subtask - Add shared capability-gated CSS foundations for backdrops, top-layer sizing, anchor fallbacks, discrete transitions, reduced motion, forced colors, and safe bounded placement.
 
   - [ ] 1.3 Section - Phase 1 Integration Tests.
 
