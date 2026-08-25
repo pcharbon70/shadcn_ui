@@ -17,6 +17,7 @@ surface:
   - lib/shadcn_ui.ex
   - lib/shadcn_ui/**/*.ex
   - priv/static/shadcn_ui.css
+  - priv/compatibility/*.json
   - README.md
   - CHANGELOG.md
   - THIRD_PARTY_NOTICES.md

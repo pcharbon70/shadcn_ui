@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   capabilities, protects the package's no-runtime boundary, and defines common
   identity, invocation, focus, dismissal, replacement, and fallback behavior.
 
-  - [ ] 1.1 Section - Cross-engine capability matrix and runtime boundary.
+  - [x] 1.1 Section - Cross-engine capability matrix and runtime boundary.
 
     This section records what the package relies on and distinguishes normative
     feature requirements from the exact browser versions used as test evidence.
 
-    - [ ] 1.1.1 Task - Build the authored native overlay capability matrix.
+    - [x] 1.1.1 Task - Build the authored native overlay capability matrix.
 
       The matrix should make each feature assumption inspectable without
       declaring a consuming application or one browser engine as the target.
 
-      - [ ] 1.1.1.1 Subtask - Add an authored manifest for dialog, commandfor, closedby, Popover, popovertarget, anchor positioning, position fallbacks, discrete transitions, and interest-invoker exclusion.
-      - [ ] 1.1.1.2 Subtask - Record authoritative standard or browser-documentation sources, review date, required component capability sets, and exact locked Chromium, Firefox, and WebKit evidence versions.
-      - [ ] 1.1.1.3 Subtask - Separate normative capabilities from current test implementations and reject browser-name, operating-system, embedded-runtime, and consumer-product targeting.
-      - [ ] 1.1.1.4 Subtask - Define review and change-control rules for updating locks, support claims, fallbacks, or the interest-invoker exclusion.
+      - [x] 1.1.1.1 Subtask - Add an authored manifest for dialog, commandfor, closedby, Popover, popovertarget, anchor positioning, position fallbacks, discrete transitions, and interest-invoker exclusion.
+      - [x] 1.1.1.2 Subtask - Record authoritative standard or browser-documentation sources, review date, required component capability sets, and exact locked Chromium, Firefox, and WebKit evidence versions.
+      - [x] 1.1.1.3 Subtask - Separate normative capabilities from current test implementations and reject browser-name, operating-system, embedded-runtime, and consumer-product targeting.
+      - [x] 1.1.1.4 Subtask - Define review and change-control rules for updating locks, support claims, fallbacks, or the interest-invoker exclusion.
 
-    - [ ] 1.1.2 Task - Preserve the zero-package-JavaScript boundary.
+    - [x] 1.1.2 Task - Preserve the zero-package-JavaScript boundary.
 
       Overlay support should rely on accepted native behavior without quietly
       introducing a polyfill, focus manager, or positioning framework.
 
-      - [ ] 1.1.2.1 Subtask - Audit Mix, npm, release, public-import, stylesheet, and provenance boundaries for new runtime or consumer asset dependencies.
-      - [ ] 1.1.2.2 Subtask - Add explicit rejection tests for package scripts, invoker shims, focus traps, overlay stacks, positioning engines, custom elements, hooks, and client state processes.
-      - [ ] 1.1.2.3 Subtask - Define the caller-owned ordinary destination, visible content, or non-overlay operation required when an HTML capability is unavailable.
-      - [ ] 1.1.2.4 Subtask - Keep capability display or test helpers in demo and test surfaces excluded from package release contents.
+      - [x] 1.1.2.1 Subtask - Audit Mix, npm, release, public-import, stylesheet, and provenance boundaries for new runtime or consumer asset dependencies.
+      - [x] 1.1.2.2 Subtask - Add explicit rejection tests for package scripts, invoker shims, focus traps, overlay stacks, positioning engines, custom elements, hooks, and client state processes.
+      - [x] 1.1.2.3 Subtask - Define the caller-owned ordinary destination, visible content, or non-overlay operation required when an HTML capability is unavailable.
+      - [x] 1.1.2.4 Subtask - Keep capability display or test helpers in demo and test surfaces excluded from package release contents.
 
   - [ ] 1.2 Section - Shared identity, invocation, state, and fallback contract.
 

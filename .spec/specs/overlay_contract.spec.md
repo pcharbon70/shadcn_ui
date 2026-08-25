@@ -13,7 +13,10 @@ decisions:
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - priv/compatibility/native_overlays.json
+  - priv/compatibility/native_overlays.schema.json
   - lib/shadcn_ui/components/overlays/**/*.ex
+  - test/shadcn_ui/components/overlays/overlay_capability_manifest_test.exs
   - test/shadcn_ui/components/overlays/**/*.exs
   - test/fixtures/milestone_d_*.html
   - test/browser/milestone-d-*.spec.mjs
