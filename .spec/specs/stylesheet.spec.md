@@ -216,7 +216,7 @@ surface:
     - shadcn_ui.stylesheet.content_resilience
 
 - kind: test_file
-  target: test/browser/milestone-d-capabilities.spec.mjs
+  target: test/browser/milestone-d-overlay-contract.spec.mjs
   covers:
     - shadcn_ui.stylesheet.overlay_fallbacks
     - shadcn_ui.stylesheet.overlay_resilience
@@ -224,8 +224,6 @@ surface:
 - kind: test_file
   target: test/shadcn_ui/milestone_d_acceptance_test.exs
   covers:
-    - shadcn_ui.stylesheet.semantic_tokens
-    - shadcn_ui.stylesheet.scoped_dark_theme
     - shadcn_ui.stylesheet.reduced_motion
     - shadcn_ui.stylesheet.no_runtime_assets
     - shadcn_ui.stylesheet.overlay_fallbacks

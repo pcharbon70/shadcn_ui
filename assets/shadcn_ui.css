@@ -535,6 +535,79 @@
   }
 }
 
+[data-shadcn-ui-overlay-surface] {
+  box-sizing: border-box;
+  max-inline-size: min(36rem, calc(100vi - 2rem));
+  max-block-size: calc(100dvb - 2rem);
+  overflow: auto;
+  border: 1px solid var(--shadcn-ui-border);
+  border-radius: var(--shadcn-ui-radius-lg);
+  color: var(--shadcn-ui-popover-foreground);
+  background: var(--shadcn-ui-popover);
+  box-shadow: 0 1rem 3rem color-mix(in srgb, var(--shadcn-ui-foreground) 24%, transparent);
+}
+
+dialog[data-shadcn-ui-overlay-surface] {
+  margin: auto;
+}
+
+dialog[data-shadcn-ui-overlay-surface]::backdrop {
+  background: color-mix(in srgb, var(--shadcn-ui-foreground) 48%, transparent);
+}
+
+[data-shadcn-ui-overlay-surface][popover] {
+  position: fixed;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  margin: 0;
+  transform: translate(-50%, -50%);
+}
+
+@supports (position-area: block-end) {
+  [data-shadcn-ui-overlay-surface][popover][data-placement] {
+    position: fixed;
+    inset: auto;
+    position-try-fallbacks: flip-block, flip-inline;
+    transform: none;
+  }
+
+  [data-shadcn-ui-overlay-surface][data-placement="block-start"] {
+    position-area: block-start;
+  }
+
+  [data-shadcn-ui-overlay-surface][data-placement="block-end"] {
+    position-area: block-end;
+  }
+
+  [data-shadcn-ui-overlay-surface][data-placement="inline-start"] {
+    position-area: inline-start;
+  }
+
+  [data-shadcn-ui-overlay-surface][data-placement="inline-end"] {
+    position-area: inline-end;
+  }
+}
+
+@supports (transition-behavior: allow-discrete) and (overlay: none) {
+  [data-shadcn-ui-overlay-surface] {
+    opacity: 0;
+    transition:
+      opacity var(--shadcn-ui-motion-normal) var(--shadcn-ui-ease-standard),
+      display var(--shadcn-ui-motion-normal) allow-discrete,
+      overlay var(--shadcn-ui-motion-normal) allow-discrete;
+  }
+
+  [data-shadcn-ui-overlay-surface]:is([open], :popover-open) {
+    opacity: 1;
+  }
+
+  @starting-style {
+    [data-shadcn-ui-overlay-surface]:is([open], :popover-open) {
+      opacity: 0;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-shadcn-ui],
   [data-shadcn-ui]::before,
@@ -553,6 +626,10 @@
   }
 
   [data-shadcn-ui-accordion-item]::details-content {
+    transition: none !important;
+  }
+
+  [data-shadcn-ui-overlay-surface] {
     transition: none !important;
   }
 }
@@ -749,5 +826,17 @@
     outline: 2px solid Highlight;
     outline-offset: -2px;
     box-shadow: none;
+  }
+
+  [data-shadcn-ui-overlay-surface] {
+    border-color: CanvasText;
+    color: CanvasText;
+    background: Canvas;
+    box-shadow: none;
+  }
+
+  dialog[data-shadcn-ui-overlay-surface]::backdrop {
+    background: Canvas;
+    opacity: 0.75;
   }
 }

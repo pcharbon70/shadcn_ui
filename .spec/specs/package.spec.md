@@ -17,10 +17,12 @@ surface:
   - lib/shadcn_ui.ex
   - lib/shadcn_ui/**/*.ex
   - priv/static/shadcn_ui.css
+  - priv/compatibility/*.json
   - README.md
   - CHANGELOG.md
   - THIRD_PARTY_NOTICES.md
   - test/shadcn_ui/package_test.exs
+  - test/shadcn_ui/release_readiness_test.exs
   - test/shadcn_ui/milestone_a_acceptance_test.exs
 ```
 

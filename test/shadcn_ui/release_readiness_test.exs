@@ -41,6 +41,7 @@ defmodule ShadcnUI.ReleaseReadinessTest do
     assert files == [
              "lib",
              "priv/static/shadcn_ui.css",
+             "priv/compatibility",
              "priv/provenance",
              "mix.exs",
              "README.md",

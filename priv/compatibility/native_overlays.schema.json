@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leco-industries-inc.github.io/shadcn_ui/schemas/native-overlays.schema.json",
+  "title": "ShadcnUI native overlay capability manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "reviewedOn", "normativeTarget", "changeControl", "capabilities", "componentCapabilitySets", "fallbackContract", "verificationEvidence"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "reviewedOn": {"type": "string", "format": "date"},
+    "normativeTarget": {"const": "web-platform-capabilities"},
+    "changeControl": {"type": "object"},
+    "capabilities": {"type": "object", "additionalProperties": false, "required": ["dialog", "dialogInvokerCommands", "dialogClosedBy", "popover", "popoverTarget", "anchorPositioning", "positionFallbacks", "discreteTransitions", "interestInvokers"]},
+    "componentCapabilitySets": {"type": "object"},
+    "fallbackContract": {"type": "object"},
+    "verificationEvidence": {"type": "object"}
+  }
+}

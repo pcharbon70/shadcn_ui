@@ -29,6 +29,16 @@ the complete candidate verification. Never edit an archive or the deployed
 gallery artifact in place. The package and gallery may be rolled back
 independently because the demo is excluded from package contents.
 
+## Milestone D Phase 1 acceptance record
+
+The candidate includes the authored native overlay capability manifest and
+schema as normative package data. Chromium 151.0.7922.34, Firefox 153.0, and
+WebKit 26.5 are the exact Playwright 1.62.1 evidence locks, not package targets.
+Acceptance runs the shared Dialog/Popover fixture in all three engines, including
+CSS-disabled, no-script, disabled-feature, DOM-replacement, nested-Popover,
+reduced-motion, and forced-color cases. The archive excludes Playwright,
+fixtures, reports, demo helpers, and every package JavaScript runtime.
+
 ## Milestone C acceptance record
 
 The candidate must include the seven Milestone C public components and their

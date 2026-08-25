@@ -13,8 +13,13 @@ decisions:
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - priv/compatibility/native_overlays.json
+  - priv/compatibility/native_overlays.schema.json
+  - lib/shadcn_ui/components/overlays/overlay_contract.ex
   - lib/shadcn_ui/components/overlays/**/*.ex
+  - test/shadcn_ui/components/overlays/overlay_capability_manifest_test.exs
   - test/shadcn_ui/components/overlays/**/*.exs
+  - test/fixtures/milestone_d_overlay_contract.html
   - test/fixtures/milestone_d_*.html
   - test/browser/milestone-d-*.spec.mjs
   - README.md
@@ -85,8 +90,6 @@ surface:
 - kind: test_file
   target: test/shadcn_ui/components/overlays/overlay_contract_test.exs
   covers:
-    - shadcn_ui.overlay.browser_matrix
-    - shadcn_ui.overlay.no_package_runtime
     - shadcn_ui.overlay.deterministic_identity
     - shadcn_ui.overlay.native_invocation
     - shadcn_ui.overlay.state_ownership
@@ -94,6 +97,13 @@ surface:
     - shadcn_ui.overlay.dismissal
     - shadcn_ui.overlay.dom_replacement
     - shadcn_ui.overlay.nesting_boundary
+    - shadcn_ui.overlay.web_fallback
+
+- kind: test_file
+  target: test/shadcn_ui/components/overlays/overlay_capability_manifest_test.exs
+  covers:
+    - shadcn_ui.overlay.browser_matrix
+    - shadcn_ui.overlay.no_package_runtime
     - shadcn_ui.overlay.web_fallback
     - shadcn_ui.overlay.application_boundary
 

@@ -9,6 +9,7 @@ defmodule ShadcnUI.StylesheetTest do
   # covers: shadcn_ui.stylesheet.reproducible_output
   # covers: shadcn_ui.stylesheet.form_fallbacks shadcn_ui.stylesheet.form_resilience
   # covers: shadcn_ui.stylesheet.content_fallbacks shadcn_ui.stylesheet.content_resilience
+  # covers: shadcn_ui.stylesheet.overlay_fallbacks shadcn_ui.stylesheet.overlay_resilience
 
   @stylesheet Path.expand("../../priv/static/shadcn_ui.css", __DIR__)
   @source Path.expand("../../assets/shadcn_ui.css", __DIR__)
@@ -179,5 +180,19 @@ defmodule ShadcnUI.StylesheetTest do
     assert css =~ "data-shadcn-ui-accordion-item"
     assert css =~ "interpolate-size:allow-keywords"
     refute File.exists?("assets/accordion.js")
+  end
+
+  test "keeps overlay presentation capability-gated and resilient" do
+    source = File.read!(@source)
+    css = File.read!(@stylesheet)
+
+    assert source =~ "[data-shadcn-ui-overlay-surface]"
+    assert source =~ "max-block-size: calc(100dvb - 2rem)"
+    assert source =~ "position-try-fallbacks: flip-block, flip-inline"
+    assert source =~ "@supports (transition-behavior: allow-discrete) and (overlay: none)"
+    assert source =~ "transition: none !important"
+    assert source =~ "border-color: CanvasText"
+    assert css =~ "data-shadcn-ui-overlay-surface"
+    refute File.exists?("assets/overlays.js")
   end
 end

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-08-25",
+  "normativeTarget": "web-platform-capabilities",
+  "changeControl": {
+    "authoritativeSourcesRequired": true,
+    "crossEngineEvidenceRequired": true,
+    "adrRequiredForPackageRuntime": true,
+    "reviewWhen": ["browser-locks-change", "component-capability-set-changes", "fallback-contract-changes", "interest-invokers-become-cross-engine"]
+  },
+  "capabilities": {
+    "dialog": {"status": "required", "source": "https://html.spec.whatwg.org/multipage/interactive-elements.html#the-dialog-element"},
+    "dialogInvokerCommands": {"status": "required", "source": "https://html.spec.whatwg.org/multipage/form-elements.html#attr-button-commandfor"},
+    "dialogClosedBy": {"status": "required", "source": "https://html.spec.whatwg.org/multipage/interactive-elements.html#attr-dialog-closedby"},
+    "popover": {"status": "required", "source": "https://html.spec.whatwg.org/multipage/popover.html#the-popover-attribute"},
+    "popoverTarget": {"status": "required", "source": "https://html.spec.whatwg.org/multipage/form-elements.html#attr-button-popovertarget"},
+    "anchorPositioning": {"status": "enhancement", "source": "https://drafts.csswg.org/css-anchor-position-1/"},
+    "positionFallbacks": {"status": "enhancement", "source": "https://drafts.csswg.org/css-anchor-position-1/#fallback"},
+    "discreteTransitions": {"status": "enhancement", "source": "https://drafts.csswg.org/css-transitions-2/#transition-behavior-property"},
+    "interestInvokers": {"status": "excluded", "source": "https://html.spec.whatwg.org/multipage/interaction.html#the-interestfor-attribute"}
+  },
+  "componentCapabilitySets": {
+    "dialogFamily": ["dialog", "dialogInvokerCommands", "dialogClosedBy"],
+    "popoverFamily": ["popover", "popoverTarget"],
+    "anchoredPopoverPresentation": ["anchorPositioning", "positionFallbacks"],
+    "overlayMotion": ["discreteTransitions"]
+  },
+  "fallbackContract": {
+    "required": true,
+    "owner": "caller",
+    "acceptedKinds": ["ordinary-destination", "visible-content", "non-overlay-operation"],
+    "missingPresentationEnhancement": "native-operation-in-bounded-readable-position"
+  },
+  "verificationEvidence": {
+    "implementation": "playwright",
+    "implementationVersion": "1.62.1",
+    "engines": {
+      "chromium": {"revision": "1234", "version": "151.0.7922.34"},
+      "firefox": {"revision": "1538", "version": "153.0"},
+      "webkit": {"revision": "2336", "version": "26.5"}
+    }
+  }
+}

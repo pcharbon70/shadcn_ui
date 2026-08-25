@@ -21,6 +21,37 @@ The canonical gallery is
 <https://leco-industries-inc.github.io/shadcn_ui/>. It is a separate
 Phoenix reference consumer and is not part of the package runtime or archive.
 
+## Native overlay capability contract
+
+Milestone D targets web-platform capabilities, not a browser brand, operating
+system, embedded runtime, or consuming product. The authored
+[`native_overlays.json`](priv/compatibility/native_overlays.json) manifest
+separates the capabilities required by each component family from the exact
+Chromium, Firefox, and WebKit versions used as current Playwright evidence.
+
+ShadcnUI ships no overlay JavaScript, invoker shim, focus trap, overlay stack,
+positioning engine, custom element, hook, or client state process. A caller that
+supports a browser below a component's native capability floor must provide an
+ordinary destination, visible content, or non-overlay operation. Missing anchor
+positioning or transition support must leave the native operation in a bounded,
+readable position without animation.
+
+Review the manifest and its authoritative sources whenever browser locks,
+component capability sets, fallbacks, or the interest-invoker exclusion change.
+Adding a package runtime requires a new accepted ADR. Capability reports and
+test helpers belong to demo or test surfaces and are never package release files.
+
+Native open state, toggles, close behavior, modal focus, page inertness, Escape,
+and focus restoration are browser-local. Rendered `open` or action values are a
+snapshot, not synchronized or persistent state. If ordinary controller
+navigation, a Phoenix patch, Dstar, or LiveView replaces an open subtree, the
+overlay may close and browser-local focus may be lost; the consuming application
+owns patch boundaries, reinvocation, server state, and restoration policy.
+
+Milestone D supports a root Dialog-family surface or Popover, plus at most one
+native Popover inside a Dialog-family surface. Nested modals, arbitrary overlay
+stacks, submenus, and virtual anchors are outside the contract.
+
 ## Installation
 
 For sibling development, add the package as a path dependency:

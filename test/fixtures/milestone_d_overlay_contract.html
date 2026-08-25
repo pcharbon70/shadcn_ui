@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <a id="ordinary-fallback" href="#fallback-content">Read the settings in the page</a>
+    <button id="dialog-invoker" command="show-modal" commandfor="dialog-surface">Open settings</button>
+    <dialog id="dialog-surface" closedby="any" aria-labelledby="dialog-title">
+      <h2 id="dialog-title">Settings</h2>
+      <button id="nested-popover-invoker" popovertarget="nested-popover">More information</button>
+      <div id="nested-popover" popover="auto">Browser-local supplemental content</div>
+      <button id="dialog-close" command="close" commandfor="dialog-surface">Close</button>
+    </dialog>
+    <p id="fallback-content">Visible ordinary fallback content.</p>
+  </body>
+</html>
