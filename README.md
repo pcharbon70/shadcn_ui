@@ -371,6 +371,43 @@ are unavailable. Applications own dimensions beyond the closed presets, scroll
 position and restoration, loading and virtualization, and all scroll-driven
 behavior.
 
+### Radio Panels
+
+Radio Panels pairs one native radio group with trusted caller-authored content.
+It requires an explicit stable `id`, submission `name`, legend, selected scalar
+snapshot, and keyed options with nonblank values and escaped labels.
+
+```heex
+<.radio_panels id="account-view" name="account_view" selected={@account_view}>
+  <:legend>Account view</:legend>
+  <:option key="profile" value="profile" label="Profile">
+    <.card><:title>Profile settings</:title>...</.card>
+  </:option>
+  <:option key="security" value="security" label="Security">
+    <.card><:title>Security settings</:title>...</.card>
+  </:option>
+</.radio_panels>
+```
+
+Every option renders a real radio input, label, and deterministically related
+panel. Native Tab, arrow-key, Space, reset, disabled, required, and ordinary
+form-submission behavior remains authoritative. `selected` describes only the
+server-rendered snapshot; the application owns rerendering, persistence,
+validation, and any destination or deep-link meaning.
+
+Radio Panels is not a Tab Group, navigation surface, or client-side view model.
+It emits no `tablist`, `tab`, or `tabpanel` roles, roving tabindex, custom key
+handlers, focus movement, automatic activation, history integration, or package
+JavaScript. Use Navigation Menu for destinations. A true tab widget requires a
+separately approved runtime and complete ARIA interaction contract.
+
+Inside browsers that support `:has()`, package CSS emphasizes the checked label
+and displays its related panel compactly. Without that selector, without package
+CSS, or without JavaScript, every panel remains visible and readable in source
+order beside its native radio and label. Long content wraps; forced colors keeps
+the checked option distinguishable without relying on color alone. Applications
+must avoid invalid nested forms and own all form boundaries.
+
 ### Form field composition
 
 Milestone B form primitives share one deterministic relationship contract.

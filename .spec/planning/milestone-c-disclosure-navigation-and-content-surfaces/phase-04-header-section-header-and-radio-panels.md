@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 4.1.2.3 Subtask - Add closed static and sticky presentation, optional decorative anchor effects, and scroll margin or padding needed to preserve package-created fragment visibility.
       - [x] 4.1.2.4 Subtask - Document multiple-header semantics, heading ownership, action behavior, sticky and anchor fallback, application responsibilities, and provenance.
 
-  - [ ] 4.2 Section - Native Radio Panels semantics and fallback.
+  - [x] 4.2 Section - Native Radio Panels semantics and fallback.
 
     This section adapts the upstream radio-based pattern under a name and API
     that match its actual native keyboard and form behavior.
 
-    - [ ] 4.2.1 Task - Implement the Radio Panels structure and value snapshot.
+    - [x] 4.2.1 Task - Implement the Radio Panels structure and value snapshot.
 
       One native radio group should control presentation without creating tab
       roles, focus behavior, or a package-owned client state model.
 
-      - [ ] 4.2.1.1 Subtask - Add a defining Content.RadioPanels module with required ID, name, legend, stable keyed options, explicit selected value, and trusted panel content.
-      - [ ] 4.2.1.2 Subtask - Render one native fieldset and legend plus deterministic radio, label, and panel relationships for every option.
-      - [ ] 4.2.1.3 Subtask - Preserve native radio Tab and arrow-key behavior, checked and disabled attributes, and ordinary browser form submission.
-      - [ ] 4.2.1.4 Subtask - Protect group name, IDs, labels, checked value, disabled state, and relationships while forwarding unrelated documented globals.
+      - [x] 4.2.1.1 Subtask - Add a defining Content.RadioPanels module with required ID, name, legend, stable keyed options, explicit selected value, and trusted panel content.
+      - [x] 4.2.1.2 Subtask - Render one native fieldset and legend plus deterministic radio, label, and panel relationships for every option.
+      - [x] 4.2.1.3 Subtask - Preserve native radio Tab and arrow-key behavior, checked and disabled attributes, and ordinary browser form submission.
+      - [x] 4.2.1.4 Subtask - Protect group name, IDs, labels, checked value, disabled state, and relationships while forwarding unrelated documented globals.
 
-    - [ ] 4.2.2 Task - Add selected-panel CSS and semantic guidance.
+    - [x] 4.2.2 Task - Add selected-panel CSS and semantic guidance.
 
       Enhanced presentation may reduce visual density only when every panel stays
       reachable through the documented CSS-disabled fallback.
 
-      - [ ] 4.2.2.1 Subtask - Add capability-gated CSS that emphasizes the selected label and panel using semantic tokens and visible native focus.
-      - [ ] 4.2.2.2 Subtask - Ensure unsupported selectors or disabled CSS show every panel in readable source order with radios and labels intact.
-      - [ ] 4.2.2.3 Subtask - Verify long labels, long panels, nested forms, narrow layout, zoom, forced colors, reduced motion, light/dark themes, and no script.
-      - [ ] 4.2.2.4 Subtask - Document Radio Panels values, submission, caller-owned rerender and persistence, fallback, and concrete distinctions from navigation links and true tabs.
+      - [x] 4.2.2.1 Subtask - Add capability-gated CSS that emphasizes the selected label and panel using semantic tokens and visible native focus.
+      - [x] 4.2.2.2 Subtask - Ensure unsupported selectors or disabled CSS show every panel in readable source order with radios and labels intact.
+      - [x] 4.2.2.3 Subtask - Verify long labels, long panels, nested forms, narrow layout, zoom, forced colors, reduced motion, light/dark themes, and no script.
+      - [x] 4.2.2.4 Subtask - Document Radio Panels values, submission, caller-owned rerender and persistence, fallback, and concrete distinctions from navigation links and true tabs.
 
   - [ ] 4.3 Section - Phase 4 Integration Tests.
 

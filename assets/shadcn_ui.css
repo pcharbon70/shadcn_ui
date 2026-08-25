@@ -571,6 +571,38 @@
   box-shadow: 0 0 0 2px var(--shadcn-ui-ring);
 }
 
+[data-shadcn-ui-radio-panel-option] {
+  overflow: clip;
+}
+
+[data-shadcn-ui-radio-panel-control]:focus-visible {
+  outline: 2px solid var(--shadcn-ui-ring);
+  outline-offset: 2px;
+}
+
+@supports selector(:has(*)) {
+  [data-shadcn-ui-radio-panel-option] > [data-shadcn-ui-radio-panel] {
+    display: none;
+  }
+
+  [data-shadcn-ui-radio-panel-option]:has(> div > input:checked) {
+    border-color: var(--shadcn-ui-primary);
+    box-shadow: 0 0 0 1px var(--shadcn-ui-primary);
+  }
+
+  [data-shadcn-ui-radio-panel-option]:has(> div > input:checked)
+    [data-shadcn-ui-radio-panel-label] {
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.125rem;
+    text-underline-offset: 0.25rem;
+  }
+
+  [data-shadcn-ui-radio-panel-option]:has(> div > input:checked)
+    > [data-shadcn-ui-radio-panel] {
+    display: block;
+  }
+}
+
 @media (forced-colors: active) {
   [data-shadcn-ui]:focus-visible {
     outline-color: Highlight;
@@ -705,6 +737,17 @@
     border-inline-start-color: Highlight;
     outline: 2px solid Highlight;
     outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  [data-shadcn-ui-radio-panel-control] {
+    forced-color-adjust: auto;
+  }
+
+  [data-shadcn-ui-radio-panel-option]:has(> div > input:checked) {
+    border-color: Highlight;
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
     box-shadow: none;
   }
 }
