@@ -12,6 +12,10 @@ decisions:
   - shadcn_ui.native_disclosure_grouping
   - shadcn_ui.destination_navigation_landmarks
   - shadcn_ui.radio_panels_not_tabs
+  - shadcn_ui.native_overlay_platform_runtime
+  - shadcn_ui.dialog_modality_focus_dismissal
+  - shadcn_ui.popover_positioning_actions
+  - shadcn_ui.supplemental_surface_boundary
 surface:
   - lib/shadcn_ui.ex
   - lib/shadcn_ui/components/**/*.ex

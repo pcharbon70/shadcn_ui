@@ -16,15 +16,21 @@ decisions:
   - shadcn_ui.destination_navigation_landmarks
   - shadcn_ui.native_scroll_sticky_surfaces
   - shadcn_ui.radio_panels_not_tabs
+  - shadcn_ui.native_overlay_platform_runtime
+  - shadcn_ui.dialog_modality_focus_dismissal
+  - shadcn_ui.popover_positioning_actions
+  - shadcn_ui.supplemental_surface_boundary
 surface:
   - demo/**
   - scripts/**
   - test/browser/milestone-a-gallery.spec.mjs
   - test/browser/milestone-b-forms.spec.mjs
   - test/browser/milestone-c-content-navigation.spec.mjs
+  - test/browser/milestone-d-*.spec.mjs
   - test/shadcn_ui/milestone_a_acceptance_test.exs
   - test/shadcn_ui/milestone_b_acceptance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
+  - test/shadcn_ui/milestone_d_acceptance_test.exs
   - README.md
 ```
 
@@ -47,7 +53,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery.closed_catalog
-  statement: The gallery shall own one immutable ordered catalogue with stable Foundation, Forms, Disclosure, Navigation, and Content Surfaces categories and the complete Milestone A, B, and C component leaves whose request slugs resolve only through closed strings to explicit render identities.
+  statement: The gallery shall own one immutable ordered catalogue with stable Foundation, Forms, Disclosure, Navigation, Content Surfaces, Overlays, and Interactive Surfaces categories and the complete Milestone A through D component leaves whose request slugs resolve only through closed strings to explicit render identities.
   priority: must
   stability: stable
 
@@ -196,6 +202,32 @@ surface:
 
 - kind: test_file
   target: test/shadcn_ui/milestone_c_acceptance_test.exs
+  covers:
+    - shadcn_ui.gallery.separate_application
+    - shadcn_ui.gallery.controller_rendered
+    - shadcn_ui.gallery.no_application_frameworks
+    - shadcn_ui.gallery.closed_catalog
+    - shadcn_ui.gallery.safe_resolution
+    - shadcn_ui.gallery.stable_routes
+    - shadcn_ui.gallery.semantic_shell
+    - shadcn_ui.gallery.component_guidance
+    - shadcn_ui.gallery.theme_matrix
+    - shadcn_ui.gallery.demo_only_script
+    - shadcn_ui.gallery.deterministic_assets
+    - shadcn_ui.gallery.static_export
+    - shadcn_ui.gallery.online_publication
+    - shadcn_ui.gallery.excluded_from_package
+
+- kind: test_file
+  target: test/browser/milestone-d-gallery.spec.mjs
+  covers:
+    - shadcn_ui.gallery.stable_routes
+    - shadcn_ui.gallery.semantic_shell
+    - shadcn_ui.gallery.component_guidance
+    - shadcn_ui.gallery.theme_matrix
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_d_acceptance_test.exs
   covers:
     - shadcn_ui.gallery.separate_application
     - shadcn_ui.gallery.controller_rendered
