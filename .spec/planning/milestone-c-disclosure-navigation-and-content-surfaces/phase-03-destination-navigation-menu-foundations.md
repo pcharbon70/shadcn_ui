@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   overstatement. Callers choose destinations and current location explicitly;
   ShadcnUI owns only deterministic semantic markup and presentation.
 
-  - [ ] 3.1 Section - Navigation structure and destination contract.
+  - [x] 3.1 Section - Navigation structure and destination contract.
 
     This section establishes the required landmark, list, link, and stable-item
     model for server-rendered navigation.
 
-    - [ ] 3.1.1 Task - Implement named list navigation.
+    - [x] 3.1.1 Task - Implement named list navigation.
 
       The component should provide useful structure to sighted and assistive-
       technology users without changing how anchors activate.
 
-      - [ ] 3.1.1.1 Subtask - Add a defining Navigation.NavigationMenu module and import it through `use ShadcnUI`.
-      - [ ] 3.1.1.2 Subtask - Require a nonblank accessible landmark name and render one native `nav`, list, list item, and anchor per entry.
-      - [ ] 3.1.1.3 Subtask - Require stable caller keys and nonblank caller-owned destinations while supporting escaped labels and semantically distinct trusted slots.
-      - [ ] 3.1.1.4 Subtask - Preserve ordinary anchor Tab, Enter, context-menu, open-in-new-tab, download, and browser-history behavior without activation interception.
+      - [x] 3.1.1.1 Subtask - Add a defining Navigation.NavigationMenu module and import it through `use ShadcnUI`.
+      - [x] 3.1.1.2 Subtask - Require a nonblank accessible landmark name and render one native `nav`, list, list item, and anchor per entry.
+      - [x] 3.1.1.3 Subtask - Require stable caller keys and nonblank caller-owned destinations while supporting escaped labels and semantically distinct trusted slots.
+      - [x] 3.1.1.4 Subtask - Preserve ordinary anchor Tab, Enter, context-menu, open-in-new-tab, download, and browser-history behavior without activation interception.
 
-    - [ ] 3.1.2 Task - Implement explicit current-location and protected semantics.
+    - [x] 3.1.2 Task - Implement explicit current-location and protected semantics.
 
       Current styling should reflect caller truth exactly and never depend on a
       hidden request or router lookup.
 
-      - [ ] 3.1.2.1 Subtask - Add closed native `aria-current` values and render them only from explicit item state.
-      - [ ] 3.1.2.2 Subtask - Protect nav naming, anchor destinations, current state, list structure, and native link semantics from conflicting globals.
-      - [ ] 3.1.2.3 Subtask - Forward unrelated documented anchor, ARIA, data, Phoenix, and Datastar globals without accepting arbitrary component roles.
-      - [ ] 3.1.2.4 Subtask - Reject blank landmark names, destinations, duplicate or unstable keys, unsupported current values, dynamic atoms, and role overstatement.
+      - [x] 3.1.2.1 Subtask - Add closed native `aria-current` values and render them only from explicit item state.
+      - [x] 3.1.2.2 Subtask - Protect nav naming, anchor destinations, current state, list structure, and native link semantics from conflicting globals.
+      - [x] 3.1.2.3 Subtask - Forward unrelated documented anchor, ARIA, data, Phoenix, and Datastar globals without accepting arbitrary component roles.
+      - [x] 3.1.2.4 Subtask - Reject blank landmark names, destinations, duplicate or unstable keys, unsupported current values, dynamic atoms, and role overstatement.
 
   - [ ] 3.2 Section - Responsive presentation and public guidance.
 

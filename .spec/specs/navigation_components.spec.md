@@ -11,7 +11,9 @@ decisions:
   - shadcn_ui.semantic_component_api_and_accessibility
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - lib/shadcn_ui/components/navigation/navigation_menu.ex
   - lib/shadcn_ui/components/navigation/**/*.ex
+  - test/shadcn_ui/components/navigation/navigation_menu_test.exs
   - test/shadcn_ui/components/navigation/**/*.exs
   - test/shadcn_ui/navigation_components_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs

@@ -114,6 +114,9 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Forms.Switch,
           ShadcnUI.Components.Forms.Textarea
         ],
+        "Navigation components": [
+          ShadcnUI.Components.Navigation.NavigationMenu
+        ],
         "Package contract": [ShadcnUI, ShadcnUI.Component]
       ]
     ]
