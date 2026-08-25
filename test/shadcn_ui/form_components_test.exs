@@ -8,6 +8,7 @@ defmodule ShadcnUI.FormComponentsTest do
   # covers: shadcn_ui.forms.textarea shadcn_ui.forms.checkbox
   # covers: shadcn_ui.forms.radio_group shadcn_ui.forms.switch
   # covers: shadcn_ui.forms.native_select shadcn_ui.forms.enhanced_select
+  # covers: shadcn_ui.forms.slider shadcn_ui.forms.progress shadcn_ui.forms.meter
   # covers: shadcn_ui.forms.shared_contract
 
   defmodule Fixture do
@@ -247,6 +248,49 @@ defmodule ShadcnUI.FormComponentsTest do
       </form>
       """
     end
+
+    attr(:form, :any, required: true)
+
+    def range_and_measurement_profile(assigns) do
+      ~H"""
+      <.card>
+        <:title>Capacity settings</:title>
+        <:description>Native controls and measurement snapshots.</:description>
+        <form id="capacity-settings">
+          <.slider
+            field={@form[:allocation]}
+            min={0}
+            max={100}
+            step={10}
+            errors={["Choose an available allocation"]}
+            error_mode={:always}
+            pending
+          >
+            <:label>Allocation</:label>
+            <:value_description>0 through 100 percent.</:value_description>
+            <:help>Arrow keys retain native range behavior.</:help>
+          </.slider>
+          <.progress id="capacity-progress" value={4} max={10}>
+            <:label>Capacity review</:label>
+            <:description>4 of 10 checks are represented by this snapshot.</:description>
+          </.progress>
+          <.meter
+            id="capacity-meter"
+            value={72}
+            min={0}
+            max={100}
+            low={60}
+            high={85}
+            optimum={40}
+          >
+            <:label>Storage use</:label>
+            <:description>72 percent of the known range.</:description>
+          </.meter>
+          <.button type="reset" variant={:outline}>Reset capacity</.button>
+        </form>
+      </.card>
+      """
+    end
   end
 
   test "ordinary FormField controls retain native names, values, constraints, and order" do
@@ -480,6 +524,25 @@ defmodule ShadcnUI.FormComponentsTest do
     refute html =~ ~s(type="hidden")
     refute html =~ ~r/role="(?:combobox|listbox|option)"/
     refute html =~ ~r/(phx-hook|data-on:|<script|javascript:)/
+  end
+
+  test "slider, progress, meter, field relationships, and card compose without semantic overlap" do
+    form = Phoenix.Component.to_form(%{"allocation" => "40"}, as: "capacity")
+    html = render(&Fixture.range_and_measurement_profile/1, %{form: form})
+
+    assert html =~ ~s(data-shadcn-ui-slot="title")
+    assert html =~ ~s(type="range")
+    assert html =~ ~s(name="capacity[allocation]")
+    assert html =~ ~s(value="40")
+    assert html =~ ~s(aria-invalid="true")
+    assert html =~ ~s(data-pending="true")
+    assert html =~ ~s(<progress)
+    assert html =~ ~s(<meter)
+    assert length(Regex.scan(~r/<progress\b/, html)) == 1
+    assert length(Regex.scan(~r/<meter\b/, html)) == 1
+    assert position(html, ~s(type="range")) < position(html, "<progress")
+    assert position(html, "<progress") < position(html, "<meter")
+    refute html =~ ~r/(aria-live|phx-hook|data-on:|<script|javascript:)/
   end
 
   defp render(fun, assigns \\ %{}) do

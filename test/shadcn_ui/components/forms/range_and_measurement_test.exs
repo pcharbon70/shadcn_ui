@@ -5,6 +5,8 @@ defmodule ShadcnUI.Components.Forms.RangeAndMeasurementTest do
   alias Phoenix.HTML.Safe
 
   # covers: shadcn_ui.forms.slider shadcn_ui.forms.shared_contract
+  # covers: shadcn_ui.forms.progress
+  # covers: shadcn_ui.forms.meter
   # covers: shadcn_ui.form.normalization shadcn_ui.form.deterministic_relationships
   # covers: shadcn_ui.form.native_states shadcn_ui.form.protected_globals
   # covers: shadcn_ui.form.native_submission shadcn_ui.stylesheet.form_resilience

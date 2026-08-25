@@ -14,6 +14,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
   # covers: shadcn_ui.forms.input shadcn_ui.forms.textarea
   # covers: shadcn_ui.forms.checkbox shadcn_ui.forms.radio_group shadcn_ui.forms.switch
   # covers: shadcn_ui.forms.native_select shadcn_ui.forms.enhanced_select
+  # covers: shadcn_ui.forms.slider shadcn_ui.forms.progress shadcn_ui.forms.meter
   # covers: shadcn_ui.stylesheet.semantic_tokens shadcn_ui.stylesheet.reduced_motion
   # covers: shadcn_ui.stylesheet.no_runtime_assets shadcn_ui.stylesheet.form_fallbacks
   # covers: shadcn_ui.stylesheet.form_resilience
@@ -292,7 +293,10 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
           {"forms.radio_group", "lib/shadcn_ui/components/forms/radio_group.ex"},
           {"forms.switch", "lib/shadcn_ui/components/forms/switch.ex"},
           {"forms.native_select", "lib/shadcn_ui/components/forms/native_select.ex"},
-          {"forms.enhanced_select", "lib/shadcn_ui/components/forms/enhanced_select.ex"}
+          {"forms.enhanced_select", "lib/shadcn_ui/components/forms/enhanced_select.ex"},
+          {"forms.slider", "lib/shadcn_ui/components/forms/slider.ex"},
+          {"forms.progress", "lib/shadcn_ui/components/forms/progress.ex"},
+          {"forms.meter", "lib/shadcn_ui/components/forms/meter.ex"}
         ] do
       assert Enum.any?(provenance["adaptations"], fn adaptation ->
                adaptation["id"] == id and path in adaptation["localPaths"]

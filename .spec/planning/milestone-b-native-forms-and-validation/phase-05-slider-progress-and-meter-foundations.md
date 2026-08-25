@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 5 Phase - Deliver native range input and distinct task-progress and scalar-
+- [x] 5 Phase - Deliver native range input and distinct task-progress and scalar-
   measurement presentations without adding polling, estimation, or synchronized state.
 
   This phase completes the Milestone B native-control catalogue. Slider remains a
@@ -59,26 +59,26 @@ Back to wave: [README](./README.md)
       - [x] 5.2.2.3 Subtask - Add closed size and semantic zone presentation that remains understandable in themes and forced colors.
       - [x] 5.2.2.4 Subtask - Add no task-progress language, polling, measurement, threshold decisions, announcement, or package-owned lifecycle.
 
-  - [ ] 5.3 Section - Phase 5 Integration Tests.
+  - [x] 5.3 Section - Phase 5 Integration Tests.
 
     This section proves native range keyboard and submission behavior and the
     semantic distinction between Progress and Meter under real rendering stress.
 
-    - [ ] 5.3.1 Task - Verify Slider behavior and submitted values.
+    - [x] 5.3.1 Task - Verify Slider behavior and submitted values.
 
       Tests should cover the native value and constraint surface in both field
       modes while ensuring styling never creates a second slider model.
 
-      - [ ] 5.3.1.1 Subtask - Test explicit and FormField identity, value, min, max, step, disabled, invalid, pending, help, errors, and globals.
-      - [ ] 5.3.1.2 Subtask - Browser-test arrow, Page Up, Page Down, Home, and End keys where the platform defines them, plus focus, pointer use, reset, and submission.
-      - [ ] 5.3.1.3 Subtask - Verify light/dark themes, narrow width, zoom, forced colors, reduced motion, and operation without custom pseudo-element CSS.
+      - [x] 5.3.1.1 Subtask - Test explicit and FormField identity, value, min, max, step, disabled, invalid, pending, help, errors, and globals.
+      - [x] 5.3.1.2 Subtask - Browser-test arrow, Page Up, Page Down, Home, and End keys where the platform defines them, plus focus, pointer use, reset, and submission.
+      - [x] 5.3.1.3 Subtask - Verify light/dark themes, narrow width, zoom, forced colors, reduced motion, and operation without custom pseudo-element CSS.
 
-    - [ ] 5.3.2 Task - Verify Progress and Meter meanings and boundaries.
+    - [x] 5.3.2 Task - Verify Progress and Meter meanings and boundaries.
 
       Rendering and accessibility tests should assert native elements and value
       rules rather than relying only on visually similar bars.
 
-      - [ ] 5.3.2.1 Subtask - Test determinate and indeterminate Progress, required accessible naming, bounds, invalid combinations, and escaped descriptions.
-      - [ ] 5.3.2.2 Subtask - Test Meter range and threshold inputs, accessible naming, invalid combinations, semantic zones, and escaped descriptions.
-      - [ ] 5.3.2.3 Subtask - Assert Progress never renders Meter semantics, Meter never claims task completion, and neither adds events, polling, or live regions.
-      - [ ] 5.3.2.4 Subtask - Compose Slider, Progress, Meter, Field fragments, and Card in one fixture and run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 5.3.2.1 Subtask - Test determinate and indeterminate Progress, required accessible naming, bounds, invalid combinations, and escaped descriptions.
+      - [x] 5.3.2.2 Subtask - Test Meter range and threshold inputs, accessible naming, invalid combinations, semantic zones, and escaped descriptions.
+      - [x] 5.3.2.3 Subtask - Assert Progress never renders Meter semantics, Meter never claims task completion, and neither adds events, polling, or live regions.
+      - [x] 5.3.2.4 Subtask - Compose Slider, Progress, Meter, Field fragments, and Card in one fixture and run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.

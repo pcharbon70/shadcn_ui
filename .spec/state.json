@@ -143,76 +143,6 @@
   },
   "findings": [
     {
-      "code": "verification_command_failed",
-      "entity_id": "shadcn_ui.component_contract",
-      "file": ".spec/specs/component_contract.spec.md",
-      "level": "error",
-      "message": "Verification command failed: mix precommit\n==> mime\nCompiling 1 file (.ex)\nGenerated mime app\n==> jason\nCompiling 10 files (.ex)\nGenerated jason app\n==> plug_crypto\nCompiling 5 files (.ex)\nGenerated plug_crypto app\n==> shadcn_ui\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 25-Aug-2026::05:12:03.499000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 25-Aug-2026::05:12:03.523000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/components/forms/range_and_measurement_test.exs"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/components/forms/select_test.exs does not reference covered requirement: shadcn_ui.forms.enhanced_select"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/form_components_test.exs does not reference covered requirement: shadcn_ui.forms.meter"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/form_components_test.exs does not reference covered requirement: shadcn_ui.forms.progress"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/form_components_test.exs does not reference covered requirement: shadcn_ui.forms.slider"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.meter"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.progress"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.slider"
-    },
-    {
-      "code": "verification_command_failed",
-      "entity_id": "shadcn_ui.form_contract",
-      "file": ".spec/specs/form_contract.spec.md",
-      "level": "error",
-      "message": "Verification command failed: mix precommit\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 25-Aug-2026::05:12:04.595000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 25-Aug-2026::05:12:04.619000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco/elixir/leco_apps/packages/shadcn_ui/_build/test/lib/*/ebin\" command failed. Errors may have been logged above. You can recompile this dependency with \"mix deps.compile yamerl --force\", "
-    },
-    {
       "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.form_contract",
       "file": ".spec/specs/form_contract.spec.md",
@@ -351,13 +281,6 @@
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
       "message": "Surface entry does not exist: test/browser/milestone-b-forms.spec.mjs"
-    },
-    {
-      "code": "verification_command_failed",
-      "entity_id": "shadcn_ui.gallery",
-      "file": ".spec/specs/gallery.spec.md",
-      "level": "error",
-      "message": "Verification command failed: npm run gallery:smoke\nnpm error Missing script: \"gallery:smoke\"\nnpm error\nnpm error To see a list of scripts, run:\nnpm error   npm run\nnpm error A complete log of this run can be found in: C:\\Users\\pcharbonneau.LECOINDS\\AppData\\Local\\npm-cache\\_logs\\2026-08-25T09_12_05_912Z-debug-0.log"
     },
     {
       "code": "verification_target_missing",
@@ -582,13 +505,6 @@
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
       "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.theme_matrix"
-    },
-    {
-      "code": "verification_command_failed",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
-      "level": "error",
-      "message": "Verification command failed: mix precommit\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 25-Aug-2026::05:12:07.025000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 25-Aug-2026::05:12:07.046000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco/elixir/leco_apps/packages/shadcn_ui/_build/test/lib/*/ebin\" command failed. Errors may have been logged above. You can recompile this dependency with \"mix deps.compile yamerl --force\", "
     }
   ],
   "index": {
@@ -2193,7 +2109,7 @@
     "decision_parse_errors": 0,
     "decisions": 11,
     "exceptions": 0,
-    "findings": 64,
+    "findings": 52,
     "requirements": 92,
     "scenarios": 0,
     "subjects": 9,
@@ -2669,7 +2585,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/select_test.exs",
         "verification_index": 4
@@ -2702,7 +2618,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs",
         "verification_index": 5
@@ -2713,7 +2629,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs",
         "verification_index": 5
@@ -2724,7 +2640,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs",
         "verification_index": 5
@@ -2735,7 +2651,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/range_and_measurement_test.exs",
         "verification_index": 5
@@ -2812,7 +2728,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/form_components_test.exs",
         "verification_index": 6
@@ -2834,7 +2750,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/form_components_test.exs",
         "verification_index": 6
@@ -2867,7 +2783,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/form_components_test.exs",
         "verification_index": 6
@@ -2966,7 +2882,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 7
@@ -2988,7 +2904,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 7
@@ -3021,7 +2937,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 7
@@ -4770,7 +4686,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4781,7 +4697,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4792,7 +4708,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4803,7 +4719,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4814,7 +4730,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4825,7 +4741,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4836,7 +4752,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4847,7 +4763,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4858,7 +4774,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4869,7 +4785,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4880,7 +4796,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -4891,7 +4807,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "executed",
+        "strength": "claimed",
         "subject_id": "shadcn_ui.stylesheet",
         "target": "npm run assets:check",
         "verification_index": 0
@@ -5175,9 +5091,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 103,
-      "executed": 12,
-      "linked": 155
+      "claimed": 104,
+      "executed": 0,
+      "linked": 166
     },
     "threshold_failures": 0
   },
