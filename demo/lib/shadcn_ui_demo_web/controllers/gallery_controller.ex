@@ -36,6 +36,30 @@ defmodule ShadcnUIDemoWeb.GalleryController do
     end
   end
 
+  def composition(conn, %{"example" => example} = params) do
+    case Catalogue.lookup_composition(example) do
+      {:ok, item} ->
+        selected =
+          if params["view"] in ["profile", "security"], do: params["view"], else: "profile"
+
+        invalid = params["state"] == "invalid"
+
+        render_page(
+          conn,
+          params,
+          Map.merge(item, %{
+            kind: :composition,
+            title: item.label,
+            selected: selected,
+            invalid: invalid
+          })
+        )
+
+      :error ->
+        not_found(conn, params)
+    end
+  end
+
   def not_found(conn, params) do
     conn
     |> put_status(:not_found)

@@ -35,30 +35,30 @@ Back to wave: [README](./README.md)
       - [x] 5.1.2.3 Subtask - Explain links versus commands, navigation links versus Radio Panels, Radio Panels versus true tabs, and task selection versus destination changes using concrete examples.
       - [x] 5.1.2.4 Subtask - Show exact CSS-disabled or unsupported-feature fallbacks for exclusive details, sticky headers, edge affordances, anchor decoration, and selected panels.
 
-  - [ ] 5.2 Section - Substantial caller-owned page compositions.
+  - [x] 5.2 Section - Substantial caller-owned page compositions.
 
     This section demonstrates useful cross-milestone pages while keeping routes,
     data, authorization, commands, and state in the demo application boundary.
 
-    - [ ] 5.2.1 Task - Build documentation, settings, and application-shell pages.
+    - [x] 5.2.1 Task - Build documentation, settings, and application-shell pages.
 
       Complete examples should exercise landmarks, headings, disclosure,
       navigation, overflow, panels, forms, and foundation feedback together.
 
-      - [ ] 5.2.1.1 Subtask - Build a documentation page with Header, Navigation Menu, sticky Section Headers, Accordion, Scroll Area, Separator, links, and fragment destinations.
-      - [ ] 5.2.1.2 Subtask - Build a settings page with Header, Radio Panels, native form controls, Error Summary, Button, Alert, Card, and caller-owned selected and validation snapshots.
-      - [ ] 5.2.1.3 Subtask - Build an application shell with named primary and secondary navigation, current destinations, badges, actions, content overflow, and responsive normal-flow fallback.
-      - [ ] 5.2.1.4 Subtask - Use deterministic caller fixtures and ordinary controller rendering with no persistence, authentication, authorization, domain operations, routing inference, or package-owned state.
+      - [x] 5.2.1.1 Subtask - Build a documentation page with Header, Navigation Menu, sticky Section Headers, Accordion, Scroll Area, Separator, links, and fragment destinations.
+      - [x] 5.2.1.2 Subtask - Build a settings page with Header, Radio Panels, native form controls, Error Summary, Button, Alert, Card, and caller-owned selected and validation snapshots.
+      - [x] 5.2.1.3 Subtask - Build an application shell with named primary and secondary navigation, current destinations, badges, actions, content overflow, and responsive normal-flow fallback.
+      - [x] 5.2.1.4 Subtask - Use deterministic caller fixtures and ordinary controller rendering with no persistence, authentication, authorization, domain operations, routing inference, or package-owned state.
 
-    - [ ] 5.2.2 Task - Add content-stress and fallback fixtures.
+    - [x] 5.2.2 Task - Add content-stress and fallback fixtures.
 
       The gallery should make accessibility and compatibility boundaries visible
       instead of treating them as unobservable implementation details.
 
-      - [ ] 5.2.2.1 Subtask - Add narrow and wide, horizontal and vertical overflow, nested content, long and translated labels, repeated structures, and fragment-target fixtures.
-      - [ ] 5.2.2.2 Subtask - Add light, dark, 200 percent zoom, forced-colors, reduced-motion, RTL, no-script, and CSS-disabled evidence.
-      - [ ] 5.2.2.3 Subtask - Expose supported and fallback states deterministically without browser-name sniffing, viewport-derived application state, or demo shims labeled as package behavior.
-      - [ ] 5.2.2.4 Subtask - Verify static export preserves all content, destinations, landmarks, source examples, and non-submitting caller-owned form fixtures.
+      - [x] 5.2.2.1 Subtask - Add narrow and wide, horizontal and vertical overflow, nested content, long and translated labels, repeated structures, and fragment-target fixtures.
+      - [x] 5.2.2.2 Subtask - Add light, dark, 200 percent zoom, forced-colors, reduced-motion, RTL, no-script, and CSS-disabled evidence.
+      - [x] 5.2.2.3 Subtask - Expose supported and fallback states deterministically without browser-name sniffing, viewport-derived application state, or demo shims labeled as package behavior.
+      - [x] 5.2.2.4 Subtask - Verify static export preserves all content, destinations, landmarks, source examples, and non-submitting caller-owned form fixtures.
 
   - [ ] 5.3 Section - Public documentation, provenance, and release evidence.
 

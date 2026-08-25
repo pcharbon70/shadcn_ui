@@ -62,10 +62,25 @@ defmodule ShadcnUIDemo.Catalogue do
     "content-surfaces" => Enum.map(@content_surfaces, &Map.put(&1, :category, "content-surfaces"))
   }
 
-  @composition_routes [
-    "/examples/documentation",
-    "/examples/settings",
-    "/examples/application-shell"
+  @compositions [
+    %{
+      label: "Documentation composition",
+      slug: "documentation",
+      path: "/examples/documentation",
+      render: :documentation
+    },
+    %{
+      label: "Settings composition",
+      slug: "settings",
+      path: "/examples/settings",
+      render: :settings
+    },
+    %{
+      label: "Application shell composition",
+      slug: "application-shell",
+      path: "/examples/application-shell",
+      render: :application_shell
+    }
   ]
 
   @components Enum.flat_map(@categories, fn category ->
@@ -76,7 +91,8 @@ defmodule ShadcnUIDemo.Catalogue do
 
   def categories, do: @categories
   def form_routes, do: ["/forms/sign-in", "/forms/profile", "/forms/settings"]
-  def composition_routes, do: @composition_routes
+  def composition_routes, do: Enum.map(@compositions, & &1.path)
+  def compositions, do: @compositions
   def category, do: hd(@categories)
   def components, do: @components
 
@@ -84,12 +100,14 @@ defmodule ShadcnUIDemo.Catalogue do
     do: Enum.filter(@components, &(&1.category == category))
 
   def routes do
-    [
+    gallery = [
       "/"
       | Enum.flat_map(@categories, fn category ->
           [category.path | Enum.map(components(category.slug), &"#{category.path}/#{&1.slug}")]
         end)
     ]
+
+    gallery ++ composition_routes()
   end
 
   def lookup_category(slug) when is_binary(slug) do
@@ -109,4 +127,13 @@ defmodule ShadcnUIDemo.Catalogue do
   end
 
   def lookup_component(_category, _slug), do: :error
+
+  def lookup_composition(slug) when is_binary(slug) do
+    case Enum.find(@compositions, &(&1.slug == slug)) do
+      nil -> :error
+      composition -> {:ok, composition}
+    end
+  end
+
+  def lookup_composition(_slug), do: :error
 end
