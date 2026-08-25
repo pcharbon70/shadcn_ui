@@ -54,7 +54,13 @@ defmodule ShadcnUIDemo.MilestoneAAcceptanceTest do
     second =
       conn |> recycle() |> get("/components/foundation/not-a-component") |> html_response(404)
 
-    strip_csrf = &Regex.replace(~r/name="csrf-token" content="[^"]+"/, &1, ~s(name="csrf-token" content="token"))
+    strip_csrf =
+      &Regex.replace(
+        ~r/name="csrf-token" content="[^"]+"/,
+        &1,
+        ~s(name="csrf-token" content="token")
+      )
+
     assert strip_csrf.(first) == strip_csrf.(second)
     refute first =~ "not-a-component"
   end

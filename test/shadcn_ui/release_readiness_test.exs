@@ -17,7 +17,7 @@ defmodule ShadcnUI.ReleaseReadinessTest do
     assert readme =~ @gallery_url
     assert readme =~ "mix hex.build"
     assert release =~ "internal `0.1.0` candidate"
-    assert release =~ ~r/does not authorize or\r?\nperform publication to Hex/
+    assert release =~ ~r/does not authorize or perform\r?\npublication to Hex/
   end
 
   test "release allowlist excludes repository and gallery tooling" do

@@ -1,5 +1,5 @@
 defmodule ShadcnUI.Forms.FormContractTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
 
   alias Phoenix.HTML.FormField
   alias Phoenix.HTML.Safe

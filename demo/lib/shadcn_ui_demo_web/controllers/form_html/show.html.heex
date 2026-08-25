@@ -1,7 +1,9 @@
 <main class="gallery-standalone" data-shadcn-theme="light">
   <a href="/components/forms">Back to Forms</a>
   <h1>{@page.title}</h1>
-  <p>This is caller-owned demonstration data. Submission only displays allowlisted received values.</p>
+  <p>
+    This is caller-owned demonstration data. Submission only displays allowlisted received values.
+  </p>
   <p :if={!@submittable}>Static export: submission is intentionally disabled.</p>
   <.composition kind={@page.kind} form={@form} submittable={@submittable} />
 </main>

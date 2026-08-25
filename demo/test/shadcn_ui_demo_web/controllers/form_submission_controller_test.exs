@@ -7,8 +7,22 @@ defmodule ShadcnUIDemoWeb.FormSubmissionControllerTest do
   test "sign-in, profile, and settings are deterministic caller-owned compositions", %{conn: conn} do
     expectations = %{
       "/forms/sign-in" => [~s(type="email"), ~s(type="password"), ~s(type="checkbox")],
-      "/forms/profile" => ["profile-errors", "<textarea", "<select", ~s(type="radio"), ~s(type="range")],
-      "/forms/settings" => ["data-shadcn-ui-switch", ~s(name="demo[features][]"), "<selectedcontent>", "<progress", "<meter", " readonly", " disabled"]
+      "/forms/profile" => [
+        "profile-errors",
+        "<textarea",
+        "<select",
+        ~s(type="radio"),
+        ~s(type="range")
+      ],
+      "/forms/settings" => [
+        "data-shadcn-ui-switch",
+        ~s(name="demo[features][]"),
+        "<selectedcontent>",
+        "<progress",
+        "<meter",
+        " readonly",
+        " disabled"
+      ]
     }
 
     for {path, fragments} <- expectations do
@@ -25,10 +39,14 @@ defmodule ShadcnUIDemoWeb.FormSubmissionControllerTest do
     html = conn |> get("/forms/profile?static=1") |> html_response(200)
     assert html =~ "submission is intentionally disabled"
     refute html =~ ~s(action="/forms/submit")
-    assert html =~ ~r/<button[^>]*disabled[^>]*type="submit"|<button[^>]*type="submit"[^>]*disabled/
+
+    assert html =~
+             ~r/<button[^>]*disabled[^>]*type="submit"|<button[^>]*type="submit"[^>]*disabled/
   end
 
-  test "allowlisted native values are rendered escaped and in deterministic key order", %{conn: conn} do
+  test "allowlisted native values are rendered escaped and in deterministic key order", %{
+    conn: conn
+  } do
     conn = get(conn, "/forms/profile")
     csrf = csrf_token(conn.resp_body)
 
@@ -57,7 +75,9 @@ defmodule ShadcnUIDemoWeb.FormSubmissionControllerTest do
     assert html =~ "No authentication, persistence, authorization, or domain operation"
   end
 
-  test "unexpected fields and malformed submissions fail without reflection or side effects", %{conn: conn} do
+  test "unexpected fields and malformed submissions fail without reflection or side effects", %{
+    conn: conn
+  } do
     conn = get(conn, "/forms/settings")
     csrf = csrf_token(conn.resp_body)
 
@@ -80,5 +100,4 @@ defmodule ShadcnUIDemoWeb.FormSubmissionControllerTest do
     [token] = Regex.run(~r/name="_csrf_token"[^>]*value="([^"]+)"/, html, capture: :all_but_first)
     token
   end
-
 end

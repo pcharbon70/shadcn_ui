@@ -11,7 +11,9 @@ defmodule ShadcnUIDemo.FormCatalogTest do
   @slugs ~w(field label help field-errors error-summary input textarea checkbox radio-group switch native-select enhanced-select slider progress meter)
 
   test "Forms is a closed ordered category with one stable leaf per component" do
-    assert {:ok, %{label: "Forms", path: "/components/forms"}} = Catalogue.lookup_category("forms")
+    assert {:ok, %{label: "Forms", path: "/components/forms"}} =
+             Catalogue.lookup_category("forms")
+
     assert Enum.map(Catalogue.components("forms"), & &1.slug) == @slugs
 
     for slug <- @slugs do
@@ -19,7 +21,11 @@ defmodule ShadcnUIDemo.FormCatalogTest do
       assert component.path == "/components/forms/#{slug}"
       assert component.path in Catalogue.routes()
       reference = Reference.fetch!(component.render)
-      assert Enum.all?(~w(what when responsibilities accessibility semantics fallback source)a, &Map.has_key?(reference, &1))
+
+      assert Enum.all?(
+               ~w(what when responsibilities accessibility semantics fallback source)a,
+               &Map.has_key?(reference, &1)
+             )
     end
   end
 

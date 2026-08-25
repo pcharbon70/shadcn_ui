@@ -48,12 +48,17 @@ defmodule ShadcnUIDemo.Catalogue do
   def form_routes, do: ["/forms/sign-in", "/forms/profile", "/forms/settings"]
   def category, do: hd(@categories)
   def components, do: @components
-  def components(category) when is_binary(category), do: Enum.filter(@components, &(&1.category == category))
+
+  def components(category) when is_binary(category),
+    do: Enum.filter(@components, &(&1.category == category))
 
   def routes do
-    ["/" | Enum.flat_map(@categories, fn category ->
-      [category.path | Enum.map(components(category.slug), &"#{category.path}/#{&1.slug}")]
-    end)]
+    [
+      "/"
+      | Enum.flat_map(@categories, fn category ->
+          [category.path | Enum.map(components(category.slug), &"#{category.path}/#{&1.slug}")]
+        end)
+    ]
   end
 
   def lookup_category(slug) when is_binary(slug) do

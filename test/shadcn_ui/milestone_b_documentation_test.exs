@@ -23,7 +23,8 @@ defmodule ShadcnUI.MilestoneBDocumentationTest do
       assert readme =~ phrase
     end
 
-    for component <- ~w(Field Label Help Error Summary Input Textarea Checkbox Radio Group Switch Native Select Enhanced Select Slider Progress Meter) do
+    for component <-
+          ~w(Field Label Help Error Summary Input Textarea Checkbox Radio Group Switch Native Select Enhanced Select Slider Progress Meter) do
       assert readme =~ component
     end
   end
@@ -38,7 +39,8 @@ defmodule ShadcnUI.MilestoneBDocumentationTest do
 
     ids = MapSet.new(provenance["adaptations"], & &1["id"])
 
-    for id <- ~w(forms.field forms.label forms.help forms.field_errors forms.error_summary forms.input forms.textarea forms.checkbox forms.radio_group forms.switch forms.native_select forms.enhanced_select forms.slider forms.progress forms.meter) do
+    for id <-
+          ~w(forms.field forms.label forms.help forms.field_errors forms.error_summary forms.input forms.textarea forms.checkbox forms.radio_group forms.switch forms.native_select forms.enhanced_select forms.slider forms.progress forms.meter) do
       assert MapSet.member?(ids, id)
       adaptation = Enum.find(provenance["adaptations"], &(&1["id"] == id))
       assert adaptation["localPaths"] != []

@@ -12,6 +12,7 @@ defmodule ShadcnUIDemoWeb.FormController do
     case Map.fetch(@forms, form) do
       {:ok, page} ->
         sample = sample(form)
+
         render(conn, :show,
           page_title: page.title,
           page: page,
@@ -33,13 +34,24 @@ defmodule ShadcnUIDemoWeb.FormController do
     end
   end
 
-  def submit(conn, _params), do: conn |> put_status(:unprocessable_entity) |> text("Invalid demonstration submission")
+  def submit(conn, _params),
+    do: conn |> put_status(:unprocessable_entity) |> text("Invalid demonstration submission")
 
   defp normalize({key, values}) when is_list(values), do: {key, Enum.map(values, &to_string/1)}
   defp normalize({key, value}) when is_binary(value), do: {key, value}
   defp normalize({key, _value}), do: {key, "[invalid value]"}
 
-  defp sample("sign-in"), do: %{"email" => "demo@example.test", "password" => "", "remember" => "false"}
-  defp sample("profile"), do: %{"name" => "", "notes" => "Short", "country" => "ca", "contact" => "email", "volume" => "40"}
+  defp sample("sign-in"),
+    do: %{"email" => "demo@example.test", "password" => "", "remember" => "false"}
+
+  defp sample("profile"),
+    do: %{
+      "name" => "",
+      "notes" => "Short",
+      "country" => "ca",
+      "contact" => "email",
+      "volume" => "40"
+    }
+
   defp sample("settings"), do: %{"alerts" => "true", "country" => "ca", "account" => "demo-001"}
 end

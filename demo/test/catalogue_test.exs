@@ -11,7 +11,12 @@ defmodule ShadcnUIDemo.CatalogueTest do
     assert Enum.uniq_by(components, & &1.path) == components
     assert Enum.uniq_by(components, & &1.render) == components
     assert Enum.map(Catalogue.categories(), & &1.slug) == ~w(foundation forms)
-    assert Enum.take(Catalogue.routes(), 8) == ["/", "/components/foundation" | Enum.map(components, &"/components/foundation/#{&1.slug}")]
+
+    assert Enum.take(Catalogue.routes(), 8) == [
+             "/",
+             "/components/foundation" | Enum.map(components, &"/components/foundation/#{&1.slug}")
+           ]
+
     assert length(Catalogue.components("forms")) == 15
   end
 

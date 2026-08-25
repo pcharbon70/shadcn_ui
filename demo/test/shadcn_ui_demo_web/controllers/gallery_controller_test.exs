@@ -14,9 +14,17 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
   end
 
   test "theme input is closed and content remains available without script", %{conn: conn} do
-    for {theme, expected} <- [{nil, "light"}, {"light", "light"}, {"dark", "dark"}, {"minty", "light"}] do
+    for {theme, expected} <- [
+          {nil, "light"},
+          {"light", "light"},
+          {"dark", "dark"},
+          {"minty", "light"}
+        ] do
       query = if theme, do: "?theme=#{theme}", else: ""
-      html = conn |> recycle() |> get("/components/foundation/button#{query}") |> html_response(200)
+
+      html =
+        conn |> recycle() |> get("/components/foundation/button#{query}") |> html_response(200)
+
       assert html =~ ~s(data-shadcn-theme="#{expected}")
       assert html =~ "HEEX source"
       assert html =~ ~s(href="/components/foundation/card")

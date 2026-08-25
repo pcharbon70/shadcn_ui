@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 6 Phase - Publish the complete Forms catalogue, realistic caller-owned
+- [x] 6 Phase - Publish the complete Forms catalogue, realistic caller-owned
   compositions, native-submission evidence, documentation, and Milestone B acceptance.
 
   This phase turns the implemented controls into an understandable online
@@ -84,27 +84,27 @@ Back to wave: [README](./README.md)
       - [x] 6.3.2.3 Subtask - Rebuild the package archive and static gallery export and verify form source, tests, demo files, credentials, and mutable output remain excluded.
       - [x] 6.3.2.4 Subtask - Update changelog, package catalogue, online URL, static smoke inventory, and documented rollback steps for Milestone B.
 
-  - [ ] 6.4 Section - Phase 6 Integration Tests.
+  - [x] 6.4 Section - Phase 6 Integration Tests.
 
     This section verifies the complete native-form catalogue, gallery, fallback,
     accessibility, release, and documentation contract as Milestone B acceptance.
 
-    - [ ] 6.4.1 Task - Run gallery and browser acceptance.
+    - [x] 6.4.1 Task - Run gallery and browser acceptance.
 
       Automated checks should cover real navigation, control operation, native
       values, and accessibility relationships across the full state matrix.
 
-      - [ ] 6.4.1.1 Subtask - Test every Forms category route, page, breadcrumb, current-page state, direct static route, sitemap entry, source block, and unknown-route 404.
-      - [ ] 6.4.1.2 Subtask - Browser-test Tab order, labels, checkbox and radio keys, select fallback, slider keys, native constraints, reset, submission, and received values.
-      - [ ] 6.4.1.3 Subtask - Test long and translated content, repeated errors and groups, narrow layout, 200 percent zoom, forced colors, reduced motion, light/dark themes, and no-script core usage.
-      - [ ] 6.4.1.4 Subtask - Run automated accessibility checks plus explicit native element, accessible-name, relationship, keyboard, and role assertions.
+      - [x] 6.4.1.1 Subtask - Test every Forms category route, page, breadcrumb, current-page state, direct static route, sitemap entry, source block, and unknown-route 404.
+      - [x] 6.4.1.2 Subtask - Browser-test Tab order, labels, checkbox and radio keys, select fallback, slider keys, native constraints, reset, submission, and received values.
+      - [x] 6.4.1.3 Subtask - Test long and translated content, repeated errors and groups, narrow layout, 200 percent zoom, forced colors, reduced motion, light/dark themes, and no-script core usage.
+      - [x] 6.4.1.4 Subtask - Run automated accessibility checks plus explicit native element, accessible-name, relationship, keyboard, and role assertions.
 
-    - [ ] 6.4.2 Task - Run package and milestone acceptance.
+    - [x] 6.4.2 Task - Run package and milestone acceptance.
 
       Final verification should prove the independently distributable package and
       online gallery satisfy every active Milestone B requirement together.
 
-      - [ ] 6.4.2.1 Subtask - Run component, shared contract, native submission, CSS fallback, demo controller, static export, and Milestone B acceptance suites.
-      - [ ] 6.4.2.2 Subtask - Run locked asset and gallery builds, deterministic byte checks, CSS isolation/capability audits, provenance audits, archive checks, and direct-route smoke tests.
-      - [ ] 6.4.2.3 Subtask - Build ExDoc, verify every public function and current specification is represented, and audit deferred widgets and application behavior remain absent.
-      - [ ] 6.4.2.4 Subtask - Run package and demo precommit commands, `mix spec.check --base main`, `git diff --check`, and record the Milestone B acceptance result.
+      - [x] 6.4.2.1 Subtask - Run component, shared contract, native submission, CSS fallback, demo controller, static export, and Milestone B acceptance suites.
+      - [x] 6.4.2.2 Subtask - Run locked asset and gallery builds, deterministic byte checks, CSS isolation/capability audits, provenance audits, archive checks, and direct-route smoke tests.
+      - [x] 6.4.2.3 Subtask - Build ExDoc, verify every public function and current specification is represented, and audit deferred widgets and application behavior remain absent.
+      - [x] 6.4.2.4 Subtask - Run package and demo precommit commands, `mix spec.check --base main`, `git diff --check`, and record the Milestone B acceptance result.

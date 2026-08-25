@@ -7,8 +7,10 @@
     <title>{assigns[:page_title] || "ShadcnUI Gallery"}</title>
     <link rel="stylesheet" href={ShadcnUIDemoWeb.GalleryAssets.path("shadcn.css")} />
     <link rel="stylesheet" href={ShadcnUIDemoWeb.GalleryAssets.path("gallery.css")} />
-    <script defer src={ShadcnUIDemoWeb.GalleryAssets.path("gallery.js")}></script>
+    <script defer src={ShadcnUIDemoWeb.GalleryAssets.path("gallery.js")}>
+    </script>
   </head>
+
   <body class="gallery-shell">
     {@inner_content}
   </body>

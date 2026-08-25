@@ -7,6 +7,7 @@
   <p :if={@page.kind == :landing}>
     Transport-neutral Phoenix components with shadcn-style semantic tokens.
   </p>
+
   <p :if={@page.kind == :category && @page.slug == "foundation"}>
     Six foundational controls and content surfaces.
   </p>
@@ -19,23 +20,57 @@
     <a href="/forms/settings">Settings composition</a>
   </nav>
   <div :if={@page.kind == :component} class="gallery-reference">
-    <section><h2>What it is</h2><p>{@page.reference.what}</p></section>
-    <section><h2>When to use it</h2><p>{@page.reference.when}</p></section>
-    <section><h2>Examples</h2><.component_examples render={@page.render} /></section>
-    <section><h2>Application responsibilities</h2><p>{@page.reference.responsibilities}</p></section>
-    <section><h2>Accessibility</h2><p>{@page.reference.accessibility}</p></section>
-    <section><h2>Native semantics and relationships</h2><p>{@page.reference.semantics}</p></section>
-    <section :if={Map.get(@page.reference, :comparison)}><h2>Choosing the related control</h2><p>{@page.reference.comparison}</p></section>
-    <section><h2>Themes</h2><p>Examples use package semantic tokens in explicit light and dark scopes.</p></section>
-    <section><h2>Fallback</h2><p>{@page.reference.fallback}</p></section>
-    <section><h2>Provenance</h2><p>Adapted from unscripted/ui commit <code>bd8f403</code> under its MIT notice.</p></section>
+    <section>
+      <h2>What it is</h2><p>{@page.reference.what}</p>
+    </section>
+
+    <section>
+      <h2>When to use it</h2><p>{@page.reference.when}</p>
+    </section>
+
+    <section>
+      <h2>Examples</h2><.component_examples render={@page.render} />
+    </section>
+
+    <section>
+      <h2>Application responsibilities</h2><p>{@page.reference.responsibilities}</p>
+    </section>
+
+    <section>
+      <h2>Accessibility</h2><p>{@page.reference.accessibility}</p>
+    </section>
+    <section>
+      <h2>Native semantics and relationships</h2><p>{@page.reference.semantics}</p>
+    </section>
+    <section :if={Map.get(@page.reference, :comparison)}>
+      <h2>Choosing the related control</h2><p>{@page.reference.comparison}</p>
+    </section>
+    <section>
+      <h2>Themes</h2><p>
+        Examples use package semantic tokens in explicit light and dark scopes.
+      </p>
+    </section>
+
+    <section>
+      <h2>Fallback</h2><p>{@page.reference.fallback}</p>
+    </section>
+
+    <section>
+      <h2>Provenance</h2><p>
+        Adapted from unscripted/ui commit <code>bd8f403</code> under its MIT notice.
+      </p>
+    </section>
+
     <section>
       <h2>HEEX source</h2>
       <button type="button" data-gallery-copy={"source-#{@page.slug}"}>Copy source</button>
-      <span class="gallery-copy-status" aria-live="polite"></span>
-      <pre id={"source-#{@page.slug}"} tabindex="0"><code>{@page.reference.source}</code></pre>
+      <span class="gallery-copy-status" aria-live="polite"></span> <pre
+        id={"source-#{@page.slug}"}
+        tabindex="0"
+      ><code>{@page.reference.source}</code></pre>
     </section>
   </div>
+
   <p :if={@page.kind == :not_found}>
     The requested gallery page does not exist. <a href="/">Return to the gallery.</a>
   </p>

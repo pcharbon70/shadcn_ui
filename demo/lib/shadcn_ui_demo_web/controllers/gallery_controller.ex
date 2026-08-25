@@ -10,16 +10,29 @@ defmodule ShadcnUIDemoWeb.GalleryController do
 
   def category(conn, %{"category" => category} = params) do
     case Catalogue.lookup_category(category) do
-      {:ok, item} -> render_page(conn, params, Map.merge(item, %{kind: :category, title: item.label}))
-      :error -> not_found(conn, params)
+      {:ok, item} ->
+        render_page(conn, params, Map.merge(item, %{kind: :category, title: item.label}))
+
+      :error ->
+        not_found(conn, params)
     end
   end
 
   def component(conn, %{"category" => category, "component" => component} = params) do
     case Catalogue.lookup_component(category, component) do
       {:ok, item} ->
-        render_page(conn, params, Map.merge(item, %{kind: :component, title: item.label, reference: Reference.fetch!(item.render)}))
-      :error -> not_found(conn, params)
+        render_page(
+          conn,
+          params,
+          Map.merge(item, %{
+            kind: :component,
+            title: item.label,
+            reference: Reference.fetch!(item.render)
+          })
+        )
+
+      :error ->
+        not_found(conn, params)
     end
   end
 

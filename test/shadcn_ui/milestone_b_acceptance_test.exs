@@ -19,6 +19,15 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
   # covers: shadcn_ui.stylesheet.no_runtime_assets shadcn_ui.stylesheet.form_fallbacks
   # covers: shadcn_ui.stylesheet.form_resilience
   # covers: shadcn_ui.provenance.pinned_revision shadcn_ui.provenance.component_mapping
+  # covers: shadcn_ui.form_gallery.catalog
+  # covers: shadcn_ui.form_gallery.states
+  # covers: shadcn_ui.form_gallery.modes
+  # covers: shadcn_ui.form_gallery.compositions
+  # covers: shadcn_ui.form_gallery.submission_fixture
+  # covers: shadcn_ui.form_gallery.select_fallback
+  # covers: shadcn_ui.form_gallery.semantic_guidance
+  # covers: shadcn_ui.form_gallery.content_stress
+  # covers: shadcn_ui.form_gallery.browser_behavior
 
   defmodule Fixture do
     use Phoenix.Component
@@ -302,6 +311,36 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
                adaptation["id"] == id and path in adaptation["localPaths"]
              end)
     end
+  end
+
+  test "complete Milestone B gallery and acceptance evidence stays outside package runtime" do
+    catalogue = File.read!("demo/lib/shadcn_ui_demo/catalogue.ex")
+    forms = File.read!("demo/lib/shadcn_ui_demo_web/form_components.ex")
+    controller = File.read!("demo/lib/shadcn_ui_demo_web/controllers/form_controller.ex")
+    browser = File.read!("test/browser/milestone-b-forms.spec.mjs")
+    readme = File.read!("README.md")
+    package_files = Mix.Project.config()[:package][:files]
+
+    for slug <-
+          ~w(field label help field-errors error-summary input textarea checkbox radio-group switch native-select enhanced-select slider progress meter) do
+      assert catalogue =~ ~s(slug: "#{slug}")
+    end
+
+    for composition <- ~w(sign-in profile settings) do
+      assert catalogue =~ "/forms/#{composition}"
+    end
+
+    assert forms =~ ~s(data-demo-form="sign-in")
+    assert forms =~ ~s(data-demo-form="profile")
+    assert forms =~ ~s(data-demo-form="settings")
+    assert controller =~ "@allowed"
+    assert controller =~ "Enum.sort_by"
+    assert browser =~ "forcedColors"
+    assert browser =~ "javaScriptEnabled: false"
+    assert readme =~ "Every server operation must parse, validate"
+    refute Enum.any?(package_files, &(&1 in ["demo", "test", ".spec", "scripts", ".github"]))
+
+    refute controller =~ ~r/(Repo\.|Ecto|Ash\.|System\.cmd|GenServer|Task\.|String\.to_atom)/
   end
 
   defp render_one(overrides) do

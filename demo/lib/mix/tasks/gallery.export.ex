@@ -25,12 +25,21 @@ defmodule Mix.Tasks.Gallery.Export do
       "routes" => entries
     }
 
-    File.write!(Path.join(@output, "route-manifest.json"), Jason.encode_to_iodata!(manifest, pretty: true))
+    File.write!(
+      Path.join(@output, "route-manifest.json"),
+      Jason.encode_to_iodata!(manifest, pretty: true)
+    )
   end
 
   defp default_entries do
     gallery = Enum.map(ShadcnUIDemo.Catalogue.routes(), &export_entry(&1, route_file(&1), 200))
-    forms = Enum.map(ShadcnUIDemo.Catalogue.form_routes(), &export_entry(&1 <> "?static=1", route_file(&1), 200))
+
+    forms =
+      Enum.map(
+        ShadcnUIDemo.Catalogue.form_routes(),
+        &export_entry(&1 <> "?static=1", route_file(&1), 200)
+      )
+
     gallery ++ forms
   end
 
@@ -75,7 +84,13 @@ defmodule Mix.Tasks.Gallery.Export do
     prefix = String.duplicate("../", depth)
 
     html
-    |> then(&Regex.replace(~r/(<meta name="csrf-token" content=")[^"]+("\s*\/?>)/, &1, "\\1static-export\\2"))
+    |> then(
+      &Regex.replace(
+        ~r/(<meta name="csrf-token" content=")[^"]+("\s*\/?>)/,
+        &1,
+        "\\1static-export\\2"
+      )
+    )
     |> String.replace(~s(href="/), ~s(href="#{prefix}))
     |> String.replace(~s(src="/), ~s(src="#{prefix}))
   end
@@ -126,7 +141,10 @@ defmodule Mix.Tasks.Gallery.Export do
       (ShadcnUIDemo.Catalogue.routes() ++ ShadcnUIDemo.Catalogue.form_routes())
       |> Enum.map_join("", &"<url><loc>#{base}#{&1}</loc></url>")
 
-    File.write!(Path.join(@output, "sitemap.xml"), "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>")
+    File.write!(
+      Path.join(@output, "sitemap.xml"),
+      "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>"
+    )
   end
 
   defp sha256(content), do: :crypto.hash(:sha256, content) |> Base.encode16(case: :lower)
