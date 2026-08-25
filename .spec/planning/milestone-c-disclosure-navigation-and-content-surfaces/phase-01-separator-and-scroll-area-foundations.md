@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 1.1.2.3 Subtask - Record upstream component and CSS mappings with the pinned source revision and local semantic changes.
       - [x] 1.1.2.4 Subtask - Document semantic versus decorative choice, API values, HEEX examples, and application ownership.
 
-  - [ ] 1.2 Section - Native Scroll Area contract and fallback.
+  - [x] 1.2 Section - Native Scroll Area contract and fallback.
 
     This section adds bounded overflow while keeping native browser scrolling,
     focus behavior, and content ownership authoritative.
 
-    - [ ] 1.2.1 Task - Implement native overflow and explicit focus policy.
+    - [x] 1.2.1 Task - Implement native overflow and explicit focus policy.
 
       One container should expose closed layout choices without measuring its
       children or creating a custom scrollbar widget.
 
-      - [ ] 1.2.1.1 Subtask - Add a defining Content.ScrollArea module with required content and closed axis, size, and edge-affordance values.
-      - [ ] 1.2.1.2 Subtask - Render one native overflow container and map closed sizing values to statically discoverable prefixed classes.
-      - [ ] 1.2.1.3 Subtask - Keep the container out of Tab order by default and require a nonblank accessible name or relationship for explicit focusable mode.
-      - [ ] 1.2.1.4 Subtask - Protect focus semantics while preserving unrelated caller classes, IDs, native attributes, and behavior-framework globals.
+      - [x] 1.2.1.1 Subtask - Add a defining Content.ScrollArea module with required content and closed axis, size, and edge-affordance values.
+      - [x] 1.2.1.2 Subtask - Render one native overflow container and map closed sizing values to statically discoverable prefixed classes.
+      - [x] 1.2.1.3 Subtask - Keep the container out of Tab order by default and require a nonblank accessible name or relationship for explicit focusable mode.
+      - [x] 1.2.1.4 Subtask - Protect focus semantics while preserving unrelated caller classes, IDs, native attributes, and behavior-framework globals.
 
-    - [ ] 1.2.2 Task - Add progressive edge presentation and resilience.
+    - [x] 1.2.2 Task - Add progressive edge presentation and resilience.
 
       Optional edge cues should improve scanning without becoming the only way
       users discover overflow or requiring scroll-position observation.
 
-      - [ ] 1.2.2.1 Subtask - Add native horizontal, vertical, and both-axis overflow styling with visible focus treatment.
-      - [ ] 1.2.2.2 Subtask - Add decorative edge affordances that do not intercept input and disappear harmlessly without enhancement CSS.
-      - [ ] 1.2.2.3 Subtask - Verify pointer, touch, wheel, keyboard, fragment, narrow, zoom, forced-colors, and no-CSS content access.
-      - [ ] 1.2.2.4 Subtask - Document sizing, focus naming, application-owned restoration and loading, exact fallback, and provenance.
+      - [x] 1.2.2.1 Subtask - Add native horizontal, vertical, and both-axis overflow styling with visible focus treatment.
+      - [x] 1.2.2.2 Subtask - Add decorative edge affordances that do not intercept input and disappear harmlessly without enhancement CSS.
+      - [x] 1.2.2.3 Subtask - Verify pointer, touch, wheel, keyboard, fragment, narrow, zoom, forced-colors, and no-CSS content access.
+      - [x] 1.2.2.4 Subtask - Document sizing, focus naming, application-owned restoration and loading, exact fallback, and provenance.
 
   - [ ] 1.3 Section - Phase 1 Integration Tests.
 

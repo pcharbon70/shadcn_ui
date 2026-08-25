@@ -360,6 +360,44 @@
   background: var(--shadcn-ui-border);
 }
 
+/* Native overflow remains authoritative; edge masks are decorative only. */
+[data-shadcn-ui-scroll-area] {
+  scrollbar-gutter: stable;
+}
+
+@supports (mask-image: linear-gradient(black, black)) {
+  [data-shadcn-ui-scroll-area][data-axis="vertical"][data-edge-affordance="start"] {
+    mask-image: linear-gradient(to bottom, transparent, black 1rem);
+  }
+
+  [data-shadcn-ui-scroll-area][data-axis="vertical"][data-edge-affordance="end"] {
+    mask-image: linear-gradient(to bottom, black calc(100% - 1rem), transparent);
+  }
+
+  [data-shadcn-ui-scroll-area][data-axis="vertical"][data-edge-affordance="both"] {
+    mask-image: linear-gradient(to bottom, transparent, black 1rem, black calc(100% - 1rem), transparent);
+  }
+
+  [data-shadcn-ui-scroll-area][data-axis="horizontal"][data-edge-affordance="start"] {
+    mask-image: linear-gradient(to right, transparent, black 1rem);
+  }
+
+  [data-shadcn-ui-scroll-area][data-axis="horizontal"][data-edge-affordance="end"] {
+    mask-image: linear-gradient(to right, black calc(100% - 1rem), transparent);
+  }
+
+  [data-shadcn-ui-scroll-area][data-axis="horizontal"][data-edge-affordance="both"] {
+    mask-image: linear-gradient(to right, transparent, black 1rem, black calc(100% - 1rem), transparent);
+  }
+
+  [data-shadcn-ui-scroll-area][data-axis="both"][data-edge-affordance]:not([data-edge-affordance="none"]) {
+    mask-image:
+      linear-gradient(to bottom, transparent, black 1rem, black calc(100% - 1rem), transparent),
+      linear-gradient(to right, transparent, black 1rem, black calc(100% - 1rem), transparent);
+    mask-composite: intersect;
+  }
+}
+
 /*
  * Enhanced Select starts here. Every enhancement-only selector and declaration
  * stays inside one complete capability gate; the classic rules above remain
@@ -550,5 +588,10 @@
   [data-shadcn-ui-separator] {
     background: CanvasText;
     forced-color-adjust: none;
+  }
+
+  [data-shadcn-ui-scroll-area] {
+    mask-image: none !important;
+    scrollbar-color: CanvasText Canvas;
   }
 }

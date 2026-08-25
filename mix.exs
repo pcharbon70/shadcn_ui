@@ -83,6 +83,7 @@ defmodule ShadcnUI.MixProject do
       extras: ["README.md", "CHANGELOG.md", "THIRD_PARTY_NOTICES.md", "RELEASE.md"],
       groups_for_modules: [
         "Content components": [
+          ShadcnUI.Components.Content.ScrollArea,
           ShadcnUI.Components.Content.Separator
         ],
         "Foundation components": [

@@ -11,9 +11,11 @@ decisions:
   - shadcn_ui.semantic_component_api_and_accessibility
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - lib/shadcn_ui/components/content/scroll_area.ex
   - lib/shadcn_ui/components/content/separator.ex
   - lib/shadcn_ui/components/content/*.ex
   - lib/shadcn_ui/components/content/**/*.ex
+  - test/shadcn_ui/components/content/scroll_area_test.exs
   - test/shadcn_ui/components/content/separator_test.exs
   - test/shadcn_ui/components/content/*.exs
   - test/shadcn_ui/components/content/**/*.exs

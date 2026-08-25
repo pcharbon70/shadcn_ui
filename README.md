@@ -225,6 +225,38 @@ the surrounding landmarks and headings, and any responsive layout. The package
 uses the scoped border token in light and dark themes, remains visible in forced
 colors, and leaves ordinary document content intact without CSS.
 
+### Scroll Area
+
+Scroll Area wraps required content in one native overflow container. It stays
+out of the tab order by default; opt into keyboard focus only with a nonblank
+accessible name or an existing labelling relationship.
+
+```heex
+<.scroll_area size={:small}>
+  <ul>
+    <li :for={event <- @events}>{event.title}</li>
+  </ul>
+</.scroll_area>
+
+<.scroll_area
+  axis={:horizontal}
+  edge_affordance={:both}
+  focusable
+  accessible_label="Recent activity"
+>
+  <div class="consumer-wide-content">...</div>
+</.scroll_area>
+```
+
+`axis` accepts `:vertical`, `:horizontal`, and `:both`; `size` accepts
+`:small`, `:default`, and `:large`; `edge_affordance` accepts `:none`,
+`:start`, `:end`, and `:both`. When `focusable` is true, provide exactly one of
+`accessible_label` or `labelledby`. Edge affordances are decorative CSS masks:
+content remains available when masks, package CSS, or forced-color presentation
+are unavailable. Applications own dimensions beyond the closed presets, scroll
+position and restoration, loading and virtualization, and all scroll-driven
+behavior.
+
 ### Form field composition
 
 Milestone B form primitives share one deterministic relationship contract.

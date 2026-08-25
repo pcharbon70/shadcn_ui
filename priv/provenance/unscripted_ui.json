@@ -141,6 +141,12 @@
       "localChanges": "Add a native HEEX hr contract and an explicitly aria-hidden decorative mode while adapting the pinned semantic border token into isolated horizontal and vertical presentation."
     },
     {
+      "id": "content.scroll_area",
+      "localPaths": ["lib/shadcn_ui/components/content/scroll_area.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/scroll-area.mdx", "src/demos/scroll-area/basic.html"],
+      "localChanges": "Adapt the overflow presentation into one native HEEX scroll container with closed axes and sizes, explicit named focus policy, and capability-gated decorative edge masks without custom controls or scroll state."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],
