@@ -33,3 +33,10 @@ silently accept those decisions.
 2. [Keep navigation destination-based and landmarks explicit](./destination-navigation-and-landmarks.md)
 3. [Preserve native scrolling and static content fallbacks](./native-scroll-and-sticky-surfaces.md)
 4. [Name radio-based panel switching honestly and defer true tabs](./radio-panels-not-tabs.md)
+
+## Milestone D decisions
+
+1. [Use the native overlay platform without a package JavaScript runtime](./native-overlay-platform-and-runtime-boundary.md)
+2. [Keep Dialog modality, focus, and dismissal native and explicit](./dialog-modality-focus-and-dismissal.md)
+3. [Use native Popovers and keep Dropdown Actions out of the ARIA menu contract](./popover-positioning-and-action-semantics.md)
+4. [Keep Tooltip and Hover Card supplemental and CSS-first](./supplemental-tooltip-and-hover-card-boundary.md)

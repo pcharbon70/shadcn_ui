@@ -14,6 +14,9 @@ decisions:
   - shadcn_ui.native_disclosure_grouping
   - shadcn_ui.native_scroll_sticky_surfaces
   - shadcn_ui.radio_panels_not_tabs
+  - shadcn_ui.native_overlay_platform_runtime
+  - shadcn_ui.popover_positioning_actions
+  - shadcn_ui.supplemental_surface_boundary
 surface:
   - assets/**
   - test/fixtures/*.html
@@ -30,8 +33,10 @@ surface:
   - test/browser/accordion-foundations.spec.mjs
   - test/browser/navigation-menu-foundations.spec.mjs
   - test/browser/phase4-headers-radio-panels.spec.mjs
+  - test/browser/milestone-d-*.spec.mjs
   - test/shadcn_ui/milestone_b_acceptance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
+  - test/shadcn_ui/milestone_d_acceptance_test.exs
 ```
 
 ## Requirements
@@ -83,7 +88,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.stylesheet.no_runtime_assets
-  statement: The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestones A, B, and C shall ship no component JavaScript.
+  statement: The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestones A through D shall ship no component JavaScript.
   priority: must
   stability: stable
 
@@ -111,6 +116,16 @@ surface:
   statement: Disclosure, navigation, headings, separators, overflow content, current location, selected radio state, focus, and fragment targets shall remain perceivable and operable at narrow and wide widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, and without color or decoration as the only cue.
   priority: must
   stability: evolving
+
+- id: shadcn_ui.stylesheet.overlay_fallbacks
+  statement: Dialog backdrops, Drawer placement, Popover anchors and position tries, Tooltip and Hover Card visibility, and discrete overlay transitions shall be capability-gated presentation whose absence preserves native invocation where supported, bounded readable placement, explicit exits, ordinary fallback destinations, and required page content.
+  priority: must
+  stability: evolving
+
+- id: shadcn_ui.stylesheet.overlay_resilience
+  statement: Overlay surfaces, invokers, close controls, focus indicators, long content, viewport edges, logical placement, backdrops, and supplemental relationships shall remain perceivable and operable at narrow widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, RTL, coarse pointer, CSS-disabled, and no-script conditions.
+  priority: must
+  stability: evolving
 ```
 
 ## Verification
@@ -134,6 +149,8 @@ surface:
     - shadcn_ui.stylesheet.form_resilience
     - shadcn_ui.stylesheet.content_fallbacks
     - shadcn_ui.stylesheet.content_resilience
+    - shadcn_ui.stylesheet.overlay_fallbacks
+    - shadcn_ui.stylesheet.overlay_resilience
 
 - kind: test_file
   target: test/shadcn_ui/stylesheet_test.exs
@@ -153,6 +170,8 @@ surface:
     - shadcn_ui.stylesheet.form_resilience
     - shadcn_ui.stylesheet.content_fallbacks
     - shadcn_ui.stylesheet.content_resilience
+    - shadcn_ui.stylesheet.overlay_fallbacks
+    - shadcn_ui.stylesheet.overlay_resilience
 
 - kind: test_file
   target: test/browser/accordion-foundations.spec.mjs
@@ -195,4 +214,20 @@ surface:
     - shadcn_ui.stylesheet.no_runtime_assets
     - shadcn_ui.stylesheet.content_fallbacks
     - shadcn_ui.stylesheet.content_resilience
+
+- kind: test_file
+  target: test/browser/milestone-d-capabilities.spec.mjs
+  covers:
+    - shadcn_ui.stylesheet.overlay_fallbacks
+    - shadcn_ui.stylesheet.overlay_resilience
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_d_acceptance_test.exs
+  covers:
+    - shadcn_ui.stylesheet.semantic_tokens
+    - shadcn_ui.stylesheet.scoped_dark_theme
+    - shadcn_ui.stylesheet.reduced_motion
+    - shadcn_ui.stylesheet.no_runtime_assets
+    - shadcn_ui.stylesheet.overlay_fallbacks
+    - shadcn_ui.stylesheet.overlay_resilience
 ```
