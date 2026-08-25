@@ -207,6 +207,39 @@ announcements, errors, replacement timing, and final content layout.
 
 ## Milestone C content surfaces
 
+### Navigation Menu
+
+Navigation Menu is destination navigation: a named native `nav`, one list, and
+one real anchor per item. Supply a stable string key and trusted caller-owned
+destination for every item. Use `label` for escaped text or the item body for
+trusted HEEx such as an external-link indicator.
+
+```heex
+<.navigation_menu accessible_name="Primary navigation" layout={:wrap}>
+  <:item key="overview" destination={~p"/overview"} label="Overview" current={:page} />
+  <:item key="reports" destination={~p"/reports"}>Reports <.badge>12</.badge></:item>
+  <:item key="docs" destination="https://docs.example.test" target="_blank" rel="noopener">
+    Documentation <span aria-hidden="true">↗</span>
+  </:item>
+</.navigation_menu>
+```
+
+`layout` accepts `:horizontal`, `:vertical`, and `:wrap`. `current` accepts
+`:none`, `:page`, `:step`, `:location`, `:date`, `:time`, and `:true`, mapping
+only explicit caller state to native `aria-current`. Long labels wrap, horizontal
+navigation can overflow natively, and current location retains text decoration,
+weight, and native semantics in light, dark, RTL, narrow, zoomed, and forced-
+color presentation. Native anchors have no disabled state, so the component
+does not publish a visually disabled-but-focusable destination.
+
+This component is not a popup menu, command bar, tab group, Radio Panels group,
+or client router. Use buttons for actions, Radio Panels for form selection, and
+a separately approved tab implementation for in-page tab panels. Applications
+own route generation, destination and external-link safety, authorization,
+visibility, current-route selection, prefetching, analytics, history, and the
+navigation outcome. ShadcnUI never reads the request path or intercepts native
+Tab, Enter, context-menu, download, open-in-new-tab, or browser-history behavior.
+
 ### Accordion
 
 Accordion renders one native `details` and `summary` pair for each item. Its ID

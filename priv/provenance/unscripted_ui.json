@@ -153,6 +153,12 @@
       "localChanges": "Adapt Accordion presentation onto deterministic native details and summary HEEX items with independent or progressively exclusive grouping, server-rendered open snapshots, and capability-gated motion without package state or JavaScript."
     },
     {
+      "id": "navigation.navigation_menu",
+      "localPaths": ["lib/shadcn_ui/components/navigation/navigation_menu.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/nav-menu.mdx", "src/demos/nav-menu/basic.html"],
+      "localChanges": "Adapt navigation presentation into a named native nav and list of real HEEX anchors with explicit current-location semantics, responsive closed layouts, and no menu roles, activation interception, route inference, or client router."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

@@ -133,6 +133,27 @@ defmodule ShadcnUI.Components.Navigation.NavigationMenuTest do
              ~r/(conn\.|request_path|current_path|Routes\.|menubar|menuitem|tablist|aria-haspopup|keydown|preventDefault|push_event|handle_event|JS\.|String\.to_atom|binary_to_atom)/i
   end
 
+  test "records responsive, current, resilient, ownership, and provenance contracts" do
+    source = File.read!("assets/shadcn_ui.css")
+    css = File.read!(ShadcnUI.stylesheet_path())
+    provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
+    adaptation = Enum.find(provenance["adaptations"], &(&1["id"] == "navigation.navigation_menu"))
+    readme = File.read!("README.md")
+
+    assert source =~ "[data-shadcn-ui-navigation-link][aria-current]"
+    assert source =~ "text-decoration-line: underline"
+    assert source =~ "outline: 2px solid LinkText"
+    assert css =~ "data-shadcn-ui-navigation-link"
+
+    assert adaptation["upstreamPaths"] == [
+             "src/content/components/nav-menu.mdx",
+             "src/demos/nav-menu/basic.html"
+           ]
+
+    assert readme =~ "This component is not a popup menu"
+    assert readme =~ ~r/Applications\s+own route generation/
+  end
+
   defp render_menu(overrides \\ []) do
     %{
       name: "Primary navigation",

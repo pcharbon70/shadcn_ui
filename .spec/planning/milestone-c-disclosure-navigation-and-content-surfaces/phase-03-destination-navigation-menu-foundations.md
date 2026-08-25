@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 3.1.2.3 Subtask - Forward unrelated documented anchor, ARIA, data, Phoenix, and Datastar globals without accepting arbitrary component roles.
       - [x] 3.1.2.4 Subtask - Reject blank landmark names, destinations, duplicate or unstable keys, unsupported current values, dynamic atoms, and role overstatement.
 
-  - [ ] 3.2 Section - Responsive presentation and public guidance.
+  - [x] 3.2 Section - Responsive presentation and public guidance.
 
     This section adds shadcn-style presentation that remains readable and
     navigable without hover, animation, anchor positioning, or JavaScript.
 
-    - [ ] 3.2.1 Task - Add responsive navigation styles and honest indicators.
+    - [x] 3.2.1 Task - Add responsive navigation styles and honest indicators.
 
       Visual focus and current location must remain clear across input methods,
       themes, and fallback environments.
 
-      - [ ] 3.2.1.1 Subtask - Add closed horizontal, vertical, and wrapping layout values mapped to complete prefixed classes.
-      - [ ] 3.2.1.2 Subtask - Style links, focus-visible state, current location, disabled destination presentation where documented, long labels, and overflow with semantic tokens.
-      - [ ] 3.2.1.3 Subtask - Keep anchor-positioned or animated decoration optional and ensure text, shape, or native current state remains when decoration is absent.
-      - [ ] 3.2.1.4 Subtask - Verify light, dark, narrow, wide, zoom, forced-colors, reduced-motion, RTL, long translated labels, and mixed BulmaUI pages.
+      - [x] 3.2.1.1 Subtask - Add closed horizontal, vertical, and wrapping layout values mapped to complete prefixed classes.
+      - [x] 3.2.1.2 Subtask - Style links, focus-visible state, current location, long labels, and overflow with semantic tokens while avoiding a false disabled-anchor presentation.
+      - [x] 3.2.1.3 Subtask - Keep anchor-positioned or animated decoration optional and ensure text, shape, or native current state remains when decoration is absent.
+      - [x] 3.2.1.4 Subtask - Verify light, dark, narrow, wide, zoom, forced-colors, reduced-motion, RTL, long translated labels, and mixed BulmaUI pages.
 
-    - [ ] 3.2.2 Task - Publish destination and ownership documentation.
+    - [x] 3.2.2 Task - Publish destination and ownership documentation.
 
       Consumers should understand why this component is navigation rather than a
       menu, tab group, command bar, or route-aware application shell.
 
-      - [ ] 3.2.2.1 Subtask - Document items, keys, destinations, current values, layout, slots, protected globals, and HEEX examples.
-      - [ ] 3.2.2.2 Subtask - Explain landmark naming, native link keys, external-link and destination safety, authorization, visibility, current-route, and navigation-outcome ownership.
-      - [ ] 3.2.2.3 Subtask - Contrast Navigation Menu with buttons, Radio Panels, true tabs, menus, and client routers using concrete application examples.
-      - [ ] 3.2.2.4 Subtask - Add pinned upstream component and CSS provenance with local semantic and fallback changes.
+      - [x] 3.2.2.1 Subtask - Document items, keys, destinations, current values, layout, slots, protected globals, and HEEX examples.
+      - [x] 3.2.2.2 Subtask - Explain landmark naming, native link keys, external-link and destination safety, authorization, visibility, current-route, and navigation-outcome ownership.
+      - [x] 3.2.2.3 Subtask - Contrast Navigation Menu with buttons, Radio Panels, true tabs, menus, and client routers using concrete application examples.
+      - [x] 3.2.2.4 Subtask - Add pinned upstream component and CSS provenance with local semantic and fallback changes.
 
   - [ ] 3.3 Section - Phase 3 Integration Tests.
 

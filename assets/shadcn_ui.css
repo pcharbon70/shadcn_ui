@@ -378,6 +378,34 @@
   color: currentColor;
 }
 
+/* Navigation remains a native list of destinations in every presentation. */
+[data-shadcn-ui-navigation-list] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[data-shadcn-ui-navigation-link] {
+  color: var(--shadcn-ui-foreground);
+  overflow-wrap: anywhere;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.25rem;
+}
+
+[data-shadcn-ui-navigation-link]:hover {
+  background: var(--shadcn-ui-accent);
+  color: var(--shadcn-ui-accent-foreground);
+}
+
+[data-shadcn-ui-navigation-link][aria-current] {
+  background: var(--shadcn-ui-accent);
+  color: var(--shadcn-ui-accent-foreground);
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-color: currentColor;
+  box-shadow: inset 0 -2px 0 var(--shadcn-ui-primary);
+}
+
 @supports selector(details::details-content) and (interpolate-size: allow-keywords) {
   [data-shadcn-ui-accordion-item] {
     interpolate-size: allow-keywords;
@@ -640,5 +668,14 @@
   [data-shadcn-ui-accordion-summary]::marker,
   [data-shadcn-ui-accordion-item][open] > [data-shadcn-ui-accordion-summary] {
     color: CanvasText;
+  }
+
+  [data-shadcn-ui-navigation-link][aria-current] {
+    color: LinkText;
+    background: Canvas;
+    outline: 2px solid LinkText;
+    outline-offset: -2px;
+    box-shadow: none;
+    text-decoration: underline;
   }
 }
