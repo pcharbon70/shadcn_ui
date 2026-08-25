@@ -98,6 +98,7 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Forms.Help,
           ShadcnUI.Components.Forms.Input,
           ShadcnUI.Components.Forms.Label,
+          ShadcnUI.Components.Forms.NativeSelect,
           ShadcnUI.Components.Forms.RadioGroup,
           ShadcnUI.Components.Forms.Switch,
           ShadcnUI.Components.Forms.Textarea

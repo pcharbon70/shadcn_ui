@@ -201,6 +201,15 @@
   outline-offset: 2px;
 }
 
+/* Native Select is the visible, operable floor for every selection API. */
+[data-shadcn-ui-select] {
+  appearance: auto;
+}
+
+[data-shadcn-ui-select][multiple] {
+  overflow: auto;
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-shadcn-ui],
   [data-shadcn-ui]::before,
@@ -286,5 +295,14 @@
 
   [data-shadcn-ui-switch] .shadcn-ui-switch-control::before {
     content: none;
+  }
+
+  [data-shadcn-ui-select] {
+    forced-color-adjust: auto;
+  }
+
+  [data-shadcn-ui-select][aria-invalid="true"] {
+    outline: 1px solid Mark;
+    outline-offset: 0.125rem;
   }
 }

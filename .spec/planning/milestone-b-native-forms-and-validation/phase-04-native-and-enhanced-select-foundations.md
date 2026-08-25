@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   Select is only a progressive CSS presentation. Both APIs remain one native
   control with identical form, option, keyboard, and accessibility semantics.
 
-  - [ ] 4.1 Section - Shared option data and Native Select foundation.
+  - [x] 4.1 Section - Shared option data and Native Select foundation.
 
     This section validates caller-owned option structures and renders the classic
     select contract used as the fallback and comparison baseline.
 
-    - [ ] 4.1.1 Task - Normalize safe option and optgroup data.
+    - [x] 4.1.1 Task - Normalize safe option and optgroup data.
 
       The option boundary should be expressive enough for ordinary forms without
       accepting callbacks, arbitrary HTML, or executable dynamic structures.
 
-      - [ ] 4.1.1.1 Subtask - Define validated caller option maps with stable keys, escaped labels, scalar values, and optional disabled state.
-      - [ ] 4.1.1.2 Subtask - Define validated optgroup maps with escaped labels and nested options while rejecting duplicate keys and malformed nesting.
-      - [ ] 4.1.1.3 Subtask - Normalize selected scalar or list values without request-derived atoms, domain parsing, or label-based identity.
-      - [ ] 4.1.1.4 Subtask - Keep prompts as explicit caller-defined options rather than package-owned placeholder or validation policy.
+      - [x] 4.1.1.1 Subtask - Define validated caller option maps with stable keys, escaped labels, scalar values, and optional disabled state.
+      - [x] 4.1.1.2 Subtask - Define validated optgroup maps with escaped labels and nested options while rejecting duplicate keys and malformed nesting.
+      - [x] 4.1.1.3 Subtask - Normalize selected scalar or list values without request-derived atoms, domain parsing, or label-based identity.
+      - [x] 4.1.1.4 Subtask - Keep prompts as explicit caller-defined options rather than package-owned placeholder or validation policy.
 
-    - [ ] 4.1.2 Task - Implement Native Select.
+    - [x] 4.1.2 Task - Implement Native Select.
 
       Native Select should expose the browser's classic picker, keyboard, and
       submission behavior with the shared field relationships.
 
-      - [ ] 4.1.2.1 Subtask - Render one native select with explicit and FormField identity, selected values, errors, help, required, disabled, and form association.
-      - [ ] 4.1.2.2 Subtask - Support single selection with one scalar value and multiple selection with native `multiple`, a list value, and normalized `[]` name.
-      - [ ] 4.1.2.3 Subtask - Render escaped option and optgroup markup with native option-local disabled state and no combobox or listbox roles.
-      - [ ] 4.1.2.4 Subtask - Add closed size, invalid, pending, and theme presentation without hiding the platform picker or replacing native focus.
+      - [x] 4.1.2.1 Subtask - Render one native select with explicit and FormField identity, selected values, errors, help, required, disabled, and form association.
+      - [x] 4.1.2.2 Subtask - Support single selection with one scalar value and multiple selection with native `multiple`, a list value, and normalized `[]` name.
+      - [x] 4.1.2.3 Subtask - Render escaped option and optgroup markup with native option-local disabled state and no combobox or listbox roles.
+      - [x] 4.1.2.4 Subtask - Add closed size, invalid, pending, and theme presentation without hiding the platform picker or replacing native focus.
 
   - [ ] 4.2 Section - Enhanced Select capability boundary.
 

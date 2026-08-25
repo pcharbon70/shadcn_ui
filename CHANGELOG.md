@@ -37,3 +37,5 @@ All notable changes to ShadcnUI will be documented in this file.
   fieldset semantics, scalar selection, and group or option disabled states.
 - Add Switch as a track-and-thumb presentation of the native boolean Checkbox
   contract with an explicit accessible-label rule for hidden labels.
+- Add Native Select with validated stable option and optgroup data, scalar and
+  repeated-value modes, and the browser's visible classic picker as its floor.

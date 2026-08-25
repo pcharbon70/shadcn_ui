@@ -355,6 +355,43 @@ In forced-colors mode the presentation falls back to the platform's visible
 native checkbox. Label activation, Space toggling, focus, reset, checked values,
 and submission remain native and identical to Checkbox.
 
+### Native Select
+
+Native Select renders one classic native `select` with escaped caller-owned
+option data. Each option is a plain map with a stable `key`, scalar `value`,
+nonblank string `label`, and optional boolean `disabled`. An optgroup uses a
+plain map with stable `key`, nonblank `label`, a nonempty `options` list, and an
+optional group `disabled` state. Nested groups and executable structures are
+rejected.
+
+```heex
+<.native_select
+  field={@form[:country]}
+  options={[
+    %{key: :prompt, value: "", label: "Choose a country", disabled: true},
+    %{
+      key: :north_america,
+      label: "North America",
+      options: [
+        %{key: :ca, value: "ca", label: "Canada"},
+        %{key: :us, value: "us", label: "United States"}
+      ]
+    }
+  ]}
+  required
+>
+  <:label>Country</:label>
+  <:help>Choose the country used for your account.</:help>
+</.native_select>
+```
+
+Prompts are ordinary explicit options, so the application owns prompt wording,
+disabled state, initial selection, and validation policy. Single selection
+submits one scalar value. `multiple` requires a list value and normalizes the
+name to one `[]` suffix so the browser submits repeated values. The component
+adds no combobox/listbox roles, hidden mirror, option callback, parsing, event
+handler, or package-owned selection state.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

@@ -75,6 +75,12 @@
       "localChanges": "Adapt switch track-and-thumb presentation onto the native boolean Checkbox HEEX contract without adding a second state model."
     },
     {
+      "id": "forms.native_select",
+      "localPaths": ["lib/shadcn_ui/components/forms/native_select.ex", "lib/shadcn_ui/components/forms/select.ex", "lib/shadcn_ui/components/forms/select_options.ex"],
+      "upstreamPaths": ["src/content/components/select.mdx", "src/demos/select/basic.html", "src/demos/select/groups.html"],
+      "localChanges": "Adapt native select presentation into validated HEEX option and optgroup data with deterministic field relationships and ordinary browser submission."
+    },
+    {
       "id": "forms.textarea",
       "localPaths": ["lib/shadcn_ui/components/forms/textarea.ex"],
       "upstreamPaths": ["src/content/components/textarea.mdx", "src/demos/textarea/basic.html"],
