@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 4 Phase - Complete reusable page-heading compositions and the honestly
+- [x] 4 Phase - Complete reusable page-heading compositions and the honestly
   named native radio-based panel-switching pattern.
 
   This phase builds larger surfaces from the earlier primitives. Headers preserve
@@ -59,27 +59,27 @@ Back to wave: [README](./README.md)
       - [x] 4.2.2.3 Subtask - Verify long labels, long panels, nested forms, narrow layout, zoom, forced colors, reduced motion, light/dark themes, and no script.
       - [x] 4.2.2.4 Subtask - Document Radio Panels values, submission, caller-owned rerender and persistence, fallback, and concrete distinctions from navigation links and true tabs.
 
-  - [ ] 4.3 Section - Phase 4 Integration Tests.
+  - [x] 4.3 Section - Phase 4 Integration Tests.
 
     This section verifies page-header and selection compositions with honest
     semantics, progressive styling, and no client-runtime expansion.
 
-    - [ ] 4.3.1 Task - Verify Header and Section Header composition.
+    - [x] 4.3.1 Task - Verify Header and Section Header composition.
 
       Tests should confirm that layout wrappers do not change the semantics or
       ownership of headings, links, forms, navigation, and actions.
 
-      - [ ] 4.3.1.1 Subtask - Test every Header slot, layout value, sticky snapshot, caller global, and invalid closed value.
-      - [ ] 4.3.1.2 Subtask - Test Section Header heading preservation, description and action order, fragment visibility classes, static fallback, and nested use.
-      - [ ] 4.3.1.3 Subtask - Compose both headers with Navigation Menu, Button, Badge, Separator, form controls, and Scroll Area and assert original child semantics.
-      - [ ] 4.3.1.4 Subtask - Audit source for heading inference, command handling, responsive state, scroll observation, routing, authorization, and package JavaScript.
+      - [x] 4.3.1.1 Subtask - Test every Header slot, layout value, sticky snapshot, caller global, and invalid closed value.
+      - [x] 4.3.1.2 Subtask - Test Section Header heading preservation, description and action order, fragment visibility classes, static fallback, and nested use.
+      - [x] 4.3.1.3 Subtask - Compose both headers with Navigation Menu, Button, Badge, Separator, form controls, and Scroll Area and assert original child semantics.
+      - [x] 4.3.1.4 Subtask - Audit source for heading inference, command handling, responsive state, scroll observation, routing, authorization, and package JavaScript.
 
-    - [ ] 4.3.2 Task - Verify Radio Panels semantics and fallback.
+    - [x] 4.3.2 Task - Verify Radio Panels semantics and fallback.
 
       Automated evidence should prove native radio behavior and explicitly reject
       the larger ARIA tabs contract.
 
-      - [ ] 4.3.2.1 Subtask - Test deterministic fieldset, legend, radios, labels, panel IDs, selected value, disabled states, submission name, globals, escaping, and invalid input.
-      - [ ] 4.3.2.2 Subtask - Assert absence of tablist, tab, tabpanel, roving tabindex, key handlers, focus movement, history, and package-owned selection state.
-      - [ ] 4.3.2.3 Subtask - Browser-test native radio Tab and arrow keys, submitted value, server rerender snapshot, selected CSS, and all-panels-visible fallback.
-      - [ ] 4.3.2.4 Subtask - Run asset checks, package precommit, ExDoc, provenance and archive audits, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 4.3.2.1 Subtask - Test deterministic fieldset, legend, radios, labels, panel IDs, selected value, disabled states, submission name, globals, escaping, and invalid input.
+      - [x] 4.3.2.2 Subtask - Assert absence of tablist, tab, tabpanel, roving tabindex, key handlers, focus movement, history, and package-owned selection state.
+      - [x] 4.3.2.3 Subtask - Browser-test native radio Tab and arrow keys, submitted value, server rerender snapshot, selected CSS, and all-panels-visible fallback.
+      - [x] 4.3.2.4 Subtask - Run asset checks, package precommit, ExDoc, provenance and archive audits, `mix spec.check --base main`, and `git diff --check`.

@@ -13,6 +13,7 @@ decisions:
 surface:
   - lib/shadcn_ui/components/content/scroll_area.ex
   - lib/shadcn_ui/components/content/separator.ex
+  - lib/shadcn_ui/components/content/radio_panels.ex
   - lib/shadcn_ui/components/content/*.ex
   - lib/shadcn_ui/components/content/**/*.ex
   - test/shadcn_ui/components/content/scroll_area_test.exs
@@ -21,6 +22,9 @@ surface:
   - test/shadcn_ui/components/content/**/*.exs
   - test/shadcn_ui/content_surfaces_test.exs
   - test/fixtures/content_surfaces_no_css.html
+  - test/fixtures/phase4_headers_radio_panels.html
+  - test/browser/phase4-headers-radio-panels.spec.mjs
+  - test/shadcn_ui/phase4_components_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
   - README.md
 ```
@@ -108,6 +112,22 @@ surface:
     - shadcn_ui.content.scroll_ownership
     - shadcn_ui.content.edge_fallback
     - shadcn_ui.content.separator
+    - shadcn_ui.content.shared_contract
+
+- kind: test_file
+  target: test/shadcn_ui/phase4_components_test.exs
+  covers:
+    - shadcn_ui.content.radio_panels
+    - shadcn_ui.content.radio_not_tabs
+    - shadcn_ui.content.radio_fallback
+    - shadcn_ui.content.shared_contract
+
+- kind: test_file
+  target: test/browser/phase4-headers-radio-panels.spec.mjs
+  covers:
+    - shadcn_ui.content.radio_panels
+    - shadcn_ui.content.radio_not_tabs
+    - shadcn_ui.content.radio_fallback
     - shadcn_ui.content.shared_contract
 
 - kind: test_file

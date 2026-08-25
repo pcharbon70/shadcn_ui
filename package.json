@@ -7,7 +7,8 @@
     "assets:build": "node ./scripts/build-assets.mjs",
     "assets:check": "node ./scripts/check-assets.mjs",
     "browser:accordion": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.accordion.config.mjs",
-    "browser:navigation": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.navigation.config.mjs"
+    "browser:navigation": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.navigation.config.mjs",
+    "browser:phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.phase4.config.mjs"
   },
   "devDependencies": {
     "@tailwindcss/cli": "4.3.3",
