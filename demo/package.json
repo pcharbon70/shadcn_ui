@@ -8,6 +8,7 @@
     "export:check": "node scripts/check-export.mjs",
     "export:determinism": "node scripts/check-export-determinism.mjs",
     "browser:test": "playwright test",
+    "browser:forms": "playwright test --config=playwright.forms.config.mjs",
     "smoke": "node scripts/smoke-gallery.mjs"
   },
   "devDependencies": {

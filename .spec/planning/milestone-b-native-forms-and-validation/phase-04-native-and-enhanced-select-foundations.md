@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 4 Phase - Deliver ordinary native selection and a separately opt-in,
+- [x] 4 Phase - Deliver ordinary native selection and a separately opt-in,
   capability-gated customizable-select presentation over the same submitted value.
 
   This phase makes Native Select the dependable default and proves Enhanced
@@ -59,26 +59,26 @@ Back to wave: [README](./README.md)
       - [x] 4.2.2.3 Subtask - Style picker, selected content, options, focus, checked, disabled, invalid, themes, and forced colors without replacing native state.
       - [x] 4.2.2.4 Subtask - Add a CSS audit that fails for enhancement selectors outside the gate, hidden fallback controls, or duplicated value mechanisms.
 
-  - [ ] 4.3 Section - Phase 4 Integration Tests.
+  - [x] 4.3 Section - Phase 4 Integration Tests.
 
     This section proves Native and Enhanced Select share one value contract and
     that unsupported browsers receive an exact usable classic fallback.
 
-    - [ ] 4.3.1 Task - Verify option rendering and native submission.
+    - [x] 4.3.1 Task - Verify option rendering and native submission.
 
       Component and Phoenix fixtures should cover every supported option shape,
       selection mode, state, and relationship without incidental widget claims.
 
-      - [ ] 4.3.1.1 Subtask - Test option and optgroup escaping, stable keys, selected and disabled states, prompts, invalid data rejection, and atom-count stability.
-      - [ ] 4.3.1.2 Subtask - Test single and multiple FormField and explicit names, values, constraints, errors, globals, and native submitted parameters.
-      - [ ] 4.3.1.3 Subtask - Assert one visible select, no hidden mirror, no custom roles, no scripts, and no package-owned option state in both APIs.
+      - [x] 4.3.1.1 Subtask - Test option and optgroup escaping, stable keys, selected and disabled states, prompts, invalid data rejection, and atom-count stability.
+      - [x] 4.3.1.2 Subtask - Test single and multiple FormField and explicit names, values, constraints, errors, globals, and native submitted parameters.
+      - [x] 4.3.1.3 Subtask - Assert one visible select, no hidden mirror, no custom roles, no scripts, and no package-owned option state in both APIs.
 
-    - [ ] 4.3.2 Task - Verify enhanced and fallback browser paths.
+    - [x] 4.3.2 Task - Verify enhanced and fallback browser paths.
 
       Browser evidence should distinguish actual platform enhancement from the
       classic path while asserting identical semantics and received values.
 
-      - [ ] 4.3.2.1 Subtask - Exercise native keyboard, label focus, picker activation, selection, reset, required validation, and submission for both APIs.
-      - [ ] 4.3.2.2 Subtask - Verify enhanced presentation only in a supporting engine and classic visible operation when capabilities or CSS are unavailable.
-      - [ ] 4.3.2.3 Subtask - Compare names, selected values, received parameters, labels, errors, tab order, zoom, themes, and forced colors across both paths.
-      - [ ] 4.3.2.4 Subtask - Run CSS capability audits, `mix precommit`, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 4.3.2.1 Subtask - Exercise native keyboard, label focus, picker activation, selection, reset, required validation, and submission for both APIs.
+      - [x] 4.3.2.2 Subtask - Verify enhanced presentation only in a supporting engine and classic visible operation when capabilities or CSS are unavailable.
+      - [x] 4.3.2.3 Subtask - Compare names, selected values, received parameters, labels, errors, tab order, zoom, themes, and forced colors across both paths.
+      - [x] 4.3.2.4 Subtask - Run CSS capability audits, `mix precommit`, `mix spec.check --base main`, and `git diff --check`.

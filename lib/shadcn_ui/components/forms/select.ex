@@ -111,7 +111,9 @@ defmodule ShadcnUI.Components.Forms.Select do
               value={item.value}
               selected={SelectOptions.selected?(@selected, item.value)}
               disabled={item.disabled}
-            >{item.label}</option>
+            >
+              {item.label}
+            </option>
             <optgroup
               :if={item.kind == :group}
               data-shadcn-ui
@@ -128,7 +130,9 @@ defmodule ShadcnUI.Components.Forms.Select do
                 value={option.value}
                 selected={SelectOptions.selected?(@selected, option.value)}
                 disabled={option.disabled}
-              >{option.label}</option>
+              >
+                {option.label}
+              </option>
             </optgroup>
           <% end %>
         </select>

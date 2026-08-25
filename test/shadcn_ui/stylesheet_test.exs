@@ -7,6 +7,7 @@ defmodule ShadcnUI.StylesheetTest do
   # covers: shadcn_ui.stylesheet.consumer_overrides shadcn_ui.stylesheet.asset_path
   # covers: shadcn_ui.stylesheet.reduced_motion shadcn_ui.stylesheet.no_runtime_assets
   # covers: shadcn_ui.stylesheet.reproducible_output
+  # covers: shadcn_ui.stylesheet.form_fallbacks shadcn_ui.stylesheet.form_resilience
 
   @stylesheet Path.expand("../../priv/static/shadcn_ui.css", __DIR__)
   @source Path.expand("../../assets/shadcn_ui.css", __DIR__)

@@ -7,13 +7,14 @@ defmodule ShadcnUI.FormComponentsTest do
   # covers: shadcn_ui.forms.error_summary shadcn_ui.forms.input
   # covers: shadcn_ui.forms.textarea shadcn_ui.forms.checkbox
   # covers: shadcn_ui.forms.radio_group shadcn_ui.forms.switch
+  # covers: shadcn_ui.forms.native_select shadcn_ui.forms.enhanced_select
   # covers: shadcn_ui.forms.shared_contract
 
   defmodule Fixture do
     use Phoenix.Component
     use ShadcnUI
 
-    attr :form, :any, required: true
+    attr(:form, :any, required: true)
 
     def form_field_profile(assigns) do
       ~H"""
@@ -96,7 +97,7 @@ defmodule ShadcnUI.FormComponentsTest do
       """
     end
 
-    attr :form, :any, required: true
+    attr(:form, :any, required: true)
 
     def choice_settings(assigns) do
       assigns =
@@ -179,6 +180,70 @@ defmodule ShadcnUI.FormComponentsTest do
 
         <.button type="submit">Save settings</.button>
         <.button type="reset" variant={:outline}>Reset settings</.button>
+      </form>
+      """
+    end
+
+    attr(:form, :any, required: true)
+
+    def select_profile(assigns) do
+      assigns =
+        assign(assigns, :country_options, [
+          %{key: :prompt, value: "", label: "Choose a country", disabled: true},
+          %{
+            key: :north_america,
+            label: "North America",
+            options: [
+              %{key: :ca, value: "ca", label: "Canada"},
+              %{key: :us, value: "us", label: "United States"}
+            ]
+          },
+          %{
+            key: :europe,
+            label: "Europe",
+            options: [
+              %{key: :fr, value: "fr", label: "France"},
+              %{key: :de, value: "de", label: "Germany"}
+            ]
+          }
+        ])
+
+      ~H"""
+      <form method="post" action="/profiles" data-fixture="native-selects">
+        <.error_summary
+          id="profile-select-errors"
+          heading="Review these selections"
+          errors={[{"profile_country", "Choose an available country"}]}
+        />
+
+        <.native_select
+          field={@form[:country]}
+          options={@country_options}
+          errors={["Choose an available country"]}
+          error_mode={:always}
+          required
+        >
+          <:label>Country</:label>
+          <:help>The classic browser picker is the recommended default.</:help>
+        </.native_select>
+
+        <.enhanced_select field={@form[:timezone]} options={@country_options} pending>
+          <:label>Timezone reference country</:label>
+          <:help>The same native value may receive enhanced presentation.</:help>
+        </.enhanced_select>
+
+        <.enhanced_select
+          field={@form[:regions]}
+          options={@country_options}
+          multiple
+          disabled={false}
+        >
+          <:label>Operational regions</:label>
+          <:help>Multiple values retain the native list presentation.</:help>
+        </.enhanced_select>
+
+        <.button type="submit">Save selections</.button>
+        <.button type="reset" variant={:outline}>Reset selections</.button>
       </form>
       """
     end
@@ -356,6 +421,65 @@ defmodule ShadcnUI.FormComponentsTest do
 
     refute html =~ ~r/(phx-hook|data-on:|<script|javascript:|role="switch"|role="radio")/
     refute html =~ ~r/(contenteditable|hidden synchronized|mirrored checked)/i
+  end
+
+  test "complete select form preserves scalar and repeated native submission contracts" do
+    form =
+      Phoenix.Component.to_form(
+        %{"country" => "ca", "timezone" => "fr", "regions" => ["ca", "de"]},
+        as: "profile"
+      )
+
+    html = render(&Fixture.select_profile/1, %{form: form})
+
+    assert html =~ ~s(<form method="post" action="/profiles")
+    assert length(Regex.scan(~r/<select\b/, html)) == 3
+    assert length(Regex.scan(~r/data-shadcn-ui-enhanced-select="true"/, html)) == 2
+    assert length(Regex.scan(~r/<selectedcontent>/, html)) == 1
+    assert html =~ ~s(name="profile[country]")
+    assert html =~ ~s(name="profile[timezone]")
+    assert html =~ ~s(name="profile[regions][]")
+    assert html =~ ~s(value="ca" selected)
+    assert html =~ ~s(value="fr" selected)
+    assert html =~ ~s(value="de" selected)
+    assert html =~ ~s(href="#profile_country")
+    assert html =~ ~s(aria-describedby="profile_country-help profile_country-error-1")
+    assert html =~ ~s(aria-invalid="true")
+    assert html =~ ~r/<button[^>]*type="submit"/
+    assert html =~ ~r/<button[^>]*type="reset"/
+
+    submitted = %{
+      "profile[country]" => "ca",
+      "profile[timezone]" => "fr",
+      "profile[regions][]" => ["ca", "de"]
+    }
+
+    assert submitted["profile[country]"] == "ca"
+    assert submitted["profile[timezone]"] == "fr"
+    assert submitted["profile[regions][]"] == ["ca", "de"]
+  end
+
+  test "native and enhanced select composition keeps one control per value and no widget runtime" do
+    form =
+      Phoenix.Component.to_form(
+        %{"country" => "", "timezone" => "ca", "regions" => []},
+        as: "profile"
+      )
+
+    html = render(&Fixture.select_profile/1, %{form: form})
+
+    assert position(html, ~s(name="profile[country]")) <
+             position(html, ~s(name="profile[timezone]"))
+
+    assert position(html, ~s(name="profile[timezone]")) <
+             position(html, ~s(name="profile[regions][]"))
+
+    assert length(Regex.scan(~r/name="profile\[country\]"/, html)) == 1
+    assert length(Regex.scan(~r/name="profile\[timezone\]"/, html)) == 1
+    assert length(Regex.scan(~r/name="profile\[regions\]\[\]"/, html)) == 1
+    refute html =~ ~s(type="hidden")
+    refute html =~ ~r/role="(?:combobox|listbox|option)"/
+    refute html =~ ~r/(phx-hook|data-on:|<script|javascript:)/
   end
 
   defp render(fun, assigns \\ %{}) do

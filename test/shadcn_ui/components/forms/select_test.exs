@@ -1,10 +1,11 @@
-defmodule ShadcnUI.Components.Forms.SelectControlsTest do
+defmodule ShadcnUI.Components.Forms.SelectTest do
   use ExUnit.Case, async: true
 
   alias Phoenix.HTML.FormField
   alias Phoenix.HTML.Safe
 
-  # covers: shadcn_ui.forms.native_select shadcn_ui.forms.shared_contract
+  # covers: shadcn_ui.forms.native_select shadcn_ui.forms.enhanced_select
+  # covers: shadcn_ui.forms.shared_contract
   # covers: shadcn_ui.form.normalization shadcn_ui.form.explicit_identity
   # covers: shadcn_ui.form.deterministic_relationships shadcn_ui.form.native_states
   # covers: shadcn_ui.form.protected_globals shadcn_ui.form.native_submission

@@ -13,25 +13,29 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
   # covers: shadcn_ui.forms.error_summary shadcn_ui.forms.shared_contract
   # covers: shadcn_ui.forms.input shadcn_ui.forms.textarea
   # covers: shadcn_ui.forms.checkbox shadcn_ui.forms.radio_group shadcn_ui.forms.switch
+  # covers: shadcn_ui.forms.native_select shadcn_ui.forms.enhanced_select
+  # covers: shadcn_ui.stylesheet.semantic_tokens shadcn_ui.stylesheet.reduced_motion
+  # covers: shadcn_ui.stylesheet.no_runtime_assets shadcn_ui.stylesheet.form_fallbacks
+  # covers: shadcn_ui.stylesheet.form_resilience
   # covers: shadcn_ui.provenance.pinned_revision shadcn_ui.provenance.component_mapping
 
   defmodule Fixture do
     use Phoenix.Component
     use ShadcnUI
 
-    attr :field, :any, default: nil
-    attr :id, :string, default: nil
-    attr :name, :string, default: nil
-    attr :value, :any, default: {:shadcn_ui, :not_provided}
-    attr :errors, :any, default: {:shadcn_ui, :not_provided}
-    attr :error_mode, :atom, default: :used_input
-    attr :used, :boolean, default: false
-    attr :translate_error, :any, default: nil
-    attr :pending, :boolean, default: false
-    attr :required, :boolean, default: false
-    attr :disabled, :boolean, default: false
-    attr :label, :string, default: "Email address"
-    attr :help, :string, default: "We use this only for account notices."
+    attr(:field, :any, default: nil)
+    attr(:id, :string, default: nil)
+    attr(:name, :string, default: nil)
+    attr(:value, :any, default: {:shadcn_ui, :not_provided})
+    attr(:errors, :any, default: {:shadcn_ui, :not_provided})
+    attr(:error_mode, :atom, default: :used_input)
+    attr(:used, :boolean, default: false)
+    attr(:translate_error, :any, default: nil)
+    attr(:pending, :boolean, default: false)
+    attr(:required, :boolean, default: false)
+    attr(:disabled, :boolean, default: false)
+    attr(:label, :string, default: "Email address")
+    attr(:help, :string, default: "We use this only for account notices.")
 
     def one_field(assigns) do
       ~H"""
@@ -286,7 +290,9 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
           {"forms.textarea", "lib/shadcn_ui/components/forms/textarea.ex"},
           {"forms.checkbox", "lib/shadcn_ui/components/forms/checkbox.ex"},
           {"forms.radio_group", "lib/shadcn_ui/components/forms/radio_group.ex"},
-          {"forms.switch", "lib/shadcn_ui/components/forms/switch.ex"}
+          {"forms.switch", "lib/shadcn_ui/components/forms/switch.ex"},
+          {"forms.native_select", "lib/shadcn_ui/components/forms/native_select.ex"},
+          {"forms.enhanced_select", "lib/shadcn_ui/components/forms/enhanced_select.ex"}
         ] do
       assert Enum.any?(provenance["adaptations"], fn adaptation ->
                adaptation["id"] == id and path in adaptation["localPaths"]
