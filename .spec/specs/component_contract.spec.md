@@ -9,6 +9,9 @@ decisions:
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.semantic_component_api_and_accessibility
   - shadcn_ui.progressive_enhancement_baseline
+  - shadcn_ui.native_disclosure_grouping
+  - shadcn_ui.destination_navigation_landmarks
+  - shadcn_ui.radio_panels_not_tabs
 surface:
   - lib/shadcn_ui.ex
   - lib/shadcn_ui/components/**/*.ex
@@ -69,6 +72,11 @@ surface:
   statement: Required content, native operations, focus visibility, and semantic meaning shall remain available when optional CSS enhancements or JavaScript are absent.
   priority: must
   stability: stable
+
+- id: shadcn_ui.component.honest_interaction_names
+  statement: Public names, native elements, ARIA roles, keyboard claims, and documented behavior shall describe the same interaction pattern, and visually similar navigation, radio-panel, menu, and tab patterns shall not be presented as semantically interchangeable.
+  priority: must
+  stability: stable
 ```
 
 ## Verification
@@ -88,6 +96,7 @@ surface:
     - shadcn_ui.component.deterministic_identity
     - shadcn_ui.component.presentation_snapshot
     - shadcn_ui.component.progressive_floor
+    - shadcn_ui.component.honest_interaction_names
 
 - kind: test_file
   target: test/shadcn_ui/component_contract_test.exs
@@ -102,6 +111,7 @@ surface:
     - shadcn_ui.component.deterministic_identity
     - shadcn_ui.component.presentation_snapshot
     - shadcn_ui.component.progressive_floor
+    - shadcn_ui.component.honest_interaction_names
 
 - kind: test_file
   target: test/shadcn_ui/milestone_a_acceptance_test.exs
@@ -116,4 +126,19 @@ surface:
     - shadcn_ui.component.deterministic_identity
     - shadcn_ui.component.presentation_snapshot
     - shadcn_ui.component.progressive_floor
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_c_acceptance_test.exs
+  covers:
+    - shadcn_ui.component.stateless_heex
+    - shadcn_ui.component.closed_values
+    - shadcn_ui.component.classes_and_globals
+    - shadcn_ui.component.slots
+    - shadcn_ui.component.safe_content
+    - shadcn_ui.component.native_semantics
+    - shadcn_ui.component.protected_accessibility
+    - shadcn_ui.component.deterministic_identity
+    - shadcn_ui.component.presentation_snapshot
+    - shadcn_ui.component.progressive_floor
+    - shadcn_ui.component.honest_interaction_names
 ```

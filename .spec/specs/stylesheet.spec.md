@@ -11,6 +11,9 @@ decisions:
   - shadcn_ui.progressive_enhancement_baseline
   - shadcn_ui.deterministic_form_accessibility
   - shadcn_ui.enhanced_select_boundary
+  - shadcn_ui.native_disclosure_grouping
+  - shadcn_ui.native_scroll_sticky_surfaces
+  - shadcn_ui.radio_panels_not_tabs
 surface:
   - assets/**
   - package.json
@@ -20,6 +23,7 @@ surface:
   - README.md
   - test/shadcn_ui/stylesheet_test.exs
   - test/shadcn_ui/milestone_b_acceptance_test.exs
+  - test/shadcn_ui/milestone_c_acceptance_test.exs
 ```
 
 ## Requirements
@@ -71,7 +75,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.stylesheet.no_runtime_assets
-  statement: The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestones A and B shall ship no component JavaScript.
+  statement: The canonical artifact shall contain no remote import, remote font, data-fetching URL, script syntax, or consumer Tailwind requirement, and Milestones A, B, and C shall ship no component JavaScript.
   priority: must
   stability: stable
 
@@ -87,6 +91,16 @@ surface:
 
 - id: shadcn_ui.stylesheet.form_resilience
   statement: Form controls, labels, help, errors, focus, disabled state, checked or selected state, progress, and meter meaning shall remain distinguishable at narrow widths, 200 percent zoom, and in forced-colors mode without relying on color alone.
+  priority: must
+  stability: evolving
+
+- id: shadcn_ui.stylesheet.content_fallbacks
+  statement: Exclusive disclosure, sticky or anchor-positioned headers, scroll-edge affordances, and selected Radio Panels presentation shall use capability-aware CSS whose absence preserves independent native disclosure, normal document flow, native scrolling, and access to every panel.
+  priority: must
+  stability: evolving
+
+- id: shadcn_ui.stylesheet.content_resilience
+  statement: Disclosure, navigation, headings, separators, overflow content, current location, selected radio state, focus, and fragment targets shall remain perceivable and operable at narrow and wide widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, and without color or decoration as the only cue.
   priority: must
   stability: evolving
 ```
@@ -110,6 +124,8 @@ surface:
     - shadcn_ui.stylesheet.reproducible_output
     - shadcn_ui.stylesheet.form_fallbacks
     - shadcn_ui.stylesheet.form_resilience
+    - shadcn_ui.stylesheet.content_fallbacks
+    - shadcn_ui.stylesheet.content_resilience
 
 - kind: test_file
   target: test/shadcn_ui/stylesheet_test.exs
@@ -127,6 +143,8 @@ surface:
     - shadcn_ui.stylesheet.reproducible_output
     - shadcn_ui.stylesheet.form_fallbacks
     - shadcn_ui.stylesheet.form_resilience
+    - shadcn_ui.stylesheet.content_fallbacks
+    - shadcn_ui.stylesheet.content_resilience
 
 - kind: test_file
   target: test/shadcn_ui/milestone_a_acceptance_test.exs
@@ -147,4 +165,14 @@ surface:
     - shadcn_ui.stylesheet.no_runtime_assets
     - shadcn_ui.stylesheet.form_fallbacks
     - shadcn_ui.stylesheet.form_resilience
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_c_acceptance_test.exs
+  covers:
+    - shadcn_ui.stylesheet.semantic_tokens
+    - shadcn_ui.stylesheet.scoped_dark_theme
+    - shadcn_ui.stylesheet.reduced_motion
+    - shadcn_ui.stylesheet.no_runtime_assets
+    - shadcn_ui.stylesheet.content_fallbacks
+    - shadcn_ui.stylesheet.content_resilience
 ```

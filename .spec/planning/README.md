@@ -11,3 +11,4 @@ Plans are non-normative and must not rewrite completed milestone history.
 
 1. [Milestone A - Package, Styling, and Gallery Foundation](./milestone-a-package-styling-and-gallery-foundation/README.md)
 2. [Milestone B - Native Forms and Validation](./milestone-b-native-forms-and-validation/README.md)
+3. [Milestone C - Disclosure, Navigation, and Content Surfaces](./milestone-c-disclosure-navigation-and-content-surfaces/README.md)

@@ -12,6 +12,7 @@ surface:
   - priv/provenance/unscripted_ui.json
   - README.md
   - test/shadcn_ui/provenance_test.exs
+  - test/shadcn_ui/milestone_c_acceptance_test.exs
 ```
 
 ## Requirements
@@ -63,6 +64,16 @@ surface:
 
 - kind: test_file
   target: test/shadcn_ui/milestone_a_acceptance_test.exs
+  covers:
+    - shadcn_ui.provenance.pinned_revision
+    - shadcn_ui.provenance.component_mapping
+    - shadcn_ui.provenance.mit_notice
+    - shadcn_ui.provenance.no_upstream_runtime
+    - shadcn_ui.provenance.site_assets_excluded
+    - shadcn_ui.provenance.independent_identity
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_c_acceptance_test.exs
   covers:
     - shadcn_ui.provenance.pinned_revision
     - shadcn_ui.provenance.component_mapping

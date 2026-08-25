@@ -26,23 +26,18 @@ whose ARIA contracts would require additional keyboard behavior.
 - Scroll Area with native scrolling and optional edge affordances.
 - Separator and any small layout primitives proven necessary for coherent page
   composition.
-- A deliberately named panel-switching component based on native radios, only
-  if its radio-group semantics are acceptable.
-- A true Tab Group only if a complete ARIA tablist, keyboard, activation, and
-  focus contract is separately approved.
+- Radio Panels, deliberately named for its native radio-group semantics and
+  complete-content fallback.
+- A true Tab Group is excluded until a complete ARIA tablist, keyboard,
+  activation, focus, runtime, and state-synchronization contract is separately
+  approved.
 
-## Architecture work required
+## Accepted architecture
 
-- Decide whether the upstream radio-based “Tabs” remains a radio-group pattern,
-  is renamed, or is excluded in favor of a complete interactive implementation.
-- Specify destination ownership, current-page precedence, landmark naming,
-  heading preservation, and caller-owned navigation behavior.
-- Define accordion group naming, default-open state, rerender behavior, and the
-  fallback when exclusive `details name` or animated height is unsupported.
-- Define scroll-container sizing and focus policy without inspecting viewport
-  state or owning application data.
-- Ensure anchor-positioned decoration never becomes the only hover, focus, or
-  current-location indicator.
+- [Native disclosure and grouping](../decisions/native-disclosure-and-grouping.md)
+- [Destination navigation and landmarks](../decisions/destination-navigation-and-landmarks.md)
+- [Native scroll and sticky surfaces](../decisions/native-scroll-and-sticky-surfaces.md)
+- [Radio Panels, not Tabs](../decisions/radio-panels-not-tabs.md)
 
 ## Gallery scope
 
@@ -75,3 +70,14 @@ online gallery makes those distinctions understandable.
 Command menus, modal workflows, tree navigation, interactive grids, client
 routers, authorization-aware navigation, and application-specific sidebars
 remain outside this milestone.
+
+## Current-truth specifications
+
+- [Disclosure components](../specs/disclosure_components.spec.md)
+- [Navigation components](../specs/navigation_components.spec.md)
+- [Content surfaces](../specs/content_surfaces.spec.md)
+- [Content and navigation gallery acceptance](../specs/content_navigation_gallery.spec.md)
+
+## Implementation plan
+
+- [Milestone C phased implementation plan](../planning/milestone-c-disclosure-navigation-and-content-surfaces/README.md)

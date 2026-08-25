@@ -26,3 +26,10 @@ silently accept those decisions.
 2. [Make native form accessibility relationships deterministic](./deterministic-native-form-accessibility.md)
 3. [Preserve native control and submission semantics](./native-form-control-and-submission-boundary.md)
 4. [Enhance select controls through a capability-gated native fallback](./enhanced-select-progressive-boundary.md)
+
+## Milestone C decisions
+
+1. [Use native details for disclosure and grouping](./native-disclosure-and-grouping.md)
+2. [Keep navigation destination-based and landmarks explicit](./destination-navigation-and-landmarks.md)
+3. [Preserve native scrolling and static content fallbacks](./native-scroll-and-sticky-surfaces.md)
+4. [Name radio-based panel switching honestly and defer true tabs](./radio-panels-not-tabs.md)

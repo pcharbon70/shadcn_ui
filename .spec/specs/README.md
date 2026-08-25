@@ -15,4 +15,8 @@ gallery contracts.
 - [Native form components](./form_components.spec.md)
 - [Online component gallery](./gallery.spec.md)
 - [Form gallery and acceptance](./form_gallery.spec.md)
+- [Disclosure components](./disclosure_components.spec.md)
+- [Navigation components](./navigation_components.spec.md)
+- [Content surfaces](./content_surfaces.spec.md)
+- [Content and navigation gallery acceptance](./content_navigation_gallery.spec.md)
 - [Upstream provenance and attribution](./provenance.spec.md)
