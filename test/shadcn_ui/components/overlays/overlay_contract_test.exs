@@ -83,13 +83,9 @@ defmodule ShadcnUI.Components.Overlays.OverlayContractTest do
     }
 
     assert OverlayContract.protect_globals!(globals, :invoker) == %{
-             "autofocus" => false,
              "popover" => "manual",
-             "open" => true,
-             "closedby" => "none",
              "class" => "caller-class",
              "disabled" => true,
-             "aria-label" => "Caller label",
              "data-state" => "pending",
              "phx-click" => "save",
              "data-on:click" => "$save()"

@@ -121,6 +121,9 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Navigation.NavigationMenu,
           ShadcnUI.Components.Navigation.SectionHeader
         ],
+        "Overlay components": [
+          ShadcnUI.Components.Overlays.Dialog
+        ],
         "Package contract": [ShadcnUI, ShadcnUI.Component]
       ]
     ]

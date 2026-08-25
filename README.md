@@ -237,6 +237,48 @@ a static block when reduced motion is requested.
 The caller labels meaningful loading regions and owns loading detection,
 announcements, errors, replacement timing, and final content layout.
 
+## Milestone D native overlays
+
+### Dialog
+
+`dialog` renders one native, initially closed modal surface, one declarative
+`show-modal` invoker, deterministic title and description relationships, and a
+visible declarative close control. Supply either a `title` slot or a nonblank
+`accessible_label`. The `none`, `close_request`, and `any` dismissal values map
+directly to native `closedby` behavior; `close_request` is the default.
+
+```heex
+<.dialog id="account-settings" initial_focus={:content} dismissal={:close_request}>
+  <:trigger>Edit account</:trigger>
+  <:title>Account settings</:title>
+  <:description>Update the preferences saved with this account.</:description>
+
+  <form method="dialog">
+    <label for="display-name">Display name</label>
+    <input id="display-name" name="display_name" />
+    <button value="preview">Preview</button>
+  </form>
+
+  <:close>Close</:close>
+  <:fallback><a href="/account/settings">Open the settings page</a></:fallback>
+</.dialog>
+```
+
+`initial_focus={:auto}` leaves selection to the browser. `:content` focuses a
+stable content region and `:close` focuses the explicit exit using native
+`autofocus`; the component never adds a focus trap or `tabindex` to `dialog`.
+The browser owns Tab containment, Shift+Tab, page inertness, Escape, allowed
+light dismiss, and restoration. A `form method="dialog"` keeps its native close
+and return-value behavior, while application forms, event attributes, CSRF,
+commands, validation, and outcomes remain caller-owned.
+
+Open state is browser-local. Controller navigation or replacement through
+Phoenix, Dstar, or LiveView can close the surface and lose browser-local focus.
+Applications choose patch boundaries, whether to avoid replacement, and any
+reinvocation or state restoration. Callers supporting browsers below the native
+invoker capability floor should render the `fallback` slot as an ordinary
+destination, visible content, or non-overlay operation.
+
 ## Milestone C content surfaces
 
 ### Navigation Menu

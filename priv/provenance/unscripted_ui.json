@@ -183,6 +183,12 @@
       "localChanges": "Establish deterministic native overlay relationships and capability-gated top-layer, backdrop, bounded placement, motion, reduced-motion, and forced-color presentation without a package JavaScript runtime."
     },
     {
+      "id": "overlays.dialog",
+      "localPaths": ["lib/shadcn_ui/components/overlays/dialog.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/dialog.mdx", "src/demos/dialog/basic.html"],
+      "localChanges": "Adapt Dialog presentation to an initially closed native dialog with declarative invoker commands, deterministic relationships, closed dismissal and autofocus intent, explicit exit and fallback regions, and no package JavaScript."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

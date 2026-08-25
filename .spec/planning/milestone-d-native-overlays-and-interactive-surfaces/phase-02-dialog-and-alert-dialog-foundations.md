@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   ARIA imitation or focus-trap runtime and keeps consequential confirmation
   distinct from ordinary modal content.
 
-  - [ ] 2.1 Section - Native Dialog structure and modal behavior.
+  - [x] 2.1 Section - Native Dialog structure and modal behavior.
 
     This section implements the general modal surface, its invoker, explicit
     exit, names, descriptions, initial-focus intent, and closed dismissal policy.
 
-    - [ ] 2.1.1 Task - Implement deterministic Dialog rendering and invocation.
+    - [x] 2.1.1 Task - Implement deterministic Dialog rendering and invocation.
 
       Dialog should emit one complete native modal relationship while preserving
       trusted caller body, forms, controls, and application attributes.
 
-      - [ ] 2.1.1.1 Subtask - Add a defining Overlays.Dialog module with required ID, trigger, title or accessible label, trusted body, and explicit close content.
-      - [ ] 2.1.1.2 Subtask - Render one native show-modal button, commandfor relationship, initially closed dialog, deterministic title and description relationships, and visible close control.
-      - [ ] 2.1.1.3 Subtask - Add closed size, alignment, density, and none, closerequest, or any dismissal values mapped to complete prefixed classes and native closedby values.
-      - [ ] 2.1.1.4 Subtask - Protect dialog element, modal command, IDs, names, descriptions, closedby, open state, and exit relationships while forwarding unrelated documented globals.
+      - [x] 2.1.1.1 Subtask - Add a defining Overlays.Dialog module with required ID, trigger, title or accessible label, trusted body, and explicit close content.
+      - [x] 2.1.1.2 Subtask - Render one native show-modal button, commandfor relationship, initially closed dialog, deterministic title and description relationships, and visible close control.
+      - [x] 2.1.1.3 Subtask - Add closed size, alignment, density, and none, closerequest, or any dismissal values mapped to complete prefixed classes and native closedby values.
+      - [x] 2.1.1.4 Subtask - Protect dialog element, modal command, IDs, names, descriptions, closedby, open state, and exit relationships while forwarding unrelated documented globals.
 
-    - [ ] 2.1.2 Task - Implement focus, dismissal, and replacement guidance.
+    - [x] 2.1.2 Task - Implement focus, dismissal, and replacement guidance.
 
       Native modal behavior should remain authoritative while callers can state
       deliberate initial focus and understand what server replacement changes.
 
-      - [ ] 2.1.2.1 Subtask - Add explicit stable initial-focus selection and native autofocus placement without adding tabindex to the dialog or a package focus manager.
-      - [ ] 2.1.2.2 Subtask - Verify Tab containment, Shift+Tab, Escape, explicit close, allowed light dismiss, prevented dismissal, inert background, and restoration to the invoker.
-      - [ ] 2.1.2.3 Subtask - Document browser-local open state, close requests, form method dialog behavior, caller event attributes, patch avoidance, replacement loss, and reinvocation ownership.
-      - [ ] 2.1.2.4 Subtask - Add long title, translated content, nested native form, nested Popover, narrow viewport, zoom, forced-colors, reduced-motion, light/dark, RTL, and ordinary fallback fixtures.
+      - [x] 2.1.2.1 Subtask - Add explicit stable initial-focus selection and native autofocus placement without adding tabindex to the dialog or a package focus manager.
+      - [x] 2.1.2.2 Subtask - Verify Tab containment, Shift+Tab, Escape, explicit close, allowed light dismiss, prevented dismissal, inert background, and restoration to the invoker.
+      - [x] 2.1.2.3 Subtask - Document browser-local open state, close requests, form method dialog behavior, caller event attributes, patch avoidance, replacement loss, and reinvocation ownership.
+      - [x] 2.1.2.4 Subtask - Add long title, translated content, nested native form, nested Popover, narrow viewport, zoom, forced-colors, reduced-motion, light/dark, RTL, and ordinary fallback fixtures.
 
   - [ ] 2.2 Section - Consequential Alert Dialog contract.
 
