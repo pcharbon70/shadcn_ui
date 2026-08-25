@@ -439,6 +439,41 @@ the input, but it is a render snapshot: ShadcnUI does not synchronize its text
 when the thumb moves. The package adds no drag state, numeric domain parser,
 event handler, hidden mirror, or value announcement behavior.
 
+### Progress
+
+Progress renders native task-completion semantics. Pass a numeric `value` and
+positive `max` for a determinate snapshot, or omit `value` for the native
+indeterminate state. A visible label or a nonblank `accessible_label` is
+required.
+
+```heex
+<.progress id="report-progress" value={3} max={10} size={:large}>
+  <:label>Generating report</:label>
+  <:description>3 of 10 sections are available.</:description>
+</.progress>
+```
+
+The closed presentation variants are `:default` and `:destructive`; they do not
+infer status or trigger behavior. ShadcnUI does not poll, estimate, announce,
+submit, or emit a completion event.
+
+### Meter
+
+Meter renders a native scalar measurement in a known range, not task progress.
+It requires a numeric `value` and accepts native `min`, `max`, `low`, `high`,
+and `optimum` numbers after validating their required ordering.
+
+```heex
+<.meter id="storage-use" value={72} min={0} max={100} low={60} high={85} optimum={40}>
+  <:label>Storage use</:label>
+  <:description>72 percent of available storage is used.</:description>
+</.meter>
+```
+
+The browser determines the native threshold zone from those values. ShadcnUI
+does not measure the domain, decide thresholds, poll, announce, or own a
+lifecycle.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

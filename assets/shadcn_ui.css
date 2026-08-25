@@ -272,6 +272,89 @@
   opacity: 0.5;
 }
 
+/* Progress is task completion; omission of value keeps native indeterminate semantics. */
+[data-shadcn-ui-progress] {
+  appearance: auto;
+  display: block;
+  inline-size: 100%;
+  overflow: hidden;
+  border: 1px solid var(--shadcn-ui-input);
+  border-radius: 9999px;
+  background: var(--shadcn-ui-muted);
+  accent-color: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-progress][data-size="small"] {
+  block-size: 0.375rem;
+}
+
+[data-shadcn-ui-progress][data-size="default"] {
+  block-size: 0.625rem;
+}
+
+[data-shadcn-ui-progress][data-size="large"] {
+  block-size: 0.875rem;
+}
+
+[data-shadcn-ui-progress]::-webkit-progress-bar {
+  background: var(--shadcn-ui-muted);
+}
+
+[data-shadcn-ui-progress]::-webkit-progress-value {
+  background: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-progress]::-moz-progress-bar {
+  background: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-progress][data-variant="destructive"] {
+  accent-color: var(--shadcn-ui-destructive);
+}
+
+[data-shadcn-ui-progress][data-variant="destructive"]::-webkit-progress-value,
+[data-shadcn-ui-progress][data-variant="destructive"]::-moz-progress-bar {
+  background: var(--shadcn-ui-destructive);
+}
+
+/* Meter is a scalar measurement; the browser decides its native threshold zone. */
+[data-shadcn-ui-meter] {
+  appearance: auto;
+  display: block;
+  inline-size: 100%;
+  border-radius: 9999px;
+  accent-color: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-meter][data-size="small"] {
+  block-size: 0.375rem;
+}
+
+[data-shadcn-ui-meter][data-size="default"] {
+  block-size: 0.625rem;
+}
+
+[data-shadcn-ui-meter][data-size="large"] {
+  block-size: 0.875rem;
+}
+
+[data-shadcn-ui-meter]::-webkit-meter-bar {
+  border: 1px solid var(--shadcn-ui-input);
+  background: var(--shadcn-ui-muted);
+}
+
+[data-shadcn-ui-meter]::-webkit-meter-optimum-value {
+  background: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-meter]::-webkit-meter-suboptimum-value {
+  background: var(--shadcn-ui-accent-foreground);
+}
+
+[data-shadcn-ui-meter]::-webkit-meter-even-less-good-value {
+  background: var(--shadcn-ui-destructive);
+}
+
 /*
  * Enhanced Select starts here. Every enhancement-only selector and declaration
  * stays inside one complete capability gate; the classic rules above remain
@@ -450,5 +533,12 @@
 
   [data-shadcn-ui-slider][aria-invalid="true"] {
     outline-color: Mark;
+  }
+
+  [data-shadcn-ui-progress],
+  [data-shadcn-ui-meter] {
+    appearance: auto;
+    forced-color-adjust: auto;
+    border-color: CanvasText;
   }
 }

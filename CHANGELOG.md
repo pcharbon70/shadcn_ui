@@ -43,3 +43,5 @@ All notable changes to ShadcnUI will be documented in this file.
   native value, option, accessibility, fallback, and submission contract.
 - Add Slider as a native range-input foundation with shared FormField
   relationships, resilient presentation, and no duplicated value state.
+- Add distinct native Progress and Meter foundations with validated ranges,
+  explicit accessible names, and caller-owned lifecycle semantics.

@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 5.1.2.3 Subtask - Add engine-specific pseudo-element rules only where necessary and audit that the input remains operable without them.
       - [x] 5.1.2.4 Subtask - Verify adequate pointer target, narrow layouts, zoom, forced colors, and left-to-right and right-to-left document contexts.
 
-  - [ ] 5.2 Section - Progress and Meter semantic foundations.
+  - [x] 5.2 Section - Progress and Meter semantic foundations.
 
     This section makes the meaning difference between task completion and scalar
     measurement explicit in APIs, markup, styling, and documentation.
 
-    - [ ] 5.2.1 Task - Implement native Progress.
+    - [x] 5.2.1 Task - Implement native Progress.
 
       Progress should render caller-supplied task completion without estimating,
       polling, or announcing lifecycle changes.
 
-      - [ ] 5.2.1.1 Subtask - Render a native progress element with required accessible name and optional visible label and description.
-      - [ ] 5.2.1.2 Subtask - Support determinate value and max or native indeterminate state by omitting value, with clear validation of contradictory inputs.
-      - [ ] 5.2.1.3 Subtask - Add closed size and semantic presentation while preserving the native value contract and reduced-motion floor.
-      - [ ] 5.2.1.4 Subtask - Add no polling, estimation, completion event, announcement, request lifecycle, or form-submission claim.
+      - [x] 5.2.1.1 Subtask - Render a native progress element with required accessible name and optional visible label and description.
+      - [x] 5.2.1.2 Subtask - Support determinate value and max or native indeterminate state by omitting value, with clear validation of contradictory inputs.
+      - [x] 5.2.1.3 Subtask - Add closed size and semantic presentation while preserving the native value contract and reduced-motion floor.
+      - [x] 5.2.1.4 Subtask - Add no polling, estimation, completion event, announcement, request lifecycle, or form-submission claim.
 
-    - [ ] 5.2.2 Task - Implement native Meter.
+    - [x] 5.2.2 Task - Implement native Meter.
 
       Meter should represent a measurement in a known range and never be presented
       as task completion merely because its visual shape is similar.
 
-      - [ ] 5.2.2.1 Subtask - Render a native meter element with required value and accessible name plus optional visible label and description.
-      - [ ] 5.2.2.2 Subtask - Support and validate native min, max, low, high, and optimum inputs without interpreting their domain meaning.
-      - [ ] 5.2.2.3 Subtask - Add closed size and semantic zone presentation that remains understandable in themes and forced colors.
-      - [ ] 5.2.2.4 Subtask - Add no task-progress language, polling, measurement, threshold decisions, announcement, or package-owned lifecycle.
+      - [x] 5.2.2.1 Subtask - Render a native meter element with required value and accessible name plus optional visible label and description.
+      - [x] 5.2.2.2 Subtask - Support and validate native min, max, low, high, and optimum inputs without interpreting their domain meaning.
+      - [x] 5.2.2.3 Subtask - Add closed size and semantic zone presentation that remains understandable in themes and forced colors.
+      - [x] 5.2.2.4 Subtask - Add no task-progress language, polling, measurement, threshold decisions, announcement, or package-owned lifecycle.
 
   - [ ] 5.3 Section - Phase 5 Integration Tests.
 

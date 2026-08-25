@@ -99,6 +99,18 @@
       "localChanges": "Adapt slider presentation onto one native range input with deterministic field relationships and caller-owned value display."
     },
     {
+      "id": "forms.progress",
+      "localPaths": ["lib/shadcn_ui/components/forms/progress.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/progress.mdx", "src/demos/progress/basic.html"],
+      "localChanges": "Adapt task-progress presentation onto the native progress element with explicit naming, validated bounds, and caller-owned lifecycle."
+    },
+    {
+      "id": "forms.meter",
+      "localPaths": ["lib/shadcn_ui/components/forms/meter.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/progress.mdx", "src/demos/progress/basic.html"],
+      "localChanges": "Separate scalar measurement into a native meter API with validated threshold attributes and browser-owned zone semantics."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

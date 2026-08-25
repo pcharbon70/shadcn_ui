@@ -55,6 +55,66 @@ defmodule ShadcnUI.Components.Forms.RangeAndMeasurementTest do
       </.slider>
       """
     end
+
+    attr(:id, :string, required: true)
+    attr(:value, :any, default: {:shadcn_ui, :not_provided})
+    attr(:max, :any, default: 1)
+    attr(:accessible_label, :string, default: nil)
+    attr(:visible_label, :boolean, default: true)
+    attr(:size, :atom, default: :default)
+    attr(:variant, :atom, default: :default)
+
+    def progress_fixture(assigns) do
+      ~H"""
+      <.progress
+        id={@id}
+        value={@value}
+        max={@max}
+        accessible_label={@accessible_label}
+        size={@size}
+        variant={@variant}
+        role="meter"
+        aria-label="Wrong label"
+        data-owner="application"
+      >
+        <:label :if={@visible_label}>Report generation</:label>
+        <:description>Caller snapshot &lt;safe&gt;</:description>
+      </.progress>
+      """
+    end
+
+    attr(:id, :string, required: true)
+    attr(:value, :any, required: true)
+    attr(:min, :any, default: 0)
+    attr(:max, :any, default: 1)
+    attr(:low, :any, default: nil)
+    attr(:high, :any, default: nil)
+    attr(:optimum, :any, default: nil)
+    attr(:accessible_label, :string, default: nil)
+    attr(:visible_label, :boolean, default: true)
+    attr(:size, :atom, default: :default)
+
+    def meter_fixture(assigns) do
+      ~H"""
+      <.meter
+        id={@id}
+        value={@value}
+        min={@min}
+        max={@max}
+        low={@low}
+        high={@high}
+        optimum={@optimum}
+        accessible_label={@accessible_label}
+        size={@size}
+        role="progressbar"
+        aria-label="Wrong label"
+        data-owner="application"
+      >
+        <:label :if={@visible_label}>Storage use</:label>
+        <:description>Caller measurement &lt;safe&gt;</:description>
+      </.meter>
+      """
+    end
   end
 
   test "renders one native range input with explicit values and relationships" do
@@ -146,6 +206,116 @@ defmodule ShadcnUI.Components.Forms.RangeAndMeasurementTest do
     refute source_css =~ ~r/\[data-shadcn-ui-slider[^}]*transform:/s
   end
 
+  test "progress preserves native determinate and indeterminate task semantics" do
+    determinate = render_progress(id: "report-progress", value: 3, max: 10, size: :large)
+
+    assert determinate =~ ~s(<progress)
+    assert determinate =~ ~s(id="report-progress")
+    assert determinate =~ ~s(value="3")
+    assert determinate =~ ~s(max="10")
+    assert determinate =~ ~s(aria-labelledby="report-progress-label")
+    assert determinate =~ ~s(aria-describedby="report-progress-description")
+    assert determinate =~ "Caller snapshot &lt;safe&gt;"
+    assert determinate =~ ~s(data-size="large")
+    assert determinate =~ ~s(data-owner="application")
+    refute determinate =~ ~s(role="meter")
+    refute determinate =~ "Wrong label"
+    refute determinate =~ "<meter"
+
+    indeterminate =
+      render_progress(
+        id: "background-progress",
+        visible_label: false,
+        accessible_label: "Background report"
+      )
+
+    assert indeterminate =~ ~s(aria-label="Background report")
+    refute indeterminate =~ ~r/<progress[^>]*\svalue=/
+  end
+
+  test "progress rejects missing names and invalid numeric bounds" do
+    assert_raise ArgumentError, ~r/requires a visible label or accessible_label/, fn ->
+      render_progress(id: "unnamed", visible_label: false)
+    end
+
+    assert_raise ArgumentError, ~r/either a visible label or accessible_label/, fn ->
+      render_progress(id: "conflicting", accessible_label: "Duplicate")
+    end
+
+    for overrides <- [[max: 0], [value: -1], [value: 11, max: 10], [value: "3"]] do
+      assert_raise ArgumentError, fn -> render_progress([id: "invalid-progress"] ++ overrides) end
+    end
+  end
+
+  test "meter preserves native measurement range and threshold semantics" do
+    html =
+      render_meter(
+        id: "storage-use",
+        value: 72,
+        min: 0,
+        max: 100,
+        low: 60,
+        high: 85,
+        optimum: 40,
+        size: :small
+      )
+
+    assert html =~ ~s(<meter)
+    assert html =~ ~s(id="storage-use")
+    assert html =~ ~s(value="72")
+    assert html =~ ~s(min="0")
+    assert html =~ ~s(max="100")
+    assert html =~ ~s(low="60")
+    assert html =~ ~s(high="85")
+    assert html =~ ~s(optimum="40")
+    assert html =~ ~s(aria-labelledby="storage-use-label")
+    assert html =~ ~s(aria-describedby="storage-use-description")
+    assert html =~ ~s(data-size="small")
+    assert html =~ "Caller measurement &lt;safe&gt;"
+    assert html =~ ~s(data-owner="application")
+    refute html =~ ~s(role="progressbar")
+    refute html =~ "Wrong label"
+    refute html =~ "<progress"
+  end
+
+  test "meter rejects missing names and contradictory range or threshold values" do
+    assert_raise ArgumentError, ~r/requires a visible label or accessible_label/, fn ->
+      render_meter(id: "unnamed-meter", value: 1, visible_label: false)
+    end
+
+    invalid = [
+      [value: 5, min: 10, max: 0],
+      [value: -1, min: 0, max: 10],
+      [value: 11, min: 0, max: 10],
+      [value: 5, min: 0, max: 10, low: 8, high: 4],
+      [value: 5, min: 0, max: 10, optimum: 11],
+      [value: "5"]
+    ]
+
+    for overrides <- invalid do
+      assert_raise ArgumentError, fn -> render_meter([id: "invalid-meter"] ++ overrides) end
+    end
+  end
+
+  test "progress and meter styles retain separate native elements and static fallbacks" do
+    source_css = File.read!("assets/shadcn_ui.css")
+
+    assert source_css =~ "[data-shadcn-ui-progress]"
+    assert source_css =~ "::-webkit-progress-value"
+    assert source_css =~ "[data-shadcn-ui-meter]"
+    assert source_css =~ "::-webkit-meter-optimum-value"
+    assert source_css =~ "::-webkit-meter-even-less-good-value"
+    assert source_css =~ "forced-color-adjust: auto"
+    refute source_css =~ ~r/\[data-shadcn-ui-progress[^}]*animation:/s
+    refute source_css =~ ~r/\[data-shadcn-ui-meter[^}]*animation:/s
+
+    source =
+      ["progress.ex", "meter.ex"]
+      |> Enum.map_join("\n", &File.read!("lib/shadcn_ui/components/forms/#{&1}"))
+
+    refute source =~ ~r/(handle_event|push_event|JS\.|<script|javascript:|aria-live)/
+  end
+
   defp render_slider(overrides) do
     %{
       field: nil,
@@ -161,6 +331,43 @@ defmodule ShadcnUI.Components.Forms.RangeAndMeasurementTest do
     }
     |> Map.merge(Map.new(overrides))
     |> Fixture.slider_fixture()
+    |> Safe.to_iodata()
+    |> IO.iodata_to_binary()
+  end
+
+  defp render_progress(overrides) do
+    %{
+      id: nil,
+      value: {:shadcn_ui, :not_provided},
+      max: 1,
+      accessible_label: nil,
+      visible_label: true,
+      size: :default,
+      variant: :default,
+      __changed__: nil
+    }
+    |> Map.merge(Map.new(overrides))
+    |> Fixture.progress_fixture()
+    |> Safe.to_iodata()
+    |> IO.iodata_to_binary()
+  end
+
+  defp render_meter(overrides) do
+    %{
+      id: nil,
+      value: nil,
+      min: 0,
+      max: 1,
+      low: nil,
+      high: nil,
+      optimum: nil,
+      accessible_label: nil,
+      visible_label: true,
+      size: :default,
+      __changed__: nil
+    }
+    |> Map.merge(Map.new(overrides))
+    |> Fixture.meter_fixture()
     |> Safe.to_iodata()
     |> IO.iodata_to_binary()
   end
