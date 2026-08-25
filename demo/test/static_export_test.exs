@@ -3,7 +3,7 @@ defmodule ShadcnUIDemo.StaticExportTest do
 
   test "export is closed, deterministic, local, ignored, and package-excluded" do
     task = File.read!("lib/mix/tasks/gallery.export.ex")
-    workflow = File.read!("../../../.github/workflows/shadcn-ui-gallery.yml")
+    workflow = File.read!("../.github/workflows/gallery.yml")
     deployment = File.read!("DEPLOYMENT.md")
     ignore = File.read!(".gitignore")
     package = File.read!("../mix.exs")
