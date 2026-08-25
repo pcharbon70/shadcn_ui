@@ -83,6 +83,7 @@ defmodule ShadcnUI.MixProject do
       extras: ["README.md", "CHANGELOG.md", "THIRD_PARTY_NOTICES.md", "RELEASE.md"],
       groups_for_modules: [
         "Content components": [
+          ShadcnUI.Components.Content.RadioPanels,
           ShadcnUI.Components.Content.ScrollArea,
           ShadcnUI.Components.Content.Separator
         ],
@@ -115,7 +116,9 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Forms.Textarea
         ],
         "Navigation components": [
-          ShadcnUI.Components.Navigation.NavigationMenu
+          ShadcnUI.Components.Navigation.Header,
+          ShadcnUI.Components.Navigation.NavigationMenu,
+          ShadcnUI.Components.Navigation.SectionHeader
         ],
         "Package contract": [ShadcnUI, ShadcnUI.Component]
       ]

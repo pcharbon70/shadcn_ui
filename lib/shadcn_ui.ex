@@ -12,10 +12,13 @@ defmodule ShadcnUI do
   """
 
   @component_modules [
+    ShadcnUI.Components.Content.RadioPanels,
     ShadcnUI.Components.Content.ScrollArea,
     ShadcnUI.Components.Content.Separator,
     ShadcnUI.Components.Disclosure.Accordion,
+    ShadcnUI.Components.Navigation.Header,
     ShadcnUI.Components.Navigation.NavigationMenu,
+    ShadcnUI.Components.Navigation.SectionHeader,
     ShadcnUI.Components.Foundation.Alert,
     ShadcnUI.Components.Foundation.Avatar,
     ShadcnUI.Components.Foundation.Badge,

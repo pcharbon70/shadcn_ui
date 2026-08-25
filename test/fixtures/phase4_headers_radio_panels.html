@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" data-shadcn-theme="light">
+<head><meta charset="utf-8"><title>Phase 4 fixture</title></head>
+<body>
+<header data-shadcn-ui data-shadcn-ui-header data-presentation="sticky" data-width="contained" data-density="default" data-wrap="responsive" data-border="bottom">
+  <div data-shadcn-ui-header-inner class="sui:flex sui:flex-wrap sui:md:flex-nowrap">
+    <div data-shadcn-ui-header-brand><a id="brand" href="#main">Northwind</a></div>
+    <div data-shadcn-ui-header-primary><nav aria-label="Primary"><a href="#overview">Overview</a></nav></div>
+    <div data-shadcn-ui-header-utilities><form id="search-form"><label>Search <input id="search" name="query"></label></form></div>
+    <div data-shadcn-ui-header-actions><button id="create" type="button">Create</button></div>
+  </div>
+</header>
+<main id="main">
+  <header id="overview" data-shadcn-ui data-shadcn-ui-section-header data-presentation="sticky" data-anchor-effect="accent" class="sui:scroll-mt-20">
+    <div data-shadcn-ui-section-header-copy><div data-shadcn-ui-section-header-heading><h2>Account overview</h2></div><div data-shadcn-ui-section-header-description>Choose a view with a very long translated description that must remain readable at narrow widths.</div></div>
+    <div data-shadcn-ui-section-header-actions><button type="button">Export</button></div>
+  </header>
+  <form id="preferences"></form>
+  <fieldset id="views" form="preferences" data-shadcn-ui data-shadcn-ui-radio-panels data-layout="horizontal">
+    <legend id="views-legend">Visible account view</legend>
+    <div data-shadcn-ui-radio-panels-options class="sui:grid sui:md:grid-cols-2">
+      <div data-shadcn-ui-radio-panel-option data-option-key="summary" data-selected="%%SUMMARY_SELECTED%%">
+        <div><input id="views-option-summary" data-shadcn-ui data-shadcn-ui-radio-panel-control type="radio" name="view" value="summary" form="preferences" aria-controls="views-panel-summary" %%SUMMARY_CHECKED%%><label id="views-label-summary" for="views-option-summary" data-shadcn-ui-radio-panel-label>Summary</label></div>
+        <div id="views-panel-summary" aria-labelledby="views-label-summary" data-shadcn-ui-radio-panel><p>Summary panel remains available.</p></div>
+      </div>
+      <div data-shadcn-ui-radio-panel-option data-option-key="activity" data-selected="%%ACTIVITY_SELECTED%%">
+        <div><input id="views-option-activity" data-shadcn-ui data-shadcn-ui-radio-panel-control type="radio" name="view" value="activity" form="preferences" aria-controls="views-panel-activity" %%ACTIVITY_CHECKED%%><label id="views-label-activity" for="views-option-activity" data-shadcn-ui-radio-panel-label>Activity with an exceptionally long translated option label</label></div>
+        <div id="views-panel-activity" aria-labelledby="views-label-activity" data-shadcn-ui-radio-panel><p>Activity panel remains available.</p><form id="panel-filter"><label>Filter <input name="filter"></label></form></div>
+      </div>
+      <div data-shadcn-ui-radio-panel-option data-option-key="disabled">
+        <div><input id="views-option-disabled" data-shadcn-ui data-shadcn-ui-radio-panel-control type="radio" name="view" value="disabled" form="preferences" aria-controls="views-panel-disabled" disabled><label id="views-label-disabled" for="views-option-disabled" data-shadcn-ui-radio-panel-label>Unavailable</label></div>
+        <div id="views-panel-disabled" aria-labelledby="views-label-disabled" data-shadcn-ui-radio-panel><p>Unavailable panel explanation remains in source order.</p></div>
+      </div>
+    </div>
+  </fieldset>
+</main>
+</body>
+</html>

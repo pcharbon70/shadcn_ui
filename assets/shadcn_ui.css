@@ -557,6 +557,52 @@
   }
 }
 
+[data-shadcn-ui-header][data-presentation="sticky"],
+[data-shadcn-ui-section-header][data-presentation="sticky"] {
+  isolation: isolate;
+  background-color: color-mix(in srgb, var(--shadcn-ui-background) 94%, transparent);
+  box-shadow: 0 1px 0 var(--shadcn-ui-border);
+  backdrop-filter: blur(0.5rem);
+}
+
+[data-shadcn-ui-section-header][data-anchor-effect="accent"]:target {
+  border-inline-start: 0.25rem solid var(--shadcn-ui-primary);
+  padding-inline-start: 0.75rem;
+  box-shadow: 0 0 0 2px var(--shadcn-ui-ring);
+}
+
+[data-shadcn-ui-radio-panel-option] {
+  overflow: clip;
+}
+
+[data-shadcn-ui-radio-panel-control]:focus-visible {
+  outline: 2px solid var(--shadcn-ui-ring);
+  outline-offset: 2px;
+}
+
+@supports selector(:has(*)) {
+  [data-shadcn-ui-radio-panel-option] > [data-shadcn-ui-radio-panel] {
+    display: none;
+  }
+
+  [data-shadcn-ui-radio-panel-option]:has(> div > input:checked) {
+    border-color: var(--shadcn-ui-primary);
+    box-shadow: 0 0 0 1px var(--shadcn-ui-primary);
+  }
+
+  [data-shadcn-ui-radio-panel-option]:has(> div > input:checked)
+    [data-shadcn-ui-radio-panel-label] {
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.125rem;
+    text-underline-offset: 0.25rem;
+  }
+
+  [data-shadcn-ui-radio-panel-option]:has(> div > input:checked)
+    > [data-shadcn-ui-radio-panel] {
+    display: block;
+  }
+}
+
 @media (forced-colors: active) {
   [data-shadcn-ui]:focus-visible {
     outline-color: Highlight;
@@ -677,5 +723,31 @@
     outline-offset: -2px;
     box-shadow: none;
     text-decoration: underline;
+  }
+
+  [data-shadcn-ui-header][data-presentation="sticky"],
+  [data-shadcn-ui-section-header][data-presentation="sticky"] {
+    background: Canvas;
+    border-color: CanvasText;
+    box-shadow: 0 1px 0 CanvasText;
+    backdrop-filter: none;
+  }
+
+  [data-shadcn-ui-section-header][data-anchor-effect="accent"]:target {
+    border-inline-start-color: Highlight;
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+    box-shadow: none;
+  }
+
+  [data-shadcn-ui-radio-panel-control] {
+    forced-color-adjust: auto;
+  }
+
+  [data-shadcn-ui-radio-panel-option]:has(> div > input:checked) {
+    border-color: Highlight;
+    outline: 2px solid Highlight;
+    outline-offset: -2px;
+    box-shadow: none;
   }
 }

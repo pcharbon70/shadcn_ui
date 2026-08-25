@@ -147,6 +147,12 @@
       "localChanges": "Adapt the overflow presentation into one native HEEX scroll container with closed axes and sizes, explicit named focus policy, and capability-gated decorative edge masks without custom controls or scroll state."
     },
     {
+      "id": "content.radio_panels",
+      "localPaths": ["lib/shadcn_ui/components/content/radio_panels.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/tabs.mdx", "src/demos/tabs/basic.html"],
+      "localChanges": "Rename and adapt the upstream radio-based visual pattern into an honest native HEEX Radio Panels contract with deterministic relationships, ordinary form submission, complete-content fallback, and no tab roles or client state."
+    },
+    {
       "id": "disclosure.accordion",
       "localPaths": ["lib/shadcn_ui/components/disclosure/accordion.ex", "assets/shadcn_ui.css"],
       "upstreamPaths": ["src/content/components/accordion.mdx", "src/demos/accordion/basic.html"],
@@ -157,6 +163,18 @@
       "localPaths": ["lib/shadcn_ui/components/navigation/navigation_menu.ex", "assets/shadcn_ui.css"],
       "upstreamPaths": ["src/content/components/nav-menu.mdx", "src/demos/nav-menu/basic.html"],
       "localChanges": "Adapt navigation presentation into a named native nav and list of real HEEX anchors with explicit current-location semantics, responsive closed layouts, and no menu roles, activation interception, route inference, or client router."
+    },
+    {
+      "id": "navigation.header",
+      "localPaths": ["lib/shadcn_ui/components/navigation/header.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/header.mdx", "src/demos/header/basic.html"],
+      "localChanges": "Adapt responsive header presentation into a native HEEX composition that preserves caller-owned brand, navigation, utilities, forms, headings, and actions without inventing behavior."
+    },
+    {
+      "id": "navigation.section_header",
+      "localPaths": ["lib/shadcn_ui/components/navigation/section_header.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/header.mdx", "src/demos/header/basic.html"],
+      "localChanges": "Extract a caller-heading-preserving section composition with static or sticky presentation, target decoration, normal-flow fallback, and no scroll observation."
     },
     {
       "id": "stylesheet.semantic-foundation",

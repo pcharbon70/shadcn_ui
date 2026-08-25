@@ -20,6 +20,7 @@ surface:
   - test/fixtures/coexistence.html
   - test/fixtures/accordion.html
   - test/fixtures/navigation_menu.html
+  - test/fixtures/phase4_headers_radio_panels.html
   - package.json
   - package-lock.json
   - priv/static/shadcn_ui.css
@@ -28,6 +29,7 @@ surface:
   - test/shadcn_ui/stylesheet_test.exs
   - test/browser/accordion-foundations.spec.mjs
   - test/browser/navigation-menu-foundations.spec.mjs
+  - test/browser/phase4-headers-radio-panels.spec.mjs
   - test/shadcn_ui/milestone_b_acceptance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
 ```
@@ -154,6 +156,12 @@ surface:
 
 - kind: test_file
   target: test/browser/accordion-foundations.spec.mjs
+  covers:
+    - shadcn_ui.stylesheet.content_fallbacks
+    - shadcn_ui.stylesheet.content_resilience
+
+- kind: test_file
+  target: test/browser/phase4-headers-radio-panels.spec.mjs
   covers:
     - shadcn_ui.stylesheet.content_fallbacks
     - shadcn_ui.stylesheet.content_resilience

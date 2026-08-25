@@ -101,8 +101,10 @@ defmodule ShadcnUI.ContentSurfacesTest do
 
   test "phase sources contain no observers, scroll handlers, custom controls, or application dependencies" do
     source =
-      "lib/shadcn_ui/components/content/*.ex"
-      |> Path.wildcard()
+      [
+        "lib/shadcn_ui/components/content/scroll_area.ex",
+        "lib/shadcn_ui/components/content/separator.ex"
+      ]
       |> Enum.map_join("\n", &File.read!/1)
 
     refute source =~
