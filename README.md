@@ -207,6 +207,39 @@ announcements, errors, replacement timing, and final content layout.
 
 ## Milestone C content surfaces
 
+### Accordion
+
+Accordion renders one native `details` and `summary` pair for each item. Its ID
+and item keys are explicit stable strings so every details, summary, content,
+and optional group relationship remains deterministic across server renders.
+
+```heex
+<.accordion id="account-help" mode={:exclusive}>
+  <:item key="billing" summary="Billing" open>
+    <p>Billing details remain ordinary trusted HEEx content.</p>
+  </:item>
+  <:item key="security" summary="Security">
+    <a href={~p"/security"}>Review security settings</a>
+  </:item>
+</.accordion>
+```
+
+`mode` accepts `:independent` and `:exclusive`. Independent mode emits no
+shared `name` and preserves every caller-supplied open snapshot. Exclusive mode
+uses the deterministic `<accordion-id>-group` name and, if several items are
+supplied open, renders only the first open item. Browsers without exclusive
+details grouping still provide independently operable native disclosure; the
+package does not polyfill the feature. Capability-gated CSS may animate content,
+but unsupported CSS and reduced motion retain native snap-open behavior.
+
+Summary text is escaped and panel slots contain trusted caller HEEx. Native
+summary activation, keyboard focus, find-in-page behavior, and browser-owned
+open state remain authoritative. Applications own persistence across server
+replacement, authorization, routing, lazy loading, analytics, validation, and
+URL synchronization. Native `details` has no disabled state, so Accordion does
+not publish a visually disabled-but-operable item; applications should render
+honest unavailable guidance or omit unauthorized content instead.
+
 ### Separator
 
 Use semantic mode when the boundary separates topics or regions in the document.

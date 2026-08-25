@@ -14,6 +14,7 @@ defmodule ShadcnUI do
   @component_modules [
     ShadcnUI.Components.Content.ScrollArea,
     ShadcnUI.Components.Content.Separator,
+    ShadcnUI.Components.Disclosure.Accordion,
     ShadcnUI.Components.Foundation.Alert,
     ShadcnUI.Components.Foundation.Avatar,
     ShadcnUI.Components.Foundation.Badge,

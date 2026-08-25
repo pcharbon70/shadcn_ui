@@ -18,12 +18,14 @@ surface:
   - assets/**
   - test/fixtures/*.html
   - test/fixtures/coexistence.html
+  - test/fixtures/accordion.html
   - package.json
   - package-lock.json
   - priv/static/shadcn_ui.css
   - lib/shadcn_ui.ex
   - README.md
   - test/shadcn_ui/stylesheet_test.exs
+  - test/browser/accordion-foundations.spec.mjs
   - test/shadcn_ui/milestone_b_acceptance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
 ```
@@ -145,6 +147,12 @@ surface:
     - shadcn_ui.stylesheet.reproducible_output
     - shadcn_ui.stylesheet.form_fallbacks
     - shadcn_ui.stylesheet.form_resilience
+    - shadcn_ui.stylesheet.content_fallbacks
+    - shadcn_ui.stylesheet.content_resilience
+
+- kind: test_file
+  target: test/browser/accordion-foundations.spec.mjs
+  covers:
     - shadcn_ui.stylesheet.content_fallbacks
     - shadcn_ui.stylesheet.content_resilience
 

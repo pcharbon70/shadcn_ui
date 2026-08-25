@@ -365,6 +365,40 @@
   scrollbar-gutter: stable;
 }
 
+/* Native details/summary remains the Accordion interaction and fallback. */
+[data-shadcn-ui-accordion-summary]::marker {
+  color: var(--shadcn-ui-muted-foreground);
+}
+
+[data-shadcn-ui-accordion-item][open] > [data-shadcn-ui-accordion-summary] {
+  color: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-accordion-item][open] > [data-shadcn-ui-accordion-summary]::marker {
+  color: currentColor;
+}
+
+@supports selector(details::details-content) and (interpolate-size: allow-keywords) {
+  [data-shadcn-ui-accordion-item] {
+    interpolate-size: allow-keywords;
+  }
+
+  [data-shadcn-ui-accordion-item]::details-content {
+    block-size: 0;
+    opacity: 0;
+    overflow: clip;
+    transition:
+      block-size var(--shadcn-ui-motion-normal) var(--shadcn-ui-ease-standard),
+      opacity var(--shadcn-ui-motion-fast) var(--shadcn-ui-ease-standard),
+      content-visibility var(--shadcn-ui-motion-normal) allow-discrete;
+  }
+
+  [data-shadcn-ui-accordion-item][open]::details-content {
+    block-size: auto;
+    opacity: 1;
+  }
+}
+
 @supports (mask-image: linear-gradient(black, black)) {
   [data-shadcn-ui-scroll-area][data-axis="vertical"][data-edge-affordance="start"] {
     mask-image: linear-gradient(to bottom, transparent, black 1rem);
@@ -489,6 +523,10 @@
   [data-shadcn-ui-skeleton] {
     animation: none !important;
   }
+
+  [data-shadcn-ui-accordion-item]::details-content {
+    transition: none !important;
+  }
 }
 
 @media (forced-colors: active) {
@@ -593,5 +631,14 @@
   [data-shadcn-ui-scroll-area] {
     mask-image: none !important;
     scrollbar-color: CanvasText Canvas;
+  }
+
+  [data-shadcn-ui-accordion-item] {
+    border-color: CanvasText;
+  }
+
+  [data-shadcn-ui-accordion-summary]::marker,
+  [data-shadcn-ui-accordion-item][open] > [data-shadcn-ui-accordion-summary] {
+    color: CanvasText;
   }
 }

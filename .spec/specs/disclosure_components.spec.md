@@ -11,9 +11,13 @@ decisions:
   - shadcn_ui.progressive_enhancement_baseline
   - shadcn_ui.scoped_theme_token_contract
 surface:
+  - lib/shadcn_ui/components/disclosure/accordion.ex
   - lib/shadcn_ui/components/disclosure/**/*.ex
+  - test/shadcn_ui/components/disclosure/accordion_test.exs
   - test/shadcn_ui/components/disclosure/**/*.exs
   - test/shadcn_ui/disclosure_components_test.exs
+  - test/browser/accordion-foundations.spec.mjs
+  - test/fixtures/accordion.html
   - test/shadcn_ui/milestone_c_acceptance_test.exs
   - README.md
 ```
@@ -87,6 +91,14 @@ surface:
     - shadcn_ui.disclosure.protected_semantics
     - shadcn_ui.disclosure.fallback
     - shadcn_ui.disclosure.ownership
+    - shadcn_ui.disclosure.shared_contract
+
+- kind: test_file
+  target: test/browser/accordion-foundations.spec.mjs
+  covers:
+    - shadcn_ui.disclosure.accordion_native
+    - shadcn_ui.disclosure.accordion_modes
+    - shadcn_ui.disclosure.fallback
     - shadcn_ui.disclosure.shared_contract
 
 - kind: test_file

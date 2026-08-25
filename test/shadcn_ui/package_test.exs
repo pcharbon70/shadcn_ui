@@ -26,10 +26,13 @@ defmodule ShadcnUI.PackageTest do
     ShadcnUI.Components.Content.Separator
   ]
 
+  @disclosure_modules [ShadcnUI.Components.Disclosure.Accordion]
+
   test "defines the package entry point and component namespaces" do
     assert Code.ensure_loaded?(ShadcnUI)
     assert Enum.all?(@foundation_modules, &Code.ensure_loaded?/1)
     assert Enum.all?(@content_modules, &Code.ensure_loaded?/1)
+    assert Enum.all?(@disclosure_modules, &Code.ensure_loaded?/1)
   end
 
   test "use ShadcnUI compiles in a transport-neutral consumer fixture" do

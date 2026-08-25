@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" data-shadcn-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <title>ShadcnUI native Accordion fixture</title>
+  </head>
+  <body>
+    <main>
+      <h1>Native Accordion behavior</h1>
+      <section data-shadcn-theme="light">
+        <h2>Independent questions</h2>
+        <div id="independent" data-shadcn-ui data-shadcn-ui-accordion data-mode="independent">
+          <details id="independent-item-billing" data-shadcn-ui data-shadcn-ui-accordion-item open>
+            <summary
+              id="independent-item-billing-summary"
+              aria-controls="independent-item-billing-content"
+              data-shadcn-ui-accordion-summary
+              class="sui:focus-visible:outline-2 sui:focus-visible:outline-ring"
+            >Billing</summary>
+            <div
+              id="independent-item-billing-content"
+              aria-labelledby="independent-item-billing-summary"
+              data-shadcn-ui-accordion-content
+            >
+              <p>Billing content remains available for find-in-page.</p>
+              <button id="nested-action" type="button">Nested action</button>
+            </div>
+          </details>
+          <details id="independent-item-security" data-shadcn-ui data-shadcn-ui-accordion-item>
+            <summary
+              id="independent-item-security-summary"
+              aria-controls="independent-item-security-content"
+              data-shadcn-ui-accordion-summary
+            >Security</summary>
+            <div
+              id="independent-item-security-content"
+              aria-labelledby="independent-item-security-summary"
+              data-shadcn-ui-accordion-content
+            >
+              <p id="security-fragment">Security fragment destination remains reachable.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <hr data-shadcn-ui data-shadcn-ui-separator />
+
+      <section data-shadcn-theme="dark">
+        <h2>Exclusive questions</h2>
+        <div id="exclusive" data-shadcn-ui data-shadcn-ui-accordion data-mode="exclusive">
+          <details
+            id="exclusive-item-one"
+            name="exclusive-group"
+            data-shadcn-ui
+            data-shadcn-ui-accordion-item
+            open
+          >
+            <summary data-shadcn-ui-accordion-summary>First answer</summary>
+            <div data-shadcn-ui-accordion-content>First exclusive content.</div>
+          </details>
+          <details
+            id="exclusive-item-two"
+            name="exclusive-group"
+            data-shadcn-ui
+            data-shadcn-ui-accordion-item
+          >
+            <summary data-shadcn-ui-accordion-summary>Second answer</summary>
+            <div data-shadcn-ui-accordion-content>Second exclusive content.</div>
+          </details>
+        </div>
+      </section>
+
+      <div
+        data-shadcn-ui
+        data-shadcn-ui-scroll-area
+        data-axis="vertical"
+        data-size="small"
+        data-edge-affordance="both"
+        role="region"
+        tabindex="0"
+        aria-label="Related activity"
+      >
+        <p>Accordion composes without changing native Scroll Area behavior.</p>
+      </div>
+    </main>
+  </body>
+</html>

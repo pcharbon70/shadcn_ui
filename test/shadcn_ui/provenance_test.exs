@@ -186,6 +186,23 @@ defmodule ShadcnUI.ProvenanceTest do
     assert scroll_area["localChanges"] =~ "without custom controls or scroll state"
   end
 
+  test "maps native Accordion to the exact reviewed component and demo sources" do
+    accordion = Enum.find(manifest()["adaptations"], &(&1["id"] == "disclosure.accordion"))
+
+    assert accordion["localPaths"] == [
+             "lib/shadcn_ui/components/disclosure/accordion.ex",
+             "assets/shadcn_ui.css"
+           ]
+
+    assert accordion["upstreamPaths"] == [
+             "src/content/components/accordion.mdx",
+             "src/demos/accordion/basic.html"
+           ]
+
+    assert accordion["localChanges"] =~ "native details and summary HEEX items"
+    assert accordion["localChanges"] =~ "without package state or JavaScript"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)
