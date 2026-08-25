@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 3 Phase - Deliver named destination navigation whose links, current state,
+- [x] 3 Phase - Deliver named destination navigation whose links, current state,
   focus, and keyboard behavior remain ordinary native browser semantics.
 
   This phase adds Navigation Menu without menu, tab, command, or client-router
@@ -59,27 +59,27 @@ Back to wave: [README](./README.md)
       - [x] 3.2.2.3 Subtask - Contrast Navigation Menu with buttons, Radio Panels, true tabs, menus, and client routers using concrete application examples.
       - [x] 3.2.2.4 Subtask - Add pinned upstream component and CSS provenance with local semantic and fallback changes.
 
-  - [ ] 3.3 Section - Phase 3 Integration Tests.
+  - [x] 3.3 Section - Phase 3 Integration Tests.
 
     This section verifies destination navigation across semantic rendering,
     keyboard use, responsive CSS, package boundaries, and existing components.
 
-    - [ ] 3.3.1 Task - Verify navigation rendering and ownership boundaries.
+    - [x] 3.3.1 Task - Verify navigation rendering and ownership boundaries.
 
       Tests should prove every public state and prevent hidden routing or custom
       widget semantics from entering the package.
 
-      - [ ] 3.3.1.1 Subtask - Test landmark naming, list structure, destinations, escaped and trusted labels, current values, layouts, caller globals, and invalid inputs.
-      - [ ] 3.3.1.2 Subtask - Test repeated rendering, stable key handling, atom count, no inferred current route, and protected semantics.
-      - [ ] 3.3.1.3 Subtask - Audit markup and source for menu, menubar, menuitem, tab, command, roving tabindex, key handlers, request access, authorization, and client-router behavior.
-      - [ ] 3.3.1.4 Subtask - Compose Navigation Menu with Button, Badge, Separator, and Scroll Area and verify every child retains its original semantics.
+      - [x] 3.3.1.1 Subtask - Test landmark naming, list structure, destinations, escaped and trusted labels, current values, layouts, caller globals, and invalid inputs.
+      - [x] 3.3.1.2 Subtask - Test repeated rendering, stable key handling, atom count, no inferred current route, and protected semantics.
+      - [x] 3.3.1.3 Subtask - Audit markup and source for menu, menubar, menuitem, tab, command, roving tabindex, key handlers, request access, authorization, and client-router behavior.
+      - [x] 3.3.1.4 Subtask - Compose Navigation Menu with Button, Badge, Separator, and Scroll Area and verify every child retains its original semantics.
 
-    - [ ] 3.3.2 Task - Verify native browser operation and release integration.
+    - [x] 3.3.2 Task - Verify native browser operation and release integration.
 
       Browser and release checks should cover real link behavior and styling
       fallbacks rather than incidental wrapper structure.
 
-      - [ ] 3.3.2.1 Subtask - Browser-test Tab and Shift+Tab order, Enter activation, context-menu and target behavior, fragment destinations, focus visibility, and current-location exposure.
-      - [ ] 3.3.2.2 Subtask - Test narrow wrapping, overflow, zoom, forced colors, reduced motion, light/dark themes, RTL, no CSS, and no script.
-      - [ ] 3.3.2.3 Subtask - Run locked asset checks, package precommit, ExDoc, provenance validation, archive exclusion, and coexistence audits.
-      - [ ] 3.3.2.4 Subtask - Run `mix spec.next --base main`, `mix spec.check --base main`, and `git diff --check` and reconcile every Phase 3 requirement.
+      - [x] 3.3.2.1 Subtask - Browser-test Tab and Shift+Tab order, Enter activation, context-menu and target behavior, fragment destinations, focus visibility, and current-location exposure.
+      - [x] 3.3.2.2 Subtask - Test narrow wrapping, overflow, zoom, forced colors, reduced motion, light/dark themes, RTL, no CSS, and no script.
+      - [x] 3.3.2.3 Subtask - Run locked asset checks, package precommit, ExDoc, provenance validation, archive exclusion, and coexistence audits.
+      - [x] 3.3.2.4 Subtask - Run `mix spec.next --base main`, `mix spec.check --base main`, and `git diff --check` and reconcile every Phase 3 requirement.
