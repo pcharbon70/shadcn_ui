@@ -20,6 +20,7 @@ surface:
   - test/shadcn_ui/components/content/*.exs
   - test/shadcn_ui/components/content/**/*.exs
   - test/shadcn_ui/content_surfaces_test.exs
+  - test/fixtures/content_surfaces_no_css.html
   - test/shadcn_ui/milestone_c_acceptance_test.exs
   - README.md
 ```
@@ -107,9 +108,6 @@ surface:
     - shadcn_ui.content.scroll_ownership
     - shadcn_ui.content.edge_fallback
     - shadcn_ui.content.separator
-    - shadcn_ui.content.radio_panels
-    - shadcn_ui.content.radio_not_tabs
-    - shadcn_ui.content.radio_fallback
     - shadcn_ui.content.shared_contract
 
 - kind: test_file

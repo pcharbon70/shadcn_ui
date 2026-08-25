@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>ShadcnUI content surfaces without CSS</title>
+  </head>
+  <body>
+    <main>
+      <h1>Native content surfaces</h1>
+      <p><a href="#final-event">Jump to the final event</a></p>
+      <hr
+        data-shadcn-ui
+        data-shadcn-ui-separator
+        data-orientation="horizontal"
+        aria-orientation="horizontal"
+      />
+      <div
+        id="events"
+        data-shadcn-ui
+        data-shadcn-ui-scroll-area
+        data-axis="vertical"
+        data-size="small"
+        data-edge-affordance="both"
+        role="region"
+        tabindex="0"
+        aria-label="Recent activity"
+      >
+        <p>First event remains readable.</p>
+        <p>Middle event remains readable.</p>
+        <p id="final-event">Final fragment target remains reachable.</p>
+      </div>
+    </main>
+  </body>
+</html>

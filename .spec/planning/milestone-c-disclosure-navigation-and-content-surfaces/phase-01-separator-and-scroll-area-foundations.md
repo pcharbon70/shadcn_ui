@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 1 Phase - Establish the structural separation and native overflow
+- [x] 1 Phase - Establish the structural separation and native overflow
   primitives used by later Milestone C page compositions.
 
   This phase begins with the smallest content-surface contracts. Separator makes
@@ -59,27 +59,27 @@ Back to wave: [README](./README.md)
       - [x] 1.2.2.3 Subtask - Verify pointer, touch, wheel, keyboard, fragment, narrow, zoom, forced-colors, and no-CSS content access.
       - [x] 1.2.2.4 Subtask - Document sizing, focus naming, application-owned restoration and loading, exact fallback, and provenance.
 
-  - [ ] 1.3 Section - Phase 1 Integration Tests.
+  - [x] 1.3 Section - Phase 1 Integration Tests.
 
     This section verifies the first content primitives together as independently
     distributable, semantic, native-first HEEX components.
 
-    - [ ] 1.3.1 Task - Verify component rendering and shared contracts.
+    - [x] 1.3.1 Task - Verify component rendering and shared contracts.
 
       Package tests should prove closed values, protected semantics, safe content,
       deterministic output, and absence of application behavior.
 
-      - [ ] 1.3.1.1 Subtask - Test both Separator modes, orientations, globals, escaping boundaries, and invalid public values.
-      - [ ] 1.3.1.2 Subtask - Test Scroll Area axes, sizes, focus-name requirements, content slots, globals, and invalid public values.
-      - [ ] 1.3.1.3 Subtask - Audit component source for viewport observers, scroll handlers, custom controls, dynamic atoms, application dependencies, and package JavaScript.
-      - [ ] 1.3.1.4 Subtask - Add aggregate content-surface tests covering repeated renders, theme scopes, and BulmaUI coexistence.
+      - [x] 1.3.1.1 Subtask - Test both Separator modes, orientations, globals, escaping boundaries, and invalid public values.
+      - [x] 1.3.1.2 Subtask - Test Scroll Area axes, sizes, focus-name requirements, content slots, globals, and invalid public values.
+      - [x] 1.3.1.3 Subtask - Audit component source for viewport observers, scroll handlers, custom controls, dynamic atoms, application dependencies, and package JavaScript.
+      - [x] 1.3.1.4 Subtask - Add aggregate content-surface tests covering repeated renders, theme scopes, and BulmaUI coexistence.
 
-    - [ ] 1.3.2 Task - Verify CSS, package, and specification integration.
+    - [x] 1.3.2 Task - Verify CSS, package, and specification integration.
 
       The phase should leave reproducible assets and current documentation ready
       for later Accordion and navigation composition.
 
-      - [ ] 1.3.2.1 Subtask - Run locked asset build and byte comparison, prefix/reset audits, capability/fallback audits, and provenance validation.
-      - [ ] 1.3.2.2 Subtask - Run package precommit, focused no-CSS and forced-colors fixtures, ExDoc build, archive exclusion checks, and `git diff --check`.
-      - [ ] 1.3.2.3 Subtask - Run `mix spec.next --base main`, `mix spec.check --base main`, and confirm Phase 1 evidence covers every active requirement.
-      - [ ] 1.3.2.4 Subtask - Confirm no gallery routes or application behavior were added ahead of their planned phase.
+      - [x] 1.3.2.1 Subtask - Run locked asset build and byte comparison, prefix/reset audits, capability/fallback audits, and provenance validation.
+      - [x] 1.3.2.2 Subtask - Run package precommit, focused no-CSS and forced-colors fixtures, ExDoc build, archive exclusion checks, and `git diff --check`.
+      - [x] 1.3.2.3 Subtask - Run `mix spec.next --base main`, `mix spec.check --base main`, and confirm Phase 1 evidence covers every active requirement.
+      - [x] 1.3.2.4 Subtask - Confirm no gallery routes or application behavior were added ahead of their planned phase.

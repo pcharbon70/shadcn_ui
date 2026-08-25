@@ -3,7 +3,9 @@ defmodule ShadcnUI.Components.Content.ScrollAreaTest do
 
   alias Phoenix.HTML.Safe
 
-  # covers: shadcn_ui.content.scroll_area shadcn_ui.content.shared_contract
+  # covers: shadcn_ui.content.scroll_area shadcn_ui.content.scroll_focus
+  # covers: shadcn_ui.content.scroll_ownership shadcn_ui.content.edge_fallback
+  # covers: shadcn_ui.content.shared_contract
 
   defmodule Fixture do
     use Phoenix.Component

@@ -169,6 +169,23 @@ defmodule ShadcnUI.ProvenanceTest do
     assert label["localChanges"] =~ "protected HEEX relationship primitive"
   end
 
+  test "maps the first Milestone C content surfaces to exact reviewed sources" do
+    adaptations = manifest()["adaptations"]
+    separator = Enum.find(adaptations, &(&1["id"] == "content.separator"))
+    scroll_area = Enum.find(adaptations, &(&1["id"] == "content.scroll_area"))
+
+    assert separator["upstreamPaths"] == ["src/styles/global.css"]
+    assert separator["localChanges"] =~ "native HEEX hr contract"
+
+    assert scroll_area["upstreamPaths"] == [
+             "src/content/components/scroll-area.mdx",
+             "src/demos/scroll-area/basic.html"
+           ]
+
+    assert scroll_area["localChanges"] =~ "native HEEX scroll container"
+    assert scroll_area["localChanges"] =~ "without custom controls or scroll state"
+  end
+
   test "keeps upstream infrastructure out of dependencies and release files" do
     dependency_text = File.read!("mix.exs") <> File.read!("package.json")
     files = Mix.Project.config() |> Keyword.fetch!(:package) |> Keyword.fetch!(:files)
