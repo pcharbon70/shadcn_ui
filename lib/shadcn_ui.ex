@@ -19,6 +19,7 @@ defmodule ShadcnUI do
     ShadcnUI.Components.Foundation.Card,
     ShadcnUI.Components.Foundation.Skeleton,
     ShadcnUI.Components.Forms.Checkbox,
+    ShadcnUI.Components.Forms.EnhancedSelect,
     ShadcnUI.Components.Forms.ErrorSummary,
     ShadcnUI.Components.Forms.Field,
     ShadcnUI.Components.Forms.FieldErrors,

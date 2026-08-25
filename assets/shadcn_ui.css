@@ -210,6 +210,81 @@
   overflow: auto;
 }
 
+/*
+ * Enhanced Select starts here. Every enhancement-only selector and declaration
+ * stays inside one complete capability gate; the classic rules above remain
+ * the exact fallback when this block is ignored.
+ */
+@supports (appearance: base-select) and selector(::picker(select)) {
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple]),
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple])::picker(select) {
+    appearance: base-select;
+  }
+
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple]) > [data-shadcn-ui-select-button] {
+    all: unset;
+    display: contents;
+  }
+
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple]) selectedcontent {
+    min-inline-size: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple])::picker(select) {
+    max-block-size: min(20rem, 70vh);
+    margin-block-start: 0.25rem;
+    overflow: auto;
+    border: 1px solid var(--shadcn-ui-border);
+    border-radius: var(--shadcn-ui-radius-md);
+    padding: 0.25rem;
+    background: var(--shadcn-ui-popover);
+    color: var(--shadcn-ui-popover-foreground);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.16);
+  }
+
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple]) option {
+    min-block-size: 2.25rem;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: var(--shadcn-ui-radius-sm);
+    padding: 0.5rem 0.75rem;
+  }
+
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple]) option:checked {
+    background: var(--shadcn-ui-accent);
+    color: var(--shadcn-ui-accent-foreground);
+    font-weight: 600;
+  }
+
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple]) option:focus-visible {
+    outline: 2px solid var(--shadcn-ui-ring);
+    outline-offset: -2px;
+  }
+
+  [data-shadcn-ui-enhanced-select="true"]:not([multiple]) option:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  @media (forced-colors: active) {
+    [data-shadcn-ui-enhanced-select="true"]:not([multiple])::picker(select) {
+      border-color: CanvasText;
+      background: Canvas;
+      color: CanvasText;
+      box-shadow: none;
+    }
+
+    [data-shadcn-ui-enhanced-select="true"]:not([multiple]) option:checked {
+      outline: 1px solid Highlight;
+      background: Highlight;
+      color: HighlightText;
+    }
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-shadcn-ui],
   [data-shadcn-ui]::before,

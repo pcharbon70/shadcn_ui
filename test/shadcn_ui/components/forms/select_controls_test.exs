@@ -57,6 +57,51 @@ defmodule ShadcnUI.Components.Forms.SelectControlsTest do
       </.native_select>
       """
     end
+
+    attr(:field, :any, default: nil)
+    attr(:id, :string, default: nil)
+    attr(:name, :string, default: nil)
+    attr(:value, :any, default: {:shadcn_ui, :not_provided})
+    attr(:options, :list, required: true)
+    attr(:errors, :any, default: {:shadcn_ui, :not_provided})
+    attr(:error_mode, :atom, default: :used_input)
+    attr(:pending, :boolean, default: false)
+    attr(:required, :boolean, default: false)
+    attr(:disabled, :boolean, default: false)
+    attr(:multiple, :boolean, default: false)
+    attr(:size, :atom, default: :default)
+
+    def enhanced_fixture(assigns) do
+      ~H"""
+      <.enhanced_select
+        field={@field}
+        id={@id}
+        name={@name}
+        value={@value}
+        options={@options}
+        errors={@errors}
+        error_mode={@error_mode}
+        pending={@pending}
+        required={@required}
+        disabled={@disabled}
+        multiple={@multiple}
+        size={@size}
+        form="profile"
+        describedby="caller-help caller-help"
+        class="consumer-select"
+        field_class="consumer-field"
+        autofocus
+        role="listbox"
+        aria-label="Wrong label"
+        aria-invalid="false"
+        data-state="ready"
+        phx-change="caller-owned"
+      >
+        <:label>Country</:label>
+        <:help>Choose the country used for your account.</:help>
+      </.enhanced_select>
+      """
+    end
   end
 
   test "renders one classic native select with scalar selection" do
@@ -261,6 +306,122 @@ defmodule ShadcnUI.Components.Forms.SelectControlsTest do
     refute source =~ ~r/(String\.to_atom|handle_event|push_event|JS\.|<script|javascript:)/
   end
 
+  test "enhanced select adds only standards-based optional structure to one native control" do
+    html =
+      render_enhanced(
+        id: "profile_country",
+        name: "profile[country]",
+        value: "ca",
+        options: options(),
+        required: true
+      )
+
+    assert length(Regex.scan(~r/<select\b/, html)) == 1
+    assert html =~ ~s(data-shadcn-ui-enhanced-select="true")
+    assert html =~ ~s(<button data-shadcn-ui-select-button>)
+    assert html =~ ~s(<selectedcontent></selectedcontent>)
+    assert html =~ ~s(name="profile[country]")
+    assert html =~ ~s(value="ca" selected)
+    assert html =~ "Canada"
+    refute html =~ ~s(type="hidden")
+    refute html =~ ~r/role="(?:combobox|listbox|option)"/
+  end
+
+  test "enhanced and native APIs render identical names, values, options, and relationships" do
+    overrides = [
+      id: "country",
+      name: "profile[country]",
+      value: "fr",
+      options: options(),
+      errors: ["Choose again"],
+      error_mode: :always,
+      pending: true
+    ]
+
+    native = render_native(overrides)
+    enhanced = render_enhanced(overrides)
+
+    for fragment <- [
+          ~s(name="profile[country]"),
+          ~s(value="fr" selected),
+          ~s(aria-describedby="caller-help country-help country-error-1"),
+          ~s(aria-invalid="true"),
+          ~s(data-pending="true"),
+          "Choose a country",
+          "Europe &amp; neighbors",
+          "France &lt;Hexagon&gt;"
+        ] do
+      assert native =~ fragment
+      assert enhanced =~ fragment
+    end
+
+    assert Regex.scan(~r/<option\b[^>]*>/, native) == Regex.scan(~r/<option\b[^>]*>/, enhanced)
+
+    assert Regex.scan(~r/<optgroup\b[^>]*>/, native) ==
+             Regex.scan(~r/<optgroup\b[^>]*>/, enhanced)
+  end
+
+  test "enhanced multiple mode preserves the classic native list without selectedcontent" do
+    html =
+      render_enhanced(
+        id: "regions",
+        name: "profile[regions]",
+        value: ["ca", "fr"],
+        options: options(),
+        multiple: true
+      )
+
+    assert html =~ ~s(name="profile[regions][]")
+    assert html =~ " multiple"
+    assert length(Regex.scan(~r/ selected/, html)) == 2
+    refute html =~ "selectedcontent"
+    refute html =~ "data-shadcn-ui-select-button"
+  end
+
+  test "gates every enhanced selector and preserves classic visible CSS before the gate" do
+    css = File.read!("assets/shadcn_ui.css")
+    marker = "@supports (appearance: base-select) and selector(::picker(select)) {"
+    [fallback, enhanced] = String.split(css, marker, parts: 2)
+
+    assert fallback =~ "[data-shadcn-ui-select]"
+    assert fallback =~ "appearance: auto"
+    refute fallback =~ "[data-shadcn-ui-enhanced-select"
+    refute fallback =~ "::picker(select)"
+    refute fallback =~ "selectedcontent"
+
+    assert enhanced =~ ~s([data-shadcn-ui-enhanced-select="true"])
+    assert enhanced =~ "appearance: base-select"
+    assert enhanced =~ "::picker(select)"
+    assert enhanced =~ "selectedcontent"
+    assert enhanced =~ "option:checked"
+    assert enhanced =~ "option:disabled"
+    assert enhanced =~ "option:focus-visible"
+    assert enhanced =~ "@media (forced-colors: active)"
+
+    refute css =~ ~r/\[data-shadcn-ui-enhanced-select[^}]*display:\s*none/s
+    refute css =~ ~r/\[data-shadcn-ui-select[^}]*visibility:\s*hidden/s
+  end
+
+  test "enhanced API exposes no custom popup, filter, focus, or value state" do
+    metadata = ShadcnUI.Components.Forms.EnhancedSelect.__components__().enhanced_select
+
+    refute Enum.any?(metadata.attrs, fn attr ->
+             attr.name in [
+               :open,
+               :active_option,
+               :query,
+               :filter,
+               :fetch,
+               :on_select,
+               :on_open,
+               :popup_id
+             ]
+           end)
+
+    source = File.read!("lib/shadcn_ui/components/forms/enhanced_select.ex")
+    refute source =~ ~r/(handle_event|push_event|JS\.|<script|javascript:|role=)/
+  end
+
   defp render_native(overrides) do
     %{
       field: nil,
@@ -279,6 +440,28 @@ defmodule ShadcnUI.Components.Forms.SelectControlsTest do
     }
     |> Map.merge(Map.new(overrides))
     |> Fixture.native_fixture()
+    |> Safe.to_iodata()
+    |> IO.iodata_to_binary()
+  end
+
+  defp render_enhanced(overrides) do
+    %{
+      field: nil,
+      id: nil,
+      name: nil,
+      value: {:shadcn_ui, :not_provided},
+      options: options(),
+      errors: {:shadcn_ui, :not_provided},
+      error_mode: :used_input,
+      pending: false,
+      required: false,
+      disabled: false,
+      multiple: false,
+      size: :default,
+      __changed__: nil
+    }
+    |> Map.merge(Map.new(overrides))
+    |> Fixture.enhanced_fixture()
     |> Safe.to_iodata()
     |> IO.iodata_to_binary()
   end

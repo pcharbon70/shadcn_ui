@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 4.1.2.3 Subtask - Render escaped option and optgroup markup with native option-local disabled state and no combobox or listbox roles.
       - [x] 4.1.2.4 Subtask - Add closed size, invalid, pending, and theme presentation without hiding the platform picker or replacing native focus.
 
-  - [ ] 4.2 Section - Enhanced Select capability boundary.
+  - [x] 4.2 Section - Enhanced Select capability boundary.
 
     This section adds a richer presentation only when the browser proves the
     complete platform capability, leaving classic select CSS as the default path.
 
-    - [ ] 4.2.1 Task - Implement Enhanced Select over one native control.
+    - [x] 4.2.1 Task - Implement Enhanced Select over one native control.
 
       The enhanced API should deliberately opt into supported customizable-select
       structure while preserving Native Select's identity and option contract.
 
-      - [ ] 4.2.1.1 Subtask - Reuse Native Select normalization, options, selected values, name, help, errors, disabled state, and submission semantics.
-      - [ ] 4.2.1.2 Subtask - Render only standards-based enhancement structure that unsupported parsers safely ignore while retaining all option text.
-      - [ ] 4.2.1.3 Subtask - Render no mirrored hidden control, custom listbox, popup state, event handler, focus manager, filter, fetcher, or polyfill.
-      - [ ] 4.2.1.4 Subtask - Keep Native Select as a separate recommended public API and document migration between the two presentations.
+      - [x] 4.2.1.1 Subtask - Reuse Native Select normalization, options, selected values, name, help, errors, disabled state, and submission semantics.
+      - [x] 4.2.1.2 Subtask - Render only standards-based enhancement structure that unsupported parsers safely ignore while retaining all option text.
+      - [x] 4.2.1.3 Subtask - Render no mirrored hidden control, custom listbox, popup state, event handler, focus manager, filter, fetcher, or polyfill.
+      - [x] 4.2.1.4 Subtask - Keep Native Select as a separate recommended public API and document migration between the two presentations.
 
-    - [ ] 4.2.2 Task - Implement and audit capability-gated CSS.
+    - [x] 4.2.2 Task - Implement and audit capability-gated CSS.
 
       Enhancement styling must never escape its feature gate or become required
       for visibility, operation, focus, or submission.
 
-      - [ ] 4.2.2.1 Subtask - Author classic visible select styling outside feature queries as the universal fallback.
-      - [ ] 4.2.2.2 Subtask - Gate every customizable-select selector and property behind queries for the complete required capability set.
-      - [ ] 4.2.2.3 Subtask - Style picker, selected content, options, focus, checked, disabled, invalid, themes, and forced colors without replacing native state.
-      - [ ] 4.2.2.4 Subtask - Add a CSS audit that fails for enhancement selectors outside the gate, hidden fallback controls, or duplicated value mechanisms.
+      - [x] 4.2.2.1 Subtask - Author classic visible select styling outside feature queries as the universal fallback.
+      - [x] 4.2.2.2 Subtask - Gate every customizable-select selector and property behind queries for the complete required capability set.
+      - [x] 4.2.2.3 Subtask - Style picker, selected content, options, focus, checked, disabled, invalid, themes, and forced colors without replacing native state.
+      - [x] 4.2.2.4 Subtask - Add a CSS audit that fails for enhancement selectors outside the gate, hidden fallback controls, or duplicated value mechanisms.
 
   - [ ] 4.3 Section - Phase 4 Integration Tests.
 

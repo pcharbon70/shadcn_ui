@@ -81,6 +81,12 @@
       "localChanges": "Adapt native select presentation into validated HEEX option and optgroup data with deterministic field relationships and ordinary browser submission."
     },
     {
+      "id": "forms.enhanced_select",
+      "localPaths": ["lib/shadcn_ui/components/forms/enhanced_select.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/select.mdx", "src/demos/select/custom.html"],
+      "localChanges": "Adapt the standards-based customizable-select structure and presentation into a capability-gated HEEX API over the exact visible native fallback."
+    },
+    {
       "id": "forms.textarea",
       "localPaths": ["lib/shadcn_ui/components/forms/textarea.ex"],
       "upstreamPaths": ["src/content/components/textarea.mdx", "src/demos/textarea/basic.html"],

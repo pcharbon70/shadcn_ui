@@ -92,6 +92,7 @@ defmodule ShadcnUI.MixProject do
         ],
         "Form components": [
           ShadcnUI.Components.Forms.Checkbox,
+          ShadcnUI.Components.Forms.EnhancedSelect,
           ShadcnUI.Components.Forms.ErrorSummary,
           ShadcnUI.Components.Forms.Field,
           ShadcnUI.Components.Forms.FieldErrors,

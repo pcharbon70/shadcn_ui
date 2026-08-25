@@ -392,6 +392,34 @@ name to one `[]` suffix so the browser submits repeated values. The component
 adds no combobox/listbox roles, hidden mirror, option callback, parsing, event
 handler, or package-owned selection state.
 
+### Enhanced Select
+
+Enhanced Select is a deliberate opt-in presentation of the same one native
+`select`. It accepts the same identity, FormField, option, selected-value,
+multiple, disabled, help, error, and form attributes as Native Select.
+
+```heex
+<.enhanced_select field={@form[:country]} options={@country_options}>
+  <:label>Country</:label>
+  <:help>Uses the enhanced picker only when the browser supports it.</:help>
+</.enhanced_select>
+```
+
+For a single select, the markup includes the standards-based first-child
+`button` and empty `selectedcontent` structure. Every enhanced picker selector
+and `appearance: base-select` declaration is contained in one complete CSS
+capability query. Browsers that do not support that query ignore the optional
+structure and keep the same classic visible, focusable, operable select and all
+of its option text. Multiple selection intentionally retains its native list
+presentation because `selectedcontent` represents only one selected option.
+
+Use Native Select as the recommended default when a classic platform picker is
+the desired presentation. Migrating between the APIs changes only the HEEX
+function name; values, names, options, errors, accessibility relationships,
+reset, and submitted parameters remain identical. Enhanced Select adds no
+hidden mirror, custom combobox/listbox role, filtering, remote loading, event
+handler, focus manager, popup state, polyfill, or JavaScript runtime.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in
