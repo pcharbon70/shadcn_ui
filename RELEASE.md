@@ -1,7 +1,8 @@
 # Internal release process
 
-Milestone A produces an internal `0.1.0` candidate. It does not authorize or
-perform publication to Hex.
+Milestones A and B produce an internal `0.1.0` candidate containing Foundation
+and native Forms components. This process does not authorize or perform
+publication to Hex.
 
 ## Candidate verification
 
@@ -21,3 +22,8 @@ repository verification inputs and are not package contents.
 
 Gallery publication and rollback are independent of the package candidate and
 are documented in `demo/DEPLOYMENT.md`.
+
+For a Milestone B rollback, revert the reviewed Milestone B commits and rerun
+the complete candidate verification. Never edit an archive or the deployed
+gallery artifact in place. The package and gallery may be rolled back
+independently because the demo is excluded from package contents.

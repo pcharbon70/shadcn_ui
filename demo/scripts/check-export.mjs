@@ -11,7 +11,7 @@ for (const entry of manifest.routes) {
   const hash = createHash("sha256").update(content).digest("hex");
   if (hash !== entry.sha256) throw new Error(`stale route hash: ${entry.file}`);
   const html = content.toString("utf8");
-  if (!html.includes("<main") || !html.includes("Component navigation")) throw new Error(`missing landmarks: ${entry.file}`);
+  if (!html.includes("<main") || (!html.includes("Component navigation") && !html.includes("data-demo-form"))) throw new Error(`missing landmarks: ${entry.file}`);
   if (/(?:src|href)="https?:\/\//i.test(html)) throw new Error(`remote runtime URL: ${entry.file}`);
 }
 

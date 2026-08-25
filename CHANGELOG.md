@@ -4,6 +4,10 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Complete Milestone B with the closed Forms gallery, 15 focused component
+  pages, sign-in/profile/settings compositions, a harmless native-submission
+  fixture, static fallback evidence, provenance, and milestone acceptance.
+
 - Initialize the independent Mix package and SpecLed workspace.
 - Define Milestones A through F for the component library and online gallery.
 - Establish the transport-neutral public import and release-file boundary.

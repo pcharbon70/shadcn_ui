@@ -59,30 +59,30 @@ Back to wave: [README](./README.md)
       - [x] 6.2.2.3 Subtask - Preserve Phoenix CSRF for source pages while keeping static-export pages explicitly non-submitting or directed to documented local demonstration behavior.
       - [x] 6.2.2.4 Subtask - Add controller tests rejecting unexpected reflection, executable data, persistence, authentication, authorization, and stateful side effects.
 
-  - [ ] 6.3 Section - Public documentation, fallback evidence, and provenance.
+  - [x] 6.3 Section - Public documentation, fallback evidence, and provenance.
 
     This section aligns package docs and upstream evidence with the full released
     form catalogue and gives consumers an honest browser support story.
 
-    - [ ] 6.3.1 Task - Publish form API and ownership documentation.
+    - [x] 6.3.1 Task - Publish form API and ownership documentation.
 
       README and ExDoc should make the shared rules easy to apply without reading
       implementation code or assuming familiar-looking controls own behavior.
 
-      - [ ] 6.3.1.1 Subtask - Document FormField and explicit precedence, identity requirements, error visibility, translation, pending state, protected globals, and native submission.
-      - [ ] 6.3.1.2 Subtask - Document every component API, option structure, state, constraint, semantic token, HEEX example, and excluded behavior.
-      - [ ] 6.3.1.3 Subtask - Document capability-based Textarea and Enhanced Select activation with exact fixed-textarea and classic-select fallback examples.
-      - [ ] 6.3.1.4 Subtask - Document server validation and authorization as mandatory regardless of browser constraints or visual invalid state.
+      - [x] 6.3.1.1 Subtask - Document FormField and explicit precedence, identity requirements, error visibility, translation, pending state, protected globals, and native submission.
+      - [x] 6.3.1.2 Subtask - Document every component API, option structure, state, constraint, semantic token, HEEX example, and excluded behavior.
+      - [x] 6.3.1.3 Subtask - Document capability-based Textarea and Enhanced Select activation with exact fixed-textarea and classic-select fallback examples.
+      - [x] 6.3.1.4 Subtask - Document server validation and authorization as mandatory regardless of browser constraints or visual invalid state.
 
-    - [ ] 6.3.2 Task - Complete provenance and release evidence.
+    - [x] 6.3.2 Task - Complete provenance and release evidence.
 
       Every substantially adapted form component and CSS block should remain
       traceable to the reviewed upstream revision and absent from automatic sync.
 
-      - [ ] 6.3.2.1 Subtask - Extend the provenance manifest with all Milestone B component and CSS source mappings and local-change summaries.
-      - [ ] 6.3.2.2 Subtask - Verify the pinned upstream revision, complete MIT notice, independent-project wording, and exclusion of upstream site assets.
-      - [ ] 6.3.2.3 Subtask - Rebuild the package archive and static gallery export and verify form source, tests, demo files, credentials, and mutable output remain excluded.
-      - [ ] 6.3.2.4 Subtask - Update changelog, package catalogue, online URL, static smoke inventory, and documented rollback steps for Milestone B.
+      - [x] 6.3.2.1 Subtask - Extend the provenance manifest with all Milestone B component and CSS source mappings and local-change summaries.
+      - [x] 6.3.2.2 Subtask - Verify the pinned upstream revision, complete MIT notice, independent-project wording, and exclusion of upstream site assets.
+      - [x] 6.3.2.3 Subtask - Rebuild the package archive and static gallery export and verify form source, tests, demo files, credentials, and mutable output remain excluded.
+      - [x] 6.3.2.4 Subtask - Update changelog, package catalogue, online URL, static smoke inventory, and documented rollback steps for Milestone B.
 
   - [ ] 6.4 Section - Phase 6 Integration Tests.
 

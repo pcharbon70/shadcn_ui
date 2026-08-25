@@ -17,6 +17,12 @@ Visit <http://localhost:4000/>. The package CSS and gallery shell assets are
 local and fingerprinted. No remote font, image, script, analytics, or runtime
 resource is required.
 
+The Forms category contains 15 component pages plus complete sign-in, profile,
+and settings compositions. In the local controller demo those forms submit only
+to an allowlisted inspection endpoint that escapes and displays received values;
+it performs no authentication, persistence, authorization, or domain operation.
+Static exports render the same compositions with submission disabled.
+
 ## Verification and export
 
 ```console

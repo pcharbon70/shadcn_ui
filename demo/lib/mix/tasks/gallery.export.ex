@@ -75,6 +75,7 @@ defmodule Mix.Tasks.Gallery.Export do
     prefix = String.duplicate("../", depth)
 
     html
+    |> then(&Regex.replace(~r/(<meta name="csrf-token" content=")[^"]+("\s*\/?>)/, &1, "\\1static-export\\2"))
     |> String.replace(~s(href="/), ~s(href="#{prefix}))
     |> String.replace(~s(src="/), ~s(src="#{prefix}))
   end

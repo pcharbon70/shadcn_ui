@@ -12,9 +12,9 @@ Ash, or Electron capabilities.
 ShadcnUI is an independent Phoenix adaptation. It is not an official shadcn/ui
 or unscripted/ui project and is not endorsed by either project.
 
-Milestone A is establishing the package boundary, stylesheet, foundation
-components, and gallery. See [`.spec/milestones`](./.spec/milestones/README.md)
-for the roadmap.
+Milestones A and B establish the package boundary, stylesheet, Foundation and
+native Forms catalogues, gallery, and acceptance evidence. See
+[`.spec/milestones`](./.spec/milestones/README.md) for the roadmap.
 
 The canonical gallery is
 <https://leco-industries-inc.github.io/leco_apps/shadcn-ui/>. It is a separate
@@ -473,6 +473,57 @@ and `optimum` numbers after validating their required ordering.
 The browser determines the native threshold zone from those values. ShadcnUI
 does not measure the domain, decide thresholds, poll, announce, or own a
 lifecycle.
+
+## Milestone B form contract reference
+
+Every field-capable control accepts either a `Phoenix.HTML.FormField` or an
+explicit nonblank `id` and `name`. Explicit `id`, `name`, `value`, and `errors`
+take precedence when supplied. Error visibility is selected with
+`:used_input`, `:always`, or `:hidden`; FormField error tuples may be translated
+by a caller-supplied one-argument function. `pending` is presentation only and
+never disables, submits, validates, focuses, or prevents duplicate work.
+
+The shared contract protects native type and identity plus required label,
+legend, `aria-describedby`, and `aria-invalid` relationships from conflicting
+global attributes. Applications may still pass non-conflicting native,
+`aria-*`, `data-*`, `phx-*`, and `data-on-*` attributes. Ordinary browser form
+submission remains the value transport; ShadcnUI creates no changeset, request,
+event, hidden value mirror, or client state model.
+
+| Component | Native/API contract | Caller-owned or deliberately excluded |
+| --- | --- | --- |
+| Field, Label, Help, Field Errors | One labelled control with deterministic help and repeated-error IDs | Translation, validation timing, focus, and announcements |
+| Error Summary | Escaped form strings and optional ordinary fragment links | Focus, scrolling, alert role, and navigation policy |
+| Input | Closed text-like types, native autocomplete and constraints, optional leading/trailing presentation | Parsing, password reveal, counters, validation, and submission lifecycle |
+| Textarea | Native rows and length constraints; closed resize policy; fixed or CSS content sizing | Measurement and JavaScript auto-grow |
+| Checkbox | Boolean sentinel or repeated-value mode with native checked and disabled states | Checked-state transitions and domain meaning |
+| Radio Group | Stable-key options in one native fieldset and scalar submitted value | Selection state, readonly fiction, and option fetching |
+| Switch | Native boolean Checkbox contract with track-and-thumb presentation | A second switch role or state model |
+| Native Select | Stable options and one-level optgroups; scalar or repeated-value mode | Prompt policy, filtering, remote loading, and custom popup state |
+| Enhanced Select | The same native select contract behind a complete capability query | Polyfills, hidden mirrors, filtering, and focus management |
+| Slider | Native range value with `min`, `max`, `step`, reset, keyboard, pointer, and form behavior | Domain parsing, drag state, synchronized output, and announcements |
+| Progress | Positive `max`; omitted `value` is indeterminate; closed size and presentation | Polling, estimation, completion events, and request lifecycle |
+| Meter | Validated `min`, `max`, `low`, `high`, and `optimum` scalar measurement | Task-progress meaning, measurement, and threshold decisions |
+
+Textarea `sizing={:content}` activates only under `@supports (field-sizing:
+content)`; otherwise the same control keeps its fixed native minimum height and
+resize policy. Enhanced Select activates only when both `appearance:
+base-select` and `::picker(select)` are supported; otherwise the same visible,
+focusable classic select, options, name, value, reset, and submission remain.
+Disabling CSS leaves the underlying native controls and authored content in
+document order.
+
+Browser constraints and visual invalid state are usability aids, never a trust
+boundary. Every server operation must parse, validate, authenticate where
+required, authorize, and safely handle submitted values regardless of what the
+browser displayed. Datastar, LiveView, controller, Ash, or other consumers own
+that policy outside this package.
+
+Semantic presentation uses the documented `--shadcn-ui-*` token family for
+background, foreground, card, popover, primary, secondary, muted, accent,
+destructive, border, input, ring, radii, and motion. Override tokens in a
+narrow theme scope; do not infer permissions, validity, completion, or domain
+status from their colors.
 
 ## Upstream provenance
 
