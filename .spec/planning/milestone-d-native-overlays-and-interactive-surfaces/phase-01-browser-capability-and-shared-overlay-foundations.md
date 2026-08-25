@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 1 Phase - Establish the reusable browser-capability contract and shared
+- [x] 1 Phase - Establish the reusable browser-capability contract and shared
   native overlay rules before publishing any concrete overlay component.
 
   This phase converts variable web-platform support into explicit testable
@@ -59,27 +59,27 @@ Back to wave: [README](./README.md)
       - [x] 1.2.2.3 Subtask - Bound nesting to one native Popover inside a Dialog-family surface and reject nested modals, arbitrary stacks, submenus, and virtual anchors.
       - [x] 1.2.2.4 Subtask - Add shared capability-gated CSS foundations for backdrops, top-layer sizing, anchor fallbacks, discrete transitions, reduced motion, forced colors, and safe bounded placement.
 
-  - [ ] 1.3 Section - Phase 1 Integration Tests.
+  - [x] 1.3 Section - Phase 1 Integration Tests.
 
     This section verifies that later overlay components can rely on one honest,
     transport-neutral, cross-engine foundation without runtime expansion.
 
-    - [ ] 1.3.1 Task - Verify capability and shared-contract evidence.
+    - [x] 1.3.1 Task - Verify capability and shared-contract evidence.
 
       Automated checks should prove the matrix, normalization, protected
       semantics, fallback rules, and cross-engine harness agree.
 
-      - [ ] 1.3.1.1 Subtask - Test every accepted and rejected capability-manifest value, source field, review date, engine evidence field, and component capability mapping.
-      - [ ] 1.3.1.2 Subtask - Test deterministic identity, invalid values, conflicting globals, escaping, caller classes, native command and Popover relationships, and stable rerenders.
-      - [ ] 1.3.1.3 Subtask - Exercise supported and deliberately disabled-feature fixtures in locked Chromium, Firefox, and WebKit projects without browser-name branching.
-      - [ ] 1.3.1.4 Subtask - Test replacement, explicit fallback destination, CSS-disabled, no-script, nested Popover, rejected nested modal, and absent-transition behavior.
+      - [x] 1.3.1.1 Subtask - Test every accepted and rejected capability-manifest value, source field, review date, engine evidence field, and component capability mapping.
+      - [x] 1.3.1.2 Subtask - Test deterministic identity, invalid values, conflicting globals, escaping, caller classes, native command and Popover relationships, and stable rerenders.
+      - [x] 1.3.1.3 Subtask - Exercise supported and deliberately disabled-feature fixtures in locked Chromium, Firefox, and WebKit projects without browser-name branching.
+      - [x] 1.3.1.4 Subtask - Test replacement, explicit fallback destination, CSS-disabled, no-script, nested Popover, rejected nested modal, and absent-transition behavior.
 
-    - [ ] 1.3.2 Task - Verify package, stylesheet, and release boundaries.
+    - [x] 1.3.2 Task - Verify package, stylesheet, and release boundaries.
 
       The first phase should fail early if overlay foundations leak test or
       compatibility machinery into the independently distributable package.
 
-      - [ ] 1.3.2.1 Subtask - Audit runtime dependencies and release allowlists for demo, browser harness, scripts, capability reports, remote assets, and JavaScript exclusions.
-      - [ ] 1.3.2.2 Subtask - Rebuild the canonical CSS and verify prefixes, explicit sources, capability queries, deterministic bytes, no unrestricted reset, and no remote imports.
-      - [ ] 1.3.2.3 Subtask - Run package precommit, locked asset checks, focused cross-engine tests, ExDoc, provenance and archive audits.
-      - [ ] 1.3.2.4 Subtask - Run `mix spec.check --base main`, `git diff --check`, and record Phase 1 capability and package-boundary evidence.
+      - [x] 1.3.2.1 Subtask - Audit runtime dependencies and release allowlists for demo, browser harness, scripts, capability reports, remote assets, and JavaScript exclusions.
+      - [x] 1.3.2.2 Subtask - Rebuild the canonical CSS and verify prefixes, explicit sources, capability queries, deterministic bytes, no unrestricted reset, and no remote imports.
+      - [x] 1.3.2.3 Subtask - Run package precommit, locked asset checks, focused cross-engine tests, ExDoc, provenance and archive audits.
+      - [x] 1.3.2.4 Subtask - Run `mix spec.check --base main`, `git diff --check`, and record Phase 1 capability and package-boundary evidence.

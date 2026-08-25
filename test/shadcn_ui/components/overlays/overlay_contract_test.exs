@@ -1,5 +1,7 @@
 defmodule ShadcnUI.Components.Overlays.OverlayContractTest do
-  use ExUnit.Case, async: true
+  # Atom-count rejection evidence must run after asynchronous test modules have
+  # finished loading, otherwise unrelated module compilation can change it.
+  use ExUnit.Case, async: false
 
   alias ShadcnUI.Components.Overlays.OverlayContract
 

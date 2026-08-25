@@ -22,6 +22,7 @@ surface:
   - CHANGELOG.md
   - THIRD_PARTY_NOTICES.md
   - test/shadcn_ui/package_test.exs
+  - test/shadcn_ui/release_readiness_test.exs
   - test/shadcn_ui/milestone_a_acceptance_test.exs
 ```
 

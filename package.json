@@ -10,6 +10,7 @@
     "browser:navigation": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.navigation.config.mjs",
     "browser:phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.phase4.config.mjs",
     "browser:milestone-c": "npm --prefix demo run browser:milestone-c",
+    "browser:milestone-d-phase1": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-d-phase1.config.mjs",
     "gallery:smoke": "npm --prefix demo run export:determinism"
   },
   "devDependencies": {
