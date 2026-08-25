@@ -23,6 +23,13 @@ to an allowlisted inspection endpoint that escapes and displays received values;
 it performs no authentication, persistence, authorization, or domain operation.
 Static exports render the same compositions with submission disabled.
 
+Milestone C adds Disclosure, Navigation, and Content Surfaces categories with
+dedicated Accordion, Navigation Menu, Header, Section Header, Scroll Area,
+Separator, and Radio Panels pages. The documentation, settings, and application-
+shell example routes compose Milestones A through C from deterministic caller
+fixtures. They add no persistence, authentication, authorization, route
+inference, domain operation, or package-owned client state.
+
 ## Verification and export
 
 ```console

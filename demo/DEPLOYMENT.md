@@ -15,7 +15,8 @@
 Repository administrators must enable GitHub Pages with GitHub Actions as its
 source and protect the `github-pages` environment before the first deployment.
 The workflow builds and verifies the exact static artifact, including every
-Foundation and Forms route, all three non-submitting compositions, and the
+Foundation, Forms, Disclosure, Navigation, and Content Surfaces route, all
+controller-rendered form and Milestone C compositions, and the
 generated sitemap before deployment and
 uploads it as the repository site's exact root artifact without modifying its
 contents. It then smoke-tests the canonical HTTPS routes and all three local

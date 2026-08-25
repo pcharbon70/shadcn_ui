@@ -4,6 +4,15 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Complete Milestone C with native Accordion, destination Navigation Menu,
+  Header and Section Header compositions, Scroll Area, Separator, and honestly
+  named Radio Panels with progressive CSS fallbacks and no package JavaScript.
+- Add Disclosure, Navigation, and Content Surfaces gallery categories, seven
+  component reference pages, and controller-rendered documentation, settings,
+  and application-shell compositions to the deterministic static export.
+- Add Milestone C semantic comparison guidance, pinned provenance mappings,
+  browser fallback coverage, and independently distributable candidate evidence.
+
 - Complete Milestone B with the closed Forms gallery, 15 focused component
   pages, sign-in/profile/settings compositions, a harmless native-submission
   fixture, static fallback evidence, provenance, and milestone acceptance.

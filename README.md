@@ -12,8 +12,9 @@ Ash, or Electron capabilities.
 ShadcnUI is an independent Phoenix adaptation. It is not an official shadcn/ui
 or unscripted/ui project and is not endorsed by either project.
 
-Milestones A and B establish the package boundary, stylesheet, Foundation and
-native Forms catalogues, gallery, and acceptance evidence. See
+Milestones A through C establish the package boundary, stylesheet, Foundation,
+native Forms, Disclosure, Navigation, and Content Surfaces catalogues, gallery,
+and acceptance evidence. See
 [`.spec/milestones`](./.spec/milestones/README.md) for the roadmap.
 
 The canonical gallery is
@@ -407,6 +408,29 @@ CSS, or without JavaScript, every panel remains visible and readable in source
 order beside its native radio and label. Long content wraps; forced colors keeps
 the checked option distinguishable without relying on color alone. Applications
 must avoid invalid nested forms and own all form boundaries.
+
+### Choosing navigation and interaction semantics
+
+| Surface | Native meaning | Use it for | Deliberately excluded |
+| --- | --- | --- | --- |
+| Navigation Menu | Named `nav`, list, and anchors | Changing destination | Commands, popup menus, route inference |
+| Button | Native `button` | Caller-owned commands and submission | Destinations, authorization, outcomes |
+| Radio Panels | Fieldset and native radios | Selecting one submitted value with related content | Tab roles, roving focus, history |
+| True tabs | Deferred composite widget | A future in-page tab interface | Not published in Milestone C |
+| Menus and menubars | Deferred composite widgets | A future command or application-menu interface | Not represented by ordinary links |
+
+Use semantics according to the operation, not visual similarity. Links change
+destination, buttons invoke caller-owned actions, and Radio Panels submit a
+native form choice. True tabs, popup menus, command palettes, trees, interactive
+grids, overlays, and application-specific sidebars remain deferred until their
+complete keyboard, focus, state, and runtime contracts are accepted.
+
+Milestone C requires no package JavaScript. With no CSS, disclosure remains
+native, navigation remains linked, headers return to normal flow, scroll content
+remains in document order, separators retain their HTML meaning, and every Radio
+Panels panel is visible. Unsupported optional features degrade the same way.
+Reduced motion removes nonessential transitions; forced colors preserves native
+controls and explicit boundaries; light and dark themes change tokens only.
 
 ### Form field composition
 

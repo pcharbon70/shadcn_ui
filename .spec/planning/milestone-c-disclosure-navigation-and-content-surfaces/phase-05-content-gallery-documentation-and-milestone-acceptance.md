@@ -60,30 +60,30 @@ Back to wave: [README](./README.md)
       - [x] 5.2.2.3 Subtask - Expose supported and fallback states deterministically without browser-name sniffing, viewport-derived application state, or demo shims labeled as package behavior.
       - [x] 5.2.2.4 Subtask - Verify static export preserves all content, destinations, landmarks, source examples, and non-submitting caller-owned form fixtures.
 
-  - [ ] 5.3 Section - Public documentation, provenance, and release evidence.
+  - [x] 5.3 Section - Public documentation, provenance, and release evidence.
 
     This section aligns README, ExDoc, upstream traceability, and release
     guidance with the complete Milestone C public surface.
 
-    - [ ] 5.3.1 Task - Publish component APIs and ownership boundaries.
+    - [x] 5.3.1 Task - Publish component APIs and ownership boundaries.
 
       Consumers should be able to select and compose components without reading
       implementation code or assuming familiar visual patterns own behavior.
 
-      - [ ] 5.3.1.1 Subtask - Document every new API, slot, closed value, identity rule, protected global, native behavior, semantic token, and HEEX example.
-      - [ ] 5.3.1.2 Subtask - Document disclosure, destination, current-location, landmark, heading, scroll, sticky, radio selection, form submission, and fallback ownership.
-      - [ ] 5.3.1.3 Subtask - Publish an explicit comparison table for Navigation Menu, Button actions, Radio Panels, true tabs, menus, and deferred composite widgets.
-      - [ ] 5.3.1.4 Subtask - Document exact no-CSS, unsupported-feature, no-script, reduced-motion, forced-colors, and normal-flow behavior.
+      - [x] 5.3.1.1 Subtask - Document every new API, slot, closed value, identity rule, protected global, native behavior, semantic token, and HEEX example.
+      - [x] 5.3.1.2 Subtask - Document disclosure, destination, current-location, landmark, heading, scroll, sticky, radio selection, form submission, and fallback ownership.
+      - [x] 5.3.1.3 Subtask - Publish an explicit comparison table for Navigation Menu, Button actions, Radio Panels, true tabs, menus, and deferred composite widgets.
+      - [x] 5.3.1.4 Subtask - Document exact no-CSS, unsupported-feature, no-script, reduced-motion, forced-colors, and normal-flow behavior.
 
-    - [ ] 5.3.2 Task - Complete provenance and candidate-release evidence.
+    - [x] 5.3.2 Task - Complete provenance and candidate-release evidence.
 
       Every adapted component and CSS block should remain traceable and excluded
       demo material should stay outside the independently distributable package.
 
-      - [ ] 5.3.2.1 Subtask - Extend the provenance manifest with every Milestone C component and CSS mapping, pinned source path, revision, and local-change summary.
-      - [ ] 5.3.2.2 Subtask - Verify the MIT notice, independent-project wording, absence of automatic upstream synchronization, and exclusion of upstream site assets.
-      - [ ] 5.3.2.3 Subtask - Rebuild ExDoc, package assets, the release archive, gallery assets, and static export and audit their exact allowlists.
-      - [ ] 5.3.2.4 Subtask - Update changelog, package catalogue, canonical gallery URL, deployment smoke inventory, rollback guidance, and Milestone C acceptance record.
+      - [x] 5.3.2.1 Subtask - Extend the provenance manifest with every Milestone C component and CSS mapping, pinned source path, revision, and local-change summary.
+      - [x] 5.3.2.2 Subtask - Verify the MIT notice, independent-project wording, absence of automatic upstream synchronization, and exclusion of upstream site assets.
+      - [x] 5.3.2.3 Subtask - Rebuild ExDoc, package assets, the release archive, gallery assets, and static export and audit their exact allowlists.
+      - [x] 5.3.2.4 Subtask - Update changelog, package catalogue, canonical gallery URL, deployment smoke inventory, rollback guidance, and Milestone C acceptance record.
 
   - [ ] 5.4 Section - Phase 5 Integration Tests.
 
