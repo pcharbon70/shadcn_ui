@@ -12,6 +12,7 @@ defmodule ShadcnUI do
   """
 
   @component_modules [
+    ShadcnUI.Components.Content.Separator,
     ShadcnUI.Components.Foundation.Alert,
     ShadcnUI.Components.Foundation.Avatar,
     ShadcnUI.Components.Foundation.Badge,

@@ -82,6 +82,9 @@ defmodule ShadcnUI.MixProject do
       source_ref: "main",
       extras: ["README.md", "CHANGELOG.md", "THIRD_PARTY_NOTICES.md", "RELEASE.md"],
       groups_for_modules: [
+        "Content components": [
+          ShadcnUI.Components.Content.Separator
+        ],
         "Foundation components": [
           ShadcnUI.Components.Foundation.Alert,
           ShadcnUI.Components.Foundation.Avatar,

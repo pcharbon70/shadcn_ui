@@ -205,6 +205,26 @@ a static block when reduced motion is requested.
 The caller labels meaningful loading regions and owns loading detection,
 announcements, errors, replacement timing, and final content layout.
 
+## Milestone C content surfaces
+
+### Separator
+
+Use semantic mode when the boundary separates topics or regions in the document.
+It renders a native `hr`. Select decorative mode only when the line is visual;
+that mode renders a nonsemantic element with protected `aria-hidden="true"`.
+
+```heex
+<.separator />
+<.separator orientation={:vertical} mode={:decorative} class="consumer-divider" />
+```
+
+`mode` accepts `:semantic` and `:decorative`; `orientation` accepts
+`:horizontal` and `:vertical`. Orientation changes presentation but does not
+decide whether the boundary has meaning. Applications own that semantic choice,
+the surrounding landmarks and headings, and any responsive layout. The package
+uses the scoped border token in light and dark themes, remains visible in forced
+colors, and leaves ordinary document content intact without CSS.
+
 ### Form field composition
 
 Milestone B form primitives share one deterministic relationship contract.

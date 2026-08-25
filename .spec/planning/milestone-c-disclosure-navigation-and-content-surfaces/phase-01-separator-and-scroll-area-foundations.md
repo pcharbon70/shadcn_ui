@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   structural meaning explicit, while Scroll Area adds bounded native overflow
   without introducing viewport observation, custom scroll controls, or state.
 
-  - [ ] 1.1 Section - Separator semantics and styling.
+  - [x] 1.1 Section - Separator semantics and styling.
 
     This section delivers a small primitive whose HTML meaning is selected
     explicitly and whose presentation remains isolated and theme-aware.
 
-    - [ ] 1.1.1 Task - Implement semantic and decorative Separator modes.
+    - [x] 1.1.1 Task - Implement semantic and decorative Separator modes.
 
       The public API should prevent a visual line from silently gaining or
       losing document structure.
 
-      - [ ] 1.1.1.1 Subtask - Add a defining Content.Separator module and import it through `use ShadcnUI`.
-      - [ ] 1.1.1.2 Subtask - Render native `hr` in semantic mode and an `aria-hidden` nonsemantic element in explicit decorative mode.
-      - [ ] 1.1.1.3 Subtask - Add closed horizontal and vertical orientation values with complete static prefixed classes.
-      - [ ] 1.1.1.4 Subtask - Protect native meaning and hidden treatment while forwarding unrelated documented caller globals and classes.
+      - [x] 1.1.1.1 Subtask - Add a defining Content.Separator module and import it through `use ShadcnUI`.
+      - [x] 1.1.1.2 Subtask - Render native `hr` in semantic mode and an `aria-hidden` nonsemantic element in explicit decorative mode.
+      - [x] 1.1.1.3 Subtask - Add closed horizontal and vertical orientation values with complete static prefixed classes.
+      - [x] 1.1.1.4 Subtask - Protect native meaning and hidden treatment while forwarding unrelated documented caller globals and classes.
 
-    - [ ] 1.1.2 Task - Add Separator visual and provenance contracts.
+    - [x] 1.1.2 Task - Add Separator visual and provenance contracts.
 
       Styling should consume existing semantic tokens and remain visible without
       relying on a theme-specific hard-coded color.
 
-      - [ ] 1.1.2.1 Subtask - Add isolated border and sizing utilities for both orientations with light and dark token coverage.
-      - [ ] 1.1.2.2 Subtask - Verify narrow layout, zoom, forced-colors, and mixed BulmaUI coexistence behavior.
-      - [ ] 1.1.2.3 Subtask - Record upstream component and CSS mappings with the pinned source revision and local semantic changes.
-      - [ ] 1.1.2.4 Subtask - Document semantic versus decorative choice, API values, HEEX examples, and application ownership.
+      - [x] 1.1.2.1 Subtask - Add isolated border and sizing utilities for both orientations with light and dark token coverage.
+      - [x] 1.1.2.2 Subtask - Verify narrow layout, zoom, forced-colors, and mixed BulmaUI coexistence behavior.
+      - [x] 1.1.2.3 Subtask - Record upstream component and CSS mappings with the pinned source revision and local semantic changes.
+      - [x] 1.1.2.4 Subtask - Document semantic versus decorative choice, API values, HEEX examples, and application ownership.
 
   - [ ] 1.2 Section - Native Scroll Area contract and fallback.
 

@@ -355,6 +355,11 @@
   background: var(--shadcn-ui-destructive);
 }
 
+/* Separator meaning is selected in HEEX; CSS controls presentation only. */
+[data-shadcn-ui-separator] {
+  background: var(--shadcn-ui-border);
+}
+
 /*
  * Enhanced Select starts here. Every enhancement-only selector and declaration
  * stays inside one complete capability gate; the classic rules above remain
@@ -540,5 +545,10 @@
     appearance: auto;
     forced-color-adjust: auto;
     border-color: CanvasText;
+  }
+
+  [data-shadcn-ui-separator] {
+    background: CanvasText;
+    forced-color-adjust: none;
   }
 }

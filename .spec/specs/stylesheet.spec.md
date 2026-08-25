@@ -16,6 +16,8 @@ decisions:
   - shadcn_ui.radio_panels_not_tabs
 surface:
   - assets/**
+  - test/fixtures/*.html
+  - test/fixtures/coexistence.html
   - package.json
   - package-lock.json
   - priv/static/shadcn_ui.css

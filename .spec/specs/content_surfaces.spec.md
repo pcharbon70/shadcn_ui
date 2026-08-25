@@ -11,7 +11,11 @@ decisions:
   - shadcn_ui.semantic_component_api_and_accessibility
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - lib/shadcn_ui/components/content/separator.ex
+  - lib/shadcn_ui/components/content/*.ex
   - lib/shadcn_ui/components/content/**/*.ex
+  - test/shadcn_ui/components/content/separator_test.exs
+  - test/shadcn_ui/components/content/*.exs
   - test/shadcn_ui/components/content/**/*.exs
   - test/shadcn_ui/content_surfaces_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs

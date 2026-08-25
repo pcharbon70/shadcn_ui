@@ -135,6 +135,12 @@
       "localChanges": "Separate scalar measurement into a native meter API with validated threshold attributes and browser-owned zone semantics."
     },
     {
+      "id": "content.separator",
+      "localPaths": ["lib/shadcn_ui/components/content/separator.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/styles/global.css"],
+      "localChanges": "Add a native HEEX hr contract and an explicitly aria-hidden decorative mode while adapting the pinned semantic border token into isolated horizontal and vertical presentation."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],
