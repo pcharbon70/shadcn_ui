@@ -147,13 +147,6 @@
       "entity_id": "shadcn_ui.form_components",
       "file": ".spec/specs/form_components.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/components/forms/choice_controls_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
       "message": "Verification target file does not exist: test/shadcn_ui/components/forms/range_and_measurement_test.exs"
     },
     {
@@ -162,13 +155,6 @@
       "file": ".spec/specs/form_components.spec.md",
       "level": "warning",
       "message": "Verification target file does not exist: test/shadcn_ui/components/forms/select_test.exs"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/form_components_test.exs does not reference covered requirement: shadcn_ui.forms.checkbox"
     },
     {
       "code": "verification_target_missing_reference",
@@ -203,28 +189,7 @@
       "entity_id": "shadcn_ui.form_components",
       "file": ".spec/specs/form_components.spec.md",
       "level": "warning",
-      "message": "Verification target test/shadcn_ui/form_components_test.exs does not reference covered requirement: shadcn_ui.forms.radio_group"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
       "message": "Verification target test/shadcn_ui/form_components_test.exs does not reference covered requirement: shadcn_ui.forms.slider"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/form_components_test.exs does not reference covered requirement: shadcn_ui.forms.switch"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.checkbox"
     },
     {
       "code": "verification_target_missing_reference",
@@ -259,21 +224,7 @@
       "entity_id": "shadcn_ui.form_components",
       "file": ".spec/specs/form_components.spec.md",
       "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.radio_group"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
       "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.slider"
-    },
-    {
-      "code": "verification_target_missing_reference",
-      "entity_id": "shadcn_ui.form_components",
-      "file": ".spec/specs/form_components.spec.md",
-      "level": "warning",
-      "message": "Verification target test/shadcn_ui/milestone_b_acceptance_test.exs does not reference covered requirement: shadcn_ui.forms.switch"
     },
     {
       "code": "verification_target_missing_reference",
@@ -2291,7 +2242,7 @@
     "decision_parse_errors": 0,
     "decisions": 11,
     "exceptions": 0,
-    "findings": 78,
+    "findings": 71,
     "requirements": 92,
     "scenarios": 0,
     "subjects": 9,
@@ -2723,7 +2674,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/choice_controls_test.exs",
         "verification_index": 3
@@ -2734,7 +2685,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/choice_controls_test.exs",
         "verification_index": 3
@@ -2745,7 +2696,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/choice_controls_test.exs",
         "verification_index": 3
@@ -2756,7 +2707,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/components/forms/choice_controls_test.exs",
         "verification_index": 3
@@ -2844,7 +2795,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/form_components_test.exs",
         "verification_index": 6
@@ -2943,7 +2894,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/form_components_test.exs",
         "verification_index": 6
@@ -2976,7 +2927,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/form_components_test.exs",
         "verification_index": 6
@@ -2998,7 +2949,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 7
@@ -3097,7 +3048,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 7
@@ -3130,7 +3081,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.form_components",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
         "verification_index": 7
@@ -5273,9 +5224,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 138,
+      "claimed": 128,
       "executed": 0,
-      "linked": 132
+      "linked": 142
     },
     "threshold_failures": 0
   },

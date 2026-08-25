@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 3 Phase - Deliver native binary and exclusive-choice controls with Phoenix-
+- [x] 3 Phase - Deliver native binary and exclusive-choice controls with Phoenix-
   compatible submitted values and one shared state model.
 
   This phase implements Checkbox, Radio Group, and Switch without recreating
@@ -74,27 +74,27 @@ Back to wave: [README](./README.md)
       - [x] 3.3.1.3 Subtask - Keep label text visible by default and require an explicit nonblank accessible label for visually hidden-label usage.
       - [x] 3.3.1.4 Subtask - Add no package event, toggle method, transition state, role-only imitation, or hidden mirrored checked value.
 
-  - [ ] 3.4 Section - Phase 3 Integration Tests.
+  - [x] 3.4 Section - Phase 3 Integration Tests.
 
     This section proves that native choices retain correct identity, keyboard
     behavior, values, and relationships in realistic grouped forms.
 
-    - [ ] 3.4.1 Task - Verify Checkbox and Switch values and behavior.
+    - [x] 3.4.1 Task - Verify Checkbox and Switch values and behavior.
 
       Integration coverage should distinguish boolean sentinel submission from
       explicit repeated-value selection and prove Switch is the same control model.
 
-      - [ ] 3.4.1.1 Subtask - Test checked and unchecked boolean submissions, sentinel order, disabled behavior, form association, and reset.
-      - [ ] 3.4.1.2 Subtask - Test multiple-value names and values with zero, one, and several checked boxes and no sentinel collision.
-      - [ ] 3.4.1.3 Subtask - Compare Checkbox and Switch FormField and explicit markup, submitted values, labels, help, errors, and protected globals.
-      - [ ] 3.4.1.4 Subtask - Browser-test label activation, Space toggling, Tab order, focus visibility, zoom, forced colors, and no-script operation.
+      - [x] 3.4.1.1 Subtask - Test checked and unchecked boolean submissions, sentinel order, disabled behavior, form association, and reset.
+      - [x] 3.4.1.2 Subtask - Test multiple-value names and values with zero, one, and several checked boxes and no sentinel collision.
+      - [x] 3.4.1.3 Subtask - Compare Checkbox and Switch FormField and explicit markup, submitted values, labels, help, errors, and protected globals.
+      - [x] 3.4.1.4 Subtask - Browser-test label activation, Space toggling, Tab order, focus visibility, zoom, forced colors, and no-script operation.
 
-    - [ ] 3.4.2 Task - Verify Radio Group and complete choice composition.
+    - [x] 3.4.2 Task - Verify Radio Group and complete choice composition.
 
       Tests should exercise stable keys, native exclusivity, shared descriptions,
       and realistic combinations of binary and exclusive choices.
 
-      - [ ] 3.4.2.1 Subtask - Test FormField and explicit selection, no selection, group and option disabled states, reordered options, and duplicate-data rejection.
-      - [ ] 3.4.2.2 Subtask - Verify fieldset, legend, option labels, stable IDs, help, repeated errors, invalid state, and non-conflicting caller descriptions.
-      - [ ] 3.4.2.3 Subtask - Browser-test arrow keys, Space, native single selection, form reset, scalar submission, and long translated labels.
-      - [ ] 3.4.2.4 Subtask - Compose Checkbox, Radio Group, Switch, Input, Error Summary, and Button in one static Phoenix form and run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 3.4.2.1 Subtask - Test FormField and explicit selection, no selection, group and option disabled states, reordered options, and duplicate-data rejection.
+      - [x] 3.4.2.2 Subtask - Verify fieldset, legend, option labels, stable IDs, help, repeated errors, invalid state, and non-conflicting caller descriptions.
+      - [x] 3.4.2.3 Subtask - Browser-test arrow keys, Space, native single selection, form reset, scalar submission, and long translated labels.
+      - [x] 3.4.2.4 Subtask - Compose Checkbox, Radio Group, Switch, Input, Error Summary, and Button in one static Phoenix form and run `mix precommit`, `mix spec.check --base main`, and `git diff --check`.

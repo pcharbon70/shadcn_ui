@@ -5,7 +5,9 @@ defmodule ShadcnUI.FormComponentsTest do
 
   # covers: shadcn_ui.forms.field_composition shadcn_ui.forms.field_fragments
   # covers: shadcn_ui.forms.error_summary shadcn_ui.forms.input
-  # covers: shadcn_ui.forms.textarea shadcn_ui.forms.shared_contract
+  # covers: shadcn_ui.forms.textarea shadcn_ui.forms.checkbox
+  # covers: shadcn_ui.forms.radio_group shadcn_ui.forms.switch
+  # covers: shadcn_ui.forms.shared_contract
 
   defmodule Fixture do
     use Phoenix.Component
@@ -26,6 +28,7 @@ defmodule ShadcnUI.FormComponentsTest do
           pending
         >
           <:label>Email address</:label>
+
           <:help>Used for account notices.</:help>
         </.input>
 
@@ -38,9 +41,9 @@ defmodule ShadcnUI.FormComponentsTest do
           sizing={:content}
         >
           <:label>Biography</:label>
+
           <:help>A short description of your role.</:help>
         </.textarea>
-
         <button type="submit">Save profile</button>
       </form>
       """
@@ -57,7 +60,6 @@ defmodule ShadcnUI.FormComponentsTest do
             {"profile_biography", "Biography is too short"}
           ]}
         />
-
         <.input
           id="profile_email"
           name="profile[email]"
@@ -70,6 +72,7 @@ defmodule ShadcnUI.FormComponentsTest do
           describedby="profile-introduction"
         >
           <:label>Email address</:label>
+
           <:help>Used for account notices.</:help>
         </.input>
 
@@ -85,10 +88,97 @@ defmodule ShadcnUI.FormComponentsTest do
           disabled
         >
           <:label>Biography</:label>
+
           <:help>A short description of your role.</:help>
         </.textarea>
-
         <button type="submit">Save profile</button>
+      </form>
+      """
+    end
+
+    attr :form, :any, required: true
+
+    def choice_settings(assigns) do
+      assigns =
+        assign(assigns, :contact_options, [
+          %{key: "email", value: "email", label: "Courriel détaillé pour les communications"},
+          %{key: "phone", value: "phone", label: "Telephone"},
+          %{key: "postal", value: "postal", label: "Courrier postal", disabled: true}
+        ])
+
+      ~H"""
+      <form method="post" action="/settings" data-fixture="native-choices">
+        <.error_summary
+          id="settings-errors"
+          heading="Review these settings"
+          errors={[
+            {"settings_reports", "Choose whether reports are enabled"},
+            {"settings_contact", "Choose a contact method"}
+          ]}
+        />
+
+        <.input field={@form[:email]} type="email" required>
+          <:label>Email address</:label>
+        </.input>
+
+        <.checkbox
+          field={@form[:reports]}
+          checked_value="enabled"
+          unchecked_value="disabled"
+          errors={["Choose whether reports are enabled"]}
+          error_mode={:always}
+        >
+          <:label>Enable scheduled reports</:label>
+          <:help>Space changes this native checkbox.</:help>
+        </.checkbox>
+
+        <.checkbox
+          id="settings_feature_exports"
+          name="settings[features]"
+          mode={:multiple}
+          value="exports"
+          checked
+        >
+          <:label>Exports</:label>
+        </.checkbox>
+
+        <.checkbox
+          id="settings_feature_audit"
+          name="settings[features]"
+          mode={:multiple}
+          value="audit"
+          checked
+        >
+          <:label>Audit history</:label>
+        </.checkbox>
+
+        <.checkbox
+          id="settings_feature_beta"
+          name="settings[features]"
+          mode={:multiple}
+          value="beta"
+        >
+          <:label>Beta access</:label>
+        </.checkbox>
+
+        <.switch field={@form[:notifications]}>
+          <:label>Email notifications</:label>
+          <:help>Uses the same native checkbox value contract.</:help>
+        </.switch>
+
+        <.radio_group
+          field={@form[:contact]}
+          options={@contact_options}
+          errors={["Choose a contact method", "Choose a contact method"]}
+          error_mode={:always}
+          required
+        >
+          <:legend>Preferred contact method with a deliberately long translated label</:legend>
+          <:help>Arrow keys and Space retain native radio behavior.</:help>
+        </.radio_group>
+
+        <.button type="submit">Save settings</.button>
+        <.button type="reset" variant={:outline}>Reset settings</.button>
       </form>
       """
     end
@@ -192,6 +282,80 @@ defmodule ShadcnUI.FormComponentsTest do
     assert source_css =~ "@media (forced-colors: active)"
     assert source_css =~ ~s([data-shadcn-ui-textarea][aria-invalid="true"])
     assert compiled_css =~ "data-shadcn-ui-textarea"
+  end
+
+  test "complete native choice form preserves boolean, repeated, and scalar submission contracts" do
+    form =
+      Phoenix.Component.to_form(
+        %{
+          "email" => "ada@example.test",
+          "reports" => "enabled",
+          "notifications" => "false",
+          "contact" => "phone"
+        },
+        as: "settings"
+      )
+
+    html = render(&Fixture.choice_settings/1, %{form: form})
+
+    assert html =~ ~s(<form method="post" action="/settings")
+    assert html =~ ~s(type="email")
+    assert length(Regex.scan(~r/type="checkbox"/, html)) == 5
+    assert length(Regex.scan(~r/type="radio"/, html)) == 3
+    assert length(Regex.scan(~r/type="hidden"/, html)) == 2
+    assert length(Regex.scan(~r/name="settings\[reports\]"/, html)) == 2
+    assert length(Regex.scan(~r/name="settings\[notifications\]"/, html)) == 2
+    assert length(Regex.scan(~r/name="settings\[features\]\[\]"/, html)) == 3
+    assert length(Regex.scan(~r/name="settings\[contact\]"/, html)) == 3
+    assert html =~ ~s(value="phone" checked)
+    assert html =~ ~s(value="exports" checked)
+    assert html =~ ~s(value="audit" checked)
+    refute html =~ ~s(value="beta" checked)
+    assert html =~ ~r/<button[^>]*type="submit"/
+    assert html =~ ~r/<button[^>]*type="reset"/
+
+    submitted = %{
+      "settings[email]" => "ada@example.test",
+      "settings[reports]" => "enabled",
+      "settings[notifications]" => "false",
+      "settings[features][]" => ["exports", "audit"],
+      "settings[contact]" => "phone"
+    }
+
+    assert submitted["settings[reports]"] == "enabled"
+    assert submitted["settings[notifications]"] == "false"
+    assert submitted["settings[features][]"] == ["exports", "audit"]
+    assert submitted["settings[contact]"] == "phone"
+  end
+
+  test "choice composition keeps native labels, grouping, errors, order, and no-script behavior" do
+    form =
+      Phoenix.Component.to_form(
+        %{"email" => "", "reports" => false, "notifications" => true, "contact" => nil},
+        as: "settings"
+      )
+
+    html = render(&Fixture.choice_settings/1, %{form: form})
+
+    assert html =~ ~s(for="settings_reports")
+    assert html =~ ~s(for="settings_notifications")
+    assert html =~ ~s(<fieldset)
+    assert html =~ ~s(<legend id="settings_contact-label")
+    assert html =~ ~s(aria-labelledby="settings_contact-label")
+    assert html =~ ~s(id="settings_contact-error-1")
+    assert html =~ ~s(id="settings_contact-error-2")
+    assert html =~ ~s(aria-invalid="true")
+    assert html =~ "Courriel détaillé"
+
+    assert position(html, ~s(name="settings[reports]" value="disabled")) <
+             position(html, ~s(type="checkbox" id="settings_reports"))
+
+    assert position(html, ~s(type="email")) < position(html, ~s(type="checkbox"))
+    assert position(html, ~s(type="checkbox")) < position(html, ~s(type="radio"))
+    assert position(html, ~s(type="radio")) < position(html, ~s(type="submit"))
+
+    refute html =~ ~r/(phx-hook|data-on:|<script|javascript:|role="switch"|role="radio")/
+    refute html =~ ~r/(contenteditable|hidden synchronized|mirrored checked)/i
   end
 
   defp render(fun, assigns \\ %{}) do

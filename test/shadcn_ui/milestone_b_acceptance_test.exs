@@ -12,6 +12,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
   # covers: shadcn_ui.forms.field_composition shadcn_ui.forms.field_fragments
   # covers: shadcn_ui.forms.error_summary shadcn_ui.forms.shared_contract
   # covers: shadcn_ui.forms.input shadcn_ui.forms.textarea
+  # covers: shadcn_ui.forms.checkbox shadcn_ui.forms.radio_group shadcn_ui.forms.switch
   # covers: shadcn_ui.provenance.pinned_revision shadcn_ui.provenance.component_mapping
 
   defmodule Fixture do
@@ -282,7 +283,10 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
 
     for {id, path} <- [
           {"forms.input", "lib/shadcn_ui/components/forms/input.ex"},
-          {"forms.textarea", "lib/shadcn_ui/components/forms/textarea.ex"}
+          {"forms.textarea", "lib/shadcn_ui/components/forms/textarea.ex"},
+          {"forms.checkbox", "lib/shadcn_ui/components/forms/checkbox.ex"},
+          {"forms.radio_group", "lib/shadcn_ui/components/forms/radio_group.ex"},
+          {"forms.switch", "lib/shadcn_ui/components/forms/switch.ex"}
         ] do
       assert Enum.any?(provenance["adaptations"], fn adaptation ->
                adaptation["id"] == id and path in adaptation["localPaths"]
