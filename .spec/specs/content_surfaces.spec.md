@@ -11,9 +11,16 @@ decisions:
   - shadcn_ui.semantic_component_api_and_accessibility
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - lib/shadcn_ui/components/content/scroll_area.ex
+  - lib/shadcn_ui/components/content/separator.ex
+  - lib/shadcn_ui/components/content/*.ex
   - lib/shadcn_ui/components/content/**/*.ex
+  - test/shadcn_ui/components/content/scroll_area_test.exs
+  - test/shadcn_ui/components/content/separator_test.exs
+  - test/shadcn_ui/components/content/*.exs
   - test/shadcn_ui/components/content/**/*.exs
   - test/shadcn_ui/content_surfaces_test.exs
+  - test/fixtures/content_surfaces_no_css.html
   - test/shadcn_ui/milestone_c_acceptance_test.exs
   - README.md
 ```
@@ -101,9 +108,6 @@ surface:
     - shadcn_ui.content.scroll_ownership
     - shadcn_ui.content.edge_fallback
     - shadcn_ui.content.separator
-    - shadcn_ui.content.radio_panels
-    - shadcn_ui.content.radio_not_tabs
-    - shadcn_ui.content.radio_fallback
     - shadcn_ui.content.shared_contract
 
 - kind: test_file

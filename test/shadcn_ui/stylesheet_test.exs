@@ -8,6 +8,7 @@ defmodule ShadcnUI.StylesheetTest do
   # covers: shadcn_ui.stylesheet.reduced_motion shadcn_ui.stylesheet.no_runtime_assets
   # covers: shadcn_ui.stylesheet.reproducible_output
   # covers: shadcn_ui.stylesheet.form_fallbacks shadcn_ui.stylesheet.form_resilience
+  # covers: shadcn_ui.stylesheet.content_fallbacks shadcn_ui.stylesheet.content_resilience
 
   @stylesheet Path.expand("../../priv/static/shadcn_ui.css", __DIR__)
   @source Path.expand("../../assets/shadcn_ui.css", __DIR__)
@@ -145,5 +146,22 @@ defmodule ShadcnUI.StylesheetTest do
     assert css =~ "forced-colors:active"
     assert css =~ "outline-color:highlight"
     assert css =~ "color:graytext"
+  end
+
+  test "keeps content affordances capability-gated with native forced-color fallbacks" do
+    source = File.read!(@source)
+    css = File.read!(@stylesheet)
+
+    assert source =~ "@supports (mask-image: linear-gradient(black, black))"
+    assert source =~ "[data-shadcn-ui-scroll-area]"
+    assert source =~ "scrollbar-gutter: stable"
+    assert source =~ "mask-image: none !important"
+    assert source =~ "scrollbar-color: CanvasText Canvas"
+    assert source =~ "[data-shadcn-ui-separator]"
+    assert source =~ "background: CanvasText"
+
+    assert css =~ "scrollbar-gutter:stable"
+    assert css =~ "mask-image:none!important"
+    assert css =~ "scrollbar-color:CanvasText Canvas"
   end
 end
