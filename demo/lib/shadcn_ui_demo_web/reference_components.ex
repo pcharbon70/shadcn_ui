@@ -365,6 +365,129 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
     """
   end
 
+  def component_examples(%{render: :accordion} = assigns) do
+    ~H"""
+    <div class="gallery-examples">
+      <.accordion id="gallery-independent" mode={:independent}>
+        <:item key="open" summary="Open snapshot" open>Independent content stays native.</:item>
+        <:item key="closed" summary="Closed snapshot">Find-in-page content remains authored.</:item>
+      </.accordion>
+      <.accordion id="gallery-exclusive" mode={:exclusive}>
+        <:item key="one" summary="Exclusive one" open>First panel.</:item>
+        <:item key="two" summary="Exclusive two">Second panel.</:item>
+      </.accordion>
+    </div>
+    """
+  end
+
+  def component_examples(%{render: :navigation_menu} = assigns) do
+    ~H"""
+    <div class="gallery-examples">
+      <.navigation_menu accessible_name="Example destinations" layout={:wrap}>
+        <:item
+          key="current"
+          destination="#current-destination"
+          label="Current destination"
+          current={:location}
+        />
+        <:item
+          key="long"
+          destination="#long-destination"
+          label="A deliberately long translated destination label"
+        />
+      </.navigation_menu>
+      <p id="current-destination">Current fragment target.</p><p id="long-destination">
+        Long-label target.
+      </p>
+    </div>
+    """
+  end
+
+  def component_examples(%{render: :header} = assigns) do
+    ~H"""
+    <div class="gallery-examples">
+      <.header presentation={:sticky} border={:all}>
+        <:brand><a href="#header-target">Example brand</a></:brand>
+        <:primary_navigation>
+          <nav aria-label="Header example"><a href="#header-target">Destination</a></nav>
+        </:primary_navigation>
+        <:utilities>
+          <form><label>Search <input name="q" /></label></form>
+        </:utilities>
+        <:actions><.button type="button">Caller action</.button></:actions>
+      </.header>
+      <p id="header-target">Normal-flow fallback target.</p>
+    </div>
+    """
+  end
+
+  def component_examples(%{render: :section_header} = assigns) do
+    ~H"""
+    <div class="gallery-examples">
+      <.section_header id="section-static" presentation={:static}>
+        <:heading>
+          <h3>Static section</h3>
+        </:heading><:description>Caller heading level is unchanged.</:description>
+      </.section_header>
+      <.section_header id="section-sticky" presentation={:sticky} anchor_effect={:accent}>
+        <:heading>
+          <h3>Sticky section</h3>
+        </:heading><:actions><.button type="button">Edit</.button></:actions>
+      </.section_header>
+    </div>
+    """
+  end
+
+  def component_examples(%{render: :scroll_area} = assigns) do
+    ~H"""
+    <div class="gallery-examples">
+      <.scroll_area
+        size={:small}
+        edge_affordance={:both}
+        focusable
+        accessible_label="Long activity example"
+      >
+        <p :for={index <- 1..12}>
+          Activity row {index}: long caller-owned content remains reachable.
+        </p>
+      </.scroll_area>
+      <.scroll_area axis={:horizontal} size={:small}>
+        <div class="gallery-wide-content">Wide native overflow destination.</div>
+      </.scroll_area>
+    </div>
+    """
+  end
+
+  def component_examples(%{render: :separator} = assigns) do
+    ~H"""
+    <div class="gallery-examples">
+      <p>Semantic topic one.</p><.separator mode={:semantic} /><p>Semantic topic two.</p>
+      <div class="gallery-inline-example">
+        <span>Left</span><.separator orientation={:vertical} mode={:decorative} /><span>Right</span>
+      </div>
+    </div>
+    """
+  end
+
+  def component_examples(%{render: :radio_panels} = assigns) do
+    ~H"""
+    <div class="gallery-examples">
+      <.radio_panels id="gallery-views" name="view" selected="summary" layout={:horizontal}>
+        <:legend>Account view</:legend>
+        <:option key="summary" value="summary" label="Summary">
+          <p>Selected summary panel.</p>
+        </:option>
+        <:option key="activity" value="activity" label="Activity with a long translated label">
+          <p>Activity panel remains in source order.</p>
+        </:option>
+        <:option key="disabled" value="disabled" label="Unavailable" disabled>
+          <p>Disabled choice explanation remains readable.</p>
+        </:option>
+      </.radio_panels>
+    </div>
+    """
+  end
+
   defp sample_form do
     Phoenix.Component.to_form(
       %{

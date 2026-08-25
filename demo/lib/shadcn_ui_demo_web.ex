@@ -64,6 +64,7 @@ defmodule ShadcnUIDemoWeb do
       import Phoenix.HTML
       use ShadcnUI
       import ShadcnUIDemoWeb.ReferenceComponents
+      import ShadcnUIDemoWeb.ContentNavigationCompositions
 
       # Common modules used in templates
       alias ShadcnUIDemoWeb.Layouts

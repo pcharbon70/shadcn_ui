@@ -35,14 +35,16 @@ jobs:
       - run: npm ci && npm run assets:check
       - run: mix precommit
       - run: mix docs && mix hex.build
-      - run: mix spec.check --base origin/main
       - run: npm ci && npm run assets:build
         working-directory: demo
       - run: mix deps.get --locked && mix precommit
         working-directory: demo
+      - run: mix spec.check --base origin/main
       - run: npx playwright install --with-deps chromium
         working-directory: demo
       - run: npm run browser:test
+        working-directory: demo
+      - run: npm run browser:milestone-c
         working-directory: demo
       - run: npm run export:determinism && npm run export:check
         working-directory: demo

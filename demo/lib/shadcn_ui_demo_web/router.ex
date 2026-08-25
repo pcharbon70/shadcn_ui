@@ -16,6 +16,7 @@ defmodule ShadcnUIDemoWeb.Router do
     get "/", GalleryController, :landing
     get "/forms/:form", FormController, :show
     post "/forms/submit", FormController, :submit
+    get "/examples/:example", GalleryController, :composition
     get "/components/:category", GalleryController, :category
     get "/components/:category/:component", GalleryController, :component
     get "/*path", GalleryController, :not_found

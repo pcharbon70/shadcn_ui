@@ -7,6 +7,11 @@
   <p :if={@page.kind == :landing}>
     Transport-neutral Phoenix components with shadcn-style semantic tokens.
   </p>
+  <nav :if={@page.kind == :landing} aria-label="Complete page examples">
+    <a :for={composition <- ShadcnUIDemo.Catalogue.compositions()} href={composition.path}>
+      {composition.label}
+    </a>
+  </nav>
 
   <p :if={@page.kind == :category && @page.slug == "foundation"}>
     Six foundational controls and content surfaces.
@@ -19,6 +24,15 @@
     <a href="/forms/profile">Profile composition</a>
     <a href="/forms/settings">Settings composition</a>
   </nav>
+  <p :if={@page.kind == :category && @page.slug == "disclosure"}>
+    Native disclosure with independent and progressively exclusive grouping.
+  </p>
+  <p :if={@page.kind == :category && @page.slug == "navigation"}>
+    Destination navigation and caller-heading-preserving header compositions.
+  </p>
+  <p :if={@page.kind == :category && @page.slug == "content-surfaces"}>
+    Native scrolling, honest separation, and radio-based content selection.
+  </p>
   <div :if={@page.kind == :component} class="gallery-reference">
     <section>
       <h2>What it is</h2><p>{@page.reference.what}</p>
@@ -70,6 +84,13 @@
       ><code>{@page.reference.source}</code></pre>
     </section>
   </div>
+
+  <.content_navigation_composition
+    :if={@page.kind == :composition}
+    render={@page.render}
+    selected={@page.selected}
+    invalid={@page.invalid}
+  />
 
   <p :if={@page.kind == :not_found}>
     The requested gallery page does not exist. <a href="/">Return to the gallery.</a>

@@ -10,7 +10,9 @@ defmodule ShadcnUIDemo.CatalogueTest do
     assert Enum.uniq_by(components, & &1.slug) == components
     assert Enum.uniq_by(components, & &1.path) == components
     assert Enum.uniq_by(components, & &1.render) == components
-    assert Enum.map(Catalogue.categories(), & &1.slug) == ~w(foundation forms)
+
+    assert Enum.map(Catalogue.categories(), & &1.slug) ==
+             ~w(foundation forms disclosure navigation content-surfaces)
 
     assert Enum.take(Catalogue.routes(), 8) == [
              "/",
@@ -18,6 +20,13 @@ defmodule ShadcnUIDemo.CatalogueTest do
            ]
 
     assert length(Catalogue.components("forms")) == 15
+    assert Enum.map(Catalogue.components("disclosure"), & &1.slug) == ~w(accordion)
+
+    assert Enum.map(Catalogue.components("navigation"), & &1.slug) ==
+             ~w(navigation-menu header section-header)
+
+    assert Enum.map(Catalogue.components("content-surfaces"), & &1.slug) ==
+             ~w(scroll-area separator radio-panels)
   end
 
   test "closed lookups do not grow atoms or reflect unknown request text" do
@@ -38,5 +47,10 @@ defmodule ShadcnUIDemo.CatalogueTest do
     assert :error = Catalogue.lookup_component("foundation", "missing")
     assert {:ok, %{render: :input}} = Catalogue.lookup_component("forms", "input")
     assert :error = Catalogue.lookup_component("foundation", "input")
+
+    assert {:ok, %{render: :radio_panels}} =
+             Catalogue.lookup_component("content-surfaces", "radio-panels")
+
+    assert :error = Catalogue.lookup_component("navigation", "radio-panels")
   end
 end

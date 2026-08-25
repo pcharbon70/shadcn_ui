@@ -20,7 +20,15 @@ defmodule ShadcnUIDemo.ReferenceCompletenessTest do
 
       assert reference.source =~ "<.#{String.replace(component.slug, "-", "_")}"
       assert renderer =~ ":#{component.render}"
-      provenance_prefix = if component.category == "foundation", do: "foundation", else: "forms"
+
+      provenance_prefix =
+        case component.category do
+          "foundation" -> "foundation"
+          "forms" -> "forms"
+          "disclosure" -> "disclosure"
+          "navigation" -> "navigation"
+          "content-surfaces" -> "content"
+        end
 
       assert Enum.any?(
                provenance_ids,

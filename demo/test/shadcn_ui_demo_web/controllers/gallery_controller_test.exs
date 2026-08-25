@@ -8,7 +8,16 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
       html = conn |> recycle() |> get(path) |> html_response(200)
       assert html =~ "<main"
       assert html =~ "Component navigation"
-      expected = if path == "/", do: 0, else: 1
+
+      expected =
+        case path do
+          "/" -> 0
+          "/examples/documentation" -> 0
+          "/examples/settings" -> 0
+          "/examples/application-shell" -> 2
+          _ -> 1
+        end
+
       assert length(Regex.scan(~r/aria-current="page"/, html)) == expected
     end
   end

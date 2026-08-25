@@ -1,5 +1,5 @@
 defmodule ShadcnUIDemo.FormCatalogTest do
-  use ExUnit.Case, async: true
+  use ExUnit.Case, async: false
 
   alias ShadcnUIDemo.{Catalogue, Reference}
 

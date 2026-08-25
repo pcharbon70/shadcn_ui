@@ -112,6 +112,37 @@ defmodule ShadcnUIDemo.Reference do
        ~S(<.meter id="storage" value={72} min={0} max={100}><:label>Storage use</:label></.meter>)}
   }
 
+  @content_references %{
+    accordion:
+      {"Native details and summary disclosure in independent or progressively exclusive groups.",
+       ~S(<.accordion id="faq"><:item key="billing" summary="Billing">Billing details.</:item></.accordion>),
+       "Native summary activation, focus, and find-in-page remain browser-owned; unsupported exclusive grouping remains independently operable."},
+    navigation_menu:
+      {"Named destination navigation built from a native nav, list, and real anchors.",
+       ~S(<.navigation_menu accessible_name="Primary"><:item key="home" destination="/" label="Home" current={:page} /></.navigation_menu>),
+       "Applications own destinations and current-route choice. This is link navigation, not a menu, command bar, Radio Panels group, or tab widget."},
+    header:
+      {"A native header composition for caller-owned brand, navigation, utilities, and actions.",
+       ~S(<.header><:brand><a href="/">Brand</a></:brand><:actions><.button>Save</.button></:actions></.header>),
+       "The caller owns headings, landmark names, commands, forms, and navigation; sticky presentation falls back to normal flow."},
+    section_header:
+      {"A section-heading composition that preserves the caller-authored heading level.",
+       ~S(<.section_header><:heading><h2>Billing</h2></:heading><:actions><.button>Edit</.button></:actions></.section_header>),
+       "The caller owns heading hierarchy and actions. Sticky and target decoration are optional presentation with normal-flow fallback."},
+    scroll_area:
+      {"One native overflow container with explicit axis, size, focus, and decorative edge choices.",
+       ~S(<.scroll_area focusable accessible_label="Activity">Long caller content.</.scroll_area>),
+       "Native scrolling is authoritative. The application owns dimensions, restoration, loading, and virtualization; edge cues disappear safely."},
+    separator:
+      {"A native hr for semantic separation or an aria-hidden decorative boundary.",
+       ~S(<.separator orientation={:horizontal} mode={:semantic} />),
+       "The caller decides whether a boundary is meaningful. Content order remains intact without CSS."},
+    radio_panels:
+      {"A native radio group paired with deterministically related caller-owned panel content.",
+       ~S(<.radio_panels id="view" name="view" selected="summary"><:legend>View</:legend><:option key="summary" value="summary" label="Summary">Summary content.</:option></.radio_panels>),
+       "Native radio keys and submission remain authoritative. This is not a Tab Group; without enhancement CSS every panel remains visible."}
+  }
+
   def fetch!(render) when render in [:button, :badge, :alert, :card, :avatar, :skeleton] do
     @references
     |> Map.fetch!(render)
@@ -139,7 +170,26 @@ defmodule ShadcnUIDemo.Reference do
     }
   end
 
-  def keys, do: Map.keys(@references) ++ Map.keys(@form_references)
+  def fetch!(render) when is_map_key(@content_references, render) do
+    {what, source, semantics} = Map.fetch!(@content_references, render)
+
+    %{
+      what: what,
+      when:
+        "Use it when its native document or form semantics match the caller-owned requirement.",
+      responsibilities: semantics,
+      accessibility:
+        "Native elements, names, relationships, focus, and keyboard behavior remain authoritative.",
+      semantics: semantics,
+      comparison: comparison(render),
+      fallback:
+        "No script is required. Without package CSS or an optional feature, content and native controls remain available in source order.",
+      source: source
+    }
+  end
+
+  def keys,
+    do: Map.keys(@references) ++ Map.keys(@form_references) ++ Map.keys(@content_references)
 
   defp fallback(:textarea),
     do: "Unsupported browsers keep the fixed native textarea instead of CSS content sizing."
@@ -163,6 +213,14 @@ defmodule ShadcnUIDemo.Reference do
   defp comparison(render) when render in [:progress, :meter],
     do:
       "Use Progress for completion of a task such as generating a report. Use Meter for a scalar measurement such as storage use; Meter never means task completion."
+
+  defp comparison(:navigation_menu),
+    do:
+      "Use Navigation Menu links to change destination. Use Button for commands and Radio Panels to submit one native choice."
+
+  defp comparison(:radio_panels),
+    do:
+      "Radio Panels uses native form radios. True tabs require tab roles, focus management, and a separately approved keyboard runtime."
 
   defp comparison(_render), do: nil
 end
