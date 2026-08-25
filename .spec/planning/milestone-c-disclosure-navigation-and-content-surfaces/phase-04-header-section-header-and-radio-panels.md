@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   caller-authored landmarks and controls; Radio Panels deliberately retain radio-
   group semantics and do not claim the interaction contract of true tabs.
 
-  - [ ] 4.1 Section - Header and Section Header compositions.
+  - [x] 4.1 Section - Header and Section Header compositions.
 
     This section provides responsive page and section structure while leaving
     heading hierarchy, navigation, forms, and commands with their native owners.
 
-    - [ ] 4.1.1 Task - Implement the Header composition.
+    - [x] 4.1.1 Task - Implement the Header composition.
 
       Header should arrange common page regions without flattening the semantics
       of the caller content placed inside them.
 
-      - [ ] 4.1.1.1 Subtask - Add a defining Navigation.Header module with optional brand, primary navigation, utilities, and actions slots.
-      - [ ] 4.1.1.2 Subtask - Render a native header and preserve supplied links, buttons, forms, navigation landmarks, headings, and accessible names unchanged.
-      - [ ] 4.1.1.3 Subtask - Add closed container width, density, wrapping, border, and static or sticky presentation values mapped to prefixed classes.
-      - [ ] 4.1.1.4 Subtask - Protect structural markup while forwarding unrelated documented classes and globals to their declared regions.
+      - [x] 4.1.1.1 Subtask - Add a defining Navigation.Header module with optional brand, primary navigation, utilities, and actions slots.
+      - [x] 4.1.1.2 Subtask - Render a native header and preserve supplied links, buttons, forms, navigation landmarks, headings, and accessible names unchanged.
+      - [x] 4.1.1.3 Subtask - Add closed container width, density, wrapping, border, and static or sticky presentation values mapped to prefixed classes.
+      - [x] 4.1.1.4 Subtask - Protect structural markup while forwarding unrelated documented classes and globals to their declared regions.
 
-    - [ ] 4.1.2 Task - Implement Section Header and sticky fallback.
+    - [x] 4.1.2 Task - Implement Section Header and sticky fallback.
 
       Section Header should preserve document order and caller heading levels in
       both enhanced sticky presentation and normal-flow fallback.
 
-      - [ ] 4.1.2.1 Subtask - Add a defining Navigation.SectionHeader module with required heading content and optional description and actions slots.
-      - [ ] 4.1.2.2 Subtask - Keep the caller-authored heading element and level intact and place related actions after descriptive content in document order.
-      - [ ] 4.1.2.3 Subtask - Add closed static and sticky presentation, optional decorative anchor effects, and scroll margin or padding needed to preserve package-created fragment visibility.
-      - [ ] 4.1.2.4 Subtask - Document multiple-header semantics, heading ownership, action behavior, sticky and anchor fallback, application responsibilities, and provenance.
+      - [x] 4.1.2.1 Subtask - Add a defining Navigation.SectionHeader module with required heading content and optional description and actions slots.
+      - [x] 4.1.2.2 Subtask - Keep the caller-authored heading element and level intact and place related actions after descriptive content in document order.
+      - [x] 4.1.2.3 Subtask - Add closed static and sticky presentation, optional decorative anchor effects, and scroll margin or padding needed to preserve package-created fragment visibility.
+      - [x] 4.1.2.4 Subtask - Document multiple-header semantics, heading ownership, action behavior, sticky and anchor fallback, application responsibilities, and provenance.
 
   - [ ] 4.2 Section - Native Radio Panels semantics and fallback.
 

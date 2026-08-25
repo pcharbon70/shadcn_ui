@@ -240,6 +240,54 @@ visibility, current-route selection, prefetching, analytics, history, and the
 navigation outcome. ShadcnUI never reads the request path or intercepts native
 Tab, Enter, context-menu, download, open-in-new-tab, or browser-history behavior.
 
+### Header and Section Header
+
+Header arranges optional caller-owned brand, primary navigation, utilities, and
+actions inside a native `header`. Header does not create a page heading, name a
+navigation landmark, convert links to commands, or change form and button
+behavior.
+
+```heex
+<.header width={:contained} wrap={:responsive} presentation={:sticky}>
+  <:brand><a href={~p"/"}>Northwind</a></:brand>
+  <:primary_navigation>
+    <.navigation_menu accessible_name="Primary navigation">
+      <:item key="home" destination={~p"/"} label="Home" current={:page} />
+    </.navigation_menu>
+  </:primary_navigation>
+  <:utilities><form action={~p"/search"}>...</form></:utilities>
+  <:actions><.button type="button">New report</.button></:actions>
+</.header>
+```
+
+Width accepts `:full`, `:contained`, and `:narrow`; density accepts `:compact`,
+`:default`, and `:comfortable`; wrapping accepts `:wrap`, `:nowrap`, and
+`:responsive`; border accepts `:none`, `:bottom`, and `:all`; presentation is
+`:static` or `:sticky`. Sticky layout is presentation only. Without package CSS
+or sticky support, every region remains in normal document flow in the same
+order.
+
+Section Header requires a heading slot containing the caller-authored `h2`,
+`h3`, or other correct heading element. Optional description and actions follow
+that heading in document order. Its presentation is `:static` or `:sticky`, and
+the `:none`, `:offset`, or `:accent` anchor effect provides only scroll margin
+and optional `:target` decoration.
+
+```heex
+<.section_header id="billing" presentation={:sticky} anchor_effect={:accent}>
+  <:heading><h2>Billing</h2></:heading>
+  <:description>Manage invoices and payment methods.</:description>
+  <:actions><.button type="button">Add payment method</.button></:actions>
+</.section_header>
+```
+
+Multiple page and section headers require application-authored landmark and
+heading structure. Applications own action outcomes, navigation, authorization,
+focus, scrolling, and any overlap compensation beyond the package scroll-margin
+preset. ShadcnUI does not infer heading levels, observe scroll position, or add
+client behavior. Forced colors removes translucent decoration while preserving
+boundaries and target indication.
+
 ### Accordion
 
 Accordion renders one native `details` and `summary` pair for each item. Its ID
