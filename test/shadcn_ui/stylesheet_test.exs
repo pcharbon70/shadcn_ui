@@ -164,4 +164,20 @@ defmodule ShadcnUI.StylesheetTest do
     assert css =~ "mask-image:none!important"
     assert css =~ "scrollbar-color:CanvasText Canvas"
   end
+
+  test "keeps Accordion motion optional and native disclosure visible in resilient modes" do
+    source = File.read!(@source)
+    css = File.read!(@stylesheet)
+
+    assert source =~ "@supports selector(details::details-content)"
+    assert source =~ "interpolate-size: allow-keywords"
+    assert source =~ "[data-shadcn-ui-accordion-item]::details-content"
+    assert source =~ "transition: none !important"
+    assert source =~ "[data-shadcn-ui-accordion-summary]::marker"
+    assert source =~ "border-color: CanvasText"
+
+    assert css =~ "data-shadcn-ui-accordion-item"
+    assert css =~ "interpolate-size:allow-keywords"
+    refute File.exists?("assets/accordion.js")
+  end
 end

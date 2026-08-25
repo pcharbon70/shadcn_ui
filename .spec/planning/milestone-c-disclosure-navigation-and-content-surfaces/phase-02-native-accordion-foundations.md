@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 2 Phase - Deliver native independent and progressively exclusive disclosure
+- [x] 2 Phase - Deliver native independent and progressively exclusive disclosure
   with deterministic relationships and complete content fallbacks.
 
   This phase builds Accordion directly on `details` and `summary`. Server inputs
@@ -59,27 +59,27 @@ Back to wave: [README](./README.md)
       - [x] 2.2.2.3 Subtask - Disable nonessential disclosure animation under reduced motion and retain visible open state in forced colors.
       - [x] 2.2.2.4 Subtask - Add API, semantics, find-in-page, state ownership, fallback, theme, and provenance documentation.
 
-  - [ ] 2.3 Section - Phase 2 Integration Tests.
+  - [x] 2.3 Section - Phase 2 Integration Tests.
 
     This section verifies Accordion as native disclosure across rendering,
     browser behavior, fallbacks, and package boundaries.
 
-    - [ ] 2.3.1 Task - Verify rendering, identity, and ownership.
+    - [x] 2.3.1 Task - Verify rendering, identity, and ownership.
 
       Component tests should prove deterministic markup and prevent accidental
       expansion into an application-controlled disclosure widget.
 
-      - [ ] 2.3.1.1 Subtask - Test independent and exclusive markup, stable IDs and names, open snapshots, nested content, caller globals, and invalid inputs.
-      - [ ] 2.3.1.2 Subtask - Test escaping, trusted slots, duplicate-key rejection, repeated server renders, and stable atom count.
-      - [ ] 2.3.1.3 Subtask - Audit source and release output for toggle handlers, persistence, focus movement, routing, lazy loading, application dependencies, and JavaScript.
-      - [ ] 2.3.1.4 Subtask - Add aggregate disclosure tests composing Separator and Scroll Area without changing their native contracts.
+      - [x] 2.3.1.1 Subtask - Test independent and exclusive markup, stable IDs and names, open snapshots, nested content, caller globals, and invalid inputs.
+      - [x] 2.3.1.2 Subtask - Test escaping, trusted slots, duplicate-key rejection, repeated server renders, and stable atom count.
+      - [x] 2.3.1.3 Subtask - Audit source and release output for toggle handlers, persistence, focus movement, routing, lazy loading, application dependencies, and JavaScript.
+      - [x] 2.3.1.4 Subtask - Add aggregate disclosure tests composing Separator and Scroll Area without changing their native contracts.
 
-    - [ ] 2.3.2 Task - Verify native browser and fallback behavior.
+    - [x] 2.3.2 Task - Verify native browser and fallback behavior.
 
       Browser evidence should cover the semantics the package claims and the
       degraded behavior it documents.
 
-      - [ ] 2.3.2.1 Subtask - Browser-test summary click, Enter and Space activation, focus visibility, open state, nested interactive content, and find-in-page access.
-      - [ ] 2.3.2.2 Subtask - Test exclusive grouping where supported and independent disclosure when the shared-name feature is absent or ignored.
-      - [ ] 2.3.2.3 Subtask - Test light, dark, narrow, zoom, forced-colors, reduced-motion, no-CSS, and no-script presentation.
-      - [ ] 2.3.2.4 Subtask - Run asset checks, package precommit, ExDoc, archive audit, provenance validation, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 2.3.2.1 Subtask - Browser-test summary click, Enter and Space activation, focus visibility, open state, nested interactive content, and find-in-page access.
+      - [x] 2.3.2.2 Subtask - Test exclusive grouping where supported and independent disclosure when the shared-name feature is absent or ignored.
+      - [x] 2.3.2.3 Subtask - Test light, dark, narrow, zoom, forced-colors, reduced-motion, no-CSS, and no-script presentation.
+      - [x] 2.3.2.4 Subtask - Run asset checks, package precommit, ExDoc, archive audit, provenance validation, `mix spec.check --base main`, and `git diff --check`.
