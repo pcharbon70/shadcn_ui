@@ -1,0 +1,74 @@
+name: ShadcnUI gallery
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: erlef/setup-beam@v1
+        with:
+          elixir-version: "1.18"
+          otp-version: "27"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            demo/package-lock.json
+      - run: mix deps.get --locked
+      - run: npm ci && npm run assets:check
+      - run: mix precommit
+      - run: mix docs && mix hex.build
+      - run: mix spec.check --base origin/main
+      - run: npm ci && npm run assets:build
+        working-directory: demo
+      - run: mix deps.get --locked && mix precommit
+        working-directory: demo
+      - run: npx playwright install --with-deps chromium
+        working-directory: demo
+      - run: npm run browser:test
+        working-directory: demo
+      - run: npm run export:determinism && npm run export:check
+        working-directory: demo
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: demo/export
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy exact verified artifact
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Smoke test canonical gallery
+        run: node demo/scripts/smoke-gallery.mjs
+        env:
+          SHADCN_UI_GALLERY_URL: https://leco-industries-inc.github.io/shadcn_ui/

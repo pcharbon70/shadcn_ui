@@ -6,7 +6,7 @@ publication to Hex.
 
 ## Candidate verification
 
-From a clean checkout and `packages/shadcn_ui`:
+From a clean checkout at the repository root:
 
 1. Run `mix deps.get --locked` and `npm ci`.
 2. Run `npm run assets:build` and `npm run assets:check`.

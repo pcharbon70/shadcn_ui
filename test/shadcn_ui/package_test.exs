@@ -74,8 +74,8 @@ defmodule ShadcnUI.PackageTest do
     assert package[:licenses] == ["LicenseRef-LECO-Proprietary"]
 
     assert package[:links] == %{
-             "Gallery" => "https://leco-industries-inc.github.io/leco_apps/shadcn-ui/",
-             "GitHub" => "https://github.com/Leco-Industries-Inc/leco_apps"
+             "Gallery" => "https://leco-industries-inc.github.io/shadcn_ui/",
+             "GitHub" => "https://github.com/Leco-Industries-Inc/shadcn_ui"
            }
 
     assert package[:files] == [

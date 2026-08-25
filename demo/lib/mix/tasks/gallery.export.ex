@@ -135,7 +135,7 @@ defmodule Mix.Tasks.Gallery.Export do
   end
 
   defp write_sitemap! do
-    base = "https://leco-industries-inc.github.io/leco_apps/shadcn-ui"
+    base = "https://leco-industries-inc.github.io/shadcn_ui"
 
     urls =
       (ShadcnUIDemo.Catalogue.routes() ++ ShadcnUIDemo.Catalogue.form_routes())

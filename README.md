@@ -17,15 +17,22 @@ native Forms catalogues, gallery, and acceptance evidence. See
 [`.spec/milestones`](./.spec/milestones/README.md) for the roadmap.
 
 The canonical gallery is
-<https://leco-industries-inc.github.io/leco_apps/shadcn-ui/>. It is a separate
+<https://leco-industries-inc.github.io/shadcn_ui/>. It is a separate
 Phoenix reference consumer and is not part of the package runtime or archive.
 
 ## Installation
 
-During monorepo development, add the package as a path dependency:
+For sibling development, add the package as a path dependency:
 
 ```elixir
-{:shadcn_ui, path: "../../packages/shadcn_ui"}
+{:shadcn_ui, path: "../shadcn_ui"}
+```
+
+Internal consumers may instead pin a reviewed Git revision from the standalone
+repository:
+
+```elixir
+{:shadcn_ui, git: "https://github.com/Leco-Industries-Inc/shadcn_ui.git", ref: "<commit-sha>"}
 ```
 
 Import the package's public defining component modules with:
@@ -544,7 +551,7 @@ component, and integration tests in the same change.
 
 ## Maintainer workflows
 
-From `packages/shadcn_ui`, install exactly the locked JavaScript dependencies
+From the repository root, install exactly the locked JavaScript dependencies
 and verify the committed stylesheet with `npm ci`, `npm run assets:build`, and
 `npm run assets:check`. Run `mix precommit`, `mix docs`, and
 `mix hex.build` with locked Mix dependencies before accepting an internal
@@ -554,6 +561,6 @@ The gallery is maintained independently under `demo`. From that directory,
 run `mix deps.get --locked`, `npm ci`, `npm run assets:build`, `mix test`, and
 `mix gallery.export`. `npm run export:check` audits the export and
 `npm run smoke -- <base-url>` checks a deployed artifact. See the
-[deployment runbook](https://github.com/Leco-Industries-Inc/leco_apps/blob/main/packages/shadcn_ui/demo/DEPLOYMENT.md)
+[deployment runbook](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/demo/DEPLOYMENT.md)
 for the approved GitHub Pages environment, retention, exact-artifact deployment,
 and rollback procedure.

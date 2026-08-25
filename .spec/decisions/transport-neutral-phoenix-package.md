@@ -23,7 +23,7 @@ application model.
 
 ## Decision
 
-ShadcnUI is an independent Mix project under `packages/shadcn_ui`.
+ShadcnUI is an independent Mix project in its standalone repository.
 
 - Public UI elements are stateless Phoenix function components implemented in
   one defining module per component under functional category namespaces.
