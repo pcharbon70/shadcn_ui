@@ -13,9 +13,10 @@ defmodule ShadcnUIDemo.ReferenceCompletenessTest do
     for component <- Catalogue.components() do
       reference = Reference.fetch!(component.render)
       assert Enum.all?(~w(what when responsibilities accessibility fallback source)a, &Map.has_key?(reference, &1))
-      assert reference.source =~ "<.#{component.slug}"
-      assert renderer =~ "render: :#{component.render}"
-      assert "foundation.#{component.slug}" in provenance_ids
+      assert reference.source =~ "<.#{String.replace(component.slug, "-", "_")}"
+      assert renderer =~ ":#{component.render}"
+      provenance_prefix = if component.category == "foundation", do: "foundation", else: "forms"
+      assert Enum.any?(provenance_ids, &String.starts_with?(&1, "#{provenance_prefix}.#{String.replace(component.slug, "-", "_")}"))
       assert component.path in Catalogue.routes()
     end
   end

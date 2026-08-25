@@ -21,6 +21,8 @@ a { color: inherit; }
 .gallery-reference { display: grid; gap: 1.5rem; }
 .gallery-examples { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; max-width: 100%; }
 .gallery-examples > [data-shadcn-ui] { max-width: 100%; }
+.gallery-form-modes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; min-width: 0; }
+.gallery-form-modes > section { min-width: 0; padding: 1rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-lg); }
 .gallery-avatar-stack { display: flex; max-width: 100%; }
 pre { max-width: 100%; overflow: auto; padding: 1rem; background: var(--shadcn-ui-muted); border-radius: var(--shadcn-ui-radius-md); }
 

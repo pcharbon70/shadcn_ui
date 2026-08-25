@@ -21,7 +21,7 @@ defmodule ShadcnUIDemo.GalleryBoundaryTest do
 
     refute source =~ ~r/(https?:|@import|url\(|analytics|fonts\.google)/i
     assert source =~ "system-ui"
-    assert build =~ ~s(createHash("sha256"))
+    assert build =~ ~s|createHash("sha256")|
     assert build =~ "shadcn_ui.css"
     assert ignore =~ "/export/"
     assert ignore =~ "/node_modules/"

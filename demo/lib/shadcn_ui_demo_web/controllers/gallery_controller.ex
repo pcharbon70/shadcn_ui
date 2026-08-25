@@ -32,11 +32,13 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   defp render_page(conn, params, page) do
     theme = if params["theme"] in ["light", "dark"], do: params["theme"], else: "light"
 
-    render(conn, :gallery,
+    conn
+    |> put_view(html: ShadcnUIDemoWeb.PageHTML)
+    |> render(:gallery,
       page_title: page.title,
       page: page,
       theme: theme,
-      category: Catalogue.category(),
+      categories: Catalogue.categories(),
       components: Catalogue.components()
     )
   end

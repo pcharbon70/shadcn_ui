@@ -18,7 +18,7 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
       query = if theme, do: "?theme=#{theme}", else: ""
       html = conn |> recycle() |> get("/components/foundation/button#{query}") |> html_response(200)
       assert html =~ ~s(data-shadcn-theme="#{expected}")
-      assert html =~ "Public HEEX examples"
+      assert html =~ "HEEX source"
       assert html =~ ~s(href="/components/foundation/card")
     end
   end

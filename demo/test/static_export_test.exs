@@ -10,6 +10,7 @@ defmodule ShadcnUIDemo.StaticExportTest do
 
     assert task =~ "ShadcnUIDemo.Catalogue.routes()"
     assert task =~ "route-manifest.json"
+    assert task =~ "sitemap.xml"
     assert task =~ ":crypto.hash(:sha256"
     assert task =~ "reject_remote_runtime!"
     refute task =~ ~r/(DateTime|NaiveDateTime|System\.system_time)/

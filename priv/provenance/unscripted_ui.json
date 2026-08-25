@@ -51,6 +51,30 @@
       "localChanges": "Adapt native label presentation into a protected HEEX relationship primitive with explicit required and optional indicators."
     },
     {
+      "id": "forms.field",
+      "localPaths": ["lib/shadcn_ui/components/forms/field.ex", "lib/shadcn_ui/components/forms/form_contract.ex"],
+      "upstreamPaths": ["src/content/components/label.mdx", "src/content/components/input.mdx"],
+      "localChanges": "Compose upstream-informed form presentation into a deterministic relationship-aware HEEX field boundary."
+    },
+    {
+      "id": "forms.help",
+      "localPaths": ["lib/shadcn_ui/components/forms/help.ex"],
+      "upstreamPaths": ["src/content/components/input.mdx"],
+      "localChanges": "Extract visible descriptive form text into an escaped deterministic HEEX relationship fragment."
+    },
+    {
+      "id": "forms.field_errors",
+      "localPaths": ["lib/shadcn_ui/components/forms/field_errors.ex"],
+      "upstreamPaths": ["src/content/components/input.mdx"],
+      "localChanges": "Render caller-owned validation messages as ordered escaped content with deterministic IDs and no live-region policy."
+    },
+    {
+      "id": "forms.error_summary",
+      "localPaths": ["lib/shadcn_ui/components/forms/error_summary.ex"],
+      "upstreamPaths": ["src/content/components/input.mdx"],
+      "localChanges": "Compose caller-owned form errors into an ordinary linked summary without package-owned focus or announcement behavior."
+    },
+    {
       "id": "forms.input",
       "localPaths": ["lib/shadcn_ui/components/forms/input.ex"],
       "upstreamPaths": ["src/content/components/input.mdx", "src/demos/input/basic.html", "src/demos/input/numeric.html"],

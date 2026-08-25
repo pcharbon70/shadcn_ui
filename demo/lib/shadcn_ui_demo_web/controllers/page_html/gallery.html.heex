@@ -1,14 +1,17 @@
 <Layouts.gallery
   page={@page}
-  category={@category}
+  categories={@categories}
   components={@components}
   theme={@theme}
 >
   <p :if={@page.kind == :landing}>
     Transport-neutral Phoenix components with shadcn-style semantic tokens.
   </p>
-  <p :if={@page.kind == :category}>
+  <p :if={@page.kind == :category && @page.slug == "foundation"}>
     Six foundational controls and content surfaces.
+  </p>
+  <p :if={@page.kind == :category && @page.slug == "forms"}>
+    Fifteen native form primitives, controls, and measurement surfaces.
   </p>
   <div :if={@page.kind == :component} class="gallery-reference">
     <section><h2>What it is</h2><p>{@page.reference.what}</p></section>
@@ -16,6 +19,8 @@
     <section><h2>Examples</h2><.component_examples render={@page.render} /></section>
     <section><h2>Application responsibilities</h2><p>{@page.reference.responsibilities}</p></section>
     <section><h2>Accessibility</h2><p>{@page.reference.accessibility}</p></section>
+    <section><h2>Native semantics and relationships</h2><p>{@page.reference.semantics}</p></section>
+    <section :if={Map.get(@page.reference, :comparison)}><h2>Choosing the related control</h2><p>{@page.reference.comparison}</p></section>
     <section><h2>Themes</h2><p>Examples use package semantic tokens in explicit light and dark scopes.</p></section>
     <section><h2>Fallback</h2><p>{@page.reference.fallback}</p></section>
     <section><h2>Provenance</h2><p>Adapted from unscripted/ui commit <code>bd8f403</code> under its MIT notice.</p></section>

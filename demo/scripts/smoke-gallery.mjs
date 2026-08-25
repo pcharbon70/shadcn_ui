@@ -1,7 +1,8 @@
 const base = process.env.SHADCN_UI_GALLERY_URL;
 if (!base?.startsWith("https://")) throw new Error("SHADCN_UI_GALLERY_URL must be an HTTPS URL");
 
-const routes = ["", "components/foundation/", ...["button", "badge", "alert", "card", "avatar", "skeleton"].map((slug) => `components/foundation/${slug}/`)];
+const forms = ["field", "label", "help", "field-errors", "error-summary", "input", "textarea", "checkbox", "radio-group", "switch", "native-select", "enhanced-select", "slider", "progress", "meter"];
+const routes = ["", "components/foundation/", ...["button", "badge", "alert", "card", "avatar", "skeleton"].map((slug) => `components/foundation/${slug}/`), "components/forms/", ...forms.map((slug) => `components/forms/${slug}/`)];
 const assets = new Set();
 for (const route of routes) {
   const response = await fetch(new URL(route, base), { redirect: "error" });

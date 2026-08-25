@@ -16,6 +16,7 @@ defmodule Mix.Tasks.Gallery.Export do
         [export_entry("/__gallery-not-found__", "404.html", 404)]
 
     copy_assets!()
+    write_sitemap!()
     reject_unexpected_output!()
 
     manifest = %{
@@ -104,7 +105,7 @@ defmodule Mix.Tasks.Gallery.Export do
   end
 
   defp reject_unexpected_output! do
-    allowed = ~r/(?:\.html|\.css|\.js|route-manifest\.json)$/
+    allowed = ~r/(?:\.html|\.css|\.js|sitemap\.xml|route-manifest\.json)$/
 
     @output
     |> Path.join("**/*")
@@ -115,6 +116,16 @@ defmodule Mix.Tasks.Gallery.Export do
       [] -> :ok
       files -> Mix.raise("unexpected export files: #{inspect(files)}")
     end
+  end
+
+  defp write_sitemap! do
+    base = "https://leco-industries-inc.github.io/leco_apps/shadcn-ui"
+
+    urls =
+      ShadcnUIDemo.Catalogue.routes()
+      |> Enum.map_join("", &"<url><loc>#{base}#{&1}</loc></url>")
+
+    File.write!(Path.join(@output, "sitemap.xml"), "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>")
   end
 
   defp sha256(content), do: :crypto.hash(:sha256, content) |> Base.encode16(case: :lower)

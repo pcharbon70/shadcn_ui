@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   reference and verifies the milestone as one coherent package. Examples remain
   controller-rendered, static-exportable, and explicit about application ownership.
 
-  - [ ] 6.1 Section - Forms catalogue and component pages.
+  - [x] 6.1 Section - Forms catalogue and component pages.
 
     This section extends the closed gallery information architecture with one
     stable route per form component and complete semantic-state examples.
 
-    - [ ] 6.1.1 Task - Add the Forms category and closed route inventory.
+    - [x] 6.1.1 Task - Add the Forms category and closed route inventory.
 
       Gallery routing should remain deterministic and safe as the catalogue grows
       from Foundation into the complete Milestone B form set.
 
-      - [ ] 6.1.1.1 Subtask - Add stable leaves for Field, Label, Help, Field Errors, Error Summary, Input, Textarea, Checkbox, Radio Group, Switch, Native Select, Enhanced Select, Slider, Progress, and Meter.
-      - [ ] 6.1.1.2 Subtask - Resolve every slug through closed strings to explicit render identities and return non-reflecting 404s for unknown or mismatched routes.
-      - [ ] 6.1.1.3 Subtask - Extend navigation, breadcrumbs, landing, category pages, current-page state, static route inventory, and sitemap in deterministic order.
-      - [ ] 6.1.1.4 Subtask - Keep all new demo source, tests, scripts, dependencies, and export output outside package release contents.
+      - [x] 6.1.1.1 Subtask - Add stable leaves for Field, Label, Help, Field Errors, Error Summary, Input, Textarea, Checkbox, Radio Group, Switch, Native Select, Enhanced Select, Slider, Progress, and Meter.
+      - [x] 6.1.1.2 Subtask - Resolve every slug through closed strings to explicit render identities and return non-reflecting 404s for unknown or mismatched routes.
+      - [x] 6.1.1.3 Subtask - Extend navigation, breadcrumbs, landing, category pages, current-page state, static route inventory, and sitemap in deterministic order.
+      - [x] 6.1.1.4 Subtask - Keep all new demo source, tests, scripts, dependencies, and export output outside package release contents.
 
-    - [ ] 6.1.2 Task - Build focused form component pages.
+    - [x] 6.1.2 Task - Build focused form component pages.
 
       Each page should answer what the control means, when to use it, what the
       package renders, and what the consuming application must still do.
 
-      - [ ] 6.1.2.1 Subtask - Show explicit-ID and FormField examples side by side for every applicable component.
-      - [ ] 6.1.2.2 Subtask - Show applicable pristine, used, valid, invalid, disabled, readonly, required, pending, checked, selected, multiple, determinate, indeterminate, and server-error snapshots.
-      - [ ] 6.1.2.3 Subtask - Include purpose, usage, native semantics, HEEX source, relationships, ownership, fallback, theme, and provenance guidance in plain language.
-      - [ ] 6.1.2.4 Subtask - Explain Checkbox versus Switch, Native versus Enhanced Select, and Progress versus Meter with concrete application examples.
+      - [x] 6.1.2.1 Subtask - Show explicit-ID and FormField examples side by side for every applicable component.
+      - [x] 6.1.2.2 Subtask - Show applicable pristine, used, valid, invalid, disabled, readonly, required, pending, checked, selected, multiple, determinate, indeterminate, and server-error snapshots.
+      - [x] 6.1.2.3 Subtask - Include purpose, usage, native semantics, HEEX source, relationships, ownership, fallback, theme, and provenance guidance in plain language.
+      - [x] 6.1.2.4 Subtask - Explain Checkbox versus Switch, Native versus Enhanced Select, and Progress versus Meter with concrete application examples.
 
   - [ ] 6.2 Section - Complete forms and native submission evidence.
 
