@@ -3,7 +3,14 @@ defmodule ShadcnUIDemo.Catalogue do
 
   @categories [
     %{label: "Foundation", slug: "foundation", path: "/components/foundation"},
-    %{label: "Forms", slug: "forms", path: "/components/forms"}
+    %{label: "Forms", slug: "forms", path: "/components/forms"},
+    %{label: "Disclosure", slug: "disclosure", path: "/components/disclosure"},
+    %{label: "Navigation", slug: "navigation", path: "/components/navigation"},
+    %{
+      label: "Content Surfaces",
+      slug: "content-surfaces",
+      path: "/components/content-surfaces"
+    }
   ]
 
   @foundation [
@@ -33,10 +40,33 @@ defmodule ShadcnUIDemo.Catalogue do
     %{label: "Meter", slug: "meter", render: :meter}
   ]
 
+  @disclosure [%{label: "Accordion", slug: "accordion", render: :accordion}]
+
+  @navigation [
+    %{label: "Navigation Menu", slug: "navigation-menu", render: :navigation_menu},
+    %{label: "Header", slug: "header", render: :header},
+    %{label: "Section Header", slug: "section-header", render: :section_header}
+  ]
+
+  @content_surfaces [
+    %{label: "Scroll Area", slug: "scroll-area", render: :scroll_area},
+    %{label: "Separator", slug: "separator", render: :separator},
+    %{label: "Radio Panels", slug: "radio-panels", render: :radio_panels}
+  ]
+
   @components_by_category %{
     "foundation" => Enum.map(@foundation, &Map.put(&1, :category, "foundation")),
-    "forms" => Enum.map(@forms, &Map.put(&1, :category, "forms"))
+    "forms" => Enum.map(@forms, &Map.put(&1, :category, "forms")),
+    "disclosure" => Enum.map(@disclosure, &Map.put(&1, :category, "disclosure")),
+    "navigation" => Enum.map(@navigation, &Map.put(&1, :category, "navigation")),
+    "content-surfaces" => Enum.map(@content_surfaces, &Map.put(&1, :category, "content-surfaces"))
   }
+
+  @composition_routes [
+    "/examples/documentation",
+    "/examples/settings",
+    "/examples/application-shell"
+  ]
 
   @components Enum.flat_map(@categories, fn category ->
                 Enum.map(Map.fetch!(@components_by_category, category.slug), fn component ->
@@ -46,6 +76,7 @@ defmodule ShadcnUIDemo.Catalogue do
 
   def categories, do: @categories
   def form_routes, do: ["/forms/sign-in", "/forms/profile", "/forms/settings"]
+  def composition_routes, do: @composition_routes
   def category, do: hd(@categories)
   def components, do: @components
 

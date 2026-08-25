@@ -10,30 +10,30 @@ Back to wave: [README](./README.md)
   verifies the package, gallery, browser, provenance, and release boundaries as
   one coherent milestone.
 
-  - [ ] 5.1 Section - Closed categories and component reference pages.
+  - [x] 5.1 Section - Closed categories and component reference pages.
 
     This section extends the immutable gallery information architecture with
     stable routes and plain-language reference pages for every Milestone C leaf.
 
-    - [ ] 5.1.1 Task - Add Disclosure, Navigation, and Content Surfaces catalogues.
+    - [x] 5.1.1 Task - Add Disclosure, Navigation, and Content Surfaces catalogues.
 
       Routing and navigation should remain deterministic as the gallery expands
       beyond Foundation and Forms.
 
-      - [ ] 5.1.1.1 Subtask - Add stable leaves for Accordion, Navigation Menu, Header, Section Header, Scroll Area, Separator, and Radio Panels in deterministic category order.
-      - [ ] 5.1.1.2 Subtask - Resolve every category and component through closed strings to explicit render identities and return non-reflecting 404s for unknown or mismatched routes.
-      - [ ] 5.1.1.3 Subtask - Extend landing, side navigation, breadcrumbs, current-page state, direct routes, static inventory, route manifest, and sitemap.
-      - [ ] 5.1.1.4 Subtask - Keep all Milestone C demo source, tests, scripts, dependencies, and generated output outside package release contents.
+      - [x] 5.1.1.1 Subtask - Add stable leaves for Accordion, Navigation Menu, Header, Section Header, Scroll Area, Separator, and Radio Panels in deterministic category order.
+      - [x] 5.1.1.2 Subtask - Resolve every category and component through closed strings to explicit render identities and return non-reflecting 404s for unknown or mismatched routes.
+      - [x] 5.1.1.3 Subtask - Extend landing, side navigation, breadcrumbs, current-page state, direct routes, static inventory, route manifest, and sitemap.
+      - [x] 5.1.1.4 Subtask - Keep all Milestone C demo source, tests, scripts, dependencies, and generated output outside package release contents.
 
-    - [ ] 5.1.2 Task - Build focused semantic and fallback pages.
+    - [x] 5.1.2 Task - Build focused semantic and fallback pages.
 
       Every page should state what the component means, how it behaves natively,
       what CSS may enhance, and what the consuming application still owns.
 
-      - [ ] 5.1.2.1 Subtask - Show applicable independent, exclusive, open, closed, current, static, sticky, overflow, focusable, semantic, decorative, selected, disabled, enhanced, and fallback states.
-      - [ ] 5.1.2.2 Subtask - Include purpose, usage, native markup, relationships, keyboard behavior, HEEX source, ownership, theme, fallback, and provenance guidance in plain English.
-      - [ ] 5.1.2.3 Subtask - Explain links versus commands, navigation links versus Radio Panels, Radio Panels versus true tabs, and task selection versus destination changes using concrete examples.
-      - [ ] 5.1.2.4 Subtask - Show exact CSS-disabled or unsupported-feature fallbacks for exclusive details, sticky headers, edge affordances, anchor decoration, and selected panels.
+      - [x] 5.1.2.1 Subtask - Show applicable independent, exclusive, open, closed, current, static, sticky, overflow, focusable, semantic, decorative, selected, disabled, enhanced, and fallback states.
+      - [x] 5.1.2.2 Subtask - Include purpose, usage, native markup, relationships, keyboard behavior, HEEX source, ownership, theme, fallback, and provenance guidance in plain English.
+      - [x] 5.1.2.3 Subtask - Explain links versus commands, navigation links versus Radio Panels, Radio Panels versus true tabs, and task selection versus destination changes using concrete examples.
+      - [x] 5.1.2.4 Subtask - Show exact CSS-disabled or unsupported-feature fallbacks for exclusive details, sticky headers, edge affordances, anchor decoration, and selected panels.
 
   - [ ] 5.2 Section - Substantial caller-owned page compositions.
 
