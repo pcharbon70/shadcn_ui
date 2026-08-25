@@ -279,6 +279,48 @@ reinvocation or state restoration. Callers supporting browsers below the native
 invoker capability floor should render the `fallback` slot as an ordinary
 destination, visible content, or non-overlay operation.
 
+### Alert Dialog
+
+`alert_dialog` is for a consequential choice that requires a title, an explicit
+consequence description, a least-destructive cancel control, and a distinct
+caller-owned action region. It always renders native `role="alertdialog"`,
+`closedby="closerequest"`, and native `autofocus` on cancel; light dismiss and
+ambiguous initial-focus options are intentionally absent.
+
+```heex
+<.alert_dialog id="delete-account">
+  <:trigger>Delete account</:trigger>
+  <:title>Delete account?</:title>
+  <:description>This action cannot be undone.</:description>
+
+  <p>Export anything you need before continuing.</p>
+
+  <:cancel>Keep account</:cancel>
+  <:action>
+    <form method="post" action="/account">
+      <input type="hidden" name="_csrf_token" value={@csrf_token} />
+      <input type="hidden" name="_method" value="delete" />
+      <.button type="submit" variant={:destructive}>Delete permanently</.button>
+    </form>
+  </:action>
+  <:fallback><a href="/account/delete">Review account deletion</a></:fallback>
+</.alert_dialog>
+```
+
+The action slot preserves caller button or form types, names, values, CSRF,
+disabled and pending snapshots, and transport attributes. The component never
+authorizes, submits, persists, retries, announces success, or infers an outcome.
+Applications own cancellation policy, validation errors, server rejection,
+pending and retry state, result announcements, and replacement behavior.
+
+Use ordinary Dialog for general modal content. A destructive Button is only
+visual/action styling and does not become a confirmation surface. Browser
+`confirm()` cannot provide this composable, server-rendered contract and is not
+used. Application-specific multi-step or identity-verification workflows remain
+outside Alert Dialog and should use their own routes and server state. Safe
+delete, discard, and irreversible-action examples in tests are inert snapshots;
+they perform no domain operation.
+
 ## Milestone C content surfaces
 
 ### Navigation Menu

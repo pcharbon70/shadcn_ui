@@ -189,6 +189,12 @@
       "localChanges": "Adapt Dialog presentation to an initially closed native dialog with declarative invoker commands, deterministic relationships, closed dismissal and autofocus intent, explicit exit and fallback regions, and no package JavaScript."
     },
     {
+      "id": "overlays.alert-dialog",
+      "localPaths": ["lib/shadcn_ui/components/overlays/alert_dialog.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/alert-dialog.mdx", "src/demos/alert-dialog/basic.html"],
+      "localChanges": "Adapt Alert Dialog presentation to native alertdialog semantics with fixed close-request dismissal, least-destructive cancel autofocus, required consequence and caller-owned action regions, and no operation or outcome behavior."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

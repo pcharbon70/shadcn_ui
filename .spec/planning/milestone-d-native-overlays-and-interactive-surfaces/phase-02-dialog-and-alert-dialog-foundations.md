@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 2.1.2.3 Subtask - Document browser-local open state, close requests, form method dialog behavior, caller event attributes, patch avoidance, replacement loss, and reinvocation ownership.
       - [x] 2.1.2.4 Subtask - Add long title, translated content, nested native form, nested Popover, narrow viewport, zoom, forced-colors, reduced-motion, light/dark, RTL, and ordinary fallback fixtures.
 
-  - [ ] 2.2 Section - Consequential Alert Dialog contract.
+  - [x] 2.2 Section - Consequential Alert Dialog contract.
 
     This section defines confirmation markup and least-destructive initial focus
     without performing, authorizing, or reporting the consequential operation.
 
-    - [ ] 2.2.1 Task - Implement Alert Dialog semantics and action regions.
+    - [x] 2.2.1 Task - Implement Alert Dialog semantics and action regions.
 
       Alert Dialog should make consequence, cancellation, and caller action
       unmistakable while retaining native modal mechanics.
 
-      - [ ] 2.2.1.1 Subtask - Add a defining Overlays.AlertDialog module with required ID, trigger, title, consequential description, cancel content, action content, and optional supporting body.
-      - [ ] 2.2.1.2 Subtask - Render native dialog with alertdialog semantics, closerequest dismissal, deterministic relationships, explicit cancel command, and least-destructive cancel autofocus.
-      - [ ] 2.2.1.3 Subtask - Preserve caller-owned native action button or form semantics, types, names, values, CSRF fields, disabled and pending snapshots, and transport attributes.
-      - [ ] 2.2.1.4 Subtask - Protect consequence semantics and reject light-dismiss defaults, missing exits, ambiguous initial focus, role contradiction, and package-owned outcome attributes.
+      - [x] 2.2.1.1 Subtask - Add a defining Overlays.AlertDialog module with required ID, trigger, title, consequential description, cancel content, action content, and optional supporting body.
+      - [x] 2.2.1.2 Subtask - Render native dialog with alertdialog semantics, closerequest dismissal, deterministic relationships, explicit cancel command, and least-destructive cancel autofocus.
+      - [x] 2.2.1.3 Subtask - Preserve caller-owned native action button or form semantics, types, names, values, CSRF fields, disabled and pending snapshots, and transport attributes.
+      - [x] 2.2.1.4 Subtask - Protect consequence semantics and reject light-dismiss defaults, missing exits, ambiguous initial focus, role contradiction, and package-owned outcome attributes.
 
-    - [ ] 2.2.2 Task - Document confirmation and application ownership boundaries.
+    - [x] 2.2.2 Task - Document confirmation and application ownership boundaries.
 
       Consumers should understand that modal presentation never grants authority
       or turns a browser-side choice into a completed server operation.
 
-      - [ ] 2.2.2.1 Subtask - Document cancellation, Escape, close request, initial focus, validation errors, server rejection, pending state, retry, and result announcement ownership.
-      - [ ] 2.2.2.2 Subtask - Compare ordinary Dialog, Alert Dialog, destructive Button styling, browser confirm, and application-specific multi-step workflows.
-      - [ ] 2.2.2.3 Subtask - Demonstrate safe delete, discard, and irreversible-action snapshots with inert deterministic caller fixtures and no domain operation.
-      - [ ] 2.2.2.4 Subtask - Add unsupported-invoker ordinary destinations and no-transition, CSS-disabled, no-script, long-content, and replacement evidence.
+      - [x] 2.2.2.1 Subtask - Document cancellation, Escape, close request, initial focus, validation errors, server rejection, pending state, retry, and result announcement ownership.
+      - [x] 2.2.2.2 Subtask - Compare ordinary Dialog, Alert Dialog, destructive Button styling, browser confirm, and application-specific multi-step workflows.
+      - [x] 2.2.2.3 Subtask - Demonstrate safe delete, discard, and irreversible-action snapshots with inert deterministic caller fixtures and no domain operation.
+      - [x] 2.2.2.4 Subtask - Add unsupported-invoker ordinary destinations and no-transition, CSS-disabled, no-script, long-content, and replacement evidence.
 
   - [ ] 2.3 Section - Phase 2 Integration Tests.
 

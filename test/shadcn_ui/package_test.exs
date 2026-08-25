@@ -27,7 +27,10 @@ defmodule ShadcnUI.PackageTest do
   ]
 
   @disclosure_modules [ShadcnUI.Components.Disclosure.Accordion]
-  @overlay_modules [ShadcnUI.Components.Overlays.Dialog]
+  @overlay_modules [
+    ShadcnUI.Components.Overlays.AlertDialog,
+    ShadcnUI.Components.Overlays.Dialog
+  ]
 
   test "defines the package entry point and component namespaces" do
     assert Code.ensure_loaded?(ShadcnUI)
