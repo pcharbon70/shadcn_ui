@@ -86,6 +86,9 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Content.ScrollArea,
           ShadcnUI.Components.Content.Separator
         ],
+        "Disclosure components": [
+          ShadcnUI.Components.Disclosure.Accordion
+        ],
         "Foundation components": [
           ShadcnUI.Components.Foundation.Alert,
           ShadcnUI.Components.Foundation.Avatar,

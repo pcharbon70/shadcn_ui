@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   describe the rendered snapshot while browsers retain activation, keyboard,
   focus, and find-in-page behavior.
 
-  - [ ] 2.1 Section - Native Accordion structure and identity.
+  - [x] 2.1 Section - Native Accordion structure and identity.
 
     This section establishes stable item markup and a closed public API without
     inventing a second disclosure state model.
 
-    - [ ] 2.1.1 Task - Implement the Accordion item contract.
+    - [x] 2.1.1 Task - Implement the Accordion item contract.
 
       Every item should retain native disclosure behavior and deterministic
       identity across server rerenders.
 
-      - [ ] 2.1.1.1 Subtask - Add a defining Disclosure.Accordion module and import it through `use ShadcnUI`.
-      - [ ] 2.1.1.2 Subtask - Require an explicit nonblank accordion ID, stable item keys, summary content, and trusted panel content.
-      - [ ] 2.1.1.3 Subtask - Render one native `details` and `summary` pair per item with deterministic details, summary, and content IDs.
-      - [ ] 2.1.1.4 Subtask - Preserve escaped text and trusted HEEX slots without disclosure roles, button imitations, hidden duplicate controls, or package scripts.
+      - [x] 2.1.1.1 Subtask - Add a defining Disclosure.Accordion module and import it through `use ShadcnUI`.
+      - [x] 2.1.1.2 Subtask - Require an explicit nonblank accordion ID, stable item keys, summary content, and trusted panel content.
+      - [x] 2.1.1.3 Subtask - Render one native `details` and `summary` pair per item with deterministic details, summary, and content IDs.
+      - [x] 2.1.1.4 Subtask - Preserve escaped text and trusted HEEX slots without disclosure roles, button imitations, hidden duplicate controls, or package scripts.
 
-    - [ ] 2.1.2 Task - Define rendered open state and protected globals.
+    - [x] 2.1.2 Task - Define rendered open state and protected globals.
 
       Open values should be explicit snapshots that cannot be contradicted by
       caller attributes or mistaken for persisted application state.
 
-      - [ ] 2.1.2.1 Subtask - Support explicit per-item initial open snapshots with deterministic repeated rendering.
-      - [ ] 2.1.2.2 Subtask - Protect native elements, IDs, summary relationships, group names, and open values from conflicting globals.
-      - [ ] 2.1.2.3 Subtask - Forward unrelated documented native, ARIA, data, Phoenix, and Datastar attributes to their documented elements.
-      - [ ] 2.1.2.4 Subtask - Reject blank IDs, duplicate or unstable keys, invalid modes, and contradictory item data without creating atoms.
+      - [x] 2.1.2.1 Subtask - Support explicit per-item initial open snapshots with deterministic repeated rendering.
+      - [x] 2.1.2.2 Subtask - Protect native elements, IDs, summary relationships, group names, and open values from conflicting globals.
+      - [x] 2.1.2.3 Subtask - Forward unrelated documented native, ARIA, data, Phoenix, and Datastar attributes to their documented elements.
+      - [x] 2.1.2.4 Subtask - Reject blank IDs, duplicate or unstable keys, invalid modes, and contradictory item data without creating atoms.
 
   - [ ] 2.2 Section - Grouping, animation, and fallback policy.
 

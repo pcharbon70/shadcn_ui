@@ -11,7 +11,9 @@ decisions:
   - shadcn_ui.progressive_enhancement_baseline
   - shadcn_ui.scoped_theme_token_contract
 surface:
+  - lib/shadcn_ui/components/disclosure/accordion.ex
   - lib/shadcn_ui/components/disclosure/**/*.ex
+  - test/shadcn_ui/components/disclosure/accordion_test.exs
   - test/shadcn_ui/components/disclosure/**/*.exs
   - test/shadcn_ui/disclosure_components_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
