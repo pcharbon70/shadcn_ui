@@ -4,9 +4,11 @@ defmodule ShadcnUI.Components.Disclosure.AccordionTest do
   alias Phoenix.HTML.Safe
 
   # covers: shadcn_ui.disclosure.accordion_native
+  # covers: shadcn_ui.disclosure.accordion_modes
   # covers: shadcn_ui.disclosure.deterministic_identity
   # covers: shadcn_ui.disclosure.open_snapshot
   # covers: shadcn_ui.disclosure.protected_semantics
+  # covers: shadcn_ui.disclosure.fallback
   # covers: shadcn_ui.disclosure.ownership shadcn_ui.disclosure.shared_contract
 
   defmodule Fixture do
@@ -91,6 +93,23 @@ defmodule ShadcnUI.Components.Disclosure.AccordionTest do
     refute html =~ ~s(name="override")
   end
 
+  test "keeps independent items unnamed and every caller open snapshot" do
+    html = render_accordion(first_open: true, second_open: true, mode: :independent)
+
+    assert length(Regex.scan(~r/<details[^>]+\sopen(?:[=>\s])/u, html)) == 2
+    refute html =~ ~s(name="account-help-group")
+  end
+
+  test "gives exclusive items one stable name and deterministically keeps the first open snapshot" do
+    html = render_accordion(first_open: true, second_open: true, mode: :exclusive)
+
+    assert length(Regex.scan(~r/name="account-help-group"/, html)) == 2
+    assert length(Regex.scan(~r/<details[^>]+\sopen(?:[=>\s])/u, html)) == 1
+    assert html =~ ~r/<details[^>]+id="account-help-item-billing"[^>]+open/u
+    refute html =~ ~r/<details[^>]+id="account-help-item-security"[^>]+open/u
+    assert html == render_accordion(first_open: true, second_open: true, mode: :exclusive)
+  end
+
   test "protects identities and native meaning while forwarding unrelated globals and classes" do
     html = render_accordion()
 
@@ -151,6 +170,30 @@ defmodule ShadcnUI.Components.Disclosure.AccordionTest do
     assert item.required
     assert Enum.find(item.attrs, &(&1.name == :key)).required
     assert Enum.find(item.attrs, &(&1.name == :summary)).required
+    refute Enum.any?(item.attrs, &(&1.name == :disabled))
+  end
+
+  test "records theme, motion, fallback, ownership, and exact upstream provenance" do
+    source = File.read!("assets/shadcn_ui.css")
+    css = File.read!(ShadcnUI.stylesheet_path())
+    provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
+    adaptation = Enum.find(provenance["adaptations"], &(&1["id"] == "disclosure.accordion"))
+    readme = File.read!("README.md")
+
+    assert source =~ "[data-shadcn-ui-accordion-summary]::marker"
+    assert source =~ "@supports selector(details::details-content)"
+    assert source =~ "interpolate-size: allow-keywords"
+    assert source =~ "transition: none !important"
+    assert source =~ "border-color: CanvasText"
+    assert css =~ "data-shadcn-ui-accordion-item"
+
+    assert adaptation["upstreamPaths"] == [
+             "src/content/components/accordion.mdx",
+             "src/demos/accordion/basic.html"
+           ]
+
+    assert readme =~ ~r/Browsers without exclusive\s+details grouping/
+    assert readme =~ ~r/Applications own persistence across server\s+replacement/
   end
 
   test "source contains no disclosure emulation, persistence, application behavior, or JavaScript" do

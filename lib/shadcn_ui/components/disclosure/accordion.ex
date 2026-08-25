@@ -34,7 +34,7 @@ defmodule ShadcnUI.Components.Disclosure.Accordion do
   def accordion(assigns) do
     id = validate_id!(assigns.id)
     _ = Map.fetch!(@modes, assigns.mode)
-    items = normalize_items!(assigns.item, id)
+    items = assigns.item |> normalize_items!(id) |> apply_mode(assigns.mode, id)
 
     assigns =
       assigns
@@ -68,6 +68,7 @@ defmodule ShadcnUI.Components.Disclosure.Accordion do
         {item.details_rest}
         id={item.details_id}
         open={item.open}
+        name={item.group_name}
         data-shadcn-ui
         data-shadcn-ui-accordion-item
         data-item-key={item.key}
@@ -149,13 +150,24 @@ defmodule ShadcnUI.Components.Disclosure.Accordion do
         |> Map.get(:content_rest, %{})
         |> validate_globals!(:content_rest)
         |> protect_globals([:id, :aria_labelledby, :data_shadcn_ui_accordion_content]),
-      classes: class_names(["sui:group sui:w-full", Map.get(item, :class)]),
+      classes:
+        class_names([
+          "sui:group sui:w-full sui:rounded-md sui:border sui:border-border",
+          "sui:bg-background sui:text-foreground",
+          Map.get(item, :class)
+        ]),
       summary_classes:
         class_names([
-          "sui:w-full sui:max-w-full sui:cursor-pointer",
+          "sui:flex sui:w-full sui:max-w-full sui:cursor-pointer sui:items-center sui:gap-2",
+          "sui:rounded-md sui:px-4 sui:py-3 sui:text-left sui:text-sm sui:font-medium",
+          classes_for(:focus, :default),
           Map.get(item, :summary_class)
         ]),
-      content_classes: class_names(["sui:min-w-0 sui:max-w-full", Map.get(item, :content_class)])
+      content_classes:
+        class_names([
+          "sui:min-w-0 sui:max-w-full sui:px-4 sui:pb-4 sui:text-sm sui:text-foreground",
+          Map.get(item, :content_class)
+        ])
     }
   rescue
     KeyError ->
@@ -164,6 +176,21 @@ defmodule ShadcnUI.Components.Disclosure.Accordion do
 
   defp normalize_item!(item, _id) do
     raise ArgumentError, "Accordion items must be slot entries, got: #{inspect(item)}"
+  end
+
+  defp apply_mode(items, :independent, _id) do
+    Enum.map(items, &Map.put(&1, :group_name, nil))
+  end
+
+  defp apply_mode(items, :exclusive, id) do
+    {items, _open_seen?} =
+      Enum.map_reduce(items, false, fn item, open_seen? ->
+        open = item.open and not open_seen?
+
+        {item |> Map.put(:open, open) |> Map.put(:group_name, "#{id}-group"), open_seen? or open}
+      end)
+
+    items
   end
 
   defp validate_id!(id) when is_binary(id) do
