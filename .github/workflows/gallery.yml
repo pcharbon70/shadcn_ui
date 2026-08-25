@@ -43,6 +43,7 @@ jobs:
       - run: npx playwright install --with-deps chromium firefox webkit
         working-directory: demo
       - run: npm run browser:milestone-d-phase1
+      - run: npm run browser:milestone-d-phase2
       - run: npm run browser:test
         working-directory: demo
       - run: npm run browser:milestone-c

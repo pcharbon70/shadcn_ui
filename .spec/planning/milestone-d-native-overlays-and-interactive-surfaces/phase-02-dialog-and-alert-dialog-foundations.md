@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 2 Phase - Publish native modal Dialog and consequential Alert Dialog with
+- [x] 2 Phase - Publish native modal Dialog and consequential Alert Dialog with
   explicit accessible relationships, focus intent, dismissal, and ownership.
 
   This phase relies on the accepted native command capability instead of an
@@ -59,27 +59,27 @@ Back to wave: [README](./README.md)
       - [x] 2.2.2.3 Subtask - Demonstrate safe delete, discard, and irreversible-action snapshots with inert deterministic caller fixtures and no domain operation.
       - [x] 2.2.2.4 Subtask - Add unsupported-invoker ordinary destinations and no-transition, CSS-disabled, no-script, long-content, and replacement evidence.
 
-  - [ ] 2.3 Section - Phase 2 Integration Tests.
+  - [x] 2.3 Section - Phase 2 Integration Tests.
 
     This section verifies both modal contracts across rendering, browser-native
     interaction, accessibility, fallback, and application boundaries.
 
-    - [ ] 2.3.1 Task - Verify Dialog rendering and browser behavior.
+    - [x] 2.3.1 Task - Verify Dialog rendering and browser behavior.
 
       Tests should prove that the native platform, not ShadcnUI script, supplies
       modality, focus containment, dismissal, and restoration.
 
-      - [ ] 2.3.1.1 Subtask - Test all Dialog slots, size and dismissal values, identity, descriptions, autofocus, explicit exit, caller globals, escaping, stable rerenders, and invalid input.
-      - [ ] 2.3.1.2 Subtask - Browser-test show-modal invocation, top layer, background inertness, Tab loop, Escape, explicit close, allowed backdrop dismissal, focus restoration, and form method dialog.
-      - [ ] 2.3.1.3 Subtask - Test nested Popover, rejected nested modal, long native scroll, zoom, narrow viewport, forced colors, reduced motion, RTL, themes, replacement, and fallback destination.
-      - [ ] 2.3.1.4 Subtask - Audit source for event listeners, focus traps, timers, command execution, authorization, routing, persistence, dynamic atoms, and JavaScript.
+      - [x] 2.3.1.1 Subtask - Test all Dialog slots, size and dismissal values, identity, descriptions, autofocus, explicit exit, caller globals, escaping, stable rerenders, and invalid input.
+      - [x] 2.3.1.2 Subtask - Browser-test show-modal invocation, top layer, background inertness, Tab loop, Escape, explicit close, allowed backdrop dismissal, focus restoration, and form method dialog.
+      - [x] 2.3.1.3 Subtask - Test nested Popover, rejected nested modal, long native scroll, zoom, narrow viewport, forced colors, reduced motion, RTL, themes, replacement, and fallback destination.
+      - [x] 2.3.1.4 Subtask - Audit source for event listeners, focus traps, timers, command execution, authorization, routing, persistence, dynamic atoms, and JavaScript.
 
-    - [ ] 2.3.2 Task - Verify Alert Dialog consequence boundaries.
+    - [x] 2.3.2 Task - Verify Alert Dialog consequence boundaries.
 
       Automated evidence should distinguish alertdialog semantics and least-
       destructive focus from visual destructive styling alone.
 
-      - [ ] 2.3.2.1 Subtask - Test required title, description, cancel and action regions, alertdialog role, closerequest policy, cancel autofocus, command relationships, and protected globals.
-      - [ ] 2.3.2.2 Subtask - Browser-test cancel, Escape, consequential native action, focus restoration, rejected light dismiss, server-error snapshot, and replacement behavior.
-      - [ ] 2.3.2.3 Subtask - Assert absence of automatic submission, authorization, persistence, success claims, focus scripting, alert urgency inferred from color, and browser confirm calls.
-      - [ ] 2.3.2.4 Subtask - Run asset checks, package precommit, cross-engine Dialog suites, ExDoc, provenance and archive audits, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 2.3.2.1 Subtask - Test required title, description, cancel and action regions, alertdialog role, closerequest policy, cancel autofocus, command relationships, and protected globals.
+      - [x] 2.3.2.2 Subtask - Browser-test cancel, Escape, consequential native action, focus restoration, rejected light dismiss, server-error snapshot, and replacement behavior.
+      - [x] 2.3.2.3 Subtask - Assert absence of automatic submission, authorization, persistence, success claims, focus scripting, alert urgency inferred from color, and browser confirm calls.
+      - [x] 2.3.2.4 Subtask - Run asset checks, package precommit, cross-engine Dialog suites, ExDoc, provenance and archive audits, `mix spec.check --base main`, and `git diff --check`.
