@@ -210,6 +210,68 @@
   overflow: auto;
 }
 
+/* Native range remains the only value, focus, reset, and submission model. */
+[data-shadcn-ui-slider] {
+  appearance: auto;
+  min-block-size: 2.75rem;
+  padding-block: 0.75rem;
+  cursor: pointer;
+  accent-color: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-slider]::-webkit-slider-runnable-track {
+  block-size: 0.375rem;
+  border: 1px solid var(--shadcn-ui-input);
+  border-radius: 9999px;
+  background: var(--shadcn-ui-muted);
+}
+
+[data-shadcn-ui-slider]::-webkit-slider-thumb {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border: 2px solid var(--shadcn-ui-primary);
+  border-radius: 9999px;
+  background: var(--shadcn-ui-background);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+}
+
+[data-shadcn-ui-slider]::-moz-range-track {
+  block-size: 0.375rem;
+  border: 1px solid var(--shadcn-ui-input);
+  border-radius: 9999px;
+  background: var(--shadcn-ui-muted);
+}
+
+[data-shadcn-ui-slider]::-moz-range-progress {
+  block-size: 0.375rem;
+  border-radius: 9999px;
+  background: var(--shadcn-ui-primary);
+}
+
+[data-shadcn-ui-slider]::-moz-range-thumb {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border: 2px solid var(--shadcn-ui-primary);
+  border-radius: 9999px;
+  background: var(--shadcn-ui-background);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+}
+
+[data-shadcn-ui-slider]:focus-visible {
+  outline: 2px solid var(--shadcn-ui-ring);
+  outline-offset: 2px;
+}
+
+[data-shadcn-ui-slider][aria-invalid="true"] {
+  outline: 2px solid var(--shadcn-ui-destructive);
+  outline-offset: 2px;
+}
+
+[data-shadcn-ui-slider]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 /*
  * Enhanced Select starts here. Every enhancement-only selector and declaration
  * stays inside one complete capability gate; the classic rules above remain
@@ -379,5 +441,14 @@
   [data-shadcn-ui-select][aria-invalid="true"] {
     outline: 1px solid Mark;
     outline-offset: 0.125rem;
+  }
+
+  [data-shadcn-ui-slider] {
+    appearance: auto;
+    forced-color-adjust: auto;
+  }
+
+  [data-shadcn-ui-slider][aria-invalid="true"] {
+    outline-color: Mark;
   }
 }

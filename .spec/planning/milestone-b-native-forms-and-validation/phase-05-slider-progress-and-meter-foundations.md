@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   submitted range input, while Progress and Meter preserve their different native
   meanings as caller-owned render snapshots.
 
-  - [ ] 5.1 Section - Slider foundation.
+  - [x] 5.1 Section - Slider foundation.
 
     This section styles native range input while retaining its platform keyboard,
     focus, value, constraint, and form behavior.
 
-    - [ ] 5.1.1 Task - Implement Slider normalization and semantics.
+    - [x] 5.1.1 Task - Implement Slider normalization and semantics.
 
       Slider should reuse the field contract and expose only values the native
       range element can represent honestly.
 
-      - [ ] 5.1.1.1 Subtask - Render one native `input type="range"` with explicit and FormField ID, name, value, errors, and caller-owned pending state.
-      - [ ] 5.1.1.2 Subtask - Support native min, max, step, disabled, required label, form association, and optional deterministic value-description relationship.
-      - [ ] 5.1.1.3 Subtask - Protect type, identity, constraints, disabled, invalid, and accessibility relationships from conflicting globals.
-      - [ ] 5.1.1.4 Subtask - Add no drag state, event handler, numeric domain parser, output synchronization, hidden mirror, or value announcement behavior.
+      - [x] 5.1.1.1 Subtask - Render one native `input type="range"` with explicit and FormField ID, name, value, errors, and caller-owned pending state.
+      - [x] 5.1.1.2 Subtask - Support native min, max, step, disabled, required label, form association, and optional deterministic value-description relationship.
+      - [x] 5.1.1.3 Subtask - Protect type, identity, constraints, disabled, invalid, and accessibility relationships from conflicting globals.
+      - [x] 5.1.1.4 Subtask - Add no drag state, event handler, numeric domain parser, output synchronization, hidden mirror, or value announcement behavior.
 
-    - [ ] 5.1.2 Task - Implement resilient Slider presentation.
+    - [x] 5.1.2 Task - Implement resilient Slider presentation.
 
       Track, range, thumb, and focus styling should remain understandable across
       themes and system accessibility modes without obscuring the native input.
 
-      - [ ] 5.1.2.1 Subtask - Add prefixed track and thumb styles using semantic foreground, input, accent, invalid, and ring tokens.
-      - [ ] 5.1.2.2 Subtask - Preserve visible native focus and distinguish disabled, invalid, and current-value presentation without color alone.
-      - [ ] 5.1.2.3 Subtask - Add engine-specific pseudo-element rules only where necessary and audit that the input remains operable without them.
-      - [ ] 5.1.2.4 Subtask - Verify adequate pointer target, narrow layouts, zoom, forced colors, and left-to-right and right-to-left document contexts.
+      - [x] 5.1.2.1 Subtask - Add prefixed track and thumb styles using semantic foreground, input, accent, invalid, and ring tokens.
+      - [x] 5.1.2.2 Subtask - Preserve visible native focus and distinguish disabled, invalid, and current-value presentation without color alone.
+      - [x] 5.1.2.3 Subtask - Add engine-specific pseudo-element rules only where necessary and audit that the input remains operable without them.
+      - [x] 5.1.2.4 Subtask - Verify adequate pointer target, narrow layouts, zoom, forced colors, and left-to-right and right-to-left document contexts.
 
   - [ ] 5.2 Section - Progress and Meter semantic foundations.
 

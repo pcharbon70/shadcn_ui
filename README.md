@@ -420,6 +420,25 @@ reset, and submitted parameters remain identical. Enhanced Select adds no
 hidden mirror, custom combobox/listbox role, filtering, remote loading, event
 handler, focus manager, popup state, polyfill, or JavaScript runtime.
 
+### Slider
+
+Slider renders one native `input type="range"` through the shared field
+contract. Native minimum, maximum, step, disabled, reset, keyboard, pointer,
+constraint-validation, and submission behavior remain authoritative.
+
+```heex
+<.slider field={@form[:volume]} min={0} max={100} step={5}>
+  <:label>Volume</:label>
+  <:value_description>Choose a level from quiet to loud.</:value_description>
+  <:help>The saved value is an integer percentage.</:help>
+</.slider>
+```
+
+The optional value-description slot receives a deterministic relationship to
+the input, but it is a render snapshot: ShadcnUI does not synchronize its text
+when the thumb moves. The package adds no drag state, numeric domain parser,
+event handler, hidden mirror, or value announcement behavior.
+
 ## Upstream provenance
 
 Substantially adapted unscripted/ui material is mapped in

@@ -101,6 +101,7 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Forms.Label,
           ShadcnUI.Components.Forms.NativeSelect,
           ShadcnUI.Components.Forms.RadioGroup,
+          ShadcnUI.Components.Forms.Slider,
           ShadcnUI.Components.Forms.Switch,
           ShadcnUI.Components.Forms.Textarea
         ],

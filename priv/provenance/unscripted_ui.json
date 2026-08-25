@@ -93,6 +93,12 @@
       "localChanges": "Adapt native textarea presentation into a relationship-aware HEEX API with closed resize policy and progressive CSS content sizing."
     },
     {
+      "id": "forms.slider",
+      "localPaths": ["lib/shadcn_ui/components/forms/slider.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/slider.mdx", "src/demos/slider/basic.html"],
+      "localChanges": "Adapt slider presentation onto one native range input with deterministic field relationships and caller-owned value display."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

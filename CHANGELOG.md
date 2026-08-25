@@ -41,3 +41,5 @@ All notable changes to ShadcnUI will be documented in this file.
   repeated-value modes, and the browser's visible classic picker as its floor.
 - Add Enhanced Select as an opt-in standards-based presentation over the same
   native value, option, accessibility, fallback, and submission contract.
+- Add Slider as a native range-input foundation with shared FormField
+  relationships, resilient presentation, and no duplicated value state.
