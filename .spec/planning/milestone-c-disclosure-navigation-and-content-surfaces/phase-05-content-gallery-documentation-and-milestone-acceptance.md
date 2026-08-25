@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 5 Phase - Publish the complete Milestone C catalogue, substantial page
+- [x] 5 Phase - Publish the complete Milestone C catalogue, substantial page
   compositions, fallback guidance, and milestone-wide acceptance evidence.
 
   This phase turns the new components into an understandable public reference,
@@ -85,27 +85,27 @@ Back to wave: [README](./README.md)
       - [x] 5.3.2.3 Subtask - Rebuild ExDoc, package assets, the release archive, gallery assets, and static export and audit their exact allowlists.
       - [x] 5.3.2.4 Subtask - Update changelog, package catalogue, canonical gallery URL, deployment smoke inventory, rollback guidance, and Milestone C acceptance record.
 
-  - [ ] 5.4 Section - Phase 5 Integration Tests.
+  - [x] 5.4 Section - Phase 5 Integration Tests.
 
     This section verifies the complete Milestone C catalogue, compositions,
     semantics, fallbacks, documentation, and release boundary as milestone exit.
 
-    - [ ] 5.4.1 Task - Run gallery and browser acceptance.
+    - [x] 5.4.1 Task - Run gallery and browser acceptance.
 
       Automated checks should cover real routes and native interactions across
       the complete content, navigation, accessibility, and fallback matrix.
 
-      - [ ] 5.4.1.1 Subtask - Test every new category, component route, breadcrumb, current-page state, direct export route, sitemap entry, source block, composition route, and unknown-route 404.
-      - [ ] 5.4.1.2 Subtask - Browser-test summary activation, exclusive and independent disclosure, find-in-page, Tab order, ordinary links, fragments, scrolling, focus policy, sticky fallback, and native radio keys and values.
-      - [ ] 5.4.1.3 Subtask - Test narrow, wide, overflow, nested, long, translated, RTL, zoom, forced-colors, reduced-motion, light/dark, no-script, and CSS-disabled fixtures.
-      - [ ] 5.4.1.4 Subtask - Run automated accessibility checks plus explicit landmark, heading, list, link, name, relationship, current-state, keyboard, native-element, and forbidden-role assertions.
+      - [x] 5.4.1.1 Subtask - Test every new category, component route, breadcrumb, current-page state, direct export route, sitemap entry, source block, composition route, and unknown-route 404.
+      - [x] 5.4.1.2 Subtask - Browser-test summary activation, exclusive and independent disclosure, find-in-page, Tab order, ordinary links, fragments, scrolling, focus policy, sticky fallback, and native radio keys and values.
+      - [x] 5.4.1.3 Subtask - Test narrow, wide, overflow, nested, long, translated, RTL, zoom, forced-colors, reduced-motion, light/dark, no-script, and CSS-disabled fixtures.
+      - [x] 5.4.1.4 Subtask - Run automated accessibility checks plus explicit landmark, heading, list, link, name, relationship, current-state, keyboard, native-element, and forbidden-role assertions.
 
-    - [ ] 5.4.2 Task - Run package and Milestone C acceptance.
+    - [x] 5.4.2 Task - Run package and Milestone C acceptance.
 
       Final verification should prove the independently distributable package
       and online gallery satisfy every active Milestone C requirement together.
 
-      - [ ] 5.4.2.1 Subtask - Run component, shared-contract, stylesheet-fallback, composition, static-export, browser, and Milestone C acceptance suites.
-      - [ ] 5.4.2.2 Subtask - Run locked asset and gallery builds, deterministic byte checks, CSS isolation and capability audits, provenance audits, archive checks, and direct-route smoke tests.
-      - [ ] 5.4.2.3 Subtask - Build ExDoc, verify every public function and current specification is represented, and audit true tabs, menus, overlays, application behavior, and package JavaScript remain absent.
-      - [ ] 5.4.2.4 Subtask - Run package and demo precommit commands, `mix spec.check --base main`, `git diff --check`, and record the Milestone C acceptance result.
+      - [x] 5.4.2.1 Subtask - Run component, shared-contract, stylesheet-fallback, composition, static-export, browser, and Milestone C acceptance suites.
+      - [x] 5.4.2.2 Subtask - Run locked asset and gallery builds, deterministic byte checks, CSS isolation and capability audits, provenance audits, archive checks, and direct-route smoke tests.
+      - [x] 5.4.2.3 Subtask - Build ExDoc, verify every public function and current specification is represented, and audit true tabs, menus, overlays, application behavior, and package JavaScript remain absent.
+      - [x] 5.4.2.4 Subtask - Run package and demo precommit commands, `mix spec.check --base main`, `git diff --check`, and record the Milestone C acceptance result.

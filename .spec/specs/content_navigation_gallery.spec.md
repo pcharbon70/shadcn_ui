@@ -15,6 +15,8 @@ surface:
   - demo/**
   - test/browser/milestone-c-content-navigation.spec.mjs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
+  - test/shadcn_ui/milestone_b_documentation_test.exs
+  - test/shadcn_ui/milestone_c_documentation_test.exs
   - README.md
 ```
 
