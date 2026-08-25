@@ -11,9 +11,13 @@ decisions:
   - shadcn_ui.semantic_component_api_and_accessibility
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - lib/shadcn_ui/components/navigation/navigation_menu.ex
   - lib/shadcn_ui/components/navigation/**/*.ex
+  - test/shadcn_ui/components/navigation/navigation_menu_test.exs
   - test/shadcn_ui/components/navigation/**/*.exs
   - test/shadcn_ui/navigation_components_test.exs
+  - test/browser/navigation-menu-foundations.spec.mjs
+  - test/fixtures/navigation_menu.html
   - test/shadcn_ui/milestone_c_acceptance_test.exs
   - README.md
 ```
@@ -96,9 +100,16 @@ surface:
     - shadcn_ui.navigation.link_semantics
     - shadcn_ui.navigation.current_location
     - shadcn_ui.navigation.destination_ownership
-    - shadcn_ui.navigation.header
-    - shadcn_ui.navigation.section_header
-    - shadcn_ui.navigation.sticky_fallback
+    - shadcn_ui.navigation.protected_semantics
+    - shadcn_ui.navigation.shared_contract
+
+- kind: test_file
+  target: test/browser/navigation-menu-foundations.spec.mjs
+  covers:
+    - shadcn_ui.navigation.menu
+    - shadcn_ui.navigation.link_semantics
+    - shadcn_ui.navigation.current_location
+    - shadcn_ui.navigation.destination_ownership
     - shadcn_ui.navigation.protected_semantics
     - shadcn_ui.navigation.shared_contract
 

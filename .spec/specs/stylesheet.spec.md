@@ -19,6 +19,7 @@ surface:
   - test/fixtures/*.html
   - test/fixtures/coexistence.html
   - test/fixtures/accordion.html
+  - test/fixtures/navigation_menu.html
   - package.json
   - package-lock.json
   - priv/static/shadcn_ui.css
@@ -26,6 +27,7 @@ surface:
   - README.md
   - test/shadcn_ui/stylesheet_test.exs
   - test/browser/accordion-foundations.spec.mjs
+  - test/browser/navigation-menu-foundations.spec.mjs
   - test/shadcn_ui/milestone_b_acceptance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
 ```
