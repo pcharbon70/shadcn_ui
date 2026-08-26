@@ -38,6 +38,11 @@ it with the root recorder when browser locks change and review behavior tests
 separately. A detected API does not certify every behavior or authorize interest
 invokers. No demo helper enters the package archive.
 
+`npm run export:smoke` serves only the exported manifest on an ephemeral local
+loopback port and checks every HTML variant and its three selected assets under
+`/shadcn_ui/`, independently of Phoenix. This does not replace the post-deploy
+HTTPS smoke check. Old copied build assets are excluded by the closed manifest.
+
 After publication, smoke-test every added direct route at the canonical base
 URL. Do not report a successful local export as a successful deployment. For
 rollback, redeploy the exact prior reviewed artifact or revert the gallery

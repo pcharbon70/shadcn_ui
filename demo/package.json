@@ -6,6 +6,7 @@
     "assets:build": "node scripts/build-assets.mjs",
     "assets:check": "node scripts/check-assets.mjs",
     "export:check": "node scripts/check-export.mjs",
+    "export:smoke": "node scripts/smoke-export.mjs",
     "export:determinism": "node scripts/check-export-determinism.mjs",
     "browser:test": "playwright test",
     "browser:forms": "playwright test --config=playwright.forms.config.mjs",
@@ -14,6 +15,7 @@
     "smoke": "node scripts/smoke-gallery.mjs"
   },
   "devDependencies": {
-    "@playwright/test": "1.62.1"
+    "@playwright/test": "1.62.1",
+    "axe-core": "4.13.0"
   }
 }

@@ -4,7 +4,7 @@
   background: var(--shadcn-ui-background);
 }
 
-body { margin: 0; min-width: 20rem; }
+body { margin: 0; min-width: 0; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--shadcn-ui-ring); outline-offset: 3px; }
 

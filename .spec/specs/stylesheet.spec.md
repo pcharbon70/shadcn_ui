@@ -134,6 +134,12 @@ surface:
 
 ## Verification
 
+Milestone D gallery accessibility acceptance checks both theme pairs, including
+dark destructive foreground contrast. Drawer headers wrap their title and exit
+at narrow/zoomed widths rather than shrinking the heading into an unusably tall
+column. These are package CSS fixes verified against the real gallery as well
+as the original native fixtures.
+
 Supplemental surfaces default to non-overlapping normal flow. Wide fine-pointer
 layouts may use viewport-bounded, scoped CSS anchors behind joint anchor-scope,
 position-area and position-try-fallbacks queries. This is ordinary CSS stacking,

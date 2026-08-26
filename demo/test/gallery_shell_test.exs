@@ -11,7 +11,7 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert layout =~ ~s(aria-label="Component navigation")
     refute layout =~ ~r/(role="(?:menu|tree|tablist)"|ResizeObserver|appendChild|insertBefore)/
     assert css =~ "minmax(12rem, 16rem)"
-    assert css =~ "min-width: 20rem"
+    assert css =~ "body { margin: 0; min-width: 0; }"
     assert css =~ "max-width: 48rem"
     assert css =~ ":focus-visible"
   end

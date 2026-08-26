@@ -112,7 +112,7 @@ surface:
 
 ```spec-verification
 - kind: test_file
-  target: demo/test/shadcn_ui_demo/boundary_test.exs
+  target: demo/test/gallery_boundary_test.exs
   covers:
     - shadcn_ui.gallery.separate_application
     - shadcn_ui.gallery.controller_rendered
@@ -122,7 +122,7 @@ surface:
     - shadcn_ui.gallery.excluded_from_package
 
 - kind: test_file
-  target: demo/test/shadcn_ui_demo/gallery_catalog_test.exs
+  target: demo/test/catalogue_test.exs
   covers:
     - shadcn_ui.gallery.closed_catalog
     - shadcn_ui.gallery.safe_resolution
@@ -138,7 +138,7 @@ surface:
     - shadcn_ui.gallery.theme_matrix
 
 - kind: test_file
-  target: demo/test/shadcn_ui_demo/static_export_test.exs
+  target: demo/test/static_export_test.exs
   covers:
     - shadcn_ui.gallery.closed_catalog
     - shadcn_ui.gallery.deterministic_assets
@@ -146,7 +146,7 @@ surface:
     - shadcn_ui.gallery.excluded_from_package
 
 - kind: test_file
-  target: test/browser/milestone-a-gallery.spec.mjs
+  target: demo/test/browser/gallery.spec.mjs
   covers:
     - shadcn_ui.gallery.stable_routes
     - shadcn_ui.gallery.semantic_shell

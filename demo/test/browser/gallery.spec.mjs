@@ -63,6 +63,7 @@ test("layout survives accessibility preferences, narrow width, and 200 percent z
   await expect(page.getByRole("main")).toBeVisible();
   await expect(page.getByText("A deliberately long default action", { exact: false }))
     .toBeVisible();
-  await expect(page.locator("body")).toHaveCSS("min-width", "320px");
+  await expect(page.locator("body")).toHaveCSS("min-width", "0px");
+  expect((await page.locator("body").boundingBox()).width).toBeLessThanOrEqual(391);
   await context.close();
 });

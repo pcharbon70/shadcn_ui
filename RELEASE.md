@@ -31,7 +31,7 @@ the complete candidate verification. Never edit an archive or the deployed
 gallery artifact in place. The package and gallery may be rolled back
 independently because the demo is excluded from package contents.
 
-## Milestone D Phase 1 acceptance record
+## Milestone D acceptance history
 
 The following phase records describe their original scope. Phase 6 supersedes
 their historical statements that public overlay gallery delivery is pending.
@@ -52,13 +52,21 @@ revision changed, no upstream site assets were imported, and no runtime
 JavaScript or client-specific target was introduced. Final integration results
 are recorded in the Phase 6 plan with any environment limitations.
 
+Final direct acceptance passed 320 package tests, 40 demo tests and 177 locked
+Milestone D browser checks, including demo-only axe-core audits. Integration
+corrected dark destructive contrast and narrow Drawer header wrapping. Static
+subpath smoke verifies 208 HTML variants and exactly three selected assets;
+stale Windows build assets no longer enter the export. SpecLed's local nested
+runner still fails on its existing OTP/rebar mismatch; CI remains a required
+gate, and this record does not claim an unconditional release approval.
+
 Run `node scripts/record-overlay-capabilities.mjs --check` and
 `npm run browser:milestone-d-gallery` in addition to phases 1 through 5. The live
 suite tests the actual controller pages; static export and deployment smoke are
 separate gates. Merge and successful GitHub Pages deployment are still required
 to publish this candidate. No Hex publication is authorized by these checks.
 
-### Phase 1 foundation detail
+## Milestone D Phase 1 acceptance record
 
 The candidate includes the authored native overlay capability manifest and
 schema as normative package data. Chromium 151.0.7922.34, Firefox 153.0, and

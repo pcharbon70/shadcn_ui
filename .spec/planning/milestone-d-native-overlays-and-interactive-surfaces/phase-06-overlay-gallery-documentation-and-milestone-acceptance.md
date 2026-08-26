@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 6 Phase - Publish the complete Milestone D catalogue, capability evidence,
+- [x] 6 Phase - Publish the complete Milestone D catalogue, capability evidence,
   realistic compositions, public guidance, and milestone-wide acceptance.
 
   This phase turns complex native interaction boundaries into inspectable
@@ -84,27 +84,78 @@ Back to wave: [README](./README.md)
       - [x] 6.3.2.3 Subtask - Rebuild ExDoc, package assets, release archive, gallery assets, static export, and cross-engine manifests and audit their exact allowlists and deterministic bytes.
       - [x] 6.3.2.4 Subtask - Update README, changelog, release record, package catalogue, canonical gallery URL, deployment inventory, rollback guidance, and Milestone D acceptance evidence.
 
-  - [ ] 6.4 Section - Phase 6 Integration Tests.
+  - [x] 6.4 Section - Phase 6 Integration Tests.
 
     This section verifies the complete Milestone D catalogue, native behavior,
     fallbacks, documentation, provenance, and release boundary as milestone exit.
 
-    - [ ] 6.4.1 Task - Run gallery and cross-engine acceptance.
+    - [x] 6.4.1 Task - Run gallery and cross-engine acceptance.
 
       Automated checks should cover every real route and interaction across the
       complete accessibility, capability, content-stress, and fallback matrix.
 
-      - [ ] 6.4.1.1 Subtask - Test every category, component and composition route, breadcrumb, current-page state, source block, export route, sitemap entry, capability record, canonical URL, and unknown-route 404.
-      - [ ] 6.4.1.2 Subtask - Cross-engine test modal focus and containment, Tab order, Escape, backdrop, explicit exits, restoration, Popover modes and nesting, viewport placement, native actions, supplemental focus and hover, and replacement.
-      - [ ] 6.4.1.3 Subtask - Test narrow and wide layouts, viewport edges, nested scroll, long and translated content, RTL, zoom, forced colors, reduced motion, themes, coarse pointer, CSS-disabled, no-script, and deliberately disabled capabilities.
-      - [ ] 6.4.1.4 Subtask - Run automated accessibility checks plus explicit landmark, heading, dialog name and description, alertdialog, invoker relationship, focus, list, link, button, tooltip, forbidden-menu, duplicate-ID, and keyboard assertions.
+      - [x] 6.4.1.1 Subtask - Test every category, component and composition route, breadcrumb, current-page state, source block, export route, sitemap entry, capability record, canonical URL, and unknown-route 404.
+      - [x] 6.4.1.2 Subtask - Cross-engine test modal focus and containment, Tab order, Escape, backdrop, explicit exits, restoration, Popover modes and nesting, viewport placement, native actions, supplemental focus and hover, and replacement.
+      - [x] 6.4.1.3 Subtask - Test narrow and wide layouts, viewport edges, nested scroll, long and translated content, RTL, zoom, forced colors, reduced motion, themes, coarse pointer, CSS-disabled, no-script, and deliberately disabled capabilities.
+      - [x] 6.4.1.4 Subtask - Run automated accessibility checks plus explicit landmark, heading, dialog name and description, alertdialog, invoker relationship, focus, list, link, button, tooltip, forbidden-menu, duplicate-ID, and keyboard assertions.
 
-    - [ ] 6.4.2 Task - Run package and Milestone D acceptance.
+    - [x] 6.4.2 Task - Run package and Milestone D acceptance.
 
       Final verification should prove the independently distributable library
       and public gallery satisfy every active Milestone D requirement together.
 
-      - [ ] 6.4.2.1 Subtask - Run shared-contract, Dialog, Alert Dialog, Drawer, Popover, Dropdown Actions, Tooltip, Hover Card, stylesheet, composition, static-export, browser, and Milestone D acceptance suites.
-      - [ ] 6.4.2.2 Subtask - Run locked package and gallery builds, deterministic byte checks, CSS isolation and capability audits, provenance audits, archive checks, and direct-route smoke tests.
-      - [ ] 6.4.2.3 Subtask - Build ExDoc, verify every public function and current specification, and audit package JavaScript, polyfills, focus managers, overlay stacks, positioning engines, ARIA menus, interest invokers, application behavior, and consumer-specific targets remain absent.
-      - [ ] 6.4.2.4 Subtask - Run package and demo precommit, the locked Chromium, Firefox, and WebKit matrix, `mix spec.check --base main`, `git diff --check`, and record the Milestone D acceptance result.
+      - [x] 6.4.2.1 Subtask - Run shared-contract, Dialog, Alert Dialog, Drawer, Popover, Dropdown Actions, Tooltip, Hover Card, stylesheet, composition, static-export, browser, and Milestone D acceptance suites.
+      - [x] 6.4.2.2 Subtask - Run locked package and gallery builds, deterministic byte checks, CSS isolation and capability audits, provenance audits, archive checks, and direct-route smoke tests.
+      - [x] 6.4.2.3 Subtask - Build ExDoc, verify every public function and current specification, and audit package JavaScript, polyfills, focus managers, overlay stacks, positioning engines, ARIA menus, interest invokers, application behavior, and consumer-specific targets remain absent.
+      - [x] 6.4.2.4 Subtask - Run package and demo precommit, the locked Chromium, Firefox, and WebKit matrix, `mix spec.check --base main`, `git diff --check`, and record the Milestone D acceptance result.
+
+## Phase 6 verification evidence
+
+- Section 6.1 adds the seven fixed overlay/supplemental reference leaves, native
+  examples, escaped HEEx source, complete ordinary alternatives, closed route
+  resolution and canonical metadata. Section 6.2 adds the reviewed capability
+  matrix and four local-only compositions without application operations.
+- Section 6.3 completes API/slot/value/identity, focus, dismissal, placement,
+  fallback, token, provenance and independent-release guidance. ExDoc documents
+  all defining functions. The pinned upstream revision and MIT notice remain
+  unchanged; shared supplemental adaptation paths are now explicitly mapped.
+- Package `mix precommit`: 320 passed, preserving all prior milestone tests.
+  Demo `mix precommit`: 40 passed. One earlier package run hit the pre-existing
+  concurrent global atom-count assertion in Select; the unchanged test passed
+  on the complete rerun.
+- Existing gallery/form browser regressions passed 11 checks; the Milestone C
+  live gallery suite passed 5 more. Demo `npm ci` reproduced the exact lockfile.
+- Native browser phases 1–5 passed 21 + 21 + 30 + 30 + 36 checks. The real gallery
+  added 39 passing checks: 177 total in Chromium 151.0.7922.34, Firefox 153.0 and
+  WebKit 26.5. Earlier runs hit Firefox's intermittent Browser.removeBrowserContext
+  teardown error; fresh final runs passed without retries being consumed.
+- Pinned demo-only axe-core 4.13.0 audits all twelve new reference/composition/
+  capability routes in both themes and five native open states. No rule is
+  suppressed. Open-state colors are audited with reduced motion to avoid
+  measuring an intermediate entry-opacity frame. Explicit checks cover names,
+  IDs, references, native focus/keys, dismissal, ordinary actions, nested
+  Popover, replacement, narrow/wide layouts, scrolling, viewport edges, zoom,
+  RTL/long text, forced colors, no script/touch, absent CSS and disabled features.
+- Integration corrected dark destructive foreground contrast, narrow Drawer
+  header wrapping, and the demo body's forced minimum width. Native browsers
+  may move Tab focus into browser chrome (reported as body); background controls
+  remain inert. No synthetic focus trap or runtime workaround was introduced.
+- Package CSS builds/checks, actual-HEEx fixture comparisons, capability record
+  comparison, ExDoc, Hex build and actual 51-entry archive audit passed. The
+  archive excludes gallery helpers, observations, axe, Playwright and scripts.
+- Two clean exports have identical bytes. Export audits verify all new route
+  variants, sitemap/canonical entries, unique IDs and nonreflecting 404s. A local
+  static server verified all 208 HTML variants and three assets under the
+  repository-site subpath, without Phoenix. The exporter now selects the exact
+  closed manifest instead of stale copied Windows build assets.
+- `mix spec.next`, `mix spec.check --base main` and `--base HEAD` ran. Both checks
+  retain four nested-command failures caused by the existing OTP 29 versus
+  Elixir 1.18 rebar runner incompatibility; direct commands pass. The final main
+  check has 134 coverage-reference warnings (down from 135 at phase start).
+  This is not a clean SpecLed run; required CI
+  validation was not disabled. Relevant gallery/stylesheet subjects and stale
+  gallery verification paths were reconciled; broad shared-file matches do not
+  change unrelated component contracts.
+- Implementation and direct acceptance are complete. A clean CI gate and merged
+  Pages deployment remain necessary for publication; no local check proves the
+  new pages are already online, and no Hex publication was performed.
