@@ -4,7 +4,7 @@
 id: shadcn_ui.motion_media_gallery
 kind: application
 status: active
-summary: Capability page, local export, Carousel, Marquee and Stagger references with media-browser and motion-preferences compositions.
+summary: Capability records, local export and Phase 1–4 references with real media-browser and motion-preferences compositions.
 decisions:
   - shadcn_ui.motion_media_gallery_delivery
   - shadcn_ui.motion_media_capability_css
@@ -65,7 +65,11 @@ closed preference links and selected-media static export. Phase 2 adds the Media
 category, Carousel reference and media-browser composition with actual local
 images and ordinary destinations. Phase 3 appends Motion with Marquee/Stagger
 references and a motion-preferences composition using native controls, local
-images and system/reduce links. Copyable source is compile-tested; export checks
+images and system/reduce links. Phase 4 adds Scroll Indicator and Cover Flow
+references and both components to the existing compositions. Its separate
+scroll_media_evidence record describes actual named timeline behavior, not
+declaration parsing; browser tests assert the version lock and observed outcome.
+Copyable source is compile-tested; export checks
 every new canonical and preference variant. Other new references/compositions
 remain pending later phases. Local verification does not establish Pages publication.
 Milestone D's recorded local SpecLed runner issue remains an explicit environment
@@ -130,6 +134,26 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: demo/test/shadcn_ui_demo/scroll_media_gallery_test.exs
+  covers:
+    - shadcn_ui.motion_media_gallery.incremental_catalog
+    - shadcn_ui.motion_media_gallery.references
+    - shadcn_ui.motion_media_gallery.compositions
+    - shadcn_ui.motion_media_gallery.capability_evidence
+
+- kind: test_file
+  target: test/browser/milestone-e-cover-flow.spec.mjs
+  covers:
+    - shadcn_ui.motion_media_gallery.accessibility_matrix
+    - shadcn_ui.motion_media_gallery.static_media
+
+- kind: test_file
+  target: test/browser/milestone-e-scroll-indicator.spec.mjs
+  covers:
+    - shadcn_ui.motion_media_gallery.accessibility_matrix
+    - shadcn_ui.motion_media_gallery.static_media
+
 - kind: test_file
   target: demo/test/shadcn_ui_demo/motion_gallery_test.exs
   covers:

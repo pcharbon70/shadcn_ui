@@ -1,6 +1,32 @@
 defmodule ShadcnUIDemo.MotionReference do
   @moduledoc "Authored finite-motion guidance and complete public HEEx examples."
 
+  def scroll_indicator do
+    %{
+      what:
+        "A named native scroll region with an optional decorative position track outside its viewport.",
+      when:
+        "Use it to hint at local scrolling through a bounded content region. Do not use it to measure reading, task completion, loading or numeric progress.",
+      responsibilities:
+        "You own trusted content, headings, link destinations, form actions and scroll/focus restoration after replacement. The native example input only edits a local draft; reset restores its default and nothing is saved.",
+      accessibility:
+        "The named region is a Tab stop. Native arrows, Page Up/Down, Home/End, wheel and touch remain available according to browser behavior. Child links and forms keep native semantics. The aria-hidden track cannot cover content or focus and has no accessibility-tree value.",
+      semantics:
+        "One source and one instance-local decoration. There is no progressbar, percentage, live region, reading state, synchronized value or external scroll-target selector. Caller content is neither cloned nor hidden.",
+      fallback:
+        "The track stays neutral for short/nonoverflowing content, missing joint scroll-timeline/range/scope support, forced colors, motion=:none, an ancestor reduce scope or OS reduced motion. Nested system cannot re-enable it. Missing CSS retains the full document. No script supplies a fallback. Stationary sources never advance decoration; there is no timer, listener, observer, polling or perpetual animation. Native scroll and focus can reset on replacement.",
+      api:
+        "Required unique id, exactly one accessible_label/labelledby (existing caller heading IDs), and trusted inner_block. Optional escaped description, size=:small|:default|:large (12rem/20rem/32rem max height; default 20rem), motion=:system|:none, class/rest. Unrelated globals survive; required names, role, focus, CSS identity and motion markers are protected. No numeric value, arbitrary size or CSS selector input.",
+      source: ~S"""
+      <.scroll_indicator id="reading-notes" accessible_label="Reading notes" size={:small}
+        description="Scroll to inspect the complete notes.">
+        <p :for={n <- 1..12}>Complete reading note {n}.</p>
+        <a href="/media/ridge.svg">Open the ridge illustration</a>
+      </.scroll_indicator>
+      """
+    }
+  end
+
   def marquee do
     %{
       what:

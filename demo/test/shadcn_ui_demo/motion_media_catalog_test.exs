@@ -11,7 +11,11 @@ defmodule ShadcnUIDemo.MotionMediaCatalogTest do
     assert html =~ "The shared foundations"
     assert {:ok, %{render: :marquee}} = Catalogue.lookup_component("motion", "marquee")
     assert {:ok, %{render: :stagger}} = Catalogue.lookup_component("motion", "stagger")
-    assert Catalogue.lookup_component("motion", "scroll-indicator") == :error
+
+    assert {:ok, %{render: :scroll_indicator}} =
+             Catalogue.lookup_component("motion", "scroll-indicator")
+
+    assert {:ok, %{render: :cover_flow}} = Catalogue.lookup_component("media", "cover-flow")
     assert html =~ "Observed behavior"
     assert html =~ "151.0.7922.34"
     assert html =~ "153.0"

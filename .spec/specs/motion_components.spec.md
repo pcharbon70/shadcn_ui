@@ -4,11 +4,18 @@
 id: shadcn_ui.motion_components
 kind: package
 status: active
-summary: Marquee finite preview and bounded Stagger implemented; Scroll Indicator follows in Phase 4.
+summary: Finite Marquee, bounded Stagger and source-local Scroll Indicator implemented.
 decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.bounded_motion
 surface:
+  - lib/shadcn_ui/components/motion/scroll_indicator.ex
+  - test/shadcn_ui/components/motion/scroll_indicator_test.exs
+  - assets/scroll-indicator.css
+  - test/shadcn_ui/scroll_media_integration_test.exs
+  - scripts/render-scroll-media-fixture.exs
+  - test/fixtures/milestone_e_scroll_media.html
+  - playwright.milestone-e-phase4.config.mjs
   - test/fixtures/milestone_e_motion.html
   - test/shadcn_ui/motion_integration_test.exs
   - lib/shadcn_ui/components/motion/marquee.ex
@@ -28,7 +35,7 @@ surface:
 Functions marquee/1, stagger/1 and scroll_indicator/1 are defining
 modules under ShadcnUI.Components.Motion. Shared motion preference is system
 or none and cannot override an ancestor suppression scope or user preference.
-Marquee and Stagger are implemented; Scroll Indicator remains planned.
+All three Motion components are implemented through Phase 4.
 Marquee requires `accessible_label`; durations are brief (2500ms) and default
 (5000ms). Item maps accept only key/text/image, and image maps only
 src/alt/width/height/srcset/sizes/loading/decoding. No caller globals are copied
@@ -61,6 +68,14 @@ and an aria-hidden decorative track. Its required inner content remains native
 HEEx. Closed size choices bound the region. It does not target arbitrary remote
 scroll nodes or document-wide selectors. A scoped CSS scroll timeline decorates
 only its own track, with a neutral/no-track static fallback and no numeric API.
+
+Scroll Indicator requires id and exactly one accessible_label/labelledby with
+optional escaped description. size=small/default/large bounds native height to
+12/20/32rem; default is 20rem. Global identities/names/style are protected.
+The track is outside the scroll viewport, so it cannot cover focus/content.
+Joint timeline/name/range/scope, no-preference and no forced colors gate width
+decoration. Baseline width is zero; inactive short-content timelines and shared
+suppression cannot fabricate full progress. Instance names use encoded IDs.
 
 ## Safety and lifecycle
 
@@ -128,8 +143,7 @@ keyboard focus must never depend on animated color or opacity.
 
 ## Verification
 
-Marquee and Stagger rendering and browser targets now exist; Scroll Indicator
-targets remain planned acceptance obligations. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+All three rendering and browser targets now exist. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.

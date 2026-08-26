@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-08-26",
+  "command": "npm run browser:milestone-e-phase4",
+  "scope": "Actual generated HEEx and compiled CSS, not declaration parsing or visitor detection. Enhanced cases require wide containers, system motion permitted and no forced colors. All engines retain native content.",
+  "engines": {
+    "chromium": {"version": "151.0.7922.34", "scrollIndicator": "enhanced", "coverFlow": "enhanced"},
+    "firefox": {"version": "153.0", "scrollIndicator": "neutral", "coverFlow": "flat"},
+    "webkit": {"version": "26.5", "scrollIndicator": "enhanced", "coverFlow": "enhanced"}
+  }
+}

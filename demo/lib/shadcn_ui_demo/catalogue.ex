@@ -65,9 +65,18 @@ defmodule ShadcnUIDemo.Catalogue do
   @components_by_category %{
     "motion" => [
       %{label: "Marquee", slug: "marquee", render: :marquee, category: "motion"},
-      %{label: "Stagger", slug: "stagger", render: :stagger, category: "motion"}
+      %{label: "Stagger", slug: "stagger", render: :stagger, category: "motion"},
+      %{
+        label: "Scroll Indicator",
+        slug: "scroll-indicator",
+        render: :scroll_indicator,
+        category: "motion"
+      }
     ],
-    "media" => [%{label: "Carousel", slug: "carousel", render: :carousel, category: "media"}],
+    "media" => [
+      %{label: "Carousel", slug: "carousel", render: :carousel, category: "media"},
+      %{label: "Cover Flow", slug: "cover-flow", render: :cover_flow, category: "media"}
+    ],
     "overlays" =>
       Enum.map(
         [

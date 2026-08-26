@@ -2,6 +2,49 @@ defmodule ShadcnUIDemoWeb.MotionExamples do
   use ShadcnUIDemoWeb, :html
   alias ShadcnUIDemo.GalleryPreferences
 
+  def scroll_indicator_examples(assigns) do
+    ~H"""
+    <div class="gallery-motion-examples">
+      <p>
+        Focus a region and use native scroll keys, wheel or touch. The track is decoration, not reading completion.
+      </p>
+      <section :for={size <- [:small, :default, :large]}>
+        <h3>{size} independent region</h3>
+        <.scroll_indicator
+          id={"indicator-#{size}"}
+          accessible_label={"#{size} reading notes"}
+          size={size}
+        >
+          <p :for={n <- 1..18}>Note {n}: every paragraph remains complete and native.</p>
+          <a href="/media/ridge.svg">Open the complete ridge illustration</a>
+          <form><label>Local note ({size}) <input name="note" value="A local draft" /></label>
+            <button type="reset">Reset {size} note</button></form>
+        </.scroll_indicator>
+      </section>
+      <h3>Short content: neutral track</h3>
+      <.scroll_indicator id="indicator-short" accessible_label="Short note">
+        <p>All content fits.</p>
+      </.scroll_indicator>
+      <h3>Explicitly suppressed decoration</h3>
+      <.scroll_indicator
+        id="indicator-none"
+        accessible_label="Suppressed notes"
+        motion={:none}
+        size={:small}
+      >
+        <p :for={n <- 1..12}>Complete note {n} with neutral decoration.</p>
+      </.scroll_indicator>
+      <section dir="rtl">
+        <h3>Right-to-left content scope</h3>
+        <.scroll_indicator id="indicator-rtl" accessible_label="RTL notes" size={:small}>
+          <p :for={n <- 1..12}>Native block scrolling remains available: {n}.</p>
+        </.scroll_indicator>
+      </section>
+      <a href="/examples/motion-preferences">Compare system and reduced motion</a>
+    </div>
+    """
+  end
+
   defp items do
     [
       %{
@@ -112,7 +155,8 @@ defmodule ShadcnUIDemoWeb.MotionExamples do
   attr :theme, :string, required: true
 
   def motion_preferences(assigns) do
-    assigns = assign(assigns, :items, items())
+    assigns =
+      assign(assigns, items: items(), images: ShadcnUIDemoWeb.MediaExamples.cover_images())
 
     ~H"""
     <div class="gallery-motion-examples">
@@ -155,6 +199,13 @@ defmodule ShadcnUIDemoWeb.MotionExamples do
       <p>
         Content is always available; focus cancels an item effect. The entrance finishes within one second, even when it is below the viewport. There is no visibility observer or animation-once promise.
       </p>
+      <h2>Compare scroll decoration and image depth</h2>
+      <.scroll_indicator id="preferences-scroll" accessible_label="Preference notes" size={:small}>
+        <p :for={n <- 1..12}>Note {n}: reduced motion leaves this native content complete.</p>
+      </.scroll_indicator>
+      <.cover_flow id="preferences-depth" accessible_label="Preference landscapes" images={@images} />
+      <a href="/components/motion/scroll-indicator">Scroll Indicator API and source</a>
+      <a href="/components/media/cover-flow">Cover Flow API and source</a>
       <a href="/components/motion/marquee">Marquee API and source</a>
       <a href="/components/motion/stagger">Stagger API and source</a>
       <a href="/examples/motion-media-capabilities">Inspect capability evidence and fallbacks</a>

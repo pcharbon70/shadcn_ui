@@ -3,6 +3,8 @@ import {readFileSync} from "node:fs";
 const html=readFileSync(new URL("../fixtures/milestone_e_scroll_media.html",import.meta.url),"utf8");
 const css=readFileSync(new URL("../../priv/static/shadcn_ui.css",import.meta.url),"utf8");
 const evidence=JSON.parse(readFileSync(new URL("../../demo/priv/compatibility/motion_media_evidence.json",import.meta.url),"utf8"));
+const outcomes=JSON.parse(readFileSync(new URL("../../demo/priv/compatibility/scroll_media_evidence.json",import.meta.url),"utf8"));
+const axe=readFileSync(new URL("../../demo/node_modules/axe-core/axe.min.js",import.meta.url),"utf8");
 async function setup(page){await page.emulateMedia({reducedMotion:"no-preference"});await page.setContent(html);await page.addStyleTag({content:css});}
 const picture=(page,id="flow")=>page.locator(`#${id} img`).first();
 const transform=(page,id="flow")=>picture(page,id).evaluate(el=>{const value=getComputedStyle(el).transform;return value==="none"||new DOMMatrixReadOnly(value).isIdentity?"none":value;});
@@ -10,6 +12,7 @@ const transform=(page,id="flow")=>picture(page,id).evaluate(el=>{const value=get
 test("view progress changes only images; native keys, idle and independent instances stay browser-owned",async({page,browserName})=>{
   await setup(page);
   const enhanced=evidence.engines[browserName].declarations.viewTimeline && evidence.engines[browserName].declarations.timelineScope;
+  expect(outcomes.engines[browserName]).toMatchObject({version:evidence.engines[browserName].version,coverFlow:enhanced?"enhanced":"flat"});
   if(enhanced) await expect.poll(()=>transform(page)).not.toBe("none");
   else expect(await transform(page)).toBe("none");
   const initial=await transform(page),other=await transform(page,"other-flow");
@@ -24,6 +27,22 @@ test("view progress changes only images; native keys, idle and independent insta
   for(const selector of ["figcaption","[data-shadcn-ui-cover-destination]"])
     expect(await page.locator(`#flow ${selector}`).first().evaluate(el=>getComputedStyle(el).transform)).toBe("none");
   if(enhanced) expect(await picture(page).evaluate(el=>el.getAnimations()[0].timeline.constructor.name)).not.toBe("DocumentTimeline");
+});
+
+for(const theme of ["light","dark"]) test(`real ${theme} Cover Flow page and media composition are readable and accessible`,async({page},testInfo)=>{
+  await page.goto(`/components/media/cover-flow?theme=${theme}&motion=system`);
+  await expect(page.locator("h1")).toHaveText("Cover Flow");
+  await expect(page.locator('nav[aria-label="Component navigation"] a[aria-current="page"]')).toHaveText("Cover Flow");
+  await page.setViewportSize({width:390,height:844});
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+  await page.addScriptTag({content:axe});expect((await page.evaluate(()=>axe.run(document,{runOnly:{type:"tag",values:["wcag2a","wcag2aa","wcag21aa"]}}))).violations).toEqual([]);
+  const last=page.locator("#cover-long [data-shadcn-ui-cover-destination]").last();await last.focus();await expect(last).toBeInViewport();
+  await page.locator("#cover-reference").scrollIntoViewIfNeeded();await page.screenshot({path:testInfo.outputPath(`cover-${theme}.png`)});
+  await page.setViewportSize({width:1280,height:900});await page.locator("html").evaluate(el=>el.style.zoom="2");
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
+  await page.goto(`/examples/media-browser?theme=${theme}&motion=reduce`);
+  for(const img of await page.locator("#media-browser-depth img").all()) {await img.scrollIntoViewIfNeeded();await expect.poll(()=>img.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);}
+  await expect(page.locator("#media-browser-notes")).toHaveCount(1);
 });
 test("flat, single-image, narrow, suppressed and forced-color paths retain images and destinations",async({page})=>{
   await setup(page);

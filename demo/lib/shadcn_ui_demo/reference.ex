@@ -201,6 +201,8 @@ defmodule ShadcnUIDemo.Reference do
       do: ShadcnUIDemo.OverlayReference.fetch!(render)
 
   def fetch!(:carousel), do: ShadcnUIDemo.MediaReference.carousel()
+  def fetch!(:cover_flow), do: ShadcnUIDemo.MediaReference.cover_flow()
+  def fetch!(:scroll_indicator), do: ShadcnUIDemo.MotionReference.scroll_indicator()
   def fetch!(:marquee), do: ShadcnUIDemo.MotionReference.marquee()
   def fetch!(:stagger), do: ShadcnUIDemo.MotionReference.stagger()
 
@@ -209,7 +211,8 @@ defmodule ShadcnUIDemo.Reference do
       Map.keys(@references) ++
         Map.keys(@form_references) ++
         Map.keys(@content_references) ++
-        ShadcnUIDemo.OverlayReference.keys() ++ [:carousel, :marquee, :stagger]
+        ShadcnUIDemo.OverlayReference.keys() ++
+        [:carousel, :marquee, :stagger, :cover_flow, :scroll_indicator]
 
   defp fallback(:textarea),
     do: "Unsupported browsers keep the fixed native textarea instead of CSS content sizing."

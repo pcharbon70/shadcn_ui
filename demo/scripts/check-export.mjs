@@ -22,8 +22,8 @@ const overlayRoutes = [
   ...["tooltip", "hover-card"].map(name => `/components/interactive-surfaces/${name}`),
   ...["overlay-capabilities", "settings-confirmation", "responsive-drawers", "anchored-actions", "supplemental-help"].map(name => `/examples/${name}`)
 ];
-const mediaRoutes = ["/components/media", "/components/media/carousel", "/examples/media-browser"];
-const motionRoutes = ["/components/motion", "/components/motion/marquee", "/components/motion/stagger", "/examples/motion-preferences"];
+const mediaRoutes = ["/components/media", "/components/media/carousel", "/components/media/cover-flow", "/examples/media-browser"];
+const motionRoutes = ["/components/motion", "/components/motion/marquee", "/components/motion/stagger", "/components/motion/scroll-indicator", "/examples/motion-preferences"];
 for (const route of [...mediaRoutes, ...motionRoutes]) {
   if (!sitemap.includes(`<loc>https://leco-industries-inc.github.io/shadcn_ui${route}</loc>`)) throw new Error(`missing media route: ${route}`);
   for (const theme of ["light", "dark"]) for (const motion of ["system", "reduce", "unexpected"]) {

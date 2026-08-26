@@ -243,6 +243,18 @@
       "localChanges": "Replace infinite autoplay with static wrapped canonical content, structured validated presentation records, a visible unnamed native opt-in checkbox, one finite traversal capped at five seconds, persistent stop/reset/replay and one inert ID-free duplicate visible only during preview. Preserve reduced-motion and unsupported-CSS static fallbacks without runtime."
     },
     {
+      "id": "motion.scroll-indicator",
+      "localPaths": ["lib/shadcn_ui/components/motion/scroll_indicator.ex", "assets/scroll-indicator.css"],
+      "upstreamPaths": ["src/demos/scroll-indicator/basic.html", "src/demos/scroll-indicator/progress.css"],
+      "localChanges": "Use a named focusable native region and external aria-hidden decoration, encoded local timeline identity and joint timeline/range/scope gates. Keep zero-width neutral fill for absent capabilities, short content and suppression; omit reading completion claims, scroll containment and runtime."
+    },
+    {
+      "id": "media.cover-flow",
+      "localPaths": ["lib/shadcn_ui/components/media/cover_flow.ex", "assets/cover-flow.css"],
+      "upstreamPaths": ["src/demos/cover-flow/basic.html", "src/demos/cover-flow/flow.css"],
+      "localChanges": "Compose validated responsive image figures over native Carousel and real index links. Gate bounded image-only depth on joint view timeline/range/scope/3D support, wide container and motion permission. Keep captions and destinations untransformed; omit reflections, overlap, animated stacking, generated controls and runtime."
+    },
+    {
       "id": "media.carousel",
       "localPaths": ["lib/shadcn_ui/components/media/carousel.ex", "assets/carousel.css"],
       "upstreamPaths": ["src/demos/carousel/basic.html", "src/demos/carousel/markers.css"],

@@ -55,25 +55,25 @@ Requires Phases 1–3 capabilities, suppression, Carousel contract and Motion/Me
       - [x] 4.2.2.2 Subtask - Keep flat presentation under missing support, motion suppression, forced colors and layouts failing readability/hit-target tests; document these gates.
       - [x] 4.2.2.3 Subtask - Verify overlapping image decoration never captures another item's link or clips its focus indicator; do not measure coordinates or manipulate z-index through runtime code.
 
-  - [ ] 4.3 Section - Immediate scroll and Cover Flow gallery references.
+  - [x] 4.3 Section - Immediate scroll and Cover Flow gallery references.
 
     Make both enhanced and deliberately unavailable paths inspectable in the real catalogue.
 
-    - [ ] 4.3.1 Task - Publish the two reference pages and update compositions.
+    - [x] 4.3.1 Task - Publish the two reference pages and update compositions.
 
       The demo should connect presentation effects to their complete native fallback.
 
-      - [ ] 4.3.1.1 Subtask - Add /components/motion/scroll-indicator and /components/media/cover-flow to catalogue, breadcrumbs/current state, canonical URLs, sitemap/export and smoke inventory.
-      - [ ] 4.3.1.2 Subtask - Show local media, many/few/no-overflow items, long captions, RTL, native scroll keys, independent instances, neutral progress and flat Cover Flow.
-      - [ ] 4.3.1.3 Subtask - Extend media-browser and motion-preferences compositions with actual components; show feature detection separately from passed behavior and preserve no-script navigation.
+      - [x] 4.3.1.1 Subtask - Add /components/motion/scroll-indicator and /components/media/cover-flow to catalogue, breadcrumbs/current state, canonical URLs, sitemap/export and smoke inventory.
+      - [x] 4.3.1.2 Subtask - Show local media, many/few/no-overflow items, long captions, RTL, native scroll keys, independent instances, neutral progress and flat Cover Flow.
+      - [x] 4.3.1.3 Subtask - Extend media-browser and motion-preferences compositions with actual components; show feature detection separately from passed behavior and preserve no-script navigation.
 
-    - [ ] 4.3.2 Task - Publish ownership and performance guidance.
+    - [x] 4.3.2 Task - Publish ownership and performance guidance.
 
       Consumers must not interpret decorative progress or depth as domain state.
 
-      - [ ] 4.3.2.1 Subtask - Document all attrs/slots, stable keys, motion/size choices, source scope, native keyboard/focus and lack of numeric reading or selected-image state.
-      - [ ] 4.3.2.2 Subtask - Record CSS timeline failure paths, stationary-source behavior, finite/no-perpetual-work limits and browser-local reset after replacement.
-      - [ ] 4.3.2.3 Subtask - Update source examples, capability records, authored CSS ledger, upstream mappings and public docs without importing remote media or runtime tooling.
+      - [x] 4.3.2.1 Subtask - Document all attrs/slots, stable keys, motion/size choices, source scope, native keyboard/focus and lack of numeric reading or selected-image state.
+      - [x] 4.3.2.2 Subtask - Record CSS timeline failure paths, stationary-source behavior, finite/no-perpetual-work limits and browser-local reset after replacement.
+      - [x] 4.3.2.3 Subtask - Update source examples, capability records, authored CSS ledger, upstream mappings and public docs without importing remote media or runtime tooling.
 
   - [ ] 4.4 Section - Phase 4 Integration Tests.
 

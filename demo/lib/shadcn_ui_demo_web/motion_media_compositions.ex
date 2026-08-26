@@ -7,6 +7,7 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
       assign(assigns,
         manifest: MotionMediaCapabilities.manifest(),
         evidence: MotionMediaCapabilities.evidence(),
+        scroll_media: MotionMediaCapabilities.scroll_media(),
         engines: MotionMediaCapabilities.engines(),
         fixtures: MediaFixtures.entries(),
         failures: MediaFixtures.failures()
@@ -19,7 +20,11 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
         <a href="/components/motion/marquee">Marquee</a>
         and <a href="/components/motion/stagger">Stagger</a>
         are implemented. Try the <a href="/examples/media-browser">media browser</a>
-        and <a href="/examples/motion-preferences">motion preferences</a>. Scroll Indicator, Cover Flow and Image Gallery arrive in later phases. Recorded capability probes remain separate from the real component interaction tests.
+        and <a href="/examples/motion-preferences">motion preferences</a>.
+        <a href="/components/motion/scroll-indicator">Scroll Indicator</a>
+        and <a href="/components/media/cover-flow">Cover Flow</a>
+        are also implemented.
+        Image Gallery arrives in Phase 5. Recorded capability probes remain separate from the real component interaction tests.
       </p>
       <p>
         Reviewed <time>{@evidence["reviewedOn"]}</time>. These are locked browser probes, not detection of your browser or proof that a complete component is implemented.
@@ -62,6 +67,19 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
       </section>
       <p>
         Generated scroll controls remain deferred. Origin-aware transitions need Phase 5 geometry and accessibility evidence. Unsupported timelines retain static native content; no script supplies a substitute.
+      </p>
+      <h2>Phase 4 actual component behavior</h2>
+      <p>{@scroll_media["scope"]} Reviewed {@scroll_media["reviewedOn"]}.</p>
+      <ul>
+        <li :for={{engine, record} <- Enum.sort(@scroll_media["engines"])}>
+          {engine} {record["version"]}: Scroll Indicator {record["scrollIndicator"]}; Cover Flow {record[
+            "coverFlow"
+          ]}.
+        </li>
+      </ul>
+      <p>
+        Run <code>{@scroll_media["command"]}</code>
+        to verify native keys, isolated idle timelines, suppression and flat fallbacks. Narrow containers stay flat; no effect reports reading completion or a selected image.
       </p>
       <h2>Local media fixtures</h2>
       <p>

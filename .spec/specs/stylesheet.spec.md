@@ -134,6 +134,12 @@ surface:
 
 ## Verification
 
+Milestone E Phase 4 adds E-05 source-local width decoration and E-06 bounded
+image-only depth. Joint timeline/range/scope gates have no document-clock fallback.
+Cover Flow also requires 3D support, multiple images and a 40rem container.
+Reduced/forced-color/unsupported paths stay neutral or flat. Captions and
+destinations never transform; scoped tokens and E-01 suppression remain shared.
+
 Phase 3 adds E-04 bounded Stagger keyframes behind animation/no-preference
 queries. Only validated preset timings enter namespaced numeric properties.
 The visible baseline, no fill/repeat and focus cancellation preserve caller

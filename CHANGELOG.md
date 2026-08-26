@@ -1,5 +1,11 @@
 # Changelog
 
+## Milestone E Phase 4 — unreleased
+
+- Add named native Scroll Indicator with scoped, neutral-fallback decoration.
+- Add structured Cover Flow over Carousel with gated image-only depth and flat fallbacks.
+- Add both reference pages, real composition examples, provenance and three-engine evidence.
+
 All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased

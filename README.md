@@ -17,8 +17,56 @@ ordinary system/reduced-motion links, including no-script static exports.
 Phase 2 adds public Carousel, its reference page at `/components/media/carousel`
 and `/examples/media-browser`. Phase 3 adds Marquee and Stagger at
 `/components/motion/marquee` and `/components/motion/stagger`, plus
-`/examples/motion-preferences`. Scroll Indicator, Cover Flow and Image Gallery
-remain later-phase work.
+`/examples/motion-preferences`. Phase 4 adds `/components/motion/scroll-indicator`
+and `/components/media/cover-flow`, expanding both compositions with actual
+components. Image Gallery remains Phase 5 work; Milestone E is not complete.
+
+## Scroll Indicator and Cover Flow: native scroll decoration
+
+```heex
+<.scroll_indicator id="notes" accessible_label="Reading notes" size={:small}>
+  <p :for={n <- 1..12}>Complete note {n}.</p>
+</.scroll_indicator>
+
+<.cover_flow id="illustrations" accessible_label="Illustrations"
+  images={[
+    %{key: "ridge", src: "/media/ridge.svg", alt: "Mountain ridges", width: 640, height: 480, caption: "A ridge", href: "/media/ridge.svg"},
+    %{key: "grove", src: "/media/grove.svg", alt: "Evergreen trees", width: 480, height: 640, href: "/media/grove.svg"}
+  ]} />
+```
+
+Both defining modules are imported directly by `use ShadcnUI`. Require a unique
+`id` and exactly one `accessible_label` / `labelledby` (existing heading IDs).
+Optional `description` is escaped; `class` and unrelated `rest` globals survive.
+`motion=:system|:none` respects ancestor reduction and OS preferences.
+
+Scroll Indicator accepts trusted `inner_block` and `size=:small|:default|:large`
+(12/20/32rem maximum height). Native keys, links and forms remain authoritative.
+Its external aria-hidden track is decoration, never a progressbar, reading
+percentage, task result or synchronized value. Missing joint timeline/range/scope
+support, nonoverflowing content, motion suppression or forced colors keeps a
+neutral track. No external scroll selector, timer or fallback animation exists.
+
+Cover Flow requires nonempty `images` with unique string `key`, `src`, explicit
+`alt` and positive intrinsic `width`/`height`. Optional `name`, escaped `caption`,
+`href`, width-candidate `srcset` plus `sizes`, `loading=:lazy|:eager` and
+`decoding=:async|:sync|:auto` follow the shared media contract. Decorative images
+need `decorative: true`, empty alt and an independent name. There are no slots.
+`presentation=:enhanced|:flat` defaults to eligibility for enhancement, not a
+promise. Multiple images, a container at least 40rem wide, joint view/range/scope/
+3D support and allowed motion are required; forced colors stays flat.
+`snap=:none|:proximity|:mandatory` and `alignment=:start|:center` reuse Carousel.
+Images alone gain bounded depth; captions, real destinations and fragment index
+remain native, untransformed and fully available, including image failure.
+
+Neither component has selected-image state, autoplay, observers, listeners,
+polling or runtime JS. Stationary scrolling does not advance either effect.
+Removing CSS retains complete content. Replacing markup may reset native
+position/focus; browsers may also restore document state. Applications own
+restoration, meaningful text, image rights/privacy, sources and navigation.
+See the [CSS exception ledger](docs/motion-media-css-exceptions.md) for exact
+gates and pinned provenance. Demo capability records distinguish parsing from
+actual component behavior and do not detect the visiting browser.
 
 ## Marquee and Stagger: optional bounded motion
 
