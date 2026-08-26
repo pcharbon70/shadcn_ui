@@ -5,6 +5,32 @@ import { readFileSync } from "node:fs";
 // covers: shadcn_ui.media_components.carousel_layout
 const html = readFileSync(new URL("../fixtures/milestone_e_carousel.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../../priv/static/shadcn_ui.css", import.meta.url), "utf8");
+for (const theme of ["light", "dark"]) {
+  test(`actual gallery and media browser in ${theme} retain images, controls and preferences`, async ({page}, testInfo) => {
+    await page.goto(`/components/media/carousel?theme=${theme}&motion=reduce`);
+    await expect(page.locator('nav[aria-label="Component navigation"] a[aria-current="page"]')).toHaveText("Carousel");
+    await expect(page.locator("h1")).toHaveText("Carousel");
+    const form=page.locator("#reference-controls form");
+    await form.getByRole("textbox").fill("Edited locally");
+    await form.getByRole("checkbox").check(); await form.getByRole("button",{name:"Reset local preferences"}).click();
+    await expect(form.getByRole("textbox")).toHaveValue("A landscape"); await expect(form.getByRole("checkbox")).not.toBeChecked();
+    const region=page.locator("#reference-images");
+    await region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last().click();
+    await expect(region.locator("li").last()).toBeFocused();
+    await page.setViewportSize({width:1024,height:850});
+    await page.getByRole("heading",{name:"Original local images"}).scrollIntoViewIfNeeded();
+    await page.screenshot({path:testInfo.outputPath(`carousel-${theme}.png`)});
+    await page.getByRole("link",{name:"Open the complete media browser",exact:true}).click();
+    await expect(page.locator("h1")).toHaveText("Media browser");
+    for (const img of await page.locator("#media-browser img").all()) {
+      await img.scrollIntoViewIfNeeded();
+      await expect.poll(()=>img.evaluate(e=>e.complete && e.naturalWidth>0)).toBe(true);
+    }
+    await page.getByRole("link",{name:"Reduce motion",exact:true}).click();
+    await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion","reduce");
+    await expect(page.locator("#media-browser")).toHaveCSS("scroll-behavior","auto");
+  });
+}
 async function fixture(page, styles = true) {
   await page.setContent(html);
   if (styles) await page.addStyleTag({ content: css + ".fixture-wide{flex-basis:74rem !important}" });

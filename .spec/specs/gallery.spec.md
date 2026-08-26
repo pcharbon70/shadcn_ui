@@ -53,7 +53,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery.closed_catalog
-  statement: The gallery shall own one immutable ordered catalogue with stable Foundation, Forms, Disclosure, Navigation, Content Surfaces, Overlays, and Interactive Surfaces categories and the complete Milestone A through D component leaves whose request slugs resolve only through closed strings to explicit render identities.
+  statement: The gallery shall own one immutable ordered catalogue with stable Foundation, Forms, Disclosure, Navigation, Content Surfaces, Overlays, and Interactive Surfaces categories, appending Media and Motion incrementally with implemented leaves whose request slugs resolve only through closed strings to explicit render identities.
   priority: must
   stability: stable
 

@@ -15,7 +15,7 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
     ~H"""
     <article data-gallery-composition="motion-media-capabilities">
       <p>
-        Phase 1 foundations are available. Carousel, Marquee, Stagger, Scroll Indicator, Cover Flow and Image Gallery arrive in later phases.
+        Phase 1 foundations are available. <a href="/components/media/carousel">Carousel is now implemented</a>, with a <a href="/examples/media-browser">media-browser example</a>. Marquee, Stagger, Scroll Indicator, Cover Flow and Image Gallery arrive in later phases.
       </p>
       <p>
         Reviewed <time>{@evidence["reviewedOn"]}</time>. These are locked browser probes, not detection of your browser or proof that a complete component is implemented.

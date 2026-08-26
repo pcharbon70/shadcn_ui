@@ -14,8 +14,37 @@ Milestone E [motion/media foundations](https://github.com/Leco-Industries-Inc/sh
 internal image and bounded-motion contracts, scoped motion suppression, local
 demo fixtures and `/examples/motion-media-capabilities`. The gallery supports
 ordinary system/reduced-motion links, including no-script static exports.
-Carousel and the other five public Motion/Media components remain later-phase
-work; public imports have not changed.
+Phase 2 adds public Carousel, its reference page at `/components/media/carousel`
+and `/examples/media-browser`. The other five Motion/Media components remain
+later-phase work.
+
+## Carousel: native content browsing
+
+```heex
+<.carousel id="chapters" accessible_label="Chapters" snap={:proximity}>
+  <:item key="overview" label="Overview">
+    <h3>Overview</h3><a href="/overview">Read the overview</a>
+  </:item>
+  <:item key="details" label="Details">
+    <h3>Details</h3><a href="/details">Read the details</a>
+  </:item>
+</.carousel>
+```
+
+`use ShadcnUI` imports `ShadcnUI.Components.Media.Carousel` directly. Supply a
+unique `id`, exactly one `accessible_label` or `labelledby` (caller heading IDs),
+and keyed, labelled `item` slots with trusted HEEx. Optional `description` is
+escaped text; root/item `class` and unrelated `rest` globals remain caller-owned.
+Snap accepts `:none`, `:proximity` (default) or `:mandatory`; `alignment` accepts
+`:start` (default) or `:center`. `motion=:none`, ancestor reduction or system
+reduced motion disables smooth scrolling. No option forces animation.
+
+The named scroller is a Tab stop. Native keys, wheel, touch, fragment links and
+child controls stay browser-owned, including keyboard preferences that skip
+links. Every item remains available; no slide state, autoplay, clone, fake
+previous/next control, generated CSS control or runtime exists. Missing snap
+keeps scrolling; CSS-disabled output is a complete ordered list. Applications
+own destinations, child accessibility and restoration after replacement.
 
 ## Tooltip: optional descriptions
 

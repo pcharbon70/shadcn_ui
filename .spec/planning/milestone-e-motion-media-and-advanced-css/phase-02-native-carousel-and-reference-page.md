@@ -54,25 +54,25 @@ Requires Phase 1 media identity, motion suppression, capabilities and fixture/ex
       - [x] 2.2.2.2 Subtask - Provide complete native scrolling without snap and an ordinary ordered list with CSS disabled; keep every fragment target and destination stable.
       - [x] 2.2.2.3 Subtask - Exercise multiple sibling instances, RTL and forced colors without selector/keyframe leakage, browser sniffing or a package event loop.
 
-  - [ ] 2.3 Section - Immediate Carousel gallery and documentation.
+  - [x] 2.3 Section - Immediate Carousel gallery and documentation.
 
     Make the released component inspectable as soon as it exists.
 
-    - [ ] 2.3.1 Task - Publish the closed Carousel reference and media browser fixture.
+    - [x] 2.3.1 Task - Publish the closed Carousel reference and media browser fixture.
 
       The reference should demonstrate real interactions and complete content, not inert controls.
 
-      - [ ] 2.3.1.1 Subtask - Append Media to the catalogue and add /components/media/carousel with breadcrumbs, current-page state, canonical URL, export/sitemap/smoke entries and nonreflecting mismatches.
-      - [ ] 2.3.1.2 Subtask - Show short/long item lists, image and mixed-control content, oversized cards, RTL, snap variants, native index links and complete CSS-disabled/no-script alternatives.
-      - [ ] 2.3.1.3 Subtask - Start /examples/media-browser using actual fixtures and Carousel; preserve ordinary image destinations and demonstrate system/reduce theme combinations.
+      - [x] 2.3.1.1 Subtask - Append Media to the catalogue and add /components/media/carousel with breadcrumbs, current-page state, canonical URL, export/sitemap/smoke entries and nonreflecting mismatches.
+      - [x] 2.3.1.2 Subtask - Show short/long item lists, image and mixed-control content, oversized cards, RTL, snap variants, native index links and complete CSS-disabled/no-script alternatives.
+      - [x] 2.3.1.3 Subtask - Start /examples/media-browser using actual fixtures and Carousel; preserve ordinary image destinations and demonstrate system/reduce theme combinations.
 
-    - [ ] 2.3.2 Task - Publish API, ownership and provenance guidance.
+    - [x] 2.3.2 Task - Publish API, ownership and provenance guidance.
 
       Consumers should understand both what Carousel does and what a richer scripted widget would require.
 
-      - [ ] 2.3.2.1 Subtask - Add public attrs/slots/closed values, identity, keyboard/focus, snap, fallback and replacement guidance with compilable escaped HEEx source.
-      - [ ] 2.3.2.2 Subtask - Explain why index navigation is not remote pagination or selected slide state and why generated controls/autoplay remain deferred.
-      - [ ] 2.3.2.3 Subtask - Map adapted source and CSS to the reviewed upstream pin, preserve notices, and update the capability page without claiming unrun browser support.
+      - [x] 2.3.2.1 Subtask - Add public attrs/slots/closed values, identity, keyboard/focus, snap, fallback and replacement guidance with compilable escaped HEEx source.
+      - [x] 2.3.2.2 Subtask - Explain why index navigation is not remote pagination or selected slide state and why generated controls/autoplay remain deferred.
+      - [x] 2.3.2.3 Subtask - Map adapted source and CSS to the reviewed upstream pin, preserve notices, and update the capability page without claiming unrun browser support.
 
   - [ ] 2.4 Section - Phase 2 Integration Tests.
 

@@ -16,7 +16,8 @@ defmodule ShadcnUIDemo.Catalogue do
       label: "Interactive Surfaces",
       slug: "interactive-surfaces",
       path: "/components/interactive-surfaces"
-    }
+    },
+    %{label: "Media", slug: "media", path: "/components/media"}
   ]
 
   @foundation [
@@ -61,6 +62,7 @@ defmodule ShadcnUIDemo.Catalogue do
   ]
 
   @components_by_category %{
+    "media" => [%{label: "Carousel", slug: "carousel", render: :carousel, category: "media"}],
     "overlays" =>
       Enum.map(
         [
@@ -88,6 +90,12 @@ defmodule ShadcnUIDemo.Catalogue do
   }
 
   @compositions [
+    %{
+      label: "Media browser",
+      slug: "media-browser",
+      path: "/examples/media-browser",
+      render: :media_browser
+    },
     %{
       label: "Motion and media capabilities",
       slug: "motion-media-capabilities",
