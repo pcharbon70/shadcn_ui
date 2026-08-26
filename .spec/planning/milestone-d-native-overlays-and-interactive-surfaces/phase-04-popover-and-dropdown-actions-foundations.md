@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 4.1.2.3 Subtask - Preserve an operable readable top-layer default when anchor positioning, position tries, or discrete transitions are unavailable or CSS is disabled.
       - [x] 4.1.2.4 Subtask - Verify viewport edges, nested scroll containers, zoom, long translated content, RTL, forced colors, themes, coarse pointer, replacement, and ordinary fallback destination.
 
-  - [ ] 4.2 Section - Dropdown Actions ordinary-control composition.
+  - [x] 4.2 Section - Dropdown Actions ordinary-control composition.
 
     This section groups common caller actions in an auto Popover without
     claiming menu semantics, keyboard behavior, authorization, or execution.
 
-    - [ ] 4.2.1 Task - Implement Dropdown Actions structure.
+    - [x] 4.2.1 Task - Implement Dropdown Actions structure.
 
       Every action should remain recognizable to browsers and assistive
       technology as its original native link or button.
 
-      - [ ] 4.2.1.1 Subtask - Add a defining Overlays.DropdownActions module with required ID and trigger plus stable keyed caller action, optional group-label, and separator slots.
-      - [ ] 4.2.1.2 Subtask - Compose one auto Popover with touch-sized native controls in document order, deterministic group identity, and semantic or decorative separators.
-      - [ ] 4.2.1.3 Subtask - Preserve each link destination, target, download, rel and aria-current state and each button type, disabled state, name, value, form, and transport attributes.
-      - [ ] 4.2.1.4 Subtask - Protect Popover and action relationships while rejecting nested interactive labels, contradictory globals, duplicate keys, invalid destinations, and generated application commands.
+      - [x] 4.2.1.1 Subtask - Add a defining Overlays.DropdownActions module with required ID and trigger plus stable keyed caller action, optional group-label, and separator slots.
+      - [x] 4.2.1.2 Subtask - Compose one auto Popover with touch-sized native controls in document order, deterministic group identity, and semantic or decorative separators.
+      - [x] 4.2.1.3 Subtask - Preserve each link destination, target, download, rel and aria-current state and each button type, disabled state, name, value, form, and transport attributes.
+      - [x] 4.2.1.4 Subtask - Protect Popover and action relationships while rejecting nested interactive labels, contradictory globals, duplicate keys, invalid destinations, and generated application commands.
 
-    - [ ] 4.2.2 Task - Enforce the non-menu and application boundary.
+    - [x] 4.2.2 Task - Enforce the non-menu and application boundary.
 
       Documentation and tests should prevent familiar styling from silently
       creating obligations the component does not implement.
 
-      - [ ] 4.2.2.1 Subtask - Assert absence of menu, menubar and menuitem roles, roving tabindex, arrow-key handlers, Home, End, typeahead, submenus, command registry, and package-owned dismissal after outcomes.
-      - [ ] 4.2.2.2 Subtask - Document native Tab and Shift+Tab order, ordinary link and button activation, Escape and light dismiss, focus return, and caller-owned command results.
-      - [ ] 4.2.2.3 Subtask - Compare Dropdown Actions with Navigation Menu, Button groups, native select, future ARIA menus, command palettes, and application toolbars.
-      - [ ] 4.2.2.4 Subtask - Add mixed links and buttons, disabled controls, long labels, translated groups, destructive styling, native forms, unsupported-Popover fallback links, and replacement fixtures.
+      - [x] 4.2.2.1 Subtask - Assert absence of menu, menubar and menuitem roles, roving tabindex, arrow-key handlers, Home, End, typeahead, submenus, command registry, and package-owned dismissal after outcomes.
+      - [x] 4.2.2.2 Subtask - Document native Tab and Shift+Tab order, ordinary link and button activation, Escape and light dismiss, focus return, and caller-owned command results.
+      - [x] 4.2.2.3 Subtask - Compare Dropdown Actions with Navigation Menu, Button groups, native select, future ARIA menus, command palettes, and application toolbars.
+      - [x] 4.2.2.4 Subtask - Add mixed links and buttons, disabled controls, long labels, translated groups, destructive styling, native forms, unsupported-Popover fallback links, and replacement fixtures.
 
   - [ ] 4.3 Section - Phase 4 Integration Tests.
 

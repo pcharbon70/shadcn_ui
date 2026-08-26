@@ -321,6 +321,59 @@ navigation and persistence. With CSS disabled native Popover still works; with
 Popover support absent use the always-visible ordinary fallback link. There is
 no package JavaScript, hook, event observer or positioning engine.
 
+### Dropdown Actions
+
+`dropdown_actions/1` groups ordinary native links and buttons in an auto Popover.
+It is **not an ARIA menu**: use Tab/Shift+Tab to move between native controls,
+Enter to activate links, Enter/Space for buttons, and Escape or light dismiss to
+close. Disabled buttons are skipped by native Tab navigation. Focus return is
+browser-owned and can differ between engines. There is no roving tabindex,
+arrow-key/Home/End handling, typeahead, submenu or command registry.
+
+Native keyboard preferences still apply: some browsers skip links unless full
+keyboard access is enabled, and may add a stop for a scrollable surface. The
+tests compare against ordinary native controls rather than installing a custom
+Tab sequence. Links remain natively focusable and retain ordinary activation.
+
+```heex
+<.dropdown_actions id="record-actions" accessible_label="Record actions">
+  <:trigger>Actions</:trigger>
+  <:group_label key="record" label="Record tools" />
+  <:action key="view" kind={:link} label="View record" destination="/records/42" group="record" />
+  <:action key="download" kind={:link} label="Download" destination="/records/42.csv" download="record.csv" group="record" />
+  <:separator after_key="download" />
+  <:action key="save" label="Save draft" type="submit" form="record-form" name="intent" value="save" />
+  <:action key="delete" label="Delete record" destructive rest={%{"phx-click" => "request_delete"}} />
+  <:fallback><a href="/records/42/actions">Full actions page</a></:fallback>
+</.dropdown_actions>
+```
+
+Each action requires a stable `key` and escaped text `label`. Slots are
+self-closing: nested content is rejected, so an action cannot contain another
+link, button or input. Default kind is `:button` and default type is `"button"`.
+Links use `kind={:link}` and a required `destination`; `target`, `rel`, `download`
+and `current` retain native meaning. Buttons retain `type`, `disabled`, `name`,
+`value`, `form`, and unrelated transport attributes in `rest`. Conflicting native
+globals, duplicate keys, unknown/noncontiguous groups and invalid destinations
+are rejected. Destinations support relative paths, fragments, and explicit
+HTTP(S), mailto or tel URLs—not script/data URLs or protocol-relative URLs.
+Consumers must still authorize destinations and operations.
+
+Optional `group_label` entries name contiguous actions through their `group` key;
+labels are rendered before the first action and related deterministically.
+Optional `separator` entries render after `after_key`; they are native thematic
+breaks unless `decorative` removes their meaning. No action ordering is inferred.
+Destructive styling conveys no authorization, confirmation, or command result.
+Inert application buttons stay inert until the caller wires their behavior; the
+package never dismisses automatically after an outcome. Forms, methods, CSRF,
+pending/error snapshots, persistence and replacement remain caller-owned.
+
+Choose Navigation Menu for persistent destinations, a Button group for always-
+visible actions, native select for choosing a form value, or an application
+toolbar for persistent tools. Full ARIA menus and command palettes need their
+own interaction contracts. Keep an ordinary fallback route for browsers without
+Popover. Public gallery rollout for these components remains Phase 6.
+
 ### Drawer
 
 `drawer/1` is a native modal Dialog presented at `edge={:start | :end | :bottom}`,

@@ -49,6 +49,41 @@ defmodule PopoverBrowserFixture do
           </.popover>
           <:close>Close dialog</:close>
         </.dialog>
+        <form id="action-form" action="/submitted" method="get">
+          <input type="hidden" name="record" value="42" />
+        </form>
+        <.dropdown_actions id="record-actions" accessible_label="Record actions">
+          <:trigger>Record actions</:trigger>
+          <:group_label key="record" label="Record tools — أدوات" />
+          <:action
+            key="view"
+            kind={:link}
+            label="View record"
+            destination="#fallback"
+            current={:page}
+            group="record"
+          />
+          <:action
+            key="download"
+            kind={:link}
+            label="Download record"
+            destination="/record.csv"
+            download="record.csv"
+            group="record"
+          />
+          <:action
+            key="save"
+            label="Save draft"
+            type="submit"
+            name="intent"
+            value="save"
+            form="action-form"
+          />
+          <:action key="pending" label="Pending operation" disabled />
+          <:separator after_key="pending" />
+          <:action key="delete" label="Delete record — caller authorization required" destructive />
+          <:fallback><a href="#fallback">Full actions page</a></:fallback>
+        </.dropdown_actions>
         <section id="fallback">
           <h1>Ordinary destination</h1><p>Required content is available without overlays.</p>
         </section>

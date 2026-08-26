@@ -168,6 +168,55 @@
 
 
 </div>
+    <form id="action-form" action="/submitted" method="get">
+      <input type="hidden" name="record" value="42">
+    </form>
+    <div data-shadcn-ui-dropdown-actions id="record-actions" data-shadcn-ui data-shadcn-ui-popover>
+  <button id="record-actions-invoker" type="button" popovertarget="record-actions-surface" popovertargetaction="toggle" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Record actions</button>
+  <section id="record-actions-surface" popover="auto" aria-label="Record actions" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-popover-surface data-placement="block-end" class="sui:grid sui:gap-3 sui:p-4 sui:text-sm">
+
+
+
+  <div data-shadcn-ui-dropdown-list>
+    <div data-action-key="view">
+      <p id="record-actions-group-record" data-shadcn-ui-dropdown-group>
+        Record tools — أدوات
+      </p>
+      <a id="record-actions-action-view" href="#fallback" aria-current="page" aria-describedby="record-actions-group-record" data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="false" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">View record</a>
+
+
+
+    </div><div data-action-key="download">
+
+      <a id="record-actions-action-download" href="/record.csv" download="record.csv" aria-describedby="record-actions-group-record" data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="false" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Download record</a>
+
+
+
+    </div><div data-action-key="save">
+
+
+      <button id="record-actions-action-save" type="submit" name="intent" value="save" form="action-form" data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="false" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Save draft</button>
+
+
+    </div><div data-action-key="pending">
+
+
+      <button id="record-actions-action-pending" type="button" disabled data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="false" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Pending operation</button>
+      <hr data-shadcn-ui-dropdown-separator>
+
+    </div><div data-action-key="delete">
+
+
+      <button id="record-actions-action-delete" type="button" data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="true" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Delete record — caller authorization required</button>
+
+
+    </div>
+  </div>
+
+
+  </section>
+  <div data-shadcn-ui-popover-fallback><a href="#fallback">Full actions page</a></div>
+</div>
     <section id="fallback">
       <h1>Ordinary destination</h1><p>Required content is available without overlays.</p>
     </section>

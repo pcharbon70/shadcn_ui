@@ -691,6 +691,22 @@ dialog[data-shadcn-ui-drawer-surface][open] {
   }
 }
 
+[data-shadcn-ui-dropdown-action] {
+  box-sizing: border-box;
+  color: var(--shadcn-ui-popover-foreground);
+  background: transparent;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  cursor: pointer;
+}
+[data-shadcn-ui-dropdown-action]:hover { background: var(--shadcn-ui-accent); }
+[data-shadcn-ui-dropdown-action][data-destructive="true"] { color: var(--shadcn-ui-destructive); }
+[data-shadcn-ui-dropdown-action]:disabled { cursor: not-allowed; opacity: 0.5; }
+[data-shadcn-ui-dropdown-action][aria-current] { text-decoration: underline; font-weight: 600; }
+[data-shadcn-ui-dropdown-group] { margin: 0; padding: 0.5rem 0.75rem; font-weight: 600; }
+[data-shadcn-ui-dropdown-separator] { border: 0; block-size: 1px; margin-block: 0.375rem; background: var(--shadcn-ui-border); }
+
 /* Public Popover: centered native top-layer floor, including RTL and zoom. */
 [data-shadcn-ui-popover-surface][popover] {
   inset: 0;
@@ -710,6 +726,10 @@ dialog[data-shadcn-ui-drawer-surface][open] {
 
 /* Never override the UA's hidden-popover display with utility display rules. */
 [data-shadcn-ui-popover-surface][popover]:not(:popover-open) { display: none; }
+[data-shadcn-ui-popover-surface][popover]:focus-visible {
+  outline: 2px solid var(--shadcn-ui-ring);
+  outline-offset: -3px;
+}
 
 @supports (position-area: block-end) and (position-try-fallbacks: flip-block) {
   [data-shadcn-ui-popover-surface][popover][data-placement] {

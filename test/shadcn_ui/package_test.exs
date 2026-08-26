@@ -31,7 +31,8 @@ defmodule ShadcnUI.PackageTest do
     ShadcnUI.Components.Overlays.AlertDialog,
     ShadcnUI.Components.Overlays.Dialog,
     ShadcnUI.Components.Overlays.Drawer,
-    ShadcnUI.Components.Overlays.Popover
+    ShadcnUI.Components.Overlays.Popover,
+    ShadcnUI.Components.Overlays.DropdownActions
   ]
 
   test "defines the package entry point and component namespaces" do

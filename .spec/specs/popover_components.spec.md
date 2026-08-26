@@ -68,6 +68,13 @@ surface:
 
 ## Verification
 
+Popover accepts one title slot, accessible label or external labelledby naming
+source. Manual mode persists until native hide/toggle; no autofocus or static
+expanded state is imposed. Dropdown Actions uses self-closing keyed action slots
+with text labels to reject nested interactive content. Groups are contiguous
+and separators name their preceding action. Native link and button fields are
+explicit; contradictory globals and unsafe destination schemes are rejected.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/components/overlays/popover_test.exs

@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 // covers: shadcn_ui.popover.native_surface shadcn_ui.popover.modes
 // covers: shadcn_ui.popover.positioning shadcn_ui.popover.state_ownership
 // covers: shadcn_ui.popover.shared_contract
+// covers: shadcn_ui.popover.dropdown_actions shadcn_ui.popover.not_menu
 const html = readFileSync(new URL("../fixtures/milestone_d_popovers.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../../priv/static/shadcn_ui.css", import.meta.url), "utf8");
 async function load(page) {
@@ -118,5 +119,72 @@ test("CSS and script disabled, missing Popover and anchor capabilities have hone
   expect(box.x).toBeGreaterThan(0);
   expect(box.y).toBeGreaterThan(0);
   await page.locator("#basic-close").click();
+  await context.close();
+});
+
+test("Dropdown Actions uses native Tab order, disabled controls, Enter, Space and Escape", async ({ page }) => {
+  // Match the engine/OS keyboard preference, not a browser-name assumption.
+  await page.setContent('<button id="probe">Start</button><a id="probe-link" href="#target">Link</a><button>End</button>');
+  await page.locator("#probe").focus();
+  await page.keyboard.press("Tab");
+  const tabsToLinks = await page.evaluate(() => document.activeElement.id === "probe-link");
+  await load(page);
+  await page.locator("#record-actions-invoker").click();
+  await page.locator("#record-actions-invoker").focus();
+  for (const key of (tabsToLinks ? ["view", "download", "save", "delete"] : ["save", "delete"])) {
+    await page.keyboard.press("Tab");
+    if (await page.locator("#record-actions-surface").evaluate(el => el === document.activeElement)) {
+      await page.keyboard.press("Tab"); // Native scroll-region stop, not roving focus.
+    }
+    await expect(page.locator(`#record-actions-action-${key}`)).toBeFocused();
+  }
+  await expect(page.locator("#record-actions-action-pending")).toBeDisabled();
+  expect(await page.locator("#record-actions-action-view").evaluate(el => el.tabIndex)).toBe(0);
+  await page.keyboard.press("Shift+Tab");
+  await expect(page.locator("#record-actions-action-save")).toBeFocused();
+  await page.locator("#record-actions-action-delete").focus();
+  await page.keyboard.press("ArrowUp");
+  await expect(page.locator("#record-actions-action-delete")).toBeFocused();
+  await page.keyboard.press("Space");
+  await page.keyboard.press("Enter");
+  expect(await page.locator("#record-actions-surface").evaluate(opened)).toBe(true);
+  await expect(page.locator('[role="menu"], [role="menubar"], [role="menuitem"]')).toHaveCount(0);
+  await page.keyboard.press("Escape");
+  expect(await page.locator("#record-actions-surface").evaluate(opened)).toBe(false);
+  expect(await page.evaluate(() => document.activeElement.id)).toMatch(/^(record-actions-(invoker|action-delete)|)$/);
+  await page.locator("#record-actions-invoker").click();
+  await page.locator("#record-actions-action-view").focus();
+  await page.keyboard.press("Enter");
+  expect(page.url()).toContain("#fallback");
+});
+
+test("Dropdown Actions preserves ordinary form submission without an outcome handler", async ({ page }) => {
+  await page.route("http://shadcn.test/**", route => route.fulfill({ contentType: "text/html", body: "<h1>Caller response</h1>" }));
+  await page.goto("http://shadcn.test/");
+  await load(page);
+  await page.locator("#record-actions-invoker").click();
+  await page.locator("#record-actions-action-save").click();
+  await page.waitForURL("**/submitted?record=42&intent=save");
+  await expect(page.getByRole("heading", { name: "Caller response" })).toBeVisible();
+});
+
+test("Dropdown touch-sized actions, long labels, light dismiss, replacement and fallback", async ({ browser }) => {
+  const context = await browser.newContext({ hasTouch: true, viewport: { width: 390, height: 844 } });
+  const page = await context.newPage();
+  await load(page);
+  const snapshot = await page.locator("#record-actions").evaluate(el => el.outerHTML);
+  await page.locator("#record-actions-invoker").tap();
+  for (const action of await page.locator("#record-actions [data-shadcn-ui-dropdown-action]").all()) {
+    expect((await action.boundingBox()).height).toBeGreaterThanOrEqual(44);
+  }
+  await page.locator("#record-actions-action-delete").tap();
+  expect(await page.locator("#record-actions-surface").evaluate(opened)).toBe(true);
+  await page.locator("#outside").tap();
+  expect(await page.locator("#record-actions-surface").evaluate(opened)).toBe(false);
+  await page.locator("#record-actions-invoker").tap();
+  await page.locator("#record-actions").evaluate((el, snapshot) => { el.outerHTML = snapshot; }, snapshot);
+  expect(await page.locator("#record-actions-surface").evaluate(opened)).toBe(false);
+  await page.locator("#record-actions [data-shadcn-ui-popover-fallback] a").click();
+  expect(page.url()).toContain("#fallback");
   await context.close();
 });
