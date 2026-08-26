@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 3.1.2.3 Subtask - Verify start and end placement in LTR and RTL, bottom placement at narrow and wide widths, 200 percent zoom, forced colors, themes, and orientation changes.
       - [x] 3.1.2.4 Subtask - Document edge selection as rendered presentation, caller-owned responsive policy, replacement behavior, explicit fallback destination, and absence of drag gestures.
 
-  - [ ] 3.2 Section - Long-content scrolling and composition.
+  - [x] 3.2 Section - Long-content scrolling and composition.
 
     This section keeps Drawer titles, exits, actions, and body content reachable
     without scroll observation, custom scrollbar controls, or hidden focus.
 
-    - [ ] 3.2.1 Task - Implement bounded native Drawer scrolling.
+    - [x] 3.2.1 Task - Implement bounded native Drawer scrolling.
 
       Long bodies should use one predictable native overflow region while
       header and footer composition remains understandable in document order.
 
-      - [ ] 3.2.1.1 Subtask - Add one flex-bounded native body scroll region with explicit focus policy, accessible naming guidance, overscroll containment, and visible scrollbar behavior.
-      - [ ] 3.2.1.2 Subtask - Keep title and explicit close reachable, preserve optional footer actions after body content, and prevent package-created focus targets from hiding behind sticky regions.
-      - [ ] 3.2.1.3 Subtask - Compose long translated copy, native forms, validation errors, Scroll Area, Accordion, separators, and action buttons without nested-form or landmark distortion.
-      - [ ] 3.2.1.4 Subtask - Reject scroll measurement, restoration, infinite loading, custom scrollbars, viewport observers, drag-to-close, swipe gestures, and package-owned responsive state.
+      - [x] 3.2.1.1 Subtask - Add one flex-bounded native body scroll region with explicit focus policy, accessible naming guidance, overscroll containment, and visible scrollbar behavior.
+      - [x] 3.2.1.2 Subtask - Keep title and explicit close reachable, preserve optional footer actions after body content, and prevent package-created focus targets from hiding behind sticky regions.
+      - [x] 3.2.1.3 Subtask - Compose long translated copy, native forms, validation errors, Scroll Area, Accordion, separators, and action buttons without nested-form or landmark distortion.
+      - [x] 3.2.1.4 Subtask - Reject scroll measurement, restoration, infinite loading, custom scrollbars, viewport observers, drag-to-close, swipe gestures, and package-owned responsive state.
 
-    - [ ] 3.2.2 Task - Document Drawer selection and ownership.
+    - [x] 3.2.2 Task - Document Drawer selection and ownership.
 
       Consumers should know when Drawer is appropriate and when a normal page,
       ordinary Dialog, or application-specific workflow is more honest.
 
-      - [ ] 3.2.2.1 Subtask - Compare Drawer with Dialog, Popover, responsive page navigation, permanent sidebars, bottom sheets with gestures, and dedicated routes.
-      - [ ] 3.2.2.2 Subtask - Document focus, dismissal, scroll, safe-area, edge, orientation, DOM replacement, form submission, and result ownership.
-      - [ ] 3.2.2.3 Subtask - Provide deterministic filter, details, and compact-edit compositions with caller-owned data and no persistence or authorization.
-      - [ ] 3.2.2.4 Subtask - Show CSS-disabled, no-transition, no-script, unsupported-invoker, long-content, coarse-pointer, and ordinary-route fallback states.
+      - [x] 3.2.2.1 Subtask - Compare Drawer with Dialog, Popover, responsive page navigation, permanent sidebars, bottom sheets with gestures, and dedicated routes.
+      - [x] 3.2.2.2 Subtask - Document focus, dismissal, scroll, safe-area, edge, orientation, DOM replacement, form submission, and result ownership.
+      - [x] 3.2.2.3 Subtask - Provide deterministic filter, details, and compact-edit compositions with caller-owned data and no persistence or authorization.
+      - [x] 3.2.2.4 Subtask - Show CSS-disabled, no-transition, no-script, unsupported-invoker, long-content, coarse-pointer, and ordinary-route fallback states.
 
   - [ ] 3.3 Section - Phase 3 Integration Tests.
 

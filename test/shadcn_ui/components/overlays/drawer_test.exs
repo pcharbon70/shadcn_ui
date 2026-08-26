@@ -186,6 +186,28 @@ defmodule ShadcnUI.Components.Overlays.DrawerTest do
     end
   end
 
+  test "body is the named keyboard scroll target in header/body/footer source order" do
+    html = render_drawer()
+    assert length(Regex.scan(~r/data-shadcn-ui-drawer-body/, html)) == 1
+
+    assert html =~
+             ~r/id="filters-initial-focus"[^>]*role="region"[^>]*aria-labelledby="filters-title"[^>]*tabindex="0"[^>]*autofocus/
+
+    {header, _} = :binary.match(html, "data-shadcn-ui-drawer-header")
+    {body, _} = :binary.match(html, "data-shadcn-ui-drawer-body")
+    {footer, _} = :binary.match(html, "data-shadcn-ui-drawer-footer")
+    assert header < body and body < footer
+    css = File.read!("assets/shadcn_ui.css")
+    assert css =~ "flex: 1 1 auto"
+    assert css =~ "min-block-size: 0"
+    assert css =~ "scrollbar-gutter: stable"
+    assert css =~ "outline-offset: -3px"
+    source = File.read!("lib/shadcn_ui/components/overlays/drawer.ex")
+
+    refute source =~
+             ~r/(<script|phx-hook|addEventListener|ResizeObserver|IntersectionObserver|setTimeout|setPointerCapture|onpointer|ontouch|scrollTop\s*=)/
+  end
+
   defp render_drawer(attrs \\ %{}),
     do: attrs |> Fixture.render() |> Safe.to_iodata() |> IO.iodata_to_binary()
 end

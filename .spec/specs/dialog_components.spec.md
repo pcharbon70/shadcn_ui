@@ -77,6 +77,14 @@ surface:
 
 ## Verification
 
+Drawer renders one named body region with `tabindex="0"`. Its title and explicit
+exit precede the body, and the optional footer follows it outside the overflow
+region. `initial_focus` selects `auto`, `content`, or `close`; logical `edge`
+selects `start`, `end`, or `bottom`, and `size` selects `small`, `default`, or
+`large`. Header and footer slots are for concise content. Overscroll containment
+and stable gutters progressively enhance native overflow; unsupported engines
+retain native scrolling rather than acquiring a package scroll runtime.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/components/overlays/dialog_test.exs
@@ -116,6 +124,7 @@ surface:
   target: test/browser/milestone-d-drawers.spec.mjs
   covers:
     - shadcn_ui.dialog.drawer
+    - shadcn_ui.dialog.drawer_scroll
     - shadcn_ui.dialog.shared_contract
 
 - kind: test_file

@@ -574,6 +574,7 @@ dialog[data-shadcn-ui-drawer-surface] {
   width: calc(100vw - 2rem);
   max-width: 32rem;
   max-height: calc(100vh - 2rem);
+  height: calc(100vh - 2rem);
   overflow: auto;
   padding: 0;
 }
@@ -593,6 +594,35 @@ dialog[data-shadcn-ui-drawer-surface] {
 }
 
 [data-shadcn-ui-drawer-header] > button { flex-shrink: 0; }
+
+/* Only the body scrolls; header/exit and caller footer stay in document order. */
+dialog[data-shadcn-ui-drawer-surface][open] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+[data-shadcn-ui-drawer-header],
+[data-shadcn-ui-drawer-footer] {
+  flex: 0 0 auto;
+}
+
+[data-shadcn-ui-drawer-header] h2 { margin: 0; }
+
+[data-shadcn-ui-drawer-body] {
+  flex: 1 1 auto;
+  min-block-size: 0;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scroll-padding-block: 0.75rem;
+}
+
+[data-shadcn-ui-drawer-body]:focus {
+  outline: 2px solid var(--shadcn-ui-ring);
+  outline-offset: -3px;
+}
 
 @supports (inset-inline-start: 0) and (inline-size: 1vi) {
   dialog[data-shadcn-ui-drawer-surface] {
