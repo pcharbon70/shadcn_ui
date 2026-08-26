@@ -25,3 +25,13 @@ gallery contracts.
 - [Tooltip and Hover Card supplemental surfaces](./supplemental_surfaces.spec.md)
 - [Overlay gallery and acceptance](./overlay_gallery.spec.md)
 - [Upstream provenance and attribution](./provenance.spec.md)
+
+## Milestone E planned contracts
+
+These are accepted specifications for the next implementation wave, not a claim
+that the APIs or verification targets already exist.
+
+- [Shared motion, media, and capability contract](./motion_media_contract.spec.md)
+- [Carousel, Cover Flow, and Image Gallery](./media_components.spec.md)
+- [Marquee, Stagger, and Scroll Indicator](./motion_components.spec.md)
+- [Incremental motion/media gallery and acceptance](./motion_media_gallery.spec.md)
