@@ -2,6 +2,7 @@
 @import "tailwindcss/utilities.css" prefix(sui);
 @import "./motion-media.css";
 @import "./carousel.css";
+@import "./marquee.css";
 
 @source "../lib/**/*.ex";
 @source "./**/*.css";

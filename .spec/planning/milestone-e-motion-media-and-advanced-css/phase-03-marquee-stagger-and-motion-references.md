@@ -14,25 +14,25 @@ Requires Phase 1 suppression, finite budgets, structured media records and demo 
 
   Publish bounded decorative motion with static defaults, explicit native opt-in/stop controls and duplicate-content safety, together with real Motion reference pages.
 
-  - [ ] 3.1 Section - Static-first Marquee with finite native preview.
+  - [x] 3.1 Section - Static-first Marquee with finite native preview.
 
     Implement a deliberate finite-preview adaptation rather than an endless autoplay ticker.
 
-    - [ ] 3.1.1 Task - Implement the Marquee API and canonical content.
+    - [x] 3.1.1 Task - Implement the Marquee API and canonical content.
 
       Structured presentation inputs allow safe duplication without cloning arbitrary interactive HEEx.
 
-      - [ ] 3.1.1.1 Subtask - Add Motion.Marquee.marquee/1 with required id/name/items, static/preview modes, logical directions and closed duration presets capped at five seconds.
-      - [ ] 3.1.1.2 Subtask - Render one complete canonical list of escaped text and optional images; validate stable keys, image metadata and noninteractive content before rendering.
-      - [ ] 3.1.1.3 Subtask - In preview mode add a visible labelled unnamed native checkbox, initially unchecked, with complete stop/reset/replay instructions and no falsely synchronized playing indicator.
+      - [x] 3.1.1.1 Subtask - Add Motion.Marquee.marquee/1 with required id/name/items, static/preview modes, logical directions and closed duration presets capped at five seconds.
+      - [x] 3.1.1.2 Subtask - Render one complete canonical list of escaped text and optional images; validate stable keys, image metadata and noninteractive content before rendering.
+      - [x] 3.1.1.3 Subtask - In preview mode add a visible labelled unnamed native checkbox, initially unchecked, with complete stop/reset/replay instructions and no falsely synchronized playing indicator.
 
-    - [ ] 3.1.2 Task - Implement bounded preview and safe duplicate rendering.
+    - [x] 3.1.2 Task - Implement bounded preview and safe duplicate rendering.
 
       Decoration must not create extra accessible content or perpetual work.
 
-      - [ ] 3.1.2.1 Subtask - Use at most one aria-hidden inert duplicate track without IDs, links, actions, form fields or meaningful duplicate alt; keep it hidden by default and in CSS-disabled/static/reduced paths.
-      - [ ] 3.1.2.2 Subtask - Gate preview on the necessary native/CSS capabilities; unchecking restores static content, checking replays one finite traversal, and completion leaves the readable canonical list.
-      - [ ] 3.1.2.3 Subtask - Test explicit stop after focus leaves, interruption and suppression; do not substitute hover-only pause, automatic restart, infinite iteration or a visibility observer.
+      - [x] 3.1.2.1 Subtask - Use at most one aria-hidden inert duplicate track without IDs, links, actions, form fields or meaningful duplicate alt; keep it hidden by default and in CSS-disabled/static/reduced paths.
+      - [x] 3.1.2.2 Subtask - Gate preview on the necessary native/CSS capabilities; unchecking restores static content, checking replays one finite traversal, and completion leaves the readable canonical list.
+      - [x] 3.1.2.3 Subtask - Test explicit stop after focus leaves, interruption and suppression; do not substitute hover-only pause, automatic restart, infinite iteration or a visibility observer.
 
   - [ ] 3.2 Section - Bounded Stagger with visible content baseline.
 

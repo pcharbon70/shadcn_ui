@@ -51,6 +51,10 @@ surface:
 
 ## Verification
 
+Phase 3 maps Marquee to the same pinned basic.html/loop.css sources; the local
+adaptation replaces endless travel with a native opt-in finite preview, a complete
+wrapped list and an inert, ID-free duplicate. Existing MIT attribution is retained.
+
 Milestone E Phase 2 maps Media.Carousel and carousel.css to the pinned native
 list and reviewed marker sources. Local changes explicitly retain real index
 links, visible scrollbars and focus while omitting generated controls. The

@@ -231,6 +231,12 @@
       "localChanges": "Namespace semantic tokens, prefix generated utilities, remove Preflight, add sRGB fallback, and scope theme and reduced-motion behavior."
     },
     {
+      "id": "motion.marquee",
+      "localPaths": ["lib/shadcn_ui/components/motion/marquee.ex", "assets/marquee.css"],
+      "upstreamPaths": ["src/demos/marquee/basic.html", "src/demos/marquee/loop.css"],
+      "localChanges": "Replace infinite autoplay with static wrapped canonical content, structured validated presentation records, a visible unnamed native opt-in checkbox, one finite traversal capped at five seconds, persistent stop/reset/replay and one inert ID-free duplicate visible only during preview. Preserve reduced-motion and unsupported-CSS static fallbacks without runtime."
+    },
+    {
       "id": "media.carousel",
       "localPaths": ["lib/shadcn_ui/components/media/carousel.ex", "assets/carousel.css"],
       "upstreamPaths": ["src/demos/carousel/basic.html", "src/demos/carousel/markers.css"],

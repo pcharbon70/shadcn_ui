@@ -134,6 +134,12 @@ surface:
 
 ## Verification
 
+Phase 3 adds E-03 finite Marquee CSS. Joint :has, :dir, transform and animation
+queries expose its native checkbox and one-iteration travel only with system
+motion permitted. The complete wrapped canonical list is the static baseline;
+the inert duplicate is hidden before, after and on interruption. E-01 suppression
+remains authoritative. No autoplay, infinite iteration or runtime is introduced.
+
 Milestone E Phase 2 adds native Carousel inline layout in carousel.css (E-02).
 Complete static snap/alignment utilities retain ordinary overflow when unsupported;
 logical padding, bounded cards and real index links preserve focus and RTL order.

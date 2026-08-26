@@ -1,5 +1,23 @@
 # Motion/media authored CSS exception ledger
 
+## E-03 — finite Marquee preview
+
+Source: assets/marquee.css and Motion.Marquee. Adapted from pinned upstream
+marquee/basic.html and loop.css at bd8f403030c8d1f46804da6eda733fde7e908e63,
+reviewed 2026-08-26; existing MIT notice retained. Complete static lists wrap.
+The direct-child checkbox :has gate, clone lifecycle and namespaced keyframes
+need authored CSS rather than repeated arbitrary utilities. Joint :has, :dir,
+transform and animation queries plus no-preference expose the hidden native
+control. Two closed presets are 2.5s and 5s, one iteration, no delay/fill/repeat.
+Canonical travel and one inert, aria-hidden duplicate finish at identical content;
+completion removes travel and duplicate visibility. Unchecking cancels both.
+The duplicate has native hidden for CSS-disabled output and no interactive
+content or IDs. Logical directions follow LTR/RTL; colors/borders/radius use
+scoped tokens and native forced colors. E-01 suppression wins for every part.
+Unsupported CSS retains all content and omits the unavailable preview control.
+Tests: Marquee rendering, actual-HEEx motion fixture and locked three-engine
+milestone-e-motion.spec.mjs; deterministic compiled asset checks.
+
 ## E-01 — visible baseline and suppression
 
 Source: [assets/motion-media.css](../assets/motion-media.css).
