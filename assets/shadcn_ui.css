@@ -3,6 +3,7 @@
 @import "./motion-media.css";
 @import "./carousel.css";
 @import "./marquee.css";
+@import "./stagger.css";
 
 @source "../lib/**/*.ex";
 @source "./**/*.css";

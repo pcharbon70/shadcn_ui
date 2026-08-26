@@ -4,13 +4,15 @@
 id: shadcn_ui.motion_components
 kind: package
 status: active
-summary: Marquee finite preview implemented; Stagger and Scroll Indicator follow the phased plan.
+summary: Marquee finite preview and bounded Stagger implemented; Scroll Indicator follows in Phase 4.
 decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.bounded_motion
 surface:
   - lib/shadcn_ui/components/motion/marquee.ex
+  - lib/shadcn_ui/components/motion/stagger.ex
   - assets/marquee.css
+  - assets/stagger.css
   - scripts/render-motion-fixture.exs
   - playwright.milestone-e-phase3.config.mjs
   - lib/shadcn_ui/components/motion/**/*.ex
@@ -24,7 +26,7 @@ surface:
 Functions marquee/1, stagger/1 and scroll_indicator/1 are defining
 modules under ShadcnUI.Components.Motion. Shared motion preference is system
 or none and cannot override an ancestor suppression scope or user preference.
-Marquee is implemented; the other two remain planned at Section 3.1.
+Marquee and Stagger are implemented; Scroll Indicator remains planned.
 Marquee requires `accessible_label`; durations are brief (2500ms) and default
 (5000ms). Item maps accept only key/text/image, and image maps only
 src/alt/width/height/srcset/sizes/loading/decoding. No caller globals are copied
@@ -44,6 +46,13 @@ window of at most one second. Beyond the bounded stagger window items appear
 immediately. Never calculate unbounded delays or hide content until an observer
 fires. Semantic wrappers and order remain explicit; no list role is inferred
 for arbitrary non-list content.
+
+Stagger requires id and unique keyed item slots, and exposes as=div/ul/ol with
+div or li item wrappers respectively. Optional item class/rest preserve caller
+composition. Presets quick (150ms duration / 50ms step) and default (250ms / 75ms)
+use only validated internal numeric CSS properties; out-of-budget items get zero
+delay/duration. Fade/rise start at opacity 0.5, never zero, have no fill/repeat,
+and focus cancels the item effect. Replacement or restored CSS can replay it.
 
 Scroll Indicator owns one named keyboard-focusable native block scroll region
 and an aria-hidden decorative track. Its required inner content remains native

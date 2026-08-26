@@ -1,5 +1,22 @@
 # Motion/media authored CSS exception ledger
 
+## E-04 — bounded Stagger entrance
+
+Source: assets/stagger.css and Motion.Stagger. Reviewed pinned upstream
+stagger/basic.html at bd8f403030c8d1f46804da6eda733fde7e908e63 (2026-08-26).
+This local adaptation omits toggle-to-hide and unbounded sibling-index delays.
+Namespaced fade/rise keyframes and direct-child focus cancellation need authored
+CSS. Effects opt in behind animation support and no-preference; baseline opacity
+is one, lowest animated opacity is 0.5. Fixed internal numeric timing properties
+come only from closed validated presets. Delay plus duration never exceeds one
+second, excess items do not animate. No fill, repeat, observer or viewport state.
+Removing CSS or focusing an item restores opacity one and identity transform.
+E-01 suppression overrides the rules and cannot be undone by nested system.
+There are no colors or theme-specific declarations; native focus/forced colors
+survive. Semantic wrappers and caller content are never cloned or reordered.
+Tests: Stagger rendering and actual-HEEx three-engine motion assertions,
+including focused inputs, interrupted CSS and fresh-render replay/reset.
+
 ## E-03 — finite Marquee preview
 
 Source: assets/marquee.css and Motion.Marquee. Adapted from pinned upstream

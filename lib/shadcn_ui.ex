@@ -13,6 +13,7 @@ defmodule ShadcnUI do
 
   @component_modules [
     ShadcnUI.Components.Motion.Marquee,
+    ShadcnUI.Components.Motion.Stagger,
     ShadcnUI.Components.Media.Carousel,
     ShadcnUI.Components.Content.RadioPanels,
     ShadcnUI.Components.Content.ScrollArea,

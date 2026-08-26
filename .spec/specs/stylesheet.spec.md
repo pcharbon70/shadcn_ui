@@ -134,6 +134,11 @@ surface:
 
 ## Verification
 
+Phase 3 adds E-04 bounded Stagger keyframes behind animation/no-preference
+queries. Only validated preset timings enter namespaced numeric properties.
+The visible baseline, no fill/repeat and focus cancellation preserve caller
+controls on interruption; E-01 disables nested and OS-suppressed effects.
+
 Phase 3 adds E-03 finite Marquee CSS. Joint :has, :dir, transform and animation
 queries expose its native checkbox and one-iteration travel only with system
 motion permitted. The complete wrapped canonical list is the static baseline;

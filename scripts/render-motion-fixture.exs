@@ -56,6 +56,20 @@ defmodule MotionBrowserFixture do
             mode={:preview}
             motion={:none}
           />
+          <div :for={effect <- [:none, :fade, :rise]}>
+            <.stagger id={"stagger-#{effect}"} effect={effect} as={:ol}>
+              <:item :for={n <- 1..20} key={"step-#{n}"}>
+                <a href="#after">Step {n}</a><label>Note {n}<input name={"note-#{n}"} /></label>
+              </:item>
+            </.stagger>
+          </div>
+          <div data-shadcn-motion="reduce">
+            <div data-shadcn-motion="system">
+              <.stagger id="stagger-nested" effect={:rise}>
+                <:item key="a"><button>Nested content</button></:item>
+              </.stagger>
+            </div>
+          </div>
           <button id="after">After motion</button>
         </main>
       </body>

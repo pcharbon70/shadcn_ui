@@ -231,6 +231,12 @@
       "localChanges": "Namespace semantic tokens, prefix generated utilities, remove Preflight, add sRGB fallback, and scope theme and reduced-motion behavior."
     },
     {
+      "id": "motion.stagger",
+      "localPaths": ["lib/shadcn_ui/components/motion/stagger.ex", "assets/stagger.css"],
+      "upstreamPaths": ["src/demos/stagger/basic.html"],
+      "localChanges": "Replace toggle-to-hide and unbounded sibling-index delays with stable keyed trusted HEEx, explicit div/ul/ol semantics, none/fade/rise effects, closed timing presets capped at one second and immediately visible excess items. Keep content visible on focus/interruption, no duplication, observer or replay state."
+    },
+    {
       "id": "motion.marquee",
       "localPaths": ["lib/shadcn_ui/components/motion/marquee.ex", "assets/marquee.css"],
       "upstreamPaths": ["src/demos/marquee/basic.html", "src/demos/marquee/loop.css"],

@@ -54,6 +54,9 @@ surface:
 Phase 3 maps Marquee to the same pinned basic.html/loop.css sources; the local
 adaptation replaces endless travel with a native opt-in finite preview, a complete
 wrapped list and an inert, ID-free duplicate. Existing MIT attribution is retained.
+Stagger maps the reviewed basic.html to visible keyed trusted slots, closed
+semantic wrappers and capped finite effects, omitting upstream toggle-to-hide
+and unbounded sibling-index delays.
 
 Milestone E Phase 2 maps Media.Carousel and carousel.css to the pinned native
 list and reviewed marker sources. Local changes explicitly retain real index

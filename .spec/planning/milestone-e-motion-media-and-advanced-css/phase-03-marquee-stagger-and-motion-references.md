@@ -34,25 +34,25 @@ Requires Phase 1 suppression, finite budgets, structured media records and demo 
       - [x] 3.1.2.2 Subtask - Gate preview on the necessary native/CSS capabilities; unchecking restores static content, checking replays one finite traversal, and completion leaves the readable canonical list.
       - [x] 3.1.2.3 Subtask - Test explicit stop after focus leaves, interruption and suppression; do not substitute hover-only pause, automatic restart, infinite iteration or a visibility observer.
 
-  - [ ] 3.2 Section - Bounded Stagger with visible content baseline.
+  - [x] 3.2 Section - Bounded Stagger with visible content baseline.
 
     Entrance presentation may decorate content but must not delay access to it or create viewport state.
 
-    - [ ] 3.2.1 Task - Implement keyed Stagger composition.
+    - [x] 3.2.1 Task - Implement keyed Stagger composition.
 
       The component should preserve caller semantics and arbitrary trusted item content without cloning it.
 
-      - [ ] 3.2.1.1 Subtask - Add Motion.Stagger.stagger/1 with keyed item slots and closed none/fade/rise effects; default to none and preserve explicit semantic wrapper choices.
-      - [ ] 3.2.1.2 Subtask - Map bounded interval/duration presets without arbitrary CSS input; cap the total sequence window to one second and show all excess items immediately.
-      - [ ] 3.2.1.3 Subtask - Preserve native links/forms and DOM order; reject invalid values and duplicate keys while forwarding unrelated safe globals and classes.
+      - [x] 3.2.1.1 Subtask - Add Motion.Stagger.stagger/1 with keyed item slots and closed none/fade/rise effects; default to none and preserve explicit semantic wrapper choices.
+      - [x] 3.2.1.2 Subtask - Map bounded interval/duration presets without arbitrary CSS input; cap the total sequence window to one second and show all excess items immediately.
+      - [x] 3.2.1.3 Subtask - Preserve native links/forms and DOM order; reject invalid values and duplicate keys while forwarding unrelated safe globals and classes.
 
-    - [ ] 3.2.2 Task - Implement interruption, focus and suppression behavior.
+    - [x] 3.2.2 Task - Implement interruption, focus and suppression behavior.
 
       No unsupported or interrupted effect may leave a real control invisible.
 
-      - [ ] 3.2.2.1 Subtask - Start from fully visible content and add finite scoped animation only when opted in and motion is permitted; never wait for an observer or viewport-enter event.
-      - [ ] 3.2.2.2 Subtask - Ensure focus reveals an item immediately and styles removed mid-animation restore visible content; reject perpetual animations and auto-hiding final keyframes.
-      - [ ] 3.2.2.3 Subtask - Document render-time replay and replacement reset; record CSS exceptions and avoid claiming animation-once or offscreen pausing.
+      - [x] 3.2.2.1 Subtask - Start from fully visible content and add finite scoped animation only when opted in and motion is permitted; never wait for an observer or viewport-enter event.
+      - [x] 3.2.2.2 Subtask - Ensure focus reveals an item immediately and styles removed mid-animation restore visible content; reject perpetual animations and auto-hiding final keyframes.
+      - [x] 3.2.2.3 Subtask - Document render-time replay and replacement reset; record CSS exceptions and avoid claiming animation-once or offscreen pausing.
 
   - [ ] 3.3 Section - Motion category, preferences composition and guidance.
 
