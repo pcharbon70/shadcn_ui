@@ -5,12 +5,16 @@
 Phases 1–5 implement the shared foundations, native Carousel, finite Marquee,
 bounded Stagger, source-local Scroll Indicator, image-only Cover Flow and native
 Image Gallery with their real references and three media/motion compositions.
-The recorded SpecLed login-shell limitation remains outstanding.
-Phase 6 milestone acceptance remains pending. Optional gallery origin CSS is
-deliberately deferred after actual three-engine evidence; native lightboxes ship.
+Phase 6 implements the final gallery, documentation and candidate acceptance:
+all A–E routes, ExDoc, measured 1/8/24-item budgets and cross-engine integration.
+There is no further implementation phase in Milestone E. The known SpecLed
+login-shell issue, manual assistive-technology/physical-device review, CI and
+post-merge publication remain separate outstanding gates. Optional origin CSS
+and generated controls remain deliberately deferred; native lightboxes ship.
 Milestones A–D history is unchanged. See the
-[Phase 5 execution record](./phase-05-image-gallery-and-native-lightbox.md#execution-record)
-for checks and limitations. Next is Phase 6, Gallery, Documentation and Milestone Acceptance.
+[Phase 6 execution record](./phase-06-gallery-documentation-and-milestone-acceptance.md#execution-record)
+and [candidate evidence](../../../docs/milestone-e-acceptance.md).
+Milestone F remains separate; this candidate does not certify publication.
 
 This wave implements the [Milestone E roadmap](../../milestones/milestone-e-motion-media-and-advanced-css.md)
 as independently reviewable phases. Native content, useful fallbacks, scoped

@@ -92,6 +92,11 @@ images and actual-HEEx/browser harness remain excluded. The native timeline
 presentation adds no package JS, runtime dependency or consumer toolchain.
 
 ```spec-verification
+- kind: test_file
+  target: test/shadcn_ui/milestone_e_acceptance_test.exs
+  covers:
+    - shadcn_ui.package.public_import_surface
+
 - kind: command
   target: mix precommit
   execute: true

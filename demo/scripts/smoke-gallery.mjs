@@ -17,6 +17,9 @@ for (const route of routes) {
   const html = await response.text();
   if (!html.includes("ShadcnUI Gallery") || !html.includes("bd8f403")) throw new Error(`invalid gallery response: ${route}`);
   if (!html.includes("Component navigation") || !html.includes('data-shadcn-theme="light"')) throw new Error(`invalid shell: ${route}`);
+  const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/);
+  const expectedCanonical = new URL(route.replace(/\/$/, ""), base).href;
+  if (canonical?.[1] !== expectedCanonical) throw new Error(`invalid canonical: ${route}`);
   for (const match of html.matchAll(/(?:href|src)="([^"]+\.(?:css|js))"/g)) assets.add(new URL(match[1], response.url).href);
   for (const match of html.matchAll(/(?:src|srcset)="([^"]*media\/[^"]*)"/g)) {
     for (const candidate of match[1].split(",")) media.add(new URL(candidate.trim().split(/\s+/)[0], response.url).href);

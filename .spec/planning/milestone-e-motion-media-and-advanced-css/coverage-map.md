@@ -2,11 +2,12 @@
 
 Back to [wave overview](./README.md).
 
-This map assigns all 38 accepted requirements to their delivery and proof phases.
-It does not mark them implemented. Every target below is planned; phase
-integration sections must create real assertions, add exact requirement
-references and record command results. Phase 6 reruns the complete suite,
-including requirements first delivered earlier.
+This map assigns all 38 accepted requirements to delivery and proof phases.
+The listed targets now exist. Phase 6 reruns the complete suite, including
+earlier requirements, and adds the compiled public guide, full catalogue audit
+and fixed 1/8/24-item browser budget proof. Existence is not a passing result:
+see the phase execution and candidate records for commands, outcomes and open
+manual, runner, CI and publication gates.
 
 ## Shared motion, media, and capability contract
 

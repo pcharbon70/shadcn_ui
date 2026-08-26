@@ -186,7 +186,8 @@ the inert page. No alternate focus system is introduced.
 Carousel unit, generated-HEEx browser and integration targets are implemented.
 Cover Flow rendering and actual-HEEx browser targets are implemented in Phase 4.
 Image Gallery rendering, actual-modal origin probe, native browser and integration
-targets are implemented in Phase 5; broader milestone acceptance remains Phase 6.
+targets are implemented in Phase 5; Phase 6 adds broader candidate acceptance,
+cross-component guide compilation and fixed 1/8/24-item budget observations.
 The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for

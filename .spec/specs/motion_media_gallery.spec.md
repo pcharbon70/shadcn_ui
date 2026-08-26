@@ -4,7 +4,7 @@
 id: shadcn_ui.motion_media_gallery
 kind: application
 status: active
-summary: Capability records, local export and Phase 1–5 references with real media, motion and native image-gallery compositions.
+summary: Complete Media/Motion references, native compositions, measured budgets and milestone candidate acceptance, with manual and publication gates separate.
 decisions:
   - shadcn_ui.motion_media_gallery_delivery
   - shadcn_ui.motion_media_capability_css
@@ -96,7 +96,8 @@ observations from declaration parsing; the optional origin effect is deferred
 across this release. No new CSS-origin or command runtime is distributed.
 Copyable source is compile-tested; export checks
 every new canonical and preference variant. All six component references now
-exist; cross-milestone acceptance remains Phase 6. Local verification does not establish Pages publication.
+exist; Phase 6 adds cross-milestone package, real-gallery and bounded-work
+acceptance. Local verification does not establish Pages publication.
 Milestone D's recorded local SpecLed runner issue remains an explicit environment
 limitation, not an excuse to weaken the gate. The final release record must
 distinguish direct tests, CI, manual checks and actual Pages publication.
@@ -152,11 +153,10 @@ distinguish direct tests, CI, manual checks and actual Pages publication.
 
 ## Verification
 
-The following targets are planned acceptance obligations, not existing passing
-tests. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
-assigns their implementation phases. Missing targets remain visible in SpecLed
-until implemented; no placeholder passing test or disabled gate substitutes for
-actual proof. Add requirement references in each target as the tests land.
+All listed targets are implemented. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+and candidate evidence record actual results and outstanding gates. No
+placeholder test, disabled check or local result substitutes for CI, manual
+accessibility review or verified deployment.
 
 ```spec-verification
 - kind: test_file

@@ -11,7 +11,7 @@ Requires all six public components and their reference pages from Phases 2–5, 
 - [motion_components](../../specs/motion_components.spec.md)
 - [motion_media_gallery](../../specs/motion_media_gallery.spec.md)
 
-- [ ] 6 Phase - Gallery, Documentation, And Milestone Acceptance.
+- [x] 6 Phase - Gallery, Documentation, And Milestone Acceptance.
 
   Consolidate all Motion and Media references, complete compositions, capability and performance evidence, public documentation and release audits without deferring essential component demos until this phase.
 
@@ -75,25 +75,25 @@ Requires all six public components and their reference pages from Phases 2–5, 
       - [x] 6.3.2.2 Subtask - Check Marquee ends within five seconds, Stagger within one second, excess items stay visible and static sources do not advance scroll-driven effects; confirm no perpetual offscreen animation or package listener/observer/polling.
       - [x] 6.3.2.3 Subtask - Record measured evidence and browser-specific gaps without universal frame-rate promises; do not use hidden content, missing accessibility or native behavior shims to satisfy timing.
 
-  - [ ] 6.4 Section - Phase 6 Integration Tests.
+  - [x] 6.4 Section - Phase 6 Integration Tests.
 
     Close the milestone with package, live gallery, static export, provenance and release-boundary proof while keeping unresolved infrastructure gates visible.
 
-    - [ ] 6.4.1 Task - Verify milestone-wide contracts and prior regressions.
+    - [x] 6.4.1 Task - Verify milestone-wide contracts and prior regressions.
 
       Acceptance should connect every requirement to an implemented test and an actual output.
 
-      - [ ] 6.4.1.1 Subtask - Add milestone_e_acceptance_test.exs and milestone-e-gallery.spec.mjs covering the specification IDs, public imports/metadata, closed catalogue, compositions, capability records and absent runtimes.
-      - [ ] 6.4.1.2 Subtask - Run all new and affected A–D rendering/browser suites, package/demo precommit and exact-engine E matrix, preserving existing acceptance tests instead of replacing them.
-      - [ ] 6.4.1.3 Subtask - Confirm every new reference is present in the real demo and exported artifact; separately record manual checks and unresolved limitations rather than claiming full certification from axe.
+      - [x] 6.4.1.1 Subtask - Add milestone_e_acceptance_test.exs and milestone-e-gallery.spec.mjs covering the specification IDs, public imports/metadata, closed catalogue, compositions, capability records and absent runtimes.
+      - [x] 6.4.1.2 Subtask - Run all new and affected A–D rendering/browser suites, package/demo precommit and exact-engine E matrix, preserving existing acceptance tests instead of replacing them.
+      - [x] 6.4.1.3 Subtask - Confirm every new reference is present in the real demo and exported artifact; separately record manual checks and unresolved limitations rather than claiming full certification from axe.
 
-    - [ ] 6.4.2 Task - Verify deterministic release and publication readiness.
+    - [x] 6.4.2 Task - Verify deterministic release and publication readiness.
 
       A milestone candidate must be independently reproducible and must not conflate merge with successful publication.
 
-      - [ ] 6.4.2.1 Subtask - Run locked npm/Mix setup, asset builds/checks, actual-HEEx fixture comparisons, two byte-identical exports, media/canonical/sitemap audits, static subpath smoke, ExDoc, provenance/MIT checks and actual Hex archive allowlist inspection.
-      - [ ] 6.4.2.2 Subtask - Run mix spec.next, mix spec.check --base main and --base HEAD, plus git diff --check; record any known local runner issue without disabling gates or marking failed checks passed.
-      - [ ] 6.4.2.3 Subtask - Record final evidence, implementation status and remaining CI/publication work; commit section by section and open one phase PR. Publish only through the reviewed deployment after merge and verify canonical direct routes/media then.
+      - [x] 6.4.2.1 Subtask - Run locked npm/Mix setup, asset builds/checks, actual-HEEx fixture comparisons, two byte-identical exports, media/canonical/sitemap audits, static subpath smoke, ExDoc, provenance/MIT checks and actual Hex archive allowlist inspection.
+      - [x] 6.4.2.2 Subtask - Run mix spec.next, mix spec.check --base main and --base HEAD, plus git diff --check; record any known local runner issue without disabling gates or marking failed checks passed.
+      - [x] 6.4.2.3 Subtask - Record final evidence, implementation status and remaining CI/publication work; commit section by section and open one phase PR. Publish only through the reviewed deployment after merge and verify canonical direct routes/media then.
 
 ## Section delivery rule
 
@@ -101,3 +101,41 @@ Complete and verify each section before committing it. Make one commit per
 section and one PR for this phase; do not merge that PR without a later request.
 Keep all checkboxes unchecked until the corresponding implementation and proof
 land. Update relevant specifications only after reading their full contracts.
+
+## Execution record
+
+2026-08-26, native Windows / Elixir 1.20.3 / OTP 29. PR #18 merged first;
+local main fast-forwarded to a49af6e and matched origin before its Phase 5 branch
+was deleted locally/remotely. Phase 6 uses four section commits and one PR.
+
+- 6.1: A–E catalogue audit, real composition current links/breadcrumbs, native
+  capability/fallback guidance and complete E publication smoke inventory.
+  Twenty focused demo tests, exact-engine capability/origin reproduction and
+  byte-identical exports passed. Commit 33eb0b0.
+- 6.2: Six defining ExDoc groups, a compiled six-component HEEx guide, API and
+  ownership guidance, candidate/deployment records. Nineteen focused package
+  tests, warning-free ExDoc and actual 61-entry archive audit passed.
+  Commit 63dd3da.
+- 6.3: Fixed 1/8/24-item actual HEEx and measured DOM/media/finite-work evidence.
+  Nine new cases reproduced all observations twice across locked engines;
+  existing E Phases 1–5 passed 225 cases. Manual AT/physical-device review is
+  explicitly pending in its separate checklist, not claimed by this checkbox.
+  Commit f1dfa16.
+- 6.4: Final package and live/static gallery acceptance, preserved A–D regressions,
+  deterministic release audit and CI fixture/browser gates. Root precommit 369,
+  demo 62, total distinct browser cases 469 (E 249, D 177, other A–C 43) passed.
+  All eight generated fixture comparisons, locked npm/Mix setup, assets,
+  ExDoc, 634-variant deterministic export, selected media/canonical/sitemap/subpath
+  checks and actual archive audit passed. Final E6 rerun passed 24 cases after
+  motion-link spacing correction. Existing Help selector is now exact and
+  controller marker expectations account for new navigation/breadcrumbs.
+
+Both required SpecLed bases report four existing nested-login-shell/rebar
+dependency-compilation failures and 136 warnings (22 subjects / 214 requirements).
+Direct equivalent commands pass; no gate was weakened. Broad shared-file
+reconciliation does not warrant changing unrelated component contracts.
+See [candidate evidence](../../../docs/milestone-e-acceptance.md) for commands,
+measurements and explicit pending NVDA/VoiceOver, physical touch, browser-UI zoom,
+Linux symlink, CI and post-merge Pages checks. No Hex publication, deployed
+success or accessibility certification is claimed. All E implementation phases
+are delivered; release acceptance gates and Milestone F remain separate.

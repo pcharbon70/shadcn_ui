@@ -76,7 +76,59 @@ broader release claim. Milestone F remains separate, not implied by this candida
 
 ## Section 6.4 — final integration
 
-Final candidate commands and outcomes will be recorded after execution.
+Direct verification on native Windows, Elixir 1.20.3 / OTP 29:
+
+- Root and demo `mix deps.get --locked`, `npm ci`: passed without lock changes.
+- Package `mix precommit`: 369 passed; demo `mix precommit`: 62 passed.
+- E browser Phases 1–6: 60 / 39 / 45 / 48 / 33 / 24 passed (249 cases).
+- D browser Phases 1–5 plus gallery: 21 / 21 / 30 / 30 / 36 / 39 passed (177).
+- C package Accordion / Navigation / Content: 5 / 4 / 6 passed.
+- Demo baseline / form foundations / B acceptance / C gallery: 11 / 7 / 5 / 5
+  passed. Total distinct browser cases across this candidate: **469**.
+- Final Phase 6 rerun passed all 24 after the motion-link spacing correction.
+- Package and demo assets build/check: passed. Package CSS remains 53,457 bytes.
+- All eight generated fixture generators, including the new budget fixture:
+  `mix run scripts/<generator>.exs --check` passed.
+- `mix docs`: passed without warnings. The guide's actual six-component HEEx
+  compiles; all defining module attr/slot metadata remains available.
+- `mix hex.build` and actual archive audit: passed, 61 allowlisted payload
+  entries. No demo fixture, observed evidence, tests or runtime scripts ship.
+- Two deterministic exports, complete canonical/sitemap/media/hash validation,
+  and loopback repository-subpath smoke: passed, 634 variants, three code/style
+  assets and three closed original SVGs.
+- Capability/origin recorders reproduced exact locked observations; E4 behavior
+  tests separately reproduced enhanced versus flat/neutral outcomes.
+- `git diff --check`: passed. SpecLed results are recorded separately below.
+
+The complete gallery suite audits every E reference and composition in both
+themes with axe and explicit semantics, current navigation, source, identities,
+canonical URLs, native operations, no-script preferences and CSS-disabled
+subpaths. Existing A–D suites remain intact. One B selector was made exact
+because “Help” also matched the newly navigable “Supplemental help”; its original
+behavior assertion remains. Controller expected marker counts now explicitly
+include composition navigation/breadcrumbs. Screenshot inspection found and
+corrected adjacent motion-link spacing; this is not manual AT certification.
+
+CI explicitly builds/verifies export before browser suites and runs the new
+generated fixture comparison and Phase 6 acceptance. Actual CI and deployment
+status must still be observed after opening/merging the PR.
+
+### SpecLed — failed local runner gate, not a passing check
+
+`mix spec.next --base main` identifies broad shared-document impact; the actual
+E, gallery, package and provenance subjects are reconciled. No component
+architecture changed and unrelated A–D contracts were not rewritten merely to
+silence broad glob advice.
+
+Both `mix spec.check --base main` and `mix spec.check --base HEAD` report
+**4 errors, 136 warnings**, 22 subjects and 214 requirements. The four failed
+configured commands remain component-contract precommit, form-contract
+precommit, package precommit and gallery deterministic export. The nested login
+shell selects the older Elixir 1.18 rebar path, failing yamerl/telemetry dependency
+compilation on this installation; direct PowerShell checks use Elixir 1.20.3 /
+OTP 29 with the matching rebar. Direct precommit/export passed and are rerun
+after these checks. No command gate is disabled, skipped or declared successful.
+Generated `.spec/state.json` is not included in the phase commit.
 
 ## Manual / CI / publication status
 

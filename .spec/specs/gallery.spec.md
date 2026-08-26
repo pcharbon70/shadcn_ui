@@ -110,6 +110,11 @@ surface:
 
 ## Verification
 
+Milestone E Phase 6 consolidates all Media/Motion references and compositions
+with A–D route audits, current composition navigation and complete breadcrumbs.
+The publication smoke inventory includes every E route and local media. Real
+gallery and static-subpath browser acceptance remain separate from deployment.
+
 Milestone E Phase 5 adds the Image Gallery reference and substantial composition
 with actual local images, native per-item Dialogs and separate destinations.
 Existing canonical/preference export and every src/srcset check apply to both;

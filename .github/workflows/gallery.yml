@@ -39,6 +39,8 @@ jobs:
         working-directory: demo
       - run: mix deps.get --locked && mix precommit
         working-directory: demo
+      - run: npm run export:determinism && npm run export:check && npm run export:smoke
+        working-directory: demo
       - run: mix spec.check --base origin/main
       - run: npx playwright install --with-deps chromium firefox webkit
         working-directory: demo
@@ -62,6 +64,8 @@ jobs:
       - run: mix run scripts/render-image-gallery-fixture.exs --check
       - run: node scripts/record-gallery-origin.mjs --check
       - run: npm run browser:milestone-e-phase5
+      - run: mix run scripts/render-motion-media-budgets.exs --check
+      - run: npm run browser:milestone-e-phase6
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo
