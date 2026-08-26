@@ -13,25 +13,25 @@ Milestone D public native Dialog and gallery/export contracts are the baseline. 
 
   Establish the shared native and CSS capability boundaries, image contracts, suppression rules, fixture inventory and proof harness before publishing concrete components.
 
-  - [ ] 1.1 Section - Capability policy and cross-engine evidence.
+  - [x] 1.1 Section - Capability policy and cross-engine evidence.
 
     Turn variable platform support into explicit feature bundles and a reproducible evidence process that never makes one consumer or browser the package target.
 
-    - [ ] 1.1.1 Task - Author the normative motion/media manifest and schema.
+    - [x] 1.1.1 Task - Author the normative motion/media manifest and schema.
 
       The manifest should distinguish baseline content, eligible presentation and deliberately deferred native features.
 
-      - [ ] 1.1.1.1 Subtask - Add motion_media.json and its schema with reviewed source links, date, required/optional/deferred status and component bundles for snap, :has, scroll/view timelines, ranges, scopes, transforms and inherited Dialog invocation; review all six upstream patterns at the existing provenance pin and record adaptation or independent implementation choices.
-      - [ ] 1.1.1.2 Subtask - Inventory the existing locked Playwright engines and record their exact versions only after running them; add a separate demo observation record and deterministic recorder/check command.
-      - [ ] 1.1.1.3 Subtask - Record generated scroll controls as deferred and origin-aware transition admission as evidence-dependent; document who reviews lock, source, CSS and fallback changes.
+      - [x] 1.1.1.1 Subtask - Add motion_media.json and its schema with reviewed source links, date, required/optional/deferred status and component bundles for snap, :has, scroll/view timelines, ranges, scopes, transforms and inherited Dialog invocation; review all six upstream patterns at the existing provenance pin and record adaptation or independent implementation choices.
+      - [x] 1.1.1.2 Subtask - Inventory the existing locked Playwright engines and record their exact versions only after running them; add a separate demo observation record and deterministic recorder/check command.
+      - [x] 1.1.1.3 Subtask - Record generated scroll controls as deferred and origin-aware transition admission as evidence-dependent; document who reviews lock, source, CSS and fallback changes.
 
-    - [ ] 1.1.2 Task - Create native and deliberately disabled-feature fixtures.
+    - [x] 1.1.2 Task - Create native and deliberately disabled-feature fixtures.
 
       The same semantic fixtures must run in each engine, including when individual optional features are removed.
 
-      - [ ] 1.1.2.1 Subtask - Add test/browser/milestone-e-capabilities.spec.mjs and a locked three-engine configuration without user-agent or engine-name branching in package code.
-      - [ ] 1.1.2.2 Subtask - Test each joint capability bundle and negative path rather than accepting one declaration check as proof of focus, accessibility or rendering.
-      - [ ] 1.1.2.3 Subtask - Define source-review and behavior-result fields separately, retain exact versions and deterministic bytes, and exclude reports/recorders from the release.
+      - [x] 1.1.2.1 Subtask - Add test/browser/milestone-e-capabilities.spec.mjs and a locked three-engine configuration without user-agent or engine-name branching in package code.
+      - [x] 1.1.2.2 Subtask - Test each joint capability bundle and negative path rather than accepting one declaration check as proof of focus, accessibility or rendering.
+      - [x] 1.1.2.3 Subtask - Define source-review and behavior-result fields separately, retain exact versions and deterministic bytes, and exclude reports/recorders from the release.
 
   - [ ] 1.2 Section - Shared media identity and motion contracts.
 
