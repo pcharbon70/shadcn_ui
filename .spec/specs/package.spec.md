@@ -64,6 +64,11 @@ surface:
 
 ## Verification
 
+Milestone E Phase 5 directly imports Media.ImageGallery with defining attr/slot
+metadata and requires it in the actual archive audit. Origin probe code, observed
+evidence, fixture media and the gallery remain excluded. No new dependency,
+component runtime or consumer asset toolchain is introduced.
+
 Milestone E Phase 1 includes internal media/motion normalization and normative
 capability JSON in the existing allowlist, without new public imports or runtime
 dependencies. The actual archive audit requires both helpers and both manifest

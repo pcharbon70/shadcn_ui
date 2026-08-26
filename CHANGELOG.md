@@ -1,5 +1,14 @@
 # Changelog
 
+## Milestone E Phase 5 — unreleased
+
+- Add responsive Image Gallery with validated keyed media, native responsive
+  hints, explicit alt intent, escaped/keyed trusted captions and real destinations.
+- Compose existing native Dialog lightboxes with bounded contain images, complete
+  captions, explicit close and inherited focus/dismissal; no slideshow state.
+- Add the full local image-gallery composition, component reference, static
+  export coverage and reviewed origin-effect deferral. No component runtime.
+
 ## Milestone E Phase 4 — unreleased
 
 - Add named native Scroll Indicator with scoped, neutral-fallback decoration.

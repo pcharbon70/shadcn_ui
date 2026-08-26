@@ -41,7 +41,7 @@ pre { max-width: 100%; overflow: auto; padding: 1rem; background: var(--shadcn-u
 .gallery-media-examples { display: grid; gap: 1.5rem; min-width: 0; }
 .gallery-media-examples section { min-width: 0; }
 .gallery-media-examples figure { margin: 0; }
-.gallery-media-examples img { display: block; max-width: 100%; width: 100%; height: 14rem; object-fit: contain; }
+.gallery-media-examples img:not([data-shadcn-ui-gallery-thumbnail]):not([data-shadcn-ui-gallery-full]) { display: block; max-width: 100%; width: 100%; height: 14rem; object-fit: contain; }
 .gallery-media-examples input { max-width: 100%; box-sizing: border-box; }
 .gallery-media-examples form { display: grid; gap: .75rem; }
 .gallery-media-wide { flex-basis: 52rem !important; }

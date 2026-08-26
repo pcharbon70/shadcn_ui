@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "decision": "deferred",
+  "reason": "Chromium starts at the scoped thumbnail; Firefox and WebKit expose anchor/discrete declarations but no origin transition in this actual-modal probe. Defer the optional effect across this release; all engines use existing native snap Dialog.",
+  "engines": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "declarations": {
+        "anchor": true,
+        "scope": true,
+        "position": true,
+        "discrete": true,
+        "overlay": true
+      },
+      "modal": true,
+      "axes": [
+        "left",
+        "top"
+      ],
+      "originMatches": true
+    },
+    "firefox": {
+      "version": "153.0",
+      "declarations": {
+        "anchor": true,
+        "scope": true,
+        "position": true,
+        "discrete": true,
+        "overlay": false
+      },
+      "modal": true,
+      "axes": [],
+      "originMatches": false
+    },
+    "webkit": {
+      "version": "26.5",
+      "declarations": {
+        "anchor": true,
+        "scope": true,
+        "position": true,
+        "discrete": true,
+        "overlay": false
+      },
+      "modal": true,
+      "axes": [],
+      "originMatches": false
+    }
+  }
+}

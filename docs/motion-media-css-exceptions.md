@@ -1,5 +1,22 @@
 # Motion/media authored CSS exception ledger
 
+## Phase 5 — no additional CSS exception
+
+Image Gallery uses complete prefixed container/grid and image-size utilities and
+the existing Dialog styles. Full images contain within 60dvb. Complete static
+important utilities cap the gallery Dialog surface to its percentage viewport
+(including CSS zoom), move native overflow to that surface and let its content
+wrapper flow. The existing sticky close footer follows that native scroller;
+shared Dialog source/styles are unchanged. These closed utilities override the
+shared unlayered viewport-unit cap without new selectors or a runtime.
+The origin experiment in
+test/browser/support/gallery-origin-probe.mjs is test-only and not distributed.
+Chromium reproduces scoped opening geometry; Firefox/WebKit do not transition in
+the actual-modal probe. Origin presentation is deferred, with no package anchors,
+keyframes, coordinates or runtime. See docs/image-gallery.md and demo-only
+image_gallery_evidence.json. Existing scoped light/dark/forced-color and motion
+contracts remain intact; the three-engine gallery tests check native snap.
+
 ## E-05 — source-local decorative scroll progress
 
 Source: assets/scroll-indicator.css and Motion.ScrollIndicator. Reviewed pinned

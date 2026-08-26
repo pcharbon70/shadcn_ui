@@ -51,6 +51,13 @@ surface:
 
 ## Verification
 
+Phase 5 maps Media.ImageGallery to pinned gallery.mdx and gallery/basic.html.
+Local changes add explicit close, semantic keyed figures, validated responsive
+metadata, complete captions and separate ordinary destinations. Full images
+contain; origin CSS is deliberately deferred. Only prefixed static utilities
+and existing Dialog CSS ship. No upstream site artwork or command shim is copied;
+the existing complete MIT notice and original local fixture rights remain intact.
+
 Phase 4 maps Scroll Indicator and Cover Flow to pinned basic.html and respective
 progress.css/flow.css sources. Local adaptations omit completion claims, scroll
 containment, reflection, overlap and animated stacking; the native region/list

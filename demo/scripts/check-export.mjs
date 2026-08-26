@@ -22,7 +22,8 @@ const overlayRoutes = [
   ...["tooltip", "hover-card"].map(name => `/components/interactive-surfaces/${name}`),
   ...["overlay-capabilities", "settings-confirmation", "responsive-drawers", "anchored-actions", "supplemental-help"].map(name => `/examples/${name}`)
 ];
-const mediaRoutes = ["/components/media", "/components/media/carousel", "/components/media/cover-flow", "/examples/media-browser"];
+const galleryRoutes = ["/components/media/image-gallery", "/examples/image-gallery"];
+const mediaRoutes = ["/components/media", "/components/media/carousel", "/components/media/cover-flow", "/examples/media-browser", ...galleryRoutes];
 const motionRoutes = ["/components/motion", "/components/motion/marquee", "/components/motion/stagger", "/components/motion/scroll-indicator", "/examples/motion-preferences"];
 for (const route of [...mediaRoutes, ...motionRoutes]) {
   if (!sitemap.includes(`<loc>https://leco-industries-inc.github.io/shadcn_ui${route}</loc>`)) throw new Error(`missing media route: ${route}`);
@@ -77,7 +78,12 @@ for (const entry of manifest.routes) {
   if (mediaRoutes.includes(route)) {
     const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
     if (new Set(ids).size!==ids.length) throw new Error("duplicate media identity");
-    if (route!=="/components/media" && !html.includes("data-shadcn-ui-carousel-scroll")) throw new Error("missing actual Carousel");
+    if (route!=="/components/media" && !galleryRoutes.includes(route) && !html.includes("data-shadcn-ui-carousel-scroll")) throw new Error("missing actual Carousel");
+    if (galleryRoutes.includes(route)) {
+      if (!html.includes("data-shadcn-ui-image-gallery") || !html.includes("data-shadcn-ui-gallery-destination")) throw new Error("missing real Image Gallery");
+      for (const match of html.matchAll(/commandfor="([^"]+)"/g)) if (!ids.includes(match[1])) throw new Error("broken gallery Dialog relationship");
+      if (/<dialog[^>]*\sopen(?:\s|>)/.test(html)) throw new Error("gallery autostarts a modal");
+    }
     for (const fragment of html.matchAll(/href="#(shadcn-ui-media-[^"]+)"/g)) if (!ids.includes(fragment[1])) throw new Error("broken Carousel index");
   }
   if (overlayRoutes.includes(route)) {

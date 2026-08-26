@@ -87,8 +87,11 @@ internal contracts, scoped suppression, local media and the capability demo.
 Phase 2 adds public Carousel, its reference and the media-browser composition.
 Phase 3 adds finite Marquee and bounded Stagger with their Motion references
 and a native motion-preferences composition. Phase 4 adds Scroll Indicator and
-Cover Flow with real references and composition updates. Phases 5–6 and Image
-Gallery remain pending. The phase execution
+Cover Flow with real references and composition updates. Phase 5 adds responsive
+Image Gallery, native per-item lightboxes and the substantial local gallery
+composition. Optional origin CSS is deferred after actual-modal evidence;
+existing native Dialog remains the release path. Phase 6 acceptance remains
+pending. The phase execution
 records list checks and the outstanding local SpecLed toolchain limitation;
 Milestone E is not complete.
 

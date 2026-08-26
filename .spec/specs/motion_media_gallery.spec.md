@@ -4,7 +4,7 @@
 id: shadcn_ui.motion_media_gallery
 kind: application
 status: active
-summary: Capability records, local export and Phase 1–4 references with real media-browser and motion-preferences compositions.
+summary: Capability records, local export and Phase 1–5 references with real media, motion and native image-gallery compositions.
 decisions:
   - shadcn_ui.motion_media_gallery_delivery
   - shadcn_ui.motion_media_capability_css
@@ -69,9 +69,15 @@ images and system/reduce links. Phase 4 adds Scroll Indicator and Cover Flow
 references and both components to the existing compositions. Its separate
 scroll_media_evidence record describes actual named timeline behavior, not
 declaration parsing; browser tests assert the version lock and observed outcome.
+Phase 5 adds Image Gallery's reference and substantial six-figure composition,
+using three manifest-listed original illustrations, mixed aspect ratios, native
+per-item Dialogs, complete long captions, failed images and separate destinations.
+Its demo-only image_gallery_evidence record distinguishes actual native origin
+observations from declaration parsing; the optional origin effect is deferred
+across this release. No new CSS-origin or command runtime is distributed.
 Copyable source is compile-tested; export checks
-every new canonical and preference variant. Other new references/compositions
-remain pending later phases. Local verification does not establish Pages publication.
+every new canonical and preference variant. All six component references now
+exist; cross-milestone acceptance remains Phase 6. Local verification does not establish Pages publication.
 Milestone D's recorded local SpecLed runner issue remains an explicit environment
 limitation, not an excuse to weaken the gate. The final release record must
 distinguish direct tests, CI, manual checks and actual Pages publication.
@@ -134,6 +140,20 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: demo/test/shadcn_ui_demo/image_gallery_gallery_test.exs
+  covers:
+    - shadcn_ui.motion_media_gallery.incremental_catalog
+    - shadcn_ui.motion_media_gallery.references
+    - shadcn_ui.motion_media_gallery.compositions
+    - shadcn_ui.motion_media_gallery.capability_evidence
+
+- kind: test_file
+  target: test/browser/milestone-e-image-gallery.spec.mjs
+  covers:
+    - shadcn_ui.motion_media_gallery.accessibility_matrix
+    - shadcn_ui.motion_media_gallery.static_media
+
 - kind: test_file
   target: demo/test/shadcn_ui_demo/scroll_media_gallery_test.exs
   covers:

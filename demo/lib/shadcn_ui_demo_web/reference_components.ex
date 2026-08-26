@@ -4,6 +4,12 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
 
   attr :render, :atom, required: true
 
+  def component_examples(%{render: :image_gallery} = assigns) do
+    ~H"""
+    <ShadcnUIDemoWeb.ImageGalleryExamples.examples />
+    """
+  end
+
   def component_examples(%{render: :carousel} = assigns) do
     ~H"""
     <ShadcnUIDemoWeb.MediaExamples.carousel_examples />

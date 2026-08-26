@@ -10,6 +10,10 @@ decisions:
   - shadcn_ui.bounded_motion
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - docs/image-gallery.md
+  - scripts/record-gallery-origin.mjs
+  - test/browser/support/gallery-origin-probe.mjs
+  - test/shadcn_ui/image_gallery_integration_test.exs
   - test/browser/support/scroll-media-fallback.mjs
   - test/shadcn_ui/scroll_media_integration_test.exs
   - priv/compatibility/motion_media.json
@@ -38,7 +42,9 @@ and internal normalization. Phase 2 implements Carousel using these identities
 and suppression rules. Phase 3 implements Marquee and Stagger using the closed
 finite timing presets and suppression rules. Phase 4 implements source-local
 Scroll Indicator and image-only Cover Flow using encoded scoped timelines;
-Image Gallery follows in Phase 5. Actual component outcomes remain demo-only
+Phase 5 implements responsive Image Gallery using existing native Dialog and
+ordinary destinations, and defers optional origin CSS after actual-modal probes.
+Actual component outcomes remain demo-only
 and are recorded separately from declaration probes.
 Responsive srcset input is a list of
 src/positive-width maps with unique widths and a nonblank sizes string; density
@@ -143,6 +149,13 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: test/shadcn_ui/image_gallery_integration_test.exs
+  covers:
+    - shadcn_ui.motion_media_contract.runtime_boundary
+    - shadcn_ui.motion_media_contract.css_exceptions
+    - shadcn_ui.motion_media_contract.distribution
+
 - kind: test_file
   target: test/shadcn_ui/scroll_media_integration_test.exs
   covers:
