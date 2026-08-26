@@ -34,25 +34,25 @@ Requires Phase 1 image contracts and fixture export, current Media catalogue, an
       - [x] 5.1.2.2 Subtask - Use responsive bounded sizing with contain for enlarged images and no layout polling, dimension fetching, inferred alt/caption or generated srcset.
       - [x] 5.1.2.3 Subtask - Document browser loading hints versus guaranteed deferred fetching, caller media rights/privacy/CSP policy, destination semantics and replacement.
 
-  - [ ] 5.2 Section - Lightbox composition through existing Dialog.
+  - [x] 5.2 Section - Lightbox composition through existing Dialog.
 
     Reuse the already tested native modal contract without introducing selected-image navigation or a second focus system.
 
-    - [ ] 5.2.1 Task - Compose stable per-item native dialogs.
+    - [x] 5.2.1 Task - Compose stable per-item native dialogs.
 
       Each item needs a real invoker, meaningful name, explicit exit and complete nonmodal alternative.
 
-      - [ ] 5.2.1.1 Subtask - Support none/dialog lightbox modes; in dialog mode derive stable IDs and compose one initially closed existing Dialog per item with a visible close control.
-      - [ ] 5.2.1.2 Subtask - Keep thumbnail button and ordinary image/detail link separate to avoid nested interactive elements; preserve Dialog naming, description, autofocus choices and close-request default.
-      - [ ] 5.2.1.3 Subtask - Render full image and complete caption inside a viewport-bounded scrolling modal; prohibit nested dialogs, package next/previous state, swipe/zoom/pan and event listeners.
+      - [x] 5.2.1.1 Subtask - Support none/dialog lightbox modes; in dialog mode derive stable IDs and compose one initially closed existing Dialog per item with a visible close control.
+      - [x] 5.2.1.2 Subtask - Keep thumbnail button and ordinary image/detail link separate to avoid nested interactive elements; preserve Dialog naming, description, autofocus choices and close-request default.
+      - [x] 5.2.1.3 Subtask - Render full image and complete caption inside a viewport-bounded scrolling modal; prohibit nested dialogs, package next/previous state, swipe/zoom/pan and event listeners.
 
-    - [ ] 5.2.2 Task - Verify native lifecycle and optional origin presentation.
+    - [x] 5.2.2 Task - Verify native lifecycle and optional origin presentation.
 
       The origin effect must never become a condition of opening, closing or reaching content.
 
-      - [ ] 5.2.2.1 Subtask - Test native command invocation, modality, inertness, focus entry/containment, Escape/explicit close and restoration without altering shared Dialog semantics.
-      - [ ] 5.2.2.2 Subtask - Probe scoped CSS-only origin/anchor/discrete-transition behavior on actual thumbnail/dialog pairs; admit only jointly supported and proven presentation with a snap fallback.
-      - [ ] 5.2.2.3 Subtask - If the origin effect is unreliable, explicitly defer that effect and ship the native lightbox; never add coordinates, view-transition JavaScript or a focus/overlay manager.
+      - [x] 5.2.2.1 Subtask - Test native command invocation, modality, inertness, focus entry/containment, Escape/explicit close and restoration without altering shared Dialog semantics.
+      - [x] 5.2.2.2 Subtask - Probe scoped CSS-only origin/anchor/discrete-transition behavior on actual thumbnail/dialog pairs; admit only jointly supported and proven presentation with a snap fallback.
+      - [x] 5.2.2.3 Subtask - If the origin effect is unreliable, explicitly defer that effect and ship the native lightbox; never add coordinates, view-transition JavaScript or a focus/overlay manager.
 
   - [ ] 5.3 Section - Substantial image-gallery demo and public reference.
 
@@ -108,3 +108,11 @@ land. Update relevant specifications only after reading their full contracts.
   Full-size metadata is validated here; bounded contain rendering is composed
   with Dialog in Section 5.2. Package precommit: 361 passed; deterministic CSS
   build/check passed. No network fetching or new runtime was introduced.
+- Section 5.2: existing per-item Dialog, explicit exits, keyboard restoration,
+  bounded contain images and ordinary alternatives. Package precommit: 362 passed;
+  generated-HEEx browser tests: 9 passed in the three locked engines. Origin
+  experiment: Chromium reproduces scoped opening geometry; Firefox/WebKit do not
+  produce origin transitions despite parsing anchor/discrete declarations. The
+  optional effect is deferred everywhere; native snap ships with no new runtime.
+  Native pointer focus and browser-chrome Tab behavior are documented separately
+  from keyboard-invoked restoration. Fixture, probe and observations are test/demo only.

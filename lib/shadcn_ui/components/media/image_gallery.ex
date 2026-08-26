@@ -2,6 +2,7 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
   use ShadcnUI.Component
   alias ShadcnUI.Components.Media.MediaContract
   alias ShadcnUI.Components.Motion.MotionContract
+  alias ShadcnUI.Components.Overlays.{Dialog, OverlayContract}
 
   @moduledoc """
   A named responsive list of caller-owned image figures and complete destinations.
@@ -17,6 +18,16 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
   cover/contain. Layout collapses to one column in narrow containers. Caption
   slots are keyed, trusted noninteractive HEEx; a slot overrides its plain record
   caption. Do not place controls, dialogs or unscoped IDs in caption content.
+  A caption slot receives `%{key: key, context: :thumbnail | :full}`; it is
+  rendered in both presentations, so keep it presentation-only and scope any IDs.
+
+  `lightbox` is `:dialog` (default) or `:none`. Each native Dialog has its own
+  thumbnail invoker, visible title and close control, with no current-image state.
+  `initial_focus` is `:auto`, `:content` or `:close`; dismissal is `:close_request`,
+  `:none` or `:any`. Declare `context: :dialog` when embedded in a modal: only
+  `lightbox: :none` is permitted there. The package cannot infer ancestor HEEx.
+  Enlarged images use full metadata when supplied, otherwise the same source;
+  they always use bounded contain sizing. Origin transitions are not shipped.
 
   Native loading/decoding are hints, not deferred-fetch or privacy guarantees.
   Applications own rights, CSP/origin policy, URL authorization, meaningful text,
@@ -34,6 +45,11 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
   attr :density, :atom, values: [:compact, :comfortable], default: :comfortable
   attr :fit, :atom, values: [:cover, :contain], default: :cover
   attr :motion, :atom, values: [:system, :none], default: :system
+  attr :lightbox, :atom, values: [:none, :dialog], default: :dialog
+  attr :context, :atom, values: [:root, :dialog], default: :root
+  attr :initial_focus, :atom, values: [:auto, :content, :close], default: :auto
+  attr :dismissal, :atom, values: [:none, :close_request, :any], default: :close_request
+  attr :close_label, :string, default: "Close image"
   attr :class, :any, default: nil
   attr :rest, :global
 
@@ -77,16 +93,33 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
 
     slots = caption_slots!(assigns.caption, images)
 
+    for {value, choices} <- [
+          {assigns.lightbox, [:none, :dialog]},
+          {assigns.context, [:root, :dialog]},
+          {assigns.initial_focus, [:auto, :content, :close]},
+          {assigns.dismissal, [:none, :close_request, :any]}
+        ] do
+      unless value in choices, do: raise(ArgumentError, "invalid Image Gallery lightbox value")
+    end
+
+    if assigns.lightbox == :dialog,
+      do: OverlayContract.validate_nesting!(assigns.context, :dialog)
+
+    close_label =
+      text!(assigns.close_label) || raise(ArgumentError, "close_label must be nonblank")
+
     entries =
       Enum.map(images, fn entry ->
         entry
         |> Map.put(:caption_slot, Map.get(slots, entry.key, []))
         |> Map.put(:destination, entry.href || (entry.full && entry.full.src) || entry.src)
+        |> Map.put(:enlarged, entry.full || entry)
       end)
 
     assigns =
       assigns
       |> assign(:entries, entries)
+      |> assign(:close_label, close_label)
       |> assign(:label, label)
       |> assign(:heading, heading)
       |> assign(:description, text!(assigns.description))
@@ -104,7 +137,7 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
       |> assign(
         :image_classes,
         class_names([
-          "sui:block sui:w-full sui:max-w-full sui:aspect-[4/3] sui:rounded-lg",
+          "sui:block sui:w-full sui:h-auto sui:max-w-full sui:aspect-[4/3] sui:rounded-lg",
           @fit[assigns.fit]
         ])
       )
@@ -131,6 +164,7 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
         >
           <figure class="sui:m-0 sui:grid sui:gap-3">
             <img
+              :if={@lightbox == :none}
               src={entry.src}
               srcset={entry.srcset}
               sizes={entry.sizes}
@@ -142,6 +176,61 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
               class={@image_classes}
               data-shadcn-ui-gallery-thumbnail
             />
+            <Dialog.dialog
+              :if={@lightbox == :dialog}
+              id={entry.identity.dialog}
+              initial_focus={@initial_focus}
+              dismissal={@dismissal}
+              size={:large}
+              trigger_class="sui:flex-col sui:w-full sui:gap-2"
+              dialog_rest={%{"data-shadcn-ui-gallery-lightbox" => ""}}
+            >
+              <:trigger>
+                <img
+                  src={entry.src}
+                  srcset={entry.srcset}
+                  sizes={entry.sizes}
+                  alt={entry.alt}
+                  aria-hidden="true"
+                  width={entry.width}
+                  height={entry.height}
+                  loading={entry.loading}
+                  decoding={entry.decoding}
+                  class={@image_classes}
+                  data-shadcn-ui-gallery-thumbnail
+                />
+                <span>Enlarge {entry.name}</span>
+              </:trigger>
+              <:title>{entry.name}</:title>
+              <:description>Enlarged image. Close to return to the thumbnail.</:description>
+              <figure class="sui:m-0 sui:grid sui:gap-3">
+                <img
+                  src={entry.enlarged.src}
+                  srcset={entry.enlarged.srcset}
+                  sizes={entry.enlarged.sizes}
+                  alt={entry.alt}
+                  width={entry.enlarged.width}
+                  height={entry.enlarged.height}
+                  loading={entry.loading}
+                  decoding={entry.decoding}
+                  class="sui:block sui:w-full sui:h-auto sui:max-w-full sui:max-h-[60dvb] sui:object-contain"
+                  data-shadcn-ui-gallery-full
+                />
+                <figcaption :if={entry.caption || entry.caption_slot != []}>
+                  <%= if entry.caption_slot != [] do %>
+                    {render_slot(entry.caption_slot, %{key: entry.key, context: :full})}
+                  <% else %>
+                    {entry.caption}
+                  <% end %>
+                </figcaption>
+              </figure>
+              <:close>{@close_label}</:close>
+            </Dialog.dialog>
+            <a
+              href={entry.destination}
+              data-shadcn-ui-gallery-destination
+              class="sui:inline-flex sui:min-h-11 sui:items-center sui:underline"
+            >Open image: {entry.name}</a>
             <figcaption :if={entry.caption || entry.caption_slot != []} id={entry.identity.caption}>
               <%= if entry.caption_slot != [] do %>
                 {render_slot(entry.caption_slot, %{key: entry.key, context: :thumbnail})}
@@ -149,11 +238,6 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
                 {entry.caption}
               <% end %>
             </figcaption>
-            <a
-              href={entry.destination}
-              data-shadcn-ui-gallery-destination
-              class="sui:inline-flex sui:min-h-11 sui:items-center sui:underline"
-            >Open image: {entry.name}</a>
           </figure>
         </li>
       </ul>

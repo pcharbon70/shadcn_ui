@@ -46,6 +46,11 @@ defmodule ShadcnUI.Components.Media.ImageGalleryTest do
         density: :comfortable,
         fit: :cover,
         motion: :system,
+        lightbox: :dialog,
+        context: :root,
+        initial_focus: :auto,
+        dismissal: :close_request,
+        close_label: "Close image",
         class: "caller",
         rest: %{},
         caption: []
@@ -76,7 +81,7 @@ defmodule ShadcnUI.Components.Media.ImageGalleryTest do
     for key <- ["a", "b"],
         do: assert(html =~ ~s(id="#{MediaContract.identity!("gallery", key).item}"))
 
-    assert length(Regex.scan(~r/<figure\b/, html)) == 2
+    assert length(Regex.scan(~r/<figure\b/, html)) == 4
 
     refute html =~
              ~r/(aria-selected|aria-current|aria-live|<script|onload=|onerror=|role="(?:tab|menu|listbox)")/
@@ -167,5 +172,61 @@ defmodule ShadcnUI.Components.Media.ImageGalleryTest do
 
     assert html =~ ~s(data-owner="caller")
     assert html =~ ~s(phx-mounted="caller")
+  end
+
+  # covers: shadcn_ui.media_components.gallery_dialog shadcn_ui.media_components.gallery_origin
+  test "existing Dialog owns native naming, commands, dismissal and focus; no nested controls or runtime" do
+    html = render(%{initial_focus: :close})
+
+    for key <- ["a", "b"] do
+      base = MediaContract.identity!("gallery", key).dialog
+      assert html =~ ~s(commandfor="#{base}-surface")
+      assert html =~ ~s(aria-labelledby="#{base}-title")
+      assert html =~ ~s(aria-describedby="#{base}-description")
+      assert html =~ ~s(id="#{base}-close")
+    end
+
+    for value <- [
+          ~s(command="show-modal"),
+          ~s(command="close"),
+          ~s(closedby="closerequest"),
+          ~s(src="/full/a.png"),
+          ~s(width="1280" height="960"),
+          "sui:object-contain",
+          "sui:max-h-[60dvb]",
+          "Close image"
+        ],
+        do: assert(html =~ value)
+
+    refute html =~ ~r/<dialog[^>]*\sopen(?:\s|>)/
+    refute html =~ ~r/<button[^>]*>(?:(?!<\/button>).)*<(?:a|button|dialog)\b/s
+    refute html =~ ~r/(anchor-name|position-anchor|viewTransition|<script|onerror|onclick)/
+    ids = Regex.scan(~r/\sid="([^"]+)"/, html, capture: :all_but_first) |> List.flatten()
+    assert ids == Enum.uniq(ids)
+
+    for focus <- [:auto, :content, :close],
+        dismissal <- [:none, :close_request, :any],
+        do:
+          assert(
+            render(%{initial_focus: focus, dismissal: dismissal}) =~
+              "data-shadcn-ui-gallery-lightbox"
+          )
+
+    plain = render(%{lightbox: :none, context: :dialog})
+    refute plain =~ ~r/<(?:button|dialog)\b/
+    assert length(Regex.scan(~r/<figure\b/, plain)) == 2
+    assert plain =~ "Open image:"
+
+    for attrs <- [
+          %{context: :dialog},
+          %{lightbox: :zoom},
+          %{context: :popover},
+          %{initial_focus: :first},
+          %{dismissal: :escape},
+          %{close_label: ""},
+          %{close_label: nil}
+        ] do
+      assert_raise ArgumentError, fn -> render(attrs) end
+    end
   end
 end
