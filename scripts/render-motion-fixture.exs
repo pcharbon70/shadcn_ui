@@ -83,6 +83,19 @@ html =
   |> Phoenix.HTML.Safe.to_iodata()
   |> IO.iodata_to_binary()
   |> String.replace(~r/[ \t]+$/m, "")
+  |> then(fn html ->
+    # dynamic_tag serializes a globals map; BEAM/compiler versions may differ
+    # only in attribute order. Canonicalize generated Stagger opening tags,
+    # retaining every attribute/value and all actual component content.
+    Regex.replace(~r/<(div|ul|ol|li)([^<>]*)>/, html, fn full, tag, attrs ->
+      if String.contains?(attrs, "data-shadcn-ui-stagger") do
+        attributes = Regex.scan(~r/[^\s=]+(?:="[^"]*")?/, attrs) |> List.flatten() |> Enum.sort()
+        "<#{tag} #{Enum.join(attributes, " ")}>"
+      else
+        full
+      end
+    end)
+  end)
 
 path = Path.expand("../test/fixtures/milestone_e_motion.html", __DIR__)
 

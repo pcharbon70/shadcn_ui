@@ -9,6 +9,8 @@ decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.bounded_motion
 surface:
+  - test/fixtures/milestone_e_motion.html
+  - test/shadcn_ui/motion_integration_test.exs
   - lib/shadcn_ui/components/motion/marquee.ex
   - lib/shadcn_ui/components/motion/stagger.ex
   - assets/marquee.css
@@ -126,8 +128,8 @@ keyboard focus must never depend on animated color or opacity.
 
 ## Verification
 
-The following targets are planned acceptance obligations, not existing passing
-tests. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+Marquee and Stagger rendering and browser targets now exist; Scroll Indicator
+targets remain planned acceptance obligations. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.

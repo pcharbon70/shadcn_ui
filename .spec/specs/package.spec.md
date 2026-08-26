@@ -73,6 +73,10 @@ Phase 2 directly imports the defining Media.Carousel module and requires it in
 the actual archive audit. The generated browser fixture, demo reference/media
 and test/export infrastructure remain excluded; no runtime dependency is added.
 
+Phase 3 directly imports Motion.Marquee and Motion.Stagger with native Phoenix
+attribute/slot metadata. The actual archive audit requires both sources and
+retains the same explicit release exclusions; no animation runtime is added.
+
 ```spec-verification
 - kind: command
   target: mix precommit

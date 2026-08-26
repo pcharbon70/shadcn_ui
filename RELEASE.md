@@ -8,6 +8,18 @@ publication to Hex.
 
 ## Candidate verification
 
+Milestone E Phase 3 adds Motion.Marquee and Motion.Stagger to the same candidate.
+Run `mix run scripts/render-motion-fixture.exs --check` and
+`npm run browser:milestone-e-phase3` as well as earlier E and gallery regressions.
+The audit requires both defining modules in the actual archive, with the same
+exclusion of demo images, scripts, fixtures, observations and test harnesses.
+No package JavaScript, autoplay, infinite animation or visibility observer ships.
+
+The Phase 3 execution record distinguishes direct passing checks from the four
+existing SpecLed nested-login-shell failures (Elixir 1.18.0 against the current
+OTP installation). CI gates remain enabled. No manual assistive-technology
+certification, successful Pages deployment or Hex publication is claimed here.
+
 From a clean checkout at the repository root:
 
 1. Run `mix deps.get --locked` and `npm ci`.

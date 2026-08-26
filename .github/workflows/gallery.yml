@@ -55,6 +55,8 @@ jobs:
       - run: npm run browser:milestone-e-phase1
       - run: mix run scripts/render-carousel-fixture.exs --check
       - run: npm run browser:milestone-e-phase2
+      - run: mix run scripts/render-motion-fixture.exs --check
+      - run: npm run browser:milestone-e-phase3
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo

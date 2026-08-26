@@ -13,7 +13,7 @@
 [data-shadcn-ui-marquee-list] > li,
 [data-shadcn-ui-marquee] [data-shadcn-ui-motion-part="clone"] > span {
   display: flex; align-items: center; gap: .5rem; overflow-wrap: anywhere;
-  max-inline-size: 100%; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius);
+  max-inline-size: 100%; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-md);
   padding: .5rem; color: var(--shadcn-ui-foreground); background: var(--shadcn-ui-background);
 }
 [data-shadcn-ui-marquee] img { inline-size: 3rem; block-size: 2rem; object-fit: contain; }

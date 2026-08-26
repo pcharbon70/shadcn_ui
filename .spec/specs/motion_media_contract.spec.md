@@ -33,7 +33,9 @@ pages land in the linked phase plan. Existing A–D APIs remain compatible.
 
 Phase 1 implements the capability manifest/schema, recorded platform probes,
 and internal normalization. Phase 2 implements Carousel using these identities
-and suppression rules; other component APIs remain pending. Responsive srcset input is a list of
+and suppression rules. Phase 3 implements Marquee and Stagger using the closed
+finite timing presets and suppression rules; remaining APIs follow later.
+Responsive srcset input is a list of
 src/positive-width maps with unique widths and a nonblank sizes string; density
 descriptors and raw srcset strings are not accepted. Native loading defaults to
 lazy and decoding to async. Protected globals are removed before required
