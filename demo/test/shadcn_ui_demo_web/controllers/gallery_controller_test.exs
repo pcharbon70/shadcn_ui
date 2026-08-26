@@ -15,6 +15,7 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
           "/examples/documentation" -> 0
           "/examples/settings" -> 0
           "/examples/application-shell" -> 2
+          "/examples/" <> _ -> 0
           _ -> 1
         end
 

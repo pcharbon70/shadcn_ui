@@ -76,6 +76,7 @@
     </section>
     <section :if={Map.has_key?(@page.reference, :capability)}>
       <h2>Browser capabilities</h2><p>{@page.reference.capability}</p>
+      <a href="/examples/overlay-capabilities">Inspect the locked browser capability matrix</a>
       <p>
         Native behavior and package CSS are distinct from demo-only theme and source-copy helpers.
       </p>
@@ -114,10 +115,27 @@
   </div>
 
   <.content_navigation_composition
-    :if={@page.kind == :composition}
+    :if={
+      @page.kind == :composition &&
+        @page.render in [:documentation, :settings, :application_shell]
+    }
     render={@page.render}
     selected={@page.selected}
     invalid={@page.invalid}
+  />
+
+  <.overlay_composition
+    :if={
+      @page.kind == :composition &&
+        @page.render in [
+          :overlay_capabilities,
+          :settings_confirmation,
+          :responsive_drawers,
+          :anchored_actions,
+          :supplemental_help
+        ]
+    }
+    render={@page.render}
   />
 
   <p :if={@page.kind == :not_found}>

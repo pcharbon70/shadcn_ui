@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 6.1.2.3 Subtask - Compare Dialog, Alert Dialog, Drawer, Popover, Dropdown Actions, Tooltip, Hover Card, ordinary navigation and buttons, ARIA menus, and deferred interest invokers.
       - [x] 6.1.2.4 Subtask - Show explicit ordinary destinations or in-flow alternatives plus no-anchor, no-transition, no-hover, coarse-pointer, CSS-disabled, no-script, and DOM-replacement fallbacks.
 
-  - [ ] 6.2 Section - Capability matrix and realistic overlay compositions.
+  - [x] 6.2 Section - Capability matrix and realistic overlay compositions.
 
     This section demonstrates substantial native interactions and caller-owned
     application fixtures across a locked cross-engine web verification matrix.
 
-    - [ ] 6.2.1 Task - Publish cross-engine capability evidence.
+    - [x] 6.2.1 Task - Publish cross-engine capability evidence.
 
       The gallery should identify test evidence precisely without turning a
       version snapshot into the reusable package's normative support policy.
 
-      - [ ] 6.2.1.1 Subtask - Publish the authored feature matrix with authoritative links, review date, normative capability sets, and exact locked Chromium, Firefox, and WebKit versions.
-      - [ ] 6.2.1.2 Subtask - Display implemented, capability-gated, fallback, and deliberately excluded status for commandfor, closedby, Popover, anchors, position tries, discrete transitions, and interest invokers.
-      - [ ] 6.2.1.3 Subtask - Run identical semantic fixtures across engines and record observed capability results without user-agent sniffing or engine-specific package markup.
-      - [ ] 6.2.1.4 Subtask - Document how consumers select their own supported browsers, verify capabilities, provide ordinary fallback destinations, and update evidence independently.
+      - [x] 6.2.1.1 Subtask - Publish the authored feature matrix with authoritative links, review date, normative capability sets, and exact locked Chromium, Firefox, and WebKit versions.
+      - [x] 6.2.1.2 Subtask - Display implemented, capability-gated, fallback, and deliberately excluded status for commandfor, closedby, Popover, anchors, position tries, discrete transitions, and interest invokers.
+      - [x] 6.2.1.3 Subtask - Run identical semantic fixtures across engines and record observed capability results without user-agent sniffing or engine-specific package markup.
+      - [x] 6.2.1.4 Subtask - Document how consumers select their own supported browsers, verify capabilities, provide ordinary fallback destinations, and update evidence independently.
 
-    - [ ] 6.2.2 Task - Build settings, responsive, actions, and help compositions.
+    - [x] 6.2.2 Task - Build settings, responsive, actions, and help compositions.
 
       Complete pages should exercise focus, dismissal, placement, scrolling,
       ordinary controls, and supplemental content without real application work.
 
-      - [ ] 6.2.2.1 Subtask - Build settings confirmation with Dialog and Alert Dialog, caller-owned native forms, validation snapshots, cancel, consequential action, server rejection, and ordinary fallback route.
-      - [ ] 6.2.2.2 Subtask - Build a responsive details and filters page with start, end, and bottom Drawers, long content, nested Popover, safe scrolling, and replacement guidance.
-      - [ ] 6.2.2.3 Subtask - Build an anchored actions page with Popover and Dropdown Actions containing ordinary links and buttons plus viewport-edge, nested-scroll, manual, and fallback states.
-      - [ ] 6.2.2.4 Subtask - Build a supplemental help page with Tooltip and Hover Card showing keyboard, pointer, coarse-pointer, long text, translated content, complete labels and destinations, and no required preview information.
+      - [x] 6.2.2.1 Subtask - Build settings confirmation with Dialog and Alert Dialog, caller-owned native forms, validation snapshots, cancel, consequential action, server rejection, and ordinary fallback route.
+      - [x] 6.2.2.2 Subtask - Build a responsive details and filters page with start, end, and bottom Drawers, long content, nested Popover, safe scrolling, and replacement guidance.
+      - [x] 6.2.2.3 Subtask - Build an anchored actions page with Popover and Dropdown Actions containing ordinary links and buttons plus viewport-edge, nested-scroll, manual, and fallback states.
+      - [x] 6.2.2.4 Subtask - Build a supplemental help page with Tooltip and Hover Card showing keyboard, pointer, coarse-pointer, long text, translated content, complete labels and destinations, and no required preview information.
 
   - [ ] 6.3 Section - Public documentation, provenance, and release evidence.
 

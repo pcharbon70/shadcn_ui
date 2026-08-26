@@ -17,11 +17,8 @@ defmodule ShadcnUIDemo.ContentNavigationCompositionsTest do
       ]
     }
 
-    assert Catalogue.composition_routes() ==
-             Map.keys(expectations)
-             |> Enum.sort_by(
-               &Enum.find_index(Catalogue.composition_routes(), fn route -> route == &1 end)
-             )
+    assert Enum.filter(Catalogue.composition_routes(), &Map.has_key?(expectations, &1)) ==
+             ["/examples/documentation", "/examples/settings", "/examples/application-shell"]
 
     for {path, fragments} <- expectations do
       html = conn |> recycle() |> get(path) |> html_response(200)

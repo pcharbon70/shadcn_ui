@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-08-26",
+  "sourceReview": "HTML Living Standard dialog and Popover; CSS Anchor Positioning Level 1",
+  "engines": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "capabilities": {
+        "dialog": true,
+        "dialogInvokerCommands": true,
+        "dialogClosedBy": true,
+        "popover": true,
+        "popoverTarget": true,
+        "anchorPositioning": true,
+        "positionFallbacks": true,
+        "discreteTransitions": true,
+        "interestInvokers": true
+      }
+    },
+    "firefox": {
+      "version": "153.0",
+      "capabilities": {
+        "dialog": true,
+        "dialogInvokerCommands": true,
+        "dialogClosedBy": true,
+        "popover": true,
+        "popoverTarget": true,
+        "anchorPositioning": true,
+        "positionFallbacks": true,
+        "discreteTransitions": true,
+        "interestInvokers": false
+      }
+    },
+    "webkit": {
+      "version": "26.5",
+      "capabilities": {
+        "dialog": true,
+        "dialogInvokerCommands": true,
+        "dialogClosedBy": true,
+        "popover": true,
+        "popoverTarget": true,
+        "anchorPositioning": true,
+        "positionFallbacks": true,
+        "discreteTransitions": true,
+        "interestInvokers": false
+      }
+    }
+  }
+}

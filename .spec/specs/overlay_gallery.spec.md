@@ -76,6 +76,13 @@ metadata is derived only from resolved catalogue paths; unknown/mismatched
 routes remain nonreflecting 404s. Export allows ordinary authoritative links
 and canonical metadata, never remote runtime assets.
 
+The capability page combines package policy with a demo-only deterministic
+observed-feature record from the locked three-engine matrix. Detection is
+explicitly distinguished from behavior coverage; interest invokers remain
+excluded even where detected. Four closed compositions use local native forms,
+authored pending/rejection snapshots, nested Popover in Drawer, ordinary actions
+and complete supplemental-help destinations without application operations.
+
 ```spec-verification
 - kind: test_file
   target: demo/test/shadcn_ui_demo/overlay_catalog_test.exs

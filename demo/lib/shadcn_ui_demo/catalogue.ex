@@ -89,6 +89,36 @@ defmodule ShadcnUIDemo.Catalogue do
 
   @compositions [
     %{
+      label: "Overlay capability matrix",
+      slug: "overlay-capabilities",
+      path: "/examples/overlay-capabilities",
+      render: :overlay_capabilities
+    },
+    %{
+      label: "Settings confirmation",
+      slug: "settings-confirmation",
+      path: "/examples/settings-confirmation",
+      render: :settings_confirmation
+    },
+    %{
+      label: "Responsive details and filters",
+      slug: "responsive-drawers",
+      path: "/examples/responsive-drawers",
+      render: :responsive_drawers
+    },
+    %{
+      label: "Anchored document actions",
+      slug: "anchored-actions",
+      path: "/examples/anchored-actions",
+      render: :anchored_actions
+    },
+    %{
+      label: "Supplemental help",
+      slug: "supplemental-help",
+      path: "/examples/supplemental-help",
+      render: :supplemental_help
+    },
+    %{
       label: "Documentation composition",
       slug: "documentation",
       path: "/examples/documentation",
