@@ -110,6 +110,11 @@ surface:
 
 ## Verification
 
+Milestone E Phase 3 appends only implemented Motion leaves, marquee and stagger,
+plus the motion-preferences composition. Complete source compiles through public
+imports. Canonical URLs, closed preferences, subpath export and local native
+interaction remain shared with earlier pages; no demo motion runtime is added.
+
 Milestone E Phase 1 adds /examples/motion-media-capabilities without publishing
 unfinished component leaves. Closed system/reduce inspection links preserve
 theme choices, with ordinary no-script theme alternatives. Static publication

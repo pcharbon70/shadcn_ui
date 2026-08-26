@@ -54,25 +54,25 @@ Requires Phase 1 suppression, finite budgets, structured media records and demo 
       - [x] 3.2.2.2 Subtask - Ensure focus reveals an item immediately and styles removed mid-animation restore visible content; reject perpetual animations and auto-hiding final keyframes.
       - [x] 3.2.2.3 Subtask - Document render-time replay and replacement reset; record CSS exceptions and avoid claiming animation-once or offscreen pausing.
 
-  - [ ] 3.3 Section - Motion category, preferences composition and guidance.
+  - [x] 3.3 Section - Motion category, preferences composition and guidance.
 
     Expose both new controls and their motion safety boundaries in the actual demo.
 
-    - [ ] 3.3.1 Task - Publish Marquee and Stagger references.
+    - [x] 3.3.1 Task - Publish Marquee and Stagger references.
 
       Users should be able to inspect static defaults and deliberately enable bounded effects.
 
-      - [ ] 3.3.1.1 Subtask - Append Motion to the closed catalogue and add /components/motion/marquee and /components/motion/stagger with complete routing/export/canonical/sitemap coverage.
-      - [ ] 3.3.1.2 Subtask - Demonstrate normal/long/translated text, optional local images, static/preview Marquee, stop/reset/replay, Stagger effects and interrupted/focused content.
-      - [ ] 3.3.1.3 Subtask - Create /examples/motion-preferences with native controls and system/reduce links preserving theme; explain that system still respects the operating-system preference.
+      - [x] 3.3.1.1 Subtask - Append Motion to the closed catalogue and add /components/motion/marquee and /components/motion/stagger with complete routing/export/canonical/sitemap coverage.
+      - [x] 3.3.1.2 Subtask - Demonstrate normal/long/translated text, optional local images, static/preview Marquee, stop/reset/replay, Stagger effects and interrupted/focused content.
+      - [x] 3.3.1.3 Subtask - Create /examples/motion-preferences with native controls and system/reduce links preserving theme; explain that system still respects the operating-system preference.
 
-    - [ ] 3.3.2 Task - Document limits, API and provenance.
+    - [x] 3.3.2 Task - Document limits, API and provenance.
 
       Describe finite motion honestly instead of presenting a restricted adaptation as an endless ticker.
 
-      - [ ] 3.3.2.1 Subtask - Publish all attrs, slots, required labels, clone restrictions, finite budgets, CSS/no-script fallbacks and complete HEEx source.
-      - [ ] 3.3.2.2 Subtask - Explain reduced motion versus persistent stop, canonical versus decorative content, caller replacement ownership and the absence of state synchronization.
-      - [ ] 3.3.2.3 Subtask - Update capability observations only from tests, CSS exception entries, pinned adaptations and notices; keep all demonstration helpers outside the package.
+      - [x] 3.3.2.1 Subtask - Publish all attrs, slots, required labels, clone restrictions, finite budgets, CSS/no-script fallbacks and complete HEEx source.
+      - [x] 3.3.2.2 Subtask - Explain reduced motion versus persistent stop, canonical versus decorative content, caller replacement ownership and the absence of state synchronization.
+      - [x] 3.3.2.3 Subtask - Update capability observations only from tests, CSS exception entries, pinned adaptations and notices; keep all demonstration helpers outside the package.
 
   - [ ] 3.4 Section - Phase 3 Integration Tests.
 

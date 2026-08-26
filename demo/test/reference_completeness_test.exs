@@ -31,6 +31,7 @@ defmodule ShadcnUIDemo.ReferenceCompletenessTest do
           "overlays" -> "overlays"
           "interactive-surfaces" -> "overlays"
           "media" -> "media"
+          "motion" -> "motion"
         end
 
       assert Enum.any?(

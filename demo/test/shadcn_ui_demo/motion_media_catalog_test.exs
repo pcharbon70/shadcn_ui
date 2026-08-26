@@ -8,7 +8,10 @@ defmodule ShadcnUIDemo.MotionMediaCatalogTest do
   } do
     assert "/examples/motion-media-capabilities" in Catalogue.routes()
     html = conn |> get("/examples/motion-media-capabilities") |> html_response(200)
-    assert html =~ "Phase 1 foundations are available"
+    assert html =~ "The shared foundations"
+    assert {:ok, %{render: :marquee}} = Catalogue.lookup_component("motion", "marquee")
+    assert {:ok, %{render: :stagger}} = Catalogue.lookup_component("motion", "stagger")
+    assert Catalogue.lookup_component("motion", "scroll-indicator") == :error
     assert html =~ "Observed behavior"
     assert html =~ "151.0.7922.34"
     assert html =~ "153.0"
