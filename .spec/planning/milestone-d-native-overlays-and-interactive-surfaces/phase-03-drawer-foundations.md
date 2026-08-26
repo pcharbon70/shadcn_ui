@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   overlay widget, while adding responsive edge placement and safe internal
   scrolling appropriate for dense server-rendered application surfaces.
 
-  - [ ] 3.1 Section - Drawer semantics and logical-edge presentation.
+  - [x] 3.1 Section - Drawer semantics and logical-edge presentation.
 
     This section builds the Drawer API and preserves the full Dialog contract
     beneath closed start, end, and bottom visual placements.
 
-    - [ ] 3.1.1 Task - Implement the native Drawer structure.
+    - [x] 3.1.1 Task - Implement the native Drawer structure.
 
       Drawer should remain recognizably a modal dialog to browsers and assistive
       technology regardless of which edge supplies its visual presentation.
 
-      - [ ] 3.1.1.1 Subtask - Add a defining Overlays.Drawer module with required ID, trigger, title or accessible label, trusted body, explicit close, and optional description, header, and footer regions.
-      - [ ] 3.1.1.2 Subtask - Render native show-modal invocation, dialog relationships, closedby policy, initial-focus target, explicit exit, and caller content order through the shared overlay contract.
-      - [ ] 3.1.1.3 Subtask - Add closed logical start, end, and bottom edge values plus small, default, and large bounded sizes using prefixed classes and RTL-aware logical properties.
-      - [ ] 3.1.1.4 Subtask - Protect native dialog and command semantics, identity, accessible relationships, dismissal, edge, and focus values while forwarding unrelated documented globals.
+      - [x] 3.1.1.1 Subtask - Add a defining Overlays.Drawer module with required ID, trigger, title or accessible label, trusted body, explicit close, and optional description, header, and footer regions.
+      - [x] 3.1.1.2 Subtask - Render native show-modal invocation, dialog relationships, closedby policy, initial-focus target, explicit exit, and caller content order through the shared overlay contract.
+      - [x] 3.1.1.3 Subtask - Add closed logical start, end, and bottom edge values plus small, default, and large bounded sizes using prefixed classes and RTL-aware logical properties.
+      - [x] 3.1.1.4 Subtask - Protect native dialog and command semantics, identity, accessible relationships, dismissal, edge, and focus values while forwarding unrelated documented globals.
 
-    - [ ] 3.1.2 Task - Add responsive presentation and normal modal fallback.
+    - [x] 3.1.2 Task - Add responsive presentation and normal modal fallback.
 
       Edge animation and dimensions should enhance a complete native modal
       without turning viewport state into package-owned behavior.
 
-      - [ ] 3.1.2.1 Subtask - Add capability-gated entry and exit transitions, backdrop styling, safe-area padding, maximum viewport dimensions, and reduced-motion snap behavior.
-      - [ ] 3.1.2.2 Subtask - Preserve a bounded centered or full-width native dialog when logical edge, transform, transition, or advanced viewport units are unsupported.
-      - [ ] 3.1.2.3 Subtask - Verify start and end placement in LTR and RTL, bottom placement at narrow and wide widths, 200 percent zoom, forced colors, themes, and orientation changes.
-      - [ ] 3.1.2.4 Subtask - Document edge selection as rendered presentation, caller-owned responsive policy, replacement behavior, explicit fallback destination, and absence of drag gestures.
+      - [x] 3.1.2.1 Subtask - Add capability-gated entry and exit transitions, backdrop styling, safe-area padding, maximum viewport dimensions, and reduced-motion snap behavior.
+      - [x] 3.1.2.2 Subtask - Preserve a bounded centered or full-width native dialog when logical edge, transform, transition, or advanced viewport units are unsupported.
+      - [x] 3.1.2.3 Subtask - Verify start and end placement in LTR and RTL, bottom placement at narrow and wide widths, 200 percent zoom, forced colors, themes, and orientation changes.
+      - [x] 3.1.2.4 Subtask - Document edge selection as rendered presentation, caller-owned responsive policy, replacement behavior, explicit fallback destination, and absence of drag gestures.
 
   - [ ] 3.2 Section - Long-content scrolling and composition.
 

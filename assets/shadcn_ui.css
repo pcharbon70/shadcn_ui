@@ -569,6 +569,65 @@ dialog[data-shadcn-ui-overlay-surface]::backdrop {
   background: var(--shadcn-ui-popover);
 }
 
+/* Drawer starts as a bounded ordinary modal if logical layout is unavailable. */
+dialog[data-shadcn-ui-drawer-surface] {
+  width: calc(100vw - 2rem);
+  max-width: 32rem;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 0;
+}
+
+[data-shadcn-ui-drawer-header],
+[data-shadcn-ui-drawer-footer],
+[data-shadcn-ui-drawer-body] {
+  padding: 1rem;
+  overflow-wrap: anywhere;
+}
+
+[data-shadcn-ui-drawer-header] {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+[data-shadcn-ui-drawer-header] > button { flex-shrink: 0; }
+
+@supports (inset-inline-start: 0) and (inline-size: 1vi) {
+  dialog[data-shadcn-ui-drawer-surface] {
+    --shadcn-ui-drawer-size: 32rem;
+    inset: auto;
+    margin: 0;
+    max-width: none;
+    max-height: none;
+    inline-size: min(var(--shadcn-ui-drawer-size), 100vi);
+    max-inline-size: 100%;
+    block-size: 100%;
+    max-block-size: 100%;
+    max-block-size: min(100%, 100dvb);
+    inset-block: 0;
+    border-radius: 0;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-left: env(safe-area-inset-left, 0px);
+  }
+
+  dialog[data-shadcn-ui-drawer-surface][data-size="small"] { --shadcn-ui-drawer-size: 24rem; }
+  dialog[data-shadcn-ui-drawer-surface][data-size="large"] { --shadcn-ui-drawer-size: 48rem; }
+  dialog[data-shadcn-ui-drawer-surface][data-edge="start"] { inset-inline-start: 0; }
+  dialog[data-shadcn-ui-drawer-surface][data-edge="end"] { inset-inline-end: 0; }
+  dialog[data-shadcn-ui-drawer-surface][data-edge="bottom"] {
+    inset-block-start: auto;
+    inset-block-end: 0;
+    inset-inline: 0;
+    inline-size: 100%;
+    block-size: min(var(--shadcn-ui-drawer-size), 85%);
+    block-size: min(var(--shadcn-ui-drawer-size), 85%, 85dvb);
+  }
+}
+
 [data-shadcn-ui-overlay-surface][popover] {
   position: fixed;
   inset-block-start: 50%;

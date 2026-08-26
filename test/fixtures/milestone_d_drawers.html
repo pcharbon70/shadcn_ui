@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" data-shadcn-theme="light">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Drawer browser fixture
+    </title>
+  </head>
+  <body>
+    <a id="outside" href="#fallback-content">Outside focus target</a>
+    <div>
+      <div id="drawer-start" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="drawer-start-invoker" type="button" command="show-modal" commandfor="drawer-start-surface" aria-haspopup="dialog" aria-controls="drawer-start-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open start
+  </button>
+  <dialog id="drawer-start-surface" closedby="closerequest" aria-labelledby="drawer-start-title" aria-describedby="drawer-start-description" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="start" data-size="default" data-initial-focus-target="drawer-start-initial-focus" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="drawer-start-title" class="sui:text-lg sui:font-semibold">
+          Drawer start
+        </h2>
+        <div id="drawer-start-description" class="sui:text-sm sui:text-muted-foreground">
+          Native edge presentation.
+        </div>
+
+      </div>
+      <button id="drawer-start-close" type="button" command="close" commandfor="drawer-start-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="drawer-start-initial-focus" role="region" aria-labelledby="drawer-start-title" tabindex="0" autofocus data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Details in document order.</p>
+        <input aria-label="Example value">
+
+    </div>
+
+  </dialog>
+  <div data-shadcn-ui-drawer-fallback><a href="#fallback-content">Open full details</a></div>
+</div>
+    </div><div>
+      <div id="drawer-end" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="drawer-end-invoker" type="button" command="show-modal" commandfor="drawer-end-surface" aria-haspopup="dialog" aria-controls="drawer-end-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open end
+  </button>
+  <dialog id="drawer-end-surface" closedby="closerequest" aria-labelledby="drawer-end-title" aria-describedby="drawer-end-description" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="end" data-size="default" data-initial-focus-target="drawer-end-initial-focus" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="drawer-end-title" class="sui:text-lg sui:font-semibold">
+          Drawer end
+        </h2>
+        <div id="drawer-end-description" class="sui:text-sm sui:text-muted-foreground">
+          Native edge presentation.
+        </div>
+
+      </div>
+      <button id="drawer-end-close" type="button" command="close" commandfor="drawer-end-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="drawer-end-initial-focus" role="region" aria-labelledby="drawer-end-title" tabindex="0" autofocus data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Details in document order.</p>
+        <input aria-label="Example value">
+
+    </div>
+
+  </dialog>
+  <div data-shadcn-ui-drawer-fallback><a href="#fallback-content">Open full details</a></div>
+</div>
+    </div><div>
+      <div id="drawer-bottom" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="drawer-bottom-invoker" type="button" command="show-modal" commandfor="drawer-bottom-surface" aria-haspopup="dialog" aria-controls="drawer-bottom-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open bottom
+  </button>
+  <dialog id="drawer-bottom-surface" closedby="closerequest" aria-labelledby="drawer-bottom-title" aria-describedby="drawer-bottom-description" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="bottom" data-size="default" data-initial-focus-target="drawer-bottom-initial-focus" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="drawer-bottom-title" class="sui:text-lg sui:font-semibold">
+          Drawer bottom
+        </h2>
+        <div id="drawer-bottom-description" class="sui:text-sm sui:text-muted-foreground">
+          Native edge presentation.
+        </div>
+
+      </div>
+      <button id="drawer-bottom-close" type="button" command="close" commandfor="drawer-bottom-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="drawer-bottom-initial-focus" role="region" aria-labelledby="drawer-bottom-title" tabindex="0" autofocus data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Details in document order.</p>
+        <input aria-label="Example value">
+
+    </div>
+
+  </dialog>
+  <div data-shadcn-ui-drawer-fallback><a href="#fallback-content">Open full details</a></div>
+</div>
+    </div>
+    <div>
+      <div id="policy-none" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="policy-none-invoker" type="button" command="show-modal" commandfor="policy-none-surface" aria-haspopup="dialog" aria-controls="policy-none-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open none
+  </button>
+  <dialog id="policy-none-surface" closedby="none" aria-labelledby="policy-none-title" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="bottom" data-size="small" data-initial-focus-target="policy-none-close" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="policy-none-title" class="sui:text-lg sui:font-semibold">
+          Dismissal none
+        </h2>
+
+
+      </div>
+      <button id="policy-none-close" type="button" command="close" commandfor="policy-none-surface" autofocus data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="policy-none-content" role="region" aria-labelledby="policy-none-title" tabindex="0" data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Always has an explicit exit.</p>
+
+    </div>
+
+  </dialog>
+
+</div>
+    </div><div>
+      <div id="policy-any" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="policy-any-invoker" type="button" command="show-modal" commandfor="policy-any-surface" aria-haspopup="dialog" aria-controls="policy-any-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open any
+  </button>
+  <dialog id="policy-any-surface" closedby="any" aria-labelledby="policy-any-title" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="bottom" data-size="small" data-initial-focus-target="policy-any-close" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="policy-any-title" class="sui:text-lg sui:font-semibold">
+          Dismissal any
+        </h2>
+
+
+      </div>
+      <button id="policy-any-close" type="button" command="close" commandfor="policy-any-surface" autofocus data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="policy-any-content" role="region" aria-labelledby="policy-any-title" tabindex="0" data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Always has an explicit exit.</p>
+
+    </div>
+
+  </dialog>
+
+</div>
+    </div>
+    <section id="fallback-content">
+      <h1>Full details fallback</h1><p>Required details remain available.</p>
+    </section>
+  </body>
+</html>

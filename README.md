@@ -279,6 +279,46 @@ reinvocation or state restoration. Callers supporting browsers below the native
 invoker capability floor should render the `fallback` slot as an ordinary
 destination, visible content, or non-overlay operation.
 
+### Drawer
+
+`drawer/1` is a native modal Dialog presented at `edge={:start | :end | :bottom}`,
+not a navigation landmark or a gesture-driven bottom sheet. Logical start/end
+follow the inherited LTR/RTL direction. `size={:small | :default | :large}` bounds
+the side width or bottom height; the viewport always supplies the upper bound.
+
+```heex
+<.drawer id="filters" edge={:end} initial_focus={:content}>
+  <:trigger>Filter results</:trigger>
+  <:title>Filters</:title>
+  <:description>Choose filters before applying them.</:description>
+  <form id="filters-form" action="/results" method="get">
+    <label for="query">Query</label><input id="query" name="q" />
+  </form>
+  <:footer><button type="submit" form="filters-form">Apply filters</button></:footer>
+  <:close>Close</:close>
+  <:fallback><a href="/filters">Use the full filter page</a></:fallback>
+</.drawer>
+```
+
+Use one `title` or a nonblank `accessible_label`, never both. Optional
+`description`, `header`, and `footer` slots preserve caller content order.
+`initial_focus={:auto | :content | :close}` and
+`dismissal={:none | :close_request | :any}` retain the Dialog contract; default
+dismissal is `:close_request`. No script traps focus or restores the invoker.
+`trigger_rest`, `dialog_rest`, `content_rest`, and `close_rest` forward unrelated
+native/transport globals while mandatory semantics take precedence.
+
+The caller selects edge and responsive policy in each rendered snapshot.
+Orientation changes only affect CSS bounds. Replacing an open Drawer may close
+it and lose browser-local focus/scroll state; the application decides whether
+to preserve the subtree or render a new closed snapshot. There are no drag,
+swipe, pointer-capture, viewport-observer, or responsive-state handlers.
+Logical layout is capability-gated with a bounded ordinary modal fallback;
+discrete fades are optional, reduced motion snaps, and no transform is required.
+Without CSS the browser still supplies modal semantics. Without native invoker
+support, use the always-visible caller fallback link; an inert trigger is not a
+working Drawer. No package JavaScript is required or shipped.
+
 ### Alert Dialog
 
 `alert_dialog` is for a consequential choice that requires a title, an explicit

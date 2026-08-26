@@ -19,6 +19,10 @@ surface:
   - test/shadcn_ui/components/overlays/drawer_test.exs
   - test/browser/milestone-d-dialogs.spec.mjs
   - test/fixtures/milestone_d_dialogs.html
+  - test/browser/milestone-d-drawers.spec.mjs
+  - test/fixtures/milestone_d_drawers.html
+  - scripts/render-drawer-fixture.exs
+  - playwright.milestone-d-phase3.config.mjs
   - README.md
 ```
 
@@ -106,6 +110,12 @@ surface:
     - shadcn_ui.dialog.dismissal_policy
     - shadcn_ui.dialog.initial_focus
     - shadcn_ui.dialog.alert_dialog
+    - shadcn_ui.dialog.shared_contract
+
+- kind: test_file
+  target: test/browser/milestone-d-drawers.spec.mjs
+  covers:
+    - shadcn_ui.dialog.drawer
     - shadcn_ui.dialog.shared_contract
 
 - kind: test_file

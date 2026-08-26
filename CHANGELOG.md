@@ -4,6 +4,9 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Add a native modal Drawer with logical start/end/bottom presentation,
+  protected commands and focus relationships, and an explicit ordinary-page fallback.
+
 - Add native Dialog with declarative invocation, closed dismissal and focus
   policies, explicit fallback and exit regions, and browser-owned modality.
 - Add consequential Alert Dialog with fixed close-request dismissal,

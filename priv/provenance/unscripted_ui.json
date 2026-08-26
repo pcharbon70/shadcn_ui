@@ -195,6 +195,12 @@
       "localChanges": "Adapt Alert Dialog presentation to native alertdialog semantics with fixed close-request dismissal, least-destructive cancel autofocus, required consequence and caller-owned action regions, and no operation or outcome behavior."
     },
     {
+      "id": "overlays.drawer",
+      "localPaths": ["lib/shadcn_ui/components/overlays/drawer.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/drawer.mdx", "src/demos/drawer/basic.html"],
+      "localChanges": "Adapt Drawer presentation to a native modal with deterministic HEEX relationships, logical start/end/bottom edges, explicit focus and exit, bounded native body scrolling and ordinary route fallback without gestures or JavaScript."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],
