@@ -130,6 +130,8 @@ retain native scrolling rather than acquiring a package scroll runtime.
 - kind: test_file
   target: test/shadcn_ui/milestone_d_acceptance_test.exs
   covers:
+    - shadcn_ui.dialog.drawer
+    - shadcn_ui.dialog.drawer_scroll
     - shadcn_ui.dialog.native_modal
     - shadcn_ui.dialog.dismissal_policy
     - shadcn_ui.dialog.initial_focus

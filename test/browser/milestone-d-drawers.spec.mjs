@@ -159,3 +159,61 @@ test("touch activation and disabled transitions keep long content and exit usabl
   await expect(page.locator("#edit-details-surface")).not.toBeVisible();
   await context.close();
 });
+
+test("disabled logical layout and transitions leave a bounded ordinary modal", async ({ page }) => {
+  await load(page);
+  await page.setViewportSize({ width: 800, height: 600 });
+  await page.evaluate(() => {
+    for (const sheet of document.styleSheets) {
+      for (let i = sheet.cssRules.length - 1; i >= 0; i--) {
+        const condition = sheet.cssRules[i].conditionText || "";
+        if (condition.includes("inset-inline-start") || condition.includes("transition-behavior")) sheet.deleteRule(i);
+      }
+    }
+  });
+  await page.locator("#drawer-start-invoker").click();
+  const dialog = page.locator("#drawer-start-surface");
+  expect(await dialog.evaluate(el => el.matches(":modal"))).toBe(true);
+  const box = await dialog.boundingBox();
+  expect(box.x).toBeGreaterThan(0);
+  expect(box.y).toBeGreaterThan(0);
+  expect(box.width).toBeLessThan(800);
+  expect(box.height).toBeLessThan(600);
+  expect(await dialog.evaluate(el => getComputedStyle(el).opacity)).toBe("1");
+  await page.locator("#drawer-start-close").click();
+  await expect(dialog).not.toBeVisible();
+});
+
+test("replacement is a closed snapshot with no package restoration or persistence", async ({ page }) => {
+  await load(page);
+  const snapshot = await page.locator("#edit-details").evaluate(el => el.outerHTML);
+  await page.locator("#edit-details-invoker").click();
+  await page.locator("#record-reference").fill("unsaved draft");
+  await page.locator("#edit-details-initial-focus").evaluate(el => { el.scrollTop = 700; });
+  await page.locator("#edit-details").evaluate((el, replacement) => { el.outerHTML = replacement; }, snapshot);
+  await expect(page.locator("#edit-details-surface")).not.toBeVisible();
+  expect(await page.locator("#edit-details-surface").evaluate(el => el.matches(":modal"))).toBe(false);
+  await page.locator("#edit-details-invoker").click();
+  await expect(page.locator("#record-reference")).toHaveValue("");
+  expect(await page.locator("#edit-details-initial-focus").evaluate(el => el.scrollTop)).toBe(0);
+  await page.locator("#edit-details-close").click();
+});
+
+test("all sizes and long-content zoom preserve the fixed regions and native scroll", async ({ page }) => {
+  await load(page);
+  for (const size of ["small", "default", "large"]) {
+    await page.locator("#drawer-start-surface").evaluate((el, value) => { el.dataset.size = value; }, size);
+    await page.locator("#drawer-start-invoker").click();
+    const width = await page.locator("#drawer-start-surface").evaluate(el => el.clientWidth);
+    expect(width).toBeLessThanOrEqual({ small: 384, default: 512, large: 768 }[size]);
+    await page.locator("#drawer-start-close").click();
+  }
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.locator("html").evaluate(el => { el.style.zoom = "2"; el.dir = "rtl"; });
+  await page.locator("#edit-details-invoker").click();
+  const body = page.locator("#edit-details-initial-focus");
+  expect(await body.evaluate(el => el.clientHeight)).toBeGreaterThan(30);
+  await expect(page.locator("#edit-details-close")).toBeInViewport();
+  await expect(page.locator("#save-record")).toBeInViewport();
+  await page.locator("#edit-details-close").click();
+});

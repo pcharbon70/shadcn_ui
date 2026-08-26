@@ -9,8 +9,8 @@ export default defineConfig({
   outputDir: "test-results/milestone-d-phase3",
   use: { headless: true },
   projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-    { name: "firefox", use: { ...devices["Desktop Firefox"] } },
-    { name: "webkit", use: { ...devices["Desktop Safari"] } },
+    { name: "chromium", use: { ...devices["Desktop Chrome"], browserName: "chromium" } },
+    { name: "firefox", use: { ...devices["Desktop Firefox"], browserName: "firefox" } },
+    { name: "webkit", use: { ...devices["Desktop Safari"], browserName: "webkit" } },
   ],
 });

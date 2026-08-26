@@ -34,7 +34,7 @@ jobs:
       - run: mix deps.get --locked
       - run: npm ci && npm run assets:check
       - run: mix precommit
-      - run: mix docs && mix hex.build
+      - run: mix docs && mix hex.build && mix run scripts/check-release-archive.exs
       - run: npm ci && npm run assets:build
         working-directory: demo
       - run: mix deps.get --locked && mix precommit
@@ -44,6 +44,8 @@ jobs:
         working-directory: demo
       - run: npm run browser:milestone-d-phase1
       - run: npm run browser:milestone-d-phase2
+      - run: mix run scripts/render-drawer-fixture.exs --check
+      - run: npm run browser:milestone-d-phase3
       - run: npm run browser:test
         working-directory: demo
       - run: npm run browser:milestone-c

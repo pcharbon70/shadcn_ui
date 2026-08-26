@@ -12,7 +12,8 @@ From a clean checkout at the repository root:
 1. Run `mix deps.get --locked` and `npm ci`.
 2. Run `npm run assets:build` and `npm run assets:check`.
 3. Run `mix precommit`, `mix docs`, and `mix hex.build`.
-4. Inspect the archive against `package/0`'s explicit allowlist.
+4. Run `mix run scripts/check-release-archive.exs` to inspect the actual payload
+   against `package/0`'s explicit allowlist.
 5. Verify the archive contains public modules, compiled CSS, README, changelog,
    provenance, notices, and Mix metadata only.
 
@@ -49,6 +50,24 @@ CSS-disabled, no-script, replacement, Alert cancellation, pending, rejection,
 and caller-owned action snapshots in the exact locked three-engine matrix. The
 archive retains no modal runtime, consequence operation, browser harness, or
 test fixture.
+
+## Milestone D Phase 3 acceptance record
+
+Drawer adds logical start/end/bottom presentation to native modal dialog,
+bounded keyboard-accessible body scrolling, safe-area spacing, concise fixed
+heading/exit/footer regions, and no gestures or scroll runtime. The three-engine
+suite renders its fixture from actual HEEx and verifies RTL/orientation, all
+sizes, zoom, themes, forced colors, reduced motion, focus, dismissal, native
+validation and forms, nested Popover, long translated content, touch activation,
+replacement, CSS-disabled/no-script behavior, disabled logical placement and
+transitions, and an ordinary fallback destination. Unsupported overscroll
+containment retains native scrolling; the locked Windows WebKit evidence uses
+that fallback. Run `mix run scripts/render-drawer-fixture.exs --check` and
+`npm run browser:milestone-d-phase3` alongside the prior overlay suites.
+
+The release contains Drawer source, compiled CSS and pinned provenance; it
+excludes fixture generation, Playwright, tests, gallery and JavaScript runtimes.
+Public overlay gallery delivery remains Phase 6 work.
 
 ## Milestone C acceptance record
 
