@@ -1,5 +1,16 @@
 # Internal release process
 
+## Milestone E Phase 6 candidate
+
+Phase 6 consolidates all six Media/Motion APIs and ExDoc groups, complete gallery
+references, bounded-work fixtures and release audits. See
+`docs/motion-media-guide.md` and `docs/milestone-e-acceptance.md` for current
+evidence and outstanding manual, CI, SpecLed runner and publication checks.
+Historical phase results below do not substitute for final candidate gates.
+Milestone F remains separate. No Hex publication is authorized.
+
+## Earlier candidate records and common release procedure
+
 Milestones A through D produce an internal `0.1.0` candidate containing
 Foundation, native Forms, Disclosure, Navigation, Content Surfaces, Overlays,
 and Interactive Surfaces

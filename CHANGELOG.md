@@ -1,5 +1,14 @@
 # Changelog
 
+## Milestone E Phase 6 — unreleased
+
+- Complete the A–E catalogue audit, composition navigation/breadcrumbs and all
+  Motion/Media publication smoke routes.
+- Group all six public modules in ExDoc and add a compiled composition guide
+  covering native semantics, bounded work, ownership, fallback and provenance.
+- Add final cross-engine gallery and fixed 1/8/24-item budget acceptance,
+  retaining explicit manual, CI, local runner and publication limitations.
+
 ## Milestone E Phase 5 — unreleased
 
 - Add responsive Image Gallery with validated keyed media, native responsive

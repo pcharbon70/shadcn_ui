@@ -35,25 +35,25 @@ Requires all six public components and their reference pages from Phases 2–5, 
       - [x] 6.1.2.2 Subtask - Verify system/reduce links preserve themes, invalid queries are safe and user reduced motion cannot be overridden; export deterministic combinations and no-script defaults.
       - [x] 6.1.2.3 Subtask - Explain static/no-snap/no-timeline/no-anchor/no-transition paths, failed images, native loading limits, finite offscreen work and replacement ownership on relevant pages.
 
-  - [ ] 6.2 Section - Public API, CSS, provenance and candidate documentation.
+  - [x] 6.2 Section - Public API, CSS, provenance and candidate documentation.
 
     Make the reusable library understandable independently of the demo and build tools.
 
-    - [ ] 6.2.1 Task - Complete all API and accessibility documentation.
+    - [x] 6.2.1 Task - Complete all API and accessibility documentation.
 
       Users should not need to infer contracts from source or visual styling.
 
-      - [ ] 6.2.1.1 Subtask - Verify every defining function's attrs/slots/defaults/closed values, stable-key/ID derivations, globals, text escaping, image metadata and compilable HEEx examples in ExDoc.
-      - [ ] 6.2.1.2 Subtask - Document native keyboard/focus, real index links, dialog exits, canonical/clone distinction, persistent stop/reset, suppression hierarchy and exact fallback behavior.
-      - [ ] 6.2.1.3 Subtask - Describe media rights/privacy/CSP, loading hints, client-state replacement, performance budgets and deliberately excluded application/runtime features.
+      - [x] 6.2.1.1 Subtask - Verify every defining function's attrs/slots/defaults/closed values, stable-key/ID derivations, globals, text escaping, image metadata and compilable HEEx examples in ExDoc.
+      - [x] 6.2.1.2 Subtask - Document native keyboard/focus, real index links, dialog exits, canonical/clone distinction, persistent stop/reset, suppression hierarchy and exact fallback behavior.
+      - [x] 6.2.1.3 Subtask - Describe media rights/privacy/CSP, loading hints, client-state replacement, performance budgets and deliberately excluded application/runtime features.
 
-    - [ ] 6.2.2 Task - Finalize provenance, asset exceptions and release records.
+    - [x] 6.2.2 Task - Finalize provenance, asset exceptions and release records.
 
       Every distributed adaptation and every excluded demo asset must have an explicit audit trail.
 
-      - [ ] 6.2.2.1 Subtask - Audit all six component/CSS mappings at the reviewed upstream revision, full MIT notice, independent identity and no automatic sync; record newly authored versus adapted material honestly.
-      - [ ] 6.2.2.2 Subtask - Reconcile the authored CSS exception ledger and local fixture licenses/hashes with actual source, retaining no upstream site assets, remote runtime URLs or mutable data.
-      - [ ] 6.2.2.3 Subtask - Update README, changelog, package catalogue, release evidence and deployment/rollback runbook; distinguish local/CI/manual/deployed status and keep Milestone F separate.
+      - [x] 6.2.2.1 Subtask - Audit all six component/CSS mappings at the reviewed upstream revision, full MIT notice, independent identity and no automatic sync; record newly authored versus adapted material honestly.
+      - [x] 6.2.2.2 Subtask - Reconcile the authored CSS exception ledger and local fixture licenses/hashes with actual source, retaining no upstream site assets, remote runtime URLs or mutable data.
+      - [x] 6.2.2.3 Subtask - Update README, changelog, package catalogue, release evidence and deployment/rollback runbook; distinguish local/CI/manual/deployed status and keep Milestone F separate.
 
   - [ ] 6.3 Section - Cross-engine accessibility and bounded-work acceptance.
 

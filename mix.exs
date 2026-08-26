@@ -81,8 +81,27 @@ defmodule ShadcnUI.MixProject do
     [
       main: "readme",
       source_ref: "main",
-      extras: ["README.md", "CHANGELOG.md", "THIRD_PARTY_NOTICES.md", "RELEASE.md"],
+      extras: [
+        "README.md",
+        "CHANGELOG.md",
+        "THIRD_PARTY_NOTICES.md",
+        "RELEASE.md",
+        "docs/motion-media-guide.md",
+        "docs/motion-media-foundations.md",
+        "docs/image-gallery.md",
+        "docs/motion-media-css-exceptions.md"
+      ],
       groups_for_modules: [
+        "Media components": [
+          ShadcnUI.Components.Media.Carousel,
+          ShadcnUI.Components.Media.CoverFlow,
+          ShadcnUI.Components.Media.ImageGallery
+        ],
+        "Motion components": [
+          ShadcnUI.Components.Motion.Marquee,
+          ShadcnUI.Components.Motion.Stagger,
+          ShadcnUI.Components.Motion.ScrollIndicator
+        ],
         "Content components": [
           ShadcnUI.Components.Content.RadioPanels,
           ShadcnUI.Components.Content.ScrollArea,

@@ -64,6 +64,10 @@ surface:
 
 ## Verification
 
+Milestone E Phase 6 groups all six defining Media/Motion APIs in ExDoc and
+compiles the guide composition against the public imports and Phoenix metadata.
+Documentation and test harnesses do not expand the actual release allowlist.
+
 Milestone E Phase 5 directly imports Media.ImageGallery with defining attr/slot
 metadata and requires it in the actual archive audit. Origin probe code, observed
 evidence, fixture media and the gallery remain excluded. No new dependency,

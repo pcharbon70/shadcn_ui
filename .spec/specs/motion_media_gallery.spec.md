@@ -12,6 +12,9 @@ decisions:
   - shadcn_ui.bounded_motion
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - docs/motion-media-guide.md
+  - docs/milestone-e-acceptance.md
+  - test/shadcn_ui/motion_media_docs_test.exs
   - demo/**
   - test/browser/milestone-e-*.spec.mjs
   - test/shadcn_ui/milestone_e_acceptance_test.exs
@@ -146,6 +149,11 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: test/shadcn_ui/motion_media_docs_test.exs
+  covers:
+    - shadcn_ui.motion_media_gallery.references
+
 - kind: test_file
   target: demo/test/shadcn_ui_demo/milestone_e_catalogue_test.exs
   covers:
