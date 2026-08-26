@@ -77,3 +77,30 @@ ownership has leaked into the package.
 Video players, editors, infinite data virtualization, arbitrary animation
 frameworks, image transformation services, uploads, and content management
 remain application responsibilities.
+
+## Accepted architecture and implementation wave
+
+The [Milestone E phased plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+links five accepted ADRs, four normative specifications and the requirement
+coverage map. Planning is complete; implementation has not started.
+
+The wave resolves the broad roadmap as follows:
+
+- Carousel uses native scrolling and real item links. Generated CSS scroll
+  buttons and markers are deferred from the package API.
+- Marquee is static by default. Its optional user-enabled preview is finite,
+  lasts at most five seconds, and exposes native stop/reset and replay rather
+  than starting automatically or looping indefinitely.
+- Stagger is opt-in and bounded to one second total; Scroll Indicator and Cover
+  Flow retain static/native fallbacks under missing capabilities or suppression.
+- Image Gallery reuses the existing native Dialog contract. Origin-aware CSS
+  presentation is admitted only after evidence, with a snap fallback otherwise.
+- Each component phase adds its actual demo reference. A substantial dedicated
+  image-gallery composition, motion inspection and local media export are
+  explicit deliverables, not postponed library-only follow-up work.
+- Capability evidence is web-platform-based and consumer-neutral; Electron is
+  not the extracted package's target.
+
+These choices refine scope without marking any implementation or browser
+acceptance complete. The final integration-test section of each phase supplies
+the evidence needed before that phase is considered delivered.
