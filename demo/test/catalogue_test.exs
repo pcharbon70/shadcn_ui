@@ -12,7 +12,7 @@ defmodule ShadcnUIDemo.CatalogueTest do
     assert Enum.uniq_by(components, & &1.render) == components
 
     assert Enum.map(Catalogue.categories(), & &1.slug) ==
-             ~w(foundation forms disclosure navigation content-surfaces)
+             ~w(foundation forms disclosure navigation content-surfaces overlays interactive-surfaces)
 
     assert Enum.take(Catalogue.routes(), 8) == [
              "/",

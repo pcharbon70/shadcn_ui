@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   reference pages and proves the reusable package, gallery, cross-engine
   behavior, fallbacks, provenance, and release boundary as one coherent wave.
 
-  - [ ] 6.1 Section - Closed overlay catalogue and reference pages.
+  - [x] 6.1 Section - Closed overlay catalogue and reference pages.
 
     This section extends the deterministic gallery with stable routes and plain-
     language pages for every Dialog and Interactive Surface component.
 
-    - [ ] 6.1.1 Task - Add Overlays and Interactive Surfaces catalogues.
+    - [x] 6.1.1 Task - Add Overlays and Interactive Surfaces catalogues.
 
       Routing and static publication should remain immutable and safely resolved
       while the catalogue gains its first top-layer and supplemental components.
 
-      - [ ] 6.1.1.1 Subtask - Add stable Overlays leaves for Dialog, Alert Dialog, Drawer, Popover, and Dropdown Actions and Interactive Surfaces leaves for Tooltip and Hover Card in deterministic order.
-      - [ ] 6.1.1.2 Subtask - Resolve every new route through closed strings to explicit render identities and return nonreflecting 404s for unknown or mismatched category and component paths.
-      - [ ] 6.1.1.3 Subtask - Extend landing, navigation, breadcrumbs, current-page state, route manifest, controller inventory, static export, sitemap, canonical URLs, and deployment smoke routes.
-      - [ ] 6.1.1.4 Subtask - Keep capability reports, browser fixtures, demo helpers, source examples, generated output, and dependencies outside package release contents.
+      - [x] 6.1.1.1 Subtask - Add stable Overlays leaves for Dialog, Alert Dialog, Drawer, Popover, and Dropdown Actions and Interactive Surfaces leaves for Tooltip and Hover Card in deterministic order.
+      - [x] 6.1.1.2 Subtask - Resolve every new route through closed strings to explicit render identities and return nonreflecting 404s for unknown or mismatched category and component paths.
+      - [x] 6.1.1.3 Subtask - Extend landing, navigation, breadcrumbs, current-page state, route manifest, controller inventory, static export, sitemap, canonical URLs, and deployment smoke routes.
+      - [x] 6.1.1.4 Subtask - Keep capability reports, browser fixtures, demo helpers, source examples, generated output, and dependencies outside package release contents.
 
-    - [ ] 6.1.2 Task - Build semantic, state, and fallback references.
+    - [x] 6.1.2 Task - Build semantic, state, and fallback references.
 
       Each page should separate native platform behavior, package CSS, caller
       application ownership, unsupported features, and demo-only evidence.
 
-      - [ ] 6.1.2.1 Subtask - Show applicable closed, invoked, dismissal-policy, explicit-exit, cancel, action, edge, scroll, auto, manual, placement, hover, focus, reduced-motion, fallback, and replacement snapshots.
-      - [ ] 6.1.2.2 Subtask - Include purpose, selection guidance, native markup, relationships, focus, keys, dismissal, placement, HEEX source, ownership, theme, fallback, capability, and provenance guidance.
-      - [ ] 6.1.2.3 Subtask - Compare Dialog, Alert Dialog, Drawer, Popover, Dropdown Actions, Tooltip, Hover Card, ordinary navigation and buttons, ARIA menus, and deferred interest invokers.
-      - [ ] 6.1.2.4 Subtask - Show explicit ordinary destinations or in-flow alternatives plus no-anchor, no-transition, no-hover, coarse-pointer, CSS-disabled, no-script, and DOM-replacement fallbacks.
+      - [x] 6.1.2.1 Subtask - Show applicable closed, invoked, dismissal-policy, explicit-exit, cancel, action, edge, scroll, auto, manual, placement, hover, focus, reduced-motion, fallback, and replacement snapshots.
+      - [x] 6.1.2.2 Subtask - Include purpose, selection guidance, native markup, relationships, focus, keys, dismissal, placement, HEEX source, ownership, theme, fallback, capability, and provenance guidance.
+      - [x] 6.1.2.3 Subtask - Compare Dialog, Alert Dialog, Drawer, Popover, Dropdown Actions, Tooltip, Hover Card, ordinary navigation and buttons, ARIA menus, and deferred interest invokers.
+      - [x] 6.1.2.4 Subtask - Show explicit ordinary destinations or in-flow alternatives plus no-anchor, no-transition, no-hover, coarse-pointer, CSS-disabled, no-script, and DOM-replacement fallbacks.
 
   - [ ] 6.2 Section - Capability matrix and realistic overlay compositions.
 

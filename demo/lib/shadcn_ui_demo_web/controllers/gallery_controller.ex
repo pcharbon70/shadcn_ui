@@ -73,6 +73,7 @@ defmodule ShadcnUIDemoWeb.GalleryController do
     |> put_view(html: ShadcnUIDemoWeb.PageHTML)
     |> render(:gallery,
       page_title: page.title,
+      canonical_url: page.path && "https://leco-industries-inc.github.io/shadcn_ui" <> page.path,
       page: page,
       theme: theme,
       categories: Catalogue.categories(),

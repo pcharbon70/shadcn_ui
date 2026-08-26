@@ -69,6 +69,13 @@ surface:
 
 ## Verification
 
+The closed catalogue now supplies five Overlays leaves and two Interactive
+Surfaces leaves. Reference pages render actual components, inert HEEx source,
+native policy/mode/edge examples and a complete visible alternative. Canonical
+metadata is derived only from resolved catalogue paths; unknown/mismatched
+routes remain nonreflecting 404s. Export allows ordinary authoritative links
+and canonical metadata, never remote runtime assets.
+
 ```spec-verification
 - kind: test_file
   target: demo/test/shadcn_ui_demo/overlay_catalog_test.exs

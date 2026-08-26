@@ -116,7 +116,16 @@ defmodule Mix.Tasks.Gallery.Export do
   end
 
   defp reject_remote_runtime!(html, route) do
-    if Regex.match?(~r/(?:src|href)="https?:\/\//i, html),
+    # Ordinary source links and canonical metadata do not load runtime assets.
+    runtime =
+      html
+      |> String.replace(~r/<a\b[^>]*>/i, "")
+      |> String.replace(
+        ~r/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^\"]*"\s*\/?\s*>/i,
+        ""
+      )
+
+    if Regex.match?(~r/(?:src|href|srcset)="(?:https?:)?\/\//i, runtime),
       do: Mix.raise("remote runtime URL found in #{route}")
   end
 

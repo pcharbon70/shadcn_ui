@@ -10,6 +10,12 @@ defmodule ShadcnUIDemo.Catalogue do
       label: "Content Surfaces",
       slug: "content-surfaces",
       path: "/components/content-surfaces"
+    },
+    %{label: "Overlays", slug: "overlays", path: "/components/overlays"},
+    %{
+      label: "Interactive Surfaces",
+      slug: "interactive-surfaces",
+      path: "/components/interactive-surfaces"
     }
   ]
 
@@ -55,6 +61,25 @@ defmodule ShadcnUIDemo.Catalogue do
   ]
 
   @components_by_category %{
+    "overlays" =>
+      Enum.map(
+        [
+          %{label: "Dialog", slug: "dialog", render: :dialog},
+          %{label: "Alert Dialog", slug: "alert-dialog", render: :alert_dialog},
+          %{label: "Drawer", slug: "drawer", render: :drawer},
+          %{label: "Popover", slug: "popover", render: :popover},
+          %{label: "Dropdown Actions", slug: "dropdown-actions", render: :dropdown_actions}
+        ],
+        &Map.put(&1, :category, "overlays")
+      ),
+    "interactive-surfaces" =>
+      Enum.map(
+        [
+          %{label: "Tooltip", slug: "tooltip", render: :tooltip},
+          %{label: "Hover Card", slug: "hover-card", render: :hover_card}
+        ],
+        &Map.put(&1, :category, "interactive-surfaces")
+      ),
     "foundation" => Enum.map(@foundation, &Map.put(&1, :category, "foundation")),
     "forms" => Enum.map(@forms, &Map.put(&1, :category, "forms")),
     "disclosure" => Enum.map(@disclosure, &Map.put(&1, :category, "disclosure")),

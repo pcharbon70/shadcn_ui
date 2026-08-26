@@ -12,7 +12,8 @@ for (const entry of manifest.routes) {
   if (hash !== entry.sha256) throw new Error(`stale route hash: ${entry.file}`);
   const html = content.toString("utf8");
   if (!html.includes("<main") || (!html.includes("Component navigation") && !html.includes("data-demo-form"))) throw new Error(`missing landmarks: ${entry.file}`);
-  if (/(?:src|href)="https?:\/\//i.test(html)) throw new Error(`remote runtime URL: ${entry.file}`);
+  const runtime = html.replace(/<a\b[^>]*>/gi, "").replace(/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^"]*"\s*\/?\s*>/gi, "");
+  if (/(?:src|href|srcset)="(?:https?:)?\/\//i.test(runtime)) throw new Error(`remote runtime URL: ${entry.file}`);
 }
 
 const assets = await readdir(new URL("assets/", root));

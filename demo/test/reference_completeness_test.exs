@@ -28,12 +28,14 @@ defmodule ShadcnUIDemo.ReferenceCompletenessTest do
           "disclosure" -> "disclosure"
           "navigation" -> "navigation"
           "content-surfaces" -> "content"
+          "overlays" -> "overlays"
+          "interactive-surfaces" -> "overlays"
         end
 
       assert Enum.any?(
                provenance_ids,
                &String.starts_with?(
-                 &1,
+                 String.replace(&1, "-", "_"),
                  "#{provenance_prefix}.#{String.replace(component.slug, "-", "_")}"
                )
              )

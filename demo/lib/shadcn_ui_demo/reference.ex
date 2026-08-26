@@ -188,8 +188,23 @@ defmodule ShadcnUIDemo.Reference do
     }
   end
 
+  def fetch!(render)
+      when render in [
+             :dialog,
+             :alert_dialog,
+             :drawer,
+             :popover,
+             :dropdown_actions,
+             :tooltip,
+             :hover_card
+           ],
+      do: ShadcnUIDemo.OverlayReference.fetch!(render)
+
   def keys,
-    do: Map.keys(@references) ++ Map.keys(@form_references) ++ Map.keys(@content_references)
+    do:
+      Map.keys(@references) ++
+        Map.keys(@form_references) ++
+        Map.keys(@content_references) ++ ShadcnUIDemo.OverlayReference.keys()
 
   defp fallback(:textarea),
     do: "Unsupported browsers keep the fixed native textarea instead of CSS content sizing."
