@@ -10,6 +10,13 @@ compositions, and a [capability matrix](https://leco-industries-inc.github.io/sh
 New pages become public when their reviewed change is merged and the Pages
 deployment succeeds; a local acceptance run is not proof of publication.
 
+Milestone E [motion/media foundations](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/motion-media-foundations.md) add
+internal image and bounded-motion contracts, scoped motion suppression, local
+demo fixtures and `/examples/motion-media-capabilities`. The gallery supports
+ordinary system/reduced-motion links, including no-script static exports.
+Carousel and the other five public Motion/Media components remain later-phase
+work; public imports have not changed.
+
 ## Tooltip: optional descriptions
 
 ```heex

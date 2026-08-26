@@ -78,7 +78,7 @@ defmodule ShadcnUI.Components.Media.MediaContract do
   def image!(_), do: invalid!(:image, "expected an atom-keyed map")
 
   def source!(source) when is_binary(source) do
-    if source == "" or Regex.match?(~r/[\s\\\\<>"]|%0[ad]/i, source),
+    if source == "" or Regex.match?(~r/[\x00-\x20\x7F\s\\<>"]|%0[ad]/i, source),
       do: invalid!(:source, "blank or unsafe URL characters")
 
     uri = URI.parse(source)

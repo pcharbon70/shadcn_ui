@@ -99,6 +99,9 @@ defmodule ShadcnUI.MotionMediaContractTest do
           "file:///a",
           "https://user:pass@example.test/a",
           "/a\nb",
+          "/a" <> <<0>> <> "b",
+          "/a" <> <<31>> <> "b",
+          "/a" <> <<127>> <> "b",
           nil
         ] do
       assert_raise ArgumentError, fn -> Media.source!(source) end

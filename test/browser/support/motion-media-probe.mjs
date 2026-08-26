@@ -36,10 +36,14 @@ export async function observe(page) {
   const checkboxGate = await page.locator("#gate").evaluate(e => getComputedStyle(e).color === "rgb(1, 2, 3)");
   await page.waitForTimeout(100);
   const initial = await page.locator("#indicator").evaluate(e => getComputedStyle(e).opacity);
+  const initialView = await page.locator("#view").evaluate(e => getComputedStyle(e).opacity);
   await page.locator("#scroll").evaluate(e => { e.scrollTop = e.scrollHeight; });
   // Allow asynchronous scroll-driven style sampling, without a component runtime.
   await page.waitForTimeout(100);
   const scrolled = await page.locator("#indicator").evaluate(e => getComputedStyle(e).opacity);
+  const scrolledView = await page.locator("#view").evaluate(e => getComputedStyle(e).opacity);
+  await page.waitForTimeout(100);
+  const stationaryTimelineStable = scrolled === await page.locator("#indicator").evaluate(e => getComputedStyle(e).opacity);
   const nativeScroll = await page.locator("#scroll").evaluate(e => e.scrollTop > 0);
   await page.locator("#open").click();
   const dialogOpened = await page.locator("#dialog").evaluate(e => e.open);
@@ -48,6 +52,8 @@ export async function observe(page) {
     nativeScroll, checkboxGate, dialogOpened,
     dialogDismissed: !(await page.locator("#dialog").evaluate(e => e.open)),
     scrollTimelineChanges: initial !== scrolled,
+    viewTimelineChanges: initialView !== scrolledView,
+    stationaryTimelineStable,
     coverFlowTransform: await page.locator("#view").evaluate(e => getComputedStyle(e).transform !== "none"),
     originTransition: "deferred-phase-5", generatedControls: "deferred"
   } };

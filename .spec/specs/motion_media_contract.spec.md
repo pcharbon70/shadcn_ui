@@ -4,13 +4,21 @@
 id: shadcn_ui.motion_media_contract
 kind: policy
 status: active
-summary: Accepted Milestone E contract; implementation and evidence are pending the phased plan.
+summary: Implemented Phase 1 capability and normalization foundations; component-specific acceptance follows in later phases.
 decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.bounded_motion
   - shadcn_ui.responsive_media_lightbox
 surface:
-  - priv/compatibility/motion_media*
+  - priv/compatibility/motion_media.json
+  - priv/compatibility/motion_media.schema.json
+  - docs/motion-media-foundations.md
+  - docs/motion-media-css-exceptions.md
+  - test/browser/support/motion-media-probe.mjs
+  - test/browser/support/static-motion-media.mjs
+  - test/shadcn_ui/motion_media_manifest_test.exs
+  - test/shadcn_ui/motion_media_foundations_integration_test.exs
+  - playwright.milestone-e-phase1.config.mjs
   - lib/shadcn_ui/components/media/media_contract.ex
   - lib/shadcn_ui/components/motion/motion_contract.ex
   - assets/shadcn_ui.css
@@ -145,6 +153,13 @@ actual proof. Add requirement references in each target as the tests land.
 
 - kind: test_file
   target: test/shadcn_ui/milestone_e_acceptance_test.exs
+  covers:
+    - shadcn_ui.motion_media_contract.runtime_boundary
+    - shadcn_ui.motion_media_contract.css_exceptions
+    - shadcn_ui.motion_media_contract.distribution
+
+- kind: test_file
+  target: test/shadcn_ui/motion_media_foundations_integration_test.exs
   covers:
     - shadcn_ui.motion_media_contract.runtime_boundary
     - shadcn_ui.motion_media_contract.css_exceptions

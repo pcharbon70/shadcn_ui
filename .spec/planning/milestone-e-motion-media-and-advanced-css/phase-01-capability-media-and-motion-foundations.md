@@ -9,7 +9,7 @@ Milestone D public native Dialog and gallery/export contracts are the baseline. 
 - [motion_media_contract](../../specs/motion_media_contract.spec.md)
 - [motion_media_gallery](../../specs/motion_media_gallery.spec.md)
 
-- [ ] 1 Phase - Capability, Media, And Motion Foundations.
+- [x] 1 Phase - Capability, Media, And Motion Foundations.
 
   Establish the shared native and CSS capability boundaries, image contracts, suppression rules, fixture inventory and proof harness before publishing concrete components.
 
@@ -73,25 +73,25 @@ Milestone D public native Dialog and gallery/export contracts are the baseline. 
       - [x] 1.3.2.2 Subtask - Extend the closed exporter from three style/script assets to three plus selected fixture media; reject traversal, escaping symlinks, unknown files, stale copies and remote build fetches.
       - [x] 1.3.2.3 Subtask - Add the actual /examples/motion-media-capabilities page plus system/reduce inspection links, safe invalid values, theme preservation, canonical/sitemap rules and no-script export variants.
 
-  - [ ] 1.4 Section - Phase 1 Integration Tests.
+  - [x] 1.4 Section - Phase 1 Integration Tests.
 
     Prove the shared contracts and distribution boundary before later phases depend on them.
 
-    - [ ] 1.4.1 Task - Verify contracts, capability evidence and static paths.
+    - [x] 1.4.1 Task - Verify contracts, capability evidence and static paths.
 
       Positive and negative cases must establish a meaningful fallback rather than merely checking source strings.
 
-      - [ ] 1.4.1.1 Subtask - Run shared normalization/schema tests for every accepted/rejected field, key, reference, source, dimension, motion value and global override; attach exact requirement IDs.
-      - [ ] 1.4.1.2 Subtask - Execute identical native/disabled-capability fixtures in all locked engines, including missing :has, absent timelines, nested suppression, CSS-disabled, no-script and DOM replacement.
-      - [ ] 1.4.1.3 Subtask - Verify closed capability routes, source links, safe query defaults, fixtures, media hashes, subpath resolution and two identical exports with no remote media requests.
+      - [x] 1.4.1.1 Subtask - Run shared normalization/schema tests for every accepted/rejected field, key, reference, source, dimension, motion value and global override; attach exact requirement IDs.
+      - [x] 1.4.1.2 Subtask - Execute identical native/disabled-capability fixtures in all locked engines, including missing :has, absent timelines, nested suppression, CSS-disabled, no-script and DOM replacement.
+      - [x] 1.4.1.3 Subtask - Verify closed capability routes, source links, safe query defaults, fixtures, media hashes, subpath resolution and two identical exports with no remote media requests.
 
-    - [ ] 1.4.2 Task - Verify independent builds and retain milestone evidence.
+    - [x] 1.4.2 Task - Verify independent builds and retain milestone evidence.
 
       The foundation is complete only when its package and demo implications are checked and recorded.
 
-      - [ ] 1.4.2.1 Subtask - Run package/demo precommit, locked asset builds and deterministic comparisons, CSS isolation, provenance/MIT audits, ExDoc and actual Hex archive allowlist inspection.
-      - [ ] 1.4.2.2 Subtask - Run current A–D regressions affected by CSS, assets or gallery routing; prove fixture media, observations, scripts and harnesses remain excluded from releases.
-      - [ ] 1.4.2.3 Subtask - Run mix spec.next, mix spec.check --base main and git diff --check; record commands, exact engines, limitations and results without treating planning as implementation.
+      - [x] 1.4.2.1 Subtask - Run package/demo precommit, locked asset builds and deterministic comparisons, CSS isolation, provenance/MIT audits, ExDoc and actual Hex archive allowlist inspection.
+      - [x] 1.4.2.2 Subtask - Run current A–D regressions affected by CSS, assets or gallery routing; prove fixture media, observations, scripts and harnesses remain excluded from releases.
+      - [x] 1.4.2.3 Subtask - Run mix spec.next, mix spec.check --base main and git diff --check; record commands, exact engines, limitations and results without treating planning as implementation.
 
 ## Section delivery rule
 
@@ -99,3 +99,43 @@ Complete and verify each section before committing it. Make one commit per
 section and one PR for this phase; do not merge that PR without a later request.
 Keep all checkboxes unchecked until the corresponding implementation and proof
 land. Update relevant specifications only after reading their full contracts.
+
+## Execution record
+
+Implemented on 2026-08-26, one commit per section. These marks record completed
+implementation and executed checks, not a claim that every gate passed or that
+the gallery was deployed. Public components remain Phase 2–5 work.
+
+- Package `mix precommit`: 330 passing tests, including schema, normalization,
+  release boundaries, CSS isolation and provenance. Repeated with the previously
+  failing seed after replacing Select's racy global atom counter with explicit
+  before/after checks on fresh caller tokens; no production Select change.
+- Demo `mix precommit`: 47 passing tests, including two real exports, stale-file
+  removal, media hashes and active-SVG rejection even with matching metadata.
+- `npm run browser:milestone-e-phase1`: 60 passing tests in Playwright 1.62.1,
+  Chromium 151.0.7922.34 (1234), Firefox 153.0 (1538), WebKit 26.5 (2336).
+  Includes actual live/exported pages, narrow no-script preference navigation,
+  image loading without remote requests, themes, reduced motion, forced colors,
+  disabled capabilities, native replacement and stationary timeline observations.
+- `npm run capabilities:motion-media:check`: deterministic observations match.
+  Scroll/view timeline probes enhance in Chromium/WebKit and fall back in Firefox;
+  generated controls and origin transitions remain deferred, not admitted APIs.
+- A–D gallery regressions: 55 passing tests (39 D, 5 C, 11 baseline/demo).
+- Package and demo `npm run assets:check`, demo `npm run export:determinism`,
+  `npm run export:check` and `npm run export:smoke`: pass. The closed export has
+  524 route variants, three code/style assets and three selected original SVGs.
+- `mix docs`, `mix hex.build`, `mix run scripts/check-release-archive.exs`: pass;
+  55 archive entries include the internal helpers and normative capability data,
+  excluding fixture media, observations, browser harnesses and demo runtime.
+- `mix spec.next`, `mix spec.check --base main`, `mix spec.check --base HEAD`
+  were executed. Full SpecLed checking still reports four nested-command failures:
+  its `sh -lc` selects Elixir 1.18 built for OTP 26 against OTP 29, unlike direct
+  PowerShell Elixir 1.20.3. The failing targets are component/form/package
+  precommit and gallery smoke. Direct checks pass; no gate, dependency or machine
+  profile was changed to hide the mismatch. Future component proof targets remain
+  warnings until their phases land. `git diff --check` passes.
+- Windows refused test symlink creation (`eperm`), so local rejection assertions
+  for escaping symlinks could not run. The test requires that assertion on Linux
+  CI and fails there if symlink creation is unavailable; CI remains pending.
+- No manual screen-reader acceptance, deployed smoke run, Hex publication or
+  Pages deployment is claimed. Those are separate authorized acceptance steps.

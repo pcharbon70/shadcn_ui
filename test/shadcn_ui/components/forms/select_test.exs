@@ -284,13 +284,20 @@ defmodule ShadcnUI.Components.Forms.SelectTest do
         %{key: token, value: token, label: token}
       end
 
-    render_native(id: "warmup", name: "warmup", options: options)
-    before_count = :erlang.system_info(:atom_count)
+    # Check the actual caller tokens, not the VM-wide atom counter, which can
+    # change while unrelated async tests load modules. Do not warm these tokens
+    # first: that would hide a leak in the first render.
+    for option <- options do
+      assert_raise ArgumentError, fn -> String.to_existing_atom(option.key) end
+    end
+
     html = render_native(id: "request", name: "request", options: options)
-    after_count = :erlang.system_info(:atom_count)
 
     assert html =~ hd(options).label
-    assert after_count == before_count
+
+    for option <- options do
+      assert_raise ArgumentError, fn -> String.to_existing_atom(option.key) end
+    end
   end
 
   test "exposes no raw markup, option callback, or custom-widget behavior API" do

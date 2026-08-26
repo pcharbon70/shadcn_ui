@@ -26,6 +26,8 @@
         "dialogOpened": true,
         "dialogDismissed": true,
         "scrollTimelineChanges": true,
+        "viewTimelineChanges": true,
+        "stationaryTimelineStable": true,
         "coverFlowTransform": true,
         "originTransition": "deferred-phase-5",
         "generatedControls": "deferred"
@@ -54,6 +56,8 @@
         "dialogOpened": true,
         "dialogDismissed": true,
         "scrollTimelineChanges": false,
+        "viewTimelineChanges": false,
+        "stationaryTimelineStable": true,
         "coverFlowTransform": false,
         "originTransition": "deferred-phase-5",
         "generatedControls": "deferred"
@@ -82,6 +86,8 @@
         "dialogOpened": true,
         "dialogDismissed": true,
         "scrollTimelineChanges": true,
+        "viewTimelineChanges": true,
+        "stationaryTimelineStable": true,
         "coverFlowTransform": true,
         "originTransition": "deferred-phase-5",
         "generatedControls": "deferred"

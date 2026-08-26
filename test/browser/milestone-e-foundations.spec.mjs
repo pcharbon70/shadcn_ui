@@ -1,11 +1,35 @@
 import { test, expect } from "../../demo/node_modules/@playwright/test/index.mjs";
 import { readFileSync } from "node:fs";
+import { serveMotionMediaExport } from "./support/static-motion-media.mjs";
 // covers: shadcn_ui.motion_media_contract.motion_preference
 // covers: shadcn_ui.motion_media_contract.css_exceptions
 // covers: shadcn_ui.motion_media_gallery.motion_inspection
 // covers: shadcn_ui.motion_media_gallery.capability_evidence
 const css = readFileSync(new URL("../../priv/static/shadcn_ui.css", import.meta.url), "utf8");
 const axe = readFileSync(new URL("../../demo/node_modules/axe-core/axe.min.js", import.meta.url), "utf8");
+test("actual static subpath preferences and media work without scripts or remote loads", async ({ browser }, testInfo) => {
+  const server = await serveMotionMediaExport();
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+  try {
+    const page = await context.newPage(), remote = [];
+    page.on("request", request => { if (new URL(request.url()).hostname !== "127.0.0.1") remote.push(request.url()); });
+    await page.goto(server.url);
+    await page.getByRole("link", { name: "Reduce motion", exact: true }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion", "reduce");
+    expect(page.url()).toContain("/_preferences/light/reduce/");
+    await page.getByRole("link", { name: "Use dark theme" }).click();
+    await expect(page.locator("html")).toHaveAttribute("data-shadcn-theme", "dark");
+    await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion", "reduce");
+    for (const img of await page.locator(".gallery-media-fixtures img").all()) {
+      await img.scrollIntoViewIfNeeded();
+      await expect.poll(() => img.evaluate(e => e.complete && e.naturalWidth > 0)).toBe(true);
+    }
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+    await page.locator("h1").scrollIntoViewIfNeeded();
+    await page.screenshot({ path: testInfo.outputPath("capabilities.png") });
+    expect(remote).toEqual([]);
+  } finally { await context.close(); await server.close(); }
+});
 const probe = (scope = "system", own = "system") => `<!doctype html><html lang="en"><title>Suppression contract</title><style>${css}</style><style>
   @keyframes test-only-travel { from { transform:translateX(10px); } to { transform:translateX(20px); } }
   .witness { animation:test-only-travel 2s linear; opacity:0.4; }

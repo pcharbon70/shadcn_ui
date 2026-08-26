@@ -4,7 +4,7 @@
 id: shadcn_ui.motion_media_gallery
 kind: application
 status: active
-summary: Accepted Milestone E contract; implementation and evidence are pending the phased plan.
+summary: Phase 1 capability page, motion inspection and local media export; public component references follow in later phases.
 decisions:
   - shadcn_ui.motion_media_gallery_delivery
   - shadcn_ui.motion_media_capability_css

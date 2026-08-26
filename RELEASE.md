@@ -153,3 +153,29 @@ and notice audits, SpecLed validation, and whitespace checks. Navigation must
 remain destination-based; Radio Panels must remain native radios rather than a
 tab contract; true tabs, menus, overlays, application behavior, and package
 JavaScript remain absent.
+
+## Milestone E Phase 1 acceptance record
+
+This candidate adds internal media/motion contracts, normative capability data,
+scoped suppression, original demo fixtures and the actual capability reference.
+It does not export the six planned public components. The
+[phase execution record](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/.spec/planning/milestone-e-motion-media-and-advanced-css/phase-01-capability-media-and-motion-foundations.md#execution-record)
+contains the full commands, observations and outstanding checks.
+
+Local verification on 2026-08-26 passed package precommit (330 tests), demo
+precommit (47), Phase 1 three-engine browser coverage (60), affected A–D gallery
+regressions (55), deterministic assets/export, subpath smoke, ExDoc and actual
+Hex archive inspection (55 entries). Playwright 1.62.1 locks Chromium
+151.0.7922.34/revision 1234, Firefox 153.0/revision 1538 and WebKit 26.5/revision
+2336; those are observations, not package targets. The static artifact contains
+524 route variants, three style/script assets and three selected media assets.
+The Hex archive excludes demo media, observations and browser infrastructure.
+
+SpecLed full checks still fail four nested commands because their login shell
+selects Elixir 1.18 compiled for OTP 26 while direct PowerShell uses Elixir 1.20.3
+with OTP 29. Direct equivalent checks pass; the gate remains outstanding.
+SpecLed's broad shared-file reconciliation advice is not proof that all future
+component requirements are implemented. Windows denied symlink creation in the
+negative fixture test; Linux CI is required to execute that assertion. Neither
+CI success, manual screen-reader acceptance, publication nor deployment is
+claimed. No machine-wide toolchain settings or verification gates were changed.

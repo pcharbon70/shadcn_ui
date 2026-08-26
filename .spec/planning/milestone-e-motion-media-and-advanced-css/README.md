@@ -2,10 +2,12 @@
 
 ## Status and purpose
 
-Planning complete; implementation has not started. All phase checkboxes remain
-unchecked. Accepted ADRs and active specifications describe the design to build,
-not APIs already available or tests already passing. Milestones A–D remain the
-implemented baseline; their completed history is unchanged.
+Phase 1 foundations are implemented and locally verified, with the recorded
+SpecLed login-shell limitation still outstanding. Phases 2–6 remain pending;
+none of the six new public components is exported yet. Milestones A–D remain
+the implemented baseline; their completed history is unchanged. See the
+[Phase 1 execution record](./phase-01-capability-media-and-motion-foundations.md#execution-record)
+for exact checks and limitations. Next is Phase 2, Native Carousel.
 
 This wave implements the [Milestone E roadmap](../../milestones/milestone-e-motion-media-and-advanced-css.md)
 as independently reviewable phases. Native content, useful fallbacks, scoped
@@ -128,11 +130,11 @@ the exact locked Chromium, Firefox and WebKit versions. Negative-capability
 fixtures must exercise static fallbacks even on a browser that supports an
 enhancement. There is no user-agent or engine-name branch in package code.
 
-The platform references in the ADRs were reviewed on 2026-08-26. Phase 1 must
-also review the relevant upstream component sources at the existing provenance
-pin and record adaptation or independent implementation decisions. This planning
-wave does not claim a completed source comparison with the live upstream gallery.
-Update the source review and executable evidence whenever admitting an effect.
+The platform references and six pinned upstream component patterns were reviewed
+on 2026-08-26. The [foundation notes](../../../docs/motion-media-foundations.md)
+record source paths, adaptation choices and separate executed browser evidence.
+These are foundation probes, not acceptance of future components or a comparison
+with an unpinned live gallery. Update the review and evidence when admitting an effect.
 
 Origin-aware Image Gallery presentation is an explicit admission checkpoint:
 record a proven native CSS path or a documented deferral. Neither failure of

@@ -64,6 +64,21 @@ defmodule ShadcnUIDemo.MediaFixtures do
       end
 
       # Closed original SVGs are shapes only; never copy active/external SVG content.
+      tags =
+        Regex.scan(~r/<\/?([A-Za-z][^\s\/>]*)/, bytes, capture: :all_but_first) |> List.flatten()
+
+      attrs =
+        Regex.scan(~r/\s([A-Za-z][A-Za-z0-9:-]*)\s*=/, bytes, capture: :all_but_first)
+        |> List.flatten()
+
+      unless Enum.all?(tags, &(&1 in ~w(svg rect circle path))) and
+               Enum.all?(
+                 attrs,
+                 &(&1 in ~w(xmlns width height viewBox fill cx cy r d stroke stroke-width))
+               ) and
+               not String.contains?(bytes, ["<!", "<?", "&", "\\"]),
+             do: raise(ArgumentError, "fixture must use the closed original shape profile")
+
       if Regex.match?(
            ~r/<(?:script|foreignObject|image|use|style)\b|\bon\w+\s*=|(?:href|url)\s*[=(]/i,
            bytes
