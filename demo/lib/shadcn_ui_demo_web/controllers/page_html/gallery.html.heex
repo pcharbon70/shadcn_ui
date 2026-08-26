@@ -3,6 +3,7 @@
   categories={@categories}
   components={@components}
   theme={@theme}
+  motion={@motion}
 >
   <p :if={@page.kind == :landing}>
     Transport-neutral Phoenix components with shadcn-style semantic tokens.
@@ -137,6 +138,10 @@
     }
     render={@page.render}
   />
+
+  <.motion_media_capabilities :if={
+    @page.kind == :composition && @page.render == :motion_media_capabilities
+  } />
 
   <p :if={@page.kind == :not_found}>
     The requested gallery page does not exist. <a href="/">Return to the gallery.</a>

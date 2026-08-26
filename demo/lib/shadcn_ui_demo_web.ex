@@ -17,7 +17,7 @@ defmodule ShadcnUIDemoWeb do
   those modules here.
   """
 
-  def static_paths, do: ~w(assets fonts images favicon.ico robots.txt)
+  def static_paths, do: ~w(assets fonts images media favicon.ico robots.txt)
 
   def router do
     quote do
@@ -66,6 +66,7 @@ defmodule ShadcnUIDemoWeb do
       import ShadcnUIDemoWeb.ReferenceComponents
       import ShadcnUIDemoWeb.ContentNavigationCompositions
       import ShadcnUIDemoWeb.OverlayCompositions
+      import ShadcnUIDemoWeb.MotionMediaCompositions
 
       # Common modules used in templates
       alias ShadcnUIDemoWeb.Layouts

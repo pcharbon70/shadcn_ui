@@ -53,25 +53,25 @@ Milestone D public native Dialog and gallery/export contracts are the baseline. 
       - [x] 1.2.2.2 Subtask - Define finite Marquee and Stagger budgets, clamped sequence windows and complete static output; record that offscreen finite effects may finish but never loop indefinitely.
       - [x] 1.2.2.3 Subtask - Document native checkbox, scroll and dialog state loss after replacement; test invalid values, deterministic renders and no persistence, observer or restoration runtime.
 
-  - [ ] 1.3 Section - Scoped CSS, demo fixtures and capability inspection.
+  - [x] 1.3 Section - Scoped CSS, demo fixtures and capability inspection.
 
     Prepare the minimal shared CSS and static media distribution needed by all later component pages.
 
-    - [ ] 1.3.1 Task - Record authored CSS exceptions and suppression fallbacks.
+    - [x] 1.3.1 Task - Record authored CSS exceptions and suppression fallbacks.
 
       Every non-utility CSS block needs a narrow reason and a testable static path.
 
-      - [ ] 1.3.1.1 Subtask - Create the authored exception ledger with scope, utility limitation, source pin, feature guard, fallback, motion behavior and test mapping; update it whenever new blocks land.
-      - [ ] 1.3.1.2 Subtask - Add namespaced suppression, stable visible-content baselines, focus/forced-color treatment and instance isolation; preserve sRGB/light/dark tokens and no unrestricted reset.
-      - [ ] 1.3.1.3 Subtask - Audit release boundaries and public imports for no new runtime; document the planned six defining modules without exporting unfinished APIs.
+      - [x] 1.3.1.1 Subtask - Create the authored exception ledger with scope, utility limitation, source pin, feature guard, fallback, motion behavior and test mapping; update it whenever new blocks land.
+      - [x] 1.3.1.2 Subtask - Add namespaced suppression, stable visible-content baselines, focus/forced-color treatment and instance isolation; preserve sRGB/light/dark tokens and no unrestricted reset.
+      - [x] 1.3.1.3 Subtask - Audit release boundaries and public imports for no new runtime; document the planned six defining modules without exporting unfinished APIs.
 
-    - [ ] 1.3.2 Task - Add deterministic local fixture and gallery inspection infrastructure.
+    - [x] 1.3.2 Task - Add deterministic local fixture and gallery inspection infrastructure.
 
       The demo may display evidence and media without expanding the package payload or allowing request-selected assets.
 
-      - [ ] 1.3.2.1 Subtask - Create a small demo-only licensed/authored image fixture set and manifest containing keys, files, MIME, dimensions, byte sizes, source/license and hashes; include intentionally failing image cases.
-      - [ ] 1.3.2.2 Subtask - Extend the closed exporter from three style/script assets to three plus selected fixture media; reject traversal, escaping symlinks, unknown files, stale copies and remote build fetches.
-      - [ ] 1.3.2.3 Subtask - Add the actual /examples/motion-media-capabilities page plus system/reduce inspection links, safe invalid values, theme preservation, canonical/sitemap rules and no-script export variants.
+      - [x] 1.3.2.1 Subtask - Create a small demo-only licensed/authored image fixture set and manifest containing keys, files, MIME, dimensions, byte sizes, source/license and hashes; include intentionally failing image cases.
+      - [x] 1.3.2.2 Subtask - Extend the closed exporter from three style/script assets to three plus selected fixture media; reject traversal, escaping symlinks, unknown files, stale copies and remote build fetches.
+      - [x] 1.3.2.3 Subtask - Add the actual /examples/motion-media-capabilities page plus system/reduce inspection links, safe invalid values, theme preservation, canonical/sitemap rules and no-script export variants.
 
   - [ ] 1.4 Section - Phase 1 Integration Tests.
 

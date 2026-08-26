@@ -110,6 +110,15 @@ surface:
 
 ## Verification
 
+Milestone E Phase 1 adds /examples/motion-media-capabilities without publishing
+unfinished component leaves. Closed system/reduce inspection links preserve
+theme choices, with ordinary no-script theme alternatives. Static publication
+adds concrete preference variants and manifest-selected local SVG media to the
+existing three code/style assets. Src/srcset references and preference links
+resolve under repository-site subpaths. Fixture paths, hashes, dimensions,
+rights and inactive SVG content are validated before export; unlisted assets
+and escaping symlinks are rejected. All A–D component routes remain unchanged.
+
 ```spec-verification
 - kind: test_file
   target: demo/test/gallery_boundary_test.exs

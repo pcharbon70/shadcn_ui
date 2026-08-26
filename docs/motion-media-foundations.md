@@ -68,3 +68,26 @@ The duration helpers do not introduce a timer or detect visibility.
 Native scrolling, checkbox and Dialog state may reset on DOM replacement.
 Applications own patch boundaries and restoration. Internal helpers are not
 imported by use ShadcnUI and are not a public animation or media API.
+
+## Demo and static publication
+
+The actual /examples/motion-media-capabilities page shows source policy, exact
+engine observations and three original local SVG fixtures. It does not present
+unfinished components as implemented. A details disclosure contains an
+intentionally missing image with retained alt, caption and a working alternative.
+
+Header motion links use only system/reduce; invalid values use system. They
+preserve the theme, and explicit server/static preferences beat remembered
+demo-only theme state. No-script theme links preserve motion. The root
+data-shadcn-motion=reduce scope cannot override operating-system suppression.
+
+The fixture manifest pins file paths, intrinsic sizes, MIME, original ownership,
+byte sizes and hashes. Export rejects unlisted files, escaping/symlinked files,
+active SVG content and mismatched metadata. Images are not part of the Hex
+allowlist. No remote media is downloaded during build.
+
+Static export selects three fingerprinted code/style assets and three separate
+media fixtures. Concrete _preferences paths implement ordinary links without
+query-driven JavaScript. The canonical URL and sitemap exclude preference
+variants. Export rewrites both src and srcset and verifies direct/subpath
+references, hashes and nonreflecting 404 behavior.

@@ -33,6 +33,10 @@ a { color: inherit; }
 .gallery-form-modes > section { min-width: 0; padding: 1rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-lg); }
 .gallery-avatar-stack { display: flex; max-width: 100%; }
 pre { max-width: 100%; overflow: auto; padding: 1rem; background: var(--shadcn-ui-muted); border-radius: var(--shadcn-ui-radius-md); }
+.gallery-media-fixtures { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; }
+.gallery-media-fixtures figure { margin: 0; }
+.gallery-media-fixtures img { display: block; width: 100%; height: 14rem; object-fit: contain; background: var(--shadcn-ui-muted); }
+[data-gallery-composition="motion-media-capabilities"] details img { max-width: 100%; height: auto; }
 
 @media (max-width: 48rem) {
   .gallery-layout { grid-template-columns: 1fr; }

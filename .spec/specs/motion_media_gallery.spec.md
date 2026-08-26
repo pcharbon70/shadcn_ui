@@ -60,7 +60,10 @@ Every phase updates documentation/provenance and retains earlier regressions.
 
 ## Publication status
 
-Creating these specifications does not implement components or publish pages.
+Phase 1 implements the capability composition, local authored SVG fixtures,
+closed preference links and selected-media static export. Public component
+references and the three full media/motion compositions remain pending their
+later phases. Local verification does not establish Pages publication.
 Milestone D's recorded local SpecLed runner issue remains an explicit environment
 limitation, not an excuse to weaken the gate. The final release record must
 distinguish direct tests, CI, manual checks and actual Pages publication.

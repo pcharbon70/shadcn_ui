@@ -7,6 +7,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
   attr :categories, :list, required: true
   attr :components, :list, required: true
   attr :theme, :string, required: true
+  attr :motion, :string, default: "system"
   slot :inner_block, required: true
 
   def gallery(assigns) do
@@ -18,6 +19,20 @@ defmodule ShadcnUIDemoWeb.Layouts do
         <button type="button" data-gallery-theme="light" aria-pressed={@theme == "light"}>Light</button>
         <button type="button" data-gallery-theme="dark" aria-pressed={@theme == "dark"}>Dark</button>
       </div>
+      <nav aria-label="Motion inspection">
+        <a
+          :for={{value, label} <- [{"system", "System motion"}, {"reduce", "Reduce motion"}]}
+          href={ShadcnUIDemo.GalleryPreferences.link(@page.path, @theme, value)}
+          data-gallery-preference
+          data-gallery-light-href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "light", value)}
+          data-gallery-dark-href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "dark", value)}
+          aria-current={@motion == value && "true"}
+        >{label}</a>
+      </nav>
+      <noscript><nav aria-label="Theme links">
+        <a href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "light", @motion)}>Use light theme</a>
+        <a href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "dark", @motion)}>Use dark theme</a>
+      </nav></noscript>
     </header>
 
     <div class="gallery-layout">

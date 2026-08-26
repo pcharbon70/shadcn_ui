@@ -18,6 +18,11 @@ for (const entry of manifest.routes) {
 for (const asset of Object.keys(manifest.assets)) {
   files.set(`/shadcn_ui/assets/${asset}`, { bytes: await readFile(new URL(`assets/${asset}`, root)), status: 200, type: asset.endsWith(".css") ? "text/css" : "text/javascript" });
 }
+for (const [file, metadata] of Object.entries(manifest.media)) {
+  const bytes = await readFile(new URL("media/" + file, root));
+  if (createHash("sha256").update(bytes).digest("hex") !== metadata.sha256) throw new Error("media hash mismatch");
+  files.set("/shadcn_ui/media/" + file, { bytes, status: 200, type: metadata.mime });
+}
 const server = createServer((req, res) => {
   // Serve only the loaded manifest; request input can never select a file path.
   const file = files.get(new URL(req.url, "http://127.0.0.1").pathname) || files.get("/shadcn_ui/404.html");
@@ -38,6 +43,12 @@ try {
     }
   }
   const missing = await fetch(new URL("components/unknown/untrusted", base));
+  for (const [file, metadata] of Object.entries(manifest.media)) {
+    const response = await fetch(new URL("media/" + file, base));
+    if (response.status !== 200 || response.headers.get("content-type") !== metadata.mime ||
+        createHash("sha256").update(Buffer.from(await response.arrayBuffer())).digest("hex") !== metadata.sha256) throw new Error("broken subpath media");
+  }
+  if ((await fetch(new URL("media/intentionally-missing.svg", base))).status !== 404) throw new Error("missing image fixture must fail");
   if (missing.status !== 404 || (await missing.text()).includes("untrusted")) throw new Error("invalid static 404");
   console.log(`Static subpath smoke passed: ${manifest.routes.length} routes and ${Object.keys(manifest.assets).length} local assets.`);
 } finally {

@@ -1,0 +1,37 @@
+/* Independently authored E foundation. See docs/motion-media-css-exceptions.md. */
+[data-shadcn-ui-motion], [data-shadcn-ui-motion-part] {
+  opacity: 1;
+}
+[data-shadcn-ui-motion]:focus-visible,
+[data-shadcn-ui-motion-part]:focus-visible {
+  outline: 2px solid var(--shadcn-ui-ring, CanvasText);
+  outline-offset: 3px;
+}
+[data-shadcn-ui-motion-part="clone"] { display: none; }
+:is([data-shadcn-motion="reduce"], [data-shadcn-ui-motion="none"])
+  :is([data-shadcn-ui-motion], [data-shadcn-ui-motion-part]),
+[data-shadcn-ui-motion="none"] {
+  animation: none !important;
+  transition: none !important;
+  transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  scale: none !important;
+  scroll-behavior: auto !important;
+  opacity: 1 !important;
+}
+:is([data-shadcn-motion="reduce"], [data-shadcn-ui-motion="none"])
+  [data-shadcn-ui-motion-part="clone"] { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  [data-shadcn-ui-motion], [data-shadcn-ui-motion-part] {
+    animation: none !important; transition: none !important;
+    transform: none !important; translate: none !important; rotate: none !important;
+    scale: none !important; scroll-behavior: auto !important; opacity: 1 !important;
+  }
+  [data-shadcn-ui-motion-part="clone"] { display: none !important; }
+}
+@media (forced-colors: active) {
+  [data-shadcn-ui-motion]:focus-visible, [data-shadcn-ui-motion-part]:focus-visible {
+    outline-color: Highlight;
+  }
+}

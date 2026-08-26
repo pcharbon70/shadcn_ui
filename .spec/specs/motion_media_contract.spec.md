@@ -121,8 +121,8 @@ CSS. Tests and demo observations are not release inputs.
 
 ## Verification
 
-The following targets are planned acceptance obligations, not existing passing
-tests. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+The manifest, normalization and foundation browser targets now exist; the final
+milestone acceptance target remains planned. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
@@ -136,7 +136,6 @@ actual proof. Add requirement references in each target as the tests land.
 - kind: test_file
   target: test/shadcn_ui/motion_media_contract_test.exs
   covers:
-    - shadcn_ui.motion_media_contract.capability_manifest
     - shadcn_ui.motion_media_contract.identity
     - shadcn_ui.motion_media_contract.media_values
     - shadcn_ui.motion_media_contract.safe_sources
@@ -155,5 +154,10 @@ actual proof. Add requirement references in each target as the tests land.
   target: test/browser/milestone-e-capabilities.spec.mjs
   covers:
     - shadcn_ui.motion_media_contract.capability_manifest
+
+- kind: test_file
+  target: test/browser/milestone-e-foundations.spec.mjs
+  covers:
     - shadcn_ui.motion_media_contract.motion_preference
+    - shadcn_ui.motion_media_contract.css_exceptions
 ```
