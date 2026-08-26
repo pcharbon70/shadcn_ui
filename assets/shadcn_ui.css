@@ -43,10 +43,12 @@
 /* Anchors are scoped, never a global repeated anchor or a positioning runtime.
    Narrow/coarse layouts keep the non-overlapping normal-flow fallback. */
 @media (min-width: 40rem) and (hover: hover) and (pointer: fine) {
-  @supports (anchor-scope: --shadcn-ui-supplemental) and (position-area: block-end) and (position-try-fallbacks: flip-block) {
-    [data-shadcn-ui-supplemental] { anchor-scope: --shadcn-ui-supplemental; }
-    [data-shadcn-ui-supplemental-trigger] { anchor-name: --shadcn-ui-supplemental; }
-    [data-shadcn-ui-supplemental-surface] {
+  @supports (anchor-scope: --shadcn-ui-supplemental) and (position-area: self-inline-start) and (position-try-fallbacks: flip-block) {
+    /* Scoped RTL anchor coordinates differ across engines. Keep the shared
+       non-overlapping flow fallback for RTL rather than guessing a browser. */
+    [data-shadcn-ui-supplemental]:dir(ltr) { anchor-scope: --shadcn-ui-supplemental; }
+    [data-shadcn-ui-supplemental]:dir(ltr) > [data-shadcn-ui-supplemental-trigger] { anchor-name: --shadcn-ui-supplemental; }
+    [data-shadcn-ui-supplemental]:dir(ltr) > [data-shadcn-ui-supplemental-surface] {
       position: fixed;
       inset: auto;
       position-anchor: --shadcn-ui-supplemental;
@@ -58,8 +60,8 @@
       z-index: 1;
     }
     [data-shadcn-ui-supplemental][data-placement="block-start"] > [data-shadcn-ui-supplemental-surface] { position-area: block-start; }
-    [data-shadcn-ui-supplemental][data-placement="inline-start"] > [data-shadcn-ui-supplemental-surface] { position-area: inline-start; }
-    [data-shadcn-ui-supplemental][data-placement="inline-end"] > [data-shadcn-ui-supplemental-surface] { position-area: inline-end; }
+    [data-shadcn-ui-supplemental][data-placement="inline-start"] > [data-shadcn-ui-supplemental-surface] { position-area: self-inline-start; }
+    [data-shadcn-ui-supplemental][data-placement="inline-end"] > [data-shadcn-ui-supplemental-surface] { position-area: self-inline-end; }
   }
 }
 @media (forced-colors: active) {

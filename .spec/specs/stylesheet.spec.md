@@ -134,6 +134,14 @@ surface:
 
 ## Verification
 
+Supplemental surfaces default to non-overlapping normal flow. Wide fine-pointer
+layouts may use viewport-bounded, scoped CSS anchors behind joint anchor-scope,
+position-area and position-try-fallbacks queries. This is ordinary CSS stacking,
+not the top layer. Narrow/coarse and RTL layouts retain flow content (scoped RTL
+anchor coordinates differ in the locked matrix); reduced motion
+removes transitions, and forced colors preserve explicit borders. The Phase 5
+fixture is rendered from actual components and checked for deterministic output.
+
 ```spec-verification
 - kind: command
   target: npm run assets:check
@@ -221,6 +229,12 @@ surface:
 
 - kind: test_file
   target: test/browser/milestone-d-popovers.spec.mjs
+  covers:
+    - shadcn_ui.stylesheet.overlay_fallbacks
+    - shadcn_ui.stylesheet.overlay_resilience
+
+- kind: test_file
+  target: test/browser/milestone-d-supplemental-surfaces.spec.mjs
   covers:
     - shadcn_ui.stylesheet.overlay_fallbacks
     - shadcn_ui.stylesheet.overlay_resilience

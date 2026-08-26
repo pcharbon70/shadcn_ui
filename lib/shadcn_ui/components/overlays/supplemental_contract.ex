@@ -3,7 +3,7 @@ defmodule ShadcnUI.Components.Overlays.SupplementalContract do
   use ShadcnUI.Component
   alias ShadcnUI.Components.Overlays.OverlayContract
 
-  @protected ~w(id class role tabindex autofocus hidden inert contenteditable aria-hidden aria-label aria-labelledby aria-describedby href target rel download aria-current type disabled name value form popover interestfor command commandfor popovertarget popovertargetaction data-shadcn-ui data-shadcn-ui-supplemental-trigger)
+  @protected ~w(id class role tabindex autofocus hidden inert contenteditable aria-hidden aria-label aria-labelledby aria-describedby aria-expanded aria-haspopup aria-controls aria-details aria-disabled href target rel download aria-current type disabled name value form popover interestfor command commandfor popovertarget popovertargetaction data-shadcn-ui data-shadcn-ui-supplemental-trigger)
 
   def text!(value) when is_binary(value) do
     if String.trim(value) == "", do: raise(ArgumentError, "supplemental text must be nonblank")

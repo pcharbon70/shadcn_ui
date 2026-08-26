@@ -278,6 +278,77 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
     assert readme =~ "always-visible ordinary fallback"
   end
 
+  # covers: shadcn_ui.supplemental.tooltip shadcn_ui.supplemental.tooltip_fallback
+  # covers: shadcn_ui.supplemental.hover_card shadcn_ui.supplemental.hover_card_boundary
+  # covers: shadcn_ui.supplemental.css_behavior shadcn_ui.supplemental.no_interest_claim
+  # covers: shadcn_ui.supplemental.protected_semantics shadcn_ui.supplemental.shared_contract
+  test "Phase 5 publishes supplemental APIs, deterministic fixtures and cross-engine CI" do
+    for module <- ["Tooltip", "HoverCard"] do
+      assert File.read!("lib/shadcn_ui.ex") =~ "ShadcnUI.Components.Overlays.#{module}"
+      assert File.read!("mix.exs") =~ "ShadcnUI.Components.Overlays.#{module}"
+    end
+
+    fixture = File.read!("test/fixtures/milestone_d_supplemental_surfaces.html")
+    assert fixture =~ ~s(id="tip-description" role="tooltip")
+    assert fixture =~ ~s(aria-describedby="help tip-description")
+    assert fixture =~ ~s(id="card-invoker" href="#destination")
+    assert fixture =~ "All required task information is available here."
+    refute fixture =~ ~r/(interestfor|popover=|<script|tabindex=|role="(?:menu|dialog)")/
+    config = File.read!("playwright.milestone-d-phase5.config.mjs")
+    for engine <- ~w(chromium firefox webkit), do: assert(config =~ ~s(browserName: "#{engine}"))
+    ci = File.read!(".github/workflows/gallery.yml")
+    assert ci =~ "mix run scripts/render-supplemental-fixture.exs --check"
+    assert ci =~ "npm run browser:milestone-d-phase5"
+  end
+
+  test "Phase 5 audits explicit fallback, ownership, provenance and archive exclusions" do
+    browser = File.read!("test/browser/milestone-d-supplemental-surfaces.spec.mjs")
+
+    for proof <- [
+          "javaScriptEnabled: false",
+          "hasTouch: true",
+          "forcedColors",
+          "reducedMotion",
+          "unsupported-anchor-scope",
+          "toHaveAccessibleDescription",
+          "contextmenu",
+          "outerHTML",
+          "inline-start",
+          "rtl"
+        ],
+        do: assert(browser =~ proof)
+
+    refute browser =~ ~r/if\s*\(browserName/
+    provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
+
+    for {id, name} <- [{"tooltip", "tooltip"}, {"hover-card", "hover_card"}] do
+      entry = Enum.find(provenance["adaptations"], &(&1["id"] == "overlays.#{id}"))
+      assert "lib/shadcn_ui/components/overlays/#{name}.ex" in entry["localPaths"]
+      assert "src/demos/#{id}/basic.html" in entry["upstreamPaths"]
+      source = File.read!("lib/shadcn_ui/components/overlays/#{name}.ex")
+
+      refute source =~
+               ~r/(addEventListener|setTimeout|interestfor=|popover=|<script|String\.to_atom|System\.unique_integer|fetch\()/
+    end
+
+    readme = File.read!("README.md")
+
+    for boundary <- [
+          "not a sanitizer",
+          "privacy boundary",
+          "No required",
+          "normal flow",
+          "No script",
+          "Phase 6"
+        ],
+        do: assert(readme =~ boundary)
+
+    assert Path.wildcard("lib/**/*.{js,mjs,ts}") == []
+
+    for excluded <- ["demo", "test", "scripts", "playwright.milestone-d-phase5.config.mjs"],
+        do: refute(excluded in Mix.Project.config()[:package][:files])
+  end
+
   test "Phase 2 provenance and source audit exclude modal and consequence runtimes" do
     provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
     adaptations = provenance["adaptations"]

@@ -18,6 +18,8 @@ surface:
   - test/shadcn_ui/components/overlays/hover_card_test.exs
   - test/browser/milestone-d-supplemental-surfaces.spec.mjs
   - test/fixtures/milestone_d_supplemental_surfaces.html
+  - scripts/render-supplemental-fixture.exs
+  - playwright.milestone-d-phase5.config.mjs
   - README.md
 ```
 
@@ -72,7 +74,9 @@ button/link attributes, class and unrelated globals), not caller-supplied nested
 control markup. Its explicit `describedby` references are deduplicated before the
 stable description ID is appended. Text strings remain escaped; raw safe tuples
 and nested trigger content are rejected. Placement improves progressively from
-normal flow to scoped CSS anchors on wide fine-pointer layouts. This contract
+normal flow to scoped CSS anchors on wide LTR fine-pointer layouts. RTL retains
+normal flow because scoped RTL anchor coordinates are not interoperable in the
+locked matrix. No browser-name branching is used. This contract
 does not promise Escape dismissal or escape from overflow clipping.
 
 Hover Card uses the same deterministic structured trigger, restricted to an

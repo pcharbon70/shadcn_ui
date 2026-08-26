@@ -144,3 +144,65 @@ test("Hover Card no-script touch follows a complete ordinary destination", async
   await expect(page.locator("#destination")).toContainText("All required task information");
   await context.close();
 });
+
+test("scoped LTR anchors and RTL flow fallback keep every placement off its trigger", async ({ page }) => {
+  await load(page);
+  const supports = await page.evaluate(() => CSS.supports("anchor-scope: --shadcn-ui-supplemental") && CSS.supports("position-area: self-inline-start") && CSS.supports("position-try-fallbacks: flip-block"));
+  for (const id of ["tip", "card"]) {
+    await page.locator(`#${id}`).evaluate(el => { el.style.cssText = "position:fixed;left:45%;top:45%"; });
+    for (const dir of ["ltr", "rtl"]) {
+      for (const placement of ["block-start", "block-end", "inline-start", "inline-end"]) {
+        await page.locator(`#${id}`).evaluate((el, values) => { el.dir = values.dir; el.dataset.placement = values.placement; }, { dir, placement });
+        await page.locator(`#${id}-invoker`).focus();
+        await expect(page.locator(`#${id}-description`)).toBeVisible();
+        const t = await page.locator(`#${id}-invoker`).boundingBox(), b = await page.locator(`#${id}-description`).boundingBox();
+        if (supports && dir === "ltr") {
+          expect(b.x + b.width <= t.x + 1 || b.x >= t.x + t.width - 1 || b.y + b.height <= t.y + 1 || b.y >= t.y + t.height - 1).toBe(true);
+          if (placement === "block-start") expect(b.y + b.height).toBeLessThanOrEqual(t.y + 1);
+          if (placement === "block-end") expect(b.y).toBeGreaterThanOrEqual(t.y + t.height - 1);
+          if (placement === "inline-start" && dir === "ltr" || placement === "inline-end" && dir === "rtl") expect(b.x + b.width).toBeLessThanOrEqual(t.x + 1);
+          if (placement === "inline-end" && dir === "ltr" || placement === "inline-start" && dir === "rtl") expect(b.x).toBeGreaterThanOrEqual(t.x + t.width - 1);
+        } else {
+          await expect(page.locator(`#${id}-description`)).toHaveCSS("position", "static");
+        }
+      }
+    }
+    await page.locator(`#${id}`).evaluate(el => el.removeAttribute("style"));
+  }
+});
+
+test("Hover Card long translated preview survives narrow zoom, color and motion preferences", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 800 });
+  await page.emulateMedia({ reducedMotion: "reduce", forcedColors: "active" });
+  await load(page);
+  await page.locator("#card").evaluate(el => { el.dir = "rtl"; el.dataset.shadcnTheme = "dark"; el.style.zoom = "2"; });
+  await page.locator("#card-description p").evaluate(el => { el.textContent = "Zusätzliche Informationen — معلومات إضافية. ".repeat(12); });
+  await page.locator("#card-invoker").focus();
+  const preview = page.locator("#card-description");
+  await expect(preview).toBeVisible();
+  await expect(preview).toHaveCSS("position", "static");
+  await expect(preview).toHaveCSS("transition-duration", "0s");
+  await expect(preview).toHaveCSS("border-top-style", "solid");
+  expect(await preview.evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
+  await page.emulateMedia({ forcedColors: "none" });
+  for (const theme of ["dark", "light"]) {
+    await page.locator("#card").evaluate((el, theme) => el.dataset.shadcnTheme = theme, theme);
+    const colors = await preview.evaluate(el => ({ fg: getComputedStyle(el).color, bg: getComputedStyle(el).backgroundColor }));
+    expect(colors.fg).not.toBe(colors.bg);
+  }
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#destination$/);
+});
+
+test("supplemental rendering adds no runtime, fetch, interest or focusable preview", async ({ page }) => {
+  const requests = [];
+  page.on("request", request => requests.push(request.url()));
+  await load(page);
+  await page.locator("#tip-invoker").hover();
+  await page.locator("#card-invoker").hover();
+  expect(requests).toEqual([]);
+  expect(await page.locator("script,[interestfor],[popover],[onmouseover],[onfocus],[phx-hook]").count()).toBe(0);
+  expect(await page.locator("[data-shadcn-ui-supplemental-surface] a,[data-shadcn-ui-supplemental-surface] button,[data-shadcn-ui-supplemental-surface] [tabindex]").count()).toBe(0);
+  await expect(page.locator("#help")).toBeVisible();
+  await expect(page.locator("#destination")).toContainText("All required task information");
+});

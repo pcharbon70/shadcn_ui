@@ -29,7 +29,9 @@ and its accessible description. Without CSS the description is ordinary text;
 with CSS but no anchors, it appears in normal flow. `placement` accepts
 `:block_start`, `:block_end` (default), `:inline_start`, `:inline_end`; logical
 anchor placement is optional and scoped per instance on wide fine-pointer
-layouts. Narrow layouts retain wrapping, non-overlapping normal flow.
+layouts. Narrow and RTL layouts retain wrapping, non-overlapping normal flow.
+Scoped RTL anchor coordinates differ in the locked browser matrix, so RTL uses
+this same fallback across engines without browser sniffing.
 
 This is not a top-layer or Escape-dismissable tooltip, and clipped containers
 can clip its optional visual content. Avoid placing anchored previews over

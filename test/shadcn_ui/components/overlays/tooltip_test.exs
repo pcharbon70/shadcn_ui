@@ -94,6 +94,8 @@ defmodule ShadcnUI.Components.Overlays.TooltipTest do
     globals = %{
       "ID" => "wrong",
       "ROLE" => "button",
+      "ARIA-HASPOPUP" => "menu",
+      "aria-expanded" => "true",
       "tabindex" => "0",
       "aria_describedby" => "wrong",
       "ARIA-HIDDEN" => "true",
@@ -106,7 +108,7 @@ defmodule ShadcnUI.Components.Overlays.TooltipTest do
       render(%{rest: globals, surface_rest: globals, trigger: [%{label: "Save", rest: globals}]})
 
     refute html =~ "wrong"
-    refute html =~ ~r/(tabindex|ARIA-HIDDEN|contenteditable)/
+    refute html =~ ~r/(tabindex|ARIA-HIDDEN|ARIA-HASPOPUP|aria-expanded|contenteditable)/
     assert html =~ ~s(data-owner="caller")
     assert html =~ ~s(data-on-click="app")
   end

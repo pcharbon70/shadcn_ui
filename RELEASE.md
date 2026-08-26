@@ -87,6 +87,25 @@ operations. The actual archive audit requires both new defining modules and
 excludes fixture generation, browser tooling and demo sources. Gallery pages
 remain scheduled for Phase 6.
 
+## Milestone D Phase 5 acceptance record
+
+Tooltip and Hover Card provide supplemental CSS-first descriptions/previews,
+not interest invokers or interactive overlays. Their text-labelled native
+buttons/links, stable description IDs, escaping, protected globals and
+presentation-only preview guard are verified without adding runtime dependencies.
+Required instructions and complete destinations remain outside previews.
+
+Run `mix run scripts/render-supplemental-fixture.exs --check` and
+`npm run browser:milestone-d-phase5` with all prior overlay suites. Locked
+Chromium, Firefox and WebKit exercise hidden accessible descriptions, keyboard
+and pointer operation, native link activation/context menus, preview transitions,
+replacement, scoped logical placement, no-script/touch, unsupported CSS,
+themes, forced colors, reduced motion, zoom, long RTL text and clipped containers.
+The archive audit requires both public modules and their shared helper while
+excluding browser tooling, fixture generators, tests, demo and package JavaScript.
+The optional preview may be clipped; it never becomes a required operation.
+Public overlay gallery delivery and milestone acceptance remain Phase 6 work.
+
 ## Milestone C acceptance record
 
 The candidate must include the seven Milestone C public components and their
