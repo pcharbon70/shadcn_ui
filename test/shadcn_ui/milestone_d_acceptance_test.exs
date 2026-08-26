@@ -20,6 +20,10 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
   # covers: shadcn_ui.dialog.shared_contract
   # covers: shadcn_ui.dialog.drawer shadcn_ui.dialog.drawer_scroll
   # covers: shadcn_ui.package.explicit_release_files shadcn_ui.package.public_import_surface
+  # covers: shadcn_ui.popover.native_surface shadcn_ui.popover.modes
+  # covers: shadcn_ui.popover.positioning shadcn_ui.popover.state_ownership
+  # covers: shadcn_ui.popover.dropdown_actions shadcn_ui.popover.not_menu
+  # covers: shadcn_ui.popover.protected_semantics shadcn_ui.popover.shared_contract
 
   test "Phase 1 joins authored capability evidence to a three-engine harness" do
     manifest = Jason.decode!(File.read!("priv/compatibility/native_overlays.json"))
@@ -197,6 +201,81 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
 
     for path <- ["scripts", "test", "demo", "playwright.milestone-d-phase3.config.mjs"],
         do: refute(path in files)
+  end
+
+  test "Phase 4 publishes native Popover and ordinary-control Dropdown Actions" do
+    popover = File.read!("lib/shadcn_ui/components/overlays/popover.ex")
+    actions = File.read!("lib/shadcn_ui/components/overlays/dropdown_actions.ex")
+    fixture = File.read!("test/fixtures/milestone_d_popovers.html")
+
+    for module <- ["Popover", "DropdownActions"] do
+      assert File.read!("lib/shadcn_ui.ex") =~ "ShadcnUI.Components.Overlays.#{module}"
+      assert File.read!("mix.exs") =~ "ShadcnUI.Components.Overlays.#{module}"
+    end
+
+    assert popover =~ "OverlayContract.popover_mode!"
+    assert popover =~ "OverlayContract.popover_action!"
+    assert actions =~ ~s(mode={:auto})
+    assert fixture =~ ~s(popover="manual")
+    assert fixture =~ ~s(id="record-actions-action-save" type="submit")
+    assert fixture =~ ~s(name="intent" value="save" form="action-form")
+    assert fixture =~ ~s(aria-describedby="record-actions-group-record")
+    refute fixture =~ ~r/role="(?:menu|menubar|menuitem)"/
+
+    refute popover <> actions =~
+             ~r/(addEventListener|beforetoggle=|ontoggle=|ResizeObserver|IntersectionObserver|setTimeout|\.focus\(|getBoundingClientRect|String\.to_atom|<script|hidePopover\()/
+  end
+
+  test "Phase 4 joins deterministic fixtures, optional positioning and three-engine CI" do
+    config = File.read!("playwright.milestone-d-phase4.config.mjs")
+    for engine <- ~w(chromium firefox webkit), do: assert(config =~ ~s(browserName: "#{engine}"))
+    ci = File.read!(".github/workflows/gallery.yml")
+    assert ci =~ "mix run scripts/render-popover-fixture.exs --check"
+    assert ci =~ "npm run browser:milestone-d-phase4"
+    browser = File.read!("test/browser/milestone-d-popovers.spec.mjs")
+
+    for evidence <- [
+          "javaScriptEnabled: false",
+          "hasTouch: true",
+          "sheet.deleteRule",
+          "outerHTML = snapshot",
+          "Shift+Tab",
+          "tabsToLinks",
+          "waitForURL",
+          "forcedColors",
+          "reducedMotion"
+        ] do
+      assert browser =~ evidence
+    end
+
+    refute browser =~ ~r/if\s*\(browserName/
+    css = File.read!("assets/shadcn_ui.css")
+    assert css =~ "(position-area: block-end) and (position-try-fallbacks: flip-block)"
+    assert css =~ "flip-block, flip-inline, flip-block flip-inline"
+    assert css =~ "[data-shadcn-ui-popover-surface][popover]:not(:popover-open)"
+  end
+
+  test "Phase 4 records provenance and excludes behavior or browser machinery from releases" do
+    manifest = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
+
+    for {id, name, upstream} <- [
+          {"overlays.popover", "popover", "popover"},
+          {"overlays.dropdown-actions", "dropdown_actions", "dropdown-menu"}
+        ] do
+      entry = Enum.find(manifest["adaptations"], &(&1["id"] == id))
+      assert "lib/shadcn_ui/components/overlays/#{name}.ex" in entry["localPaths"]
+      assert "src/demos/#{upstream}/basic.html" in entry["upstreamPaths"]
+    end
+
+    files = Mix.Project.config()[:package][:files]
+
+    for excluded <- ["demo", "test", "scripts", "playwright.milestone-d-phase4.config.mjs"],
+        do: refute(excluded in files)
+
+    readme = File.read!("README.md")
+    assert readme =~ "not an ARIA menu"
+    assert readme =~ "no roving tabindex"
+    assert readme =~ "always-visible ordinary fallback"
   end
 
   test "Phase 2 provenance and source audit exclude modal and consequence runtimes" do

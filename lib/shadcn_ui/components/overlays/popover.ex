@@ -78,11 +78,24 @@ defmodule ShadcnUI.Components.Overlays.Popover do
       |> assign(:description_id, assigns.description != [] && identity.description_id)
       |> assign(
         :safe_rest,
-        protect_globals(assigns.rest, [:id, :role, :data_shadcn_ui, :data_shadcn_ui_popover])
+        protect_globals(assigns.rest, [
+          :id,
+          :role,
+          :popover,
+          :open,
+          :autofocus,
+          :data_shadcn_ui,
+          :data_shadcn_ui_popover
+        ])
       )
       |> assign(
         :safe_trigger_rest,
-        safe_globals!(assigns.trigger_rest, :invoker, [:aria_expanded, :aria_details, :tabindex])
+        safe_globals!(assigns.trigger_rest, :invoker, [
+          :popover,
+          :aria_expanded,
+          :aria_details,
+          :tabindex
+        ])
       )
       |> assign(
         :safe_surface_rest,
@@ -99,6 +112,7 @@ defmodule ShadcnUI.Components.Overlays.Popover do
       |> assign(
         :safe_close_rest,
         safe_globals!(assigns.close_rest, :close, [
+          :popover,
           :disabled,
           :hidden,
           :inert,

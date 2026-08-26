@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 // covers: shadcn_ui.popover.positioning shadcn_ui.popover.state_ownership
 // covers: shadcn_ui.popover.shared_contract
 // covers: shadcn_ui.popover.dropdown_actions shadcn_ui.popover.not_menu
+// covers: shadcn_ui.stylesheet.overlay_fallbacks shadcn_ui.stylesheet.overlay_resilience
 const html = readFileSync(new URL("../fixtures/milestone_d_popovers.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../../priv/static/shadcn_ui.css", import.meta.url), "utf8");
 async function load(page) {
@@ -184,6 +185,49 @@ test("Dropdown touch-sized actions, long labels, light dismiss, replacement and 
   await page.locator("#record-actions-invoker").tap();
   await page.locator("#record-actions").evaluate((el, snapshot) => { el.outerHTML = snapshot; }, snapshot);
   expect(await page.locator("#record-actions-surface").evaluate(opened)).toBe(false);
+  await page.locator("#record-actions [data-shadcn-ui-popover-fallback] a").click();
+  expect(page.url()).toContain("#fallback");
+  await context.close();
+});
+
+test("logical placement follows the actual invoker and ordered fallbacks remain optional", async ({ page }) => {
+  await load(page);
+  await page.setViewportSize({ width: 1200, height: 900 });
+  await page.locator("#basic-invoker").evaluate(el => { el.style.cssText = "position:fixed;top:400px;left:550px"; });
+  for (const dir of ["ltr", "rtl"]) {
+    await page.locator("html").evaluate((el, dir) => { el.dir = dir; }, dir);
+    for (const placement of ["block-start", "block-end", "inline-start", "inline-end"]) {
+      await page.locator("#basic-surface").evaluate((el, placement) => { el.dataset.placement = placement; }, placement);
+      await page.locator("#basic-invoker").click();
+      const supported = await page.evaluate(() => CSS.supports("position-area", "block-end") && CSS.supports("position-try-fallbacks", "flip-block"));
+      const trigger = await page.locator("#basic-invoker").boundingBox();
+      const box = await page.locator("#basic-surface").boundingBox();
+      if (supported) {
+        if (placement === "block-start") expect(box.y + box.height).toBeLessThanOrEqual(trigger.y);
+        else if (placement === "block-end") expect(box.y).toBeGreaterThanOrEqual(trigger.y + trigger.height);
+        else if ((placement === "inline-start") === (dir === "ltr")) expect(box.x + box.width).toBeLessThanOrEqual(trigger.x);
+        else expect(box.x).toBeGreaterThanOrEqual(trigger.x + trigger.width);
+      } else {
+        expect(box.x).toBeGreaterThan(0);
+        expect(box.y).toBeGreaterThan(0);
+      }
+      await page.locator("#basic-close").click();
+    }
+  }
+});
+
+test("Dropdown remains native without scripts and has an unsupported-Popover destination", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+  await page.setContent(html);
+  await page.locator("#record-actions-invoker").click();
+  await expect(page.locator("#record-actions-action-delete")).toBeVisible();
+  await page.locator("#record-actions-action-delete").click();
+  expect(await page.locator("#record-actions-surface").evaluate(opened)).toBe(true);
+  await page.keyboard.press("Escape");
+  await page.setContent(html.replace(/popovertarget="[^"]*"/g, "").replace(/popover="(?:auto|manual)"/g, "hidden"));
+  await page.locator("#record-actions-invoker").click();
+  await expect(page.locator("#record-actions-surface")).not.toBeVisible();
   await page.locator("#record-actions [data-shadcn-ui-popover-fallback] a").click();
   expect(page.url()).toContain("#fallback");
   await context.close();

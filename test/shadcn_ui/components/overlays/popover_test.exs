@@ -18,10 +18,12 @@ defmodule ShadcnUI.Components.Overlays.PopoverTest do
     attr :labelledby, :any, default: nil
     attr :optional?, :boolean, default: true
     attr :globals, :map, default: %{}
+    attr :wrapper_globals, :map, default: %{}
 
     def render(assigns) do
       ~H"""
       <.popover
+        {@wrapper_globals}
         id={@id}
         mode={@mode}
         action={@action}
@@ -141,6 +143,69 @@ defmodule ShadcnUI.Components.Overlays.PopoverTest do
 
     refute source =~
              ~r/(addEventListener|beforetoggle=|ontoggle=|getBoundingClientRect|ResizeObserver|setTimeout|\.focus\(|String\.to_atom|<script)/
+  end
+
+  test "globals cannot introduce a second popover on a wrapper or button" do
+    html = render_popover(%{globals: %{popover: "manual"}, wrapper_globals: %{popover: "manual"}})
+    assert length(Regex.scan(~r/\spopover="/, html)) == 1
+    assert html =~ ~s(popover="auto")
+
+    mixed_case =
+      render_popover(%{
+        globals: %{
+          "ID" => "stolen",
+          "ROLE" => "menu",
+          "POPOVER" => "manual",
+          "Aria-Labelledby" => "stolen"
+        },
+        wrapper_globals: %{"POPOVER" => "manual"}
+      })
+
+    refute mixed_case =~ ~r/(stolen|ROLE=|POPOVER=)/
+    assert length(Regex.scan(~r/\spopover="/, mixed_case)) == 1
+  end
+
+  test "ambiguous slot counts and malformed globals fail explicitly" do
+    slot = %{inner_block: fn _, _ -> "Content" end}
+
+    base = %{
+      __changed__: nil,
+      id: "p",
+      mode: :auto,
+      action: :toggle,
+      placement: :block_end,
+      accessible_label: "Popover",
+      labelledby: nil,
+      trigger: [slot],
+      title: [],
+      description: [],
+      close: [],
+      fallback: [],
+      inner_block: [slot],
+      class: nil,
+      trigger_class: nil,
+      close_class: nil,
+      rest: %{},
+      trigger_rest: %{},
+      surface_rest: %{},
+      close_rest: %{}
+    }
+
+    for name <- [:trigger, :title, :description, :close, :fallback] do
+      assert_raise ArgumentError, fn ->
+        ShadcnUI.Components.Overlays.Popover.popover(Map.put(base, name, [slot, slot]))
+      end
+    end
+
+    assert_raise ArgumentError, fn ->
+      ShadcnUI.Components.Overlays.Popover.popover(%{base | trigger: []})
+    end
+
+    for name <- [:trigger_rest, :surface_rest, :close_rest] do
+      assert_raise ArgumentError, fn ->
+        ShadcnUI.Components.Overlays.Popover.popover(Map.put(base, name, %URI{}))
+      end
+    end
   end
 
   defp render_popover(attrs \\ %{}),

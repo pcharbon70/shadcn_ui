@@ -18,6 +18,7 @@ decisions:
   - shadcn_ui.supplemental_surface_boundary
 surface:
   - lib/shadcn_ui.ex
+  - lib/shadcn_ui/component.ex
   - lib/shadcn_ui/components/**/*.ex
   - test/shadcn_ui/component_contract_test.exs
   - test/shadcn_ui/components/**/*.exs
@@ -84,6 +85,10 @@ surface:
 ```
 
 ## Verification
+
+Protected HTML globals are matched case-insensitively, including their documented
+atom/string and underscore/hyphen aliases, so mixed-case attribute spelling
+cannot override native identity or accessibility relationships.
 
 ```spec-verification
 - kind: command

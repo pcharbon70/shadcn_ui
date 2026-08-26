@@ -78,7 +78,11 @@ defmodule ShadcnUI.Components.Overlays.OverlayCapabilityManifestTest do
     assert "priv/compatibility" in release_files
     refute Enum.any?(release_files, &String.starts_with?(&1, ["demo", "test", "scripts"]))
     refute package =~ ~r/(floating-ui|focus-trap|popover-polyfill|custom-element|overlay-stack)/i
-    refute runtime =~ ~r/(defmodule\s+.*Hook|GenServer|JavaScript|ipcRenderer|Electron)/
+    # Documentation may explicitly say "no JavaScript"; reject runtime constructs.
+    refute runtime =~
+             ~r/(defmodule\s+.*(?:Hook|JavaScript)|GenServer|ipcRenderer|Electron|<script|phx-hook=|addEventListener\()/
+
+    assert Path.wildcard("lib/**/*.{js,mjs,ts}") == []
   end
 
   defp manifest, do: decode!(@manifest_path)

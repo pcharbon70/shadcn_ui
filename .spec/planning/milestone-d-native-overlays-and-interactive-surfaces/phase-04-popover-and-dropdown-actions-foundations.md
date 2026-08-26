@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 4 Phase - Publish native nonmodal Popover and a Dropdown Actions
+- [x] 4 Phase - Publish native nonmodal Popover and a Dropdown Actions
   composition whose controls remain ordinary links and buttons.
 
   This phase uses browser top-layer, invoker, focus-order, light-dismiss, and
@@ -59,27 +59,56 @@ Back to wave: [README](./README.md)
       - [x] 4.2.2.3 Subtask - Compare Dropdown Actions with Navigation Menu, Button groups, native select, future ARIA menus, command palettes, and application toolbars.
       - [x] 4.2.2.4 Subtask - Add mixed links and buttons, disabled controls, long labels, translated groups, destructive styling, native forms, unsupported-Popover fallback links, and replacement fixtures.
 
-  - [ ] 4.3 Section - Phase 4 Integration Tests.
+  - [x] 4.3 Section - Phase 4 Integration Tests.
 
     This section verifies native nonmodal behavior, bounded placement, ordinary
     action semantics, and explicit rejection of a full menu contract.
 
-    - [ ] 4.3.1 Task - Verify Popover invocation and positioning.
+    - [x] 4.3.1 Task - Verify Popover invocation and positioning.
 
       Automated evidence should distinguish native behavior from optional CSS
       and demonstrate usable fallbacks at every viewport edge.
 
-      - [ ] 4.3.1.1 Subtask - Test every Popover slot, mode, action, placement, identity, accessible relationship, explicit close, caller global, escaping, stable rerender, and invalid value.
-      - [ ] 4.3.1.2 Subtask - Browser-test toggle, show, hide, auto light dismiss, manual persistence, Escape, Tab order, focus return, nested Popover, and replacement behavior.
-      - [ ] 4.3.1.3 Subtask - Test anchor positions and tries at every viewport edge, nested scroll, narrow and wide layouts, zoom, forced colors, reduced motion, RTL, CSS-disabled, no-script, and unsupported-feature fixtures.
-      - [ ] 4.3.1.4 Subtask - Audit source for toggle listeners, coordinate calculations, observers, timers, focus movement, open-state synchronization, browser sniffing, and JavaScript.
+      - [x] 4.3.1.1 Subtask - Test every Popover slot, mode, action, placement, identity, accessible relationship, explicit close, caller global, escaping, stable rerender, and invalid value.
+      - [x] 4.3.1.2 Subtask - Browser-test toggle, show, hide, auto light dismiss, manual persistence, Escape, Tab order, focus return, nested Popover, and replacement behavior.
+      - [x] 4.3.1.3 Subtask - Test anchor positions and tries at every viewport edge, nested scroll, narrow and wide layouts, zoom, forced colors, reduced motion, RTL, CSS-disabled, no-script, and unsupported-feature fixtures.
+      - [x] 4.3.1.4 Subtask - Audit source for toggle listeners, coordinate calculations, observers, timers, focus movement, open-state synchronization, browser sniffing, and JavaScript.
 
-    - [ ] 4.3.2 Task - Verify Dropdown Actions semantics and ownership.
+    - [x] 4.3.2 Task - Verify Dropdown Actions semantics and ownership.
 
       Tests should prove that a visual dropdown remains a collection of ordinary
       application-owned controls rather than a partial menu widget.
 
-      - [ ] 4.3.2.1 Subtask - Test stable actions, groups, separators, links, buttons, disabled state, forms, targets, values, caller globals, escaping, and invalid nesting or keys.
-      - [ ] 4.3.2.2 Subtask - Browser-test Tab and Shift+Tab, Enter and Space, link destination, native submission, light dismiss, Escape, focus restoration, touch target size, and fallback destinations.
-      - [ ] 4.3.2.3 Subtask - Assert forbidden menu roles, roving focus, arrow keys, typeahead, submenus, authorization, command execution, automatic outcome dismissal, and package runtime remain absent.
-      - [ ] 4.3.2.4 Subtask - Run asset checks, package precommit, cross-engine Popover suites, ExDoc, provenance and archive audits, `mix spec.check --base main`, and `git diff --check`.
+      - [x] 4.3.2.1 Subtask - Test stable actions, groups, separators, links, buttons, disabled state, forms, targets, values, caller globals, escaping, and invalid nesting or keys.
+      - [x] 4.3.2.2 Subtask - Browser-test Tab and Shift+Tab, Enter and Space, link destination, native submission, light dismiss, Escape, focus restoration, touch target size, and fallback destinations.
+      - [x] 4.3.2.3 Subtask - Assert forbidden menu roles, roving focus, arrow keys, typeahead, submenus, authorization, command execution, automatic outcome dismissal, and package runtime remain absent.
+      - [x] 4.3.2.4 Subtask - Run asset checks, package precommit, cross-engine Popover suites, ExDoc, provenance and archive audits, `mix spec.check --base main`, and `git diff --check`.
+
+## Phase 4 verification evidence
+
+- `mix precommit`: 305 package tests passed.
+- Popover/Dropdown Actions: 30 checks passed across locked Chromium, Firefox,
+  and WebKit. Prior Phase 1/2/3 suites passed 21 + 21 + 30 checks: 102 total.
+- The fixture is generated from actual component HEEx and checked for staleness
+  in CI. Coverage includes all logical edges, real invoker proximity and flips,
+  native modes/actions, keyboard preferences, nonmodal focus, native form
+  submission, mixed actions, disabled state, touch target sizing, long text,
+  nested Popover in Dialog, replacement, zoom, RTL, themes, forced colors,
+  reduced motion and CSS/script/feature-disabled fallbacks.
+- Firefox may add a native scroll-region Tab stop; the locked WebKit keyboard
+  preference skips links. Tests compare native controls and preserve their
+  behavior instead of adding focus scripts or browser-name branches.
+- Integration regressions protect against additional popovers injected through
+  globals and mixed-case HTML attributes bypassing mandatory semantics. The
+  source audit rejects runtime constructs without rejecting documentation that
+  explicitly states no JavaScript is shipped.
+- Deterministic CSS and fixture checks, ExDoc, Hex build, the actual release
+  allowlist audit (48 entries), deterministic gallery export and whitespace
+  checks passed. Fixture tooling and application behavior stay out of releases.
+- `mix spec.next --base main` and `mix spec.check --base main` were run. SpecLed
+  still reports four nested command failures due to the existing local
+  Erlang/OTP/rebar mismatch; those commands pass directly. The 152 remaining
+  warnings concern historical coverage references and future-phase targets.
+  This is not a claim of a clean SpecLed run.
+- Public overlay gallery delivery remains Phase 6; this phase adds no routes,
+  command execution, package JavaScript or consumer-specific runtime target.

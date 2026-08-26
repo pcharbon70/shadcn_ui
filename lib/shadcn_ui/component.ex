@@ -84,13 +84,13 @@ defmodule ShadcnUI.Component do
     protected_keys =
       protected
       |> Enum.flat_map(fn key ->
-        string_key = to_string(key)
+        string_key = key |> to_string() |> String.downcase()
         [string_key, String.replace(string_key, "_", "-")]
       end)
       |> MapSet.new()
 
     Map.reject(globals, fn {key, _value} ->
-      MapSet.member?(protected_keys, to_string(key))
+      MapSet.member?(protected_keys, key |> to_string() |> String.downcase())
     end)
   end
 
