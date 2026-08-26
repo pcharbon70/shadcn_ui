@@ -18,6 +18,8 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
   # covers: shadcn_ui.dialog.initial_focus shadcn_ui.dialog.alert_dialog
   # covers: shadcn_ui.dialog.alert_ownership shadcn_ui.dialog.protected_semantics
   # covers: shadcn_ui.dialog.shared_contract
+  # covers: shadcn_ui.dialog.drawer shadcn_ui.dialog.drawer_scroll
+  # covers: shadcn_ui.package.explicit_release_files shadcn_ui.package.public_import_surface
 
   test "Phase 1 joins authored capability evidence to a three-engine harness" do
     manifest = Jason.decode!(File.read!("priv/compatibility/native_overlays.json"))
@@ -125,6 +127,76 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
     assert readme =~ "The browser owns Tab containment"
     assert readme =~ "The component never"
     assert readme =~ ~r/Browser\s+`confirm\(\)`/
+  end
+
+  test "Phase 3 exposes Drawer and exercises actual generated HEEx across three engines" do
+    assert File.read!("lib/shadcn_ui.ex") =~ "ShadcnUI.Components.Overlays.Drawer"
+    assert File.read!("mix.exs") =~ "ShadcnUI.Components.Overlays.Drawer"
+    config = File.read!("playwright.milestone-d-phase3.config.mjs")
+
+    for engine <- ~w(chromium firefox webkit) do
+      assert config =~ ~s(browserName: "#{engine}")
+    end
+
+    ci = File.read!(".github/workflows/gallery.yml")
+    assert ci =~ "mix run scripts/render-drawer-fixture.exs --check"
+    assert ci =~ "npm run browser:milestone-d-phase3"
+    assert ci =~ "mix run scripts/check-release-archive.exs"
+    browser = File.read!("test/browser/milestone-d-drawers.spec.mjs")
+
+    for evidence <- [
+          "javaScriptEnabled: false",
+          "hasTouch: true",
+          "sheet.deleteRule",
+          "outerHTML = replacement",
+          "forcedColors",
+          "scrollTop",
+          "returnValue",
+          "Shift+Tab"
+        ] do
+      assert browser =~ evidence
+    end
+
+    refute browser =~ ~r/if\s*\(browserName/
+  end
+
+  test "Phase 3 composes prior components without changing child relationships" do
+    fixture = File.read!("test/fixtures/milestone_d_drawers.html")
+
+    for marker <-
+          ~w(data-shadcn-ui-header data-shadcn-ui-section-header data-shadcn-ui-navigation-menu data-shadcn-ui-accordion data-shadcn-ui-scroll-area data-shadcn-ui-radio-panels data-shadcn-ui-input data-shadcn-ui-separator) do
+      assert fixture =~ marker
+    end
+
+    assert fixture =~ ~s(aria-label="Record destinations")
+    assert fixture =~ ~s(href="#fallback-content")
+    assert fixture =~ ~s(form="edit-form")
+    assert fixture =~ ~s(role="region")
+    assert fixture =~ ~s(aria-invalid="true")
+    assert fixture =~ "Caller-rendered validation message."
+    assert length(Regex.scan(~r/<form\b/, fixture)) == 1
+    assert length(Regex.scan(~r/<nav\b/, fixture)) == 1
+    refute fixture =~ ~r/(<aside|role="(?:complementary|menu|tablist)"|<script)/
+  end
+
+  test "Phase 3 keeps native scroll, safe-area, release and provenance boundaries" do
+    css = File.read!("assets/shadcn_ui.css")
+    for side <- ~w(top right bottom left), do: assert(css =~ "env(safe-area-inset-#{side}, 0px)")
+    assert css =~ "min(100%, 100dvb)"
+    assert css =~ "[data-shadcn-ui-drawer-body]:focus"
+    source = File.read!("lib/shadcn_ui/components/overlays/drawer.ex")
+
+    refute source =~
+             ~r/(<script|addEventListener|setPointerCapture|ResizeObserver|IntersectionObserver|setTimeout|handle_event|String\.to_atom|scrollTop\s*=)/
+
+    provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
+    adaptation = Enum.find(provenance["adaptations"], &(&1["id"] == "overlays.drawer"))
+    assert "lib/shadcn_ui/components/overlays/drawer.ex" in adaptation["localPaths"]
+    assert "src/demos/drawer/basic.html" in adaptation["upstreamPaths"]
+    files = Mix.Project.config()[:package][:files]
+
+    for path <- ["scripts", "test", "demo", "playwright.milestone-d-phase3.config.mjs"],
+        do: refute(path in files)
   end
 
   test "Phase 2 provenance and source audit exclude modal and consequence runtimes" do

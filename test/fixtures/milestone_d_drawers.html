@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" data-shadcn-theme="light">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Drawer browser fixture
+    </title>
+  </head>
+  <body>
+    <a id="outside" href="#fallback-content">Outside focus target</a>
+    <div>
+      <div id="drawer-start" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="drawer-start-invoker" type="button" command="show-modal" commandfor="drawer-start-surface" aria-haspopup="dialog" aria-controls="drawer-start-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open start
+  </button>
+  <dialog id="drawer-start-surface" closedby="closerequest" aria-labelledby="drawer-start-title" aria-describedby="drawer-start-description" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="start" data-size="default" data-initial-focus-target="drawer-start-initial-focus" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="drawer-start-title" class="sui:text-lg sui:font-semibold">
+          Drawer start
+        </h2>
+        <div id="drawer-start-description" class="sui:text-sm sui:text-muted-foreground">
+          Native edge presentation.
+        </div>
+
+      </div>
+      <button id="drawer-start-close" type="button" command="close" commandfor="drawer-start-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="drawer-start-initial-focus" role="region" aria-labelledby="drawer-start-title" tabindex="0" autofocus data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Details in document order.</p>
+        <input aria-label="Example value">
+
+    </div>
+
+  </dialog>
+  <div data-shadcn-ui-drawer-fallback><a href="#fallback-content">Open full details</a></div>
+</div>
+    </div><div>
+      <div id="drawer-end" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="drawer-end-invoker" type="button" command="show-modal" commandfor="drawer-end-surface" aria-haspopup="dialog" aria-controls="drawer-end-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open end
+  </button>
+  <dialog id="drawer-end-surface" closedby="closerequest" aria-labelledby="drawer-end-title" aria-describedby="drawer-end-description" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="end" data-size="default" data-initial-focus-target="drawer-end-initial-focus" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="drawer-end-title" class="sui:text-lg sui:font-semibold">
+          Drawer end
+        </h2>
+        <div id="drawer-end-description" class="sui:text-sm sui:text-muted-foreground">
+          Native edge presentation.
+        </div>
+
+      </div>
+      <button id="drawer-end-close" type="button" command="close" commandfor="drawer-end-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="drawer-end-initial-focus" role="region" aria-labelledby="drawer-end-title" tabindex="0" autofocus data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Details in document order.</p>
+        <input aria-label="Example value">
+
+    </div>
+
+  </dialog>
+  <div data-shadcn-ui-drawer-fallback><a href="#fallback-content">Open full details</a></div>
+</div>
+    </div><div>
+      <div id="drawer-bottom" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="drawer-bottom-invoker" type="button" command="show-modal" commandfor="drawer-bottom-surface" aria-haspopup="dialog" aria-controls="drawer-bottom-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open bottom
+  </button>
+  <dialog id="drawer-bottom-surface" closedby="closerequest" aria-labelledby="drawer-bottom-title" aria-describedby="drawer-bottom-description" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="bottom" data-size="default" data-initial-focus-target="drawer-bottom-initial-focus" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="drawer-bottom-title" class="sui:text-lg sui:font-semibold">
+          Drawer bottom
+        </h2>
+        <div id="drawer-bottom-description" class="sui:text-sm sui:text-muted-foreground">
+          Native edge presentation.
+        </div>
+
+      </div>
+      <button id="drawer-bottom-close" type="button" command="close" commandfor="drawer-bottom-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="drawer-bottom-initial-focus" role="region" aria-labelledby="drawer-bottom-title" tabindex="0" autofocus data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Details in document order.</p>
+        <input aria-label="Example value">
+
+    </div>
+
+  </dialog>
+  <div data-shadcn-ui-drawer-fallback><a href="#fallback-content">Open full details</a></div>
+</div>
+    </div>
+    <div>
+      <div id="policy-none" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="policy-none-invoker" type="button" command="show-modal" commandfor="policy-none-surface" aria-haspopup="dialog" aria-controls="policy-none-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open none
+  </button>
+  <dialog id="policy-none-surface" closedby="none" aria-labelledby="policy-none-title" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="bottom" data-size="small" data-initial-focus-target="policy-none-close" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="policy-none-title" class="sui:text-lg sui:font-semibold">
+          Dismissal none
+        </h2>
+
+
+      </div>
+      <button id="policy-none-close" type="button" command="close" commandfor="policy-none-surface" autofocus data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="policy-none-content" role="region" aria-labelledby="policy-none-title" tabindex="0" data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Always has an explicit exit.</p>
+
+    </div>
+
+  </dialog>
+
+</div>
+    </div><div>
+      <div id="policy-any" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="policy-any-invoker" type="button" command="show-modal" commandfor="policy-any-surface" aria-haspopup="dialog" aria-controls="policy-any-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open any
+  </button>
+  <dialog id="policy-any-surface" closedby="any" aria-labelledby="policy-any-title" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="bottom" data-size="small" data-initial-focus-target="policy-any-close" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="policy-any-title" class="sui:text-lg sui:font-semibold">
+          Dismissal any
+        </h2>
+
+
+      </div>
+      <button id="policy-any-close" type="button" command="close" commandfor="policy-any-surface" autofocus data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="policy-any-content" role="region" aria-labelledby="policy-any-title" tabindex="0" data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+        <p>Always has an explicit exit.</p>
+
+    </div>
+
+  </dialog>
+
+</div>
+    </div>
+    <div id="edit-details" data-shadcn-ui data-shadcn-ui-drawer>
+  <button id="edit-details-invoker" type="button" command="show-modal" commandfor="edit-details-surface" aria-haspopup="dialog" aria-controls="edit-details-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Edit details
+  </button>
+  <dialog id="edit-details-surface" closedby="closerequest" aria-labelledby="edit-details-title" aria-describedby="edit-details-description" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-drawer-surface data-edge="end" data-size="large" data-initial-focus-target="edit-details-initial-focus" class="">
+    <header data-shadcn-ui-drawer-header>
+      <div class="sui:min-w-0">
+        <h2 id="edit-details-title" class="sui:text-lg sui:font-semibold">
+          Record details
+        </h2>
+        <div id="edit-details-description" class="sui:text-sm sui:text-muted-foreground">
+          Caller-owned draft.
+        </div>
+        <span>Record 42</span>
+      </div>
+      <button id="edit-details-close" type="button" command="close" commandfor="edit-details-surface" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        Close
+      </button>
+    </header>
+    <div id="edit-details-initial-focus" role="region" aria-labelledby="edit-details-title" tabindex="0" autofocus data-shadcn-ui data-shadcn-ui-drawer-body class="sui:min-w-0 sui:max-w-full sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+
+      <header data-shadcn-ui data-shadcn-ui-header data-width="contained" data-density="compact" data-wrap="responsive" data-border="bottom" data-presentation="static" class="sui:bg-background sui:text-foreground sui:mx-auto sui:w-full sui:max-w-7xl sui:px-3 sui:py-2 sui:border-b sui:border-border">
+  <div data-shadcn-ui-header-inner class="sui:flex sui:min-w-0 sui:items-center sui:gap-3 sui:flex-wrap sui:md:flex-nowrap">
+    <div data-shadcn-ui-header-brand class="sui:min-w-0 sui:shrink-0">
+      <span>Record tools</span>
+    </div>
+    <div data-shadcn-ui-header-primary class="sui:min-w-0 sui:flex-1">
+
+          <nav data-shadcn-ui data-shadcn-ui-navigation-menu data-layout="horizontal" aria-label="Record destinations" class="sui:w-full sui:max-w-full">
+  <ul data-shadcn-ui-navigation-list class="sui:flex sui:items-center sui:gap-1 sui:overflow-x-auto">
+    <li data-shadcn-ui-navigation-item data-item-key="full">
+      <a href="#fallback-content" data-shadcn-ui data-shadcn-ui-navigation-link class="sui:inline-flex sui:max-w-full sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-sm sui:font-medium sui:break-words sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+        <span>Full record</span>
+
+      </a>
+    </li>
+  </ul>
+</nav>
+
+    </div>
+
+
+  </div>
+</header>
+      <header data-shadcn-ui data-shadcn-ui-section-header data-presentation="static" data-anchor-effect="offset" class="sui:grid sui:min-w-0 sui:grid-cols-1 sui:bg-background sui:text-foreground sui:sm:grid-cols-[minmax(0,1fr)_auto] sui:sm:items-start sui:gap-2 sui:py-3 sui:scroll-mt-20">
+  <div data-shadcn-ui-section-header-copy class="sui:min-w-0">
+    <div data-shadcn-ui-section-header-heading class="sui:min-w-0 sui:break-words">
+
+          <h3>Draft fields</h3>
+
+    </div>
+
+  </div>
+
+</header>
+      <div data-shadcn-ui class="sui:grid sui:w-full sui:max-w-full sui:gap-x-3 sui:rounded-lg sui:border sui:px-4 sui:py-3 sui:text-sm sui:grid-cols-1 sui:border-destructive/30 sui:bg-destructive/5 sui:text-destructive">
+
+  <div data-shadcn-ui-slot="content" class="sui:min-w-0">
+    <p data-shadcn-ui-slot="title" class="sui:font-medium">
+      Review required
+    </p>
+    <p data-shadcn-ui-slot="description" class="sui:break-words sui:mt-0.5 sui:opacity-80">
+      The server reported a missing reference.
+    </p>
+
+  </div>
+</div>
+      <form id="edit-form" method="dialog">
+        <div data-shadcn-ui data-shadcn-ui-field data-required="true" class="sui:grid sui:min-w-0 sui:gap-2 sui:border-l-2 sui:border-transparent sui:pl-3 sui:text-foreground">
+  <label data-shadcn-ui id="record-reference-label" for="record-reference" class="sui:flex sui:min-w-0 sui:flex-wrap sui:items-baseline sui:gap-1 sui:break-words sui:text-sm sui:font-medium sui:leading-snug sui:text-foreground">
+  <span class="sui:min-w-0 sui:break-words">
+    Reference
+  </span>
+  <span aria-hidden="true" class="sui:font-semibold sui:text-destructive">*</span>
+
+</label>
+  <div data-shadcn-ui-field-control>
+    <div data-shadcn-ui-input-frame class="sui:relative sui:min-w-0">
+
+      <input data-shadcn-ui data-shadcn-ui-input id="record-reference" name="reference" type="text" value="" required class="sui:flex sui:w-full sui:min-w-0 sui:rounded-md sui:border sui:border-input sui:bg-background sui:text-foreground sui:shadow-xs sui:outline-none sui:transition-[color,box-shadow,border-color] sui:placeholder:text-muted-foreground sui:focus-visible:border-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background sui:disabled:pointer-events-none sui:disabled:cursor-not-allowed sui:disabled:opacity-50 sui:read-only:bg-muted sui:read-only:text-muted-foreground sui:min-h-9 sui:px-3 sui:py-2 sui:text-sm">
+
+    </div>
+  </div>
+
+
+</div>
+        <fieldset id="record-mode" data-shadcn-ui data-shadcn-ui-radio-panels data-layout="vertical" class="sui:min-w-0 sui:rounded-lg sui:border sui:border-border sui:p-4 sui:bg-background sui:text-foreground">
+  <legend id="record-mode-legend" class="sui:max-w-full sui:break-words sui:text-sm sui:font-semibold">
+    Detail level
+  </legend>
+  <div data-shadcn-ui-radio-panels-options class="sui:mt-3 sui:grid sui:gap-3">
+    <div data-shadcn-ui-radio-panel-option data-option-key="summary" data-selected="true" class="sui:min-w-0 sui:rounded-md sui:border sui:border-border">
+      <div class="sui:flex sui:min-w-0 sui:items-start sui:gap-2 sui:p-3">
+        <input data-shadcn-ui data-shadcn-ui-radio-panel-control type="radio" id="record-mode-option-summary" name="mode" value="summary" checked aria-controls="record-mode-panel-summary" class="sui:mt-0.5 sui:size-4 sui:shrink-0 sui:accent-primary">
+        <label id="record-mode-label-summary" for="record-mode-option-summary" data-shadcn-ui-radio-panel-label class="sui:min-w-0 sui:cursor-pointer sui:break-words sui:text-sm sui:font-medium">
+          Summary
+        </label>
+      </div>
+      <div id="record-mode-panel-summary" aria-labelledby="record-mode-label-summary" data-shadcn-ui-radio-panel class="sui:min-w-0 sui:border-t sui:border-border sui:p-3 sui:text-sm">
+
+            <p>Summary draft</p>
+
+      </div>
+    </div><div data-shadcn-ui-radio-panel-option data-option-key="complete" class="sui:min-w-0 sui:rounded-md sui:border sui:border-border">
+      <div class="sui:flex sui:min-w-0 sui:items-start sui:gap-2 sui:p-3">
+        <input data-shadcn-ui data-shadcn-ui-radio-panel-control type="radio" id="record-mode-option-complete" name="mode" value="complete" aria-controls="record-mode-panel-complete" class="sui:mt-0.5 sui:size-4 sui:shrink-0 sui:accent-primary">
+        <label id="record-mode-label-complete" for="record-mode-option-complete" data-shadcn-ui-radio-panel-label class="sui:min-w-0 sui:cursor-pointer sui:break-words sui:text-sm sui:font-medium">
+          Complete
+        </label>
+      </div>
+      <div id="record-mode-panel-complete" aria-labelledby="record-mode-label-complete" data-shadcn-ui-radio-panel class="sui:min-w-0 sui:border-t sui:border-border sui:p-3 sui:text-sm">
+
+            <p>Complete draft</p>
+
+      </div>
+    </div>
+  </div>
+</fieldset>
+        <hr data-shadcn-ui data-shadcn-ui-separator data-orientation="horizontal" aria-orientation="horizontal" class="sui:shrink-0 sui:border-0 sui:bg-border sui:h-px sui:w-full">
+
+        <div id="record-help" data-shadcn-ui data-shadcn-ui-accordion data-mode="independent" class="sui:grid sui:w-full sui:max-w-full sui:gap-2">
+  <details id="record-help-item-help" data-shadcn-ui data-shadcn-ui-accordion-item data-item-key="help" class="sui:group sui:w-full sui:rounded-md sui:border sui:border-border sui:bg-background sui:text-foreground">
+    <summary id="record-help-item-help-summary" aria-controls="record-help-item-help-content" data-shadcn-ui-accordion-summary class="sui:flex sui:w-full sui:max-w-full sui:cursor-pointer sui:items-center sui:gap-2 sui:rounded-md sui:px-4 sui:py-3 sui:text-left sui:text-sm sui:font-medium sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+      <span>Reference guidance</span>
+    </summary>
+    <div id="record-help-item-help-content" aria-labelledby="record-help-item-help-summary" data-shadcn-ui-accordion-content class="sui:min-w-0 sui:max-w-full sui:px-4 sui:pb-4 sui:text-sm sui:text-foreground">
+
+            Use the caller's reference number.
+
+    </div>
+  </details>
+</div>
+        <button type="button" popovertarget="record-note">Show note</button>
+        <div id="record-note" popover>
+          <p>One native nested Popover.</p><button type="button" popovertarget="record-note" popovertargetaction="hide">Hide note</button>
+        </div>
+        <div data-shadcn-ui class="sui:w-full sui:max-w-full sui:rounded-xl sui:border sui:border-border sui:bg-card sui:text-card-foreground sui:shadow-sm">
+  <div data-shadcn-ui-slot="header-region" class="sui:min-w-0 sui:p-6 sui:pb-4">
+
+    <div data-shadcn-ui-slot="title" class="sui:min-w-0 sui:font-semibold sui:tracking-tight">
+
+            <h3>Translated details</h3>
+
+    </div>
+
+
+  </div>
+  <div data-shadcn-ui-slot="content" class="sui:min-w-0 sui:px-6 sui:pb-6">
+
+          <p dir="auto">
+            1. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            2. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            3. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            4. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            5. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            6. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            7. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            8. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            9. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            10. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            11. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            12. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            13. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            14. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            15. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            16. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            17. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            18. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            19. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            20. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            21. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            22. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            23. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            24. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            25. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            26. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            27. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            28. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            29. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            30. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            31. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            32. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            33. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            34. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p><p dir="auto">
+            35. Long translated copy: Überprüfung der Datensätze — تفاصيل السجل — caller-owned content.
+          </p>
+
+  </div>
+
+</div>
+        <div data-shadcn-ui data-shadcn-ui-scroll-area data-axis="horizontal" data-size="default" data-edge-affordance="none" aria-label="Short supplementary content" class="sui:relative sui:max-w-full sui:rounded-md sui:border sui:border-border sui:bg-background sui:text-foreground sui:p-3 sui:overflow-x-auto sui:overflow-y-hidden sui:max-h-64">
+
+          <span>Short content fits without creating another vertical scroll region.</span>
+
+</div>
+        <div data-shadcn-ui data-shadcn-ui-field data-invalid="true" class="sui:grid sui:min-w-0 sui:gap-2 sui:border-l-2 sui:border-transparent sui:pl-3 sui:text-foreground sui:border-destructive">
+  <label data-shadcn-ui id="validation-target-label" for="validation-target" class="sui:flex sui:min-w-0 sui:flex-wrap sui:items-baseline sui:gap-1 sui:break-words sui:text-sm sui:font-medium sui:leading-snug sui:text-foreground">
+  <span class="sui:min-w-0 sui:break-words">
+    Server validation target
+  </span>
+
+
+</label>
+  <div data-shadcn-ui-field-control>
+    <div data-shadcn-ui-input-frame class="sui:relative sui:min-w-0">
+
+      <input data-shadcn-ui data-shadcn-ui-input id="validation-target" name="notes" type="text" value="Review this field" aria-describedby="validation-target-error-1" aria-invalid="true" class="sui:flex sui:w-full sui:min-w-0 sui:rounded-md sui:border sui:border-input sui:bg-background sui:text-foreground sui:shadow-xs sui:outline-none sui:transition-[color,box-shadow,border-color] sui:placeholder:text-muted-foreground sui:focus-visible:border-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background sui:disabled:pointer-events-none sui:disabled:cursor-not-allowed sui:disabled:opacity-50 sui:read-only:bg-muted sui:read-only:text-muted-foreground sui:border-destructive sui:ring-destructive/20 sui:min-h-9 sui:px-3 sui:py-2 sui:text-sm">
+
+    </div>
+  </div>
+
+  <ul data-shadcn-ui data-shadcn-ui-field-errors class="sui:m-0 sui:grid sui:list-disc sui:gap-1 sui:pl-5 sui:break-words sui:text-sm sui:font-medium sui:text-destructive">
+  <li id="validation-target-error-1" data-shadcn-ui-field-error>
+    Caller-rendered validation message.
+  </li>
+</ul>
+</div>
+      </form>
+
+    </div>
+    <footer data-shadcn-ui-drawer-footer>
+
+        <button id="save-record" value="saved" form="edit-form" data-shadcn-ui type="submit" class="sui:inline-flex sui:cursor-pointer sui:items-center sui:justify-center sui:gap-2 sui:max-w-full sui:whitespace-normal sui:text-center sui:rounded-lg sui:text-sm sui:font-medium sui:bg-primary sui:text-primary-foreground sui:transition-opacity sui:hover:opacity-90 sui:min-h-9 sui:px-4 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background sui:disabled:pointer-events-none sui:disabled:opacity-50">
+
+  Save draft
+
+</button>
+
+    </footer>
+  </dialog>
+  <div data-shadcn-ui-drawer-fallback><a href="#fallback-content">Edit on the full page</a></div>
+</div>
+    <section id="fallback-content">
+      <h1>Full details fallback</h1><p>Required details remain available.</p>
+    </section>
+  </body>
+</html>

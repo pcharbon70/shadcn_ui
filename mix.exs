@@ -123,7 +123,8 @@ defmodule ShadcnUI.MixProject do
         ],
         "Overlay components": [
           ShadcnUI.Components.Overlays.AlertDialog,
-          ShadcnUI.Components.Overlays.Dialog
+          ShadcnUI.Components.Overlays.Dialog,
+          ShadcnUI.Components.Overlays.Drawer
         ],
         "Package contract": [ShadcnUI, ShadcnUI.Component]
       ]

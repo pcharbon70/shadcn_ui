@@ -279,6 +279,110 @@ reinvocation or state restoration. Callers supporting browsers below the native
 invoker capability floor should render the `fallback` slot as an ordinary
 destination, visible content, or non-overlay operation.
 
+### Drawer
+
+`drawer/1` is a native modal Dialog presented at `edge={:start | :end | :bottom}`,
+not a navigation landmark or a gesture-driven bottom sheet. Logical start/end
+follow the inherited LTR/RTL direction. `size={:small | :default | :large}` bounds
+the side width or bottom height; the viewport always supplies the upper bound.
+
+```heex
+<.drawer id="filters" edge={:end} initial_focus={:content}>
+  <:trigger>Filter results</:trigger>
+  <:title>Filters</:title>
+  <:description>Choose filters before applying them.</:description>
+  <form id="filters-form" action="/results" method="get">
+    <label for="query">Query</label><input id="query" name="q" />
+  </form>
+  <:footer><button type="submit" form="filters-form">Apply filters</button></:footer>
+  <:close>Close</:close>
+  <:fallback><a href="/filters">Use the full filter page</a></:fallback>
+</.drawer>
+```
+
+Use one `title` or a nonblank `accessible_label`, never both. Optional
+`description`, `header`, and `footer` slots preserve caller content order.
+`initial_focus={:auto | :content | :close}` and
+`dismissal={:none | :close_request | :any}` retain the Dialog contract; default
+dismissal is `:close_request`. No script traps focus or restores the invoker.
+`trigger_rest`, `dialog_rest`, `content_rest`, and `close_rest` forward unrelated
+native/transport globals while mandatory semantics take precedence.
+
+The caller selects edge and responsive policy in each rendered snapshot.
+Orientation changes only affect CSS bounds. Replacing an open Drawer may close
+it and lose browser-local focus/scroll state; the application decides whether
+to preserve the subtree or render a new closed snapshot. There are no drag,
+swipe, pointer-capture, viewport-observer, or responsive-state handlers.
+Logical layout is capability-gated with a bounded ordinary modal fallback;
+discrete fades are optional, reduced motion snaps, and no transform is required.
+Without CSS the browser still supplies modal semantics. Without native invoker
+support, use the always-visible caller fallback link; an inert trigger is not a
+working Drawer. No package JavaScript is required or shipped.
+
+#### Drawer scrolling and composition
+
+The body is one named native overflow region with `tabindex="0"`, visible
+focus and a native scrollbar. Its name follows the title or accessible label;
+`:content` autofocus lands there. The header/title/close and optional footer
+remain outside that region in source order. This avoids sticky controls hiding
+focused fields. Safe-area padding belongs to the outer surface. Keep the header
+and footer concise, especially in landscape or enlarged-text layouts; put long
+translated text, help and validation messages in the body. Caller CSS or very
+large fixed regions can defeat those bounds.
+
+Overscroll containment and stable scrollbar gutters are CSS enhancements. When
+unsupported, the native scroll region remains usable and boundary gestures stay
+browser/OS-owned. The locked Windows WebKit build does not expose overscroll
+containment; tests explicitly exercise that fallback without a scroll script.
+
+Do not wrap the Drawer in a form: its trigger and explicit exit are buttons,
+and caller body forms must remain independent. A footer submit button can use
+`form="stable-form-id"` to target that body form. Native validation, server
+errors, CSRF, pending snapshots, submission results, and persistence are caller-
+owned. `method="dialog"` merely closes with a native return value; it does not
+save data. A single nested native Popover is supported, not nested modal stacks.
+
+Prefer ordinary content in the Drawer body. Scroll Area can hold a short or
+horizontal subsection, but do not add another tall vertical scroller. Accordion,
+separators, Radio Panels, native inputs, Alert, Card and Button retain their own
+semantics. Keep inner Header/Section Header static to avoid obscuring fields.
+There is no measurement, restoration, infinite loading, custom scrollbar,
+scroll listener, observer, focus script, or package result handling.
+
+Choose Drawer for contextual filters, record details, or compact edits. Choose
+Dialog for a short centered interruption; Popover for a nonmodal transient
+surface. Use a dedicated route for lengthy work, a normal sidebar for persistent
+navigation, and application-specific behavior for gesture-driven bottom sheets.
+Drawer is not a replacement for responsive page navigation.
+
+```heex
+<.drawer id="record-42" edge={:start} initial_focus={:close}>
+  <:trigger>View record</:trigger>
+  <:title>Record details</:title>
+  <p>Caller-rendered record data.</p>
+  <:close>Close</:close>
+  <:fallback><a href="/records/42">Full record page</a></:fallback>
+</.drawer>
+
+<.drawer id="edit-42" edge={:bottom} size={:large}>
+  <:trigger>Edit record</:trigger>
+  <:title>Edit draft</:title>
+  <form id="edit-42-form" action="/records/42" method="post">
+    <!-- Include the application's own CSRF field and method policy. -->
+    <label for="edit-42-name">Name</label><input id="edit-42-name" name="name" />
+  </form>
+  <:footer><button type="submit" form="edit-42-form">Save</button></:footer>
+  <:close>Cancel</:close>
+  <:fallback><a href="/records/42/edit">Full edit page</a></:fallback>
+</.drawer>
+```
+
+The generated browser fixture (`mix run scripts/render-drawer-fixture.exs`)
+uses real package components. Its tests include no-script, CSS-disabled,
+no-transition, unsupported-invoker, long-content, coarse-pointer and ordinary
+destination cases. These are package fixtures; the public gallery rollout is
+scheduled for Milestone D Phase 6.
+
 ### Alert Dialog
 
 `alert_dialog` is for a consequential choice that requires a title, an explicit

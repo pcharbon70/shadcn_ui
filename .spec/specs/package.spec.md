@@ -24,6 +24,8 @@ surface:
   - test/shadcn_ui/package_test.exs
   - test/shadcn_ui/release_readiness_test.exs
   - test/shadcn_ui/milestone_a_acceptance_test.exs
+  - test/shadcn_ui/milestone_d_acceptance_test.exs
+  - scripts/check-release-archive.exs
 ```
 
 ## Requirements
@@ -83,6 +85,12 @@ surface:
     - shadcn_ui.package.public_import_surface
     - shadcn_ui.package.explicit_release_files
     - shadcn_ui.package.no_consumer_asset_toolchain
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_d_acceptance_test.exs
+  covers:
+    - shadcn_ui.package.explicit_release_files
+    - shadcn_ui.package.public_import_surface
 
 - kind: test_file
   target: test/shadcn_ui/milestone_a_acceptance_test.exs
