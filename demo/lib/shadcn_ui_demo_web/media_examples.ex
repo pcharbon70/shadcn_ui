@@ -169,7 +169,7 @@ defmodule ShadcnUIDemoWeb.MediaExamples do
     ~H"""
     <article data-gallery-composition="media-browser" class="gallery-media-examples">
       <p>
-        Three original illustrations, complete image destinations and native item navigation. Carousel and Cover Flow are implemented; Image Gallery arrives in Phase 5.
+        Three original illustrations, complete image destinations and native item navigation. Carousel, Cover Flow and Image Gallery are implemented.
       </p>
       <p>
         Use the header theme and motion links to compare presentation. No media is fetched from an external service.
@@ -184,6 +184,9 @@ defmodule ShadcnUIDemoWeb.MediaExamples do
         </:item>
       </.carousel>
       <h2>Optional image depth</h2>
+      <p>
+        <a href="/examples/image-gallery">Browse responsive figures with native image lightboxes</a>.
+      </p>
       <.cover_flow id="media-browser-depth" accessible_label="Illustration depth" images={@images} />
       <h2>Native notes with decorative position</h2>
       <.scroll_indicator id="media-browser-notes" accessible_label="Illustration notes" size={:small}>

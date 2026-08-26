@@ -8,6 +8,7 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
         manifest: MotionMediaCapabilities.manifest(),
         evidence: MotionMediaCapabilities.evidence(),
         scroll_media: MotionMediaCapabilities.scroll_media(),
+        image_gallery: MotionMediaCapabilities.image_gallery(),
         engines: MotionMediaCapabilities.engines(),
         fixtures: MediaFixtures.entries(),
         failures: MediaFixtures.failures()
@@ -23,8 +24,10 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
         and <a href="/examples/motion-preferences">motion preferences</a>.
         <a href="/components/motion/scroll-indicator">Scroll Indicator</a>
         and <a href="/components/media/cover-flow">Cover Flow</a>
-        are also implemented.
-        Image Gallery arrives in Phase 5. Recorded capability probes remain separate from the real component interaction tests.
+        are also implemented. <a href="/components/media/image-gallery">Image Gallery</a>
+        and its <a href="/examples/image-gallery">complete lightbox composition</a>
+        are implemented.
+        Recorded capability probes remain separate from the real component interaction tests.
       </p>
       <p>
         Reviewed <time>{@evidence["reviewedOn"]}</time>. These are locked browser probes, not detection of your browser or proof that a complete component is implemented.
@@ -66,7 +69,7 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
         </ul>
       </section>
       <p>
-        Generated scroll controls remain deferred. Origin-aware transitions need Phase 5 geometry and accessibility evidence. Unsupported timelines retain static native content; no script supplies a substitute.
+        Generated scroll controls and the optional gallery origin effect remain deferred. Unsupported timelines retain static native content; no script supplies a substitute.
       </p>
       <h2>Phase 4 actual component behavior</h2>
       <p>{@scroll_media["scope"]} Reviewed {@scroll_media["reviewedOn"]}.</p>
@@ -80,6 +83,18 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
       <p>
         Run <code>{@scroll_media["command"]}</code>
         to verify native keys, isolated idle timelines, suppression and flat fallbacks. Narrow containers stay flat; no effect reports reading completion or a selected image.
+      </p>
+      <h2>Phase 5 native gallery and deferred origin effect</h2>
+      <p>{@image_gallery["reason"]}</p>
+      <ul>
+        <li :for={{engine, record} <- Enum.sort(@image_gallery["engines"])}>
+          {engine} {record["version"]}: actual modal {to_string(record["modal"])};
+          thumbnail-origin match {to_string(record["originMatches"])}. Release presentation: native snap.
+        </li>
+      </ul>
+      <p>
+        Reproduce with <code>node scripts/record-gallery-origin.mjs --check</code>
+        and <code>npm run browser:milestone-e-phase5</code>. Test-only probe code and observations are excluded from the package.
       </p>
       <h2>Local media fixtures</h2>
       <p>

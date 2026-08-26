@@ -8,6 +8,18 @@ publication to Hex.
 
 ## Candidate verification
 
+Milestone E Phase 5 adds Media.ImageGallery, the reference at
+`/components/media/image-gallery` and substantial `/examples/image-gallery`.
+Run `mix run scripts/render-image-gallery-fixture.exs --check`,
+`node scripts/record-gallery-origin.mjs --check` and
+`npm run browser:milestone-e-phase5`. The archive requires ImageGallery and
+excludes its probe, observations, fixtures and demo; the expected payload is
+61 allowlisted entries. Full images use existing native Dialog, explicit close
+and ordinary destinations. Optional origin CSS is deferred after the actual
+three-engine probe; no new authored CSS exception or runtime is distributed.
+Phase 6 milestone acceptance remains pending. See the Phase 5 execution record
+for direct checks and outstanding environment/manual/deployment limitations.
+
 Milestone E Phase 4 adds Motion.ScrollIndicator and Media.CoverFlow, their real
 gallery references, source-local timelines and neutral/flat fallbacks. Run
 `mix run scripts/render-scroll-media-fixture.exs --check` and

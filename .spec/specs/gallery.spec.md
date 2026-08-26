@@ -110,6 +110,12 @@ surface:
 
 ## Verification
 
+Milestone E Phase 5 adds the Image Gallery reference and substantial composition
+with actual local images, native per-item Dialogs and separate destinations.
+Existing canonical/preference export and every src/srcset check apply to both;
+no new runtime asset or fixture is added. The demo separately reports reviewed
+origin-effect deferral and native behavior rather than visitor detection.
+
 Milestone E Phase 4 adds Scroll Indicator and Cover Flow references, extends
 both native media/motion compositions and records component outcomes separately
 from capability parsing. Closed canonical and preference variants, source

@@ -19,7 +19,28 @@ and `/examples/media-browser`. Phase 3 adds Marquee and Stagger at
 `/components/motion/marquee` and `/components/motion/stagger`, plus
 `/examples/motion-preferences`. Phase 4 adds `/components/motion/scroll-indicator`
 and `/components/media/cover-flow`, expanding both compositions with actual
-components. Image Gallery remains Phase 5 work; Milestone E is not complete.
+components. Phase 5 adds `/components/media/image-gallery` and the substantial
+`/examples/image-gallery` composition. Phase 6 acceptance remains; Milestone E
+is not complete.
+
+## Image Gallery: responsive figures and native lightboxes
+
+```heex
+<.image_gallery id="landscapes" accessible_label="Local illustrations" images={[
+  %{key: "ridge", src: "/media/ridge.svg", alt: "Mountain ridges beneath a sun",
+    width: 640, height: 480, caption: "Original ridge", href: "/media/ridge.svg",
+    full: %{src: "/media/ridge.svg", width: 640, height: 480}}
+]} />
+```
+
+Each image has its own existing native Dialog, visible Enlarge/Close controls,
+and a separate ordinary destination. Choose `lightbox={:none}` for nonmodal
+browsing. Full images contain, long captions scroll, and failed images retain
+meaning. The optional thumbnail-origin effect is deliberately deferred after
+three-engine testing; no component JavaScript or slideshow state ships.
+See the [complete Image Gallery API and ownership guide](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/image-gallery.md)
+for metadata, keyed caption slots, native focus/dismissal, loading hints,
+replacement, explicit nested-modal restrictions and provenance.
 
 ## Scroll Indicator and Cover Flow: native scroll decoration
 

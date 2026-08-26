@@ -9,6 +9,12 @@
   },
   "adaptations": [
     {
+      "id": "media.image-gallery",
+      "localPaths": ["lib/shadcn_ui/components/media/image_gallery.ex"],
+      "upstreamPaths": ["src/content/components/gallery.mdx", "src/demos/gallery/basic.html"],
+      "localChanges": "Adapt responsive thumbnail/native Dialog composition to keyed semantic HEEx figures with validated intrinsic/responsive metadata, alt intent, complete captions, explicit close and separate ordinary destinations. Reuse existing Dialog focus/dismissal; full images contain. Defer optional scoped origin transitions after actual three-engine evidence; no remote site artwork, next/previous state or command shim. Static prefixed utilities only, no new authored CSS block."
+    },
+    {
       "id": "foundation.alert",
       "localPaths": ["lib/shadcn_ui/components/foundation/alert.ex"],
       "upstreamPaths": ["src/content/components/alert.mdx", "src/demos/alert/variants.html"],

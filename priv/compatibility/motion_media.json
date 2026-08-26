@@ -144,7 +144,7 @@
         "anchorScope",
         "discreteTransitions"
       ],
-      "fallback": "Deferred until Phase 5 proves origin geometry; native snap"
+      "fallback": "Origin effect deferred after Phase 5 actual-modal probe; native snap in all engines"
     }
   },
   "verificationEvidence": {

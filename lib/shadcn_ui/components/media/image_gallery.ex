@@ -183,7 +183,13 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
               dismissal={@dismissal}
               size={:large}
               trigger_class="sui:flex-col sui:w-full sui:gap-2"
-              dialog_rest={%{"data-shadcn-ui-gallery-lightbox" => ""}}
+              close_class="sui:text-foreground"
+              dialog_rest={
+                %{
+                  "data-shadcn-ui-gallery-lightbox" => "",
+                  "data-shadcn-ui-motion-part" => "gallery-dialog"
+                }
+              }
             >
               <:trigger>
                 <img

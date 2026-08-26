@@ -75,7 +75,8 @@ defmodule ShadcnUIDemo.Catalogue do
     ],
     "media" => [
       %{label: "Carousel", slug: "carousel", render: :carousel, category: "media"},
-      %{label: "Cover Flow", slug: "cover-flow", render: :cover_flow, category: "media"}
+      %{label: "Cover Flow", slug: "cover-flow", render: :cover_flow, category: "media"},
+      %{label: "Image Gallery", slug: "image-gallery", render: :image_gallery, category: "media"}
     ],
     "overlays" =>
       Enum.map(
@@ -104,6 +105,12 @@ defmodule ShadcnUIDemo.Catalogue do
   }
 
   @compositions [
+    %{
+      label: "Image gallery",
+      slug: "image-gallery",
+      path: "/examples/image-gallery",
+      render: :image_gallery
+    },
     %{
       label: "Motion preferences",
       slug: "motion-preferences",

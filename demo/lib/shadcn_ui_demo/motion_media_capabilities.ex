@@ -1,5 +1,9 @@
 defmodule ShadcnUIDemo.MotionMediaCapabilities do
   @moduledoc "Reviewed platform policy and observations, not visitor detection."
+  @gallery_path Path.expand("../../priv/compatibility/image_gallery_evidence.json", __DIR__)
+  @external_resource @gallery_path
+  @gallery Jason.decode!(File.read!(@gallery_path))
+  def image_gallery, do: @gallery
   @manifest_path Application.app_dir(:shadcn_ui, "priv/compatibility/motion_media.json")
   @evidence_path Path.expand("../../priv/compatibility/motion_media_evidence.json", __DIR__)
   @scroll_media_path Path.expand("../../priv/compatibility/scroll_media_evidence.json", __DIR__)

@@ -62,7 +62,7 @@ defmodule ShadcnUIDemo.CarouselGalleryTest do
   test "mismatched and unfinished media pages are nonreflecting", %{conn: conn} do
     for path <- [
           "/components/forms/carousel",
-          "/components/media/image-gallery",
+          "/components/motion/image-gallery",
           "/examples/untrusted-media"
         ] do
       html = conn |> recycle() |> get(path) |> html_response(404)

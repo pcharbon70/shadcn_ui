@@ -54,25 +54,25 @@ Requires Phase 1 image contracts and fixture export, current Media catalogue, an
       - [x] 5.2.2.2 Subtask - Probe scoped CSS-only origin/anchor/discrete-transition behavior on actual thumbnail/dialog pairs; admit only jointly supported and proven presentation with a snap fallback.
       - [x] 5.2.2.3 Subtask - If the origin effect is unreliable, explicitly defer that effect and ship the native lightbox; never add coordinates, view-transition JavaScript or a focus/overlay manager.
 
-  - [ ] 5.3 Section - Substantial image-gallery demo and public reference.
+  - [x] 5.3 Section - Substantial image-gallery demo and public reference.
 
     Deliver the requested online-style gallery as a complete useful page rather than a collection of inert examples.
 
-    - [ ] 5.3.1 Task - Publish real local image browsing and lightboxes.
+    - [x] 5.3.1 Task - Publish real local image browsing and lightboxes.
 
       The image-gallery composition is the primary demonstration of this phase.
 
-      - [ ] 5.3.1.1 Subtask - Add /components/media/image-gallery and /examples/image-gallery using the closed fixture manifest, multiple aspect ratios, captions, alt, destinations and working native enlargement.
-      - [ ] 5.3.1.2 Subtask - Include failed-image, long-caption, no-dialog, reduced-motion, CSS-disabled and missing-command alternatives; keep ordinary destinations visible even when native enlargement works.
-      - [ ] 5.3.1.3 Subtask - Add full navigation/current-state/breadcrumb, source, canonical, sitemap/export and smoke coverage; test every exported image and srcset under the repository subpath.
+      - [x] 5.3.1.1 Subtask - Add /components/media/image-gallery and /examples/image-gallery using the closed fixture manifest, multiple aspect ratios, captions, alt, destinations and working native enlargement.
+      - [x] 5.3.1.2 Subtask - Include failed-image, long-caption, no-dialog, reduced-motion, CSS-disabled and missing-command alternatives; keep ordinary destinations visible even when native enlargement works.
+      - [x] 5.3.1.3 Subtask - Add full navigation/current-state/breadcrumb, source, canonical, sitemap/export and smoke coverage; test every exported image and srcset under the repository subpath.
 
-    - [ ] 5.3.2 Task - Document complete media and modal ownership.
+    - [x] 5.3.2 Task - Document complete media and modal ownership.
 
       Consumers should know which behaviors are native, optional, absent or application-owned.
 
-      - [ ] 5.3.2.1 Subtask - Publish APIs/slots/closed values, intrinsic/responsive image guidance, invoker/close relationships, focus/dismissal, native loading hints and failure behavior.
-      - [ ] 5.3.2.2 Subtask - Explain origin-effect admission or deferral and replacement reset; explicitly exclude image management, uploads, transformation, remote galleries and slideshow state.
-      - [ ] 5.3.2.3 Subtask - Update exact upstream component/CSS mappings, full notices, local fixture licenses, ExDoc and release guidance while keeping demo assets out of the archive.
+      - [x] 5.3.2.1 Subtask - Publish APIs/slots/closed values, intrinsic/responsive image guidance, invoker/close relationships, focus/dismissal, native loading hints and failure behavior.
+      - [x] 5.3.2.2 Subtask - Explain origin-effect admission or deferral and replacement reset; explicitly exclude image management, uploads, transformation, remote galleries and slideshow state.
+      - [x] 5.3.2.3 Subtask - Update exact upstream component/CSS mappings, full notices, local fixture licenses, ExDoc and release guidance while keeping demo assets out of the archive.
 
   - [ ] 5.4 Section - Phase 5 Integration Tests.
 
@@ -116,3 +116,11 @@ land. Update relevant specifications only after reading their full contracts.
   optional effect is deferred everywhere; native snap ships with no new runtime.
   Native pointer focus and browser-chrome Tab behavior are documented separately
   from keyboard-invoked restoration. Fixture, probe and observations are test/demo only.
+- Section 5.3: reference and six-figure composition, manifest-local mixed-aspect
+  images, complete long captions, failure/no-dialog/RTL/reduced alternatives,
+  source/API guidance and separate origin evidence. Dark close contrast and
+  demo image-rule isolation corrected during browser verification. Package 362,
+  demo 59 and three-engine browser 15 tests passed. Axe passes both themes,
+  including open dialogs; narrow screenshots inspected. Deterministic export and
+  subpath smoke: 634 variants, three selected code/style assets plus three media
+  fixtures. ExDoc and actual 61-entry archive audit passed. No publication claimed.

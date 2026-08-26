@@ -4,12 +4,19 @@
 id: shadcn_ui.media_components
 kind: package
 status: active
-summary: Carousel and Cover Flow implemented; Image Gallery remains planned for Phase 5.
+summary: Carousel, Cover Flow and responsive Image Gallery with native Dialog lightboxes are implemented.
 decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.native_carousel_cover_flow
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - docs/image-gallery.md
+  - scripts/render-image-gallery-fixture.exs
+  - scripts/record-gallery-origin.mjs
+  - playwright.milestone-e-phase5.config.mjs
+  - test/fixtures/milestone_e_image_gallery.html
+  - test/browser/support/gallery-origin-probe.mjs
+  - test/shadcn_ui/image_gallery_integration_test.exs
   - lib/shadcn_ui/components/media/cover_flow.ex
   - test/shadcn_ui/components/media/cover_flow_test.exs
   - test/shadcn_ui/scroll_media_integration_test.exs
@@ -31,7 +38,7 @@ surface:
 
 ## API contract
 
-Functions are carousel/1 and cover_flow/1 (implemented), image_gallery/1 (planned) in defining
+Functions are carousel/1, cover_flow/1 and image_gallery/1 (implemented) in defining
 modules under ShadcnUI.Components.Media, imported directly through use ShadcnUI.
 All require unique id and an accessible name (label or valid heading reference,
 not conflicting sources); optional descriptions receive deterministic IDs.
@@ -80,6 +87,20 @@ separate visible ordinary link. The default is the native dialog composition
 with close-request dismissal; keep explicit close and inherited autofocus
 choices. The no-dialog choice renders just the complete linked figure.
 
+Image Gallery requires nonempty images; columns two/three/four (three default),
+density compact/comfortable (comfortable), fit cover/contain (cover) and motion
+system/none are closed. Full images always contain within 60dvb. The separate
+destination uses href, then full.src, then src; no URL is fetched or inferred.
+Caption slots require unique existing keys and receive key/context
+(thumbnail/full); presentation-only trusted HEEx must scope IDs and exclude
+interactive content. Plain record captions remain escaped in both contexts.
+lightbox defaults dialog; initial_focus auto/content/close (auto), dismissal
+close_request/none/any (close_request), and nonblank close_label (Close image)
+compose the existing Dialog unchanged. context root/dialog is an explicit caller
+declaration: dialog context rejects nested dialog mode, but permits none.
+Ancestor HEEx cannot be inferred. Visible Enlarge name text names each invoker;
+its thumbnail is aria-hidden, while the full image retains meaningful alt.
+
 ## Native behavior and fallback
 
 A carousel is a named scroll region containing a list, not an ARIA tab widget
@@ -92,6 +113,14 @@ next/previous navigation, swipe or full-screen state. A failed image retains
 alt/caption/destination; a missing native dialog capability uses that ordinary
 destination. Native origin-aware CSS is optional and must be separately proven;
 an unproven effect is deferred, not simulated by scripts.
+
+Phase 5 deliberately defers origin presentation across this release. The
+test-only scoped anchor/discrete experiment matches thumbnail opening geometry
+in locked Chromium but produces no origin transition in Firefox/WebKit despite
+their anchor/discrete declaration support. All ship existing native snap.
+Keyboard-invoked restoration returns to the previously focused invoker; pointer
+focus follows platform policy, and Tab may visit browser chrome without entering
+the inert page. No alternate focus system is introduced.
 
 ## Requirements
 
@@ -151,7 +180,8 @@ an unproven effect is deferred, not simulated by scripts.
 
 Carousel unit, generated-HEEx browser and integration targets are implemented.
 Cover Flow rendering and actual-HEEx browser targets are implemented in Phase 4.
-Image Gallery targets remain planned acceptance obligations.
+Image Gallery rendering, actual-modal origin probe, native browser and integration
+targets are implemented in Phase 5; broader milestone acceptance remains Phase 6.
 The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for

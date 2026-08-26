@@ -1,5 +1,32 @@
 defmodule ShadcnUIDemo.MediaReference do
   @moduledoc "Closed native media guidance; future controls are not advertised."
+  def image_gallery do
+    %{
+      what:
+        "Responsive image figures with captions, ordinary destinations and separate native Dialog enlargement.",
+      when:
+        "Use it for a finite image collection. Choose lightbox=:none for ordinary browsing or when embedding inside another modal.",
+      responsibilities:
+        "You own image rights/privacy, CSP/origin policy, safe authorized URLs, meaningful alt/names, intrinsic dimensions, responsive candidates and destinations. Loading/decoding are browser hints, not guaranteed deferred fetching. Replacement resets native state; restoration is yours.",
+      accessibility:
+        "Keyboard Enter opens a named native Dialog with an explicit close control. The browser owns focus, inertness, Tab and Escape. Keyboard-invoked close returns to the previously focused thumbnail; pointer focus follows platform conventions. No focus trap is added. Full images always contain, and long captions scroll with the existing sticky close footer.",
+      semantics:
+        "A named section with a list of figures, not a slideshow. Stable instance/item keys derive Dialog and caption identities. Each thumbnail button has a visible Enlarge name and a separate Open image link, never nested controls. No next/previous, selected image, swipe, zoom, pan, uploads, transformation, fetching service or listeners.",
+      fallback:
+        "Ordinary links remain visible without native commands, JavaScript or CSS. Destination priority is href, then full.src, then src. Failed images retain alt/name/caption/destination. The optional origin animation is deferred: Chromium reproduced it, Firefox/WebKit did not. All use existing native snap; missing anchors, transitions or reduced motion never prevent access.",
+      api:
+        "Required id, exactly one accessible_label/labelledby, nonempty atom-keyed images (unique key, src, alt, positive width/height). Optional name, caption, href, width-candidate srcset with sizes, loading=:lazy|:eager, decoding=:async|:sync|:auto, and full map with its own src/dimensions/srcset/sizes. Decorative:true requires empty alt and independent name. columns=:two|:three|:four (three), density=:compact|:comfortable (comfortable), fit=:cover|:contain (cover), lightbox=:dialog|:none (dialog), motion=:system|:none. initial_focus=:auto|:content|:close, dismissal=:close_request|:none|:any, close_label defaults Close image. context=:dialog rejects dialog mode. Optional escaped description, class/rest. Repeated trusted noninteractive caption slots require key and receive %{key: key, context: :thumbnail|:full}; scope IDs and never embed controls or dialogs.",
+      source: ~S"""
+      <.image_gallery id="landscapes" accessible_label="Local illustrations" images={[
+        %{key: "ridge", src: "/media/ridge.svg", alt: "Angular mountain ridges beneath a warm sun",
+          width: 640, height: 480, caption: "Original ridge illustration", href: "/media/ridge.svg",
+          srcset: [%{src: "/media/ridge.svg", width: 640}], sizes: "(max-width: 40rem) 100vw, 33vw",
+          full: %{src: "/media/ridge.svg", width: 640, height: 480}}
+      ]} />
+      """
+    }
+  end
+
   def cover_flow do
     %{
       what:

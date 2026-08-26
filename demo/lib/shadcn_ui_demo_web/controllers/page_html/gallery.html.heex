@@ -152,6 +152,9 @@
   <ShadcnUIDemoWeb.MediaExamples.media_browser :if={
     @page.kind == :composition && @page.render == :media_browser
   } />
+  <ShadcnUIDemoWeb.ImageGalleryExamples.composition :if={
+    @page.kind == :composition && @page.render == :image_gallery
+  } />
 
   <ShadcnUIDemoWeb.MotionExamples.motion_preferences
     :if={@page.kind == :composition && @page.render == :motion_preferences}
