@@ -15,25 +15,25 @@ Requires Phases 1–3 capabilities, suppression, Carousel contract and Motion/Me
 
   Add decorative scroll progress and optional 3D media presentation using scoped native timelines while keeping static content and Carousel semantics authoritative.
 
-  - [ ] 4.1 Section - Decorative Scroll Indicator.
+  - [x] 4.1 Section - Decorative Scroll Indicator.
 
     Render scroll position decoration without implying task completion, reading state or a numeric measurement API.
 
-    - [ ] 4.1.1 Task - Implement the named native scroll composition.
+    - [x] 4.1.1 Task - Implement the named native scroll composition.
 
       The source region and its decoration should share a deterministic instance boundary.
 
-      - [ ] 4.1.1.1 Subtask - Add Motion.ScrollIndicator.scroll_indicator/1 with required id/name, trusted inner content and closed bounded size choices.
-      - [ ] 4.1.1.2 Subtask - Render a named focusable native block scroll region plus aria-hidden decorative track; preserve caller headings, links/forms and native scroll keys.
-      - [ ] 4.1.1.3 Subtask - Do not emit progressbar, value, percentage, live region, external scroll-target selector or synchronized application state.
+      - [x] 4.1.1.1 Subtask - Add Motion.ScrollIndicator.scroll_indicator/1 with required id/name, trusted inner content and closed bounded size choices.
+      - [x] 4.1.1.2 Subtask - Render a named focusable native block scroll region plus aria-hidden decorative track; preserve caller headings, links/forms and native scroll keys.
+      - [x] 4.1.1.3 Subtask - Do not emit progressbar, value, percentage, live region, external scroll-target selector or synchronized application state.
 
-    - [ ] 4.1.2 Task - Implement scoped timeline and neutral fallback.
+    - [x] 4.1.2 Task - Implement scoped timeline and neutral fallback.
 
       Absent timeline support must not become a document-clock animation or fake progress.
 
-      - [ ] 4.1.2.1 Subtask - Gate timeline, range and scope dependencies jointly, isolate each instance and bind only its own decorative track to native scroll progress.
-      - [ ] 4.1.2.2 Subtask - Retain complete content with a neutral or absent track when unsupported, reduced-motion, explicit suppression or forced colors makes animation unsuitable.
-      - [ ] 4.1.2.3 Subtask - Test stationary sources, short/nonoverflowing content and replacement; add no listener, polling, observer, completion callback or unbounded work.
+      - [x] 4.1.2.1 Subtask - Gate timeline, range and scope dependencies jointly, isolate each instance and bind only its own decorative track to native scroll progress.
+      - [x] 4.1.2.2 Subtask - Retain complete content with a neutral or absent track when unsupported, reduced-motion, explicit suppression or forced colors makes animation unsuitable.
+      - [x] 4.1.2.3 Subtask - Test stationary sources, short/nonoverflowing content and replacement; add no listener, polling, observer, completion callback or unbounded work.
 
   - [ ] 4.2 Section - Cover Flow composition over Carousel.
 

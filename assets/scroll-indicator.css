@@ -1,0 +1,30 @@
+/* E-05: neutral-first, instance-scoped scroll decoration. */
+[data-shadcn-ui-scroll-indicator] { min-inline-size: 0; max-inline-size: 100%; }
+[data-shadcn-ui-scroll-indicator] > [data-shadcn-ui-scroll-source] {
+  box-sizing: border-box; padding: 1rem; scroll-padding: 1rem;
+  border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-md);
+  overflow-wrap: anywhere;
+}
+[data-shadcn-ui-scroll-indicator] > [data-shadcn-ui-scroll-track] {
+  block-size: .375rem; margin-block-end: .5rem; background: var(--shadcn-ui-muted);
+  overflow: hidden; border-radius: var(--shadcn-ui-radius-sm); pointer-events: none;
+}
+[data-shadcn-ui-scroll-track] > [data-shadcn-ui-scroll-fill] {
+  display: block; inline-size: 0; block-size: 100%; background: var(--shadcn-ui-primary);
+}
+@supports (animation-timeline: scroll()) and (scroll-timeline-name: --shadcn-ui-probe) and (animation-range: 0% 100%) and (timeline-scope: --shadcn-ui-probe) {
+  @media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+    [data-shadcn-ui-scroll-indicator] { timeline-scope: var(--shadcn-ui-scroll-timeline); }
+    [data-shadcn-ui-scroll-indicator] > [data-shadcn-ui-scroll-source] {
+      scroll-timeline-name: var(--shadcn-ui-scroll-timeline); scroll-timeline-axis: block;
+    }
+    [data-shadcn-ui-scroll-indicator] > [data-shadcn-ui-scroll-track] > [data-shadcn-ui-scroll-fill] {
+      animation: shadcn-ui-scroll-fill auto linear both;
+      animation-timeline: var(--shadcn-ui-scroll-timeline); animation-range: 0% 100%;
+    }
+  }
+}
+@keyframes shadcn-ui-scroll-fill { from { inline-size: 0%; } to { inline-size: 100%; } }
+@media (forced-colors: active) {
+  [data-shadcn-ui-scroll-indicator] > [data-shadcn-ui-scroll-track] { border: 1px solid CanvasText; }
+}

@@ -4,6 +4,7 @@
 @import "./carousel.css";
 @import "./marquee.css";
 @import "./stagger.css";
+@import "./scroll-indicator.css";
 
 @source "../lib/**/*.ex";
 @source "./**/*.css";
