@@ -15,25 +15,25 @@ Requires all six public components and their reference pages from Phases 2–5, 
 
   Consolidate all Motion and Media references, complete compositions, capability and performance evidence, public documentation and release audits without deferring essential component demos until this phase.
 
-  - [ ] 6.1 Section - Complete catalogue, compositions and capability guidance.
+  - [x] 6.1 Section - Complete catalogue, compositions and capability guidance.
 
     Bring all implemented pieces together while preserving prior milestone routes and honest native semantics.
 
-    - [ ] 6.1.1 Task - Audit every reference and complete the media compositions.
+    - [x] 6.1.1 Task - Audit every reference and complete the media compositions.
 
       The final catalogue should be navigable, consistent and genuinely interactive at its native boundary.
 
-      - [ ] 6.1.1.1 Subtask - Verify all Media/Motion leaves and prior A–D routes, breadcrumbs/current-page state, source blocks, canonical URLs, sitemap/export and nonreflecting unknown/mismatched routes.
-      - [ ] 6.1.1.2 Subtask - Finish media-browser, image-gallery and motion-preferences as complete pages with local fixtures and ordinary destinations; remove no-op controls and label authored snapshots plainly.
-      - [ ] 6.1.1.3 Subtask - Compare Carousel versus tabs/slideshow, Cover Flow versus selection, decorative Scroll Indicator versus Progress/Meter, and finite Marquee/Stagger versus application animation controllers.
+      - [x] 6.1.1.1 Subtask - Verify all Media/Motion leaves and prior A–D routes, breadcrumbs/current-page state, source blocks, canonical URLs, sitemap/export and nonreflecting unknown/mismatched routes.
+      - [x] 6.1.1.2 Subtask - Finish media-browser, image-gallery and motion-preferences as complete pages with local fixtures and ordinary destinations; remove no-op controls and label authored snapshots plainly.
+      - [x] 6.1.1.3 Subtask - Compare Carousel versus tabs/slideshow, Cover Flow versus selection, decorative Scroll Indicator versus Progress/Meter, and finite Marquee/Stagger versus application animation controllers.
 
-    - [ ] 6.1.2 Task - Finalize capability and motion inspection evidence.
+    - [x] 6.1.2 Task - Finalize capability and motion inspection evidence.
 
       A support matrix must distinguish observations from policy and explain every unavailable visual effect.
 
-      - [ ] 6.1.2.1 Subtask - Regenerate source-reviewed exact-engine evidence and record supported behavior, fallback and deferred generated controls/origin transitions without changing the capability-based target.
-      - [ ] 6.1.2.2 Subtask - Verify system/reduce links preserve themes, invalid queries are safe and user reduced motion cannot be overridden; export deterministic combinations and no-script defaults.
-      - [ ] 6.1.2.3 Subtask - Explain static/no-snap/no-timeline/no-anchor/no-transition paths, failed images, native loading limits, finite offscreen work and replacement ownership on relevant pages.
+      - [x] 6.1.2.1 Subtask - Regenerate source-reviewed exact-engine evidence and record supported behavior, fallback and deferred generated controls/origin transitions without changing the capability-based target.
+      - [x] 6.1.2.2 Subtask - Verify system/reduce links preserve themes, invalid queries are safe and user reduced motion cannot be overridden; export deterministic combinations and no-script defaults.
+      - [x] 6.1.2.3 Subtask - Explain static/no-snap/no-timeline/no-anchor/no-transition paths, failed images, native loading limits, finite offscreen work and replacement ownership on relevant pages.
 
   - [ ] 6.2 Section - Public API, CSS, provenance and candidate documentation.
 

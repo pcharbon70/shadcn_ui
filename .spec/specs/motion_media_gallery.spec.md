@@ -60,6 +60,12 @@ Every phase updates documentation/provenance and retains earlier regressions.
 
 ## Publication status
 
+Phase 6 consolidates the complete A–E catalogue audit and all Media/Motion routes
+in publication smoke. Capability guidance explicitly compares native lists,
+decorative position and finite effects with application-owned selection,
+completion and animation state. Locked observations remain reproducible and
+separate from visitor detection, manual review and publication.
+
 Phase 1 implements the capability composition, local authored SVG fixtures,
 closed preference links and selected-media static export. Phase 2 adds the Media
 category, Carousel reference and media-browser composition with actual local
@@ -140,6 +146,14 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: demo/test/shadcn_ui_demo/milestone_e_catalogue_test.exs
+  covers:
+    - shadcn_ui.motion_media_gallery.incremental_catalog
+    - shadcn_ui.motion_media_gallery.references
+    - shadcn_ui.motion_media_gallery.compositions
+    - shadcn_ui.motion_media_gallery.motion_inspection
+
 - kind: test_file
   target: demo/test/shadcn_ui_demo/image_gallery_gallery_test.exs
   covers:

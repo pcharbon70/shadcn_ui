@@ -6,7 +6,9 @@ const milestoneC = ["components/disclosure/", "components/disclosure/accordion/"
 const routes = ["", "components/foundation/", ...["button", "badge", "alert", "card", "avatar", "skeleton"].map((slug) => `components/foundation/${slug}/`), "components/forms/", ...forms.map((slug) => `components/forms/${slug}/`), ...milestoneC];
 const assets = new Set();
 const media = new Set();
-routes.push("components/media/image-gallery/", "examples/image-gallery/");
+routes.push("components/media/", ...["carousel", "cover-flow", "image-gallery"].map(slug => `components/media/${slug}/`));
+routes.push("components/motion/", ...["marquee", "stagger", "scroll-indicator"].map(slug => `components/motion/${slug}/`));
+routes.push(...["media-browser", "image-gallery", "motion-preferences", "motion-media-capabilities"].map(slug => `examples/${slug}/`));
 routes.push(...["overlay-capabilities", "settings-confirmation", "responsive-drawers", "anchored-actions", "supplemental-help"].map(slug => `examples/${slug}/`));
 routes.push("components/overlays/", ...["dialog", "alert-dialog", "drawer", "popover", "dropdown-actions"].map(slug => `components/overlays/${slug}/`), "components/interactive-surfaces/", ...["tooltip", "hover-card"].map(slug => `components/interactive-surfaces/${slug}/`));
 for (const route of routes) {
