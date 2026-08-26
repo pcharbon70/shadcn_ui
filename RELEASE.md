@@ -8,6 +8,22 @@ publication to Hex.
 
 ## Candidate verification
 
+Milestone E Phase 4 adds Motion.ScrollIndicator and Media.CoverFlow, their real
+gallery references, source-local timelines and neutral/flat fallbacks. Run
+`mix run scripts/render-scroll-media-fixture.exs --check` and
+`npm run browser:milestone-e-phase4` alongside earlier regressions. The actual
+archive audit requires both sources and verifies 60 allowlisted entries;
+demo observations, images, tests and tooling remain excluded.
+
+Phase 4 direct evidence: package precommit 356 tests, demo precommit 56,
+48 new browser checks and 337 earlier browser regressions; deterministic export
+and subpath smoke cover 614 variants, three code/style assets and three local
+media fixtures. ExDoc, fixture reproduction, CSS/provenance and archive checks
+pass. SpecLed still reports four existing nested-login-shell command failures
+and 143 warnings; direct equivalents pass using PowerShell's Elixir 1.20.3.
+No gate is disabled and no manual screen-reader or deployment claim is made.
+See the Phase 4 execution record for exact matrix, commands and limitations.
+
 Milestone E Phase 3 adds Motion.Marquee and Motion.Stagger to the same candidate.
 Run `mix run scripts/render-motion-fixture.exs --check` and
 `npm run browser:milestone-e-phase3` as well as earlier E and gallery regressions.

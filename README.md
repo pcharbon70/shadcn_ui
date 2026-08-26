@@ -64,7 +64,7 @@ polling or runtime JS. Stationary scrolling does not advance either effect.
 Removing CSS retains complete content. Replacing markup may reset native
 position/focus; browsers may also restore document state. Applications own
 restoration, meaningful text, image rights/privacy, sources and navigation.
-See the [CSS exception ledger](docs/motion-media-css-exceptions.md) for exact
+See the [CSS exception ledger](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/motion-media-css-exceptions.md) for exact
 gates and pinned provenance. Demo capability records distinguish parsing from
 actual component behavior and do not detect the visiting browser.
 

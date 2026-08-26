@@ -144,13 +144,22 @@ defmodule ShadcnUI.Components.Media.CoverFlowTest do
           style: "animation:spin 1s infinite",
           hidden: true,
           "aria-selected": "true",
+          "aria-roledescription": "slideshow",
+          "aria-valuetext": "selected image",
           "data-shadcn-ui-presentation": "flat",
           "phx-mounted": "caller",
           "data-owner": "caller"
         }
       })
 
-    for forbidden <- ["spin", "aria-selected", ~s(role="tab"), " hidden"],
+    for forbidden <- [
+          "spin",
+          "aria-selected",
+          "aria-roledescription",
+          "aria-valuetext",
+          ~s(role="tab"),
+          " hidden"
+        ],
         do: refute(html =~ forbidden)
 
     assert html =~ ~s(data-owner="caller")

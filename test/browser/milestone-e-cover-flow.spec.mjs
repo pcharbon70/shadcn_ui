@@ -1,5 +1,8 @@
 import {test,expect} from "../../demo/node_modules/@playwright/test/index.mjs";
 import {readFileSync} from "node:fs";
+import {removeFeatureGate} from "./support/scroll-media-fallback.mjs";
+import {serveMotionMediaExport} from "./support/static-motion-media.mjs";
+// covers: shadcn_ui.motion_media_gallery.accessibility_matrix shadcn_ui.motion_media_gallery.static_media
 const html=readFileSync(new URL("../fixtures/milestone_e_scroll_media.html",import.meta.url),"utf8");
 const css=readFileSync(new URL("../../priv/static/shadcn_ui.css",import.meta.url),"utf8");
 const evidence=JSON.parse(readFileSync(new URL("../../demo/priv/compatibility/motion_media_evidence.json",import.meta.url),"utf8"));
@@ -8,6 +11,36 @@ const axe=readFileSync(new URL("../../demo/node_modules/axe-core/axe.min.js",imp
 async function setup(page){await page.emulateMedia({reducedMotion:"no-preference"});await page.setContent(html);await page.addStyleTag({content:css});}
 const picture=(page,id="flow")=>page.locator(`#${id} img`).first();
 const transform=(page,id="flow")=>picture(page,id).evaluate(el=>{const value=getComputedStyle(el).transform;return value==="none"||new DOMMatrixReadOnly(value).isIdentity?"none":value;});
+test("removing each joint view dependency leaves a flat complete list, never document-time animation",async({page})=>{
+  for(const feature of ["animation-timeline","view-timeline-name","animation-range","timeline-scope","transform:"]){
+    await setup(page);expect(await removeFeatureGate(page,feature)).toBeGreaterThan(0);
+    await page.locator("#flow").evaluate(el=>el.scrollLeft=400);
+    expect(await transform(page)).toBe("none");expect(await picture(page).evaluate(el=>el.getAnimations().length)).toBe(0);
+    await expect(page.locator("#flow li")).toHaveCount(6);await expect(page.locator("#flow a")).toHaveCount(6);
+  }
+});
+test("static no-script subpath retains images, preference links and real index navigation",async({browser})=>{
+  const server=await serveMotionMediaExport(["/components/media/cover-flow"]);
+  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
+  try{const page=await context.newPage(),remote=[];page.on("request",r=>{if(new URL(r.url()).hostname!=="127.0.0.1")remote.push(r.url());});
+    await page.goto(server.url);await page.getByRole("link",{name:"Reduce motion",exact:true}).click();await page.getByRole("link",{name:"Use dark theme"}).click();
+    await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion","reduce");await expect(page.locator("html")).toHaveAttribute("data-shadcn-theme","dark");
+    const region=page.locator("#cover-reference");await region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last().click();await expect(region.locator("li").last()).toBeFocused();
+    for(const img of await region.locator("img").all()){await img.scrollIntoViewIfNeeded();await expect.poll(()=>img.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);}
+    const href=await region.locator("a").first().getAttribute("href");expect((await page.request.get(new URL(href,page.url()).href)).status()).toBe(200);
+    await expect(page.locator("#cover-failure img").first()).toHaveAttribute("alt","Intentionally unavailable landscape");expect(remote).toEqual([]);
+  }finally{await context.close();await server.close();}
+});
+test("native RTL keys and touch fragment navigation keep destinations focusable",async({browser,page})=>{
+  await setup(page);await page.locator("#flow").evaluate(el=>el.dir="rtl");await page.locator("#flow").focus();await page.keyboard.press("ArrowLeft");
+  await expect.poll(()=>page.locator("#flow").evaluate(el=>el.scrollLeft)).toBeLessThan(0);
+  const context=await browser.newContext({hasTouch:true,viewport:{width:390,height:844}});
+  try{const touch=await context.newPage();await touch.goto("http://127.0.0.1:4108/components/media/cover-flow");
+    const region=touch.locator("#cover-reference");await region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last().tap();
+    await expect(region.locator("li").last()).toBeFocused();await expect(region.locator("li").last()).toBeInViewport();
+    const link=region.locator("[data-shadcn-ui-cover-destination]").last();const href=await link.getAttribute("href");await link.tap();await expect(touch).toHaveURL(new RegExp(href.replaceAll(".","\\.")+"$"));
+  }finally{await context.close();}
+});
 // covers: shadcn_ui.media_components.cover_flow_composition shadcn_ui.media_components.cover_flow_enhancement
 test("view progress changes only images; native keys, idle and independent instances stay browser-owned",async({page,browserName})=>{
   await setup(page);

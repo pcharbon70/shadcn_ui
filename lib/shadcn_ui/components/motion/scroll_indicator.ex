@@ -35,7 +35,7 @@ defmodule ShadcnUI.Components.Motion.ScrollIndicator do
   slot :inner_block, required: true
 
   @sizes %{small: "sui:max-h-48", default: "sui:max-h-80", large: "sui:max-h-128"}
-  @protected ~w(id role tabindex aria_label aria_labelledby aria_describedby aria_hidden aria_live aria_valuenow aria_valuemin aria_valuemax hidden inert style data_shadcn_ui data_shadcn_ui_scroll_indicator data_shadcn_ui_scroll_source data_shadcn_ui_motion data_shadcn_ui_motion_part)a
+  @protected ~w(id role tabindex aria_label aria_labelledby aria_describedby aria_hidden aria_live aria_roledescription aria_selected aria_current aria_valuetext aria_valuenow aria_valuemin aria_valuemax hidden inert style data_shadcn_ui data_shadcn_ui_scroll_indicator data_shadcn_ui_scroll_source data_shadcn_ui_motion data_shadcn_ui_motion_part)a
 
   @doc "Renders native scroll content with a neutral-first decorative track."
   def scroll_indicator(assigns) do
@@ -57,7 +57,7 @@ defmodule ShadcnUI.Components.Motion.ScrollIndicator do
     unless Map.has_key?(@sizes, assigns.size),
       do: raise(ArgumentError, "invalid Scroll Indicator size")
 
-    unless assigns.inner_block != [],
+    unless is_list(assigns.inner_block) and assigns.inner_block != [],
       do: raise(ArgumentError, "Scroll Indicator requires content")
 
     assigns =

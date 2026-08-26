@@ -39,7 +39,7 @@ defmodule ShadcnUI.Components.Media.CoverFlow do
   attr :class, :any, default: nil
   attr :rest, :global
 
-  @protected ~w(id role tabindex style hidden inert aria_hidden aria_live aria_selected aria_current aria_label aria_labelledby aria_describedby data_shadcn_ui data_shadcn_ui_cover_flow data_shadcn_ui_presentation data_shadcn_ui_motion data_shadcn_ui_motion_part)a
+  @protected ~w(id role tabindex style hidden inert aria_hidden aria_live aria_roledescription aria_selected aria_current aria_valuetext aria_valuenow aria_valuemin aria_valuemax aria_label aria_labelledby aria_describedby data_shadcn_ui data_shadcn_ui_cover_flow data_shadcn_ui_presentation data_shadcn_ui_motion data_shadcn_ui_motion_part)a
 
   @doc "Renders complete native figures with optional image-only depth."
   def cover_flow(assigns) do

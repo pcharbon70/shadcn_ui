@@ -77,6 +77,11 @@ Phase 3 directly imports Motion.Marquee and Motion.Stagger with native Phoenix
 attribute/slot metadata. The actual archive audit requires both sources and
 retains the same explicit release exclusions; no animation runtime is added.
 
+Phase 4 directly imports Motion.ScrollIndicator and Media.CoverFlow and requires
+both in the actual archive audit. Its separate component-outcome record, local
+images and actual-HEEx/browser harness remain excluded. The native timeline
+presentation adds no package JS, runtime dependency or consumer toolchain.
+
 ```spec-verification
 - kind: command
   target: mix precommit

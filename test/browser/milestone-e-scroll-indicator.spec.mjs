@@ -1,5 +1,8 @@
 import {test,expect} from "../../demo/node_modules/@playwright/test/index.mjs";
 import {readFileSync} from "node:fs";
+import {removeFeatureGate} from "./support/scroll-media-fallback.mjs";
+import {serveMotionMediaExport} from "./support/static-motion-media.mjs";
+// covers: shadcn_ui.motion_media_gallery.accessibility_matrix shadcn_ui.motion_media_gallery.static_media
 const html=readFileSync(new URL("../fixtures/milestone_e_scroll_media.html",import.meta.url),"utf8");
 const css=readFileSync(new URL("../../priv/static/shadcn_ui.css",import.meta.url),"utf8");
 const evidence=JSON.parse(readFileSync(new URL("../../demo/priv/compatibility/motion_media_evidence.json",import.meta.url),"utf8"));
@@ -8,6 +11,37 @@ const axe=readFileSync(new URL("../../demo/node_modules/axe-core/axe.min.js",imp
 async function setup(page){await page.emulateMedia({reducedMotion:"no-preference"});await page.setContent(html);await page.addStyleTag({content:css});}
 const fill=(page,id)=>page.locator(`#${id}`).locator("..").locator("[data-shadcn-ui-scroll-fill]");
 async function width(page,id){return fill(page,id).evaluate(el=>parseFloat(getComputedStyle(el).width));}
+test("removing any joint scroll dependency retains neutral, complete native content",async({page})=>{
+  for(const feature of ["animation-timeline","scroll-timeline-name","animation-range","timeline-scope"]){
+    await setup(page);expect(await removeFeatureGate(page,feature)).toBeGreaterThan(0);
+    await page.locator("#first").evaluate(el=>el.scrollTop=el.scrollHeight);
+    expect(await width(page,"first")).toBe(0);
+    expect(await fill(page,"first").evaluate(el=>el.getAnimations().length)).toBe(0);
+    await expect(page.locator("#first input")).toHaveCount(12);
+    await expect(page.getByRole("progressbar")).toHaveCount(0);
+  }
+});
+test("static subpath works without scripts, including preferences and native form reset",async({browser})=>{
+  const server=await serveMotionMediaExport(["/components/motion/scroll-indicator"]);
+  const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
+  try{const page=await context.newPage();const remote=[];page.on("request",r=>{if(new URL(r.url()).hostname!=="127.0.0.1")remote.push(r.url());});
+    await page.goto(server.url);await page.getByRole("link",{name:"Reduce motion",exact:true}).click();await page.getByRole("link",{name:"Use dark theme"}).click();
+    await expect(page.locator("html")).toHaveAttribute("data-shadcn-theme","dark");await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion","reduce");
+    const region=page.locator("#indicator-small");await region.focus();await page.keyboard.press("End");await expect.poll(()=>region.evaluate(el=>el.scrollTop)).toBeGreaterThan(0);
+    const form=region.locator("form");await form.getByRole("textbox").fill("Changed");await form.getByRole("button").click();await expect(form.getByRole("textbox")).toHaveValue("A local draft");
+    expect(await width(page,"indicator-small")).toBe(0);expect(remote).toEqual([]);
+  }finally{await context.close();await server.close();}
+});
+test("touch controls, RTL scroll keys and the accessibility tree preserve native meaning",async({browser,page})=>{
+  await setup(page);await page.locator("#first").evaluate(el=>el.dir="rtl");await page.locator("#first").focus();await page.keyboard.press("PageDown");
+  await expect.poll(()=>page.locator("#first").evaluate(el=>el.scrollTop)).toBeGreaterThan(0);
+  expect(await page.locator("#first").ariaSnapshot()).toContain('region "Notes first"');
+  expect(await page.locator("main").ariaSnapshot()).not.toMatch(/progressbar|percentage/);
+  const context=await browser.newContext({hasTouch:true,viewport:{width:390,height:844}});
+  try{const touch=await context.newPage();await touch.goto("http://127.0.0.1:4108/components/motion/scroll-indicator");
+    const form=touch.locator("#indicator-small form");await form.getByRole("textbox").fill("Touch draft");await form.getByRole("button").tap();await expect(form.getByRole("textbox")).toHaveValue("A local draft");
+  }finally{await context.close();}
+});
 // covers: shadcn_ui.motion_components.indicator shadcn_ui.motion_components.timeline_fallback shadcn_ui.motion_components.work_budget
 test("named source changes only its own decoration and stationary progress never uses the document clock",async({page,browserName,browser})=>{
   await setup(page); expect(browser.version()).toBe(evidence.engines[browserName].version);

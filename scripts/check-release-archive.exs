@@ -22,12 +22,17 @@ end
 IO.puts("Release archive allowlist verified: #{length(paths)} entries")
 
 for path <-
-      ~w(lib/shadcn_ui/components/motion/marquee.ex lib/shadcn_ui/components/motion/stagger.ex lib/shadcn_ui/components/media/carousel.ex lib/shadcn_ui/components/media/media_contract.ex lib/shadcn_ui/components/motion/motion_contract.ex priv/compatibility/motion_media.json priv/compatibility/motion_media.schema.json) do
+      ~w(lib/shadcn_ui/components/motion/scroll_indicator.ex lib/shadcn_ui/components/media/cover_flow.ex lib/shadcn_ui/components/motion/marquee.ex lib/shadcn_ui/components/motion/stagger.ex lib/shadcn_ui/components/media/carousel.ex lib/shadcn_ui/components/media/media_contract.ex lib/shadcn_ui/components/motion/motion_contract.ex priv/compatibility/motion_media.json priv/compatibility/motion_media.schema.json) do
   unless path in paths, do: raise("Missing motion/media foundation: #{path}")
 end
 
 if Enum.any?(
      paths,
-     &String.contains?(&1, ["fixtures.json", "motion_media_evidence", "/media/ridge.svg"])
+     &String.contains?(&1, [
+       "fixtures.json",
+       "motion_media_evidence",
+       "scroll_media_evidence",
+       "/media/ridge.svg"
+     ])
    ),
    do: raise("Demo media/evidence leaked into release")

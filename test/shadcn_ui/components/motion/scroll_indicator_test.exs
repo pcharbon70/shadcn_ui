@@ -63,7 +63,8 @@ defmodule ShadcnUI.Components.Motion.ScrollIndicatorTest do
           %{size: :huge},
           %{motion: :force},
           %{description: 1},
-          %{inner_block: []}
+          %{inner_block: []},
+          %{inner_block: nil}
         ] do
       assert_raise ArgumentError, fn -> render(attrs) end
     end
@@ -78,12 +79,18 @@ defmodule ShadcnUI.Components.Motion.ScrollIndicatorTest do
           style: "timeline-scope:--outside",
           hidden: true,
           "aria-valuenow": 40,
+          "aria-valuetext": "Reading complete",
+          "aria-selected": "true",
+          "aria-current": "step",
+          "aria-roledescription": "progress",
           "data-owner": "caller",
           "phx-mounted": "caller"
         }
       })
 
-    refute html =~ ~r/(id="bad"|progressbar|outside|aria-valuenow| hidden)/
+    refute html =~
+             ~r/(id="bad"|progressbar|outside|aria-value|aria-selected|aria-current|aria-roledescription| hidden)/
+
     assert html =~ ~s(data-owner="caller")
     assert html =~ ~s(phx-mounted="caller")
   end
