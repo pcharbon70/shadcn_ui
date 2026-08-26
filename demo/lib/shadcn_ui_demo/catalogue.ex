@@ -17,7 +17,8 @@ defmodule ShadcnUIDemo.Catalogue do
       slug: "interactive-surfaces",
       path: "/components/interactive-surfaces"
     },
-    %{label: "Media", slug: "media", path: "/components/media"}
+    %{label: "Media", slug: "media", path: "/components/media"},
+    %{label: "Motion", slug: "motion", path: "/components/motion"}
   ]
 
   @foundation [
@@ -62,6 +63,10 @@ defmodule ShadcnUIDemo.Catalogue do
   ]
 
   @components_by_category %{
+    "motion" => [
+      %{label: "Marquee", slug: "marquee", render: :marquee, category: "motion"},
+      %{label: "Stagger", slug: "stagger", render: :stagger, category: "motion"}
+    ],
     "media" => [%{label: "Carousel", slug: "carousel", render: :carousel, category: "media"}],
     "overlays" =>
       Enum.map(
@@ -90,6 +95,12 @@ defmodule ShadcnUIDemo.Catalogue do
   }
 
   @compositions [
+    %{
+      label: "Motion preferences",
+      slug: "motion-preferences",
+      path: "/examples/motion-preferences",
+      render: :motion_preferences
+    },
     %{
       label: "Media browser",
       slug: "media-browser",

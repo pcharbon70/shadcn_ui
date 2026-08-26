@@ -85,7 +85,9 @@ links five accepted ADRs, four normative specifications and the requirement
 coverage map. Phase 1 foundations are implemented: capability evidence, shared
 internal contracts, scoped suppression, local media and the capability demo.
 Phase 2 adds public Carousel, its reference and the media-browser composition.
-Phases 3–6 and the other five components remain pending. The phase execution
+Phase 3 adds finite Marquee and bounded Stagger with their Motion references
+and a native motion-preferences composition. Phases 4–6 and Scroll Indicator,
+Cover Flow and Image Gallery remain pending. The phase execution
 records list checks and the outstanding local SpecLed toolchain limitation;
 Milestone E is not complete.
 

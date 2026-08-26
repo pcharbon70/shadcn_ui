@@ -1,5 +1,40 @@
 # Motion/media authored CSS exception ledger
 
+## E-04 — bounded Stagger entrance
+
+Source: assets/stagger.css and Motion.Stagger. Reviewed pinned upstream
+stagger/basic.html at bd8f403030c8d1f46804da6eda733fde7e908e63 (2026-08-26).
+This local adaptation omits toggle-to-hide and unbounded sibling-index delays.
+Namespaced fade/rise keyframes and direct-child focus cancellation need authored
+CSS. Effects opt in behind animation support and no-preference; baseline opacity
+is one, lowest animated opacity is 0.5. Fixed internal numeric timing properties
+come only from closed validated presets. Delay plus duration never exceeds one
+second, excess items do not animate. No fill, repeat, observer or viewport state.
+Removing CSS or focusing an item restores opacity one and identity transform.
+E-01 suppression overrides the rules and cannot be undone by nested system.
+There are no colors or theme-specific declarations; native focus/forced colors
+survive. Semantic wrappers and caller content are never cloned or reordered.
+Tests: Stagger rendering and actual-HEEx three-engine motion assertions,
+including focused inputs, interrupted CSS and fresh-render replay/reset.
+
+## E-03 — finite Marquee preview
+
+Source: assets/marquee.css and Motion.Marquee. Adapted from pinned upstream
+marquee/basic.html and loop.css at bd8f403030c8d1f46804da6eda733fde7e908e63,
+reviewed 2026-08-26; existing MIT notice retained. Complete static lists wrap.
+The direct-child checkbox :has gate, clone lifecycle and namespaced keyframes
+need authored CSS rather than repeated arbitrary utilities. Joint :has, :dir,
+transform and animation queries plus no-preference expose the hidden native
+control. Two closed presets are 2.5s and 5s, one iteration, no delay/fill/repeat.
+Canonical travel and one inert, aria-hidden duplicate finish at identical content;
+completion removes travel and duplicate visibility. Unchecking cancels both.
+The duplicate has native hidden for CSS-disabled output and no interactive
+content or IDs. Logical directions follow LTR/RTL; colors/borders/radius use
+scoped tokens and native forced colors. E-01 suppression wins for every part.
+Unsupported CSS retains all content and omits the unavailable preview control.
+Tests: Marquee rendering, actual-HEEx motion fixture and locked three-engine
+milestone-e-motion.spec.mjs; deterministic compiled asset checks.
+
 ## E-01 — visible baseline and suppression
 
 Source: [assets/motion-media.css](../assets/motion-media.css).

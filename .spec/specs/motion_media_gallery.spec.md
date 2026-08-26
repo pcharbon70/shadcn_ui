@@ -4,7 +4,7 @@
 id: shadcn_ui.motion_media_gallery
 kind: application
 status: active
-summary: Capability page, motion inspection, local export and Phase 2 Carousel reference/media-browser; remaining components follow later.
+summary: Capability page, local export, Carousel, Marquee and Stagger references with media-browser and motion-preferences compositions.
 decisions:
   - shadcn_ui.motion_media_gallery_delivery
   - shadcn_ui.motion_media_capability_css
@@ -63,7 +63,10 @@ Every phase updates documentation/provenance and retains earlier regressions.
 Phase 1 implements the capability composition, local authored SVG fixtures,
 closed preference links and selected-media static export. Phase 2 adds the Media
 category, Carousel reference and media-browser composition with actual local
-images and ordinary destinations. Other new component references/compositions
+images and ordinary destinations. Phase 3 appends Motion with Marquee/Stagger
+references and a motion-preferences composition using native controls, local
+images and system/reduce links. Copyable source is compile-tested; export checks
+every new canonical and preference variant. Other new references/compositions
 remain pending later phases. Local verification does not establish Pages publication.
 Milestone D's recorded local SpecLed runner issue remains an explicit environment
 limitation, not an excuse to weaken the gate. The final release record must
@@ -127,6 +130,20 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: demo/test/shadcn_ui_demo/motion_gallery_test.exs
+  covers:
+    - shadcn_ui.motion_media_gallery.incremental_catalog
+    - shadcn_ui.motion_media_gallery.references
+    - shadcn_ui.motion_media_gallery.compositions
+    - shadcn_ui.motion_media_gallery.motion_inspection
+
+- kind: test_file
+  target: test/browser/milestone-e-motion.spec.mjs
+  covers:
+    - shadcn_ui.motion_media_gallery.accessibility_matrix
+    - shadcn_ui.motion_media_gallery.static_media
+
 - kind: test_file
   target: demo/test/shadcn_ui_demo/carousel_gallery_test.exs
   covers:

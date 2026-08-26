@@ -10,6 +10,18 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
     """
   end
 
+  def component_examples(%{render: :marquee} = assigns) do
+    ~H"""
+    <ShadcnUIDemoWeb.MotionExamples.marquee_examples />
+    """
+  end
+
+  def component_examples(%{render: :stagger} = assigns) do
+    ~H"""
+    <ShadcnUIDemoWeb.MotionExamples.stagger_examples />
+    """
+  end
+
   def component_examples(%{render: render} = assigns)
       when render in [
              :dialog,

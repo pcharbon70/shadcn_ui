@@ -40,6 +40,9 @@
   <p :if={@page.kind == :category && @page.slug == "interactive-surfaces"}>
     Supplemental descriptions and link previews. Required information stays visible.
   </p>
+  <p :if={@page.kind == :category && @page.slug == "motion"}>
+    Complete static content with optional bounded decorative previews and entrance effects.
+  </p>
   <div :if={@page.kind == :component} class="gallery-reference">
     <section>
       <h2>What it is</h2><p>{@page.reference.what}</p>
@@ -149,6 +152,11 @@
   <ShadcnUIDemoWeb.MediaExamples.media_browser :if={
     @page.kind == :composition && @page.render == :media_browser
   } />
+
+  <ShadcnUIDemoWeb.MotionExamples.motion_preferences
+    :if={@page.kind == :composition && @page.render == :motion_preferences}
+    theme={@theme}
+  />
 
   <p :if={@page.kind == :not_found}>
     The requested gallery page does not exist. <a href="/">Return to the gallery.</a>

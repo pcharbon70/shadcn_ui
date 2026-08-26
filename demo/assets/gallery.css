@@ -55,3 +55,6 @@ pre { max-width: 100%; overflow: auto; padding: 1rem; background: var(--shadcn-u
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+.gallery-motion-examples { min-width: 0; display: grid; gap: 1rem; }
+.gallery-motion-examples form, .gallery-motion-examples input { max-width: 100%; box-sizing: border-box; }
+.gallery-motion-item { padding: .5rem; overflow-wrap: anywhere; }

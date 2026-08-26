@@ -8,7 +8,7 @@ defmodule ShadcnUIDemo.ContentNavigationCatalogTest do
 
   test "Milestone C categories and leaves are closed, ordered, and fully referenced" do
     assert Enum.map(Catalogue.categories(), & &1.slug) ==
-             ~w(foundation forms disclosure navigation content-surfaces overlays interactive-surfaces media)
+             ~w(foundation forms disclosure navigation content-surfaces overlays interactive-surfaces media motion)
 
     expected = %{
       "disclosure" => ~w(accordion),

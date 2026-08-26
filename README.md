@@ -15,8 +15,44 @@ internal image and bounded-motion contracts, scoped motion suppression, local
 demo fixtures and `/examples/motion-media-capabilities`. The gallery supports
 ordinary system/reduced-motion links, including no-script static exports.
 Phase 2 adds public Carousel, its reference page at `/components/media/carousel`
-and `/examples/media-browser`. The other five Motion/Media components remain
-later-phase work.
+and `/examples/media-browser`. Phase 3 adds Marquee and Stagger at
+`/components/motion/marquee` and `/components/motion/stagger`, plus
+`/examples/motion-preferences`. Scroll Indicator, Cover Flow and Image Gallery
+remain later-phase work.
+
+## Marquee and Stagger: optional bounded motion
+
+```heex
+<.marquee id="topics" accessible_label="Topics" mode={:preview} duration={:brief}
+  items={[%{key: "walks", text: "Mountain walks"}, %{key: "stories", text: "Harbor stories"}]} />
+
+<.stagger id="reading" as={:ol} effect={:rise} preset={:quick}>
+  <:item key="first"><a href="/reading/first">First reading</a></:item>
+  <:item key="second"><label>Local note <input name="note" /></label></:item>
+</.stagger>
+```
+
+`use ShadcnUI` imports both defining Motion modules directly. Marquee defaults
+to a complete static list. Preview uses an initially unchecked, unnamed native
+checkbox: check for one traversal, uncheck to stop/reset, then check to replay.
+Checked means enabled, not playing. Duration is `:brief` (2.5s) or `:default`
+(5s); direction is `:inline_start` or `:inline_end`. Structured items require
+unique keys and escaped text, and accept optional validated image metadata;
+never cloned arbitrary HEEx. Its one decorative duplicate is inert, aria-hidden,
+ID-free and hidden outside the finite preview, including CSS-disabled output.
+
+Stagger requires keyed trusted `item` slots; `as` is `:div` (default), `:ul` or
+`:ol`. Effect is `:none` (default), `:fade` or `:rise`. Presets are `:quick`
+(150ms duration, 50ms step) and `:default` (250ms, 75ms). Total delay+duration
+is capped at one second, excess items appear immediately, and focus cancels
+the item's effect. Content is never opacity zero. Root and item classes and
+unrelated globals survive; generated identities, semantics and timing are protected.
+
+Both obey `motion=:none`, ancestor `data-shadcn-motion="reduce"` and OS reduced
+motion. System never overrides reduction. Missing CSS retains complete native
+content; no JavaScript, infinite animation or visibility observer is shipped.
+Finite effects may finish offscreen; replacement can reset native controls and
+replay entrance effects. Applications own persistence, patch boundaries and actions.
 
 ## Carousel: native content browsing
 

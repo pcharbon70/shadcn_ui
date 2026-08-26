@@ -1,0 +1,19 @@
+/* E-04: visible, bounded render-time decoration; no observer or hiding state. */
+[data-shadcn-ui-stagger] { min-inline-size: 0; }
+[data-shadcn-ui-stagger] > [data-shadcn-ui-stagger-item] { opacity: 1; transform: none; }
+@supports (animation-name: shadcn-ui-stagger-fade) {
+  @media (prefers-reduced-motion: no-preference) {
+    [data-shadcn-ui-stagger][data-shadcn-ui-effect="fade"] > [data-shadcn-ui-animated="true"],
+    [data-shadcn-ui-stagger][data-shadcn-ui-effect="rise"] > [data-shadcn-ui-animated="true"] {
+      animation: shadcn-ui-stagger-fade var(--shadcn-ui-stagger-duration) ease-out var(--shadcn-ui-stagger-delay) 1;
+    }
+    [data-shadcn-ui-stagger][data-shadcn-ui-effect="rise"] > [data-shadcn-ui-animated="true"] {
+      animation-name: shadcn-ui-stagger-rise;
+    }
+  }
+}
+[data-shadcn-ui-stagger] > [data-shadcn-ui-stagger-item]:focus-within {
+  animation: none !important; opacity: 1 !important; transform: none !important;
+}
+@keyframes shadcn-ui-stagger-fade { from { opacity: .5; } to { opacity: 1; } }
+@keyframes shadcn-ui-stagger-rise { from { opacity: .5; transform: translateY(.5rem); } to { opacity: 1; transform: none; } }

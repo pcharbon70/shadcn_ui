@@ -4,6 +4,12 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Add static-first Marquee with a native finite-preview checkbox, persistent
+  stop/reset/replay and a safe inert decorative duplicate. Add keyed Stagger
+  with visible defaults, explicit wrappers and a one-second entrance budget.
+- Publish the Motion category, both complete references and a native motion-
+  preferences composition, including no-script theme-preserving static export.
+
 - Add native Carousel with a named scroll region, keyed ordered content, real
   fragment index, closed snap/alignment and focus-first oversized-card access.
   Deliver the Media reference and local media-browser composition immediately,

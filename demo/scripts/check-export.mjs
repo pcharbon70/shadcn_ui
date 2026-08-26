@@ -23,7 +23,8 @@ const overlayRoutes = [
   ...["overlay-capabilities", "settings-confirmation", "responsive-drawers", "anchored-actions", "supplemental-help"].map(name => `/examples/${name}`)
 ];
 const mediaRoutes = ["/components/media", "/components/media/carousel", "/examples/media-browser"];
-for (const route of mediaRoutes) {
+const motionRoutes = ["/components/motion", "/components/motion/marquee", "/components/motion/stagger", "/examples/motion-preferences"];
+for (const route of [...mediaRoutes, ...motionRoutes]) {
   if (!sitemap.includes(`<loc>https://leco-industries-inc.github.io/shadcn_ui${route}</loc>`)) throw new Error(`missing media route: ${route}`);
   for (const theme of ["light", "dark"]) for (const motion of ["system", "reduce", "unexpected"]) {
     if (!manifest.routes.some(e=>e.request===`${route}?theme=${theme}&motion=${motion}` && e.status===200)) throw new Error("missing media preference variant");
@@ -61,6 +62,18 @@ for (const entry of manifest.routes) {
   const runtime = html.replace(/<a\b[^>]*>/gi, "").replace(/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^"]*"\s*\/?\s*>/gi, "");
   if (/(?:src|href|srcset)="(?:https?:)?\/\//i.test(runtime)) throw new Error(`remote runtime URL: ${entry.file}`);
   const route = entry.request.split("?")[0];
+  if (motionRoutes.includes(route)) {
+    const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
+    if (new Set(ids).size !== ids.length) throw new Error("duplicate motion identity");
+    if (route !== "/components/motion" && !html.includes("data-shadcn-ui-motion")) throw new Error("missing real motion example");
+    if (route.startsWith("/components/motion/") && !html.includes("HEEX source")) throw new Error("missing motion reference");
+    for (const input of html.matchAll(/<input[^>]*type="checkbox"[^>]*>/g)) {
+      if (/\b(?:checked|name)=/.test(input[0])) throw new Error("motion preview autostarts or owns a form value");
+    }
+    for (const duplicate of html.matchAll(/<div[^>]*data-shadcn-ui-motion-part="clone"[^>]*>(.*?)<\/div>/gs)) {
+      if (!/hidden inert aria-hidden="true"/.test(duplicate[0]) || /\bid=|<a\b|<input|<button|tabindex/.test(duplicate[1])) throw new Error("unsafe motion duplicate");
+    }
+  }
   if (mediaRoutes.includes(route)) {
     const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
     if (new Set(ids).size!==ids.length) throw new Error("duplicate media identity");
