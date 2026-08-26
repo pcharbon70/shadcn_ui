@@ -3,6 +3,25 @@ defmodule ScrollMediaBrowserFixture do
   use ShadcnUI
 
   def render(assigns) do
+    assigns =
+      assign(
+        assigns,
+        :images,
+        for n <- 1..6 do
+          %{
+            key: "image-#{n}",
+            src: "/media/#{if n == 6, do: "missing", else: "ridge"}.svg",
+            alt: "Landscape #{n}",
+            name: "Destination #{n}",
+            width: 640,
+            height: 480,
+            caption: String.duplicate("A complete long caption with readable details. ", n),
+            href: "/details/#{n}",
+            loading: :eager
+          }
+        end
+      )
+
     ~H"""
     <!DOCTYPE html><html lang="en" data-shadcn-theme="light">
       <head>
@@ -43,6 +62,25 @@ defmodule ScrollMediaBrowserFixture do
           >
             <p :for={n <- 1..20}>No motion {n}</p>
           </.scroll_indicator>
+          <.cover_flow
+            :for={id <- ["flow", "other-flow"]}
+            id={id}
+            accessible_label={id}
+            images={@images}
+            snap={:none}
+          />
+          <.cover_flow
+            id="flat-flow"
+            accessible_label="Flat flow"
+            images={@images}
+            presentation={:flat}
+          />
+          <.cover_flow id="one-flow" accessible_label="One image" images={Enum.take(@images, 1)} />
+          <div data-shadcn-motion="reduce">
+            <div data-shadcn-motion="system">
+              <.cover_flow id="nested-flow" accessible_label="Suppressed flow" images={@images} />
+            </div>
+          </div>
           <button id="after">After examples</button>
         </main>
       </body>

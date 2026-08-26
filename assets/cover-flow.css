@@ -1,0 +1,54 @@
+/* E-06: native image-only depth; see docs/motion-media-css-exceptions.md. */
+[data-shadcn-ui-cover-flow] {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  container: shadcn-ui-cover-flow / inline-size;
+}
+[data-shadcn-ui-cover-figure] { margin: 0; min-inline-size: 0; }
+[data-shadcn-ui-cover-depth] { padding: 1rem; }
+[data-shadcn-ui-cover-image] {
+  display: block;
+  inline-size: 100%;
+  max-inline-size: 100%;
+  block-size: auto;
+  max-block-size: 16rem;
+  object-fit: contain;
+  pointer-events: none;
+}
+[data-shadcn-ui-cover-figure] > figcaption { overflow-wrap: anywhere; }
+[data-shadcn-ui-cover-destination] {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 2.75rem;
+  overflow-wrap: anywhere;
+}
+[data-shadcn-ui-cover-destination]:focus-visible {
+  outline: 2px solid var(--shadcn-ui-ring, CanvasText);
+  outline-offset: 3px;
+}
+@supports (animation-timeline: view(inline)) and (view-timeline-name: --shadcn-ui-probe)
+  and (animation-range: entry 0% exit 100%) and (timeline-scope: --shadcn-ui-probe)
+  and (transform: perspective(400px) rotateY(20deg)) {
+  @media (prefers-reduced-motion: no-preference) and (forced-colors: none) {
+    @container shadcn-ui-cover-flow (min-width: 40rem) {
+      [data-shadcn-ui-cover-flow][data-shadcn-ui-presentation="enhanced"] [data-shadcn-ui-cover-depth] {
+        timeline-scope: var(--shadcn-ui-cover-timeline);
+        view-timeline-name: var(--shadcn-ui-cover-timeline);
+        view-timeline-axis: inline;
+      }
+      [data-shadcn-ui-cover-flow][data-shadcn-ui-presentation="enhanced"] [data-shadcn-ui-cover-image] {
+        animation: shadcn-ui-cover-depth auto linear both;
+        animation-timeline: var(--shadcn-ui-cover-timeline);
+        animation-range: entry 0% exit 100%;
+      }
+    }
+  }
+}
+@keyframes shadcn-ui-cover-depth {
+  from { transform: perspective(30rem) rotateY(-25deg) scale(.9); }
+  50% { transform: perspective(30rem) rotateY(0deg) scale(1); }
+  to { transform: perspective(30rem) rotateY(25deg) scale(.9); }
+}
+@media (forced-colors: active) {
+  [data-shadcn-ui-cover-destination]:focus-visible { outline-color: Highlight; }
+}

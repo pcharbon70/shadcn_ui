@@ -1,5 +1,44 @@
 # Motion/media authored CSS exception ledger
 
+## E-05 — source-local decorative scroll progress
+
+Source: assets/scroll-indicator.css and Motion.ScrollIndicator. Reviewed pinned
+upstream scroll-indicator/basic.html and progress.css at
+bd8f403030c8d1f46804da6eda733fde7e908e63 (2026-08-26); MIT notice retained.
+The track lives outside the scroll viewport to avoid covering focus/content.
+Named timeline and scope derive only from validated, encoded instance IDs.
+Joint scroll timeline/name/range/scope support, no-preference and no forced
+colors gate the width keyframes; there is no time duration or repeated loop.
+Baseline fill width is zero, including inactive short-content timelines and
+suppression. The neutral track does not measure reading or task completion.
+Scoped token colors/radius/borders retain light/dark and forced-color behavior.
+No global selector, external scroll source, overscroll trap, script or observer.
+Tests: ScrollIndicator rendering and actual-HEEx scroll-indicator browser suite
+check isolated sources, stationary progress, keyboard/wheel, short content,
+suppression and replacement in all three locked engines.
+
+## E-06 — bounded image-only Cover Flow depth
+
+Source: assets/cover-flow.css and Media.CoverFlow. Reviewed pinned upstream
+cover-flow/basic.html and flow.css at the same pin/date as E-05. MIT notice
+retained. Local adaptation omits reflection, overlap and animated stacking.
+Native Carousel list/index remain authoritative. Each validated image key has
+an encoded instance-local named inline view timeline scoped to its image wrapper.
+Joint view timeline/name/range/scope and perspective/rotate support is required;
+a named container query additionally requires 40rem of available inline space.
+Only enhanced multi-image roots, no-preference and no forced colors may animate.
+Missing any gate leaves flat images. E-01 suppression wins, including nested
+system roots. Images shrink at the edges (0.9–1 scale, ±25° perspective rotation)
+inside padding; no translation, overlap, z-index, clipping or hidden slide state.
+Images never capture pointer events. Caption/link siblings are never transformed.
+Keyframes use native view progress, auto duration and no document-clock fallback.
+Idle scrolling costs no perpetual animation. Baseline intrinsic dimensions,
+contain fit and 16rem max height preserve bounded images, including broken URLs.
+Only existing ring tokens/system focus colors are added; no new theme palette.
+Tests: CoverFlow metadata/structure and actual-HEEx three-engine browser checks
+cover flat/enhanced, idle/isolation, narrow/suppressed/forced colors and link hits.
+Native timeline semantics reference: https://drafts.csswg.org/scroll-animations-1/.
+
 ## E-04 — bounded Stagger entrance
 
 Source: assets/stagger.css and Motion.Stagger. Reviewed pinned upstream

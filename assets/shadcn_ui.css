@@ -5,6 +5,7 @@
 @import "./marquee.css";
 @import "./stagger.css";
 @import "./scroll-indicator.css";
+@import "./cover-flow.css";
 
 @source "../lib/**/*.ex";
 @source "./**/*.css";

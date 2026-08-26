@@ -35,25 +35,25 @@ Requires Phases 1–3 capabilities, suppression, Carousel contract and Motion/Me
       - [x] 4.1.2.2 Subtask - Retain complete content with a neutral or absent track when unsupported, reduced-motion, explicit suppression or forced colors makes animation unsuitable.
       - [x] 4.1.2.3 Subtask - Test stationary sources, short/nonoverflowing content and replacement; add no listener, polling, observer, completion callback or unbounded work.
 
-  - [ ] 4.2 Section - Cover Flow composition over Carousel.
+  - [x] 4.2 Section - Cover Flow composition over Carousel.
 
     Add optional image depth while keeping the underlying native list, index and destinations unchanged.
 
-    - [ ] 4.2.1 Task - Implement structured Cover Flow and flat baseline.
+    - [x] 4.2.1 Task - Implement structured Cover Flow and flat baseline.
 
       The new component should reuse validated media and Carousel structure instead of duplicating a controller.
 
-      - [ ] 4.2.1.1 Subtask - Add Media.CoverFlow.cover_flow/1 with stable structured images/captions/destinations and flat/enhanced presentation; import the defining module directly.
-      - [ ] 4.2.1.2 Subtask - Reuse Carousel naming, IDs, native scroll/list/index and ordinary keyboard behavior without active-image, swipe, drag or hidden-slide state.
-      - [ ] 4.2.1.3 Subtask - Preserve intrinsic dimensions, explicit alt and loading hints; render captions and destinations outside decorative transforms and provide broken-image examples.
+      - [x] 4.2.1.1 Subtask - Add Media.CoverFlow.cover_flow/1 with stable structured images/captions/destinations and flat/enhanced presentation; import the defining module directly.
+      - [x] 4.2.1.2 Subtask - Reuse Carousel naming, IDs, native scroll/list/index and ordinary keyboard behavior without active-image, swipe, drag or hidden-slide state.
+      - [x] 4.2.1.3 Subtask - Preserve intrinsic dimensions, explicit alt and loading hints; render captions and destinations outside decorative transforms and provide broken-image examples.
 
-    - [ ] 4.2.2 Task - Admit only evidence-backed 3D CSS.
+    - [x] 4.2.2 Task - Admit only evidence-backed 3D CSS.
 
       A visual enhancement must not obscure focus, captions or hit targets.
 
-      - [ ] 4.2.2.1 Subtask - Gate view-progress/range/transform dependencies together and record precise CSS exceptions and instance-scoped names; do not fallback to a time-based loop.
-      - [ ] 4.2.2.2 Subtask - Keep flat presentation under missing support, motion suppression, forced colors and layouts failing readability/hit-target tests; document these gates.
-      - [ ] 4.2.2.3 Subtask - Verify overlapping image decoration never captures another item's link or clips its focus indicator; do not measure coordinates or manipulate z-index through runtime code.
+      - [x] 4.2.2.1 Subtask - Gate view-progress/range/transform dependencies together and record precise CSS exceptions and instance-scoped names; do not fallback to a time-based loop.
+      - [x] 4.2.2.2 Subtask - Keep flat presentation under missing support, motion suppression, forced colors and layouts failing readability/hit-target tests; document these gates.
+      - [x] 4.2.2.3 Subtask - Verify overlapping image decoration never captures another item's link or clips its focus indicator; do not measure coordinates or manipulate z-index through runtime code.
 
   - [ ] 4.3 Section - Immediate scroll and Cover Flow gallery references.
 
