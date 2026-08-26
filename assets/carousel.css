@@ -1,0 +1,32 @@
+/* E-02: native logical list layout; see docs/motion-media-css-exceptions.md. */
+[data-shadcn-ui-carousel] { min-inline-size: 0; max-inline-size: 100%; }
+[data-shadcn-ui-carousel] > [data-shadcn-ui-carousel-scroll] {
+  box-sizing: border-box; inline-size: 100%; max-inline-size: 100%;
+  scroll-padding-inline: .75rem; border-radius: var(--shadcn-ui-radius-md);
+}
+[data-shadcn-ui-carousel-scroll] > [data-shadcn-ui-carousel-list] {
+  display: flex; gap: 1rem; list-style: none; margin: 0; padding: .75rem;
+}
+[data-shadcn-ui-carousel-list] > [data-shadcn-ui-carousel-item] {
+  box-sizing: border-box; flex: 0 0 min(22rem, 85%); min-inline-size: 0;
+  scroll-margin-inline: .75rem; overflow-wrap: anywhere; padding: 1rem;
+  border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-md);
+  background: var(--shadcn-ui-card); color: var(--shadcn-ui-card-foreground);
+}
+[data-shadcn-ui-carousel] > [data-shadcn-ui-carousel-index] {
+  display: flex; flex-wrap: wrap; gap: .5rem; padding-block: .75rem;
+}
+[data-shadcn-ui-carousel-index] > a {
+  display: inline-flex; align-items: center; min-block-size: 2.75rem;
+  padding-inline: .75rem; overflow-wrap: anywhere;
+  color: var(--shadcn-ui-primary); text-decoration: underline;
+}
+[data-shadcn-ui-carousel-item]:focus-visible,
+[data-shadcn-ui-carousel-index] > a:focus-visible {
+  outline: 2px solid var(--shadcn-ui-ring); outline-offset: 2px;
+}
+@media (forced-colors: active) {
+  [data-shadcn-ui-carousel-list] > [data-shadcn-ui-carousel-item] { border-color: CanvasText; }
+  [data-shadcn-ui-carousel-item]:focus-visible,
+  [data-shadcn-ui-carousel-index] > a:focus-visible { outline-color: Highlight; }
+}

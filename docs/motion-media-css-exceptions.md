@@ -32,3 +32,29 @@ test mapping here before distribution.
 Verification: milestone-e-foundations browser tests exercise actual compiled
 CSS, nested suppression, preference changes, independent instances, focus,
 forced colors and CSS-disabled output; package asset checks reproduce bytes.
+
+## E-02 — native Carousel layout
+
+Source: [assets/carousel.css](../assets/carousel.css). Pinned adaptation:
+unscripted/ui `src/demos/carousel/basic.html` at
+`bd8f403030c8d1f46804da6eda733fde7e908e63`, reviewed 2026-08-26. The
+`markers.css` source was reviewed but its generated controls are not copied.
+Required MIT notice remains in THIRD_PARTY_NOTICES.md.
+
+Snap/alignment and overflow use complete static prefixed utilities. The authored
+family centralizes direct-child logical sizing, padding, index touch targets and
+forced-color/focus treatment without repeated arbitrary-selector utilities.
+Selectors are opt-in component markers, never global lists, links or resets.
+Cards are bounded by default, but caller oversized content remains natively
+scrollable; no block-size cap, clipping or scroll containment traps the user.
+Sibling and nested roots do not inherit another instance's snap configuration.
+
+No capability query is needed for baseline flex/overflow. Unsupported optional
+scroll-snap declarations are ignored, preserving native scrolling. CSS-disabled
+output retains its ordered list, focus targets and real links. Proximity is the
+default; none and mandatory are explicit options. Smooth scrolling is suppressed
+by E-01 under OS, ancestor or component reduction, without changing navigation.
+No scrollbar hiding, generated controls, keyframes, timelines or runtime exists.
+Card/foreground/border/ring/radius use scoped light/dark tokens; forced colors
+retains native colors and visible outlines. Actual HEEx fixture, three-engine
+Carousel tests, CSS isolation and deterministic asset checks provide proof.

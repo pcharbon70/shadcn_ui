@@ -229,6 +229,12 @@
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],
       "localChanges": "Namespace semantic tokens, prefix generated utilities, remove Preflight, add sRGB fallback, and scope theme and reduced-motion behavior."
+    },
+    {
+      "id": "media.carousel",
+      "localPaths": ["lib/shadcn_ui/components/media/carousel.ex", "assets/carousel.css"],
+      "upstreamPaths": ["src/demos/carousel/basic.html", "src/demos/carousel/markers.css"],
+      "localChanges": "Retain native scrolling but use a named focusable region, ordered keyed items and real fragment links. Default to proximity snap with logical layout, visible scrollbars and focus, bounded cards and motion suppression. Omit reviewed generated markers/buttons, hidden scrollbars, containment and all slide state/runtime."
     }
   ],
   "excludedSiteMaterial": [

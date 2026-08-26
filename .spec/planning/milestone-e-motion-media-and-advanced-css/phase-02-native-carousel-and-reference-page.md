@@ -34,25 +34,25 @@ Requires Phase 1 media identity, motion suppression, capabilities and fixture/ex
       - [x] 2.1.2.2 Subtask - Do not render previous/next controls with no native operation; omit generated CSS buttons/markers and loop clones from package output.
       - [x] 2.1.2.3 Subtask - Document native scroll and fragment behavior, child focus, server replacement and application-owned navigation with no listeners or restoration code.
 
-  - [ ] 2.2 Section - Responsive native scrolling and CSS fallbacks.
+  - [x] 2.2 Section - Responsive native scrolling and CSS fallbacks.
 
     Enhance layout with scoped CSS while preserving oversized items, focus and scroll escape.
 
-    - [ ] 2.2.1 Task - Implement logical layout and closed snap presentation.
+    - [x] 2.2.1 Task - Implement logical layout and closed snap presentation.
 
       The same content should remain reachable at narrow widths, zoom and RTL without a translated track.
 
-      - [ ] 2.2.1.1 Subtask - Map none/proximity/mandatory snap and start/center alignment to complete static classes; choose proximity by default and keep native overflow.
-      - [ ] 2.2.1.2 Subtask - Add logical spacing, scroll padding/margins, visible focus and bounded item widths without hiding scroll affordances or forcing document-wide horizontal overflow.
-      - [ ] 2.2.1.3 Subtask - Verify focus into long items, mixed controls and oversized content; ensure explicit motion suppression disables smooth scrolling without disabling navigation.
+      - [x] 2.2.1.1 Subtask - Map none/proximity/mandatory snap and start/center alignment to complete static classes; choose proximity by default and keep native overflow.
+      - [x] 2.2.1.2 Subtask - Add logical spacing, scroll padding/margins, visible focus and bounded item widths without hiding scroll affordances or forcing document-wide horizontal overflow.
+      - [x] 2.2.1.3 Subtask - Verify focus into long items, mixed controls and oversized content; ensure explicit motion suppression disables smooth scrolling without disabling navigation.
 
-    - [ ] 2.2.2 Task - Audit enhancement and fallback isolation.
+    - [x] 2.2.2 Task - Audit enhancement and fallback isolation.
 
       The absence of snap or optional CSS must change presentation only.
 
-      - [ ] 2.2.2.1 Subtask - Add capability-gated CSS only where needed and record each authored exception and upstream local-change mapping.
-      - [ ] 2.2.2.2 Subtask - Provide complete native scrolling without snap and an ordinary ordered list with CSS disabled; keep every fragment target and destination stable.
-      - [ ] 2.2.2.3 Subtask - Exercise multiple sibling instances, RTL and forced colors without selector/keyframe leakage, browser sniffing or a package event loop.
+      - [x] 2.2.2.1 Subtask - Add capability-gated CSS only where needed and record each authored exception and upstream local-change mapping.
+      - [x] 2.2.2.2 Subtask - Provide complete native scrolling without snap and an ordinary ordered list with CSS disabled; keep every fragment target and destination stable.
+      - [x] 2.2.2.3 Subtask - Exercise multiple sibling instances, RTL and forced colors without selector/keyframe leakage, browser sniffing or a package event loop.
 
   - [ ] 2.3 Section - Immediate Carousel gallery and documentation.
 

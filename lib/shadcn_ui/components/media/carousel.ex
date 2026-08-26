@@ -43,6 +43,13 @@ defmodule ShadcnUI.Components.Media.Carousel do
 
   @protected ~w(id role tabindex aria_label aria_labelledby aria_describedby aria_roledescription aria_live aria_selected aria_current aria_hidden hidden inert data_shadcn_ui data_shadcn_ui_carousel data_shadcn_ui_carousel_item data_shadcn_ui_motion data_shadcn_ui_motion_part)a
 
+  @snap_classes %{
+    none: "sui:snap-none",
+    proximity: "sui:[scroll-snap-type:inline_proximity]",
+    mandatory: "sui:[scroll-snap-type:inline_mandatory]"
+  }
+  @alignment_classes %{start: "sui:snap-start", center: "sui:snap-center"}
+
   @doc "Renders native scrolling and a complete item index without slide state."
   def carousel(assigns) do
     label = text!(assigns.accessible_label)
@@ -93,6 +100,15 @@ defmodule ShadcnUI.Components.Media.Carousel do
       |> assign(:motion_value, MotionContract.preference!(assigns.motion))
       |> assign(:safe_rest, protect_globals(assigns.rest, @protected))
       |> assign(:classes, class_names([assigns.class]))
+      |> assign(
+        :scroll_classes,
+        class_names([
+          "sui:overflow-auto",
+          "sui:scroll-smooth",
+          Map.fetch!(@snap_classes, assigns.snap)
+        ])
+      )
+      |> assign(:item_classes, Map.fetch!(@alignment_classes, assigns.alignment))
 
     ~H"""
     <div {@safe_rest} data-shadcn-ui data-shadcn-ui-carousel class={@classes}>
@@ -105,6 +121,7 @@ defmodule ShadcnUI.Components.Media.Carousel do
         aria-labelledby={@heading}
         aria-describedby={@description && @description_id}
         data-shadcn-ui-carousel-scroll
+        class={@scroll_classes}
         data-shadcn-ui-motion={@motion_value}
       >
         <ol role="list" data-shadcn-ui-carousel-list>
@@ -114,7 +131,7 @@ defmodule ShadcnUI.Components.Media.Carousel do
             id={item.id}
             tabindex="-1"
             data-shadcn-ui-carousel-item
-            class={item.class}
+            class={class_names([@item_classes, item.class])}
           >
             {render_slot(item.slot)}
           </li>
