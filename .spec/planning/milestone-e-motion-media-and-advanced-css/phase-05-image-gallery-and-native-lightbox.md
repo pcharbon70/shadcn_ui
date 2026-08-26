@@ -14,25 +14,25 @@ Requires Phase 1 image contracts and fixture export, current Media catalogue, an
 
   Publish the complete responsive image-gallery experience with real local fixtures, native Dialog enlargement and ordinary destinations, treating origin transitions only as optional proven CSS.
 
-  - [ ] 5.1 Section - Structured Image Gallery and responsive figures.
+  - [x] 5.1 Section - Structured Image Gallery and responsive figures.
 
     Make media meaning and intrinsic layout explicit before adding enlargement.
 
-    - [ ] 5.1.1 Task - Implement the defining Image Gallery component.
+    - [x] 5.1.1 Task - Implement the defining Image Gallery component.
 
       The public API should normalize structured images rather than own a media service.
 
-      - [ ] 5.1.1.1 Subtask - Add Media.ImageGallery.image_gallery/1 with unique id/name, structured keyed image/full-size records and closed layout/density/thumbnail-fit values.
-      - [ ] 5.1.1.2 Subtask - Render a semantic list/grid of figures with explicit alt intent, captions, intrinsic dimensions, responsive srcset/sizes and preserved native loading/decoding hints.
-      - [ ] 5.1.1.3 Subtask - Provide a complete ordinary detail/full-image destination for every enlargable item; reject invalid fields, unsafe schemes, duplicate identities and conflicting globals.
+      - [x] 5.1.1.1 Subtask - Add Media.ImageGallery.image_gallery/1 with unique id/name, structured keyed image/full-size records and closed layout/density/thumbnail-fit values.
+      - [x] 5.1.1.2 Subtask - Render a semantic list/grid of figures with explicit alt intent, captions, intrinsic dimensions, responsive srcset/sizes and preserved native loading/decoding hints.
+      - [x] 5.1.1.3 Subtask - Provide a complete ordinary detail/full-image destination for every enlargable item; reject invalid fields, unsafe schemes, duplicate identities and conflicting globals.
 
-    - [ ] 5.1.2 Task - Preserve failure, layout and caller ownership.
+    - [x] 5.1.2 Task - Preserve failure, layout and caller ownership.
 
       Image absence and remote policy cannot become hidden package state.
 
-      - [ ] 5.1.2.1 Subtask - Keep captions, alt, control names and destinations understandable when images fail or are missing; include mixed aspect ratios and long text.
-      - [ ] 5.1.2.2 Subtask - Use responsive bounded sizing with contain for enlarged images and no layout polling, dimension fetching, inferred alt/caption or generated srcset.
-      - [ ] 5.1.2.3 Subtask - Document browser loading hints versus guaranteed deferred fetching, caller media rights/privacy/CSP policy, destination semantics and replacement.
+      - [x] 5.1.2.1 Subtask - Keep captions, alt, control names and destinations understandable when images fail or are missing; include mixed aspect ratios and long text.
+      - [x] 5.1.2.2 Subtask - Use responsive bounded sizing with contain for enlarged images and no layout polling, dimension fetching, inferred alt/caption or generated srcset.
+      - [x] 5.1.2.3 Subtask - Document browser loading hints versus guaranteed deferred fetching, caller media rights/privacy/CSP policy, destination semantics and replacement.
 
   - [ ] 5.2 Section - Lightbox composition through existing Dialog.
 
@@ -100,3 +100,11 @@ Complete and verify each section before committing it. Make one commit per
 section and one PR for this phase; do not merge that PR without a later request.
 Keep all checkboxes unchecked until the corresponding implementation and proof
 land. Update relevant specifications only after reading their full contracts.
+
+## Execution record
+
+- Section 5.1: defining imported component, shared structured-media validation,
+  named responsive figures, keyed trusted captions and independent destinations.
+  Full-size metadata is validated here; bounded contain rendering is composed
+  with Dialog in Section 5.2. Package precommit: 361 passed; deterministic CSS
+  build/check passed. No network fetching or new runtime was introduced.
