@@ -86,8 +86,9 @@ coverage map. Phase 1 foundations are implemented: capability evidence, shared
 internal contracts, scoped suppression, local media and the capability demo.
 Phase 2 adds public Carousel, its reference and the media-browser composition.
 Phase 3 adds finite Marquee and bounded Stagger with their Motion references
-and a native motion-preferences composition. Phases 4–6 and Scroll Indicator,
-Cover Flow and Image Gallery remain pending. The phase execution
+and a native motion-preferences composition. Phase 4 adds Scroll Indicator and
+Cover Flow with real references and composition updates. Phases 5–6 and Image
+Gallery remain pending. The phase execution
 records list checks and the outstanding local SpecLed toolchain limitation;
 Milestone E is not complete.
 

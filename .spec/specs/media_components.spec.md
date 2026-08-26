@@ -4,12 +4,18 @@
 id: shadcn_ui.media_components
 kind: package
 status: active
-summary: Carousel native API implemented in Phase 2; Cover Flow and Image Gallery remain planned.
+summary: Carousel and Cover Flow implemented; Image Gallery remains planned for Phase 5.
 decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.native_carousel_cover_flow
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - lib/shadcn_ui/components/media/cover_flow.ex
+  - test/shadcn_ui/components/media/cover_flow_test.exs
+  - test/shadcn_ui/scroll_media_integration_test.exs
+  - scripts/render-scroll-media-fixture.exs
+  - test/fixtures/milestone_e_scroll_media.html
+  - playwright.milestone-e-phase4.config.mjs
   - lib/shadcn_ui/components/media/carousel.ex
   - test/shadcn_ui/components/media/carousel_test.exs
   - test/fixtures/milestone_e_carousel.html
@@ -25,7 +31,7 @@ surface:
 
 ## API contract
 
-Functions are carousel/1 (implemented), cover_flow/1 and image_gallery/1 (planned) in defining
+Functions are carousel/1 and cover_flow/1 (implemented), image_gallery/1 (planned) in defining
 modules under ShadcnUI.Components.Media, imported directly through use ShadcnUI.
 All require unique id and an accessible name (label or valid heading reference,
 not conflicting sources); optional descriptions receive deterministic IDs.
@@ -52,6 +58,14 @@ captions and optional destinations. It reuses Carousel's list, native scroll
 region and index contract; its presentation is flat or enhanced. Enhanced means
 eligible CSS presentation, not a promise that it activates. Motion suppression
 or absent joint timeline/transform support selects flat presentation.
+
+Cover Flow requires nonempty images; no arbitrary slot or transform input exists.
+presentation defaults enhanced, snap proximity, alignment start, motion system.
+One-image collections stay flat. A 40rem named container query, joint view
+timeline/name/range/scope and perspective support, no-preference and no forced
+colors admit image-only depth. Captions and destination links never transform;
+images have bounded contain sizing and cannot capture pointer events. Encoded
+timeline names are instance/item-local. No overlap or animated stacking exists.
 
 Image Gallery accepts structured images and closed density/column/fit
 presentation rather than a dynamic CSS grid expression. Thumbnail fit may be
@@ -136,7 +150,8 @@ an unproven effect is deferred, not simulated by scripts.
 ## Verification
 
 Carousel unit, generated-HEEx browser and integration targets are implemented.
-Cover Flow and Image Gallery targets remain planned acceptance obligations.
+Cover Flow rendering and actual-HEEx browser targets are implemented in Phase 4.
+Image Gallery targets remain planned acceptance obligations.
 The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for

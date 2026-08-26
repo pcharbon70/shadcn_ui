@@ -110,6 +110,11 @@ surface:
 
 ## Verification
 
+Milestone E Phase 4 adds Scroll Indicator and Cover Flow references, extends
+both native media/motion compositions and records component outcomes separately
+from capability parsing. Closed canonical and preference variants, source
+compilation and selected local media remain enforced by shared export checks.
+
 Milestone E Phase 3 appends only implemented Motion leaves, marquee and stagger,
 plus the motion-preferences composition. Complete source compiles through public
 imports. Canonical URLs, closed preferences, subpath export and local native

@@ -10,6 +10,8 @@ decisions:
   - shadcn_ui.bounded_motion
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - test/browser/support/scroll-media-fallback.mjs
+  - test/shadcn_ui/scroll_media_integration_test.exs
   - priv/compatibility/motion_media.json
   - priv/compatibility/motion_media.schema.json
   - docs/motion-media-foundations.md
@@ -34,7 +36,10 @@ pages land in the linked phase plan. Existing A–D APIs remain compatible.
 Phase 1 implements the capability manifest/schema, recorded platform probes,
 and internal normalization. Phase 2 implements Carousel using these identities
 and suppression rules. Phase 3 implements Marquee and Stagger using the closed
-finite timing presets and suppression rules; remaining APIs follow later.
+finite timing presets and suppression rules. Phase 4 implements source-local
+Scroll Indicator and image-only Cover Flow using encoded scoped timelines;
+Image Gallery follows in Phase 5. Actual component outcomes remain demo-only
+and are recorded separately from declaration probes.
 Responsive srcset input is a list of
 src/positive-width maps with unique widths and a nonblank sizes string; density
 descriptors and raw srcset strings are not accepted. Native loading defaults to
@@ -138,6 +143,13 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: test/shadcn_ui/scroll_media_integration_test.exs
+  covers:
+    - shadcn_ui.motion_media_contract.runtime_boundary
+    - shadcn_ui.motion_media_contract.css_exceptions
+    - shadcn_ui.motion_media_contract.distribution
+
 - kind: test_file
   target: test/shadcn_ui/motion_media_manifest_test.exs
   covers:

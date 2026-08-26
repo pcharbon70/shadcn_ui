@@ -10,6 +10,18 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
     """
   end
 
+  def component_examples(%{render: :cover_flow} = assigns) do
+    ~H"""
+    <ShadcnUIDemoWeb.MediaExamples.cover_flow_examples />
+    """
+  end
+
+  def component_examples(%{render: :scroll_indicator} = assigns) do
+    ~H"""
+    <ShadcnUIDemoWeb.MotionExamples.scroll_indicator_examples />
+    """
+  end
+
   def component_examples(%{render: :marquee} = assigns) do
     ~H"""
     <ShadcnUIDemoWeb.MotionExamples.marquee_examples />

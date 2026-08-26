@@ -6,7 +6,11 @@ defmodule ShadcnUIDemo.MotionGalleryTest do
   # covers: shadcn_ui.motion_media_gallery.compositions shadcn_ui.motion_media_gallery.motion_inspection
 
   test "Motion references and preferences have complete closed themed routes", %{conn: conn} do
-    assert Enum.map(Catalogue.components("motion"), & &1.render) == [:marquee, :stagger]
+    assert Enum.map(Catalogue.components("motion"), & &1.render) == [
+             :marquee,
+             :stagger,
+             :scroll_indicator
+           ]
 
     for path <- [
           "/components/motion/marquee",
@@ -71,7 +75,7 @@ defmodule ShadcnUIDemo.MotionGalleryTest do
   test "mismatched and future leaves stay nonreflecting", %{conn: conn} do
     for path <- [
           "/components/media/marquee",
-          "/components/motion/scroll-indicator",
+          "/components/media/scroll-indicator",
           "/examples/untrusted-motion"
         ] do
       html = conn |> recycle() |> get(path) |> html_response(404)

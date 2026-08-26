@@ -2,13 +2,14 @@
 
 ## Status and purpose
 
-Phases 1–3 implement the shared foundations, native Carousel, finite Marquee and
-bounded Stagger, their real references, media-browser and motion-preferences
-compositions. The recorded SpecLed login-shell limitation remains outstanding.
-Phases 4–6 and Scroll Indicator, Cover Flow and Image Gallery remain pending.
+Phases 1–4 implement the shared foundations, native Carousel, finite Marquee,
+bounded Stagger, source-local Scroll Indicator and image-only Cover Flow with
+their real references, media-browser and motion-preferences compositions.
+The recorded SpecLed login-shell limitation remains outstanding.
+Phases 5–6 and Image Gallery remain pending.
 Milestones A–D history is unchanged. See the
-[Phase 3 execution record](./phase-03-marquee-stagger-and-motion-references.md#execution-record)
-for checks and limitations. Next is Phase 4, Scroll Indicator and Cover Flow.
+[Phase 4 execution record](./phase-04-scroll-indicator-and-cover-flow.md#execution-record)
+for checks and limitations. Next is Phase 5, Image Gallery and Native Lightbox.
 
 This wave implements the [Milestone E roadmap](../../milestones/milestone-e-motion-media-and-advanced-css.md)
 as independently reviewable phases. Native content, useful fallbacks, scoped

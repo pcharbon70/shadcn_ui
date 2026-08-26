@@ -4,6 +4,7 @@
   "private": true,
   "description": "Pinned build tooling for the ShadcnUI compiled stylesheet.",
   "scripts": {
+    "browser:milestone-e-phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase4.config.mjs",
     "browser:milestone-e-phase3": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase3.config.mjs",
     "browser:milestone-e-phase2": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase2.config.mjs",
     "browser:milestone-e-phase1": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase1.config.mjs",

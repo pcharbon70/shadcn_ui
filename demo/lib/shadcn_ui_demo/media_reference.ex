@@ -1,5 +1,31 @@
 defmodule ShadcnUIDemo.MediaReference do
-  @moduledoc "Closed Carousel guidance; future media controls are not advertised."
+  @moduledoc "Closed native media guidance; future controls are not advertised."
+  def cover_flow do
+    %{
+      what:
+        "A complete native Carousel list of image figures with optional image-only depth as you scroll.",
+      when:
+        "Use it for a finite visual collection whose captions and ordinary destinations must remain readable. Choose flat when depth adds no value.",
+      responsibilities:
+        "You own image rights/privacy, URLs, alternative text, dimensions, responsive candidates, captions, destinations and restoration after replacement. The package does not fetch, resize, persist or select images.",
+      accessibility:
+        "Tab reaches the named native scroll region, destination links and real fragment index. Native arrows, wheel and touch scroll; index links focus their list item. Every item stays in document order. Images cannot capture another link's hit target; captions and links never transform.",
+      semantics:
+        "An ordered list of figures, not a slideshow, tab widget or selected-image model. Stable keys derive instance-local item/caption IDs and CSS timeline names. There are no clones, autoplay, fake controls, live announcements or generated scroll markers.",
+      fallback:
+        "Flat by default when a container is below 40rem, has one image, lacks joint view-timeline/range/scope/3D support, uses forced colors or suppresses motion. Enhanced is permission, not a promise. No document-clock substitute runs. Stationary sources do not advance depth. CSS-disabled and no-script output retain all figures, alt, captions and destinations; broken images retain meaning. Replacement may reset native scrolling and focus.",
+      api:
+        "Required id, exactly one accessible_label/labelledby (caller heading IDs), and nonempty images. Each atom-keyed record requires unique string key, src, explicit alt, positive width/height; optional name, escaped caption, href, width-candidate srcset plus sizes, loading=:lazy|:eager, decoding=:async|:sync|:auto. Decorative images need decorative:true, empty alt and independent name. presentation=:enhanced|:flat (enhanced default); snap=:none|:proximity|:mandatory, alignment=:start|:center, motion=:system|:none. Optional escaped description, class/rest; required semantics and generated style are protected. No slots or arbitrary transform/timeline input.",
+      source: ~S"""
+      <.cover_flow id="landscape-depth" accessible_label="Landscape illustrations" presentation={:enhanced}
+        images={[
+          %{key: "ridge", src: "/media/ridge.svg", alt: "Angular mountain ridges beneath a warm sun", width: 640, height: 480, caption: "An original ridge illustration", href: "/media/ridge.svg"},
+          %{key: "harbor", src: "/media/harbor.svg", alt: "Harbor illustration", width: 640, height: 480, caption: "An original harbor illustration", href: "/media/harbor.svg"}
+        ]} />
+      """
+    }
+  end
+
   def carousel do
     %{
       what:

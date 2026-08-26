@@ -3,6 +3,88 @@ defmodule ShadcnUIDemoWeb.MediaExamples do
   use ShadcnUI
   alias ShadcnUIDemo.MediaFixtures
 
+  def cover_images do
+    Enum.map(MediaFixtures.entries(), fn entry ->
+      %{
+        key: entry["key"],
+        src: "/media/" <> entry["file"],
+        alt: entry["alt"],
+        width: entry["width"],
+        height: entry["height"],
+        href: "/media/" <> entry["file"],
+        caption: entry["alt"] <> ". Original local illustration; open the complete image.",
+        srcset: [%{src: "/media/" <> entry["file"], width: entry["width"]}],
+        sizes: "(max-width: 640px) 80vw, 320px"
+      }
+    end)
+  end
+
+  def cover_flow_examples(assigns) do
+    images = cover_images()
+
+    failure = %{
+      key: "missing",
+      src: "/media/intentionally-missing.svg",
+      alt: "Intentionally unavailable landscape",
+      width: 640,
+      height: 480,
+      caption:
+        "The image is intentionally missing. This caption and available destination remain.",
+      href: "/media/ridge.svg"
+    }
+
+    long =
+      for n <- 1..9 do
+        images
+        |> Enum.at(rem(n - 1, 3))
+        |> Map.put(:key, "long-#{n}")
+        |> Map.put(
+          :caption,
+          String.duplicate("Long captions wrap independently of image depth. ", 5)
+        )
+      end
+
+    assigns = assign(assigns, images: images, failure: failure, long: long)
+
+    ~H"""
+    <div class="gallery-media-examples">
+      <p>
+        Scroll with native arrows, wheel or touch, or follow an item link.
+        <a href="/examples/media-browser">Open the complete media browser</a>
+        or <a href="/examples/motion-media-capabilities">inspect capability evidence</a>.
+      </p>
+      <h3>Optional depth with complete destinations</h3>
+      <.cover_flow id="cover-reference" accessible_label="Landscape depth" images={@images} />
+      <h3>Independent flat presentation</h3>
+      <.cover_flow
+        id="cover-flat"
+        accessible_label="Flat landscapes"
+        images={@images}
+        presentation={:flat}
+      />
+      <h3>One image: no depth or overflow needed</h3>
+      <.cover_flow id="cover-single" accessible_label="One landscape" images={Enum.take(@images, 1)} />
+      <h3>Long collection and captions</h3>
+      <.cover_flow
+        id="cover-long"
+        accessible_label="Long landscape collection"
+        images={@long}
+        snap={:none}
+      />
+      <section dir="rtl">
+        <h3>Right-to-left native collection</h3>
+        <.cover_flow id="cover-rtl" accessible_label="RTL landscapes" images={@images} />
+      </section>
+      <h3>Broken image, preserved meaning</h3>
+      <.cover_flow
+        id="cover-failure"
+        accessible_label="Image failure example"
+        images={[@failure | @images]}
+      />
+    </div>
+    """
+  end
+
   def carousel_examples(assigns) do
     assigns = assign(assigns, :fixtures, MediaFixtures.entries())
 
@@ -82,12 +164,12 @@ defmodule ShadcnUIDemoWeb.MediaExamples do
   end
 
   def media_browser(assigns) do
-    assigns = assign(assigns, :fixtures, MediaFixtures.entries())
+    assigns = assign(assigns, fixtures: MediaFixtures.entries(), images: cover_images())
 
     ~H"""
     <article data-gallery-composition="media-browser" class="gallery-media-examples">
       <p>
-        Three original illustrations, complete image destinations and native item navigation. This is Carousel, not yet Cover Flow or Image Gallery.
+        Three original illustrations, complete image destinations and native item navigation. Carousel and Cover Flow are implemented; Image Gallery arrives in Phase 5.
       </p>
       <p>
         Use the header theme and motion links to compare presentation. No media is fetched from an external service.
@@ -101,6 +183,14 @@ defmodule ShadcnUIDemoWeb.MediaExamples do
           <.image entry={entry} />
         </:item>
       </.carousel>
+      <h2>Optional image depth</h2>
+      <.cover_flow id="media-browser-depth" accessible_label="Illustration depth" images={@images} />
+      <h2>Native notes with decorative position</h2>
+      <.scroll_indicator id="media-browser-notes" accessible_label="Illustration notes" size={:small}>
+        <p :for={n <- 1..12}>
+          Note {n}: original local illustrations remain available with or without motion.
+        </p>
+      </.scroll_indicator>
       <h2>Complete collection</h2>
       <ul>
         <li :for={entry <- @fixtures}>
@@ -113,6 +203,7 @@ defmodule ShadcnUIDemoWeb.MediaExamples do
         The gallery owns these original fixtures, captions, layout and destinations. A consuming application owns media rights, privacy, input validation and navigation. Replacing this markup may reset scrolling; the package does not restore it.
       </p>
       <a href="/components/media/carousel">Read the Carousel API and examples</a>
+      <a href="/components/media/cover-flow">Read the Cover Flow API and examples</a>
     </article>
     """
   end

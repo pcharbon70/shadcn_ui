@@ -51,6 +51,11 @@ surface:
 
 ## Verification
 
+Phase 4 maps Scroll Indicator and Cover Flow to pinned basic.html and respective
+progress.css/flow.css sources. Local adaptations omit completion claims, scroll
+containment, reflection, overlap and animated stacking; the native region/list
+and independent captions/destinations remain authoritative. MIT notice retained.
+
 Phase 3 maps Marquee to the same pinned basic.html/loop.css sources; the local
 adaptation replaces endless travel with a native opt-in finite preview, a complete
 wrapped list and an inert, ID-free duplicate. Existing MIT attribution is retained.
