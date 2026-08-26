@@ -5,6 +5,20 @@ import { join } from "node:path";
 const root = new URL("../export/", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("route-manifest.json", root), "utf8"));
 if (manifest.schemaVersion !== 1) throw new Error("unsupported route manifest");
+const sitemap = await readFile(new URL("sitemap.xml", root), "utf8");
+const overlayRoutes = [
+  "/components/overlays", "/components/interactive-surfaces",
+  ...["dialog", "alert-dialog", "drawer", "popover", "dropdown-actions"].map(name => `/components/overlays/${name}`),
+  ...["tooltip", "hover-card"].map(name => `/components/interactive-surfaces/${name}`),
+  ...["overlay-capabilities", "settings-confirmation", "responsive-drawers", "anchored-actions", "supplemental-help"].map(name => `/examples/${name}`)
+];
+for (const route of overlayRoutes) {
+  if (!sitemap.includes(`<loc>https://leco-industries-inc.github.io/shadcn_ui${route}</loc>`)) throw new Error(`missing sitemap route: ${route}`);
+  for (const suffix of ["", "?theme=light", "?theme=dark", "?theme=minty"]) {
+    if (!manifest.routes.some(entry => entry.request === route + suffix && entry.status === 200)) throw new Error(`missing route variant: ${route}${suffix}`);
+  }
+}
+if (new Set(manifest.routes.map(entry => entry.request)).size !== manifest.routes.length) throw new Error("duplicate export requests");
 
 for (const entry of manifest.routes) {
   const content = await readFile(new URL(entry.file, root));
@@ -12,10 +26,21 @@ for (const entry of manifest.routes) {
   if (hash !== entry.sha256) throw new Error(`stale route hash: ${entry.file}`);
   const html = content.toString("utf8");
   if (!html.includes("<main") || (!html.includes("Component navigation") && !html.includes("data-demo-form"))) throw new Error(`missing landmarks: ${entry.file}`);
-  if (/(?:src|href)="https?:\/\//i.test(html)) throw new Error(`remote runtime URL: ${entry.file}`);
+  const runtime = html.replace(/<a\b[^>]*>/gi, "").replace(/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^"]*"\s*\/?\s*>/gi, "");
+  if (/(?:src|href|srcset)="(?:https?:)?\/\//i.test(runtime)) throw new Error(`remote runtime URL: ${entry.file}`);
+  const route = entry.request.split("?")[0];
+  if (overlayRoutes.includes(route)) {
+    if (!html.includes(`rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui${route}"`)) throw new Error(`missing canonical URL: ${entry.file}`);
+    const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
+    if (new Set(ids).size !== ids.length) throw new Error(`duplicate identity: ${entry.file}`);
+    if (route.startsWith("/components/") && route.split("/").length === 4 && (!html.includes("HEEX source") || !html.includes('id="ordinary-alternative"'))) throw new Error(`missing reference: ${entry.file}`);
+    if (/role="(?:menu|menuitem|menubar)"|interestfor=|popover="hint"/.test(html)) throw new Error(`unsupported semantics: ${entry.file}`);
+  }
+  if (entry.status === 404 && /rel="canonical"|__gallery-not-found__/.test(html)) throw new Error("404 reflects input or claims a canonical route");
 }
 
 const assets = await readdir(new URL("assets/", root));
+if (assets.length !== 3 || Object.keys(manifest.assets).length !== 3) throw new Error("export must contain exactly three selected assets");
 for (const asset of assets) {
   const content = await readFile(new URL(`assets/${asset}`, root));
   const hash = createHash("sha256").update(content).digest("hex");

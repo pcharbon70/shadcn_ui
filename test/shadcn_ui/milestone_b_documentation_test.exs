@@ -54,9 +54,9 @@ defmodule ShadcnUI.MilestoneBDocumentationTest do
     deployment = File.read!("demo/DEPLOYMENT.md")
     package = Mix.Project.config()[:package]
 
-    assert release =~ "Milestones A through C"
+    assert release =~ "Milestones A through D"
     assert release =~ "Never edit an archive"
-    assert deployment =~ "controller-rendered form and Milestone C compositions"
+    assert deployment =~ "controller-rendered forms, Milestone C and D"
     assert deployment =~ "Rollback"
     refute Enum.any?(package[:files], &(&1 in ["demo", "test", ".spec", "scripts", ".github"]))
   end

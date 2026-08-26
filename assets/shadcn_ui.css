@@ -116,7 +116,7 @@
   --shadcn-ui-accent: #454545;
   --shadcn-ui-accent-foreground: #fafafa;
   --shadcn-ui-destructive: #ef4444;
-  --shadcn-ui-destructive-foreground: #ffffff;
+  --shadcn-ui-destructive-foreground: #18181b;
   --shadcn-ui-border: #ffffff26;
   --shadcn-ui-input: #ffffff26;
   --shadcn-ui-ring: #737373;
@@ -163,7 +163,7 @@
     --shadcn-ui-accent: oklch(0.269 0 0);
     --shadcn-ui-accent-foreground: oklch(0.985 0 0);
     --shadcn-ui-destructive: oklch(0.704 0.191 22.216);
-    --shadcn-ui-destructive-foreground: oklch(1 0 0);
+    --shadcn-ui-destructive-foreground: oklch(0.145 0 0);
     --shadcn-ui-border: oklch(1 0 0 / 15%);
     --shadcn-ui-input: oklch(1 0 0 / 15%);
     --shadcn-ui-ring: oklch(0.556 0 0);
@@ -652,12 +652,14 @@ dialog[data-shadcn-ui-drawer-surface] {
 
 [data-shadcn-ui-drawer-header] {
   display: flex;
+  flex-wrap: wrap;
   align-items: start;
   justify-content: space-between;
   gap: 0.75rem;
 }
 
 [data-shadcn-ui-drawer-header] > button { flex-shrink: 0; }
+[data-shadcn-ui-drawer-header] > div { flex: 1 1 12rem; }
 
 /* Only the body scrolls; header/exit and caller footer stay in document order. */
 dialog[data-shadcn-ui-drawer-surface][open] {

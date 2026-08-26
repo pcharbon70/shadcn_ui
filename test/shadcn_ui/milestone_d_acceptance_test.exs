@@ -372,4 +372,107 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
     refute runtime =~
              ~r/(addEventListener|showModal\(|focus\(|setTimeout|confirm\(|requestSubmit|handle_event|push_event|GenServer|String\.to_atom|System\.unique_integer)/
   end
+
+  # covers: shadcn_ui.overlay_gallery.catalog shadcn_ui.overlay_gallery.states
+  # covers: shadcn_ui.overlay_gallery.capability_matrix shadcn_ui.overlay_gallery.compositions
+  # covers: shadcn_ui.overlay_gallery.fallbacks shadcn_ui.overlay_gallery.browser_behavior
+  # covers: shadcn_ui.overlay_gallery.cross_engine_behavior shadcn_ui.overlay_gallery.semantic_guidance
+  # covers: shadcn_ui.overlay_gallery.release_boundary
+  # covers: shadcn_ui.stylesheet.reduced_motion shadcn_ui.stylesheet.no_runtime_assets
+  # covers: shadcn_ui.stylesheet.overlay_fallbacks shadcn_ui.stylesheet.overlay_resilience
+
+  @modules [
+    {ShadcnUI.Components.Overlays.Dialog, :dialog},
+    {ShadcnUI.Components.Overlays.AlertDialog, :alert_dialog},
+    {ShadcnUI.Components.Overlays.Drawer, :drawer},
+    {ShadcnUI.Components.Overlays.Popover, :popover},
+    {ShadcnUI.Components.Overlays.DropdownActions, :dropdown_actions},
+    {ShadcnUI.Components.Overlays.Tooltip, :tooltip},
+    {ShadcnUI.Components.Overlays.HoverCard, :hover_card}
+  ]
+
+  test "every public overlay has real component metadata, documentation and pinned provenance" do
+    provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
+
+    for {module, function} <- @modules do
+      Code.ensure_loaded!(module)
+      assert function_exported?(module, function, 1)
+      assert Map.has_key?(module.__components__(), function)
+      assert {:docs_v1, _, :elixir, _, %{"en" => _}, _, docs} = Code.fetch_docs(module)
+
+      assert Enum.any?(docs, fn {identity, _, _, content, _} ->
+               identity == {:function, function, 1} and is_map(content)
+             end)
+
+      slug = function |> Atom.to_string() |> String.replace("_", "-")
+      mapping = Enum.find(provenance["adaptations"], &(&1["id"] == "overlays.#{slug}"))
+      assert mapping
+      assert "assets/shadcn_ui.css" in mapping["localPaths"]
+      assert "lib/shadcn_ui/components/overlays/#{function}.ex" in mapping["localPaths"]
+      assert mapping["upstreamPaths"] != []
+    end
+  end
+
+  test "capability observations stay aligned with policy locks but never become runtime code" do
+    policy = Jason.decode!(File.read!("priv/compatibility/native_overlays.json"))
+    evidence = Jason.decode!(File.read!("demo/priv/compatibility/native_overlay_evidence.json"))
+    assert evidence["reviewedOn"] == "2026-08-26"
+    assert Map.keys(evidence["engines"]) |> Enum.sort() == ~w(chromium firefox webkit)
+
+    for {engine, observed} <- evidence["engines"] do
+      assert observed["version"] == policy["verificationEvidence"]["engines"][engine]["version"]
+      assert map_size(observed["capabilities"]) == 9
+      assert Enum.all?(observed["capabilities"], fn {_, result} -> is_boolean(result) end)
+    end
+
+    allowed = Mix.Project.config()[:package][:files]
+
+    refute Enum.any?(
+             allowed,
+             &(&1 in ["demo", "test", "scripts", ".spec", ".github", "node_modules"])
+           )
+
+    assert Path.wildcard("lib/**/*.{js,mjs,ts}") == []
+    runtime = Path.wildcard("lib/**/*.ex") |> Enum.map_join("\n", &File.read!/1)
+
+    refute runtime =~
+             ~r/(<script|role="(?:menu|menuitem|menubar)"|interestfor=|popover="hint"|handle_event|push_event)/
+
+    refute runtime =~ "native_overlay_evidence"
+  end
+
+  test "milestone acceptance gates include real gallery, fallback, accessibility and archive checks" do
+    workflow = File.read!(".github/workflows/gallery.yml")
+    browser = File.read!("test/browser/milestone-d-gallery.spec.mjs")
+    readme = File.read!("README.md")
+    for phase <- 1..5, do: assert(workflow =~ "browser:milestone-d-phase#{phase}")
+
+    for gate <- [
+          "browser:milestone-d-gallery",
+          "record-overlay-capabilities.mjs --check",
+          "export:determinism",
+          "check-release-archive.exs"
+        ],
+        do: assert(workflow =~ gate)
+
+    for boundary <- [
+          "axe.run",
+          "javaScriptEnabled: false",
+          "forcedColors",
+          "reducedMotion",
+          "cloneNode",
+          "unsupported-anchor",
+          "Shift+Tab"
+        ],
+        do: assert(browser =~ boundary)
+
+    for guidance <- [
+          "Choosing a surface",
+          "API and identity reference",
+          "Capability and fallback reference",
+          "DOM replacement",
+          "Interest invokers"
+        ],
+        do: assert(readme =~ guidance)
+  end
 end

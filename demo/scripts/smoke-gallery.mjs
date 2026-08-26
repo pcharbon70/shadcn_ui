@@ -5,6 +5,8 @@ const forms = ["field", "label", "help", "field-errors", "error-summary", "input
 const milestoneC = ["components/disclosure/", "components/disclosure/accordion/", "components/navigation/", ...["navigation-menu", "header", "section-header"].map((slug) => `components/navigation/${slug}/`), "components/content-surfaces/", ...["scroll-area", "separator", "radio-panels"].map((slug) => `components/content-surfaces/${slug}/`), "examples/documentation/", "examples/settings/", "examples/application-shell/"];
 const routes = ["", "components/foundation/", ...["button", "badge", "alert", "card", "avatar", "skeleton"].map((slug) => `components/foundation/${slug}/`), "components/forms/", ...forms.map((slug) => `components/forms/${slug}/`), ...milestoneC];
 const assets = new Set();
+routes.push(...["overlay-capabilities", "settings-confirmation", "responsive-drawers", "anchored-actions", "supplemental-help"].map(slug => `examples/${slug}/`));
+routes.push("components/overlays/", ...["dialog", "alert-dialog", "drawer", "popover", "dropdown-actions"].map(slug => `components/overlays/${slug}/`), "components/interactive-surfaces/", ...["tooltip", "hover-card"].map(slug => `components/interactive-surfaces/${slug}/`));
 for (const route of routes) {
   const response = await fetch(new URL(route, base), { redirect: "error" });
   if (!response.ok) throw new Error(`${route || "/"} returned ${response.status}`);

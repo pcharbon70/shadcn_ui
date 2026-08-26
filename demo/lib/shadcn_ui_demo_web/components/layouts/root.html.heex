@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="csrf-token" content={get_csrf_token()} />
     <title>{assigns[:page_title] || "ShadcnUI Gallery"}</title>
+    <link :if={assigns[:canonical_url]} rel="canonical" href={@canonical_url} />
     <link rel="stylesheet" href={ShadcnUIDemoWeb.GalleryAssets.path("shadcn.css")} />
     <link rel="stylesheet" href={ShadcnUIDemoWeb.GalleryAssets.path("gallery.css")} />
     <script defer src={ShadcnUIDemoWeb.GalleryAssets.path("gallery.js")}>

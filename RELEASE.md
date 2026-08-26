@@ -1,7 +1,8 @@
 # Internal release process
 
-Milestones A through C produce an internal `0.1.0` candidate containing
-Foundation, native Forms, Disclosure, Navigation, and Content Surfaces
+Milestones A through D produce an internal `0.1.0` candidate containing
+Foundation, native Forms, Disclosure, Navigation, Content Surfaces, Overlays,
+and Interactive Surfaces
 components. This process does not authorize or perform
 publication to Hex.
 
@@ -25,10 +26,45 @@ repository verification inputs and are not package contents.
 Gallery publication and rollback are independent of the package candidate and
 are documented in `demo/DEPLOYMENT.md`.
 
-For a Milestone C rollback, revert the reviewed Milestone C commits and rerun
+For a milestone rollback, revert the reviewed milestone commits and rerun
 the complete candidate verification. Never edit an archive or the deployed
 gallery artifact in place. The package and gallery may be rolled back
 independently because the demo is excluded from package contents.
+
+## Milestone D acceptance history
+
+The following phase records describe their original scope. Phase 6 supersedes
+their historical statements that public overlay gallery delivery is pending.
+
+## Milestone D Phase 6 candidate evidence
+
+The public catalogue now contains all seven native/supplemental components,
+their complete visible alternatives, a capability matrix, and four realistic
+local-only compositions. Settings confirmation uses native validation and
+method-dialog forms; rejection/pending examples are authored snapshots, not
+real requests. The exact observed feature record is dated 2026-08-26 and remains
+outside package contents. The normative manifest remains the capability policy.
+
+Section 6.3 verification rebuilt ExDoc, deterministic package/gallery CSS and
+static export, checked all seven provenance mappings plus shared helpers and
+the full MIT notice, and audited the actual 51-entry release payload. No upstream
+revision changed, no upstream site assets were imported, and no runtime
+JavaScript or client-specific target was introduced. Final integration results
+are recorded in the Phase 6 plan with any environment limitations.
+
+Final direct acceptance passed 320 package tests, 40 demo tests and 177 locked
+Milestone D browser checks, including demo-only axe-core audits. Integration
+corrected dark destructive contrast and narrow Drawer header wrapping. Static
+subpath smoke verifies 208 HTML variants and exactly three selected assets;
+stale Windows build assets no longer enter the export. SpecLed's local nested
+runner still fails on its existing OTP/rebar mismatch; CI remains a required
+gate, and this record does not claim an unconditional release approval.
+
+Run `node scripts/record-overlay-capabilities.mjs --check` and
+`npm run browser:milestone-d-gallery` in addition to phases 1 through 5. The live
+suite tests the actual controller pages; static export and deployment smoke are
+separate gates. Merge and successful GitHub Pages deployment are still required
+to publish this candidate. No Hex publication is authorized by these checks.
 
 ## Milestone D Phase 1 acceptance record
 

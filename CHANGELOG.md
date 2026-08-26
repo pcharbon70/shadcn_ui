@@ -4,6 +4,14 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Correct dark destructive-button contrast, wrap narrow Drawer headers to keep
+  exits reachable, and exclude stale copied assets from the gallery export.
+
+- Complete the Milestone D catalogue with seven dedicated overlay/supplemental
+  references, a reviewed three-engine capability matrix, and four local-only
+  compositions. Include canonical routes, complete ordinary alternatives,
+  deterministic publication, public API guidance and release-boundary evidence.
+
 - Add link-owned Hover Card with a constrained noninteractive HEEx preview,
   ordinary navigation fallbacks, and no interest events or client loading.
 

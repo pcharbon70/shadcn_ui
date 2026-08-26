@@ -4,6 +4,21 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
 
   attr :render, :atom, required: true
 
+  def component_examples(%{render: render} = assigns)
+      when render in [
+             :dialog,
+             :alert_dialog,
+             :drawer,
+             :popover,
+             :dropdown_actions,
+             :tooltip,
+             :hover_card
+           ] do
+    ~H"""
+    <ShadcnUIDemoWeb.OverlayExamples.examples render={@render} />
+    """
+  end
+
   def component_examples(%{render: :button} = assigns) do
     ~H"""
     <div class="gallery-examples">

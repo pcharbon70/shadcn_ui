@@ -100,9 +100,16 @@ defmodule Mix.Tasks.Gallery.Export do
     target = Path.join(@output, "assets")
     File.mkdir_p!(target)
 
-    source
-    |> File.ls!()
-    |> Enum.filter(&Regex.match?(~r/^(?:shadcn|gallery)-[a-f0-9]{16}\.(?:css|js)$/, &1))
+    # Windows Mix builds may retain older copied priv files. Export only the
+    # three assets actually selected by the closed compiled manifest.
+    ~w(shadcn.css gallery.css gallery.js)
+    |> Enum.map(&ShadcnUIDemoWeb.GalleryAssets.path/1)
+    |> Enum.map(fn path ->
+      unless Regex.match?(~r"^/assets/(?:shadcn|gallery)-[a-f0-9]{16}\.(?:css|js)$", path),
+        do: Mix.raise("unexpected gallery asset path: #{path}")
+
+      Path.basename(path)
+    end)
     |> Enum.sort()
     |> Enum.each(&File.cp!(Path.join(source, &1), Path.join(target, &1)))
   end
@@ -116,7 +123,16 @@ defmodule Mix.Tasks.Gallery.Export do
   end
 
   defp reject_remote_runtime!(html, route) do
-    if Regex.match?(~r/(?:src|href)="https?:\/\//i, html),
+    # Ordinary source links and canonical metadata do not load runtime assets.
+    runtime =
+      html
+      |> String.replace(~r/<a\b[^>]*>/i, "")
+      |> String.replace(
+        ~r/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^\"]*"\s*\/?\s*>/i,
+        ""
+      )
+
+    if Regex.match?(~r/(?:src|href|srcset)="(?:https?:)?\/\//i, runtime),
       do: Mix.raise("remote runtime URL found in #{route}")
   end
 

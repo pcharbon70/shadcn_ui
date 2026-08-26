@@ -13,6 +13,9 @@ defmodule ShadcnUIDemo.StaticExportTest do
     assert task =~ "sitemap.xml"
     assert task =~ ":crypto.hash(:sha256"
     assert task =~ "reject_remote_runtime!"
+    assert task =~ "~w(shadcn.css gallery.css gallery.js)"
+    assert task =~ "ShadcnUIDemoWeb.GalleryAssets.path/1"
+    refute task =~ "File.ls!()"
     refute task =~ ~r/(DateTime|NaiveDateTime|System\.system_time)/
     assert workflow =~ "actions/upload-pages-artifact@v3"
     assert workflow =~ "pages: write"

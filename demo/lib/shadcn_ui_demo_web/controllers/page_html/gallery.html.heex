@@ -33,6 +33,12 @@
   <p :if={@page.kind == :category && @page.slug == "content-surfaces"}>
     Native scrolling, honest separation, and radio-based content selection.
   </p>
+  <p :if={@page.kind == :category && @page.slug == "overlays"}>
+    Native modal dialogs and nonmodal popovers with explicit ordinary alternatives.
+  </p>
+  <p :if={@page.kind == :category && @page.slug == "interactive-surfaces"}>
+    Supplemental descriptions and link previews. Required information stays visible.
+  </p>
   <div :if={@page.kind == :component} class="gallery-reference">
     <section>
       <h2>What it is</h2><p>{@page.reference.what}</p>
@@ -68,6 +74,29 @@
     <section>
       <h2>Fallback</h2><p>{@page.reference.fallback}</p>
     </section>
+    <section :if={Map.has_key?(@page.reference, :capability)}>
+      <h2>Browser capabilities</h2><p>{@page.reference.capability}</p>
+      <a href="/examples/overlay-capabilities">Inspect the locked browser capability matrix</a>
+      <p>
+        Native behavior and package CSS are distinct from demo-only theme and source-copy helpers.
+      </p>
+    </section>
+    <section :if={Map.has_key?(@page.reference, :capability)} id="ordinary-alternative">
+      <h2>Ordinary alternative: complete information and controls</h2>
+      <p>
+        Read the complete manual and review preferences here without opening a surface. No data is saved or deleted.
+      </p>
+      <p>
+        Practical guidance, also available in the complete manual. Also available as plain text.
+      </p>
+      <p lang="ar" dir="rtl">معلومات إضافية متاحة أيضًا في الدليل الكامل.</p>
+      <form id="sample-form">
+        <label>Local display name <input name="display_name" value="Sample reader" /></label><button type="reset">Reset local example</button>
+      </form>
+      <p>
+        Required help stays visible. A real application must provide its complete task here or at an ordinary route, not only inside an overlay.
+      </p>
+    </section>
 
     <section>
       <h2>Provenance</h2><p>
@@ -86,10 +115,27 @@
   </div>
 
   <.content_navigation_composition
-    :if={@page.kind == :composition}
+    :if={
+      @page.kind == :composition &&
+        @page.render in [:documentation, :settings, :application_shell]
+    }
     render={@page.render}
     selected={@page.selected}
     invalid={@page.invalid}
+  />
+
+  <.overlay_composition
+    :if={
+      @page.kind == :composition &&
+        @page.render in [
+          :overlay_capabilities,
+          :settings_confirmation,
+          :responsive_drawers,
+          :anchored_actions,
+          :supplemental_help
+        ]
+    }
+    render={@page.render}
   />
 
   <p :if={@page.kind == :not_found}>

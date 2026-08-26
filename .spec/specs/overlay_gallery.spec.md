@@ -69,13 +69,34 @@ surface:
 
 ## Verification
 
+The closed catalogue now supplies five Overlays leaves and two Interactive
+Surfaces leaves. Reference pages render actual components, inert HEEx source,
+native policy/mode/edge examples and a complete visible alternative. Canonical
+metadata is derived only from resolved catalogue paths; unknown/mismatched
+routes remain nonreflecting 404s. Export allows ordinary authoritative links
+and canonical metadata, never remote runtime assets.
+
+The capability page combines package policy with a demo-only deterministic
+observed-feature record from the locked three-engine matrix. Detection is
+explicitly distinguished from behavior coverage; interest invokers remain
+excluded even where detected. Four closed compositions use local native forms,
+authored pending/rejection snapshots, nested Popover in Drawer, ordinary actions
+and complete supplemental-help destinations without application operations.
+
+Milestone exit runs the real gallery in all three engines, with pinned axe-core
+audits of both themes and open native surfaces (settled colors), explicit identity,
+relationship, keyboard, focus, replacement, viewport/RTL/zoom, forced-colors,
+reduced-motion, no-script/touch, CSS-disabled and disabled-capability checks.
+Package acceptance connects the public documented APIs, provenance, policy locks,
+CI gates and runtime exclusions. Export checks each new route/theme, canonical
+metadata, sitemap entry, ID uniqueness and nonreflecting 404 in the actual output.
+
 ```spec-verification
 - kind: test_file
   target: demo/test/shadcn_ui_demo/overlay_catalog_test.exs
   covers:
     - shadcn_ui.overlay_gallery.catalog
     - shadcn_ui.overlay_gallery.states
-    - shadcn_ui.overlay_gallery.capability_matrix
     - shadcn_ui.overlay_gallery.semantic_guidance
 
 - kind: test_file
@@ -92,10 +113,6 @@ surface:
     - shadcn_ui.overlay_gallery.fallbacks
     - shadcn_ui.overlay_gallery.browser_behavior
     - shadcn_ui.overlay_gallery.semantic_guidance
-
-- kind: test_file
-  target: test/browser/milestone-d-capabilities.spec.mjs
-  covers:
     - shadcn_ui.overlay_gallery.capability_matrix
     - shadcn_ui.overlay_gallery.cross_engine_behavior
 
