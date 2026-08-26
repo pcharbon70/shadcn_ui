@@ -1,5 +1,43 @@
 # ShadcnUI
 
+## Tooltip: optional descriptions
+
+```heex
+<.tooltip id="save-tip" text="A local copy is also retained." describedby="save-help">
+  <:trigger label="Save document" type="submit" form="editor" />
+</.tooltip>
+<p id="save-help">Save your edits before leaving this page.</p>
+```
+
+Use one self-closing `trigger` slot: a text `label`, `kind=:button` (default)
+or `kind=:link`, and the appropriate native `type`, `disabled`, `name`, `value`,
+`form` or `href`, `target`, `rel`, `download`, `current` attributes. `class` and
+`rest` on the trigger forward application styling and unrelated globals. The
+wrapper accepts globals; component `class` and `surface_rest` style the bubble.
+Identity, role, focusability and description references cannot be overridden.
+`describedby` merges existing whitespace-separated IDs, removing duplicates.
+The caller must supply those external elements and unique component IDs.
+
+The `text` attribute is escaped, never HTML. Labels, required instructions,
+errors, status and task information must be visible outside the Tooltip. A
+disabled button remains disabled and cannot be keyboard-focused. Do not rely on
+its tooltip to explain how to proceed.
+
+Keyboard focus and fine-pointer hover reveal the bubble without delays or
+transitions. No-hover/coarse-pointer users retain the complete ordinary control
+and its accessible description. Without CSS the description is ordinary text;
+with CSS but no anchors, it appears in normal flow. `placement` accepts
+`:block_start`, `:block_end` (default), `:inline_start`, `:inline_end`; logical
+anchor placement is optional and scoped per instance on wide fine-pointer
+layouts. Narrow layouts retain wrapping, non-overlapping normal flow.
+
+This is not a top-layer or Escape-dismissable tooltip, and clipped containers
+can clip its optional visual content. Avoid placing anchored previews over
+required page content; use visible Help for anything essential. No script,
+interest invoker, hover-intent timer or touch long-press behavior is provided.
+Light/dark tokens, reduced-motion snap behavior and forced-color borders apply.
+The component reference/gallery integration is scheduled for Milestone D Phase 6.
+
 ShadcnUI is an independently buildable Phoenix function-component package for
 semantic HEEx rendered with a shadcn-style token contract and package-owned CSS.
 

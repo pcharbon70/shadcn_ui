@@ -213,6 +213,12 @@
       "localChanges": "Rename the visual dropdown adaptation to Dropdown Actions, composing auto Popover with stable keyed text-labelled native links and buttons, named groups, separators, protected native attributes and no ARIA menu or command runtime."
     },
     {
+      "id": "overlays.tooltip",
+      "localPaths": ["lib/shadcn_ui/components/overlays/tooltip.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/tooltip.mdx", "src/demos/tooltip/basic.html"],
+      "localChanges": "Adapt the plain CSS supplemental description into escaped text and a structured native trigger with stable merged description IDs, scoped optional anchors, normal-flow fallback, no delays and no interest invokers."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

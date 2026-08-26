@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   instructions, destinations, task information, and actions remain complete
   when visual supplemental content is absent.
 
-  - [ ] 5.1 Section - Noninteractive Tooltip description.
+  - [x] 5.1 Section - Noninteractive Tooltip description.
 
     This section implements one deterministic accessible description and a
     nonfocusable visual bubble around an already complete native trigger.
 
-    - [ ] 5.1.1 Task - Implement Tooltip semantics and identity.
+    - [x] 5.1.1 Task - Implement Tooltip semantics and identity.
 
       Tooltip should supplement a focusable trigger without becoming its only
       accessible name, a required instruction, or an interactive container.
 
-      - [ ] 5.1.1.1 Subtask - Add a defining Overlays.Tooltip module with required stable ID, one natively focusable caller trigger, short escaped text content, and closed logical placement.
-      - [ ] 5.1.1.2 Subtask - Derive and protect aria-describedby identity, render one role tooltip bubble, keep it nonfocusable, and reject interactive descendants and raw HTML strings.
-      - [ ] 5.1.1.3 Subtask - Preserve the trigger's native accessible name, type or destination, disabled state, focus, activation, and caller application attributes unchanged.
-      - [ ] 5.1.1.4 Subtask - Validate nonblank supplemental text, relationship merging, duplicate references, conflicting globals, stable rerenders, caller classes, escaping, and invalid trigger content.
+      - [x] 5.1.1.1 Subtask - Add a defining Overlays.Tooltip module with required stable ID, one natively focusable caller trigger, short escaped text content, and closed logical placement.
+      - [x] 5.1.1.2 Subtask - Derive and protect aria-describedby identity, render one role tooltip bubble, keep it nonfocusable, and reject interactive descendants and raw HTML strings.
+      - [x] 5.1.1.3 Subtask - Preserve the trigger's native accessible name, type or destination, disabled state, focus, activation, and caller application attributes unchanged.
+      - [x] 5.1.1.4 Subtask - Validate nonblank supplemental text, relationship merging, duplicate references, conflicting globals, stable rerenders, caller classes, escaping, and invalid trigger content.
 
-    - [ ] 5.1.2 Task - Add CSS focus, hover, placement, and fallback behavior.
+    - [x] 5.1.2 Task - Add CSS focus, hover, placement, and fallback behavior.
 
       Visual presentation should help compatible pointer and keyboard users while
       the accessible description remains the nonvisual semantic relationship.
 
-      - [ ] 5.1.2.1 Subtask - Add hover and focus-visible CSS presentation, bounded sizing, wrapping, logical placement, and capability-gated anchor positioning without event listeners or timers.
-      - [ ] 5.1.2.2 Subtask - Remove visual delay and transitions under reduced motion and preserve explicit boundaries, trigger focus, and description contrast in forced colors and themes.
-      - [ ] 5.1.2.3 Subtask - Verify CSS-disabled, no-hover, coarse-pointer, no-script, unsupported-anchor, narrow viewport, zoom, long translated text, RTL, and clipped-container behavior.
-      - [ ] 5.1.2.4 Subtask - Document that required labels, errors, instructions, status, and task information belong in visible components rather than Tooltip.
+      - [x] 5.1.2.1 Subtask - Add hover and focus-visible CSS presentation, bounded sizing, wrapping, logical placement, and capability-gated anchor positioning without event listeners or timers.
+      - [x] 5.1.2.2 Subtask - Remove visual delay and transitions under reduced motion and preserve explicit boundaries, trigger focus, and description contrast in forced colors and themes.
+      - [x] 5.1.2.3 Subtask - Verify CSS-disabled, no-hover, coarse-pointer, no-script, unsupported-anchor, narrow viewport, zoom, long translated text, RTL, and clipped-container behavior.
+      - [x] 5.1.2.4 Subtask - Document that required labels, errors, instructions, status, and task information belong in visible components rather than Tooltip.
 
   - [ ] 5.2 Section - Link-owned Hover Card preview.
 

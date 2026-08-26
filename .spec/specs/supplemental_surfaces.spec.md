@@ -11,6 +11,7 @@ decisions:
   - shadcn_ui.semantic_component_api_and_accessibility
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - lib/shadcn_ui/components/overlays/supplemental_contract.ex
   - lib/shadcn_ui/components/overlays/tooltip.ex
   - lib/shadcn_ui/components/overlays/hover_card.ex
   - test/shadcn_ui/components/overlays/tooltip_test.exs
@@ -65,6 +66,14 @@ surface:
 ```
 
 ## Verification
+
+Tooltip uses a single self-closing structured trigger slot (`label`, native
+button/link attributes, class and unrelated globals), not caller-supplied nested
+control markup. Its explicit `describedby` references are deduplicated before the
+stable description ID is appended. Text strings remain escaped; raw safe tuples
+and nested trigger content are rejected. Placement improves progressively from
+normal flow to scoped CSS anchors on wide fine-pointer layouts. This contract
+does not promise Escape dismissal or escape from overflow clipping.
 
 ```spec-verification
 - kind: test_file

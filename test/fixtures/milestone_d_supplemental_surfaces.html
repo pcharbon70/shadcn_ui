@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"><title>Supplemental surfaces</title>
+    <style>
+      body { margin: 2rem; font: 16px system-ui; } main { max-width: 44rem; } .example { margin-block: 2rem; } button, a { min-height: 44px; } #destination { margin-top: 4rem; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <button id="before">Before</button>
+      <div class="example">
+        <span id="tip" data-shadcn-ui data-shadcn-ui-supplemental="tooltip" data-placement="block-end">
+
+<a id="tip-invoker" href="#destination" aria-describedby="help tip-description" class="sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background" data-shadcn-ui data-shadcn-ui-supplemental-trigger>Read the manual</a>
+  <span id="tip-description" role="tooltip" class="sui:text-xs" data-shadcn-ui data-shadcn-ui-supplemental-surface>A local copy is also retained.</span>
+</span>
+        <p id="help">The manual contains all required instructions.</p>
+      </div>
+      <button id="after">After</button>
+      <div class="example">
+        <span id="disabled" data-shadcn-ui data-shadcn-ui-supplemental="tooltip" data-placement="block-end">
+  <button id="disabled-invoker" type="button" disabled aria-describedby="disabled-description" class="sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background" data-shadcn-ui data-shadcn-ui-supplemental-trigger>Unavailable</button>
+
+  <span id="disabled-description" role="tooltip" class="sui:text-xs" data-shadcn-ui data-shadcn-ui-supplemental-surface>Supplemental only.</span>
+</span>
+        <p>This action is unavailable. Use the manual instead.</p>
+      </div>
+      <div class="example" id="translated" dir="rtl" data-shadcn-theme="dark">
+        <span id="long" data-shadcn-ui data-shadcn-ui-supplemental="tooltip" data-placement="inline-start">
+  <button id="long-invoker" type="button" aria-describedby="long-description" class="sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background" data-shadcn-ui data-shadcn-ui-supplemental-trigger>Documentation</button>
+
+  <span id="long-description" role="tooltip" class="sui:text-xs" data-shadcn-ui data-shadcn-ui-supplemental-surface>Zusätzliche Informationen — معلومات إضافية. Zusätzliche Informationen — معلومات إضافية. Zusätzliche Informationen — معلومات إضافية. Zusätzliche Informationen — معلومات إضافية. Zusätzliche Informationen — معلومات إضافية. Zusätzliche Informationen — معلومات إضافية. Zusätzliche Informationen — معلومات إضافية. Zusätzliche Informationen — معلومات إضافية. </span>
+</span>
+      </div>
+      <div class="example" style="overflow: hidden; max-height: 48px;">
+        <span id="clipped" data-shadcn-ui data-shadcn-ui-supplemental="tooltip" data-placement="block-end">
+
+<a id="clipped-invoker" href="#destination" aria-describedby="clipped-description" class="sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background" data-shadcn-ui data-shadcn-ui-supplemental-trigger>Clipped example manual</a>
+  <span id="clipped-description" role="tooltip" class="sui:text-xs" data-shadcn-ui data-shadcn-ui-supplemental-surface>Optional description inside a clipped container.</span>
+</span>
+      </div>
+      <section id="destination">
+        <h1>Manual</h1><p>All required task information is available here.</p>
+      </section>
+    </main>
+  </body>
+</html>
