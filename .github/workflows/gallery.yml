@@ -51,6 +51,8 @@ jobs:
       - run: mix run scripts/render-supplemental-fixture.exs --check
       - run: npm run browser:milestone-d-phase5
       - run: node scripts/record-overlay-capabilities.mjs --check
+      - run: npm run capabilities:motion-media:check
+      - run: npm run browser:milestone-e-phase1
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo

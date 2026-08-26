@@ -134,6 +134,13 @@ surface:
 
 ## Verification
 
+Milestone E Phase 1 adds the opt-in motion-media.css foundation and its authored
+exception ledger. System reduced motion, an ancestor data-shadcn-motion=reduce,
+and explicit none suppress only marked motion roots/parts, including nested
+system roots. Opacity and focus stay visible; static clones remain hidden.
+There are no new public motion components or animation keyframes in this phase.
+The actual compiled artifact is exercised by milestone-e-foundations.spec.mjs.
+
 Milestone D gallery accessibility acceptance checks both theme pairs, including
 dark destructive foreground contrast. Drawer headers wrap their title and exit
 at narrow/zoomed widths rather than shrinking the heading into an unusably tall

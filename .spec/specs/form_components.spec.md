@@ -94,6 +94,11 @@ surface:
 
 ## Verification
 
+The Select caller-data atom regression verifies that fresh option tokens are
+not existing atoms before or after their first render. It does not use a
+VM-wide atom count, which is affected by unrelated asynchronous module loading,
+or warm the same tokens before checking them. Rendering behavior is unchanged.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/components/forms/field_test.exs

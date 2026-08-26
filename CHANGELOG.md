@@ -4,6 +4,11 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Establish Milestone E capability evidence, shared internal media/motion
+  contracts and scoped suppression without new public components or runtime.
+  Add the capability gallery page, closed local media export and no-script
+  theme/motion inspection, with three-engine foundation and static-export tests.
+
 - Correct dark destructive-button contrast, wrap narrow Drawer headers to keep
   exits reachable, and exclude stale copied assets from the gallery export.
 

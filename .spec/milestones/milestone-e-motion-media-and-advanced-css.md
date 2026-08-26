@@ -82,7 +82,11 @@ remain application responsibilities.
 
 The [Milestone E phased plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 links five accepted ADRs, four normative specifications and the requirement
-coverage map. Planning is complete; implementation has not started.
+coverage map. Phase 1 foundations are implemented: capability evidence, shared
+internal contracts, scoped suppression, local media and the capability demo.
+Phases 2–6 and all six public components remain pending. The Phase 1 execution
+record lists passing checks and the outstanding local SpecLed toolchain limitation;
+Milestone E is not complete.
 
 The wave resolves the broad roadmap as follows:
 
@@ -101,6 +105,5 @@ The wave resolves the broad roadmap as follows:
 - Capability evidence is web-platform-based and consumer-neutral; Electron is
   not the extracted package's target.
 
-These choices refine scope without marking any implementation or browser
-acceptance complete. The final integration-test section of each phase supplies
-the evidence needed before that phase is considered delivered.
+These choices define scope, not completion. The final integration-test section
+of each phase supplies its implementation evidence and explicit limitations.

@@ -1,0 +1,168 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-08-26",
+  "normativeTarget": "web-platform-capabilities",
+  "changeControl": {
+    "owner": "ShadcnUI maintainers",
+    "reviewWhen": [
+      "browser-lock-change",
+      "capability-bundle-change",
+      "CSS-or-fallback-change",
+      "upstream-adaptation"
+    ],
+    "runtimeRequiresADR": true
+  },
+  "capabilities": {
+    "nativeScroll": {
+      "status": "required",
+      "source": "https://html.spec.whatwg.org/multipage/interaction.html",
+      "fallback": "Complete list and ordinary links",
+      "probe": "native"
+    },
+    "scrollSnap": {
+      "status": "optional",
+      "source": "https://www.w3.org/TR/css-scroll-snap-1/",
+      "fallback": "Native scrolling",
+      "probe": "scroll-snap-type: inline proximity"
+    },
+    "has": {
+      "status": "optional",
+      "source": "https://www.w3.org/TR/selectors-4/#relational",
+      "fallback": "Static list; preview unavailable",
+      "probe": "selector(:has(input:checked))"
+    },
+    "scrollTimeline": {
+      "status": "optional",
+      "source": "https://drafts.csswg.org/scroll-animations-1/",
+      "fallback": "Neutral track; no animation",
+      "probe": "animation-timeline: scroll()"
+    },
+    "viewTimeline": {
+      "status": "optional",
+      "source": "https://drafts.csswg.org/scroll-animations-1/",
+      "fallback": "Flat presentation",
+      "probe": "animation-timeline: view(inline)"
+    },
+    "animationRange": {
+      "status": "optional",
+      "source": "https://drafts.csswg.org/scroll-animations-1/#animation-range",
+      "fallback": "Static presentation",
+      "probe": "animation-range: entry 0% exit 100%"
+    },
+    "timelineScope": {
+      "status": "optional",
+      "source": "https://drafts.csswg.org/scroll-animations-1/#timeline-scope",
+      "fallback": "Instance-local static presentation",
+      "probe": "timeline-scope: --shadcn-ui-probe"
+    },
+    "transform3d": {
+      "status": "optional",
+      "source": "https://www.w3.org/TR/css-transforms-2/",
+      "fallback": "Flat presentation",
+      "probe": "transform: perspective(400px) rotateY(20deg)"
+    },
+    "dialogCommands": {
+      "status": "required",
+      "source": "https://html.spec.whatwg.org/multipage/form-elements.html#attr-button-commandfor",
+      "fallback": "Separate ordinary image destination",
+      "probe": "native"
+    },
+    "anchorScope": {
+      "status": "optional",
+      "source": "https://drafts.csswg.org/css-anchor-position-1/",
+      "fallback": "Snap native Dialog",
+      "probe": "anchor-scope: --shadcn-ui-probe"
+    },
+    "discreteTransitions": {
+      "status": "optional",
+      "source": "https://drafts.csswg.org/css-transitions-2/",
+      "fallback": "Snap native Dialog",
+      "probe": "transition-behavior: allow-discrete"
+    },
+    "generatedControls": {
+      "status": "deferred",
+      "source": "https://drafts.csswg.org/css-overflow-5/",
+      "fallback": "Real item links and native scroll",
+      "probe": "scroll-marker-group: after"
+    }
+  },
+  "bundles": {
+    "carousel": {
+      "requires": [
+        "nativeScroll"
+      ],
+      "enhancements": [
+        "scrollSnap"
+      ],
+      "fallback": "Complete native list and real index links"
+    },
+    "marquee": {
+      "requires": [],
+      "enhancements": [
+        "has"
+      ],
+      "fallback": "Static canonical list"
+    },
+    "stagger": {
+      "requires": [],
+      "enhancements": [],
+      "fallback": "Visible ordered content; bounded ordinary CSS animation"
+    },
+    "scrollIndicator": {
+      "requires": [
+        "nativeScroll"
+      ],
+      "enhancements": [
+        "scrollTimeline",
+        "animationRange",
+        "timelineScope"
+      ],
+      "fallback": "Native scrolling and neutral decorative track"
+    },
+    "coverFlow": {
+      "requires": [
+        "nativeScroll"
+      ],
+      "enhancements": [
+        "viewTimeline",
+        "animationRange",
+        "timelineScope",
+        "transform3d"
+      ],
+      "fallback": "Flat native scroller"
+    },
+    "imageGallery": {
+      "requires": [],
+      "enhancements": [
+        "dialogCommands"
+      ],
+      "fallback": "Figures and ordinary full-image destinations"
+    },
+    "galleryOrigin": {
+      "requires": [],
+      "enhancements": [
+        "anchorScope",
+        "discreteTransitions"
+      ],
+      "fallback": "Deferred until Phase 5 proves origin geometry; native snap"
+    }
+  },
+  "verificationEvidence": {
+    "implementation": "playwright",
+    "implementationVersion": "1.62.1",
+    "engines": {
+      "chromium": {
+        "revision": "1234",
+        "version": "151.0.7922.34"
+      },
+      "firefox": {
+        "revision": "1538",
+        "version": "153.0"
+      },
+      "webkit": {
+        "revision": "2336",
+        "version": "26.5"
+      }
+    }
+  }
+}

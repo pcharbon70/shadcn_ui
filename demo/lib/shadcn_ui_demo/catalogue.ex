@@ -89,6 +89,12 @@ defmodule ShadcnUIDemo.Catalogue do
 
   @compositions [
     %{
+      label: "Motion and media capabilities",
+      slug: "motion-media-capabilities",
+      path: "/examples/motion-media-capabilities",
+      render: :motion_media_capabilities
+    },
+    %{
       label: "Overlay capability matrix",
       slug: "overlay-capabilities",
       path: "/examples/overlay-capabilities",

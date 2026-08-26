@@ -4,13 +4,21 @@
 id: shadcn_ui.motion_media_contract
 kind: policy
 status: active
-summary: Accepted Milestone E contract; implementation and evidence are pending the phased plan.
+summary: Implemented Phase 1 capability and normalization foundations; component-specific acceptance follows in later phases.
 decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.bounded_motion
   - shadcn_ui.responsive_media_lightbox
 surface:
-  - priv/compatibility/motion_media*
+  - priv/compatibility/motion_media.json
+  - priv/compatibility/motion_media.schema.json
+  - docs/motion-media-foundations.md
+  - docs/motion-media-css-exceptions.md
+  - test/browser/support/motion-media-probe.mjs
+  - test/browser/support/static-motion-media.mjs
+  - test/shadcn_ui/motion_media_manifest_test.exs
+  - test/shadcn_ui/motion_media_foundations_integration_test.exs
+  - playwright.milestone-e-phase1.config.mjs
   - lib/shadcn_ui/components/media/media_contract.ex
   - lib/shadcn_ui/components/motion/motion_contract.ex
   - assets/shadcn_ui.css
@@ -22,6 +30,14 @@ surface:
 This is the accepted contract for planned Milestone E implementation, not a
 claim that its APIs exist today. The six defining modules and their gallery
 pages land in the linked phase plan. Existing A–D APIs remain compatible.
+
+Phase 1 implements the capability manifest/schema, recorded platform probes,
+and internal normalization. Public component APIs and their component-specific
+acceptance remain pending later phases. Responsive srcset input is a list of
+src/positive-width maps with unique widths and a nonblank sizes string; density
+descriptors and raw srcset strings are not accepted. Native loading defaults to
+lazy and decoding to async. Protected globals are removed before required
+component attributes are emitted; unrelated caller globals remain intact.
 
 Internal MediaContract and MotionContract helpers normalize closed values,
 stable keys and image metadata. Do not add a public generic animation engine or
@@ -113,17 +129,21 @@ CSS. Tests and demo observations are not release inputs.
 
 ## Verification
 
-The following targets are planned acceptance obligations, not existing passing
-tests. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+The manifest, normalization and foundation browser targets now exist; the final
+milestone acceptance target remains planned. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
 - kind: test_file
-  target: test/shadcn_ui/motion_media_contract_test.exs
+  target: test/shadcn_ui/motion_media_manifest_test.exs
   covers:
     - shadcn_ui.motion_media_contract.capability_manifest
+
+- kind: test_file
+  target: test/shadcn_ui/motion_media_contract_test.exs
+  covers:
     - shadcn_ui.motion_media_contract.identity
     - shadcn_ui.motion_media_contract.media_values
     - shadcn_ui.motion_media_contract.safe_sources
@@ -139,8 +159,20 @@ actual proof. Add requirement references in each target as the tests land.
     - shadcn_ui.motion_media_contract.distribution
 
 - kind: test_file
+  target: test/shadcn_ui/motion_media_foundations_integration_test.exs
+  covers:
+    - shadcn_ui.motion_media_contract.runtime_boundary
+    - shadcn_ui.motion_media_contract.css_exceptions
+    - shadcn_ui.motion_media_contract.distribution
+
+- kind: test_file
   target: test/browser/milestone-e-capabilities.spec.mjs
   covers:
     - shadcn_ui.motion_media_contract.capability_manifest
+
+- kind: test_file
+  target: test/browser/milestone-e-foundations.spec.mjs
+  covers:
     - shadcn_ui.motion_media_contract.motion_preference
+    - shadcn_ui.motion_media_contract.css_exceptions
 ```

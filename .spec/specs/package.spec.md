@@ -64,6 +64,11 @@ surface:
 
 ## Verification
 
+Milestone E Phase 1 includes internal media/motion normalization and normative
+capability JSON in the existing allowlist, without new public imports or runtime
+dependencies. The actual archive audit requires both helpers and both manifest
+files, and rejects demo fixtures and observed browser records.
+
 ```spec-verification
 - kind: command
   target: mix precommit

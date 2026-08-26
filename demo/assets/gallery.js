@@ -3,10 +3,21 @@ const storageKey = "shadcn-ui-gallery-theme";
 const applyTheme = (theme) => {
   if (theme === "light" || theme === "dark") {
     document.documentElement.dataset.shadcnTheme = theme;
+    document.querySelectorAll("[data-gallery-theme]").forEach(button => {
+      button.setAttribute("aria-pressed", String(button.dataset.galleryTheme === theme));
+    });
+    document.querySelectorAll("[data-gallery-preference]").forEach(link => {
+      link.href = theme === "dark" ? link.dataset.galleryDarkHref : link.dataset.galleryLightHref;
+    });
   }
 };
 
-try { applyTheme(localStorage.getItem(storageKey)); } catch (_error) {}
+// An explicit server/static preference beats remembered demo-only state.
+const explicitTheme = new URLSearchParams(location.search).has("theme") ||
+  /\/(?:_preferences|_themes)\/(?:light|dark|invalid)\//.test(location.pathname);
+try {
+  applyTheme(explicitTheme ? document.documentElement.dataset.shadcnTheme : localStorage.getItem(storageKey));
+} catch (_error) {}
 
 document.addEventListener("click", async (event) => {
   const theme = event.target.closest("[data-gallery-theme]")?.dataset.galleryTheme;

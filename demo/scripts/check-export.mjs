@@ -6,6 +6,16 @@ const root = new URL("../export/", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("route-manifest.json", root), "utf8"));
 if (manifest.schemaVersion !== 1) throw new Error("unsupported route manifest");
 const sitemap = await readFile(new URL("sitemap.xml", root), "utf8");
+const fixtures = JSON.parse(await readFile(new URL("../priv/media/fixtures.json", import.meta.url), "utf8"));
+const expectedMedia = fixtures.entries.map(entry => entry.file).sort();
+if (JSON.stringify(Object.keys(manifest.media).sort()) !== JSON.stringify(expectedMedia) ||
+    JSON.stringify((await readdir(new URL("media/", root))).sort()) !== JSON.stringify(expectedMedia)) throw new Error("unlisted media inventory");
+for (const entry of fixtures.entries) {
+  const content = await readFile(new URL("media/" + entry.file, root));
+  if (content.length !== entry.bytes || createHash("sha256").update(content).digest("hex") !== entry.sha256 ||
+      manifest.media[entry.file].sha256 !== entry.sha256 || manifest.media[entry.file].mime !== entry.mime) throw new Error("stale media fixture: " + entry.file);
+}
+if (!sitemap.includes("<loc>https://leco-industries-inc.github.io/shadcn_ui/examples/motion-media-capabilities</loc>")) throw new Error("missing motion/media route");
 const overlayRoutes = [
   "/components/overlays", "/components/interactive-surfaces",
   ...["dialog", "alert-dialog", "drawer", "popover", "dropdown-actions"].map(name => `/components/overlays/${name}`),
@@ -25,6 +35,21 @@ for (const entry of manifest.routes) {
   const hash = createHash("sha256").update(content).digest("hex");
   if (hash !== entry.sha256) throw new Error(`stale route hash: ${entry.file}`);
   const html = content.toString("utf8");
+  // Preference links must resolve to concrete static files, not ignored queries.
+  for (const match of html.matchAll(/(?:href|data-gallery-light-href|data-gallery-dark-href)="([^"]*_preferences[^"]*)"/g)) {
+    const target = new URL(match[1], new URL(entry.file, root));
+    if (!target.href.startsWith(root.href)) throw new Error("escaping preference path");
+    await readFile(target);
+  }
+  for (const match of html.matchAll(/(?:src|srcset)="([^"]*media\/[^"]*)"/g)) {
+    for (const candidate of match[1].split(",")) {
+      const target = new URL(candidate.trim().split(/\s+/)[0], new URL(entry.file, root));
+      if (!target.href.startsWith(new URL("media/", root).href)) throw new Error("escaping media path");
+      if (fixtures.failures.some(failure => target.pathname.endsWith(failure.src))) continue;
+      if (!expectedMedia.includes(target.pathname.split("/").pop())) throw new Error("unknown media reference");
+      await readFile(target);
+    }
+  }
   if (!html.includes("<main") || (!html.includes("Component navigation") && !html.includes("data-demo-form"))) throw new Error(`missing landmarks: ${entry.file}`);
   const runtime = html.replace(/<a\b[^>]*>/gi, "").replace(/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^"]*"\s*\/?\s*>/gi, "");
   if (/(?:src|href|srcset)="(?:https?:)?\/\//i.test(runtime)) throw new Error(`remote runtime URL: ${entry.file}`);

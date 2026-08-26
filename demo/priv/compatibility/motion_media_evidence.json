@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-08-26",
+  "scope": "Platform probes only; component acceptance belongs to later phases.",
+  "engines": {
+    "chromium": {
+      "version": "151.0.7922.34",
+      "revision": "1234",
+      "declarations": {
+        "nativeScroll": true,
+        "scrollSnap": true,
+        "has": true,
+        "scrollTimeline": true,
+        "viewTimeline": true,
+        "animationRange": true,
+        "timelineScope": true,
+        "transform3d": true,
+        "dialogCommands": true,
+        "anchorScope": true,
+        "discreteTransitions": true,
+        "generatedControls": true
+      },
+      "behavior": {
+        "nativeScroll": true,
+        "checkboxGate": true,
+        "dialogOpened": true,
+        "dialogDismissed": true,
+        "scrollTimelineChanges": true,
+        "viewTimelineChanges": true,
+        "stationaryTimelineStable": true,
+        "coverFlowTransform": true,
+        "originTransition": "deferred-phase-5",
+        "generatedControls": "deferred"
+      }
+    },
+    "firefox": {
+      "version": "153.0",
+      "revision": "1538",
+      "declarations": {
+        "nativeScroll": true,
+        "scrollSnap": true,
+        "has": true,
+        "scrollTimeline": false,
+        "viewTimeline": false,
+        "animationRange": false,
+        "timelineScope": false,
+        "transform3d": true,
+        "dialogCommands": true,
+        "anchorScope": true,
+        "discreteTransitions": true,
+        "generatedControls": false
+      },
+      "behavior": {
+        "nativeScroll": true,
+        "checkboxGate": true,
+        "dialogOpened": true,
+        "dialogDismissed": true,
+        "scrollTimelineChanges": false,
+        "viewTimelineChanges": false,
+        "stationaryTimelineStable": true,
+        "coverFlowTransform": false,
+        "originTransition": "deferred-phase-5",
+        "generatedControls": "deferred"
+      }
+    },
+    "webkit": {
+      "version": "26.5",
+      "revision": "2336",
+      "declarations": {
+        "nativeScroll": true,
+        "scrollSnap": true,
+        "has": true,
+        "scrollTimeline": true,
+        "viewTimeline": true,
+        "animationRange": true,
+        "timelineScope": true,
+        "transform3d": true,
+        "dialogCommands": true,
+        "anchorScope": true,
+        "discreteTransitions": true,
+        "generatedControls": false
+      },
+      "behavior": {
+        "nativeScroll": true,
+        "checkboxGate": true,
+        "dialogOpened": true,
+        "dialogDismissed": true,
+        "scrollTimelineChanges": true,
+        "viewTimelineChanges": true,
+        "stationaryTimelineStable": true,
+        "coverFlowTransform": true,
+        "originTransition": "deferred-phase-5",
+        "generatedControls": "deferred"
+      }
+    }
+  }
+}

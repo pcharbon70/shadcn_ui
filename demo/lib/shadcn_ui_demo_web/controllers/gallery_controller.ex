@@ -67,7 +67,8 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   end
 
   defp render_page(conn, params, page) do
-    theme = if params["theme"] in ["light", "dark"], do: params["theme"], else: "light"
+    theme = ShadcnUIDemo.GalleryPreferences.theme(params)
+    motion = ShadcnUIDemo.GalleryPreferences.motion(params)
 
     conn
     |> put_view(html: ShadcnUIDemoWeb.PageHTML)
@@ -76,6 +77,7 @@ defmodule ShadcnUIDemoWeb.GalleryController do
       canonical_url: page.path && "https://leco-industries-inc.github.io/shadcn_ui" <> page.path,
       page: page,
       theme: theme,
+      motion: motion,
       categories: Catalogue.categories(),
       components: Catalogue.components()
     )
