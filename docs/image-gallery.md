@@ -20,7 +20,10 @@ Closed values are `columns: :two | :three | :four` (three),
 (cover, thumbnails only), `motion: :system | :none` (system), and
 `lightbox: :dialog | :none` (dialog). Narrow containers collapse to one column.
 Full images always contain within the viewport; captions remain complete in
-the existing Dialog's native scroll container with its sticky close footer.
+the native Dialog's scroll container with its sticky close footer. Closed
+important sizing utilities cap this composition to the percentage viewport,
+including 200% CSS zoom, and move overflow to its surface without changing the
+shared Dialog module or installing any sizing script.
 
 Optional repeated `caption` slots require an existing unique image `key` and
 override the plain caption. Trusted presentation-only HEEx receives

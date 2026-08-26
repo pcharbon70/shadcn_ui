@@ -10,6 +10,8 @@ decisions:
   - shadcn_ui.native_carousel_cover_flow
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - lib/shadcn_ui/components/media/image_gallery.ex
+  - test/shadcn_ui/components/media/image_gallery_test.exs
   - docs/image-gallery.md
   - scripts/render-image-gallery-fixture.exs
   - scripts/record-gallery-origin.mjs
@@ -89,8 +91,11 @@ choices. The no-dialog choice renders just the complete linked figure.
 
 Image Gallery requires nonempty images; columns two/three/four (three default),
 density compact/comfortable (comfortable), fit cover/contain (cover) and motion
-system/none are closed. Full images always contain within 60dvb. The separate
-destination uses href, then full.src, then src; no URL is fetched or inferred.
+system/none are closed. Full images always contain within 60dvb. The gallery
+surface uses percentage viewport bounds and native overflow, including
+CSS zoom; its content flows and the existing sticky close follows that scroller.
+Shared Dialog behavior is unchanged. The separate destination uses href, then
+full.src, then src; no URL is fetched or inferred.
 Caption slots require unique existing keys and receive key/context
 (thumbnail/full); presentation-only trusted HEEx must scope IDs and exclude
 interactive content. Plain record captions remain escaped in both contexts.

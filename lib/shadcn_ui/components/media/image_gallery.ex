@@ -123,7 +123,7 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
       |> assign(:label, label)
       |> assign(:heading, heading)
       |> assign(:description, text!(assigns.description))
-      |> assign(:description_id, identity.caption)
+      |> assign(:description_id, identity.caption <> "-gallery-description")
       |> assign(:motion_value, MotionContract.preference!(assigns.motion))
       |> assign(:safe_rest, protect_globals(assigns.rest, @protected))
       |> assign(
@@ -182,6 +182,8 @@ defmodule ShadcnUI.Components.Media.ImageGallery do
               initial_focus={@initial_focus}
               dismissal={@dismissal}
               size={:large}
+              class="sui:max-h-[calc(100%-2rem)]! sui:overflow-auto!"
+              content_class="sui:max-h-none! sui:overflow-visible!"
               trigger_class="sui:flex-col sui:w-full sui:gap-2"
               close_class="sui:text-foreground"
               dialog_rest={

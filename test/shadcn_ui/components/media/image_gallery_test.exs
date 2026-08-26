@@ -140,6 +140,18 @@ defmodule ShadcnUI.Components.Media.ImageGalleryTest do
           %{images: [Map.put(hd(images()), :width, 0)]},
           %{images: [Map.put(hd(images()), :alt, "")]},
           %{images: [Map.put(hd(images()), :loader, :custom)]},
+          %{
+            images: [
+              Map.put(hd(images()), :full, %{src: "data:image/png,invalid", width: 12, height: 12})
+            ]
+          },
+          %{images: [Map.put(hd(images()), :full, %{src: "/full.png", width: 0, height: 12})]},
+          %{
+            images: [
+              Map.put(hd(images()), :srcset, [%{src: "//outside.test/image.png", width: 640}])
+            ]
+          },
+          %{images: [Map.put(hd(images()), :href, "javascript:alert(1)")]},
           %{columns: :five},
           %{density: :wide},
           %{fit: :fill},
@@ -147,7 +159,13 @@ defmodule ShadcnUI.Components.Media.ImageGalleryTest do
           %{accessible_label: nil},
           %{labelledby: "heading"},
           %{id: "bad id"},
-          %{caption: [%{key: "absent", inner_block: fn _, _ -> "caption" end}]}
+          %{caption: [%{key: "absent", inner_block: fn _, _ -> "caption" end}]},
+          %{
+            caption: [
+              %{key: "a", inner_block: fn _, _ -> "first" end},
+              %{key: "a", inner_block: fn _, _ -> "duplicate" end}
+            ]
+          }
         ] do
       assert_raise ArgumentError, fn -> render(attrs) end
     end
@@ -175,6 +193,15 @@ defmodule ShadcnUI.Components.Media.ImageGalleryTest do
   end
 
   # covers: shadcn_ui.media_components.gallery_dialog shadcn_ui.media_components.gallery_origin
+  test "description is isolated even when an image key is literally description" do
+    html = render(%{images: [Map.put(hd(images()), :key, "description")]})
+    ids = Regex.scan(~r/\sid="([^"]+)"/, html, capture: :all_but_first) |> List.flatten()
+    assert ids == Enum.uniq(ids)
+
+    assert html =~
+             ~s(aria-describedby="#{MediaContract.identity!("gallery", "description").caption}-gallery-description")
+  end
+
   test "existing Dialog owns native naming, commands, dismissal and focus; no nested controls or runtime" do
     html = render(%{initial_focus: :close})
 

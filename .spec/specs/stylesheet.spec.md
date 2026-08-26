@@ -136,7 +136,9 @@ surface:
 
 Milestone E Phase 5 uses only complete prefixed container/grid/image utilities
 and unchanged existing Dialog styles. Enlarged images contain within 60dvb,
-with native content scrolling and sticky close. No authored CSS exception is
+with native content scrolling and sticky close. Complete important utilities
+provide percentage viewport caps and scope native overflow to the Gallery Dialog
+surface at zoom, leaving shared Dialog unchanged. No authored CSS exception is
 added: the scoped-origin experiment stays test-only and the effect is deferred.
 Browser tests cover responsive layout, themes, suppression, forced colors,
 CSS-disabled fallback and bounded long captions.

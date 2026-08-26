@@ -10,7 +10,7 @@ Requires Phase 1 image contracts and fixture export, current Media catalogue, an
 - [media_components](../../specs/media_components.spec.md)
 - [motion_media_gallery](../../specs/motion_media_gallery.spec.md)
 
-- [ ] 5 Phase - Image Gallery And Native Lightbox.
+- [x] 5 Phase - Image Gallery And Native Lightbox.
 
   Publish the complete responsive image-gallery experience with real local fixtures, native Dialog enlargement and ordinary destinations, treating origin transitions only as optional proven CSS.
 
@@ -74,25 +74,25 @@ Requires Phase 1 image contracts and fixture export, current Media catalogue, an
       - [x] 5.3.2.2 Subtask - Explain origin-effect admission or deferral and replacement reset; explicitly exclude image management, uploads, transformation, remote galleries and slideshow state.
       - [x] 5.3.2.3 Subtask - Update exact upstream component/CSS mappings, full notices, local fixture licenses, ExDoc and release guidance while keeping demo assets out of the archive.
 
-  - [ ] 5.4 Section - Phase 5 Integration Tests.
+  - [x] 5.4 Section - Phase 5 Integration Tests.
 
     Verify gallery and lightbox behavior as an accessible media composition in live and static consumers.
 
-    - [ ] 5.4.1 Task - Verify images, native modality and fallback destinations.
+    - [x] 5.4.1 Task - Verify images, native modality and fallback destinations.
 
       The complete image information must survive every capability and loading path.
 
-      - [ ] 5.4.1.1 Subtask - Add image_gallery_test.exs for keyed figures, responsive attrs, dimensions, alt/decorative intent, captions, safe URLs, dialog IDs, escaped content and prohibited nested controls.
-      - [ ] 5.4.1.2 Subtask - Add milestone-e-image-gallery.spec.mjs for real invocation, names/descriptions, focus containment/return, Escape/close, long content, multiple instances, failed media and replacement.
-      - [ ] 5.4.1.3 Subtask - Exercise disabled commands/anchors/transitions, motion suppression, no-script/CSS-disabled, touch, zoom, RTL, themes and forced colors; run axe plus explicit image, dialog, destination and duplicate-ID assertions.
+      - [x] 5.4.1.1 Subtask - Add image_gallery_test.exs for keyed figures, responsive attrs, dimensions, alt/decorative intent, captions, safe URLs, dialog IDs, escaped content and prohibited nested controls.
+      - [x] 5.4.1.2 Subtask - Add milestone-e-image-gallery.spec.mjs for real invocation, names/descriptions, focus containment/return, Escape/close, long content, multiple instances, failed media and replacement.
+      - [x] 5.4.1.3 Subtask - Exercise disabled commands/anchors/transitions, motion suppression, no-script/CSS-disabled, touch, zoom, RTL, themes and forced colors; run axe plus explicit image, dialog, destination and duplicate-ID assertions.
 
-    - [ ] 5.4.2 Task - Verify complete static media and release isolation.
+    - [x] 5.4.2 Task - Verify complete static media and release isolation.
 
       Prove image delivery works from the exported artifact without remote runtime services.
 
-      - [ ] 5.4.2.1 Subtask - Run package/demo precommit, deterministic assets and export, live routes and actual static subpath media/HTML smoke including every manifest and srcset reference.
-      - [ ] 5.4.2.2 Subtask - Verify archive excludes fixtures, observations, image loaders and browser tools; rebuild ExDoc and audit provenance/license and authored CSS exceptions.
-      - [ ] 5.4.2.3 Subtask - Run inherited Dialog and all affected A–E regressions in locked engines, SpecLed and whitespace; record whether origin presentation was admitted or deferred and commit each section.
+      - [x] 5.4.2.1 Subtask - Run package/demo precommit, deterministic assets and export, live routes and actual static subpath media/HTML smoke including every manifest and srcset reference.
+      - [x] 5.4.2.2 Subtask - Verify archive excludes fixtures, observations, image loaders and browser tools; rebuild ExDoc and audit provenance/license and authored CSS exceptions.
+      - [x] 5.4.2.3 Subtask - Run inherited Dialog and all affected A–E regressions in locked engines, SpecLed and whitespace; record whether origin presentation was admitted or deferred and commit each section.
 
 ## Section delivery rule
 
@@ -124,3 +124,30 @@ land. Update relevant specifications only after reading their full contracts.
   including open dialogs; narrow screenshots inspected. Deterministic export and
   subpath smoke: 634 variants, three selected code/style assets plus three media
   fixtures. ExDoc and actual 61-entry archive audit passed. No publication claimed.
+- Section 5.4: 365 package and 59 demo tests; 33 Phase 5 browser cases in
+  Chromium 151.0.7922.34, Firefox 153.0 and WebKit 26.5. The new matrix covers
+  generated/native invocation, names/descriptions, initial focus, containment,
+  Escape/explicit close, restoration, default dismissal, independent instances,
+  long and failed media, replacement, missing commands/anchors/transitions,
+  no-script/CSS-disabled export, local src/srcset, OS/ancestor/component motion,
+  forced colors, touch, RTL, both themes, axe, duplicate IDs and open Dialog at
+  200% CSS zoom. A gallery-only static sizing utility fix keeps the native surface
+  viewport-bounded at zoom; a description identity collision is covered.
+- All inherited D native suites and D gallery passed (177 cases); E1–E4 passed
+  (192), including an existing asynchronous reduced-motion assertion tightened
+  to wait for the same zero-animation outcome; baseline demo 11 and C gallery 5
+  passed. Together with Phase 5: 418 browser cases, with no skips/retries.
+- Deterministic CSS/fixture, two-export comparison, 634-route export audit,
+  subpath image/HTML smoke, ExDoc, provenance/notices and the 61-entry archive
+  audit pass. Demo images, observations, browser tools, scripts and loaders stay
+  outside the package. Origin presentation is **deferred**: only Chromium proves
+  actual opening origin in this matrix; all engines ship native snap Dialog.
+- SpecLed next reports a covered cross-cutting change. Full check remains at the
+  four pre-existing nested login-shell command failures with 140 warnings across
+  22 subjects and 214 requirements: that shell selects Elixir 1.18.0 against the
+  current OTP installation and cannot compile phoenix_html/ThousandIsland.
+  Direct PowerShell equivalents pass on Elixir 1.20.3/OTP 29. No gate was changed.
+- Windows cannot create the symlink fixture (eperm), so Linux CI retains its
+  rejection proof. Automated hasTouch/CSS zoom/axe and screenshot inspection do
+  not claim a physical touch device, browser UI zoom, screen reader, deployed
+  Pages or Hex publication. Phase 6 remains the Milestone E acceptance phase.

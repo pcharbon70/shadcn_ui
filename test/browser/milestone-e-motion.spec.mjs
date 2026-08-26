@@ -111,7 +111,8 @@ test("forced colors and OS reduction preserve focused native content", async ({p
   await setup(page);
   await page.emulateMedia({forcedColors:"active", reducedMotion:"reduce"});
   await expect(page.locator("#preview input")).toBeHidden();
-  expect(await page.locator("#stagger-rise").evaluate(el=>el.getAnimations({subtree:true}).length)).toBe(0);
+  // Media emulation resolves before every engine has applied the style update.
+  await expect.poll(()=>page.locator("#stagger-rise").evaluate(el=>el.getAnimations({subtree:true}).length)).toBe(0);
   const input=page.locator("#stagger-rise input").first(); await input.focus();
   await expect(input).toBeFocused();
   await expect(input.locator("..").locator("..")).toHaveCSS("opacity","1");
