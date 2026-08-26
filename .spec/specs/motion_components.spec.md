@@ -150,6 +150,12 @@ actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
 - kind: test_file
+  target: test/browser/milestone-e-budgets.spec.mjs
+  covers:
+    - shadcn_ui.motion_components.marquee_duplicates
+    - shadcn_ui.motion_components.work_budget
+
+- kind: test_file
   target: test/shadcn_ui/components/motion/marquee_test.exs
   covers:
     - shadcn_ui.motion_components.marquee_static

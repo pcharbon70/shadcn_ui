@@ -55,25 +55,25 @@ Requires all six public components and their reference pages from Phases 2–5, 
       - [x] 6.2.2.2 Subtask - Reconcile the authored CSS exception ledger and local fixture licenses/hashes with actual source, retaining no upstream site assets, remote runtime URLs or mutable data.
       - [x] 6.2.2.3 Subtask - Update README, changelog, package catalogue, release evidence and deployment/rollback runbook; distinguish local/CI/manual/deployed status and keep Milestone F separate.
 
-  - [ ] 6.3 Section - Cross-engine accessibility and bounded-work acceptance.
+  - [x] 6.3 Section - Cross-engine accessibility and bounded-work acceptance.
 
     Exercise the complete real gallery and quantify the intended motion/media limits without promising unmeasured performance.
 
-    - [ ] 6.3.1 Task - Run the complete semantic and fallback matrix.
+    - [x] 6.3.1 Task - Run the complete semantic and fallback matrix.
 
       Native operation and content availability are required across the whole supported/fallback matrix.
 
-      - [ ] 6.3.1.1 Subtask - Run all Milestone E component fixtures and real gallery pages in exact locked Chromium/Firefox/WebKit builds with actual and deliberately disabled capabilities.
-      - [ ] 6.3.1.2 Subtask - Run pinned axe and explicit native keys/focus, lists, images/alt/captions, dialog names/exits, checkbox stop/reset, hidden nonfocusable clones, IDs and forbidden-role checks across both themes.
-      - [ ] 6.3.1.3 Subtask - Cover narrow/wide/200-percent zoom, RTL/long content, forced colors, reduced-motion changes, touch, CSS-disabled/no-script, image failure, independent instances, replacement and static subpath artifacts; record a bounded screen-reader/manual keyboard review separately.
+      - [x] 6.3.1.1 Subtask - Run all Milestone E component fixtures and real gallery pages in exact locked Chromium/Firefox/WebKit builds with actual and deliberately disabled capabilities.
+      - [x] 6.3.1.2 Subtask - Run pinned axe and explicit native keys/focus, lists, images/alt/captions, dialog names/exits, checkbox stop/reset, hidden nonfocusable clones, IDs and forbidden-role checks across both themes.
+      - [x] 6.3.1.3 Subtask - Cover narrow/wide/200-percent zoom, RTL/long content, forced colors, reduced-motion changes, touch, CSS-disabled/no-script, image failure, independent instances, replacement and static subpath artifacts; record a bounded screen-reader/manual keyboard review separately.
 
-    - [ ] 6.3.2 Task - Measure and record motion and media budgets.
+    - [x] 6.3.2 Task - Measure and record motion and media budgets.
 
       Performance checks should inspect bounded work rather than rely on a generic fast-page claim.
 
-      - [ ] 6.3.2.1 Subtask - Use fixed 1/8/24-item fixtures and record DOM/clone counts, asset bytes and unique media requests against the fixture manifest; reject unbounded duplication or unlisted loads.
-      - [ ] 6.3.2.2 Subtask - Check Marquee ends within five seconds, Stagger within one second, excess items stay visible and static sources do not advance scroll-driven effects; confirm no perpetual offscreen animation or package listener/observer/polling.
-      - [ ] 6.3.2.3 Subtask - Record measured evidence and browser-specific gaps without universal frame-rate promises; do not use hidden content, missing accessibility or native behavior shims to satisfy timing.
+      - [x] 6.3.2.1 Subtask - Use fixed 1/8/24-item fixtures and record DOM/clone counts, asset bytes and unique media requests against the fixture manifest; reject unbounded duplication or unlisted loads.
+      - [x] 6.3.2.2 Subtask - Check Marquee ends within five seconds, Stagger within one second, excess items stay visible and static sources do not advance scroll-driven effects; confirm no perpetual offscreen animation or package listener/observer/polling.
+      - [x] 6.3.2.3 Subtask - Record measured evidence and browser-specific gaps without universal frame-rate promises; do not use hidden content, missing accessibility or native behavior shims to satisfy timing.
 
   - [ ] 6.4 Section - Phase 6 Integration Tests.
 

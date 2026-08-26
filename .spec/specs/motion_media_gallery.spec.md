@@ -12,6 +12,9 @@ decisions:
   - shadcn_ui.bounded_motion
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - scripts/render-motion-media-budgets.exs
+  - test/fixtures/milestone_e_budgets.json
+  - playwright.milestone-e-phase6.config.mjs
   - docs/motion-media-guide.md
   - docs/milestone-e-acceptance.md
   - test/shadcn_ui/motion_media_docs_test.exs
@@ -43,6 +46,13 @@ exists. Export covers default and explicit light/dark scopes, reduced motion and
 invalid-query defaults without changing canonical URLs.
 
 ## Fixtures, export, and evidence
+
+Final acceptance uses actual six-component HEEx at fixed 1/8/24-item sizes.
+The demo-only budget record pins DOM and clone counts, compiled stylesheet
+bytes, unique media requests/bytes validated against the fixture hashes, and
+finite motion windows in each exact engine. It does not promise frame rate or
+lazy network behavior. Manual screen-reader, physical touch and browser-UI zoom
+review have a separate pending checklist and cannot be inferred from automation.
 
 A demo-only fixture manifest lists stable filename/key, MIME, dimensions,
 license/origin, byte size and content hash. Use small authored/licensed local
@@ -149,6 +159,12 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: test/browser/milestone-e-budgets.spec.mjs
+  covers:
+    - shadcn_ui.motion_media_gallery.fixture_manifest
+    - shadcn_ui.motion_media_gallery.accessibility_matrix
+
 - kind: test_file
   target: test/shadcn_ui/motion_media_docs_test.exs
   covers:
