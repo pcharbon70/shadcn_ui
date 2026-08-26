@@ -38,6 +38,51 @@ interest invoker, hover-intent timer or touch long-press behavior is provided.
 Light/dark tokens, reduced-motion snap behavior and forced-color borders apply.
 The component reference/gallery integration is scheduled for Milestone D Phase 6.
 
+## Hover Card: optional destination previews
+
+```heex
+<.hover_card id="manual-preview">
+  <:trigger label="Read the complete manual" href="/manual" />
+  <h3>Manual overview</h3>
+  <p>A short introduction, also available at the destination.</p>
+</.hover_card>
+```
+
+The self-closing trigger slot represents one ordinary caller-owned link. Its
+`label`, `href`, `target`, `rel`, `download`, `current`, `class` and `rest` preserve
+native navigation, external-link policy and application attributes. There is no
+extra click handler, focus step, activation interception or context-menu override.
+`describedby` optionally merges external references with the preview ID.
+The root is a `div`, so place it in flow content, not inside a paragraph.
+
+The primary `inner_block` is trusted HEEx restricted to presentation tags:
+`p`, `div`, `span`, `strong`, `em`, `small`, `b`, `i`, `br`, `ul`, `ol`, `li`,
+`h3`, `h4`, `time`, with `class`, `lang`, `dir`, `datetime` attributes. This
+composition guard rejects interactive descendants, arbitrary roles, focus
+attributes, inline behavior, forms, raw HTML strings, scripts and fetching media.
+It is not a sanitizer for untrusted HTML. Caller text interpolated in HEEx stays
+escaped. `class` styles the preview; unrelated globals belong on the wrapper or
+the trigger's `rest` map, not inside preview content.
+
+Preview content must already exist at the complete destination. No required
+actions, workflow state, authorization results, private data, unique task
+information or loading indicators belong in it. These semantic restrictions
+remain the caller's responsibility; markup cannot determine what information is
+essential. Rendering a hidden preview is not a privacy boundary. The package
+does not fetch data on hover, emit analytics, keep content fresh or track state;
+the application owns safe content, freshness and replacement of the whole stable
+ID subtree. Replacing it does not restore prior focus or pointer state.
+
+Fine-pointer hover and `:focus-within` reveal the card, including while the
+pointer crosses into its adjacent preview. Reduced motion has no delay or
+transition. CSS-disabled presentation is ordinary flow content; missing anchor
+support is normal-flow presentation; missing hover/focus support loses only the
+optional preview. Coarse-pointer activation follows the ordinary link. Placement,
+theme, zoom and clipping boundaries match Tooltip above. No `interestfor`,
+`popover="hint"`, top-layer behavior, timers, long-press emulation, focus manager,
+client fetch or package JavaScript is shipped. Interactive previews require a
+different component; future interest-invoker support requires a new decision.
+
 ShadcnUI is an independently buildable Phoenix function-component package for
 semantic HEEx rendered with a shadcn-style token contract and package-owned CSS.
 

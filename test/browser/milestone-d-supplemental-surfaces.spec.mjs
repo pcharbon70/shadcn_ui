@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 // covers: shadcn_ui.supplemental.tooltip shadcn_ui.supplemental.tooltip_fallback
 // covers: shadcn_ui.supplemental.css_behavior shadcn_ui.supplemental.no_interest_claim
 // covers: shadcn_ui.stylesheet.overlay_fallbacks shadcn_ui.stylesheet.overlay_resilience
+// covers: shadcn_ui.supplemental.hover_card shadcn_ui.supplemental.hover_card_boundary
 const html = readFileSync(new URL("../fixtures/milestone_d_supplemental_surfaces.html", import.meta.url), "utf8");
 const css = readFileSync(new URL("../../priv/static/shadcn_ui.css", import.meta.url), "utf8");
 async function load(page, styles = css) {
@@ -79,5 +80,67 @@ test("Tooltip no-script coarse-pointer/no-hover falls back to ordinary navigatio
   await expect(page.locator("#tip-invoker")).toHaveAccessibleDescription(description);
   await page.locator("#tip-invoker").tap();
   await expect(page).toHaveURL(/#destination$/);
+  await context.close();
+});
+
+test("Hover Card pointer transition, pointer exit and native context menu leave navigation intact", async ({ page }) => {
+  await load(page);
+  const link = page.locator("#card-invoker"), preview = page.locator("#card-description");
+  await expect(preview).not.toBeVisible();
+  await expect(link).toHaveAccessibleName("Read the complete manual");
+  await link.hover();
+  await expect(preview).toBeVisible();
+  await preview.hover();
+  await expect(preview).toBeVisible();
+  await page.locator("#after-card").hover();
+  await expect(preview).not.toBeVisible();
+  // Test-only observer verifies that package markup does not cancel contextmenu.
+  await link.evaluate(el => el.addEventListener("contextmenu", event => {
+    queueMicrotask(() => { el.dataset.contextCancelled = String(event.defaultPrevented); });
+  }));
+  await link.click({ button: "right" });
+  await expect(link).toHaveAttribute("data-context-cancelled", "false");
+  await page.keyboard.press("Escape");
+  await link.click();
+  await expect(page).toHaveURL(/#destination$/);
+});
+
+test("Hover Card keyboard focus, Enter, preview nonfocusability and stable replacement", async ({ page }) => {
+  await load(page);
+  const link = page.locator("#card-invoker"), preview = page.locator("#card-description");
+  await link.focus();
+  await expect(preview).toBeVisible();
+  expect(await preview.locator("a,button,input,select,textarea,[tabindex],[contenteditable]").count()).toBe(0);
+  await page.keyboard.press("Tab");
+  await expect(page.locator("#after-card")).toBeFocused();
+  await expect(preview).not.toBeVisible();
+  const markup = await page.locator("#card").evaluate(el => el.outerHTML);
+  await page.locator("#card").evaluate((el, html) => { el.outerHTML = html; }, markup);
+  await expect(link).toHaveAttribute("aria-describedby", "card-description");
+  await link.focus();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#destination$/);
+});
+
+test("Hover Card CSS-disabled, no-anchor and no-hover/focus enhancements preserve destination", async ({ page }) => {
+  await load(page, "");
+  await expect(page.locator("#card-description")).toBeVisible();
+  await page.locator("#card-invoker").click();
+  await expect(page).toHaveURL(/#destination$/);
+  await load(page, css.replaceAll("(anchor-scope:", "(unsupported-anchor-scope:"));
+  await page.locator("#card-invoker").focus();
+  await expect(page.locator("#card-description")).toHaveCSS("position", "static");
+  await load(page, css.replaceAll(":hover", ":unsupported-hover").replaceAll(":focus-within", ":unsupported-focus-within"));
+  await page.locator("#card-invoker").click();
+  await expect(page).toHaveURL(/#destination$/);
+});
+
+test("Hover Card no-script touch follows a complete ordinary destination", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false, hasTouch: true, viewport: { width: 390, height: 844 } });
+  const page = await context.newPage();
+  await load(page);
+  await page.locator("#card-invoker").tap();
+  await expect(page).toHaveURL(/#destination$/);
+  await expect(page.locator("#destination")).toContainText("All required task information");
   await context.close();
 });

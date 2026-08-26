@@ -34,30 +34,30 @@ Back to wave: [README](./README.md)
       - [x] 5.1.2.3 Subtask - Verify CSS-disabled, no-hover, coarse-pointer, no-script, unsupported-anchor, narrow viewport, zoom, long translated text, RTL, and clipped-container behavior.
       - [x] 5.1.2.4 Subtask - Document that required labels, errors, instructions, status, and task information belong in visible components rather than Tooltip.
 
-  - [ ] 5.2 Section - Link-owned Hover Card preview.
+  - [x] 5.2 Section - Link-owned Hover Card preview.
 
     This section adds bounded preview presentation while leaving an ordinary link
     as the complete destination and coarse-pointer fallback.
 
-    - [ ] 5.2.1 Task - Implement Hover Card structure and link contract.
+    - [x] 5.2.1 Task - Implement Hover Card structure and link contract.
 
       Hover Card should enrich destination context without changing navigation,
       focus, authorization, or the information available from the link itself.
 
-      - [ ] 5.2.1.1 Subtask - Add a defining Overlays.HoverCard module with required stable ID, one caller-owned link trigger, trusted supplemental preview, and closed logical placement.
-      - [ ] 5.2.1.2 Subtask - Preserve link accessible name, href, target, rel, download, aria-current, focus, activation, context menu, and caller transport attributes.
-      - [ ] 5.2.1.3 Subtask - Reject required actions, forms, focusable controls, workflow state, authorization results, unique task information, and nested interactive preview content.
-      - [ ] 5.2.1.4 Subtask - Protect link and preview identities and relationships while forwarding unrelated documented classes and globals in deterministic order.
+      - [x] 5.2.1.1 Subtask - Add a defining Overlays.HoverCard module with required stable ID, one caller-owned link trigger, trusted supplemental preview, and closed logical placement.
+      - [x] 5.2.1.2 Subtask - Preserve link accessible name, href, target, rel, download, aria-current, focus, activation, context menu, and caller transport attributes.
+      - [x] 5.2.1.3 Subtask - Reject required actions, forms, focusable controls, workflow state, authorization results, unique task information, and nested interactive preview content.
+      - [x] 5.2.1.4 Subtask - Protect link and preview identities and relationships while forwarding unrelated documented classes and globals in deterministic order.
 
-    - [ ] 5.2.2 Task - Add bounded CSS preview and honest fallbacks.
+    - [x] 5.2.2 Task - Add bounded CSS preview and honest fallbacks.
 
       Hover and focus-within presentation should never intercept the underlying
       link or promise touch-interest behavior the package does not implement.
 
-      - [ ] 5.2.2.1 Subtask - Add hover and focus-within CSS visibility, bounded wrapping, logical placement, optional anchor positioning, and reduced-motion snap behavior.
-      - [ ] 5.2.2.2 Subtask - Keep the link fully usable when preview CSS, hover, focus-within, anchor positioning, or script is unavailable and treat coarse-pointer activation as ordinary navigation.
-      - [ ] 5.2.2.3 Subtask - Assert absence of interestfor, popover hint activation, timers, hover-intent algorithms, long-press emulation, focus movement, top-layer claims, and JavaScript.
-      - [ ] 5.2.2.4 Subtask - Document preview ownership, destination completeness, loading prohibition, privacy, analytics, replacement, content freshness, and future interest-invoker boundary.
+      - [x] 5.2.2.1 Subtask - Add hover and focus-within CSS visibility, bounded wrapping, logical placement, optional anchor positioning, and reduced-motion snap behavior.
+      - [x] 5.2.2.2 Subtask - Keep the link fully usable when preview CSS, hover, focus-within, anchor positioning, or script is unavailable and treat coarse-pointer activation as ordinary navigation.
+      - [x] 5.2.2.3 Subtask - Assert absence of interestfor, popover hint activation, timers, hover-intent algorithms, long-press emulation, focus movement, top-layer claims, and JavaScript.
+      - [x] 5.2.2.4 Subtask - Document preview ownership, destination completeness, loading prohibition, privacy, analytics, replacement, content freshness, and future interest-invoker boundary.
 
   - [ ] 5.3 Section - Phase 5 Integration Tests.
 

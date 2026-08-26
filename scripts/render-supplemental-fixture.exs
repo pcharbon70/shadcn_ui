@@ -42,6 +42,15 @@ defmodule SupplementalBrowserFixture do
               <:trigger label="Clipped example manual" kind={:link} href="#destination" />
             </.tooltip>
           </div>
+          <div class="example">
+            <.hover_card id="card">
+              <:trigger label="Read the complete manual" href="#destination" current="page" />
+              <h3>Manual preview</h3><p>
+                All required task information is available at the destination.
+              </p>
+            </.hover_card>
+            <button id="after-card">After card</button>
+          </div>
           <section id="destination">
             <h1>Manual</h1><p>All required task information is available here.</p>
           </section>
