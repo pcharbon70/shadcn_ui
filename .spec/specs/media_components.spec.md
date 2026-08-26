@@ -4,7 +4,7 @@
 id: shadcn_ui.media_components
 kind: package
 status: active
-summary: Accepted Milestone E contract; implementation and evidence are pending the phased plan.
+summary: Carousel native API implemented in Phase 2; Cover Flow and Image Gallery remain planned.
 decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.native_carousel_cover_flow
@@ -19,7 +19,7 @@ surface:
 
 ## API contract
 
-Planned functions are carousel/1, cover_flow/1 and image_gallery/1 in defining
+Functions are carousel/1 (implemented), cover_flow/1 and image_gallery/1 (planned) in defining
 modules under ShadcnUI.Components.Media, imported directly through use ShadcnUI.
 All require unique id and an accessible name (label or valid heading reference,
 not conflicting sources); optional descriptions receive deterministic IDs.
@@ -31,6 +31,13 @@ inner content; its real item index targets derived item IDs. Closed snap values
 are none, proximity (default), mandatory; alignment is start or center.
 The logical axis is inline only in this wave. Preserve native child controls,
 form values and destinations; do not clone caller slot content.
+
+Carousel names use exactly one of accessible_label or labelledby. The latter
+contains space-separated caller-owned heading IDs. description is escaped text;
+its derived ID is protected. Item slots accept class and unrelated rest globals,
+while required IDs, list semantics, focus and naming cannot be overridden.
+Item targets have tabindex=-1 for native fragment focus, not extra Tab stops.
+motion accepts system/none and respects ancestor and OS suppression.
 
 Cover Flow accepts structured image items using the shared record, labels,
 captions and optional destinations. It reuses Carousel's list, native scroll

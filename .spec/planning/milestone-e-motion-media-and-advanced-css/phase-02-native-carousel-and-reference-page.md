@@ -14,25 +14,25 @@ Requires Phase 1 media identity, motion suppression, capabilities and fixture/ex
 
   Publish Carousel as an honest named native scroll region with a complete item list and real fragment navigation, and expose it immediately in the gallery.
 
-  - [ ] 2.1 Section - Carousel API and semantic structure.
+  - [x] 2.1 Section - Carousel API and semantic structure.
 
     Define the public component through explicit HEEx metadata while preserving all caller content and ordinary controls.
 
-    - [ ] 2.1.1 Task - Implement the defining Carousel component.
+    - [x] 2.1.1 Task - Implement the defining Carousel component.
 
       The API should express native list layout, not a synchronized slide model.
 
-      - [ ] 2.1.1.1 Subtask - Add Media.Carousel.carousel/1 with required unique id/name, keyed labelled item slots, optional description and closed snap/alignment choices; import the defining module directly.
-      - [ ] 2.1.1.2 Subtask - Render one named focusable native inline scroll region and an ordered list; generate unique item IDs and real labelled index anchors from stable keys.
-      - [ ] 2.1.1.3 Subtask - Preserve trusted child HEEx, native links/forms, caller classes and unrelated globals while rejecting duplicate keys, missing labels and conflicting roles/relationships.
+      - [x] 2.1.1.1 Subtask - Add Media.Carousel.carousel/1 with required unique id/name, keyed labelled item slots, optional description and closed snap/alignment choices; import the defining module directly.
+      - [x] 2.1.1.2 Subtask - Render one named focusable native inline scroll region and an ordered list; generate unique item IDs and real labelled index anchors from stable keys.
+      - [x] 2.1.1.3 Subtask - Preserve trusted child HEEx, native links/forms, caller classes and unrelated globals while rejecting duplicate keys, missing labels and conflicting roles/relationships.
 
-    - [ ] 2.1.2 Task - Protect native navigation and honest semantics.
+    - [x] 2.1.2 Task - Protect native navigation and honest semantics.
 
       A visual carousel must not claim selection, autoplay or keyboard behavior it does not implement.
 
-      - [ ] 2.1.2.1 Subtask - Keep all items in document and accessibility order; omit active-slide state, live announcements, tab/menu/listbox roles and aria-roledescription carousel claims.
-      - [ ] 2.1.2.2 Subtask - Do not render previous/next controls with no native operation; omit generated CSS buttons/markers and loop clones from package output.
-      - [ ] 2.1.2.3 Subtask - Document native scroll and fragment behavior, child focus, server replacement and application-owned navigation with no listeners or restoration code.
+      - [x] 2.1.2.1 Subtask - Keep all items in document and accessibility order; omit active-slide state, live announcements, tab/menu/listbox roles and aria-roledescription carousel claims.
+      - [x] 2.1.2.2 Subtask - Do not render previous/next controls with no native operation; omit generated CSS buttons/markers and loop clones from package output.
+      - [x] 2.1.2.3 Subtask - Document native scroll and fragment behavior, child focus, server replacement and application-owned navigation with no listeners or restoration code.
 
   - [ ] 2.2 Section - Responsive native scrolling and CSS fallbacks.
 
