@@ -138,6 +138,8 @@ Milestone E Phase 2 adds native Carousel inline layout in carousel.css (E-02).
 Complete static snap/alignment utilities retain ordinary overflow when unsupported;
 logical padding, bounded cards and real index links preserve focus and RTL order.
 No scrollbar hiding, generated scroll controls or runtime is introduced.
+Focused descendants suspend snap so mandatory points cannot pull oversized
+content away from focus at zoom. Native scrolling and index links remain usable.
 
 Milestone E Phase 1 adds the opt-in motion-media.css foundation and its authored
 exception ledger. System reduced motion, an ancestor data-shadcn-motion=reduce,

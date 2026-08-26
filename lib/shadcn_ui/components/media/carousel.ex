@@ -16,7 +16,9 @@ defmodule ShadcnUI.Components.Media.Carousel do
   slides. There is no autoplay, previous/next controller, live announcement,
   roving focus, clone or JavaScript. All items remain in accessibility order.
 
-  Snap is `:proximity` by default, or `:none` / `:mandatory`; alignment is
+  Snap is `:proximity` by default, or `:none` / `:mandatory`. It is
+  temporarily subordinate to child focus: snapping pauses while an item or its
+  descendant is focused so oversized content stays reachable. Alignment is
   `:start` or `:center`. Missing snap retains ordinary scrolling; without CSS
   the complete ordered list and index remain. Motion `:none`, an ancestor
   `data-shadcn-motion="reduce"`, or system reduced motion disables smooth

@@ -51,6 +51,11 @@ surface:
 
 ## Verification
 
+Milestone E Phase 2 maps Media.Carousel and carousel.css to the pinned native
+list and reviewed marker sources. Local changes explicitly retain real index
+links, visible scrollbars and focus while omitting generated controls. The
+existing complete MIT notice remains unchanged.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/provenance_test.exs

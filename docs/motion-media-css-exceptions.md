@@ -52,7 +52,9 @@ Sibling and nested roots do not inherit another instance's snap configuration.
 No capability query is needed for baseline flex/overflow. Unsupported optional
 scroll-snap declarations are ignored, preserving native scrolling. CSS-disabled
 output retains its ordered list, focus targets and real links. Proximity is the
-default; none and mandatory are explicit options. Smooth scrolling is suppressed
+default; none and mandatory are explicit options. Child focus temporarily disables
+snap so a focused control in an oversized card takes precedence over the card's
+snap point. Smooth scrolling is suppressed
 by E-01 under OS, ancestor or component reduction, without changing navigation.
 No scrollbar hiding, generated controls, keyframes, timelines or runtime exists.
 Card/foreground/border/ring/radius use scoped light/dark tokens; forced colors

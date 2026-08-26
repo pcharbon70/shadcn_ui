@@ -2,12 +2,12 @@
 
 ## Status and purpose
 
-Phase 1 foundations are implemented and locally verified, with the recorded
-SpecLed login-shell limitation still outstanding. Phases 2–6 remain pending;
-none of the six new public components is exported yet. Milestones A–D remain
-the implemented baseline; their completed history is unchanged. See the
-[Phase 1 execution record](./phase-01-capability-media-and-motion-foundations.md#execution-record)
-for exact checks and limitations. Next is Phase 2, Native Carousel.
+Phases 1–2 implement the shared foundations and public native Carousel, including
+its real reference and media-browser composition. The recorded SpecLed
+login-shell limitation remains outstanding. Phases 3–6 and the other five public
+components remain pending. Milestones A–D history is unchanged. See the
+[Phase 2 execution record](./phase-02-native-carousel-and-reference-page.md#execution-record)
+for checks and limitations. Next is Phase 3, Marquee and Stagger.
 
 This wave implements the [Milestone E roadmap](../../milestones/milestone-e-motion-media-and-advanced-css.md)
 as independently reviewable phases. Native content, useful fallbacks, scoped

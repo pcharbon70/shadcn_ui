@@ -10,11 +10,17 @@ decisions:
   - shadcn_ui.native_carousel_cover_flow
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - lib/shadcn_ui/components/media/carousel.ex
+  - test/shadcn_ui/components/media/carousel_test.exs
+  - test/fixtures/milestone_e_carousel.html
   - lib/shadcn_ui/components/media/**/*.ex
   - test/shadcn_ui/components/media/**/*.exs
   - test/browser/milestone-e-carousel.spec.mjs
   - test/browser/milestone-e-cover-flow.spec.mjs
   - test/browser/milestone-e-image-gallery.spec.mjs
+  - test/shadcn_ui/carousel_integration_test.exs
+  - scripts/render-carousel-fixture.exs
+  - playwright.milestone-e-phase2.config.mjs
 ```
 
 ## API contract
@@ -37,6 +43,8 @@ contains space-separated caller-owned heading IDs. description is escaped text;
 its derived ID is protected. Item slots accept class and unrelated rest globals,
 while required IDs, list semantics, focus and naming cannot be overridden.
 Item targets have tabindex=-1 for native fragment focus, not extra Tab stops.
+Snapping pauses while a descendant is focused; focused content takes precedence
+over any snap point, including mandatory snapping and oversized cards at zoom.
 motion accepts system/none and respects ancestor and OS suppression.
 
 Cover Flow accepts structured image items using the shared record, labels,
@@ -127,13 +135,21 @@ an unproven effect is deferred, not simulated by scripts.
 
 ## Verification
 
-The following targets are planned acceptance obligations, not existing passing
-tests. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+Carousel unit, generated-HEEx browser and integration targets are implemented.
+Cover Flow and Image Gallery targets remain planned acceptance obligations.
+The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: test/shadcn_ui/carousel_integration_test.exs
+  covers:
+    - shadcn_ui.media_components.carousel_structure
+    - shadcn_ui.media_components.carousel_controls
+    - shadcn_ui.media_components.carousel_layout
+
 - kind: test_file
   target: test/shadcn_ui/components/media/carousel_test.exs
   covers:

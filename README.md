@@ -38,6 +38,7 @@ escaped text; root/item `class` and unrelated `rest` globals remain caller-owned
 Snap accepts `:none`, `:proximity` (default) or `:mandatory`; `alignment` accepts
 `:start` (default) or `:center`. `motion=:none`, ancestor reduction or system
 reduced motion disables smooth scrolling. No option forces animation.
+Child focus temporarily suspends snapping so oversized content stays reachable.
 
 The named scroller is a Tab stop. Native keys, wheel, touch, fragment links and
 child controls stay browser-owned, including keyboard preferences that skip

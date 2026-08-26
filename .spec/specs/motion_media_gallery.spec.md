@@ -128,6 +128,20 @@ actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
 - kind: test_file
+  target: demo/test/shadcn_ui_demo/carousel_gallery_test.exs
+  covers:
+    - shadcn_ui.motion_media_gallery.incremental_catalog
+    - shadcn_ui.motion_media_gallery.references
+    - shadcn_ui.motion_media_gallery.compositions
+    - shadcn_ui.motion_media_gallery.motion_inspection
+
+- kind: test_file
+  target: test/browser/milestone-e-carousel.spec.mjs
+  covers:
+    - shadcn_ui.motion_media_gallery.accessibility_matrix
+    - shadcn_ui.motion_media_gallery.static_media
+
+- kind: test_file
   target: demo/test/shadcn_ui_demo/motion_media_catalog_test.exs
   covers:
     - shadcn_ui.motion_media_gallery.incremental_catalog

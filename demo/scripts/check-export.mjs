@@ -22,6 +22,13 @@ const overlayRoutes = [
   ...["tooltip", "hover-card"].map(name => `/components/interactive-surfaces/${name}`),
   ...["overlay-capabilities", "settings-confirmation", "responsive-drawers", "anchored-actions", "supplemental-help"].map(name => `/examples/${name}`)
 ];
+const mediaRoutes = ["/components/media", "/components/media/carousel", "/examples/media-browser"];
+for (const route of mediaRoutes) {
+  if (!sitemap.includes(`<loc>https://leco-industries-inc.github.io/shadcn_ui${route}</loc>`)) throw new Error(`missing media route: ${route}`);
+  for (const theme of ["light", "dark"]) for (const motion of ["system", "reduce", "unexpected"]) {
+    if (!manifest.routes.some(e=>e.request===`${route}?theme=${theme}&motion=${motion}` && e.status===200)) throw new Error("missing media preference variant");
+  }
+}
 for (const route of overlayRoutes) {
   if (!sitemap.includes(`<loc>https://leco-industries-inc.github.io/shadcn_ui${route}</loc>`)) throw new Error(`missing sitemap route: ${route}`);
   for (const suffix of ["", "?theme=light", "?theme=dark", "?theme=minty"]) {
@@ -54,6 +61,12 @@ for (const entry of manifest.routes) {
   const runtime = html.replace(/<a\b[^>]*>/gi, "").replace(/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^"]*"\s*\/?\s*>/gi, "");
   if (/(?:src|href|srcset)="(?:https?:)?\/\//i.test(runtime)) throw new Error(`remote runtime URL: ${entry.file}`);
   const route = entry.request.split("?")[0];
+  if (mediaRoutes.includes(route)) {
+    const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
+    if (new Set(ids).size!==ids.length) throw new Error("duplicate media identity");
+    if (route!=="/components/media" && !html.includes("data-shadcn-ui-carousel-scroll")) throw new Error("missing actual Carousel");
+    for (const fragment of html.matchAll(/href="#(shadcn-ui-media-[^"]+)"/g)) if (!ids.includes(fragment[1])) throw new Error("broken Carousel index");
+  }
   if (overlayRoutes.includes(route)) {
     if (!html.includes(`rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui${route}"`)) throw new Error(`missing canonical URL: ${entry.file}`);
     const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
