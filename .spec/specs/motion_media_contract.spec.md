@@ -23,6 +23,14 @@ This is the accepted contract for planned Milestone E implementation, not a
 claim that its APIs exist today. The six defining modules and their gallery
 pages land in the linked phase plan. Existing A–D APIs remain compatible.
 
+Phase 1 implements the capability manifest/schema, recorded platform probes,
+and internal normalization. Public component APIs and their component-specific
+acceptance remain pending later phases. Responsive srcset input is a list of
+src/positive-width maps with unique widths and a nonblank sizes string; density
+descriptors and raw srcset strings are not accepted. Native loading defaults to
+lazy and decoding to async. Protected globals are removed before required
+component attributes are emitted; unrelated caller globals remain intact.
+
 Internal MediaContract and MotionContract helpers normalize closed values,
 stable keys and image metadata. Do not add a public generic animation engine or
 image service. Functions remain Phoenix components with defining-module attr
@@ -120,6 +128,11 @@ until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.
 
 ```spec-verification
+- kind: test_file
+  target: test/shadcn_ui/motion_media_manifest_test.exs
+  covers:
+    - shadcn_ui.motion_media_contract.capability_manifest
+
 - kind: test_file
   target: test/shadcn_ui/motion_media_contract_test.exs
   covers:

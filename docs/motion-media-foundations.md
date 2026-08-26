@@ -38,3 +38,33 @@ component source. Record actual component/CSS adaptation mappings when they land
 
 The ADR-linked HTML and CSS source review is policy input, not a browser-version
 support guarantee. The extracted library has no Electron or OS target.
+
+## Internal normalization contract
+
+MediaContract accepts atom-keyed image maps: a nonblank string key, root-relative
+or HTTP(S) src, explicit alt intent and positive intrinsic width/height.
+Decorative images require empty alt and an independent nonblank name.
+Optional caption, href and full-size metadata remain caller-owned. Loading is
+lazy/eager (lazy default); decoding is auto/sync/async (async default).
+
+Responsive srcset input is a nonempty list of %{src: url, width: integer}
+candidates with distinct positive widths and a nonblank sizes string. It emits
+native width descriptors, not a package image service. Raw srcset strings,
+density descriptors, credentials in URLs and unsupported schemes are rejected.
+Sizes grammar and the truth of image dimensions/alt remain the caller's duty.
+Full-size records contain their own source and dimensions. Metadata normalization
+does not fetch images or promise request timing, privacy or authorization.
+
+IDs encode both instance and key, so punctuation and Unicode cannot collide or
+become selectors. Identity-bearing and media/motion globals are stripped before
+required attributes are rendered; unrelated classes and framework globals remain.
+Text is not converted to safe HTML: HEEx escapes it at the rendering boundary.
+
+MotionContract accepts only :system/:none. Finite Marquee presets are :brief
+(2500 ms) and :default (5000 ms). Stagger :quick/:default presets bound every
+delay plus duration to 1000 ms; excess items receive an immediate static result.
+The duration helpers do not introduce a timer or detect visibility.
+
+Native scrolling, checkbox and Dialog state may reset on DOM replacement.
+Applications own patch boundaries and restoration. Internal helpers are not
+imported by use ShadcnUI and are not a public animation or media API.
