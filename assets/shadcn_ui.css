@@ -549,10 +549,24 @@
 
 dialog[data-shadcn-ui-overlay-surface] {
   margin: auto;
+  overflow: hidden;
 }
 
 dialog[data-shadcn-ui-overlay-surface]::backdrop {
   background: color-mix(in srgb, var(--shadcn-ui-foreground) 48%, transparent);
+}
+
+[data-shadcn-ui-dialog-content] {
+  max-block-size: calc(100dvb - 2rem);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+[data-shadcn-ui-dialog-content] > footer {
+  position: sticky;
+  inset-block-end: 0;
+  padding-block-start: 0.75rem;
+  background: var(--shadcn-ui-popover);
 }
 
 [data-shadcn-ui-overlay-surface][popover] {

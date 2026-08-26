@@ -66,25 +66,76 @@ defmodule ShadcnUI.Components.Overlays.OverlayContract do
     protected =
       case owner do
         :invoker ->
-          [:id, :type, :role, :command, :commandfor, :popovertarget, :popovertargetaction]
+          [
+            :id,
+            :type,
+            :role,
+            :command,
+            :commandfor,
+            :popovertarget,
+            :popovertargetaction,
+            :aria_controls,
+            :aria_haspopup,
+            :data_shadcn_ui_dialog_invoker
+          ]
 
         :dialog ->
-          [:id, :role, :open, :closedby, :autofocus, :aria_labelledby, :aria_describedby]
+          [
+            :id,
+            :role,
+            :open,
+            :closedby,
+            :autofocus,
+            :aria_label,
+            :aria_labelledby,
+            :aria_describedby,
+            :data_shadcn_ui_overlay_surface,
+            :data_shadcn_ui_dialog_surface,
+            :data_size,
+            :data_initial_focus_target
+          ]
 
         :popover ->
           [:id, :role, :popover, :aria_labelledby, :aria_describedby]
 
         :close ->
-          [:id, :type, :role, :command, :commandfor, :popovertarget, :popovertargetaction]
+          [
+            :id,
+            :type,
+            :role,
+            :command,
+            :commandfor,
+            :popovertarget,
+            :popovertargetaction,
+            :autofocus,
+            :data_shadcn_ui_dialog_close
+          ]
 
         :initial_focus ->
-          [:id, :autofocus]
+          [:id, :tabindex, :autofocus]
 
         other ->
           raise ArgumentError, "unknown overlay global owner: #{inspect(other)}"
       end
 
-    Component.protect_globals(globals, protected ++ [:name, :data_shadcn_ui])
+    common = [
+      :id,
+      :name,
+      :role,
+      :open,
+      :closedby,
+      :autofocus,
+      :command,
+      :commandfor,
+      :popovertarget,
+      :popovertargetaction,
+      :aria_label,
+      :aria_labelledby,
+      :aria_describedby,
+      :data_shadcn_ui
+    ]
+
+    Component.protect_globals(globals, protected ++ common)
   end
 
   def protect_globals!(globals, _owner) do

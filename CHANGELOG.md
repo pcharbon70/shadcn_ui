@@ -4,6 +4,11 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Add native Dialog with declarative invocation, closed dismissal and focus
+  policies, explicit fallback and exit regions, and browser-owned modality.
+- Add consequential Alert Dialog with fixed close-request dismissal,
+  least-destructive cancel focus, and a caller-owned native action region.
+
 - Complete Milestone C with native Accordion, destination Navigation Menu,
   Header and Section Header compositions, Scroll Area, Separator, and honestly
   named Radio Panels with progressive CSS fallbacks and no package JavaScript.

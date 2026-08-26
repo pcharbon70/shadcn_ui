@@ -106,8 +106,6 @@ surface:
     - shadcn_ui.dialog.dismissal_policy
     - shadcn_ui.dialog.initial_focus
     - shadcn_ui.dialog.alert_dialog
-    - shadcn_ui.dialog.drawer
-    - shadcn_ui.dialog.drawer_scroll
     - shadcn_ui.dialog.shared_contract
 
 - kind: test_file
@@ -118,8 +116,6 @@ surface:
     - shadcn_ui.dialog.initial_focus
     - shadcn_ui.dialog.alert_dialog
     - shadcn_ui.dialog.alert_ownership
-    - shadcn_ui.dialog.drawer
-    - shadcn_ui.dialog.drawer_scroll
     - shadcn_ui.dialog.protected_semantics
     - shadcn_ui.dialog.shared_contract
 ```

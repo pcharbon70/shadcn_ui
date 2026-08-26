@@ -39,6 +39,17 @@ CSS-disabled, no-script, disabled-feature, DOM-replacement, nested-Popover,
 reduced-motion, and forced-color cases. The archive excludes Playwright,
 fixtures, reports, demo helpers, and every package JavaScript runtime.
 
+## Milestone D Phase 2 acceptance record
+
+Dialog and Alert Dialog are public defining components backed by native modal
+dialog, declarative invoker commands, explicit exits, and deterministic
+relationships. Acceptance runs native focus containment, Escape, closedby
+policies, light dismiss, form method dialog, nested Popover, long/RTL content,
+CSS-disabled, no-script, replacement, Alert cancellation, pending, rejection,
+and caller-owned action snapshots in the exact locked three-engine matrix. The
+archive retains no modal runtime, consequence operation, browser harness, or
+test fixture.
+
 ## Milestone C acceptance record
 
 The candidate must include the seven Milestone C public components and their

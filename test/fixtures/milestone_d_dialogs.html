@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <body>
+    <main id="page-content">
+      <a id="dialog-fallback" href="#dialog-fallback-content">Open settings as page content</a>
+
+      <button id="basic-dialog-invoker" command="show-modal" commandfor="basic-dialog-surface">
+        Open settings
+      </button>
+      <dialog
+        id="basic-dialog-surface"
+        closedby="closerequest"
+        aria-labelledby="basic-dialog-title"
+        aria-describedby="basic-dialog-description"
+        data-shadcn-ui
+        data-shadcn-ui-overlay-surface
+        data-shadcn-ui-dialog-surface
+      >
+        <div id="basic-dialog-initial-focus" tabindex="-1" autofocus data-shadcn-ui-dialog-content>
+          <h2 id="basic-dialog-title">Paramètres du compte with a deliberately long translated title</h2>
+          <p id="basic-dialog-description">Browser-local modal settings.</p>
+          <form method="dialog">
+            <label for="dialog-name">Display name</label>
+            <input id="dialog-name" name="display_name" value="Ada" />
+            <button id="dialog-form-submit" value="saved">Save locally</button>
+          </form>
+          <button id="dialog-popover-invoker" popovertarget="dialog-popover">More information</button>
+          <div id="dialog-popover" popover="auto">One nested native Popover.</div>
+          <button id="basic-dialog-close" command="close" commandfor="basic-dialog-surface">Close</button>
+        </div>
+      </dialog>
+
+      <button id="any-dialog-invoker" command="show-modal" commandfor="any-dialog-surface">Open light-dismiss dialog</button>
+      <dialog id="any-dialog-surface" closedby="any" aria-label="Light-dismiss example">
+        <button id="any-dialog-close" command="close" commandfor="any-dialog-surface">Close</button>
+      </dialog>
+
+      <button id="none-dialog-invoker" command="show-modal" commandfor="none-dialog-surface">Open explicit-only dialog</button>
+      <dialog id="none-dialog-surface" closedby="none" aria-label="Explicit-only example">
+        <button id="none-dialog-close" command="close" commandfor="none-dialog-surface">Close</button>
+      </dialog>
+
+      <button id="long-dialog-invoker" command="show-modal" commandfor="long-dialog-surface">Open long dialog</button>
+      <dialog id="long-dialog-surface" closedby="closerequest" aria-labelledby="long-dialog-title" data-shadcn-ui data-shadcn-ui-overlay-surface>
+        <div data-shadcn-ui-dialog-content dir="rtl">
+          <h2 id="long-dialog-title">محتوى طويل</h2>
+          <p>Long content start.</p>
+          <div style="block-size: 80rem">Scrollable translated content.</div>
+          <button id="long-dialog-close" command="close" commandfor="long-dialog-surface">إغلاق</button>
+        </div>
+      </dialog>
+
+      <a id="alert-dialog-fallback" href="#alert-dialog-fallback-content">Review deletion without a modal</a>
+      <button id="delete-alert-invoker" command="show-modal" commandfor="delete-alert-surface">Delete account</button>
+      <dialog
+        id="delete-alert-surface"
+        role="alertdialog"
+        closedby="closerequest"
+        aria-labelledby="delete-alert-title"
+        aria-describedby="delete-alert-description"
+        data-shadcn-ui
+        data-shadcn-ui-overlay-surface
+        data-shadcn-ui-alert-dialog-surface
+      >
+        <div data-shadcn-ui-dialog-content>
+          <h2 id="delete-alert-title">Delete account?</h2>
+          <p id="delete-alert-description">This irreversible action removes caller-owned data.</p>
+          <p id="delete-alert-error">Server rejection snapshot: type the account name before retrying.</p>
+          <button id="delete-alert-cancel" command="close" commandfor="delete-alert-surface" autofocus>Keep account</button>
+          <button id="delete-alert-action" type="button" name="intent" value="delete-account">Delete permanently</button>
+        </div>
+      </dialog>
+
+      <button id="discard-alert-invoker" command="show-modal" commandfor="discard-alert-surface">Discard draft</button>
+      <dialog id="discard-alert-surface" role="alertdialog" closedby="closerequest" aria-labelledby="discard-alert-title" aria-describedby="discard-alert-description">
+        <h2 id="discard-alert-title">Discard draft?</h2>
+        <p id="discard-alert-description">Unsaved caller state would be discarded by the application.</p>
+        <button id="discard-alert-cancel" command="close" commandfor="discard-alert-surface" autofocus>Continue editing</button>
+        <button id="discard-alert-action" type="button" disabled aria-busy="true" data-pending="true">Discard pending</button>
+      </dialog>
+
+      <p id="dialog-fallback-content">Visible ordinary fallback content.</p>
+      <p id="alert-dialog-fallback-content">Visible consequential fallback guidance.</p>
+    </main>
+  </body>
+</html>

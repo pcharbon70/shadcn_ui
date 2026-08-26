@@ -19,6 +19,8 @@ defmodule ShadcnUI do
     ShadcnUI.Components.Navigation.Header,
     ShadcnUI.Components.Navigation.NavigationMenu,
     ShadcnUI.Components.Navigation.SectionHeader,
+    ShadcnUI.Components.Overlays.AlertDialog,
+    ShadcnUI.Components.Overlays.Dialog,
     ShadcnUI.Components.Foundation.Alert,
     ShadcnUI.Components.Foundation.Avatar,
     ShadcnUI.Components.Foundation.Badge,
