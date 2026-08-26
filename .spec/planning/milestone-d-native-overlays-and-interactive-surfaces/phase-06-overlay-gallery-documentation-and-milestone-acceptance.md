@@ -59,30 +59,30 @@ Back to wave: [README](./README.md)
       - [x] 6.2.2.3 Subtask - Build an anchored actions page with Popover and Dropdown Actions containing ordinary links and buttons plus viewport-edge, nested-scroll, manual, and fallback states.
       - [x] 6.2.2.4 Subtask - Build a supplemental help page with Tooltip and Hover Card showing keyboard, pointer, coarse-pointer, long text, translated content, complete labels and destinations, and no required preview information.
 
-  - [ ] 6.3 Section - Public documentation, provenance, and release evidence.
+  - [x] 6.3 Section - Public documentation, provenance, and release evidence.
 
     This section aligns README, ExDoc, upstream traceability, browser policy,
     changelog, and release guidance with the complete Milestone D public surface.
 
-    - [ ] 6.3.1 Task - Publish APIs, capability floors, and ownership boundaries.
+    - [x] 6.3.1 Task - Publish APIs, capability floors, and ownership boundaries.
 
       Consumers should be able to choose a component and fallback without
       reverse engineering browser behavior or assuming package-owned state.
 
-      - [ ] 6.3.1.1 Subtask - Document every API, slot, closed value, identity rule, protected global, native behavior, capability requirement, CSS enhancement, semantic token, and HEEX example.
-      - [ ] 6.3.1.2 Subtask - Document focus entry, containment, restoration, Escape, closedby, backdrop, explicit exits, Popover dismissal, placement, scroll, replacement, and caller application ownership.
-      - [ ] 6.3.1.3 Subtask - Publish comparison tables for modal and nonmodal surfaces, Dropdown Actions and ARIA menus, supplemental and required help, plus native capability and ordinary fallback choices.
-      - [ ] 6.3.1.4 Subtask - Document exact CSS-disabled, no-script, no-anchor, no-transition, no-hover, coarse-pointer, reduced-motion, forced-colors, zoom, RTL, and replacement behavior.
+      - [x] 6.3.1.1 Subtask - Document every API, slot, closed value, identity rule, protected global, native behavior, capability requirement, CSS enhancement, semantic token, and HEEX example.
+      - [x] 6.3.1.2 Subtask - Document focus entry, containment, restoration, Escape, closedby, backdrop, explicit exits, Popover dismissal, placement, scroll, replacement, and caller application ownership.
+      - [x] 6.3.1.3 Subtask - Publish comparison tables for modal and nonmodal surfaces, Dropdown Actions and ARIA menus, supplemental and required help, plus native capability and ordinary fallback choices.
+      - [x] 6.3.1.4 Subtask - Document exact CSS-disabled, no-script, no-anchor, no-transition, no-hover, coarse-pointer, reduced-motion, forced-colors, zoom, RTL, and replacement behavior.
 
-    - [ ] 6.3.2 Task - Complete provenance and candidate-release evidence.
+    - [x] 6.3.2 Task - Complete provenance and candidate-release evidence.
 
       Every adapted component and CSS block should remain traceable while all
       gallery and compatibility evidence stays outside the runtime archive.
 
-      - [ ] 6.3.2.1 Subtask - Extend the provenance manifest with every Milestone D component and CSS mapping, pinned source path and revision, and concise local-change summary.
-      - [ ] 6.3.2.2 Subtask - Verify the MIT notice, independent-project wording, authoritative browser-source links, no automatic upstream sync, and exclusion of upstream site assets.
-      - [ ] 6.3.2.3 Subtask - Rebuild ExDoc, package assets, release archive, gallery assets, static export, and cross-engine manifests and audit their exact allowlists and deterministic bytes.
-      - [ ] 6.3.2.4 Subtask - Update README, changelog, release record, package catalogue, canonical gallery URL, deployment inventory, rollback guidance, and Milestone D acceptance evidence.
+      - [x] 6.3.2.1 Subtask - Extend the provenance manifest with every Milestone D component and CSS mapping, pinned source path and revision, and concise local-change summary.
+      - [x] 6.3.2.2 Subtask - Verify the MIT notice, independent-project wording, authoritative browser-source links, no automatic upstream sync, and exclusion of upstream site assets.
+      - [x] 6.3.2.3 Subtask - Rebuild ExDoc, package assets, release archive, gallery assets, static export, and cross-engine manifests and audit their exact allowlists and deterministic bytes.
+      - [x] 6.3.2.4 Subtask - Update README, changelog, release record, package catalogue, canonical gallery URL, deployment inventory, rollback guidance, and Milestone D acceptance evidence.
 
   - [ ] 6.4 Section - Phase 6 Integration Tests.
 

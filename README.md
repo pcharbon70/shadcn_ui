@@ -1,5 +1,15 @@
 # ShadcnUI
 
+Transport-neutral Phoenix function components using native HTML and isolated,
+shadcn-style CSS. Milestones A through D provide Foundation, Forms, Disclosure,
+Navigation, Content Surfaces, Overlays, and Interactive Surfaces.
+
+The [gallery](https://leco-industries-inc.github.io/shadcn_ui/) is a separate
+reference consumer. Milestone D adds seven component pages, four complete
+compositions, and a [capability matrix](https://leco-industries-inc.github.io/shadcn_ui/examples/overlay-capabilities).
+New pages become public when their reviewed change is merged and the Pages
+deployment succeeds; a local acceptance run is not proof of publication.
+
 ## Tooltip: optional descriptions
 
 ```heex
@@ -38,7 +48,7 @@ can clip its optional visual content. Avoid placing anchored previews over
 required page content; use visible Help for anything essential. No script,
 interest invoker, hover-intent timer or touch long-press behavior is provided.
 Light/dark tokens, reduced-motion snap behavior and forced-color borders apply.
-The component reference/gallery integration is scheduled for Milestone D Phase 6.
+The Interactive Surfaces gallery includes this component and its complete fallback.
 
 ## Hover Card: optional destination previews
 
@@ -97,8 +107,8 @@ Ash, or Electron capabilities.
 ShadcnUI is an independent Phoenix adaptation. It is not an official shadcn/ui
 or unscripted/ui project and is not endorsed by either project.
 
-Milestones A through C establish the package boundary, stylesheet, Foundation,
-native Forms, Disclosure, Navigation, and Content Surfaces catalogues, gallery,
+Milestones A through D establish the package boundary, stylesheet, Foundation,
+native Forms, Disclosure, Navigation, Content Surfaces, and overlay catalogues, gallery,
 and acceptance evidence. See
 [`.spec/milestones`](./.spec/milestones/README.md) for the roadmap.
 
@@ -323,6 +333,96 @@ The caller labels meaningful loading regions and owns loading detection,
 announcements, errors, replacement timing, and final content layout.
 
 ## Milestone D native overlays
+
+### Choosing a surface
+
+| Need | Component and native behavior | Ordinary alternative |
+| --- | --- | --- |
+| Temporary modal task | Dialog: browser focus containment and page inertness | Full task page or visible form |
+| Consequential confirmation | Alert Dialog: named warning, cancel receives focus | Confirmation page; server still authorizes the operation |
+| Edge-aligned modal details | Drawer: Dialog behavior with a scrolling body | In-flow details and filters |
+| Nonmodal controls | Popover: native auto/manual disclosure, no focus trap | Visible controls |
+| Short action list | Dropdown Actions: ordinary links/buttons inside auto Popover | Visible action list; **not** an ARIA menu |
+| Optional short explanation | Tooltip: CSS hover/focus description | Complete label plus visible Help for required instructions |
+| Optional destination preview | Hover Card: ordinary link plus noninteractive preview | Complete destination page |
+
+True menus need a separate keyboard/focus contract and are not implemented.
+Interest invokers are deliberately excluded even where detected by a browser.
+
+### API and identity reference
+
+`mix docs` builds the full public API reference: every defining module lists its
+function, attributes, defaults, closed values, slots, and slot attributes. All
+seven functions are imported by `use ShadcnUI`. The examples below and in the
+gallery use these public APIs directly, not demo-specific wrappers.
+
+All components require a unique nonblank caller `id`; use stable keys, not list
+positions. Reserve its derived `-invoker`, `-surface`, `-title`, `-description`,
+`-close`, `-content`, and `-initial-focus` identities as applicable. Alert Dialog
+uses `-close` for cancellation and `-action` for its action region. Dropdown
+Actions additionally derives identities from unique action/group/separator keys.
+External `labelledby`/`describedby` references must resolve to caller elements.
+
+| API | Closed presentation and behavior | Slots |
+| --- | --- | --- |
+| `dialog/1` | size small/default/large/full; alignment start/center; density compact/comfortable; dismissal none/close_request/any; initial_focus auto/content/close | trigger, title or accessible_label, description, inner_block, close, fallback |
+| `alert_dialog/1` | size small/default/large; fixed close-request dismissal and cancel autofocus | trigger, title, description, optional inner_block, cancel, action, fallback |
+| `drawer/1` | edge start/end/bottom; size small/default/large; Dialog dismissal/focus choices | trigger, title or accessible_label, description, header, inner_block, footer, close, fallback |
+| `popover/1` | mode auto/manual; action toggle/show/hide; four logical placements | trigger, title or accessible_label or labelledby, description, inner_block, close, fallback |
+| `dropdown_actions/1` | auto Popover; four logical placements; required accessible_label | trigger, keyed action, group_label, separator, fallback |
+| `tooltip/1` | four logical placements; required escaped text; optional describedby | one self-closing trigger, button or link |
+| `hover_card/1` | four logical placements; optional describedby | one self-closing link trigger and constrained inner_block |
+
+Placements are `block_start`, `block_end` (default), `inline_start`, `inline_end`.
+Values above are atoms, not request-derived atoms. Slot cardinality, required
+content and attribute types are checked by the defining modules. Slot markup
+is trusted HEEx; interpolated user strings remain escaped.
+
+`class` styles the surface, while the documented trigger/content/close/cancel
+class attributes style those regions. `rest` belongs to the root; explicit
+`trigger_rest`, `dialog_rest`, `surface_rest`, `content_rest`, `close_rest`,
+`cancel_rest`, and `action_rest` maps exist only where listed by that component's
+API. Unrelated native, ARIA, data and application globals pass through. Required
+identity, role, invoker command/target, open state, focus intent, dismissal,
+labelling and component markers are protected, not override extension points.
+Alert cancellation cannot be disabled. There is no caller-owned `open` state API.
+
+Overlay CSS consumes the existing `--shadcn-ui-*` semantic tokens: background,
+foreground, popover and popover-foreground, muted and muted-foreground, primary
+and primary-foreground, destructive, border, input, ring and radius. Override
+tokens within a light/dark scope; native open state does not depend on color.
+
+### Capability and fallback reference
+
+| Environment | Exact boundary |
+| --- | --- |
+| Missing dialog/invoker/closedby support | Use the authored visible fallback or ordinary task page; no polyfill promises the requested modal policy |
+| Missing Popover/invoker support | Use visible controls or an ordinary action destination; no simulated disclosure |
+| No anchors or position tries | Popover is bounded and centered; supplemental content is normal flow |
+| No discrete transitions / reduced motion | State changes without transition; operation and exits remain native |
+| CSS disabled | Modal/Popover hiding still follows the browser; invoke natively where supported and keep the visible ordinary alternative; supplemental text is in flow |
+| No script | Components continue natively; only demo theme persistence and source-copy convenience are lost |
+| No hover / coarse pointer | Complete ordinary control/link remains; optional visual preview is not a required touch action |
+| Forced colors | System colors, borders and outlines preserve boundaries; no color-only meaning |
+| Zoom / narrow viewport / long text | Wrapping and bounded native scrolling; supplemental previews use normal flow on narrow layouts |
+| RTL | Drawer uses logical edges; supplemental content uses normal flow across engines; no browser sniffing |
+| DOM replacement | Native open/focus/pointer state may be lost; caller owns stable patch boundaries and any reinvocation/restoration |
+
+Dialog `none` disables browser close requests, not the required explicit exit;
+`close_request` permits Escape; `any` also permits native light dismiss. Alert
+Dialog always uses close-request. Auto Popover supports light dismiss/Escape;
+manual Popover requires explicit hide/toggle. Native focus restoration depends
+on the surviving invoker, browser preferences and prior focus; no package
+restoration manager is added. One nested Popover inside a modal is supported,
+not arbitrary stacks or nested modals. Drawer body scrolling is native and
+overscroll containment is optional; no body-lock script or gesture runtime exists.
+
+The capability matrix distinguishes feature detection from interaction tests.
+Choose supported browsers by verifying the manifest's capability sets and the
+application's actual tasks. Update the locked browsers, rerun all native suites,
+review authoritative sources, and regenerate demo evidence with
+`node scripts/record-overlay-capabilities.mjs`; use `--check` to detect drift.
+The observed record is demo-only and never a runtime browser gate.
 
 ### Dialog
 

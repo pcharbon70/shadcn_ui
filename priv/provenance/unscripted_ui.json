@@ -214,13 +214,13 @@
     },
     {
       "id": "overlays.tooltip",
-      "localPaths": ["lib/shadcn_ui/components/overlays/tooltip.ex", "assets/shadcn_ui.css"],
+      "localPaths": ["lib/shadcn_ui/components/overlays/tooltip.ex", "lib/shadcn_ui/components/overlays/supplemental_contract.ex", "assets/shadcn_ui.css"],
       "upstreamPaths": ["src/content/components/tooltip.mdx", "src/demos/tooltip/basic.html"],
       "localChanges": "Adapt the plain CSS supplemental description into escaped text and a structured native trigger with stable merged description IDs, scoped optional anchors, normal-flow fallback, no delays and no interest invokers."
     },
     {
       "id": "overlays.hover-card",
-      "localPaths": ["lib/shadcn_ui/components/overlays/hover_card.ex", "assets/shadcn_ui.css"],
+      "localPaths": ["lib/shadcn_ui/components/overlays/hover_card.ex", "lib/shadcn_ui/components/overlays/supplemental_contract.ex", "assets/shadcn_ui.css"],
       "upstreamPaths": ["src/content/components/hover-card.mdx", "src/demos/hover-card/basic.html"],
       "localChanges": "Replace emerging interest-invoker activation with supplemental CSS hover/focus-within, a complete text-labelled native link, constrained trusted presentation HEEx, scoped optional anchors and ordinary navigation without top-layer or loading behavior."
     },

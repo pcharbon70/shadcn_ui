@@ -13,7 +13,8 @@ unexpected =
 
 if unexpected != [], do: raise("Unexpected archive entries: #{inspect(unexpected)}")
 
-for component <- ~w(drawer popover dropdown_actions tooltip hover_card supplemental_contract) do
+for component <-
+      ~w(dialog alert_dialog drawer popover dropdown_actions tooltip hover_card overlay_contract supplemental_contract) do
   unless "lib/shadcn_ui/components/overlays/#{component}.ex" in paths,
     do: raise("#{component} is missing from the release archive")
 end
