@@ -22,7 +22,7 @@ end
 IO.puts("Release archive allowlist verified: #{length(paths)} entries")
 
 for path <-
-      ~w(lib/shadcn_ui/components/media/media_contract.ex lib/shadcn_ui/components/motion/motion_contract.ex priv/compatibility/motion_media.json priv/compatibility/motion_media.schema.json) do
+      ~w(lib/shadcn_ui/components/media/carousel.ex lib/shadcn_ui/components/media/media_contract.ex lib/shadcn_ui/components/motion/motion_contract.ex priv/compatibility/motion_media.json priv/compatibility/motion_media.schema.json) do
   unless path in paths, do: raise("Missing motion/media foundation: #{path}")
 end
 

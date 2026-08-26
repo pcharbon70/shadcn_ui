@@ -56,6 +56,9 @@
     <section>
       <h2>Application responsibilities</h2><p>{@page.reference.responsibilities}</p>
     </section>
+    <section :if={Map.get(@page.reference, :api)}>
+      <h2>Attributes and item slots</h2><p>{@page.reference.api}</p>
+    </section>
 
     <section>
       <h2>Accessibility</h2><p>{@page.reference.accessibility}</p>
@@ -141,6 +144,10 @@
 
   <.motion_media_capabilities :if={
     @page.kind == :composition && @page.render == :motion_media_capabilities
+  } />
+
+  <ShadcnUIDemoWeb.MediaExamples.media_browser :if={
+    @page.kind == :composition && @page.render == :media_browser
   } />
 
   <p :if={@page.kind == :not_found}>

@@ -84,8 +84,9 @@ The [Milestone E phased plan](../planning/milestone-e-motion-media-and-advanced-
 links five accepted ADRs, four normative specifications and the requirement
 coverage map. Phase 1 foundations are implemented: capability evidence, shared
 internal contracts, scoped suppression, local media and the capability demo.
-Phases 2–6 and all six public components remain pending. The Phase 1 execution
-record lists passing checks and the outstanding local SpecLed toolchain limitation;
+Phase 2 adds public Carousel, its reference and the media-browser composition.
+Phases 3–6 and the other five components remain pending. The phase execution
+records list checks and the outstanding local SpecLed toolchain limitation;
 Milestone E is not complete.
 
 The wave resolves the broad roadmap as follows:

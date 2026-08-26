@@ -4,6 +4,13 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Add native Carousel with a named scroll region, keyed ordered content, real
+  fragment index, closed snap/alignment and focus-first oversized-card access.
+  Deliver the Media reference and local media-browser composition immediately,
+  with no component runtime, generated controls, clones or slide state.
+- Keep gallery reference grids within narrow viewports and verify actual
+  no-script static navigation through directory redirects and local images.
+
 - Establish Milestone E capability evidence, shared internal media/motion
   contracts and scoped suppression without new public components or runtime.
   Add the capability gallery page, closed local media export and no-script

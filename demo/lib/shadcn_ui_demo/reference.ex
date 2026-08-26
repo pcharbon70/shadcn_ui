@@ -200,11 +200,13 @@ defmodule ShadcnUIDemo.Reference do
            ],
       do: ShadcnUIDemo.OverlayReference.fetch!(render)
 
+  def fetch!(:carousel), do: ShadcnUIDemo.MediaReference.carousel()
+
   def keys,
     do:
       Map.keys(@references) ++
         Map.keys(@form_references) ++
-        Map.keys(@content_references) ++ ShadcnUIDemo.OverlayReference.keys()
+        Map.keys(@content_references) ++ ShadcnUIDemo.OverlayReference.keys() ++ [:carousel]
 
   defp fallback(:textarea),
     do: "Unsupported browsers keep the fixed native textarea instead of CSS content sizing."

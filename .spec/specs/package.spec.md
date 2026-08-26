@@ -69,6 +69,10 @@ capability JSON in the existing allowlist, without new public imports or runtime
 dependencies. The actual archive audit requires both helpers and both manifest
 files, and rejects demo fixtures and observed browser records.
 
+Phase 2 directly imports the defining Media.Carousel module and requires it in
+the actual archive audit. The generated browser fixture, demo reference/media
+and test/export infrastructure remain excluded; no runtime dependency is added.
+
 ```spec-verification
 - kind: command
   target: mix precommit

@@ -17,7 +17,8 @@ defmodule ShadcnUIDemo.MotionMediaCatalogTest do
     assert html =~
              ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui/examples/motion-media-capabilities")
 
-    assert Catalogue.lookup_component("media", "carousel") == :error
+    assert {:ok, %{render: :carousel}} = Catalogue.lookup_component("media", "carousel")
+    assert Catalogue.lookup_component("media", "image-gallery") == :error
   end
 
   test "closed preferences preserve independent theme and motion choices", %{conn: conn} do

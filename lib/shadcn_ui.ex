@@ -12,6 +12,7 @@ defmodule ShadcnUI do
   """
 
   @component_modules [
+    ShadcnUI.Components.Media.Carousel,
     ShadcnUI.Components.Content.RadioPanels,
     ShadcnUI.Components.Content.ScrollArea,
     ShadcnUI.Components.Content.Separator,

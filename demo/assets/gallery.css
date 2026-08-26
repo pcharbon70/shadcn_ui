@@ -19,6 +19,7 @@ a { color: inherit; }
 .gallery-navigation a[aria-current="page"] { font-weight: 700; text-decoration-thickness: .15em; }
 .gallery-layout main { min-width: 0; max-width: 72rem; padding: 1.5rem; }
 .gallery-reference { display: grid; gap: 1.5rem; }
+.gallery-reference > section { min-width: 0; }
 .gallery-examples { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; max-width: 100%; }
 .gallery-examples > [data-shadcn-ui] { max-width: 100%; }
 .gallery-overlay-examples { display: grid; gap: 1.5rem; min-width: 0; }
@@ -37,6 +38,14 @@ pre { max-width: 100%; overflow: auto; padding: 1rem; background: var(--shadcn-u
 .gallery-media-fixtures figure { margin: 0; }
 .gallery-media-fixtures img { display: block; width: 100%; height: 14rem; object-fit: contain; background: var(--shadcn-ui-muted); }
 [data-gallery-composition="motion-media-capabilities"] details img { max-width: 100%; height: auto; }
+.gallery-media-examples { display: grid; gap: 1.5rem; min-width: 0; }
+.gallery-media-examples section { min-width: 0; }
+.gallery-media-examples figure { margin: 0; }
+.gallery-media-examples img { display: block; max-width: 100%; width: 100%; height: 14rem; object-fit: contain; }
+.gallery-media-examples input { max-width: 100%; box-sizing: border-box; }
+.gallery-media-examples form { display: grid; gap: .75rem; }
+.gallery-media-wide { flex-basis: 52rem !important; }
+.gallery-media-wide-row { display: flex; justify-content: space-between; gap: 2rem; }
 
 @media (max-width: 48rem) {
   .gallery-layout { grid-template-columns: 1fr; }

@@ -179,3 +179,25 @@ component requirements are implemented. Windows denied symlink creation in the
 negative fixture test; Linux CI is required to execute that assertion. Neither
 CI success, manual screen-reader acceptance, publication nor deployment is
 claimed. No machine-wide toolchain settings or verification gates were changed.
+
+## Milestone E Phase 2 acceptance record
+
+Carousel is now a public defining component: a named native scroller, complete
+ordered content and real item links, with no generated controls or runtime.
+Its Media reference and media-browser composition ship with local fixtures.
+Child focus takes precedence over snap, including oversized cards at zoom.
+The gallery grid also retains narrow-page bounds.
+
+Local checks on 2026-08-26 passed 337 package tests, 50 demo tests, 39 Carousel
+browser cases, 60 foundation cases on final rerun and 55 A–D gallery regressions.
+Playwright 1.62.1 uses Chromium 151.0.7922.34, Firefox 153.0 and WebKit 26.5.
+Two initial Firefox foundation probe failures passed isolated and complete
+reruns without changing their evidence; the phase record retains this observation.
+Assets, generated fixture, deterministic 554-route export, subpath smoke, ExDoc
+and the actual 56-entry archive audit pass. Demo media and browser tools remain
+excluded from the package.
+
+SpecLed still has four known nested-command toolchain failures (153 warnings);
+direct checks pass. Windows symlink assertions require Linux CI. No publication,
+manual assistive-technology acceptance or physical touch-swipe result is claimed.
+See the [Phase 2 execution record](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/.spec/planning/milestone-e-motion-media-and-advanced-css/phase-02-native-carousel-and-reference-page.md#execution-record).

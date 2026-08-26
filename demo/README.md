@@ -13,7 +13,7 @@ npm run assets:build
 mix phx.server
 ```
 
-Visit <http://localhost:4000/>. The package CSS and gallery shell assets are
+Visit <http://localhost:4010/>. The package CSS and gallery shell assets are
 local and fingerprinted. No remote font, image, script, analytics, or runtime
 resource is required.
 
@@ -37,7 +37,7 @@ npm run assets:check
 mix test
 mix gallery.export
 npm run export:check
-npm run smoke -- http://localhost:4000
+npm run smoke -- http://localhost:4010
 ```
 
 The export is written to ignored build output and includes a route and content
