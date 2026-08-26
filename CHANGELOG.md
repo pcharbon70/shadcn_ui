@@ -4,6 +4,12 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Add link-owned Hover Card with a constrained noninteractive HEEx preview,
+  ordinary navigation fallbacks, and no interest events or client loading.
+
+- Add CSS-first Tooltip with one text-labelled native trigger, a protected
+  accessible description, and explicit supplemental-only fallbacks.
+
 - Add Dropdown Actions with stable text-labelled native controls, optional
   groups/separators, native form attributes, and explicit non-menu ownership.
 

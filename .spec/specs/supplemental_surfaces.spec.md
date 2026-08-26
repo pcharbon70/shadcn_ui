@@ -11,12 +11,15 @@ decisions:
   - shadcn_ui.semantic_component_api_and_accessibility
   - shadcn_ui.progressive_enhancement_baseline
 surface:
+  - lib/shadcn_ui/components/overlays/supplemental_contract.ex
   - lib/shadcn_ui/components/overlays/tooltip.ex
   - lib/shadcn_ui/components/overlays/hover_card.ex
   - test/shadcn_ui/components/overlays/tooltip_test.exs
   - test/shadcn_ui/components/overlays/hover_card_test.exs
   - test/browser/milestone-d-supplemental-surfaces.spec.mjs
   - test/fixtures/milestone_d_supplemental_surfaces.html
+  - scripts/render-supplemental-fixture.exs
+  - playwright.milestone-d-phase5.config.mjs
   - README.md
 ```
 
@@ -65,6 +68,25 @@ surface:
 ```
 
 ## Verification
+
+Tooltip uses a single self-closing structured trigger slot (`label`, native
+button/link attributes, class and unrelated globals), not caller-supplied nested
+control markup. Its explicit `describedby` references are deduplicated before the
+stable description ID is appended. Text strings remain escaped; raw safe tuples
+and nested trigger content are rejected. Placement improves progressively from
+normal flow to scoped CSS anchors on wide LTR fine-pointer layouts. RTL retains
+normal flow because scoped RTL anchor coordinates are not interoperable in the
+locked matrix. No browser-name branching is used. This contract
+does not promise Escape dismissal or escape from overflow clipping.
+
+Hover Card uses the same deterministic structured trigger, restricted to an
+ordinary link. Trusted `inner_block` accepts a small presentation-only tag and
+attribute vocabulary, rejecting interactive/focusable/fetching/stateful markup
+without adding a runtime parser dependency. This is a composition guard, not an
+untrusted-HTML sanitizer. Callers must enforce content completeness, nonessential
+meaning, privacy and freshness; these cannot be inferred from rendered text.
+Hover/focus-within keep its adjacent preview visible without intercepting the
+link, client fetch, analytics or interest-invoker behavior.
 
 ```spec-verification
 - kind: test_file

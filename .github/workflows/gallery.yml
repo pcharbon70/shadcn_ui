@@ -48,6 +48,8 @@ jobs:
       - run: npm run browser:milestone-d-phase3
       - run: mix run scripts/render-popover-fixture.exs --check
       - run: npm run browser:milestone-d-phase4
+      - run: mix run scripts/render-supplemental-fixture.exs --check
+      - run: npm run browser:milestone-d-phase5
       - run: npm run browser:test
         working-directory: demo
       - run: npm run browser:milestone-c

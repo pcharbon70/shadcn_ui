@@ -4,6 +4,70 @@
 @source "../lib/**/*.ex";
 @source "./**/*.css";
 
+/* Supplemental surfaces reserve normal-flow space without anchor support.
+   Hidden descriptions remain referenced by aria-describedby. No top layer. */
+[data-shadcn-ui-supplemental] {
+  position: relative;
+  display: inline-grid;
+  vertical-align: middle;
+  max-inline-size: 100%;
+  gap: 0;
+}
+[data-shadcn-ui-supplemental-trigger] { overflow-wrap: anywhere; }
+[data-shadcn-ui-supplemental-surface] {
+  display: none;
+  box-sizing: border-box;
+  inline-size: max-content;
+  max-inline-size: min(20rem, 100%);
+  padding: .5rem .75rem;
+  border: 1px solid var(--shadcn-ui-border);
+  border-radius: var(--shadcn-ui-radius-md);
+  color: var(--shadcn-ui-primary-foreground);
+  background: var(--shadcn-ui-primary);
+  overflow-wrap: anywhere;
+  pointer-events: none;
+}
+[data-shadcn-ui-supplemental="tooltip"] > :focus-visible + [data-shadcn-ui-supplemental-surface] {
+  display: block;
+}
+[data-shadcn-ui-supplemental="hover-card"] > [data-shadcn-ui-supplemental-surface] {
+  color: var(--shadcn-ui-popover-foreground);
+  background: var(--shadcn-ui-popover);
+  pointer-events: auto;
+}
+[data-shadcn-ui-supplemental="hover-card"]:focus-within > [data-shadcn-ui-supplemental-surface] { display: block; }
+@media (hover: hover) and (pointer: fine) {
+  [data-shadcn-ui-supplemental="tooltip"]:hover > [data-shadcn-ui-supplemental-surface] { display: block; }
+  [data-shadcn-ui-supplemental="hover-card"]:hover > [data-shadcn-ui-supplemental-surface] { display: block; }
+}
+/* Anchors are scoped, never a global repeated anchor or a positioning runtime.
+   Narrow/coarse layouts keep the non-overlapping normal-flow fallback. */
+@media (min-width: 40rem) and (hover: hover) and (pointer: fine) {
+  @supports (anchor-scope: --shadcn-ui-supplemental) and (position-area: self-inline-start) and (position-try-fallbacks: flip-block) {
+    /* Scoped RTL anchor coordinates differ across engines. Keep the shared
+       non-overlapping flow fallback for RTL rather than guessing a browser. */
+    [data-shadcn-ui-supplemental]:dir(ltr) { anchor-scope: --shadcn-ui-supplemental; }
+    [data-shadcn-ui-supplemental]:dir(ltr) > [data-shadcn-ui-supplemental-trigger] { anchor-name: --shadcn-ui-supplemental; }
+    [data-shadcn-ui-supplemental]:dir(ltr) > [data-shadcn-ui-supplemental-surface] {
+      position: fixed;
+      inset: auto;
+      position-anchor: --shadcn-ui-supplemental;
+      position-area: block-end;
+      position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+      max-inline-size: min(20rem, calc(100vi - 2rem));
+      max-block-size: calc(100dvb - 2rem);
+      overflow: clip;
+      z-index: 1;
+    }
+    [data-shadcn-ui-supplemental][data-placement="block-start"] > [data-shadcn-ui-supplemental-surface] { position-area: block-start; }
+    [data-shadcn-ui-supplemental][data-placement="inline-start"] > [data-shadcn-ui-supplemental-surface] { position-area: self-inline-start; }
+    [data-shadcn-ui-supplemental][data-placement="inline-end"] > [data-shadcn-ui-supplemental-surface] { position-area: self-inline-end; }
+  }
+}
+@media (forced-colors: active) {
+  [data-shadcn-ui-supplemental] > [data-shadcn-ui-supplemental-surface] { border-color: CanvasText; color: CanvasText; background: Canvas; }
+}
+
 /* Public light defaults use broadly supported sRGB values. */
 :root,
 [data-shadcn-theme="light"] {
@@ -786,6 +850,11 @@ dialog[data-shadcn-ui-drawer-surface][open] {
 
   [data-shadcn-ui-accordion-item]::details-content {
     transition: none !important;
+  }
+
+  [data-shadcn-ui-supplemental-surface] {
+    transition: none !important;
+    animation: none !important;
   }
 
   [data-shadcn-ui-overlay-surface] {

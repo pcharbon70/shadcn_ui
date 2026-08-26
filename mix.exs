@@ -126,7 +126,9 @@ defmodule ShadcnUI.MixProject do
           ShadcnUI.Components.Overlays.Dialog,
           ShadcnUI.Components.Overlays.Drawer,
           ShadcnUI.Components.Overlays.Popover,
-          ShadcnUI.Components.Overlays.DropdownActions
+          ShadcnUI.Components.Overlays.DropdownActions,
+          ShadcnUI.Components.Overlays.Tooltip,
+          ShadcnUI.Components.Overlays.HoverCard
         ],
         "Package contract": [ShadcnUI, ShadcnUI.Component]
       ]
