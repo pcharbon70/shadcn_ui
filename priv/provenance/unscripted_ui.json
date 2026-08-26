@@ -201,6 +201,12 @@
       "localChanges": "Adapt Drawer presentation to a native modal with deterministic HEEX relationships, logical start/end/bottom edges, explicit focus and exit, bounded native body scrolling and ordinary route fallback without gestures or JavaScript."
     },
     {
+      "id": "overlays.popover",
+      "localPaths": ["lib/shadcn_ui/components/overlays/popover.ex", "assets/shadcn_ui.css"],
+      "upstreamPaths": ["src/content/components/popover.mdx", "src/demos/popover/basic.html"],
+      "localChanges": "Adapt native nonmodal Popover into deterministic HEEx with protected names and invoker actions, capability-gated implicit anchoring and ordered flips, readable centered fallback, and no state or positioning runtime."
+    },
+    {
       "id": "stylesheet.semantic-foundation",
       "localPaths": ["assets/shadcn_ui.css", "lib/shadcn_ui/component.ex"],
       "upstreamPaths": ["src/styles/global.css"],

@@ -17,6 +17,8 @@ surface:
   - test/shadcn_ui/components/overlays/dropdown_actions_test.exs
   - test/browser/milestone-d-popovers.spec.mjs
   - test/fixtures/milestone_d_popovers.html
+  - scripts/render-popover-fixture.exs
+  - playwright.milestone-d-phase4.config.mjs
   - README.md
 ```
 

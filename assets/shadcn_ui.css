@@ -691,6 +691,42 @@ dialog[data-shadcn-ui-drawer-surface][open] {
   }
 }
 
+/* Public Popover: centered native top-layer floor, including RTL and zoom. */
+[data-shadcn-ui-popover-surface][popover] {
+  inset: 0;
+  margin: auto;
+  transform: none;
+  position-area: none;
+  width: max-content;
+  height: fit-content;
+  max-width: calc(100% - 2rem);
+  max-height: calc(100% - 2rem);
+  max-inline-size: min(24rem, calc(100% - 2rem));
+  max-block-size: calc(100% - 2rem);
+  overflow: auto;
+  overflow-wrap: anywhere;
+  overscroll-behavior: contain;
+}
+
+/* Never override the UA's hidden-popover display with utility display rules. */
+[data-shadcn-ui-popover-surface][popover]:not(:popover-open) { display: none; }
+
+@supports (position-area: block-end) and (position-try-fallbacks: flip-block) {
+  [data-shadcn-ui-popover-surface][popover][data-placement] {
+    inset: auto;
+    margin: 0.5rem;
+    position-anchor: auto;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+    max-inline-size: min(24rem, calc(100% - 1rem));
+    max-block-size: calc(100% - 1rem);
+    max-block-size: min(calc(100% - 1rem), calc(100dvb - 2rem));
+  }
+  [data-shadcn-ui-popover-surface][popover][data-placement="block-start"] { position-area: block-start; }
+  [data-shadcn-ui-popover-surface][popover][data-placement="block-end"] { position-area: block-end; }
+  [data-shadcn-ui-popover-surface][popover][data-placement="inline-start"] { position-area: inline-start; }
+  [data-shadcn-ui-popover-surface][popover][data-placement="inline-end"] { position-area: inline-end; }
+}
+
 @supports (transition-behavior: allow-discrete) and (overlay: none) {
   [data-shadcn-ui-overlay-surface] {
     opacity: 0;

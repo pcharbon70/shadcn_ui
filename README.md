@@ -279,6 +279,48 @@ reinvocation or state restoration. Callers supporting browsers below the native
 invoker capability floor should render the `fallback` slot as an ordinary
 destination, visible content, or non-overlay operation.
 
+### Popover
+
+`popover/1` renders a nonmodal native Popover and one declarative button invoker.
+Supply a stable `id` and exactly one `title` slot, `accessible_label`, or
+`labelledby` pointing at existing caller headings. Optional `description`,
+`close`, and ordinary-destination `fallback` slots keep meaning explicit.
+
+```heex
+<.popover id="dimensions" placement={:block_end}>
+  <:trigger>Dimensions</:trigger>
+  <:title>Layout dimensions</:title>
+  <label for="width">Width</label><input id="width" name="width" />
+  <:close>Close</:close>
+  <:fallback><a href="/layout/settings">Full settings page</a></:fallback>
+</.popover>
+```
+
+`mode={:auto | :manual}` defaults to auto. Auto supports native light dismiss
+and Escape; manual persists until a native hide/toggle operation and should
+include an explicit close. `action={:toggle | :show | :hide}` maps directly to
+the invoker action; a hide-only trigger requires a separate caller invoker to
+open its surface. The browser supplies implicit expanded/details relationships,
+native Tab order and focus return. ShadcnUI does not stamp a stale `aria-expanded`
+value, autofocus content, trap focus, or observe toggle events.
+
+Logical `:block_start`, `:block_end`, `:inline_start`, and `:inline_end` placement
+uses the native implicit invoker anchor with ordered block/inline flips when
+both anchor placement and position tries are supported. Otherwise a bounded
+centered top-layer surface remains operable. CSS transitions are optional;
+reduced motion removes them. Long content uses native overflow. Themes and RTL
+follow the caller's ancestor scope. No coordinate or viewport state is stored.
+
+`trigger_rest`, `surface_rest`, and `close_rest` forward unrelated native and
+transport globals; mode, targets, action, identity, accessible naming and
+placement remain protected. Trigger and close slots are trusted noninteractive
+labels. One Popover inside a Dialog-family surface is supported; arbitrary
+overlay stacks and submenus are not. DOM replacement may close the surface and
+lose focus. The caller owns reinvocation, forms, authorization, CSRF, outcomes,
+navigation and persistence. With CSS disabled native Popover still works; with
+Popover support absent use the always-visible ordinary fallback link. There is
+no package JavaScript, hook, event observer or positioning engine.
+
 ### Drawer
 
 `drawer/1` is a native modal Dialog presented at `edge={:start | :end | :bottom}`,

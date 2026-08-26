@@ -22,6 +22,7 @@ defmodule ShadcnUI do
     ShadcnUI.Components.Overlays.AlertDialog,
     ShadcnUI.Components.Overlays.Dialog,
     ShadcnUI.Components.Overlays.Drawer,
+    ShadcnUI.Components.Overlays.Popover,
     ShadcnUI.Components.Foundation.Alert,
     ShadcnUI.Components.Foundation.Avatar,
     ShadcnUI.Components.Foundation.Badge,

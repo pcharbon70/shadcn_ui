@@ -4,6 +4,9 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Add native nonmodal Popover with protected invoker relationships, logical
+  anchor placement, auto/manual modes, and bounded progressive fallbacks.
+
 - Add a native modal Drawer with logical start/end/bottom presentation,
   protected commands and focus relationships, and an explicit ordinary-page fallback.
 

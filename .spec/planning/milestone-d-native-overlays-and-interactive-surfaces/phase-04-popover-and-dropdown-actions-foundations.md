@@ -9,30 +9,30 @@ Back to wave: [README](./README.md)
   anchor-positioning behavior while explicitly declining the richer ARIA menu
   keyboard and state contract.
 
-  - [ ] 4.1 Section - Native Popover invocation and bounded positioning.
+  - [x] 4.1 Section - Native Popover invocation and bounded positioning.
 
     This section implements stable invoker relationships, auto and manual modes,
     native actions, logical placement, position tries, and fallback geometry.
 
-    - [ ] 4.1.1 Task - Implement Popover structure and native modes.
+    - [x] 4.1.1 Task - Implement Popover structure and native modes.
 
       Popover should provide a complete nonmodal relationship without observing
       browser toggle events or creating server-synchronized open state.
 
-      - [ ] 4.1.1.1 Subtask - Add a defining Overlays.Popover module with required ID, trigger, accessible name or relationship, trusted body, and optional explicit close content.
-      - [ ] 4.1.1.2 Subtask - Render one native button invoker, popovertarget relationship, closed auto or manual mode, and closed show, hide, or toggle action.
-      - [ ] 4.1.1.3 Subtask - Preserve browser-owned light dismiss, Escape, implicit aria-details and aria-expanded relationships, sequential focus order, focus return, and native nested-popover behavior.
-      - [ ] 4.1.1.4 Subtask - Protect mode, target, action, IDs, names, and required relationships while forwarding unrelated documented classes and globals.
+      - [x] 4.1.1.1 Subtask - Add a defining Overlays.Popover module with required ID, trigger, accessible name or relationship, trusted body, and optional explicit close content.
+      - [x] 4.1.1.2 Subtask - Render one native button invoker, popovertarget relationship, closed auto or manual mode, and closed show, hide, or toggle action.
+      - [x] 4.1.1.3 Subtask - Preserve browser-owned light dismiss, Escape, implicit aria-details and aria-expanded relationships, sequential focus order, focus return, and native nested-popover behavior.
+      - [x] 4.1.1.4 Subtask - Protect mode, target, action, IDs, names, and required relationships while forwarding unrelated documented classes and globals.
 
-    - [ ] 4.1.2 Task - Implement anchor placement and viewport fallbacks.
+    - [x] 4.1.2 Task - Implement anchor placement and viewport fallbacks.
 
       Placement should improve proximity without becoming a JavaScript collision
       engine or making anchored CSS a functional dependency.
 
-      - [ ] 4.1.2.1 Subtask - Add closed logical block-start, block-end, inline-start, and inline-end values through implicit or explicit anchor relationships and complete prefixed classes.
-      - [ ] 4.1.2.2 Subtask - Add capability-gated position-area and ordered position-try-fallbacks, bounded viewport sizing, native overflow, and no-transition reduced-motion rules.
-      - [ ] 4.1.2.3 Subtask - Preserve an operable readable top-layer default when anchor positioning, position tries, or discrete transitions are unavailable or CSS is disabled.
-      - [ ] 4.1.2.4 Subtask - Verify viewport edges, nested scroll containers, zoom, long translated content, RTL, forced colors, themes, coarse pointer, replacement, and ordinary fallback destination.
+      - [x] 4.1.2.1 Subtask - Add closed logical block-start, block-end, inline-start, and inline-end values through implicit or explicit anchor relationships and complete prefixed classes.
+      - [x] 4.1.2.2 Subtask - Add capability-gated position-area and ordered position-try-fallbacks, bounded viewport sizing, native overflow, and no-transition reduced-motion rules.
+      - [x] 4.1.2.3 Subtask - Preserve an operable readable top-layer default when anchor positioning, position tries, or discrete transitions are unavailable or CSS is disabled.
+      - [x] 4.1.2.4 Subtask - Verify viewport edges, nested scroll containers, zoom, long translated content, RTL, forced colors, themes, coarse pointer, replacement, and ordinary fallback destination.
 
   - [ ] 4.2 Section - Dropdown Actions ordinary-control composition.
 
