@@ -13,7 +13,9 @@ unexpected =
 
 if unexpected != [], do: raise("Unexpected archive entries: #{inspect(unexpected)}")
 
-unless "lib/shadcn_ui/components/overlays/drawer.ex" in paths,
-  do: raise("Drawer is missing from the release archive")
+for component <- ~w(drawer popover dropdown_actions) do
+  unless "lib/shadcn_ui/components/overlays/#{component}.ex" in paths,
+    do: raise("#{component} is missing from the release archive")
+end
 
 IO.puts("Release archive allowlist verified: #{length(paths)} entries")

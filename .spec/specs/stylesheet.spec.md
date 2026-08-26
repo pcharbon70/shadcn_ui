@@ -36,6 +36,8 @@ surface:
   - test/browser/milestone-d-*.spec.mjs
   - test/browser/milestone-d-drawers.spec.mjs
   - test/fixtures/milestone_d_drawers.html
+  - test/browser/milestone-d-popovers.spec.mjs
+  - test/fixtures/milestone_d_popovers.html
   - test/shadcn_ui/milestone_b_acceptance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
   - test/shadcn_ui/milestone_d_acceptance_test.exs
@@ -216,6 +218,12 @@ surface:
     - shadcn_ui.stylesheet.no_runtime_assets
     - shadcn_ui.stylesheet.content_fallbacks
     - shadcn_ui.stylesheet.content_resilience
+
+- kind: test_file
+  target: test/browser/milestone-d-popovers.spec.mjs
+  covers:
+    - shadcn_ui.stylesheet.overlay_fallbacks
+    - shadcn_ui.stylesheet.overlay_resilience
 
 - kind: test_file
   target: test/browser/milestone-d-drawers.spec.mjs

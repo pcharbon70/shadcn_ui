@@ -17,6 +17,8 @@ surface:
   - test/shadcn_ui/components/overlays/dropdown_actions_test.exs
   - test/browser/milestone-d-popovers.spec.mjs
   - test/fixtures/milestone_d_popovers.html
+  - scripts/render-popover-fixture.exs
+  - playwright.milestone-d-phase4.config.mjs
   - README.md
 ```
 
@@ -65,6 +67,13 @@ surface:
 ```
 
 ## Verification
+
+Popover accepts one title slot, accessible label or external labelledby naming
+source. Manual mode persists until native hide/toggle; no autofocus or static
+expanded state is imposed. Dropdown Actions uses self-closing keyed action slots
+with text labels to reject nested interactive content. Groups are contiguous
+and separators name their preceding action. Native link and button fields are
+explicit; contradictory globals and unsafe destination schemes are rejected.
 
 ```spec-verification
 - kind: test_file

@@ -279,6 +279,101 @@ reinvocation or state restoration. Callers supporting browsers below the native
 invoker capability floor should render the `fallback` slot as an ordinary
 destination, visible content, or non-overlay operation.
 
+### Popover
+
+`popover/1` renders a nonmodal native Popover and one declarative button invoker.
+Supply a stable `id` and exactly one `title` slot, `accessible_label`, or
+`labelledby` pointing at existing caller headings. Optional `description`,
+`close`, and ordinary-destination `fallback` slots keep meaning explicit.
+
+```heex
+<.popover id="dimensions" placement={:block_end}>
+  <:trigger>Dimensions</:trigger>
+  <:title>Layout dimensions</:title>
+  <label for="width">Width</label><input id="width" name="width" />
+  <:close>Close</:close>
+  <:fallback><a href="/layout/settings">Full settings page</a></:fallback>
+</.popover>
+```
+
+`mode={:auto | :manual}` defaults to auto. Auto supports native light dismiss
+and Escape; manual persists until a native hide/toggle operation and should
+include an explicit close. `action={:toggle | :show | :hide}` maps directly to
+the invoker action; a hide-only trigger requires a separate caller invoker to
+open its surface. The browser supplies implicit expanded/details relationships,
+native Tab order and focus return. ShadcnUI does not stamp a stale `aria-expanded`
+value, autofocus content, trap focus, or observe toggle events.
+
+Logical `:block_start`, `:block_end`, `:inline_start`, and `:inline_end` placement
+uses the native implicit invoker anchor with ordered block/inline flips when
+both anchor placement and position tries are supported. Otherwise a bounded
+centered top-layer surface remains operable. CSS transitions are optional;
+reduced motion removes them. Long content uses native overflow. Themes and RTL
+follow the caller's ancestor scope. No coordinate or viewport state is stored.
+
+`trigger_rest`, `surface_rest`, and `close_rest` forward unrelated native and
+transport globals; mode, targets, action, identity, accessible naming and
+placement remain protected. Trigger and close slots are trusted noninteractive
+labels. One Popover inside a Dialog-family surface is supported; arbitrary
+overlay stacks and submenus are not. DOM replacement may close the surface and
+lose focus. The caller owns reinvocation, forms, authorization, CSRF, outcomes,
+navigation and persistence. With CSS disabled native Popover still works; with
+Popover support absent use the always-visible ordinary fallback link. There is
+no package JavaScript, hook, event observer or positioning engine.
+
+### Dropdown Actions
+
+`dropdown_actions/1` groups ordinary native links and buttons in an auto Popover.
+It is **not an ARIA menu**: use Tab/Shift+Tab to move between native controls,
+Enter to activate links, Enter/Space for buttons, and Escape or light dismiss to
+close. Disabled buttons are skipped by native Tab navigation. Focus return is
+browser-owned and can differ between engines. There is no roving tabindex,
+arrow-key/Home/End handling, typeahead, submenu or command registry.
+
+Native keyboard preferences still apply: some browsers skip links unless full
+keyboard access is enabled, and may add a stop for a scrollable surface. The
+tests compare against ordinary native controls rather than installing a custom
+Tab sequence. Links remain natively focusable and retain ordinary activation.
+
+```heex
+<.dropdown_actions id="record-actions" accessible_label="Record actions">
+  <:trigger>Actions</:trigger>
+  <:group_label key="record" label="Record tools" />
+  <:action key="view" kind={:link} label="View record" destination="/records/42" group="record" />
+  <:action key="download" kind={:link} label="Download" destination="/records/42.csv" download="record.csv" group="record" />
+  <:separator after_key="download" />
+  <:action key="save" label="Save draft" type="submit" form="record-form" name="intent" value="save" />
+  <:action key="delete" label="Delete record" destructive rest={%{"phx-click" => "request_delete"}} />
+  <:fallback><a href="/records/42/actions">Full actions page</a></:fallback>
+</.dropdown_actions>
+```
+
+Each action requires a stable `key` and escaped text `label`. Slots are
+self-closing: nested content is rejected, so an action cannot contain another
+link, button or input. Default kind is `:button` and default type is `"button"`.
+Links use `kind={:link}` and a required `destination`; `target`, `rel`, `download`
+and `current` retain native meaning. Buttons retain `type`, `disabled`, `name`,
+`value`, `form`, and unrelated transport attributes in `rest`. Conflicting native
+globals, duplicate keys, unknown/noncontiguous groups and invalid destinations
+are rejected. Destinations support relative paths, fragments, and explicit
+HTTP(S), mailto or tel URLs—not script/data URLs or protocol-relative URLs.
+Consumers must still authorize destinations and operations.
+
+Optional `group_label` entries name contiguous actions through their `group` key;
+labels are rendered before the first action and related deterministically.
+Optional `separator` entries render after `after_key`; they are native thematic
+breaks unless `decorative` removes their meaning. No action ordering is inferred.
+Destructive styling conveys no authorization, confirmation, or command result.
+Inert application buttons stay inert until the caller wires their behavior; the
+package never dismisses automatically after an outcome. Forms, methods, CSRF,
+pending/error snapshots, persistence and replacement remain caller-owned.
+
+Choose Navigation Menu for persistent destinations, a Button group for always-
+visible actions, native select for choosing a form value, or an application
+toolbar for persistent tools. Full ARIA menus and command palettes need their
+own interaction contracts. Keep an ordinary fallback route for browsers without
+Popover. Public gallery rollout for these components remains Phase 6.
+
 ### Drawer
 
 `drawer/1` is a native modal Dialog presented at `edge={:start | :end | :bottom}`,

@@ -69,6 +69,24 @@ The release contains Drawer source, compiled CSS and pinned provenance; it
 excludes fixture generation, Playwright, tests, gallery and JavaScript runtimes.
 Public overlay gallery delivery remains Phase 6 work.
 
+## Milestone D Phase 4 acceptance record
+
+Popover and Dropdown Actions ship native nonmodal surfaces, declarative
+invokers, deterministic names and keyed ordinary links/buttons. Placement and
+ordered flips are optional CSS enhancements with a bounded centered fallback;
+no toggle listener, focus manager, menu runtime, application command or package
+JavaScript is shipped. Auto/manual behavior, native keyboard preferences,
+scroll-region Tab stops, focus return, nested Popover in Dialog, all logical
+edges, long text, zoom, RTL, themes, forced colors, replacement, touch, no-script,
+CSS-disabled and deliberately unavailable capability paths are browser-tested.
+
+Run `mix run scripts/render-popover-fixture.exs --check` and
+`npm run browser:milestone-d-phase4` with prior overlay suites. Native form tests
+submit to intercepted fixture URLs; they do not execute real application
+operations. The actual archive audit requires both new defining modules and
+excludes fixture generation, browser tooling and demo sources. Gallery pages
+remain scheduled for Phase 6.
+
 ## Milestone C acceptance record
 
 The candidate must include the seven Milestone C public components and their

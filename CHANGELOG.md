@@ -4,6 +4,12 @@ All notable changes to ShadcnUI will be documented in this file.
 
 ## Unreleased
 
+- Add Dropdown Actions with stable text-labelled native controls, optional
+  groups/separators, native form attributes, and explicit non-menu ownership.
+
+- Add native nonmodal Popover with protected invoker relationships, logical
+  anchor placement, auto/manual modes, and bounded progressive fallbacks.
+
 - Add a native modal Drawer with logical start/end/bottom presentation,
   protected commands and focus relationships, and an explicit ordinary-page fallback.
 

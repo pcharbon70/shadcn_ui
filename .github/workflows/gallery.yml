@@ -46,6 +46,8 @@ jobs:
       - run: npm run browser:milestone-d-phase2
       - run: mix run scripts/render-drawer-fixture.exs --check
       - run: npm run browser:milestone-d-phase3
+      - run: mix run scripts/render-popover-fixture.exs --check
+      - run: npm run browser:milestone-d-phase4
       - run: npm run browser:test
         working-directory: demo
       - run: npm run browser:milestone-c

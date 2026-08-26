@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-shadcn-theme="light">
+  <head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>
+      Popover fixtures
+    </title>
+  </head>
+  <body>
+    <button id="outside" type="button">Outside</button>
+    <div id="scroll-host" style="height: 280px; overflow: auto; margin: 80px;">
+      <div style="height: 100px;"></div>
+      <div id="basic" data-shadcn-ui data-shadcn-ui-popover>
+  <button id="basic-invoker" type="button" popovertarget="basic-surface" popovertargetaction="toggle" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Open options</button>
+  <section id="basic-surface" popover="auto" aria-labelledby="basic-title" aria-describedby="basic-description" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-popover-surface data-placement="block-end" class="sui:grid sui:gap-3 sui:p-4 sui:text-sm">
+    <h2 id="basic-title" class="sui:m-0 sui:text-base sui:font-semibold">
+      Options
+    </h2>
+    <p id="basic-description" class="sui:m-0 sui:text-muted-foreground">
+      Native nonmodal controls.
+    </p>
+
+        <input id="first-field" aria-label="First field"><a id="inside-link" href="#fallback">Read details</a>
+
+    <button id="basic-close" type="button" popovertarget="basic-surface" popovertargetaction="hide" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-md sui:border sui:border-input sui:px-3 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Close</button>
+  </section>
+  <div data-shadcn-ui-popover-fallback><a href="#fallback">Ordinary options page</a></div>
+</div>
+      <div style="height: 500px;"></div>
+    </div>
+    <div id="manual" data-shadcn-ui data-shadcn-ui-popover>
+  <button id="manual-invoker" type="button" popovertarget="manual-surface" popovertargetaction="show" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Show manual</button>
+  <section id="manual-surface" popover="manual" aria-label="Manual options" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-popover-surface data-placement="block-end" class="sui:grid sui:gap-3 sui:p-4 sui:text-sm">
+
+
+
+      <p>Manual surfaces require an explicit hide operation.</p>
+
+    <button id="manual-close" type="button" popovertarget="manual-surface" popovertargetaction="hide" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-md sui:border sui:border-input sui:px-3 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Hide manual</button>
+  </section>
+
+</div>
+    <div id="hide" data-shadcn-ui data-shadcn-ui-popover>
+  <button id="hide-invoker" type="button" popovertarget="hide-surface" popovertargetaction="hide" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Hide only</button>
+  <section id="hide-surface" popover="auto" aria-label="Hide-only example" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-popover-surface data-placement="block-end" class="sui:grid sui:gap-3 sui:p-4 sui:text-sm">
+
+
+
+      <p>Caller invoker opens this surface.</p>
+
+
+  </section>
+
+</div>
+    <button id="external-show" popovertarget="hide-surface" popovertargetaction="show">External show</button>
+    <div id="long" data-shadcn-ui data-shadcn-ui-popover>
+  <button id="long-invoker" type="button" popovertarget="long-surface" popovertargetaction="toggle" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Long details</button>
+  <section id="long-surface" popover="auto" aria-label="Translated details" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-popover-surface data-placement="block-end" class="sui:grid sui:gap-3 sui:p-4 sui:text-sm">
+
+
+
+      <p>
+        1. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        2. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        3. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        4. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        5. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        6. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        7. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        8. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        9. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        10. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        11. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        12. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        13. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        14. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        15. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        16. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        17. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        18. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        19. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        20. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        21. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        22. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        23. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        24. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        25. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        26. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        27. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        28. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        29. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p><p>
+        30. Überprüfung der Datensätze — تفاصيل السجل — long caller-owned text.
+      </p>
+
+    <button id="long-close" type="button" popovertarget="long-surface" popovertargetaction="hide" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-md sui:border sui:border-input sui:px-3 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Close long details</button>
+  </section>
+  <div data-shadcn-ui-popover-fallback>
+        <a href="#fallback">Full details</a>
+      </div>
+</div>
+    <div id="host-dialog" data-shadcn-ui data-shadcn-ui-dialog data-dismissal="closerequest" data-initial-focus="auto">
+  <button id="host-dialog-invoker" type="button" command="show-modal" commandfor="host-dialog-surface" aria-haspopup="dialog" aria-controls="host-dialog-surface" data-shadcn-ui data-shadcn-ui-dialog-invoker class="sui:inline-flex sui:min-h-9 sui:items-center sui:justify-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-sm sui:font-medium sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+    Open host dialog
+  </button>
+
+  <dialog id="host-dialog-surface" closedby="closerequest" aria-labelledby="host-dialog-title" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-dialog-surface data-size="default" class="sui:w-full sui:max-w-lg">
+    <div id="host-dialog-content" data-shadcn-ui-dialog-content class="sui:grid sui:min-w-0 sui:max-w-full sui:items-start sui:text-start sui:gap-5 sui:p-6">
+      <header class="sui:grid sui:gap-2">
+        <h2 id="host-dialog-title" class="sui:text-lg sui:font-semibold">
+          Host dialog
+        </h2>
+
+      </header>
+
+      <div data-shadcn-ui-dialog-body class="sui:min-w-0 sui:max-w-full">
+
+      <div id="nested" data-shadcn-ui data-shadcn-ui-popover>
+  <button id="nested-invoker" type="button" popovertarget="nested-surface" popovertargetaction="toggle" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Nested note</button>
+  <section id="nested-surface" popover="auto" aria-label="Nested note" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-popover-surface data-placement="block-end" class="sui:grid sui:gap-3 sui:p-4 sui:text-sm">
+
+
+
+        <p>A single native Popover inside a modal.</p>
+    <button id="nested-close" type="button" popovertarget="nested-surface" popovertargetaction="hide" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-md sui:border sui:border-input sui:px-3 sui:py-2 sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+          Hide note
+        </button>
+  </section>
+
+</div>
+
+      </div>
+
+      <footer class="sui:flex sui:flex-wrap sui:justify-end sui:gap-2">
+        <button id="host-dialog-close" type="button" command="close" commandfor="host-dialog-surface" data-shadcn-ui data-shadcn-ui-dialog-close class="sui:inline-flex sui:min-h-9 sui:items-center sui:justify-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:text-sm sui:font-medium sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">
+          Close dialog
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+
+</div>
+    <form id="action-form" action="/submitted" method="get">
+      <input type="hidden" name="record" value="42">
+    </form>
+    <div data-shadcn-ui-dropdown-actions id="record-actions" data-shadcn-ui data-shadcn-ui-popover>
+  <button id="record-actions-invoker" type="button" popovertarget="record-actions-surface" popovertargetaction="toggle" data-shadcn-ui class="sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:bg-primary sui:px-4 sui:py-2 sui:text-primary-foreground sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Record actions</button>
+  <section id="record-actions-surface" popover="auto" aria-label="Record actions" data-shadcn-ui data-shadcn-ui-overlay-surface data-shadcn-ui-popover-surface data-placement="block-end" class="sui:grid sui:gap-3 sui:p-4 sui:text-sm">
+
+
+
+  <div data-shadcn-ui-dropdown-list>
+    <div data-action-key="view">
+      <p id="record-actions-group-record" data-shadcn-ui-dropdown-group>
+        Record tools — أدوات
+      </p>
+      <a id="record-actions-action-view" href="#fallback" aria-current="page" aria-describedby="record-actions-group-record" data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="false" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">View record</a>
+
+
+
+    </div><div data-action-key="download">
+
+      <a id="record-actions-action-download" href="/record.csv" download="record.csv" aria-describedby="record-actions-group-record" data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="false" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Download record</a>
+
+
+
+    </div><div data-action-key="save">
+
+
+      <button id="record-actions-action-save" type="submit" name="intent" value="save" form="action-form" data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="false" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Save draft</button>
+
+
+    </div><div data-action-key="pending">
+
+
+      <button id="record-actions-action-pending" type="button" disabled data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="false" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Pending operation</button>
+      <hr data-shadcn-ui-dropdown-separator>
+
+    </div><div data-action-key="delete">
+
+
+      <button id="record-actions-action-delete" type="button" data-shadcn-ui data-shadcn-ui-dropdown-action data-destructive="true" class="sui:flex sui:w-full sui:min-h-11 sui:items-center sui:rounded-md sui:px-3 sui:py-2 sui:text-start sui:text-sm sui:focus-visible:outline-2 sui:focus-visible:outline-offset-2 sui:focus-visible:outline-ring sui:focus-visible:ring-2 sui:focus-visible:ring-ring sui:focus-visible:ring-offset-2 sui:focus-visible:ring-offset-background">Delete record — caller authorization required</button>
+
+
+    </div>
+  </div>
+
+
+  </section>
+  <div data-shadcn-ui-popover-fallback><a href="#fallback">Full actions page</a></div>
+</div>
+    <section id="fallback">
+      <h1>Ordinary destination</h1><p>Required content is available without overlays.</p>
+    </section>
+  </body>
+</html>
