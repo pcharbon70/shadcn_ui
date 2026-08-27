@@ -90,10 +90,13 @@ and a native motion-preferences composition. Phase 4 adds Scroll Indicator and
 Cover Flow with real references and composition updates. Phase 5 adds responsive
 Image Gallery, native per-item lightboxes and the substantial local gallery
 composition. Optional origin CSS is deferred after actual-modal evidence;
-existing native Dialog remains the release path. Phase 6 acceptance remains
-pending. The phase execution
-records list checks and the outstanding local SpecLed toolchain limitation;
-Milestone E is not complete.
+existing native Dialog remains the release path. Phase 6 implements the final
+gallery, API documentation, measured budgets and candidate integration tests.
+All six E implementation phases are delivered; final release acceptance still
+requires the recorded SpecLed runner gate, manual review, CI and successful
+post-merge gallery publication. The phase execution record and
+[candidate evidence](../../docs/milestone-e-acceptance.md) distinguish these
+outcomes. There is no additional E implementation phase; Milestone F is separate.
 
 The wave resolves the broad roadmap as follows:
 

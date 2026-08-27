@@ -4,7 +4,7 @@
 id: shadcn_ui.motion_media_contract
 kind: policy
 status: active
-summary: Implemented Phase 1 capability and normalization foundations; component-specific acceptance follows in later phases.
+summary: Implemented shared capability, normalization and runtime-free contracts with all six public components and final candidate acceptance.
 decisions:
   - shadcn_ui.motion_media_capability_css
   - shadcn_ui.bounded_motion
@@ -33,9 +33,9 @@ surface:
 
 ## Public boundary and delivery status
 
-This is the accepted contract for planned Milestone E implementation, not a
-claim that its APIs exist today. The six defining modules and their gallery
-pages land in the linked phase plan. Existing A–D APIs remain compatible.
+The six defining modules and their gallery pages are implemented. Phase 6 adds
+cross-component acceptance and measured work records. Existing A–D APIs remain
+compatible; candidate verification is not manual certification or publication.
 
 Phase 1 implements the capability manifest/schema, recorded platform probes,
 and internal normalization. Phase 2 implements Carousel using these identities
@@ -75,7 +75,7 @@ shared timeline/anchor namespace must prevent sibling instance interference.
 
 ## Capability and CSS evidence
 
-The planned motion_media.json/schema separate required native capabilities,
+The motion_media.json/schema separate required native capabilities,
 optional CSS bundles and deferred features. Record scroll snap, :has control
 gating, scroll()/view() timelines, animation-range/timeline-scope where used,
 3D transforms, scoped anchor/origin features and inherited Dialog commands.
@@ -142,8 +142,8 @@ CSS. Tests and demo observations are not release inputs.
 
 ## Verification
 
-The manifest, normalization and foundation browser targets now exist; the final
-milestone acceptance target remains planned. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+The manifest, normalization, browser and final milestone acceptance targets now
+exist. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for
 actual proof. Add requirement references in each target as the tests land.

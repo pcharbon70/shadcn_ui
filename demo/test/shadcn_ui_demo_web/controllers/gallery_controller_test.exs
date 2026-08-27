@@ -3,7 +3,8 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
 
   alias ShadcnUIDemo.Catalogue
 
-  test "every canonical route renders directly with exactly one current marker", %{conn: conn} do
+  test "every canonical route renders the expected shell and authored-composition current markers",
+       %{conn: conn} do
     for path <- Catalogue.routes() do
       html = conn |> recycle() |> get(path) |> html_response(200)
       assert html =~ "<main"
@@ -11,11 +12,10 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
 
       expected =
         case path do
-          "/" -> 0
-          "/examples/documentation" -> 0
-          "/examples/settings" -> 0
-          "/examples/application-shell" -> 2
-          "/examples/" <> _ -> 0
+          "/" -> 1
+          # Two authored example markers plus the shell link and breadcrumb.
+          "/examples/application-shell" -> 4
+          "/examples/" <> _ -> 2
           _ -> 1
         end
 

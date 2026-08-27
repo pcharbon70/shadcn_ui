@@ -49,11 +49,21 @@ defmodule ShadcnUIDemoWeb.Layouts do
             </li>
           </ul>
         </section>
+        <section>
+          <h2>Complete page examples</h2>
+          <ul>
+            <li :for={composition <- ShadcnUIDemo.Catalogue.compositions()}>
+              <a href={composition.path} aria-current={@page.path == composition.path && "page"}>
+                {composition.label}
+              </a>
+            </li>
+          </ul>
+        </section>
       </nav>
 
       <main id="main-content" tabindex="-1">
         <nav aria-label="Breadcrumb">
-          <a href="/">Gallery</a>
+          <a href="/" aria-current={@page.kind == :landing && "page"}>Gallery</a>
           <span :if={@page.kind in [:category, :component]} aria-hidden="true"> / </span>
           <a :if={@page.kind in [:category, :component]} href={category_for(@categories, @page).path}>{category_for(
             @categories,
@@ -61,6 +71,8 @@ defmodule ShadcnUIDemoWeb.Layouts do
           ).label}</a>
           <span :if={@page.kind == :component} aria-hidden="true"> / </span>
           <span :if={@page.kind == :component}>{@page.label}</span>
+          <span :if={@page.kind == :composition} aria-hidden="true"> / </span>
+          <span :if={@page.kind == :composition} aria-current="page">{@page.title}</span>
         </nav>
 
         <h1>{@page.title}</h1>

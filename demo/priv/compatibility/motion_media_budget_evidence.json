@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-08-26",
+  "command": "npm run browser:milestone-e-phase6 -- --grep measured",
+  "scope": "Actual six-component HEEx with eager same-origin original SVGs. Same measurements in all three locked engines; no frame-rate, lazy network, manual accessibility or deployment claim.",
+  "engines": {"chromium": "151.0.7922.34", "firefox": "153.0", "webkit": "26.5"},
+  "compiledCssBytes": 53457,
+  "marqueeMaxMs": 5000,
+  "samples": {
+    "1": {"elements": 72, "images": 5, "dialogs": 1, "carouselItems": 2, "staggerItems": 1, "clones": 1, "cloneItems": 1, "animatedStagger": 1, "uniqueMediaRequests": 1, "uniqueMediaBytes": 413, "staggerMaxMs": 250},
+    "8": {"elements": 338, "images": 40, "dialogs": 8, "carouselItems": 16, "staggerItems": 8, "clones": 1, "cloneItems": 8, "animatedStagger": 8, "uniqueMediaRequests": 3, "uniqueMediaBytes": 1290, "staggerMaxMs": 775},
+    "24": {"elements": 946, "images": 120, "dialogs": 24, "carouselItems": 48, "staggerItems": 24, "clones": 1, "cloneItems": 24, "animatedStagger": 11, "uniqueMediaRequests": 3, "uniqueMediaBytes": 1290, "staggerMaxMs": 1000}
+  }
+}

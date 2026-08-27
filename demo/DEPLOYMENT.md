@@ -1,5 +1,28 @@
 # Gallery deployment
 
+## Milestone E candidate
+
+The closed inventory now includes all six Media/Motion leaves plus media-browser,
+image-gallery, motion-preferences and motion-media-capabilities compositions.
+Publication smoke visits these and A–D, checking local src/srcset media; the
+intentional missing image must return 404. Export contains 634 variants, three
+code/style assets and three manifest-selected original SVGs. No remote runtime
+loads are permitted.
+
+Before publishing, run all E and earlier browser suites, then the demo commands
+`npm run export:determinism`, `npm run export:check`, `npm run export:smoke`.
+Candidate and manual-review status live in `docs/milestone-e-acceptance.md` at
+repository root. CI and post-deploy HTTPS results must be recorded separately.
+
+After a reviewed merge, use the existing Pages workflow. Set
+`SHADCN_UI_GALLERY_URL` to `https://leco-industries-inc.github.io/shadcn_ui/`
+and run `npm run smoke` from demo. Verify direct routes, canonical metadata and
+media at that subpath. On failure redeploy a prior reviewed artifact or revert
+the change and rerun its matching inventory. Never mutate deployed files.
+Package publication is independent; Milestone F remains separately planned.
+
+## Deployment policy and earlier evidence
+
 - Host: GitHub Pages for `Leco-Industries-Inc/shadcn_ui`.
 - Canonical URL: `https://leco-industries-inc.github.io/shadcn_ui/`.
 - Repository environment: `github-pages`, owned by the ShadcnUI maintainers.

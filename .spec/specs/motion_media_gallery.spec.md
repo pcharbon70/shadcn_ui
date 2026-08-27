@@ -4,7 +4,7 @@
 id: shadcn_ui.motion_media_gallery
 kind: application
 status: active
-summary: Capability records, local export and Phase 1–5 references with real media, motion and native image-gallery compositions.
+summary: Complete Media/Motion references, native compositions, measured budgets and milestone candidate acceptance, with manual and publication gates separate.
 decisions:
   - shadcn_ui.motion_media_gallery_delivery
   - shadcn_ui.motion_media_capability_css
@@ -12,6 +12,12 @@ decisions:
   - shadcn_ui.bounded_motion
   - shadcn_ui.responsive_media_lightbox
 surface:
+  - scripts/render-motion-media-budgets.exs
+  - test/fixtures/milestone_e_budgets.json
+  - playwright.milestone-e-phase6.config.mjs
+  - docs/motion-media-guide.md
+  - docs/milestone-e-acceptance.md
+  - test/shadcn_ui/motion_media_docs_test.exs
   - demo/**
   - test/browser/milestone-e-*.spec.mjs
   - test/shadcn_ui/milestone_e_acceptance_test.exs
@@ -41,6 +47,13 @@ invalid-query defaults without changing canonical URLs.
 
 ## Fixtures, export, and evidence
 
+Final acceptance uses actual six-component HEEx at fixed 1/8/24-item sizes.
+The demo-only budget record pins DOM and clone counts, compiled stylesheet
+bytes, unique media requests/bytes validated against the fixture hashes, and
+finite motion windows in each exact engine. It does not promise frame rate or
+lazy network behavior. Manual screen-reader, physical touch and browser-UI zoom
+review have a separate pending checklist and cannot be inferred from automation.
+
 A demo-only fixture manifest lists stable filename/key, MIME, dimensions,
 license/origin, byte size and content hash. Use small authored/licensed local
 fixtures and intentional missing/failed image cases. Do not depend on a remote
@@ -60,6 +73,12 @@ Every phase updates documentation/provenance and retains earlier regressions.
 
 ## Publication status
 
+Phase 6 consolidates the complete A–E catalogue audit and all Media/Motion routes
+in publication smoke. Capability guidance explicitly compares native lists,
+decorative position and finite effects with application-owned selection,
+completion and animation state. Locked observations remain reproducible and
+separate from visitor detection, manual review and publication.
+
 Phase 1 implements the capability composition, local authored SVG fixtures,
 closed preference links and selected-media static export. Phase 2 adds the Media
 category, Carousel reference and media-browser composition with actual local
@@ -77,7 +96,8 @@ observations from declaration parsing; the optional origin effect is deferred
 across this release. No new CSS-origin or command runtime is distributed.
 Copyable source is compile-tested; export checks
 every new canonical and preference variant. All six component references now
-exist; cross-milestone acceptance remains Phase 6. Local verification does not establish Pages publication.
+exist; Phase 6 adds cross-milestone package, real-gallery and bounded-work
+acceptance. Local verification does not establish Pages publication.
 Milestone D's recorded local SpecLed runner issue remains an explicit environment
 limitation, not an excuse to weaken the gate. The final release record must
 distinguish direct tests, CI, manual checks and actual Pages publication.
@@ -133,13 +153,31 @@ distinguish direct tests, CI, manual checks and actual Pages publication.
 
 ## Verification
 
-The following targets are planned acceptance obligations, not existing passing
-tests. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
-assigns their implementation phases. Missing targets remain visible in SpecLed
-until implemented; no placeholder passing test or disabled gate substitutes for
-actual proof. Add requirement references in each target as the tests land.
+All listed targets are implemented. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
+and candidate evidence record actual results and outstanding gates. No
+placeholder test, disabled check or local result substitutes for CI, manual
+accessibility review or verified deployment.
 
 ```spec-verification
+- kind: test_file
+  target: test/browser/milestone-e-budgets.spec.mjs
+  covers:
+    - shadcn_ui.motion_media_gallery.fixture_manifest
+    - shadcn_ui.motion_media_gallery.accessibility_matrix
+
+- kind: test_file
+  target: test/shadcn_ui/motion_media_docs_test.exs
+  covers:
+    - shadcn_ui.motion_media_gallery.references
+
+- kind: test_file
+  target: demo/test/shadcn_ui_demo/milestone_e_catalogue_test.exs
+  covers:
+    - shadcn_ui.motion_media_gallery.incremental_catalog
+    - shadcn_ui.motion_media_gallery.references
+    - shadcn_ui.motion_media_gallery.compositions
+    - shadcn_ui.motion_media_gallery.motion_inspection
+
 - kind: test_file
   target: demo/test/shadcn_ui_demo/image_gallery_gallery_test.exs
   covers:

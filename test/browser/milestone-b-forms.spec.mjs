@@ -90,7 +90,7 @@ test("no-script, themes, long content, narrow zoom, reduced motion, and forced c
   await expect(page.getByRole("navigation", { name: "Component navigation" })).toBeVisible();
   await expect(page.getByText("Account email", { exact: true })).toBeVisible();
   await expect(page.locator("input").first()).toBeVisible();
-  await page.getByRole("link", { name: "Help" }).click();
+  await page.getByRole("link", { name: "Help", exact: true }).click();
   await expect(page.getByText("Guía extensa", { exact: false })).toBeVisible();
   await context.close();
 });

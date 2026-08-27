@@ -20,8 +20,12 @@ and `/examples/media-browser`. Phase 3 adds Marquee and Stagger at
 `/examples/motion-preferences`. Phase 4 adds `/components/motion/scroll-indicator`
 and `/components/media/cover-flow`, expanding both compositions with actual
 components. Phase 5 adds `/components/media/image-gallery` and the substantial
-`/examples/image-gallery` composition. Phase 6 acceptance remains; Milestone E
-is not complete.
+`/examples/image-gallery` composition. The Phase 6 candidate consolidates all six
+components, gallery navigation and acceptance. See the
+[motion/media guide](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/motion-media-guide.md)
+and [acceptance record](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/milestone-e-acceptance.md)
+for native semantics and distinct automated, manual, CI and publication status.
+Milestone F remains separate; a local candidate does not establish publication.
 
 ## Image Gallery: responsive figures and native lightboxes
 

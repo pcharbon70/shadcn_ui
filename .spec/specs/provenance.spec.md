@@ -51,6 +51,11 @@ surface:
 
 ## Verification
 
+Phase 6 audits all six existing E component mappings against the same exact pin,
+without changing copied material or adding site assets. Final candidate tests
+and the actual archive audit preserve normative manifests and full MIT notice
+while excluding demo-only measured observations and media fixtures.
+
 Phase 5 maps Media.ImageGallery to pinned gallery.mdx and gallery/basic.html.
 Local changes add explicit close, semantic keyed figures, validated responsive
 metadata, complete captions and separate ordinary destinations. Full images
@@ -76,6 +81,11 @@ links, visible scrollbars and focus while omitting generated controls. The
 existing complete MIT notice remains unchanged.
 
 ```spec-verification
+- kind: test_file
+  target: test/shadcn_ui/milestone_e_acceptance_test.exs
+  covers:
+    - shadcn_ui.provenance.component_mapping
+
 - kind: test_file
   target: test/shadcn_ui/provenance_test.exs
   covers:

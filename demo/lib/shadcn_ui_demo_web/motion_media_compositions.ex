@@ -1,7 +1,8 @@
 defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
   use Phoenix.Component
   alias ShadcnUIDemo.{MotionMediaCapabilities, MediaFixtures}
-  @moduledoc "Real Phase 1 evidence and media inspection, not unfinished component previews."
+
+  @moduledoc "Reviewed capability evidence and media inspection for the complete Milestone E catalogue."
   def motion_media_capabilities(assigns) do
     assigns =
       assign(assigns,
@@ -137,6 +138,35 @@ defmodule ShadcnUIDemoWeb.MotionMediaCompositions do
         </figure>
       </details>
       <h2>Motion and replacement</h2>
+      <h3>Choose the component by its native behavior</h3>
+      <ul data-motion-media-guidance>
+        <li>
+          Carousel is a complete scrollable list with real item links, not tabs or an automatically advancing slideshow.
+        </li>
+        <li>Cover Flow decorates images in that same list; depth never means selection.</li>
+        <li>
+          Scroll Indicator is decorative position in its own region. Use Progress for task completion or Meter for a scalar measurement.
+        </li>
+        <li>
+          Marquee is a static list with an optional finite preview. Stagger is a bounded entrance, not a visibility or application animation controller.
+        </li>
+        <li>
+          Image Gallery composes native Dialog. Its ordinary image destinations remain available without a lightbox or origin transition.
+        </li>
+      </ul>
+      <h3>What remains when an enhancement is absent</h3>
+      <p>
+        Without scroll snap, use ordinary scrolling and item links. Without timelines,
+        Cover Flow stays flat and Scroll Indicator stays neutral. Without anchor or
+        transition support, the native dialog snaps open and closed. Generated scroll
+        controls and origin transitions are deliberately deferred, even where declarations parse.
+      </p>
+      <p>
+        Failed images retain captions, alternative text and destinations. Lazy loading
+        and async decoding are browser hints, not fetch-on-open, privacy or authorization
+        guarantees. Applications own media rights and CSP. Finite previews may finish
+        offscreen (Marquee at most five seconds, Stagger at most one); no observer pauses them.
+      </p>
       <p>
         Use System motion or Reduce motion in the header. System always respects your device setting. No force-animation choice exists. This evidence page itself starts no animation.
       </p>
