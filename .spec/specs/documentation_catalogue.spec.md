@@ -17,7 +17,7 @@ surface:
   - demo/test/milestone_f_phase1_acceptance_test.exs
   - demo/test/static_export_test.exs
   - test/shadcn_ui/milestone_f_phase1_acceptance_test.exs
-  - test/browser/milestone-f-catalogue.spec.mjs
+  - demo/test/browser/milestone-f-catalogue.spec.mjs
 ```
 
 ## Requirements
@@ -102,7 +102,7 @@ files, generated evidence, or browser results already exist.
     - shadcn_ui.documentation_catalogue.package_boundary
 
 - kind: test_file
-  target: test/browser/milestone-f-catalogue.spec.mjs
+  target: demo/test/browser/milestone-f-catalogue.spec.mjs
   covers:
     - shadcn_ui.documentation_catalogue.stable_information_architecture
     - shadcn_ui.documentation_catalogue.stable_examples

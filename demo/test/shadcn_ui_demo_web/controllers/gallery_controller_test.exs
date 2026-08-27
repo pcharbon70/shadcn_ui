@@ -13,10 +13,11 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
       expected =
         case path do
           "/" -> 1
-          # Two authored example markers plus the shell link and breadcrumb.
-          "/examples/application-shell" -> 4
-          "/examples/" <> _ -> 2
-          _ -> 1
+          # Two authored markers plus desktop/mobile links and the breadcrumb.
+          "/examples/application-shell" -> 5
+          "/examples/" <> _ -> 3
+          # Desktop/mobile links plus the breadcrumb current location.
+          _ -> 3
         end
 
       assert length(Regex.scan(~r/aria-current="page"/, html)) == expected
@@ -38,6 +39,25 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
       assert html =~ ~s(data-shadcn-theme="#{expected}")
       assert html =~ "HEEX source"
       assert html =~ ~s(href="/components/foundation/card")
+    end
+  end
+
+  test "every component has catalogue-driven guidance, a stable preview, source, and related links",
+       %{conn: conn} do
+    for component <- Catalogue.components() do
+      html = conn |> recycle() |> get(component.path) |> html_response(200)
+      fragment = "#{component.slug}-primary"
+
+      assert html =~ ~s(id="#{fragment}")
+      assert html =~ ~s(href="##{fragment}")
+      assert html =~ ~s(data-gallery-theme-scope="light")
+      assert html =~ ~s(data-gallery-motion-inspection="system")
+      assert html =~ ~s(id="#{fragment}-source")
+      assert html =~ "Application responsibilities"
+      assert html =~ "Accessibility"
+      assert html =~ "Fallback"
+      assert html =~ "Related documentation"
+      assert html =~ "Catalogue identity"
     end
   end
 

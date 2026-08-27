@@ -43,6 +43,9 @@ if Enum.any?(paths, fn path ->
        "documentation_catalogue",
        "build_identity",
        "completeness_report",
+       "search-index",
+       "gallery.js",
+       "source_snippet_compilation",
        "demo/",
        ".spec/"
      ])

@@ -205,7 +205,7 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
         id="demo-summary"
         heading="Review the form"
         errors={[{"summary-email", "Enter an email"}, "The server rejected this fixture"]}
-      /><input id="summary-email" />
+      /><label for="summary-email">Email address</label><input id="summary-email" />
     </div>
     """
   end

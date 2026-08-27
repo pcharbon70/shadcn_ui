@@ -53,7 +53,7 @@ for (const theme of ["light", "dark"]) {
         await page.getByRole("button",{name:"Reset rise example"}).click();
         await expect(input).toHaveValue("A complete readable default");
       }
-      await page.getByRole("heading",{name:"Examples",exact:true}).scrollIntoViewIfNeeded();
+      await page.locator(".gallery-example").scrollIntoViewIfNeeded();
       await page.screenshot({path:testInfo.outputPath(`${component}-${theme}-narrow.png`)});
       await page.setViewportSize({width:1280,height:900});
       await page.locator("html").evaluate(el => el.style.zoom = "2");

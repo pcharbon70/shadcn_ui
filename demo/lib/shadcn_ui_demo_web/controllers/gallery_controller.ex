@@ -1,9 +1,7 @@
 defmodule ShadcnUIDemoWeb.GalleryController do
   use ShadcnUIDemoWeb, :controller
 
-  alias ShadcnUIDemo.Catalogue
-  alias ShadcnUIDemo.BuildIdentity
-  alias ShadcnUIDemo.Reference
+  alias ShadcnUIDemo.{BuildIdentity, Catalogue, DocumentationCatalogue, Reference}
 
   def landing(conn, params) do
     render_page(conn, params, %{kind: :landing, title: "ShadcnUI Gallery", path: "/"})
@@ -22,13 +20,17 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   def component(conn, %{"category" => category, "component" => component} = params) do
     case Catalogue.lookup_component(category, component) do
       {:ok, item} ->
+        {:ok, documentation_entry} = DocumentationCatalogue.lookup(category, component)
+
         render_page(
           conn,
           params,
           Map.merge(item, %{
             kind: :component,
             title: item.label,
-            reference: Reference.fetch!(item.render)
+            reference: Reference.fetch!(item.render),
+            documentation_entry: documentation_entry,
+            related: DocumentationCatalogue.related(documentation_entry)
           })
         )
 

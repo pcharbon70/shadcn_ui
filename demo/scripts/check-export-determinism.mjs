@@ -12,6 +12,7 @@ const runExport = () => {
   const result = spawnSync(executable, ["gallery.export"], {
     cwd: demo,
     encoding: "utf8",
+    env: { ...process.env, MIX_ENV: "test" },
     shell: process.platform === "win32"
   });
   if (result.status !== 0) throw new Error(result.stderr || result.stdout || "gallery export failed");

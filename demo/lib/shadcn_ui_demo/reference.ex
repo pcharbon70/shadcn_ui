@@ -70,7 +70,7 @@ defmodule ShadcnUIDemo.Reference do
        ~S(<.field id="email" name="email"><:label>Email</:label><:control :let={field}><input id={field.id} name={field.name} /></:control></.field>)},
     label:
       {"A native label with protected control association.",
-       ~S(<.label for="email">Email</.label>)},
+       ~S(<.label id="email-label" for="email">Email</.label>)},
     help:
       {"Descriptive text linked to a control by the shared field contract.",
        ~S(<.help id="email-help">Use your work address.</.help>)},

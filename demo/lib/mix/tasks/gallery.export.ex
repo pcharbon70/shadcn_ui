@@ -26,7 +26,8 @@ defmodule Mix.Tasks.Gallery.Export do
     copy_assets!()
     copy_media!()
     write_sitemap!()
-    reject_unexpected_output!(entries)
+    search = write_search!()
+    reject_unexpected_output!(entries, search)
 
     manifest = %{
       "schemaVersion" => 1,
@@ -38,6 +39,7 @@ defmodule Mix.Tasks.Gallery.Export do
           ShadcnUIDemo.MediaFixtures.entries(),
           &{&1["file"], Map.take(&1, ~w(mime sha256 bytes width height))}
         ),
+      "search" => search,
       "routes" => entries
     }
 
@@ -198,12 +200,12 @@ defmodule Mix.Tasks.Gallery.Export do
       do: Mix.raise("remote runtime URL found in #{route}")
   end
 
-  defp reject_unexpected_output!(entries) do
+  defp reject_unexpected_output!(entries, search) do
     allowed =
       Enum.map(entries, &Path.join(@output, &1["file"])) ++
         Enum.map(Map.keys(asset_hashes()), &Path.join([@output, "assets", &1])) ++
         Enum.map(ShadcnUIDemo.MediaFixtures.entries(), &Path.join([@output, "media", &1["file"]])) ++
-        [Path.join(@output, "sitemap.xml")]
+        [Path.join(@output, "sitemap.xml"), Path.join(@output, search["file"])]
 
     allowed = MapSet.new(Enum.map(allowed, &Path.expand/1))
 
@@ -229,6 +231,20 @@ defmodule Mix.Tasks.Gallery.Export do
       Path.join(@output, "sitemap.xml"),
       "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>"
     )
+  end
+
+  defp write_search! do
+    json = ShadcnUIDemo.DocumentationCatalogue.search_json()
+    hash = sha256(json)
+    file = "search-index-#{String.slice(hash, 0, 16)}.json"
+    File.write!(Path.join(@output, file), json)
+
+    %{
+      "file" => file,
+      "records" => length(ShadcnUIDemo.DocumentationCatalogue.search_records()),
+      "schemaVersion" => ShadcnUIDemo.DocumentationCatalogue.schema_version(),
+      "sha256" => hash
+    }
   end
 
   defp sha256(content), do: :crypto.hash(:sha256, content) |> Base.encode16(case: :lower)

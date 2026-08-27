@@ -20,7 +20,7 @@ test("keyboard navigation exposes the skip link and direct component routes", as
     await expect(page.locator("h1")).toHaveCount(1);
     await expect(page.getByRole("navigation", { name: "Component navigation" }))
       .toBeVisible();
-    await expect(page.locator('[aria-current="page"]')).toHaveCount(1);
+    await expect(page.getByRole("navigation", { name: "Component navigation" }).locator('[aria-current="page"]')).toHaveCount(1);
     await expect(page.getByRole("heading", { name: "HEEX source" })).toBeVisible();
     await expect(page.locator("pre code")).not.toBeEmpty();
   }
@@ -41,10 +41,10 @@ test("source and navigation remain useful without script", async ({ browser }) =
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto(componentPaths[3]);
-  await expect(page.getByRole("heading", { name: "Card" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Card", exact: true })).toBeVisible();
   await expect(page.locator("pre code")).not.toBeEmpty();
   await page.getByRole("link", { name: "Avatar" }).click();
-  await expect(page.getByRole("heading", { name: "Avatar" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Avatar", exact: true })).toBeVisible();
   await context.close();
 });
 
@@ -59,7 +59,8 @@ test("layout survives accessibility preferences, narrow width, and 200 percent z
   await page.evaluate(() => { document.documentElement.style.zoom = "2"; });
 
   await expect(page.getByRole("navigation", { name: "Component navigation" }))
-    .toBeVisible();
+    .toBeHidden();
+  await expect(page.getByText("Browse components", { exact: true })).toBeVisible();
   await expect(page.getByRole("main")).toBeVisible();
   await expect(page.getByText("A deliberately long default action", { exact: false }))
     .toBeVisible();

@@ -2,6 +2,7 @@ defmodule ShadcnUIDemo.StaticExportTest do
   use ExUnit.Case, async: true
 
   # covers: shadcn_ui.documentation_catalogue.package_boundary
+  # covers: shadcn_ui.documentation_catalogue.deterministic_search
 
   test "export is closed, deterministic, local, ignored, and package-excluded" do
     task = File.read!("lib/mix/tasks/gallery.export.ex")
@@ -15,10 +16,14 @@ defmodule ShadcnUIDemo.StaticExportTest do
     assert task =~ "BuildIdentity.release_metadata(identity)"
     assert task =~ "BuildIdentity.health_metadata(identity)"
     assert task =~ "sitemap.xml"
+    assert task =~ "DocumentationCatalogue.search_json()"
+    assert task =~ "search-index-"
+    assert task =~ ~s("search" => search)
     assert task =~ ":crypto.hash(:sha256"
     assert task =~ "reject_remote_runtime!"
     assert task =~ "~w(shadcn.css gallery.css gallery.js)"
     assert task =~ "ShadcnUIDemoWeb.GalleryAssets.path/1"
+    assert File.read!("scripts/check-export-determinism.mjs") =~ ~s(MIX_ENV: "test")
     refute task =~ "File.ls!()"
     refute task =~ ~r/(DateTime|NaiveDateTime|System\.system_time)/
     assert workflow =~ "actions/upload-pages-artifact@v3"
