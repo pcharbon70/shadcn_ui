@@ -1,5 +1,15 @@
 # Internal release process
 
+## Milestone F Phase 6 status
+
+All 38 Milestone F requirements now have an explicit implementation/evidence
+entry in `docs/milestone-f-acceptance.md`. Immutable gallery manifests and the
+reviewed publication/rollback mechanisms are implemented. The internal `0.1.0`
+candidate is still blocked: manual accessibility, final-revision CI, actual
+Pages deployment, canonical post-deploy smoke, and SpecLed are independent
+mandatory gates that have not all passed. No Hex publication or public tag is
+authorized.
+
 ## Milestone F Phase 5 candidate status
 
 The repository still describes internal `0.1.0`. Clean committed-input build

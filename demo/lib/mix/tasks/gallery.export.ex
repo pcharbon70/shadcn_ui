@@ -27,19 +27,26 @@ defmodule Mix.Tasks.Gallery.Export do
     copy_media!()
     write_sitemap!()
     search = write_search!()
+    assets = asset_hashes()
+    release = write_release_manifest!(identity, assets, search)
+    health = write_health_manifest!(identity, entries, assets, search)
     reject_unexpected_output!(entries, search)
 
     manifest = %{
       "schemaVersion" => 1,
       "release" => ShadcnUIDemo.BuildIdentity.release_metadata(identity),
       "health" => ShadcnUIDemo.BuildIdentity.health_metadata(identity),
-      "assets" => asset_hashes(),
+      "assets" => assets,
       "media" =>
         Map.new(
           ShadcnUIDemo.MediaFixtures.entries(),
           &{&1["file"], Map.take(&1, ~w(mime sha256 bytes width height))}
         ),
       "search" => search,
+      "publication" => %{
+        "release" => manifest_reference("release.json", release),
+        "health" => manifest_reference("health.json", health)
+      },
       "routes" => entries
     }
 
@@ -205,7 +212,12 @@ defmodule Mix.Tasks.Gallery.Export do
       Enum.map(entries, &Path.join(@output, &1["file"])) ++
         Enum.map(Map.keys(asset_hashes()), &Path.join([@output, "assets", &1])) ++
         Enum.map(ShadcnUIDemo.MediaFixtures.entries(), &Path.join([@output, "media", &1["file"]])) ++
-        [Path.join(@output, "sitemap.xml"), Path.join(@output, search["file"])]
+        [
+          Path.join(@output, "sitemap.xml"),
+          Path.join(@output, search["file"]),
+          Path.join(@output, "release.json"),
+          Path.join(@output, "health.json")
+        ]
 
     allowed = MapSet.new(Enum.map(allowed, &Path.expand/1))
 
@@ -245,6 +257,63 @@ defmodule Mix.Tasks.Gallery.Export do
       "schemaVersion" => ShadcnUIDemo.DocumentationCatalogue.schema_version(),
       "sha256" => hash
     }
+  end
+
+  defp write_release_manifest!(identity, assets, search) do
+    manifest = %{
+      "schemaVersion" => 1,
+      "identity" => ShadcnUIDemo.BuildIdentity.release_metadata(identity),
+      "artifacts" => %{
+        "assets" => assets,
+        "search" => Map.take(search, ~w(file schemaVersion sha256 records)),
+        "sitemap" => %{"file" => "sitemap.xml"},
+        "routeManifest" => %{"file" => "route-manifest.json"},
+        "health" => %{"file" => "health.json"}
+      }
+    }
+
+    write_json!("release.json", manifest)
+    manifest
+  end
+
+  defp write_health_manifest!(identity, entries, assets, search) do
+    manifest = %{
+      "schemaVersion" => 1,
+      "runtime" => "static",
+      "canonicalUrl" => identity.canonical_url,
+      "checks" => %{
+        "routes" => %{"manifest" => "route-manifest.json", "expected" => length(entries)},
+        "search" => Map.take(search, ~w(file sha256 records)),
+        "sitemap" => %{"file" => "sitemap.xml", "contentType" => "application/xml"},
+        "assets" =>
+          assets
+          |> Enum.sort()
+          |> Enum.map(fn {file, sha256} ->
+            %{
+              "file" => "assets/#{file}",
+              "sha256" => sha256,
+              "contentType" =>
+                if(String.ends_with?(file, ".css"), do: "text/css", else: "text/javascript")
+            }
+          end),
+        "media" => %{"expected" => length(ShadcnUIDemo.MediaFixtures.entries())},
+        "release" => %{"file" => "release.json", "contentType" => "application/json"},
+        "errorPage" => %{"file" => "404.html", "expectedStatus" => 404}
+      }
+    }
+
+    write_json!("health.json", manifest)
+    manifest
+  end
+
+  defp write_json!(file, value) do
+    bytes = Jason.encode_to_iodata!(value, pretty: true)
+    File.write!(Path.join(@output, file), bytes)
+  end
+
+  defp manifest_reference(file, value) do
+    bytes = File.read!(Path.join(@output, file))
+    %{"file" => file, "schemaVersion" => value["schemaVersion"], "sha256" => sha256(bytes)}
   end
 
   defp sha256(content), do: :crypto.hash(:sha256, content) |> Base.encode16(case: :lower)

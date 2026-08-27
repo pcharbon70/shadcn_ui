@@ -9,7 +9,10 @@ Content Surfaces, Overlays, Interactive Surfaces, Media, and Motion.
 Start with the [component index](docs/components.md),
 [installation guide](docs/installation.md),
 [integration guide](docs/integrations.md), and
-[upgrade policy](docs/upgrading.md). Dstar and LiveView are documented as
+[upgrade policy](docs/upgrading.md). The
+[Milestone F acceptance ledger](docs/milestone-f-acceptance.md) and
+[gallery operations runbook](docs/gallery-operations.md) distinguish local,
+CI, merge, deployment, smoke, and manual evidence. Dstar and LiveView are documented as
 consumer-owned transports around the same stateless HEEX API; neither is a
 ShadcnUI application dependency or state owner.
 

@@ -14,7 +14,8 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
                package_version: "0.1.0",
                build_revision: @revision,
                catalogue_schema: "1",
-               upstream_revision: @upstream
+               upstream_revision: @upstream,
+               canonical_url: "https://leco-industries-inc.github.io/shadcn_ui/"
              })
 
     refute identity.development
@@ -24,6 +25,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
              "buildRevision" => @revision,
              "catalogueSchema" => "1",
              "upstreamRevision" => @upstream,
+             "canonicalUrl" => "https://leco-industries-inc.github.io/shadcn_ui/",
              "development" => false
            }
 
@@ -57,7 +59,9 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
       {:catalogue_schema, "next"},
       {:catalogue_schema, "0"},
       {:upstream_revision, "main"},
-      {:upstream_revision, nil}
+      {:upstream_revision, nil},
+      {:canonical_url, "http://leco-industries-inc.github.io/shadcn_ui/"},
+      {:canonical_url, "https://user@example.test/shadcn_ui/?token=secret"}
     ]
 
     for {field, value} <- invalid do

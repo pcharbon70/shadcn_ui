@@ -1,5 +1,23 @@
 const base = process.env.SHADCN_UI_GALLERY_URL;
 if (!base?.startsWith("https://")) throw new Error("SHADCN_UI_GALLERY_URL must be an HTTPS URL");
+const expectedRevision = process.env.SHADCN_UI_EXPECTED_REVISION;
+if (expectedRevision && !/^[0-9a-f]{40}$/.test(expectedRevision)) throw new Error("SHADCN_UI_EXPECTED_REVISION must be a full revision");
+
+const get = async (path, type) => {
+  const response = await fetch(new URL(path, base), {redirect: "error", cache: "no-store"});
+  if (!response.ok) throw new Error(`${path} returned ${response.status}`);
+  if (type && !response.headers.get("content-type")?.includes(type)) throw new Error(`${path} returned an invalid content type`);
+  return response;
+};
+const release = await (await get("release.json", "application/json")).json();
+const health = await (await get("health.json", "application/json")).json();
+const routeManifest = await (await get("route-manifest.json", "application/json")).json();
+if (release.identity.canonicalUrl !== base || health.canonicalUrl !== base ||
+    routeManifest.release.buildRevision !== release.identity.buildRevision) throw new Error("deployed publication identity drift");
+if (expectedRevision && release.identity.buildRevision !== expectedRevision) throw new Error("deployed revision does not match the workflow revision");
+if (health.checks.routes.expected !== routeManifest.routes.length) throw new Error("deployed route inventory is incomplete");
+await get("sitemap.xml", "application/xml");
+await get(health.checks.search.file, "application/json");
 
 const forms = ["field", "label", "help", "field-errors", "error-summary", "input", "textarea", "checkbox", "radio-group", "switch", "native-select", "enhanced-select", "slider", "progress", "meter"];
 const milestoneC = ["components/disclosure/", "components/disclosure/accordion/", "components/navigation/", ...["navigation-menu", "header", "section-header"].map((slug) => `components/navigation/${slug}/`), "components/content-surfaces/", ...["scroll-area", "separator", "radio-panels"].map((slug) => `components/content-surfaces/${slug}/`), "examples/documentation/", "examples/settings/", "examples/application-shell/"];
@@ -32,6 +50,12 @@ for (const url of assets) {
   const response = await fetch(url, { redirect: "error" });
   if (!response.ok) throw new Error(`asset returned ${response.status}: ${url}`);
 }
+for (const check of health.checks.assets) {
+  const response = await get(check.file, check.contentType);
+  const bytes = Buffer.from(await response.arrayBuffer());
+  const actual = (await import("node:crypto")).createHash("sha256").update(bytes).digest("hex");
+  if (actual !== check.sha256) throw new Error(`deployed asset hash drift: ${check.file}`);
+}
 for (const url of media) {
   if (!url.startsWith(new URL("media/", base).href)) throw new Error(`media escaped canonical gallery: ${url}`);
   const response = await fetch(url, { redirect: "error" });
@@ -41,3 +65,6 @@ for (const url of media) {
     throw new Error(`media returned an invalid response: ${url}`);
   }
 }
+const missing = await fetch(new URL("__phase6_unknown__", base), {redirect: "manual", cache: "no-store"});
+if (missing.status !== 404 || (await missing.text()).includes("__phase6_unknown__")) throw new Error("invalid deployed 404 behavior");
+console.log(`Canonical gallery smoke passed for ${release.identity.buildRevision}.`);

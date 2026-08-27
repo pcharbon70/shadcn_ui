@@ -5,6 +5,20 @@ import { join } from "node:path";
 const root = new URL("../export/", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("route-manifest.json", root), "utf8"));
 if (manifest.schemaVersion !== 1) throw new Error("unsupported route manifest");
+const releaseBytes = await readFile(new URL("release.json", root));
+const healthBytes = await readFile(new URL("health.json", root));
+const release = JSON.parse(releaseBytes);
+const health = JSON.parse(healthBytes);
+const digest = bytes => createHash("sha256").update(bytes).digest("hex");
+if (manifest.publication.release.sha256 !== digest(releaseBytes) ||
+    manifest.publication.health.sha256 !== digest(healthBytes)) throw new Error("stale publication manifest reference");
+if (release.schemaVersion !== 1 || health.schemaVersion !== 1 ||
+    release.identity.canonicalUrl !== "https://leco-industries-inc.github.io/shadcn_ui/" ||
+    health.canonicalUrl !== release.identity.canonicalUrl || health.runtime !== "static") throw new Error("invalid publication identity");
+if (!/^[0-9a-f]{40}$/.test(release.identity.buildRevision) ||
+    !/^[0-9a-f]{40}$/.test(release.identity.upstreamRevision)) throw new Error("invalid immutable revision identity");
+const publicationText = releaseBytes.toString("utf8") + healthBytes.toString("utf8");
+if (/(?:secret|password|token|credential|userinfo|authorization|cookie)/i.test(publicationText)) throw new Error("secret-like publication metadata");
 if (!/^search-index-[a-f0-9]{16}\.json$/.test(manifest.search.file) ||
     manifest.search.schemaVersion !== "1" || manifest.search.records !== 41) throw new Error("invalid search manifest");
 const searchBytes = await readFile(new URL(manifest.search.file, root));
@@ -117,5 +131,12 @@ for (const asset of assets) {
   const hash = createHash("sha256").update(content).digest("hex");
   if (manifest.assets[asset] !== hash) throw new Error(`stale asset hash: ${asset}`);
 }
+for (const check of health.checks.assets) {
+  const content = await readFile(new URL(check.file, root));
+  if (digest(content) !== check.sha256 || release.artifacts.assets[check.file.split("/").pop()] !== check.sha256) throw new Error("publication asset identity drift");
+}
+if (health.checks.routes.expected !== manifest.routes.length ||
+    health.checks.search.file !== manifest.search.file ||
+    health.checks.errorPage.file !== "404.html" || health.checks.errorPage.expectedStatus !== 404) throw new Error("incomplete health checks");
 const rootFiles = (await readdir(root)).filter(file => file.startsWith("search-index-"));
 if (rootFiles.length !== 1 || rootFiles[0] !== manifest.search.file) throw new Error("unexpected search document inventory");
