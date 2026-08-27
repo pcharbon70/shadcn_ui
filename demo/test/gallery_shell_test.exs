@@ -15,4 +15,15 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert css =~ "max-width: 48rem"
     assert css =~ ":focus-visible"
   end
+
+  test "shell renders one complete escaped build identity without support claims" do
+    layout = File.read!("lib/shadcn_ui_demo_web/components/layouts.ex")
+
+    assert layout =~ "data-gallery-build-identity"
+    assert layout =~ "@build_identity.package_version"
+    assert layout =~ "@build_identity.build_revision"
+    assert layout =~ "@build_identity.catalogue_schema"
+    assert layout =~ "@build_identity.upstream_revision"
+    refute layout =~ ~r/(supported Electron|certified browser|deployment successful)/i
+  end
 end

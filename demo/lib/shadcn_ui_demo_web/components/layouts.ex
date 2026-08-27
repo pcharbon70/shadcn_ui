@@ -8,13 +8,20 @@ defmodule ShadcnUIDemoWeb.Layouts do
   attr :components, :list, required: true
   attr :theme, :string, required: true
   attr :motion, :string, default: "system"
+  attr :build_identity, :map, required: true
   slot :inner_block, required: true
 
   def gallery(assigns) do
     ~H"""
     <a class="gallery-skip-link" href="#main-content">Skip to main content</a>
     <header class="gallery-masthead">
-      <a href="/">ShadcnUI Gallery</a> <span>Package 0.1.0 · upstream bd8f403</span>
+      <a href="/">ShadcnUI Gallery</a>
+      <span data-gallery-build-identity>
+        Package {@build_identity.package_version} · build
+        <code>{@build_identity.build_revision}</code>
+        · catalogue {@build_identity.catalogue_schema} · upstream
+        <code>{@build_identity.upstream_revision}</code>
+      </span>
       <div aria-label="Theme">
         <button type="button" data-gallery-theme="light" aria-pressed={@theme == "light"}>Light</button>
         <button type="button" data-gallery-theme="dark" aria-pressed={@theme == "dark"}>Dark</button>

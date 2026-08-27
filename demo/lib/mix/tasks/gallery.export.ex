@@ -7,6 +7,7 @@ defmodule Mix.Tasks.Gallery.Export do
   @impl Mix.Task
   def run(_args) do
     Mix.Task.run("app.start")
+    identity = ShadcnUIDemo.BuildIdentity.current!()
     expected = Path.expand("../../../export", __DIR__)
     unless Path.expand(@output) == expected, do: Mix.raise("export must run from the demo root")
 
@@ -29,6 +30,8 @@ defmodule Mix.Tasks.Gallery.Export do
 
     manifest = %{
       "schemaVersion" => 1,
+      "release" => ShadcnUIDemo.BuildIdentity.release_metadata(identity),
+      "health" => ShadcnUIDemo.BuildIdentity.health_metadata(identity),
       "assets" => asset_hashes(),
       "media" =>
         Map.new(

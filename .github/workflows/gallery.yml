@@ -16,6 +16,8 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    env:
+      SHADCN_UI_BUILD_REVISION: ${{ github.sha }}
     steps:
       - uses: actions/checkout@v4
         with:

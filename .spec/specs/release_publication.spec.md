@@ -19,9 +19,12 @@ surface:
   - THIRD_PARTY_NOTICES.md
   - docs/release-candidate.md
   - docs/gallery-operations.md
+  - demo/lib/shadcn_ui_demo/build_identity.ex
+  - demo/test/build_identity_test.exs
   - scripts/**
   - .github/workflows/**
   - test/shadcn_ui/milestone_f_release_test.exs
+  - test/shadcn_ui/milestone_f_phase1_acceptance_test.exs
 ```
 
 ## Requirements
@@ -81,6 +84,16 @@ surface:
 ## Verification
 
 ```spec-verification
+- kind: test_file
+  target: demo/test/build_identity_test.exs
+  covers:
+    - shadcn_ui.release_publication.version_identity
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_f_phase1_acceptance_test.exs
+  covers:
+    - shadcn_ui.release_publication.version_identity
+
 - kind: test_file
   target: test/shadcn_ui/milestone_f_release_test.exs
   covers:

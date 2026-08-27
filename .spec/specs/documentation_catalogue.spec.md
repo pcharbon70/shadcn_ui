@@ -14,7 +14,9 @@ surface:
   - demo/lib/shadcn_ui_demo_web/**
   - demo/assets/gallery.js
   - demo/test/documentation_catalogue_test.exs
+  - demo/test/milestone_f_phase1_acceptance_test.exs
   - demo/test/static_export_test.exs
+  - test/shadcn_ui/milestone_f_phase1_acceptance_test.exs
   - test/browser/milestone-f-catalogue.spec.mjs
 ```
 
@@ -92,6 +94,11 @@ files, generated evidence, or browser results already exist.
   target: demo/test/static_export_test.exs
   covers:
     - shadcn_ui.documentation_catalogue.deterministic_search
+    - shadcn_ui.documentation_catalogue.package_boundary
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_f_phase1_acceptance_test.exs
+  covers:
     - shadcn_ui.documentation_catalogue.package_boundary
 
 - kind: test_file

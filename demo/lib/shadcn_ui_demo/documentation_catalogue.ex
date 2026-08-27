@@ -1,0 +1,366 @@
+defmodule ShadcnUIDemo.DocumentationCatalogue do
+  @moduledoc """
+  Closed, authored documentation identities layered over the stable gallery catalogue.
+
+  This module belongs to the demo and build boundary. It describes public
+  component identities but never invokes them from request, fragment, or search
+  text and is not part of the ShadcnUI package API.
+  """
+
+  alias ShadcnUIDemo.{Catalogue, Reference}
+
+  @schema_version "1"
+  @package_root Path.expand("../../..", __DIR__)
+  @documentation_keys ~w(what when responsibilities accessibility fallback source)a
+
+  @public_identities %{
+    button: {ShadcnUI.Components.Foundation.Button, :button, "foundation.button"},
+    badge: {ShadcnUI.Components.Foundation.Badge, :badge, "foundation.badge"},
+    alert: {ShadcnUI.Components.Foundation.Alert, :alert, "foundation.alert"},
+    card: {ShadcnUI.Components.Foundation.Card, :card, "foundation.card"},
+    avatar: {ShadcnUI.Components.Foundation.Avatar, :avatar, "foundation.avatar"},
+    skeleton: {ShadcnUI.Components.Foundation.Skeleton, :skeleton, "foundation.skeleton"},
+    field: {ShadcnUI.Components.Forms.Field, :field, "forms.field"},
+    label: {ShadcnUI.Components.Forms.Label, :label, "forms.label"},
+    help: {ShadcnUI.Components.Forms.Help, :help, "forms.help"},
+    field_errors: {ShadcnUI.Components.Forms.FieldErrors, :field_errors, "forms.field_errors"},
+    error_summary:
+      {ShadcnUI.Components.Forms.ErrorSummary, :error_summary, "forms.error_summary"},
+    input: {ShadcnUI.Components.Forms.Input, :input, "forms.input"},
+    textarea: {ShadcnUI.Components.Forms.Textarea, :textarea, "forms.textarea"},
+    checkbox: {ShadcnUI.Components.Forms.Checkbox, :checkbox, "forms.checkbox"},
+    radio_group: {ShadcnUI.Components.Forms.RadioGroup, :radio_group, "forms.radio_group"},
+    switch: {ShadcnUI.Components.Forms.Switch, :switch, "forms.switch"},
+    native_select:
+      {ShadcnUI.Components.Forms.NativeSelect, :native_select, "forms.native_select"},
+    enhanced_select:
+      {ShadcnUI.Components.Forms.EnhancedSelect, :enhanced_select, "forms.enhanced_select"},
+    slider: {ShadcnUI.Components.Forms.Slider, :slider, "forms.slider"},
+    progress: {ShadcnUI.Components.Forms.Progress, :progress, "forms.progress"},
+    meter: {ShadcnUI.Components.Forms.Meter, :meter, "forms.meter"},
+    accordion: {ShadcnUI.Components.Disclosure.Accordion, :accordion, "disclosure.accordion"},
+    navigation_menu:
+      {ShadcnUI.Components.Navigation.NavigationMenu, :navigation_menu,
+       "navigation.navigation_menu"},
+    header: {ShadcnUI.Components.Navigation.Header, :header, "navigation.header"},
+    section_header:
+      {ShadcnUI.Components.Navigation.SectionHeader, :section_header, "navigation.section_header"},
+    scroll_area: {ShadcnUI.Components.Content.ScrollArea, :scroll_area, "content.scroll_area"},
+    separator: {ShadcnUI.Components.Content.Separator, :separator, "content.separator"},
+    radio_panels:
+      {ShadcnUI.Components.Content.RadioPanels, :radio_panels, "content.radio_panels"},
+    dialog: {ShadcnUI.Components.Overlays.Dialog, :dialog, "overlays.dialog"},
+    alert_dialog:
+      {ShadcnUI.Components.Overlays.AlertDialog, :alert_dialog, "overlays.alert-dialog"},
+    drawer: {ShadcnUI.Components.Overlays.Drawer, :drawer, "overlays.drawer"},
+    popover: {ShadcnUI.Components.Overlays.Popover, :popover, "overlays.popover"},
+    dropdown_actions:
+      {ShadcnUI.Components.Overlays.DropdownActions, :dropdown_actions,
+       "overlays.dropdown-actions"},
+    tooltip: {ShadcnUI.Components.Overlays.Tooltip, :tooltip, "overlays.tooltip"},
+    hover_card: {ShadcnUI.Components.Overlays.HoverCard, :hover_card, "overlays.hover-card"},
+    carousel: {ShadcnUI.Components.Media.Carousel, :carousel, "media.carousel"},
+    cover_flow: {ShadcnUI.Components.Media.CoverFlow, :cover_flow, "media.cover-flow"},
+    image_gallery:
+      {ShadcnUI.Components.Media.ImageGallery, :image_gallery, "media.image-gallery"},
+    marquee: {ShadcnUI.Components.Motion.Marquee, :marquee, "motion.marquee"},
+    stagger: {ShadcnUI.Components.Motion.Stagger, :stagger, "motion.stagger"},
+    scroll_indicator:
+      {ShadcnUI.Components.Motion.ScrollIndicator, :scroll_indicator, "motion.scroll-indicator"}
+  }
+
+  @spec schema_version() :: String.t()
+  def schema_version, do: @schema_version
+
+  @spec entries() :: [map()]
+  def entries do
+    categories = Map.new(Catalogue.categories(), &{&1.slug, &1})
+
+    Enum.map(Catalogue.components(), fn component ->
+      category = Map.fetch!(categories, component.category)
+      reference = Reference.fetch!(component.render)
+      {module, function, provenance_id} = Map.fetch!(@public_identities, component.render)
+      fragment = "#{component.slug}-primary"
+
+      %{
+        schema_version: @schema_version,
+        category: Map.take(category, [:label, :slug, :path]),
+        label: component.label,
+        slug: component.slug,
+        route: component.path,
+        render: component.render,
+        public: %{module: module, function: function, arity: 1},
+        documentation: Map.take(reference, @documentation_keys),
+        examples: [
+          %{
+            fragment: fragment,
+            source_id: "reference:#{component.render}",
+            preview_label: "#{component.label} primary example",
+            route: "#{component.path}##{fragment}"
+          }
+        ],
+        provenance_id: provenance_id,
+        verification: %{
+          source_compile: "source:#{component.render}",
+          browser_route: component.path,
+          export_route: component.path
+        }
+      }
+    end)
+  end
+
+  @spec lookup(String.t(), String.t()) :: {:ok, map()} | :error
+  def lookup(category, slug) when is_binary(category) and is_binary(slug) do
+    case Enum.find(entries(), &(&1.category.slug == category and &1.slug == slug)) do
+      nil -> :error
+      entry -> {:ok, entry}
+    end
+  end
+
+  def lookup(_category, _slug), do: :error
+
+  @spec lookup_route(String.t()) :: {:ok, map()} | :error
+  def lookup_route(route) when is_binary(route) do
+    case Enum.find(entries(), &(&1.route == route)) do
+      nil -> :error
+      entry -> {:ok, entry}
+    end
+  end
+
+  def lookup_route(_route), do: :error
+
+  @spec lookup_fragment(String.t(), String.t()) :: {:ok, map()} | :error
+  def lookup_fragment(route, fragment) when is_binary(route) and is_binary(fragment) do
+    with {:ok, entry} <- lookup_route(route),
+         example when not is_nil(example) <-
+           Enum.find(entry.examples, &(&1.fragment == fragment)) do
+      {:ok, example}
+    else
+      _ -> :error
+    end
+  end
+
+  def lookup_fragment(_route, _fragment), do: :error
+
+  @spec validate() :: :ok | {:error, [String.t()]}
+  def validate do
+    audit(entries())
+  end
+
+  @doc "Returns the compiled component identities imported by `use ShadcnUI`."
+  @spec public_inventory() :: [{module(), atom(), 1}]
+  def public_inventory do
+    public_import_modules()
+    |> Enum.flat_map(fn module ->
+      Code.ensure_loaded!(module)
+
+      module.__components__()
+      |> Map.keys()
+      |> Enum.filter(&function_exported?(module, &1, 1))
+      |> Enum.map(&{module, &1, 1})
+    end)
+    |> Enum.sort_by(fn {module, function, arity} -> {inspect(module), function, arity} end)
+  end
+
+  @doc "Returns deterministic, path-independent documentation completeness rows."
+  @spec completeness_report() :: [map()]
+  def completeness_report do
+    provenance_ids = provenance_ids()
+    exdoc_modules = MapSet.new(exdoc_modules())
+    public_inventory = MapSet.new(public_inventory())
+
+    renderer =
+      File.read!(Path.join(@package_root, "demo/lib/shadcn_ui_demo_web/reference_components.ex"))
+
+    entries()
+    |> Enum.map(fn entry ->
+      identity = {entry.public.module, entry.public.function, entry.public.arity}
+
+      %{
+        category: entry.category.slug,
+        component: entry.slug,
+        route: entry.route,
+        public_module: inspect(entry.public.module),
+        public_function: Atom.to_string(entry.public.function),
+        fragments: Enum.map(entry.examples, & &1.fragment),
+        documentation: documentation_complete?(entry.documentation),
+        public_metadata: MapSet.member?(public_inventory, identity),
+        public_import: entry.public.module in public_import_modules(),
+        exdoc_group: MapSet.member?(exdoc_modules, entry.public.module),
+        provenance_id: entry.provenance_id,
+        provenance: MapSet.member?(provenance_ids, entry.provenance_id),
+        source_compile: entry.verification.source_compile,
+        renderer: renderer =~ ":#{entry.render}",
+        browser_route: entry.verification.browser_route,
+        export_route: entry.verification.export_route
+      }
+    end)
+    |> Enum.sort_by(& &1.route)
+  end
+
+  @doc "Encodes the sorted completeness report without timestamps or host paths."
+  @spec completeness_json() :: String.t()
+  def completeness_json, do: Jason.encode!(completeness_report())
+
+  @doc "Audits an authored entry list against compiled and repository evidence."
+  @spec audit([map()]) :: :ok | {:error, [String.t()]}
+  def audit(entries) when is_list(entries) do
+    errors =
+      []
+      |> duplicate_errors(entries, :route)
+      |> duplicate_errors(entries, :render)
+      |> duplicate_public_errors(entries)
+      |> duplicate_fragment_errors(entries)
+      |> missing_identity_errors(entries)
+      |> compiled_inventory_errors(entries)
+      |> evidence_errors(entries)
+
+    case Enum.sort(errors) do
+      [] -> :ok
+      errors -> {:error, errors}
+    end
+  end
+
+  defp compiled_inventory_errors(errors, entries) do
+    documented = MapSet.new(entries, &{&1.public.module, &1.public.function, &1.public.arity})
+    compiled = MapSet.new(public_inventory())
+
+    errors ++
+      Enum.map(MapSet.difference(compiled, documented), fn identity ->
+        "missing documentation identity: #{inspect(identity)}"
+      end) ++
+      Enum.map(MapSet.difference(documented, compiled), fn identity ->
+        "stale documentation identity: #{inspect(identity)}"
+      end)
+  end
+
+  defp evidence_errors(errors, entries) do
+    imported = MapSet.new(public_import_modules())
+    exdoc = MapSet.new(exdoc_modules())
+    provenance = provenance_ids()
+
+    errors ++
+      Enum.flat_map(entries, fn entry ->
+        []
+        |> maybe_error(
+          MapSet.member?(imported, entry.public.module),
+          "public module is not imported: #{inspect(entry.public.module)}"
+        )
+        |> maybe_error(
+          MapSet.member?(exdoc, entry.public.module),
+          "public module is not in ExDoc groups: #{inspect(entry.public.module)}"
+        )
+        |> maybe_error(
+          MapSet.member?(provenance, entry.provenance_id),
+          "missing provenance: #{entry.provenance_id}"
+        )
+        |> maybe_error(
+          documentation_complete?(entry.documentation),
+          "incomplete documentation: #{entry.route}"
+        )
+        |> maybe_error(entry.route in Catalogue.routes(), "missing gallery route: #{entry.route}")
+      end)
+  end
+
+  defp maybe_error(errors, true, _message), do: errors
+  defp maybe_error(errors, false, message), do: [message | errors]
+
+  defp documentation_complete?(documentation) do
+    Enum.all?(@documentation_keys, fn key ->
+      case Map.fetch(documentation, key) do
+        {:ok, value} -> is_binary(value) and String.trim(value) != ""
+        :error -> false
+      end
+    end)
+  end
+
+  defp public_import_modules do
+    @package_root
+    |> Path.join("lib/shadcn_ui.ex")
+    |> File.read!()
+    |> section_between("@component_modules [", "]")
+    |> component_modules()
+  end
+
+  defp exdoc_modules do
+    @package_root
+    |> Path.join("mix.exs")
+    |> File.read!()
+    |> section_between("groups_for_modules: [", ~s("Package contract"))
+    |> component_modules()
+  end
+
+  defp component_modules(source) do
+    ~r/ShadcnUI\.Components(?:\.[A-Z][A-Za-z0-9_]*)+/
+    |> Regex.scan(source)
+    |> List.flatten()
+    |> Enum.uniq()
+    |> Enum.map(fn name ->
+      name
+      |> String.split(".")
+      |> Module.concat()
+    end)
+  end
+
+  defp section_between(source, opening, closing) do
+    with [_before, tail] <- String.split(source, opening, parts: 2),
+         [section, _after] <- String.split(tail, closing, parts: 2) do
+      section
+    else
+      _ -> raise "documentation catalogue source marker is missing"
+    end
+  end
+
+  defp provenance_ids do
+    @package_root
+    |> Path.join("priv/provenance/unscripted_ui.json")
+    |> File.read!()
+    |> Jason.decode!()
+    |> Map.fetch!("adaptations")
+    |> MapSet.new(&Map.fetch!(&1, "id"))
+  end
+
+  defp duplicate_errors(errors, entries, key) do
+    duplicates = entries |> Enum.map(&Map.fetch!(&1, key)) |> duplicate_values()
+    errors ++ Enum.map(duplicates, &"duplicate #{key}: #{inspect(&1)}")
+  end
+
+  defp duplicate_public_errors(errors, entries) do
+    duplicates =
+      entries
+      |> Enum.map(&{&1.public.module, &1.public.function, &1.public.arity})
+      |> duplicate_values()
+
+    errors ++ Enum.map(duplicates, &"duplicate public identity: #{inspect(&1)}")
+  end
+
+  defp duplicate_fragment_errors(errors, entries) do
+    duplicates =
+      entries
+      |> Enum.flat_map(fn entry -> Enum.map(entry.examples, &{entry.route, &1.fragment}) end)
+      |> duplicate_values()
+
+    errors ++ Enum.map(duplicates, &"duplicate example fragment: #{inspect(&1)}")
+  end
+
+  defp missing_identity_errors(errors, entries) do
+    catalogue_renders = MapSet.new(Catalogue.components(), & &1.render)
+    documented_renders = MapSet.new(entries, & &1.render)
+    authored_renders = MapSet.new(Map.keys(@public_identities))
+
+    errors ++
+      Enum.map(MapSet.difference(catalogue_renders, authored_renders), fn render ->
+        "missing public identity: #{inspect(render)}"
+      end) ++
+      Enum.map(MapSet.difference(authored_renders, documented_renders), fn render ->
+        "stale public identity: #{inspect(render)}"
+      end)
+  end
+
+  defp duplicate_values(values) do
+    values
+    |> Enum.frequencies()
+    |> Enum.filter(fn {_value, count} -> count > 1 end)
+    |> Enum.map(&elem(&1, 0))
+  end
+end

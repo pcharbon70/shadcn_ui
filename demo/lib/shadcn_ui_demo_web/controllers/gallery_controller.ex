@@ -2,6 +2,7 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   use ShadcnUIDemoWeb, :controller
 
   alias ShadcnUIDemo.Catalogue
+  alias ShadcnUIDemo.BuildIdentity
   alias ShadcnUIDemo.Reference
 
   def landing(conn, params) do
@@ -78,6 +79,7 @@ defmodule ShadcnUIDemoWeb.GalleryController do
       page: page,
       theme: theme,
       motion: motion,
+      build_identity: BuildIdentity.current!(),
       categories: Catalogue.categories(),
       components: Catalogue.components()
     )
