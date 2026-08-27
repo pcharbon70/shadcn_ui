@@ -27,25 +27,25 @@ Back to wave: [README](./README.md)
       - [x] 5.1.2.2 Subtask - Audit the actual archive for runtime modules, CSS, metadata, README, changelog, migrations and notices and reject every excluded path class.
       - [x] 5.1.2.3 Subtask - Reconcile upstream provenance, MIT notices, independently authored material and the exact pinned upstream revision.
 
-  - [ ] 5.2 Section - Build an isolated clean Phoenix consumer.
+  - [x] 5.2 Section - Build an isolated clean Phoenix consumer.
 
     Test the candidate from the viewpoint of a project that does not inherit repository-local source or tooling.
 
-    - [ ] 5.2.1 Task - Install and compile the actual candidate.
+    - [x] 5.2.1 Task - Install and compile the actual candidate.
 
       The fixture must consume an immutable candidate input rather than the source path accidentally.
 
-      - [ ] 5.2.1.1 Subtask - Create a disposable minimal Phoenix consumer from a checked fixture recipe outside the candidate source tree.
-      - [ ] 5.2.1.2 Subtask - Install the local archive or immutable repository candidate and assert no path dependency, demo module or repository build output is visible.
-      - [ ] 5.2.1.3 Subtask - Compile representative foundation, form, navigation, overlay, media and motion HEEX through public imports.
+      - [x] 5.2.1.1 Subtask - Create a disposable minimal Phoenix consumer from a checked fixture recipe outside the candidate source tree.
+      - [x] 5.2.1.2 Subtask - Install the local archive or immutable repository candidate and assert no path dependency, demo module or repository build output is visible.
+      - [x] 5.2.1.3 Subtask - Compile representative foundation, form, navigation, overlay, media and motion HEEX through public imports.
 
-    - [ ] 5.2.2 Task - Exercise runtime assets and transport neutrality.
+    - [x] 5.2.2 Task - Exercise runtime assets and transport neutrality.
 
       The consumer should prove the package contract without becoming a framework certification project.
 
-      - [ ] 5.2.2.1 Subtask - Serve the packaged stylesheet, render light/dark scopes and confirm no consumer Node, Tailwind, remote asset or package JavaScript setup.
-      - [ ] 5.2.2.2 Subtask - Render an ordinary controller page and verify package version, public modules, stylesheet resolution and representative native interactions.
-      - [ ] 5.2.2.3 Subtask - Compile Dstar-shaped and LiveView-shaped stateless HEEX guidance where possible without adding either as a ShadcnUI dependency or support claim.
+      - [x] 5.2.2.1 Subtask - Serve the packaged stylesheet, render light/dark scopes and confirm no consumer Node, Tailwind, remote asset or package JavaScript setup.
+      - [x] 5.2.2.2 Subtask - Render an ordinary controller page and verify package version, public modules, stylesheet resolution and representative native interactions.
+      - [x] 5.2.2.3 Subtask - Compile Dstar-shaped and LiveView-shaped stateless HEEX guidance where possible without adding either as a ShadcnUI dependency or support claim.
 
   - [ ] 5.3 Section - Qualify the internal version and release record.
 
