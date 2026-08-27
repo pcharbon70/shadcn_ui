@@ -1,8 +1,17 @@
 # ShadcnUI
 
 Transport-neutral Phoenix function components using native HTML and isolated,
-shadcn-style CSS. Milestones A through D provide Foundation, Forms, Disclosure,
-Navigation, Content Surfaces, Overlays, and Interactive Surfaces.
+shadcn-style CSS. The repository is qualifying an internal `0.1.0` candidate;
+it is not publicly available on Hex and Milestone F acceptance is still pending.
+Milestones A through E provide Foundation, Forms, Disclosure, Navigation,
+Content Surfaces, Overlays, Interactive Surfaces, Media, and Motion.
+
+Start with the [component index](docs/components.md),
+[installation guide](docs/installation.md),
+[integration guide](docs/integrations.md), and
+[upgrade policy](docs/upgrading.md). Dstar and LiveView are documented as
+consumer-owned transports around the same stateless HEEX API; neither is a
+ShadcnUI application dependency or state owner.
 
 The [gallery](https://leco-industries-inc.github.io/shadcn_ui/) is a separate
 reference consumer. Milestone D adds seven component pages, four complete
@@ -295,6 +304,12 @@ stacks, submenus, and virtual anchors are outside the contract.
 
 ## Installation
 
+For a complete reproducible setup, including stylesheet delivery, CSP, theme
+tokens, mixed-design-system isolation, and reduced motion, read the
+[installation and assets guide](docs/installation.md). Compatibility is defined
+by capabilities and documented fallbacks, not browser brands; see the
+[compatibility and fallback policy](docs/compatibility.md).
+
 For sibling development, add the package as a path dependency:
 
 ```elixir
@@ -327,6 +342,12 @@ asset directory during its existing asset build and reference the resulting
 local URL from its root layout. Consumers do not need Tailwind, Node, or
 component JavaScript at runtime or build time; the package's maintainers use
 Node only to reproduce the committed CSS artifact.
+
+Import one defining module when a narrow namespace is preferable:
+
+```elixir
+import ShadcnUI.Components.Foundation.Button, only: [button: 1]
+```
 
 The package metadata is proprietary and supports local archive verification;
 it does not configure or authorize publication to Hex.

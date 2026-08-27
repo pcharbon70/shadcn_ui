@@ -363,13 +363,6 @@
       "entity_id": "shadcn_ui.compatibility_accessibility",
       "file": ".spec/specs/compatibility_accessibility.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: docs/compatibility.md"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.compatibility_accessibility",
-      "file": ".spec/specs/compatibility_accessibility.spec.md",
-      "level": "warning",
       "message": "Surface entry does not exist: test/browser/milestone-f-compatibility.spec.mjs"
     },
     {
@@ -608,7 +601,7 @@
       "entity_id": "shadcn_ui.form_contract",
       "file": ".spec/specs/form_contract.spec.md",
       "level": "error",
-      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.3031540946.2479751171.72169>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Error"
+      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.2079986648.4105306116.75792>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Error"
     },
     {
       "code": "verification_target_missing_reference",
@@ -657,7 +650,7 @@
       "entity_id": "shadcn_ui.gallery",
       "file": ".spec/specs/gallery.spec.md",
       "level": "error",
-      "message": "Verification command failed: npm run gallery:smoke\n> @leco/shadcn-ui-assets@0.1.0 gallery:smoke\n> npm --prefix demo run export:determinism\n\n\n> @leco/shadcn-ui-gallery@0.1.0 export:determinism\n> node scripts/check-export-determinism.mjs\n\nfile:///c:/Leco/elixir/shadcn_ui/demo/scripts/check-export-determinism.mjs:18\r\n  if (result.status !== 0) throw new Error(result.stderr || result.stdout || \"gallery export failed\");\r\n                                 ^\r\n\r\nError: Error while loading project :elixir_make at c:/Leco/elixir/shadcn_ui/demo/deps/elixir_make\r\n** (ArgumentError) cannot escape #Reference<0.2943718946.3285057539.48255>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\r\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:150: :eli"
+      "message": "Verification command failed: npm run gallery:smoke\n> @leco/shadcn-ui-assets@0.1.0 gallery:smoke\n> npm --prefix demo run export:determinism\n\n\n> @leco/shadcn-ui-gallery@0.1.0 export:determinism\n> node scripts/check-export-determinism.mjs\n\nfile:///c:/Leco/elixir/shadcn_ui/demo/scripts/check-export-determinism.mjs:18\r\n  if (result.status !== 0) throw new Error(result.stderr || result.stdout || \"gallery export failed\");\r\n                                 ^\r\n\r\nError: Error while loading project :elixir_make at c:/Leco/elixir/shadcn_ui/demo/deps/elixir_make\r\n** (ArgumentError) cannot escape #Reference<0.1036454649.883556353.208659>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\r\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:150: :eli"
     },
     {
       "code": "verification_target_missing_reference",
@@ -1287,7 +1280,7 @@
       "entity_id": "shadcn_ui.package",
       "file": ".spec/specs/package.spec.md",
       "level": "error",
-      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.261554298.3553230850.106605>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Error"
+      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.3186521297.1688862723.215622>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Erro"
     },
     {
       "code": "verification_target_missing_reference",
@@ -1330,20 +1323,6 @@
       "file": ".spec/specs/provenance.spec.md",
       "level": "warning",
       "message": "Verification target test/shadcn_ui/milestone_c_acceptance_test.exs does not reference covered requirement: shadcn_ui.provenance.site_assets_excluded"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.public_documentation",
-      "file": ".spec/specs/public_documentation.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/milestone_f_documentation_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.public_documentation",
-      "file": ".spec/specs/public_documentation.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_f_documentation_test.exs"
     },
     {
       "code": "surface_target_missing",
@@ -6280,7 +6259,7 @@
     "decision_parse_errors": 0,
     "decisions": 28,
     "exceptions": 0,
-    "findings": 152,
+    "findings": 149,
     "requirements": 252,
     "scenarios": 0,
     "subjects": 26,
@@ -13488,7 +13467,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -13499,7 +13478,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -13510,7 +13489,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -13521,7 +13500,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -13532,7 +13511,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -13543,7 +13522,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -13554,7 +13533,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -13565,7 +13544,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -13576,7 +13555,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "test/shadcn_ui/milestone_f_documentation_test.exs",
         "verification_index": 0
@@ -14762,9 +14741,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 187,
+      "claimed": 178,
       "executed": 16,
-      "linked": 567
+      "linked": 576
     },
     "threshold_failures": 0
   },

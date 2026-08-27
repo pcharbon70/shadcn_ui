@@ -1,5 +1,14 @@
 # Internal release process
 
+## Milestone F Phase 3 documentation candidate
+
+The repository still describes an internal `0.1.0` candidate. This phase makes
+the component, installation, compatibility, controller, Dstar, LiveView,
+migration, rollback, and provenance contracts reviewable; it does not prove the
+later clean-consumer, CI, Pages deployment, manual-review, public-tag, or Hex
+publication gates. See `docs/integrations.md`, `docs/upgrading.md`, and
+`docs/provenance.md`. Milestone F Phases 4–6 remain pending.
+
 ## Milestone E Phase 6 candidate
 
 Phase 6 consolidates all six Media/Motion APIs and ExDoc groups, complete gallery

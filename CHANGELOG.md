@@ -1,5 +1,15 @@
 # Changelog
 
+## Milestone F Phase 3 — unreleased
+
+- Publish complete component/API, installation, capability/fallback, controller,
+  Dstar, LiveView, upgrade, rollback, and provenance guidance for the internal
+  `0.1.0` candidate.
+- Keep gallery tooling, application transport, state, routes, runtime scripts,
+  CI, deployment, and manual review outside the package API and release claims.
+- Compile and render transport-shaped examples through the same public imports;
+  no new component family or package JavaScript runtime is introduced.
+
 ## Milestone E Phase 6 — unreleased
 
 - Complete the A–E catalogue audit, composition navigation/breadcrumbs and all

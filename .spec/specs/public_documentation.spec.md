@@ -15,9 +15,21 @@ surface:
   - CHANGELOG.md
   - RELEASE.md
   - docs/**
+  - docs/components.md
+  - docs/installation.md
+  - docs/compatibility.md
+  - docs/integrations.md
+  - docs/upgrading.md
+  - docs/provenance.md
   - lib/shadcn_ui/**/*.ex
   - demo/lib/shadcn_ui_demo_web/**
+  - demo/lib/shadcn_ui_demo/documentation_catalogue.ex
+  - demo/lib/shadcn_ui_demo/reference.ex
+  - demo/test/milestone_f_public_documentation_test.exs
+  - scripts/check-documentation.exs
   - test/shadcn_ui/milestone_f_documentation_test.exs
+  - test/shadcn_ui/milestone_f_installation_compatibility_test.exs
+  - test/shadcn_ui/milestone_f_integration_guidance_test.exs
 ```
 
 ## Requirements
@@ -84,6 +96,27 @@ surface:
     - shadcn_ui.public_documentation.exdoc_inventory
     - shadcn_ui.public_documentation.upgrade_and_migration
     - shadcn_ui.public_documentation.provenance_and_identity
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_f_installation_compatibility_test.exs
+  covers:
+    - shadcn_ui.public_documentation.installation_and_assets
+    - shadcn_ui.public_documentation.compatibility_and_fallback
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_f_integration_guidance_test.exs
+  covers:
+    - shadcn_ui.public_documentation.controller_example
+    - shadcn_ui.public_documentation.transport_guidance
+    - shadcn_ui.public_documentation.upgrade_and_migration
+    - shadcn_ui.public_documentation.provenance_and_identity
+
+- kind: test_file
+  target: demo/test/milestone_f_public_documentation_test.exs
+  covers:
+    - shadcn_ui.public_documentation.component_page_sections
+    - shadcn_ui.public_documentation.api_contract
+    - shadcn_ui.public_documentation.exdoc_inventory
 
 - kind: command
   target: mix docs --warnings-as-errors
