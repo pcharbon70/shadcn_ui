@@ -10,13 +10,13 @@ const slugs = ["field", "label", "help", "field-errors", "error-summary", "input
 
 test("every Forms route has stable navigation, breadcrumb, source, and relationships", async ({ page }) => {
   await page.goto("/components/forms");
-  await expect(page.locator('[aria-current="page"]')).toHaveCount(1);
+  await expect(page.getByRole("navigation", { name: "Component navigation", exact: true }).locator('[aria-current="page"]')).toHaveCount(1);
   await expect(page.getByRole("navigation", { name: "Complete form examples" })).toBeVisible();
 
   for (const slug of slugs) {
     await page.goto(`/components/forms/${slug}`);
     await expect(page.locator("h1")).toHaveCount(1);
-    await expect(page.locator('[aria-current="page"]')).toHaveCount(1);
+    await expect(page.getByRole("navigation", { name: "Component navigation", exact: true }).locator('[aria-current="page"]')).toHaveCount(1);
     await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toContainText("Forms");
     await expect(page.getByRole("heading", { name: "HEEX source" })).toBeVisible();
     await expect(page.locator("pre code")).not.toBeEmpty();
@@ -87,10 +87,13 @@ test("no-script, themes, long content, narrow zoom, reduced motion, and forced c
   await page.goto("/components/forms/input?theme=dark");
   await page.evaluate(() => { document.documentElement.style.zoom = "2"; });
   await expect(page.locator("html")).toHaveAttribute("data-shadcn-theme", "dark");
-  await expect(page.getByRole("navigation", { name: "Component navigation" })).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Component navigation", exact: true })).toBeHidden();
+  await page.locator(".gallery-mobile-navigation summary").click();
+  const mobileNavigation = page.getByRole("navigation", { name: "Mobile component navigation", exact: true });
+  await expect(mobileNavigation).toBeVisible();
   await expect(page.getByText("Account email", { exact: true })).toBeVisible();
   await expect(page.locator("input").first()).toBeVisible();
-  await page.getByRole("link", { name: "Help", exact: true }).click();
+  await mobileNavigation.getByRole("link", { name: "Help", exact: true }).click();
   await expect(page.getByText("Guía extensa", { exact: false })).toBeVisible();
   await context.close();
 });

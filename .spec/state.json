@@ -352,41 +352,6 @@
   },
   "findings": [
     {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.compatibility_accessibility",
-      "file": ".spec/specs/compatibility_accessibility.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: docs/accessibility-review.md"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.compatibility_accessibility",
-      "file": ".spec/specs/compatibility_accessibility.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: test/browser/milestone-f-compatibility.spec.mjs"
-    },
-    {
-      "code": "surface_target_missing",
-      "entity_id": "shadcn_ui.compatibility_accessibility",
-      "file": ".spec/specs/compatibility_accessibility.spec.md",
-      "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/milestone_f_acceptance_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.compatibility_accessibility",
-      "file": ".spec/specs/compatibility_accessibility.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/browser/milestone-f-compatibility.spec.mjs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.compatibility_accessibility",
-      "file": ".spec/specs/compatibility_accessibility.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_f_acceptance_test.exs"
-    },
-    {
       "code": "verification_command_failed",
       "entity_id": "shadcn_ui.component_contract",
       "file": ".spec/specs/component_contract.spec.md",
@@ -601,7 +566,7 @@
       "entity_id": "shadcn_ui.form_contract",
       "file": ".spec/specs/form_contract.spec.md",
       "level": "error",
-      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.2079986648.4105306116.75792>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Error"
+      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.3191687466.2232811522.126355>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Erro"
     },
     {
       "code": "verification_target_missing_reference",
@@ -650,7 +615,7 @@
       "entity_id": "shadcn_ui.gallery",
       "file": ".spec/specs/gallery.spec.md",
       "level": "error",
-      "message": "Verification command failed: npm run gallery:smoke\n> @leco/shadcn-ui-assets@0.1.0 gallery:smoke\n> npm --prefix demo run export:determinism\n\n\n> @leco/shadcn-ui-gallery@0.1.0 export:determinism\n> node scripts/check-export-determinism.mjs\n\nfile:///c:/Leco/elixir/shadcn_ui/demo/scripts/check-export-determinism.mjs:18\r\n  if (result.status !== 0) throw new Error(result.stderr || result.stdout || \"gallery export failed\");\r\n                                 ^\r\n\r\nError: Error while loading project :elixir_make at c:/Leco/elixir/shadcn_ui/demo/deps/elixir_make\r\n** (ArgumentError) cannot escape #Reference<0.1036454649.883556353.208659>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\r\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:150: :eli"
+      "message": "Verification command failed: npm run gallery:smoke\n> @leco/shadcn-ui-assets@0.1.0 gallery:smoke\n> npm --prefix demo run export:determinism\n\n\n> @leco/shadcn-ui-gallery@0.1.0 export:determinism\n> node scripts/check-export-determinism.mjs\n\nfile:///c:/Leco/elixir/shadcn_ui/demo/scripts/check-export-determinism.mjs:18\r\n  if (result.status !== 0) throw new Error(result.stderr || result.stdout || \"gallery export failed\");\r\n                                 ^\r\n\r\nError: Error while loading project :elixir_make at c:/Leco/elixir/shadcn_ui/demo/deps/elixir_make\r\n** (ArgumentError) cannot escape #Reference<0.3382829466.3038117889.210386>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\r\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:150: :el"
     },
     {
       "code": "verification_target_missing_reference",
@@ -1280,7 +1245,7 @@
       "entity_id": "shadcn_ui.package",
       "file": ".spec/specs/package.spec.md",
       "level": "error",
-      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.3186521297.1688862723.215622>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Erro"
+      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.2974715466.3306553349.52667>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Error"
     },
     {
       "code": "verification_target_missing_reference",
@@ -3433,9 +3398,11 @@
           "summary": "Capability-based browser evidence and separate automated and manual accessibility acceptance across the complete public catalogue.",
           "surface": [
             "priv/compatibility/*.json",
+            "priv/compatibility/catalogue.json",
             "docs/compatibility.md",
             "docs/accessibility-review.md",
             "test/browser/milestone-f-compatibility.spec.mjs",
+            "test/shadcn_ui/milestone_f_capability_policy_test.exs",
             "test/shadcn_ui/milestone_f_acceptance_test.exs"
           ],
           "verification_minimum_strength": null
@@ -4113,9 +4080,21 @@
             "CHANGELOG.md",
             "RELEASE.md",
             "docs/**",
+            "docs/components.md",
+            "docs/installation.md",
+            "docs/compatibility.md",
+            "docs/integrations.md",
+            "docs/upgrading.md",
+            "docs/provenance.md",
             "lib/shadcn_ui/**/*.ex",
             "demo/lib/shadcn_ui_demo_web/**",
-            "test/shadcn_ui/milestone_f_documentation_test.exs"
+            "demo/lib/shadcn_ui_demo/documentation_catalogue.ex",
+            "demo/lib/shadcn_ui_demo/reference.ex",
+            "demo/test/milestone_f_public_documentation_test.exs",
+            "scripts/check-documentation.exs",
+            "test/shadcn_ui/milestone_f_documentation_test.exs",
+            "test/shadcn_ui/milestone_f_installation_compatibility_test.exs",
+            "test/shadcn_ui/milestone_f_integration_guidance_test.exs"
           ],
           "verification_minimum_strength": null
         },
@@ -4249,6 +4228,16 @@
         "kind": "test_file",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/browser/milestone-f-compatibility.spec.mjs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.compatibility_accessibility.capability_policy",
+          "shadcn_ui.compatibility_accessibility.exact_engine_evidence"
+        ],
+        "file": ".spec/specs/compatibility_accessibility.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.compatibility_accessibility",
+        "target": "test/shadcn_ui/milestone_f_capability_policy_test.exs"
       },
       {
         "covers": [
@@ -5978,6 +5967,39 @@
       },
       {
         "covers": [
+          "shadcn_ui.public_documentation.installation_and_assets",
+          "shadcn_ui.public_documentation.compatibility_and_fallback"
+        ],
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "test/shadcn_ui/milestone_f_installation_compatibility_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.public_documentation.controller_example",
+          "shadcn_ui.public_documentation.transport_guidance",
+          "shadcn_ui.public_documentation.upgrade_and_migration",
+          "shadcn_ui.public_documentation.provenance_and_identity"
+        ],
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "test/shadcn_ui/milestone_f_integration_guidance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.public_documentation.component_page_sections",
+          "shadcn_ui.public_documentation.api_contract",
+          "shadcn_ui.public_documentation.exdoc_inventory"
+        ],
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "demo/test/milestone_f_public_documentation_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.public_documentation.api_contract",
           "shadcn_ui.public_documentation.exdoc_inventory"
         ],
@@ -6259,11 +6281,11 @@
     "decision_parse_errors": 0,
     "decisions": 28,
     "exceptions": 0,
-    "findings": 149,
+    "findings": 144,
     "requirements": 252,
     "scenarios": 0,
     "subjects": 26,
-    "verifications": 155
+    "verifications": 159
   },
   "verification": {
     "claims": [
@@ -6273,7 +6295,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/browser/milestone-f-compatibility.spec.mjs",
         "verification_index": 0
@@ -6284,7 +6306,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/browser/milestone-f-compatibility.spec.mjs",
         "verification_index": 0
@@ -6295,7 +6317,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/browser/milestone-f-compatibility.spec.mjs",
         "verification_index": 0
@@ -6306,7 +6328,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/browser/milestone-f-compatibility.spec.mjs",
         "verification_index": 0
@@ -6317,7 +6339,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/browser/milestone-f-compatibility.spec.mjs",
         "verification_index": 0
@@ -6328,10 +6350,32 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.compatibility_accessibility",
+        "target": "test/shadcn_ui/milestone_f_capability_policy_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.compatibility_accessibility.exact_engine_evidence",
+        "file": ".spec/specs/compatibility_accessibility.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.compatibility_accessibility",
+        "target": "test/shadcn_ui/milestone_f_capability_policy_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.compatibility_accessibility.capability_policy",
+        "file": ".spec/specs/compatibility_accessibility.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/shadcn_ui/milestone_f_acceptance_test.exs",
-        "verification_index": 1
+        "verification_index": 2
       },
       {
         "cover_id": "shadcn_ui.compatibility_accessibility.consumer_boundary",
@@ -6339,10 +6383,10 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/shadcn_ui/milestone_f_acceptance_test.exs",
-        "verification_index": 1
+        "verification_index": 2
       },
       {
         "cover_id": "shadcn_ui.compatibility_accessibility.evidence_separation",
@@ -6350,10 +6394,10 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/shadcn_ui/milestone_f_acceptance_test.exs",
-        "verification_index": 1
+        "verification_index": 2
       },
       {
         "cover_id": "shadcn_ui.compatibility_accessibility.manual_review",
@@ -6361,10 +6405,10 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/shadcn_ui/milestone_f_acceptance_test.exs",
-        "verification_index": 1
+        "verification_index": 2
       },
       {
         "cover_id": "shadcn_ui.component.classes_and_globals",
@@ -13561,6 +13605,105 @@
         "verification_index": 0
       },
       {
+        "cover_id": "shadcn_ui.public_documentation.compatibility_and_fallback",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "test/shadcn_ui/milestone_f_installation_compatibility_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.installation_and_assets",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "test/shadcn_ui/milestone_f_installation_compatibility_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.controller_example",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "test/shadcn_ui/milestone_f_integration_guidance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.provenance_and_identity",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "test/shadcn_ui/milestone_f_integration_guidance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.transport_guidance",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "test/shadcn_ui/milestone_f_integration_guidance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.upgrade_and_migration",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "test/shadcn_ui/milestone_f_integration_guidance_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.api_contract",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "demo/test/milestone_f_public_documentation_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.component_page_sections",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "demo/test/milestone_f_public_documentation_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.exdoc_inventory",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "demo/test/milestone_f_public_documentation_test.exs",
+        "verification_index": 3
+      },
+      {
         "cover_id": "shadcn_ui.public_documentation.api_contract",
         "file": ".spec/specs/public_documentation.spec.md",
         "kind": "command",
@@ -13569,7 +13712,7 @@
         "strength": "claimed",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "mix docs --warnings-as-errors",
-        "verification_index": 1
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.public_documentation.exdoc_inventory",
@@ -13580,7 +13723,7 @@
         "strength": "claimed",
         "subject_id": "shadcn_ui.public_documentation",
         "target": "mix docs --warnings-as-errors",
-        "verification_index": 1
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.release_publication.version_identity",
@@ -14741,9 +14884,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 178,
+      "claimed": 169,
       "executed": 16,
-      "linked": 576
+      "linked": 596
     },
     "threshold_failures": 0
   },

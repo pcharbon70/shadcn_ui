@@ -137,7 +137,7 @@ defmodule ShadcnUI.Components.Overlays.Drawer do
       |> assign(
         :close_classes,
         class_names([
-          "sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2",
+          "sui:inline-flex sui:min-h-11 sui:items-center sui:rounded-lg sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:text-foreground",
           classes_for(:focus, :default),
           assigns.close_class
         ])

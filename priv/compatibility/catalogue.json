@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-08-27",
+  "normativeTarget": "web-platform-capabilities",
+  "policy": {
+    "supportSelector": "declared-native-and-css-capabilities",
+    "fallbackRequired": true,
+    "userAgentBranches": false,
+    "applicationTargetBranches": false,
+    "consumerOwnsEnvironmentValidation": true
+  },
+  "authoritativeSources": {
+    "html-buttons-forms": {"url": "https://html.spec.whatwg.org/multipage/form-elements.html", "reviewedOn": "2026-08-27", "caveat": "Native behavior remains browser-owned and server validation remains mandatory."},
+    "html-details-dialog": {"url": "https://html.spec.whatwg.org/multipage/interactive-elements.html", "reviewedOn": "2026-08-27", "caveat": "Declarative dialog commands and closedby are required only by Dialog-family bundles."},
+    "html-popover": {"url": "https://html.spec.whatwg.org/multipage/popover.html", "reviewedOn": "2026-08-27", "caveat": "Popover support does not imply anchored placement or menu semantics."},
+    "html-semantics": {"url": "https://html.spec.whatwg.org/multipage/dom.html#wai-aria", "reviewedOn": "2026-08-27", "caveat": "Native semantics are preferred; visual resemblance never manufactures composite-widget roles."},
+    "selectors-has": {"url": "https://www.w3.org/TR/selectors-4/#relational", "reviewedOn": "2026-08-27", "caveat": "Optional presentation only; all related content remains present when unavailable."},
+    "media-preferences": {"url": "https://www.w3.org/TR/mediaqueries-5/#mf-user-preferences", "reviewedOn": "2026-08-27", "caveat": "Preference emulation is automated evidence, not a claim about every operating-system setting."},
+    "forced-colors": {"url": "https://www.w3.org/TR/css-color-adjust-1/#forced", "reviewedOn": "2026-08-27", "caveat": "Native controls and explicit boundaries remain the fallback."},
+    "scroll-snap": {"url": "https://www.w3.org/TR/css-scroll-snap-1/", "reviewedOn": "2026-08-27", "caveat": "Scroll snapping is optional and must not create slide state."},
+    "scroll-animations": {"url": "https://drafts.csswg.org/scroll-animations-1/", "reviewedOn": "2026-08-27", "caveat": "Timeline/range/scope effects are optional decoration with neutral or flat fallback."},
+    "anchor-position": {"url": "https://drafts.csswg.org/css-anchor-position-1/", "reviewedOn": "2026-08-27", "caveat": "Anchored placement is optional; bounded native placement remains usable."},
+    "customizable-select": {"url": "https://drafts.csswg.org/css-forms-1/#custom-select", "reviewedOn": "2026-08-27", "caveat": "Enhanced Select requires its complete CSS query; the classic select remains visible."},
+    "field-sizing": {"url": "https://drafts.csswg.org/css-ui-4/#field-sizing", "reviewedOn": "2026-08-27", "caveat": "Textarea content sizing is optional and keeps the fixed native baseline."}
+  },
+  "bundles": {
+    "static-content": {"native": ["html-content"], "enhancements": ["scoped-css"], "fallback": "Complete text and document order", "sources": ["html-semantics"]},
+    "native-button": {"native": ["button"], "enhancements": ["scoped-css", "focus-visible"], "fallback": "Native button and accessible name", "sources": ["html-buttons-forms", "media-preferences", "forced-colors"]},
+    "native-form": {"native": ["form-controls", "labels", "submission"], "enhancements": ["scoped-css", "focus-visible"], "fallback": "Visible native controls, relationships, values and submission", "sources": ["html-buttons-forms", "media-preferences", "forced-colors"]},
+    "enhanced-select": {"native": ["select", "options", "submission"], "enhancements": ["customizable-select"], "fallback": "Classic visible native select", "sources": ["html-buttons-forms", "customizable-select"]},
+    "disclosure": {"native": ["details", "summary"], "enhancements": ["exclusive-details", "scoped-css"], "fallback": "Independently operable disclosures", "sources": ["html-details-dialog", "media-preferences"]},
+    "navigation": {"native": ["landmarks", "headings", "lists", "links"], "enhancements": ["responsive-layout", "sticky-position"], "fallback": "Ordinary flow and destinations", "sources": ["html-semantics", "media-preferences"]},
+    "content-choice": {"native": ["overflow", "separator", "radio-controls"], "enhancements": ["has-selector", "edge-decoration"], "fallback": "Readable source order, native scrolling and all panels visible", "sources": ["html-buttons-forms", "selectors-has", "forced-colors"]},
+    "dialog": {"native": ["dialog", "declarative-commands", "closedby"], "enhancements": ["discrete-transitions"], "fallback": "Caller-authored ordinary destination or visible task", "sources": ["html-details-dialog", "media-preferences", "forced-colors"]},
+    "popover": {"native": ["popover", "popover-invoker"], "enhancements": ["anchor-position", "discrete-transitions"], "fallback": "Bounded native surface and ordinary destination", "sources": ["html-popover", "anchor-position", "media-preferences"]},
+    "supplemental": {"native": ["trigger-or-link", "accessible-description"], "enhancements": ["anchor-position", "css-hover-focus"], "fallback": "Required information at the trigger or destination", "sources": ["html-semantics", "anchor-position"]},
+    "scroll-media": {"native": ["overflow", "figures", "links"], "enhancements": ["scroll-snap", "scroll-animations", "transform-3d"], "fallback": "Complete native list or flat scroller with destinations", "sources": ["scroll-snap", "scroll-animations", "media-preferences"]},
+    "bounded-motion": {"native": ["ordered-content"], "enhancements": ["bounded-css-animation", "has-selector"], "fallback": "Static canonical content", "sources": ["media-preferences", "selectors-has"]},
+    "image-gallery": {"native": ["figures", "images", "links"], "enhancements": ["dialog-lightbox"], "fallback": "Figures and ordinary full-image destinations", "sources": ["html-details-dialog", "html-semantics"]}
+  },
+  "components": {
+    "foundation.button": "native-button", "foundation.badge": "static-content", "foundation.alert": "static-content", "foundation.card": "static-content", "foundation.avatar": "static-content", "foundation.skeleton": "static-content",
+    "forms.field": "native-form", "forms.label": "native-form", "forms.help": "native-form", "forms.field_errors": "native-form", "forms.error_summary": "native-form", "forms.input": "native-form", "forms.textarea": "native-form", "forms.checkbox": "native-form", "forms.radio_group": "native-form", "forms.switch": "native-form", "forms.native_select": "native-form", "forms.enhanced_select": "enhanced-select", "forms.slider": "native-form", "forms.progress": "native-form", "forms.meter": "native-form",
+    "disclosure.accordion": "disclosure", "navigation.navigation_menu": "navigation", "navigation.header": "navigation", "navigation.section_header": "navigation", "content.scroll_area": "content-choice", "content.separator": "content-choice", "content.radio_panels": "content-choice",
+    "overlays.dialog": "dialog", "overlays.alert-dialog": "dialog", "overlays.drawer": "dialog", "overlays.popover": "popover", "overlays.dropdown-actions": "popover", "overlays.tooltip": "supplemental", "overlays.hover-card": "supplemental",
+    "media.carousel": "scroll-media", "media.cover-flow": "scroll-media", "media.image-gallery": "image-gallery", "motion.marquee": "bounded-motion", "motion.stagger": "bounded-motion", "motion.scroll-indicator": "scroll-media"
+  },
+  "deliberateDeferrals": ["generated-scroll-controls", "interest-invokers", "true-tabs", "aria-menu-runtime", "package-javascript", "automatic-upstream-sync"]
+}
