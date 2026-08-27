@@ -1,5 +1,16 @@
 # Changelog
 
+## Milestone F Phase 5 — unreleased
+
+- Add committed-input candidate builds with output inventories and a disposable
+  clean-checkout runner for the internal `0.1.0` archive.
+- Add an isolated Phoenix consumer that installs the actual archive through a
+  temporary signed Hex repository, compiles representative public HEEx, and
+  serves the packaged stylesheet without a path dependency or consumer asset tooling.
+- Record candidate qualification as blocked while mandatory manual, CI,
+  integration, and SpecLed gates remain unresolved. No Hex publication, public
+  tag, platform certification, marketplace listing, or upstream affiliation is claimed.
+
 ## Milestone F Phase 3 — unreleased
 
 - Publish complete component/API, installation, capability/fallback, controller,

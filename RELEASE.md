@@ -1,13 +1,31 @@
 # Internal release process
 
+## Milestone F Phase 5 candidate status
+
+The repository still describes internal `0.1.0`. Clean committed-input build
+and actual-archive consumer trials pass locally; their commands and evidence
+contracts are documented in `docs/reproducible-candidate.md` and
+`docs/clean-consumer-trial.md`. The structured status is
+`release/candidate-status.json` and the readable interpretation is
+`docs/release-candidate.md`.
+
+The candidate is **blocked**, not qualified: Phase 5 integration has not yet
+completed, all six bounded human accessibility scenarios remain pending, CI
+has not run for this revision, and the known SpecLed nested-command failures
+have not been resolved. Gallery deployment and post-deploy smoke belong to the
+later publication phase and remain pending independently. No Hex publication,
+public tag, marketplace listing, platform certification, or official upstream
+affiliation is authorized or implied.
+
 ## Milestone F Phase 3 documentation candidate
 
 The repository still describes an internal `0.1.0` candidate. This phase makes
 the component, installation, compatibility, controller, Dstar, LiveView,
 migration, rollback, and provenance contracts reviewable; it does not prove the
-later clean-consumer, CI, Pages deployment, manual-review, public-tag, or Hex
-publication gates. See `docs/integrations.md`, `docs/upgrading.md`, and
-`docs/provenance.md`. Milestone F Phases 4–6 remain pending.
+later CI, Pages deployment, manual-review, public-tag, or Hex publication gates.
+See `docs/integrations.md`, `docs/upgrading.md`, and `docs/provenance.md`.
+Phases 4 and Sections 5.1–5.3 now supersede that historical status; Phase 5
+integration and Milestone F Phase 6 remain pending.
 
 ## Milestone E Phase 6 candidate
 

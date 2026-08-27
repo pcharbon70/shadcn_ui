@@ -47,25 +47,25 @@ Back to wave: [README](./README.md)
       - [x] 5.2.2.2 Subtask - Render an ordinary controller page and verify package version, public modules, stylesheet resolution and representative native interactions.
       - [x] 5.2.2.3 Subtask - Compile Dstar-shaped and LiveView-shaped stateless HEEX guidance where possible without adding either as a ShadcnUI dependency or support claim.
 
-  - [ ] 5.3 Section - Qualify the internal version and release record.
+  - [x] 5.3 Section - Qualify the internal version and release record.
 
     Establish exactly what `0.1.0` means and which gates still block final qualification.
 
-    - [ ] 5.3.1 Task - Reconcile versioning and migration policy.
+    - [x] 5.3.1 Task - Reconcile versioning and migration policy.
 
       Candidate identity and consumer expectations must agree across code and documentation.
 
-      - [ ] 5.3.1.1 Subtask - Confirm package version, changelog, migration notes, compatibility floors, deprecations and rollback instructions describe the same internal candidate.
-      - [ ] 5.3.1.2 Subtask - Document how future breaking component, token, CSS, capability or archive changes affect versioning and migration evidence.
-      - [ ] 5.3.1.3 Subtask - Verify no Hex publish, public tag, marketplace, consumer-platform certification or official upstream affiliation is claimed.
+      - [x] 5.3.1.1 Subtask - Confirm package version, changelog, migration notes, compatibility floors, deprecations and rollback instructions describe the same internal candidate.
+      - [x] 5.3.1.2 Subtask - Document how future breaking component, token, CSS, capability or archive changes affect versioning and migration evidence.
+      - [x] 5.3.1.3 Subtask - Verify no Hex publish, public tag, marketplace, consumer-platform certification or official upstream affiliation is claimed.
 
-    - [ ] 5.3.2 Task - Assemble candidate evidence and blocking status.
+    - [x] 5.3.2 Task - Assemble candidate evidence and blocking status.
 
       Release readiness should be a structured result rather than a narrative success claim.
 
-      - [ ] 5.3.2.1 Subtask - Record clean build identities, output hashes, archive inventory, documentation result, browser result and consumer trial result.
-      - [ ] 5.3.2.2 Subtask - List mandatory, manual, CI, deployment and post-deployment gates with explicit passed, failed, pending or not-applicable states.
-      - [ ] 5.3.2.3 Subtask - Block qualification on any failed or pending mandatory pre-publication gate and preserve exact diagnostic evidence.
+      - [x] 5.3.2.1 Subtask - Record clean build identities, output hashes, archive inventory, documentation result, browser result and consumer trial result.
+      - [x] 5.3.2.2 Subtask - List mandatory, manual, CI, deployment and post-deployment gates with explicit passed, failed, pending or not-applicable states.
+      - [x] 5.3.2.3 Subtask - Block qualification on any failed or pending mandatory pre-publication gate and preserve exact diagnostic evidence.
 
   - [ ] 5.4 Section - Phase 5 Integration Tests.
 
