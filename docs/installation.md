@@ -52,8 +52,8 @@ Reference that local asset after the application's reset or base stylesheet and
 before narrower consumer overrides:
 
 ```heex
-<link rel="stylesheet" href={~p"/vendor/shadcn-ui/shadcn_ui.css"} />
-<link rel="stylesheet" href={~p"/assets/app.css"} />
+<link rel="stylesheet" href="/vendor/shadcn-ui/shadcn_ui.css" />
+<link rel="stylesheet" href="/assets/app.css" />
 ```
 
 An existing asset pipeline may instead copy `ShadcnUI.stylesheet_path()` into

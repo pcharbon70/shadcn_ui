@@ -102,7 +102,7 @@ test("all E static subpaths retain no-script theme links and complete CSS-disabl
       await expect(page.locator("h1")).toBeVisible();
       const clones=page.locator('[data-shadcn-ui-motion-part="clone"]');
       for(const clone of await clones.all()) await expect(clone).toBeHidden();
-      const links=await page.locator('main a[href*="media/"]').evaluateAll(nodes=>nodes.map(n=>n.href));
+      const links=await page.locator('[data-shadcn-ui-gallery-destination], [data-shadcn-ui-cover-destination]').evaluateAll(nodes=>nodes.map(n=>n.href));
       for(const link of links) expect(new URL(link).origin).toBe(origin);
     }
     expect(remote).toEqual([]);

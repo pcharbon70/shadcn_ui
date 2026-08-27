@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 3 Phase - Public Documentation And Integration Guidance.
+- [x] 3 Phase - Public Documentation And Integration Guidance.
 
   Make the package understandable without reading implementation source or
   adopting the gallery's application structure.
@@ -67,25 +67,48 @@ Back to wave: [README](./README.md)
       - [x] 3.3.2.2 Subtask - Audit all component/CSS provenance entries, pinned upstream revision, MIT notice and independent project identity.
       - [x] 3.3.2.3 Subtask - Distinguish implemented API, internal candidate, public availability, CI, deployment and manual review status throughout public documentation.
 
-  - [ ] 3.4 Section - Phase 3 Integration Tests.
+  - [x] 3.4 Section - Phase 3 Integration Tests.
 
     Prove documentation completeness, compilability, transport neutrality and archive accuracy as one consumer-facing contract.
 
-    - [ ] 3.4.1 Task - Verify documentation parity and examples.
+    - [x] 3.4.1 Task - Verify documentation parity and examples.
 
       Automated checks must compare the actual public surface to every documentation channel.
 
-      - [ ] 3.4.1.1 Subtask - Add documentation tests for catalogue sections, ExDoc groups, attrs/slots, source links, ownership, fallback and provenance completeness.
-      - [ ] 3.4.1.2 Subtask - Compile all controller, gallery, README, Dstar-shaped fragment and LiveView-shaped HEEX examples through the intended public imports.
-      - [ ] 3.4.1.3 Subtask - Build warning-free ExDoc and audit generated links, excluded internals, changelog, migrations and legal notices.
+      - [x] 3.4.1.1 Subtask - Add documentation tests for catalogue sections, ExDoc groups, attrs/slots, source links, ownership, fallback and provenance completeness.
+      - [x] 3.4.1.2 Subtask - Compile all controller, gallery, README, Dstar-shaped fragment and LiveView-shaped HEEX examples through the intended public imports.
+      - [x] 3.4.1.3 Subtask - Build warning-free ExDoc and audit generated links, excluded internals, changelog, migrations and legal notices.
 
-    - [ ] 3.4.2 Task - Verify package and regression boundaries.
+    - [x] 3.4.2 Task - Verify package and regression boundaries.
 
       Documentation work may not introduce runtime frameworks, remote assets or stale gallery routes.
 
-      - [ ] 3.4.2.1 Subtask - Inspect dependencies, source and actual archive for absence of Dstar, application LiveView, controller, endpoint, Electron, remote asset and demo implementation.
-      - [ ] 3.4.2.2 Subtask - Run affected A-E package, gallery, provenance, CSS, export and browser regression suites.
-      - [ ] 3.4.2.3 Subtask - Run precommit, SpecLed and whitespace gates, record evidence, commit four sections and open one Phase 3 PR.
+      - [x] 3.4.2.1 Subtask - Inspect dependencies, source and actual archive for absence of Dstar, application LiveView, controller, endpoint, Electron, remote asset and demo implementation.
+      - [x] 3.4.2.2 Subtask - Run affected A-E package, gallery, provenance, CSS, export and browser regression suites.
+      - [x] 3.4.2.3 Subtask - Run precommit, SpecLed and whitespace gates, record evidence, commit four sections and open one Phase 3 PR.
+
+## Phase 3 verification evidence
+
+- Package precommit passed 381 tests; demo precommit passed 89 tests.
+- Compiled CSS checks passed and the actual 61-entry Hex archive passed its
+  allowlist, transport-neutrality, demo-exclusion, and local-asset audits.
+- Warning-free ExDoc generated and audited 61 HTML pages with no broken local
+  HTML links or internal helper pages.
+- Deterministic gallery export checks and static subpath smoke passed for 634
+  routes and three local assets.
+- Browser acceptance passed 16 current-gallery Chromium tests, 39 Milestone D
+  tests across locked Chromium/Firefox/WebKit, and 24 Milestone E tests across
+  the same three engines. A stale Milestone E selector was narrowed from any
+  URL containing `/media/` to explicit component destination markers after the
+  new package-source link exposed its false match; the focused three-engine
+  rerun and complete matrix then passed.
+- `mix spec.next` regenerated `.spec/state.json`. `mix spec.check --base HEAD`
+  continues the known local SpecLed runner limitation: its nested verification
+  shells select Elixir 1.18 and fail Phoenix compilation against the current OTP,
+  producing four command errors and 145 warnings. The same precommit and export
+  commands passed directly under the configured Elixir 1.20.3 / OTP 29 toolchain;
+  no gate was disabled or reported as passing.
+- `git diff --check` passed before the section commit.
 
 ## Section delivery rule
 
