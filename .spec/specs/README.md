@@ -26,12 +26,21 @@ gallery contracts.
 - [Overlay gallery and acceptance](./overlay_gallery.spec.md)
 - [Upstream provenance and attribution](./provenance.spec.md)
 
-## Milestone E planned contracts
+## Milestone E contracts
 
-These are accepted specifications for the next implementation wave, not a claim
-that the APIs or verification targets already exist.
+These accepted specifications now describe the implemented Milestone E surface.
 
 - [Shared motion, media, and capability contract](./motion_media_contract.spec.md)
 - [Carousel, Cover Flow, and Image Gallery](./media_components.spec.md)
 - [Marquee, Stagger, and Scroll Indicator](./motion_components.spec.md)
 - [Incremental motion/media gallery and acceptance](./motion_media_gallery.spec.md)
+
+## Milestone F planned contracts
+
+These accepted specifications define the next implementation wave. Planned
+verification targets are assignments, not claims that evidence already exists.
+
+- [Documentation catalogue, search, and information architecture](./documentation_catalogue.spec.md)
+- [Public documentation and integration guidance](./public_documentation.spec.md)
+- [Consumer-neutral compatibility and accessibility acceptance](./compatibility_accessibility.spec.md)
+- [Internal release candidate and versioned gallery publication](./release_publication.spec.md)
