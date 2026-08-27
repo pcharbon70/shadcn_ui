@@ -12,6 +12,8 @@ defmodule ShadcnUIDemoWeb.Layouts do
   slot :inner_block, required: true
 
   def gallery(assigns) do
+    assigns = assign(assigns, :search_texts, ShadcnUIDemo.DocumentationCatalogue.search_texts())
+
     ~H"""
     <a class="gallery-skip-link" href="#main-content">Skip to main content</a>
     <header class="gallery-masthead">
@@ -65,6 +67,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
           page={@page}
           categories={@categories}
           components={@components}
+          search_texts={@search_texts}
         />
       </nav>
 
@@ -75,6 +78,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
             page={@page}
             categories={@categories}
             components={@components}
+            search_texts={@search_texts}
           />
         </nav>
       </details>
@@ -104,6 +108,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
   attr :page, :map, required: true
   attr :categories, :list, required: true
   attr :components, :list, required: true
+  attr :search_texts, :map, required: true
 
   defp navigation_sections(assigns) do
     ~H"""
@@ -118,9 +123,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
           :for={component <- Enum.filter(@components, &(&1.category == category.slug))}
           data-gallery-search-item
           data-gallery-search-route={component.path}
-          data-gallery-search-text={
-            ShadcnUIDemo.DocumentationCatalogue.search_text!(category.slug, component.slug)
-          }
+          data-gallery-search-text={Map.fetch!(@search_texts, component.path)}
         >
           <a href={component.path} aria-current={@page.path == component.path && "page"}>
             {component.label}

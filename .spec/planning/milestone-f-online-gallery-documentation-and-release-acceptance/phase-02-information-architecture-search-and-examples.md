@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 2 Phase - Information Architecture, Search, And Examples.
+- [x] 2 Phase - Information Architecture, Search, And Examples.
 
   Turn the Phase 1 inventory into responsive, searchable and deep-linkable
   public documentation while preserving ordinary no-script navigation.
@@ -67,25 +67,25 @@ Back to wave: [README](./README.md)
       - [x] 2.3.2.2 Subtask - Render escaped source with optional demo-only copy feedback that remains usable as selectable text when scripting is absent.
       - [x] 2.3.2.3 Subtask - Expose light/dark, reduced-motion and missing-capability inspection without fabricating package behavior.
 
-  - [ ] 2.4 Section - Phase 2 Integration Tests.
+  - [x] 2.4 Section - Phase 2 Integration Tests.
 
     Verify complete navigation, safe search, stable fragments, real previews and static export across responsive modes.
 
-    - [ ] 2.4.1 Task - Exercise live and static gallery behavior.
+    - [x] 2.4.1 Task - Exercise live and static gallery behavior.
 
       The same information architecture must work from controller routes and repository-subpath exports.
 
-      - [ ] 2.4.1.1 Subtask - Add browser tests for desktop/mobile navigation, current state, breadcrumbs, direct component and fragment entry, history and 404 behavior.
-      - [ ] 2.4.1.2 Subtask - Test search result filtering, announcements, reset, hostile-looking text, no matches and no-script completeness.
-      - [ ] 2.4.1.3 Subtask - Check every source block, preview, theme/motion link, canonical URL and local search asset in two byte-identical exports.
+      - [x] 2.4.1.1 Subtask - Add browser tests for desktop/mobile navigation, current state, breadcrumbs, direct component and fragment entry, history and 404 behavior.
+      - [x] 2.4.1.2 Subtask - Test search result filtering, announcements, reset, hostile-looking text, no matches and no-script completeness.
+      - [x] 2.4.1.3 Subtask - Check every source block, preview, theme/motion link, canonical URL and local search asset in two byte-identical exports.
 
-    - [ ] 2.4.2 Task - Verify accessibility and release isolation.
+    - [x] 2.4.2 Task - Verify accessibility and release isolation.
 
       Progressive demo improvements may not weaken semantics or enter the package.
 
-      - [ ] 2.4.2.1 Subtask - Run explicit landmark, label, focus-order, visible-focus, zoom, long-label, narrow-layout and pinned axe checks.
-      - [ ] 2.4.2.2 Subtask - Re-run A-E gallery/browser regressions and actual archive exclusions for all new demo JavaScript, metadata and search output.
-      - [ ] 2.4.2.3 Subtask - Run precommit, SpecLed and whitespace gates, record evidence, commit four sections and open one Phase 2 PR.
+      - [x] 2.4.2.1 Subtask - Run explicit landmark, label, focus-order, visible-focus, zoom, long-label, narrow-layout and pinned axe checks.
+      - [x] 2.4.2.2 Subtask - Re-run A-E gallery/browser regressions and actual archive exclusions for all new demo JavaScript, metadata and search output.
+      - [x] 2.4.2.3 Subtask - Run precommit, SpecLed and whitespace gates, record evidence, commit four sections and open one Phase 2 PR.
 
 ## Section delivery rule
 

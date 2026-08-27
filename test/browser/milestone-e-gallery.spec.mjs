@@ -18,7 +18,8 @@ for(const theme of ["light","dark"]) test(`${theme}: all E references and compos
     expect(await page.getByRole("navigation",{name:"Motion inspection",exact:true}).evaluate(el=>parseFloat(getComputedStyle(el).gap))).toBeGreaterThan(0);
     await expect(page.getByRole("main")).toHaveCount(1);
     await expect(page.getByRole("heading",{level:1})).toHaveCount(1);
-    const nav=page.getByRole("navigation",{name:"Component navigation",exact:true});
+    await page.locator(".gallery-mobile-navigation summary").click();
+    const nav=page.getByRole("navigation",{name:"Mobile component navigation",exact:true});
     await expect(nav.locator('[aria-current="page"]')).toHaveCount(1);
     await expect(nav.locator('[aria-current="page"]')).toHaveAttribute("href",path);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",canonical+path);

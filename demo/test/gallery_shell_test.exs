@@ -50,7 +50,8 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert layout =~ ~s(label for="gallery-component-search")
     assert layout =~ ~s(maxlength="200")
     assert layout =~ "data-gallery-search-item"
-    assert layout =~ "DocumentationCatalogue.search_text!"
+    assert layout =~ "DocumentationCatalogue.search_texts()"
+    assert layout =~ "Map.fetch!(@search_texts, component.path)"
     assert javascript =~ "item.hidden = !visible"
     assert javascript =~ "searchStatus.textContent"
     assert javascript =~ "new Set()"

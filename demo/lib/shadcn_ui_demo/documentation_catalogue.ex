@@ -174,15 +174,14 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @doc "Returns the minimal, deterministic search document records in catalogue order."
   @spec search_records() :: [map()]
   def search_records do
-    Enum.map(entries(), fn entry ->
-      %{
-        "category" => entry.category.label,
-        "keywords" => search_keywords(entry),
-        "name" => entry.label,
-        "route" => entry.route,
-        "summary" => entry.documentation.what,
-        "url" => @static_base <> entry.route
-      }
+    Enum.map(entries(), &search_record/1)
+  end
+
+  @doc "Returns normalized search text keyed only by authored component routes."
+  @spec search_texts() :: %{String.t() => String.t()}
+  def search_texts do
+    Map.new(search_records(), fn record ->
+      {record["route"], normalize_record(record)}
     end)
   end
 
@@ -198,11 +197,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     with {:ok, entry} <- lookup(category, slug) do
       entry
       |> search_record()
-      |> Map.take(~w(category keywords name summary))
-      |> Map.values()
-      |> List.flatten()
-      |> Enum.join(" ")
-      |> normalize_search()
+      |> normalize_record()
     else
       :error -> raise ArgumentError, "unknown documentation catalogue identity"
     end
@@ -391,7 +386,23 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   end
 
   defp search_record(entry) do
-    Enum.find(search_records(), &(&1["route"] == entry.route))
+    %{
+      "category" => entry.category.label,
+      "keywords" => search_keywords(entry),
+      "name" => entry.label,
+      "route" => entry.route,
+      "summary" => entry.documentation.what,
+      "url" => @static_base <> entry.route
+    }
+  end
+
+  defp normalize_record(record) do
+    record
+    |> Map.take(~w(category keywords name summary))
+    |> Map.values()
+    |> List.flatten()
+    |> Enum.join(" ")
+    |> normalize_search()
   end
 
   defp search_keywords(entry) do

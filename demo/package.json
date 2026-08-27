@@ -12,6 +12,7 @@
     "browser:forms": "playwright test --config=playwright.forms.config.mjs",
     "browser:milestone-b": "playwright test --config=playwright.milestone-b.config.mjs",
     "browser:milestone-c": "playwright test --config=playwright.milestone-c.config.mjs",
+    "browser:milestone-f": "playwright test test/browser/milestone-f-catalogue.spec.mjs",
     "smoke": "node scripts/smoke-gallery.mjs"
   },
   "devDependencies": {

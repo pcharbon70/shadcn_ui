@@ -2,6 +2,7 @@ defmodule ShadcnUIDemo.StaticExportTest do
   use ExUnit.Case, async: true
 
   # covers: shadcn_ui.documentation_catalogue.package_boundary
+  # covers: shadcn_ui.documentation_catalogue.deterministic_search
 
   test "export is closed, deterministic, local, ignored, and package-excluded" do
     task = File.read!("lib/mix/tasks/gallery.export.ex")
