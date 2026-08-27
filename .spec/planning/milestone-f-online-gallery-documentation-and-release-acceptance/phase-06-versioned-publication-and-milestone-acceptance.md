@@ -7,25 +7,25 @@ Back to wave: [README](./README.md)
   Harden immutable gallery publication and operational recovery, then reconcile
   every Milestone F requirement and gate without conflating merge with deploy.
 
-  - [ ] 6.1 Section - Finalize immutable publication artifacts.
+  - [x] 6.1 Section - Finalize immutable publication artifacts.
 
     Make the static site self-identifying, inspectable and deterministic before workflow changes.
 
-    - [ ] 6.1.1 Task - Complete health and release manifests.
+    - [x] 6.1.1 Task - Complete health and release manifests.
 
       Machine-readable metadata must expose useful non-secret artifact identity and checks.
 
-      - [ ] 6.1.1.1 Subtask - Emit package version, full revision, catalogue schema, upstream revision, canonical URL and deterministic asset identities from validated build inputs.
-      - [ ] 6.1.1.2 Subtask - Record known route, search, sitemap, CSS, script, media and error-page health checks without mutable state or runtime source discovery.
-      - [ ] 6.1.1.3 Subtask - Validate schemas, escaping, subpath URLs, content types and absence of credentials, environment secrets and user data.
+      - [x] 6.1.1.1 Subtask - Emit package version, full revision, catalogue schema, upstream revision, canonical URL and deterministic asset identities from validated build inputs.
+      - [x] 6.1.1.2 Subtask - Record known route, search, sitemap, CSS, script, media and error-page health checks without mutable state or runtime source discovery.
+      - [x] 6.1.1.3 Subtask - Validate schemas, escaping, subpath URLs, content types and absence of credentials, environment secrets and user data.
 
-    - [ ] 6.1.2 Task - Audit the complete versioned export.
+    - [x] 6.1.2 Task - Audit the complete versioned export.
 
       The artifact must contain every documented page and only local declared assets.
 
-      - [ ] 6.1.2.1 Subtask - Verify every catalogue route/fragment, composition, source, canonical, search record, sitemap entry and health target exists.
-      - [ ] 6.1.2.2 Subtask - Produce two byte-identical exports and audit local asset hashes, references, repository-subpath behavior, unknown routes and stale files.
-      - [ ] 6.1.2.3 Subtask - Ensure package contents remain independent of the gallery artifact, workflow configuration and deployment metadata.
+      - [x] 6.1.2.1 Subtask - Verify every catalogue route/fragment, composition, source, canonical, search record, sitemap entry and health target exists.
+      - [x] 6.1.2.2 Subtask - Produce two byte-identical exports and audit local asset hashes, references, repository-subpath behavior, unknown routes and stale files.
+      - [x] 6.1.2.3 Subtask - Ensure package contents remain independent of the gallery artifact, workflow configuration and deployment metadata.
 
   - [ ] 6.2 Section - Harden deployment, smoke checks and rollback.
 

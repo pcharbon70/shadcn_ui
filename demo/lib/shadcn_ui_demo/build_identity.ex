@@ -12,12 +12,14 @@ defmodule ShadcnUIDemo.BuildIdentity do
   @revision_pattern ~r/^[0-9a-f]{40}$/
   @version_pattern ~r/^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?$/
   @schema_pattern ~r/^[1-9]\d*$/
+  @canonical_url "https://leco-industries-inc.github.io/shadcn_ui/"
 
   @type t :: %{
           package_version: String.t(),
           build_revision: String.t(),
           catalogue_schema: String.t(),
           upstream_revision: String.t(),
+          canonical_url: String.t(),
           development: boolean()
         }
 
@@ -31,7 +33,8 @@ defmodule ShadcnUIDemo.BuildIdentity do
       build_revision:
         Application.get_env(:shadcn_ui_demo, :build_revision, @development_revision),
       catalogue_schema: DocumentationCatalogue.schema_version(),
-      upstream_revision: upstream_revision()
+      upstream_revision: upstream_revision(),
+      canonical_url: Application.get_env(:shadcn_ui_demo, :canonical_url, @canonical_url)
     })
   end
 
@@ -49,7 +52,8 @@ defmodule ShadcnUIDemo.BuildIdentity do
       package_version: Map.get(values, :package_version),
       build_revision: Map.get(values, :build_revision),
       catalogue_schema: Map.get(values, :catalogue_schema),
-      upstream_revision: Map.get(values, :upstream_revision)
+      upstream_revision: Map.get(values, :upstream_revision),
+      canonical_url: Map.get(values, :canonical_url, @canonical_url)
     }
 
     errors =
@@ -58,6 +62,7 @@ defmodule ShadcnUIDemo.BuildIdentity do
       |> validate_field(:build_revision, identity.build_revision, @revision_pattern)
       |> validate_field(:catalogue_schema, identity.catalogue_schema, @schema_pattern)
       |> validate_field(:upstream_revision, identity.upstream_revision, @revision_pattern)
+      |> validate_canonical_url(identity.canonical_url)
       |> Enum.sort()
 
     case errors do
@@ -78,6 +83,7 @@ defmodule ShadcnUIDemo.BuildIdentity do
       "buildRevision" => identity.build_revision,
       "catalogueSchema" => identity.catalogue_schema,
       "upstreamRevision" => identity.upstream_revision,
+      "canonicalUrl" => identity.canonical_url,
       "development" => identity.development
     }
   end
@@ -96,6 +102,20 @@ defmodule ShadcnUIDemo.BuildIdentity do
   end
 
   defp validate_field(errors, field, _value, _pattern), do: ["invalid #{field}" | errors]
+
+  defp validate_canonical_url(errors, value) when is_binary(value) do
+    uri = URI.parse(value)
+
+    if uri.scheme == "https" and uri.host == "leco-industries-inc.github.io" and
+         uri.path == "/shadcn_ui/" and is_nil(uri.userinfo) and is_nil(uri.query) and
+         is_nil(uri.fragment) do
+      errors
+    else
+      ["invalid canonical_url" | errors]
+    end
+  end
+
+  defp validate_canonical_url(errors, _value), do: ["invalid canonical_url" | errors]
 
   defp upstream_revision do
     :shadcn_ui

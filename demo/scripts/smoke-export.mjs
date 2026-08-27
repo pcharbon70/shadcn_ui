@@ -5,6 +5,12 @@ import { createHash } from "node:crypto";
 
 const root = new URL("../export/", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("route-manifest.json", root), "utf8"));
+const publicationFiles = {
+  "release.json": "application/json",
+  "health.json": "application/json",
+  "sitemap.xml": "application/xml",
+  "route-manifest.json": "application/json"
+};
 const files = new Map();
 for (const entry of manifest.routes) {
   const bytes = await readFile(new URL(entry.file, root));
@@ -26,6 +32,9 @@ for (const [file, metadata] of Object.entries(manifest.media)) {
 const searchBytes = await readFile(new URL(manifest.search.file, root));
 if (createHash("sha256").update(searchBytes).digest("hex") !== manifest.search.sha256) throw new Error("search hash mismatch");
 files.set(`/shadcn_ui/${manifest.search.file}`, { bytes: searchBytes, status: 200, type: "application/json" });
+for (const [file, type] of Object.entries(publicationFiles)) {
+  files.set(`/shadcn_ui/${file}`, { bytes: await readFile(new URL(file, root)), status: 200, type });
+}
 const server = createServer((req, res) => {
   // Serve only the loaded manifest; request input can never select a file path.
   const file = files.get(new URL(req.url, "http://127.0.0.1").pathname) || files.get("/shadcn_ui/404.html");
@@ -56,6 +65,10 @@ try {
   const search = await searchResponse.json();
   if (!searchResponse.ok || search.records.length !== 41 || search.records.some(record => !record.url.startsWith("/shadcn_ui/components/"))) throw new Error("broken subpath search document");
   if (missing.status !== 404 || (await missing.text()).includes("untrusted")) throw new Error("invalid static 404");
+  for (const [file, type] of Object.entries(publicationFiles)) {
+    const response = await fetch(new URL(file, base));
+    if (!response.ok || response.headers.get("content-type") !== type) throw new Error(`invalid publication content type: ${file}`);
+  }
   console.log(`Static subpath smoke passed: ${manifest.routes.length} routes and ${Object.keys(manifest.assets).length} local assets.`);
 } finally {
   await new Promise((resolve, reject) => server.close(error => error ? reject(error) : resolve()));

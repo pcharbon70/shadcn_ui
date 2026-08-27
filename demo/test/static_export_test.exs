@@ -13,6 +13,8 @@ defmodule ShadcnUIDemo.StaticExportTest do
 
     assert task =~ "ShadcnUIDemo.Catalogue.routes()"
     assert task =~ "route-manifest.json"
+    assert task =~ "release.json"
+    assert task =~ "health.json"
     assert task =~ "BuildIdentity.release_metadata(identity)"
     assert task =~ "BuildIdentity.health_metadata(identity)"
     assert task =~ "sitemap.xml"
@@ -21,6 +23,7 @@ defmodule ShadcnUIDemo.StaticExportTest do
     assert task =~ ~s("search" => search)
     assert task =~ ":crypto.hash(:sha256"
     assert task =~ "reject_remote_runtime!"
+    assert task =~ "canonical_url"
     assert task =~ "~w(shadcn.css gallery.css gallery.js)"
     assert task =~ "ShadcnUIDemoWeb.GalleryAssets.path/1"
     assert File.read!("scripts/check-export-determinism.mjs") =~ ~s(MIX_ENV: "test")

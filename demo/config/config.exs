@@ -10,7 +10,12 @@ import Config
 config :shadcn_ui_demo,
   namespace: ShadcnUIDemo,
   generators: [timestamp_type: :utc_datetime],
-  build_revision: System.get_env("SHADCN_UI_BUILD_REVISION", String.duplicate("0", 40))
+  build_revision: System.get_env("SHADCN_UI_BUILD_REVISION", String.duplicate("0", 40)),
+  canonical_url:
+    System.get_env(
+      "SHADCN_UI_CANONICAL_URL",
+      "https://leco-industries-inc.github.io/shadcn_ui/"
+    )
 
 # Configure the endpoint
 config :shadcn_ui_demo, ShadcnUIDemoWeb.Endpoint,
