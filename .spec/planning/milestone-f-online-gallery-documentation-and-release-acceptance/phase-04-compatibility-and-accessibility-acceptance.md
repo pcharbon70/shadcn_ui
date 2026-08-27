@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 4 Phase - Compatibility And Accessibility Acceptance.
+- [x] 4 Phase - Compatibility And Accessibility Acceptance.
 
   Execute the complete capability-based browser, fallback, responsive and
   accessibility matrix without turning evidence engines into product targets.
@@ -67,25 +67,50 @@ Back to wave: [README](./README.md)
       - [x] 4.3.2.2 Subtask - Record reviewer, date, hardware, browser, assistive technology, steps, observations, defects and retest result.
       - [x] 4.3.2.3 Subtask - Keep unexecuted platforms or scenarios pending and block qualification on unresolved mandatory defects without claiming WCAG certification.
 
-  - [ ] 4.4 Section - Phase 4 Integration Tests.
+  - [x] 4.4 Section - Phase 4 Integration Tests.
 
     Consolidate exact-engine, fallback, automated, manual and historical regression evidence.
 
-    - [ ] 4.4.1 Task - Run the complete compatibility matrix.
+    - [x] 4.4.1 Task - Run the complete compatibility matrix.
 
       Acceptance must connect each catalogue entry to behavior and fallback evidence.
 
-      - [ ] 4.4.1.1 Subtask - Add milestone-f compatibility browser tests and execute the complete gallery in all exact locked engines.
-      - [ ] 4.4.1.2 Subtask - Re-run Milestones A-E browser suites, capability records, static export smoke and deliberately disabled-feature fixtures.
-      - [ ] 4.4.1.3 Subtask - Compare results to catalogue completeness and fail stale, missing, contradictory or engine-only support claims.
+      - [x] 4.4.1.1 Subtask - Add milestone-f compatibility browser tests and execute the complete gallery in all exact locked engines.
+      - [x] 4.4.1.2 Subtask - Re-run Milestones A-E browser suites, capability records, static export smoke and deliberately disabled-feature fixtures.
+      - [x] 4.4.1.3 Subtask - Compare results to catalogue completeness and fail stale, missing, contradictory or engine-only support claims.
 
-    - [ ] 4.4.2 Task - Reconcile evidence and phase gates.
+    - [x] 4.4.2 Task - Reconcile evidence and phase gates.
 
       Every evidence kind and remaining limitation must be visible before candidate work starts.
 
-      - [ ] 4.4.2.1 Subtask - Add acceptance tests for capability policy, consumer boundary, evidence separation and the structured manual-review ledger.
-      - [ ] 4.4.2.2 Subtask - Run package/demo precommit, SpecLed main/HEAD and whitespace checks without waiving existing failures.
-      - [ ] 4.4.2.3 Subtask - Record executed and pending evidence, commit four sections and open one Phase 4 PR.
+      - [x] 4.4.2.1 Subtask - Add acceptance tests for capability policy, consumer boundary, evidence separation and the structured manual-review ledger.
+      - [x] 4.4.2.2 Subtask - Run package/demo precommit, SpecLed main/HEAD and whitespace checks without waiving existing failures.
+      - [x] 4.4.2.3 Subtask - Record executed and pending evidence, commit four sections and open one Phase 4 PR.
+
+## Phase 4 evidence recorded on 2026-08-27
+
+- Package precommit passed with 388 tests; demo precommit passed with 89 tests.
+- ExDoc completed with warnings treated as errors. The Hex archive allowlist
+  passed with 62 entries, including normative compatibility manifests and
+  excluding demo-only observed evidence.
+- The deterministic repository-subpath export passed for 634 routes and three
+  local assets with no remote runtime dependency.
+- Milestones A-E browser regression suites passed 459 tests after one stale
+  Milestone B navigation assertion was reconciled with the current responsive
+  gallery contract. One Milestone E Firefox context-close protocol fault was
+  transient; its exact 60-test suite passed on immediate full rerun.
+- Phase 4 passed 15 tests across locked Chromium, Firefox and WebKit projects,
+  covering all 41 component pages, native interaction, disabled resources,
+  static publication, pinned axe 4.13.0 and explicit semantic assertions.
+- Exact engine and motion/media capability records matched their lockfiles.
+- Direct package and demo gates use Elixir 1.20.3 and OTP 29 and pass. The
+  SpecLed command-runner still starts nested verification commands with Elixir
+  1.18.0, producing four existing verification-command errors. Its full result
+  is 4 errors and 140 existing warnings; all findings remain reported rather
+  than waived.
+- All six human manual-review scenarios remain `PENDING` in
+  `docs/accessibility-review.md`. Automated acceptance passes, but manual
+  accessibility acceptance and WCAG certification are not claimed.
 
 ## Section delivery rule
 

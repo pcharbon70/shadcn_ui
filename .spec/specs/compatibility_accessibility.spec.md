@@ -12,9 +12,11 @@ decisions:
   - shadcn_ui.motion_media_capability_css
 surface:
   - priv/compatibility/*.json
+  - priv/compatibility/catalogue.json
   - docs/compatibility.md
   - docs/accessibility-review.md
   - test/browser/milestone-f-compatibility.spec.mjs
+  - test/shadcn_ui/milestone_f_capability_policy_test.exs
   - test/shadcn_ui/milestone_f_acceptance_test.exs
 ```
 
@@ -78,6 +80,12 @@ surface:
     - shadcn_ui.compatibility_accessibility.responsive_and_preferences
     - shadcn_ui.compatibility_accessibility.keyboard_and_semantics
     - shadcn_ui.compatibility_accessibility.automated_accessibility
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_f_capability_policy_test.exs
+  covers:
+    - shadcn_ui.compatibility_accessibility.capability_policy
+    - shadcn_ui.compatibility_accessibility.exact_engine_evidence
 
 - kind: test_file
   target: test/shadcn_ui/milestone_f_acceptance_test.exs

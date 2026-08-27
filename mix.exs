@@ -86,6 +86,7 @@ defmodule ShadcnUI.MixProject do
         "docs/components.md",
         "docs/installation.md",
         "docs/compatibility.md",
+        "docs/accessibility-review.md",
         "docs/integrations.md",
         "docs/upgrading.md",
         "docs/provenance.md",

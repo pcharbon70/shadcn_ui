@@ -5,6 +5,7 @@ defmodule ShadcnUI.MilestoneFCapabilityPolicyTest do
   @evidence File.read!("demo/priv/compatibility/milestone_f_engine_evidence.json")
             |> Jason.decode!()
 
+  # covers: shadcn_ui.compatibility_accessibility.capability_policy
   test "closed capability policy covers all 41 public catalogue identities" do
     assert @manifest["normativeTarget"] == "web-platform-capabilities"
     assert @manifest["policy"]["userAgentBranches"] == false
@@ -35,6 +36,7 @@ defmodule ShadcnUI.MilestoneFCapabilityPolicyTest do
     assert "true-tabs" in @manifest["deliberateDeferrals"]
   end
 
+  # covers: shadcn_ui.compatibility_accessibility.exact_engine_evidence
   test "exact engines and component outcomes remain observed evidence" do
     assert @evidence["evidenceType"] == "observed-not-normative"
     assert @evidence["recordedOn"] == "2026-08-27"

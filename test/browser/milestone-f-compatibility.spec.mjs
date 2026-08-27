@@ -38,6 +38,7 @@ async function axeAudit(page, {colorContrast = true} = {}) {
 
 // covers: shadcn_ui.compatibility_accessibility.keyboard_and_semantics
 // covers: shadcn_ui.compatibility_accessibility.responsive_and_preferences
+// covers: shadcn_ui.compatibility_accessibility.exact_engine_evidence
 test("all 41 public pages retain honest semantics, relationships, identity, and both themes", async ({page}) => {
   const routes = await componentRoutes(page);
   for (const [index, route] of routes.entries()) {
