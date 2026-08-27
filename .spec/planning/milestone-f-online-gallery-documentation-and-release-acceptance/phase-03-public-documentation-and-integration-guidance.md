@@ -47,25 +47,25 @@ Back to wave: [README](./README.md)
       - [x] 3.2.2.2 Subtask - Explain how consumers evaluate their own browser or embedded renderer without implying ShadcnUI platform certification.
       - [x] 3.2.2.3 Subtask - Define the review and migration process for admitting a feature or raising a capability floor.
 
-  - [ ] 3.3 Section - Publish transport-neutral integration and upgrade guides.
+  - [x] 3.3 Section - Publish transport-neutral integration and upgrade guides.
 
     Show common Phoenix consumption patterns while leaving application state and transport outside the package.
 
-    - [ ] 3.3.1 Task - Provide controller, Dstar and LiveView guidance.
+    - [x] 3.3.1 Task - Provide controller, Dstar and LiveView guidance.
 
       All examples should render the same explicit stateless component snapshots.
 
-      - [ ] 3.3.1.1 Subtask - Add a runnable controller-rendered Phoenix example covering public imports, assigns, stylesheet delivery and ordinary navigation.
-      - [ ] 3.3.1.2 Subtask - Add Dstar guidance for rendering validated server-owned HEEX patches without adding Dstar, routes, actions or signals to ShadcnUI.
-      - [ ] 3.3.1.3 Subtask - Add LiveView guidance for rendering explicit assigns and caller-owned events without making LiveView state a component contract.
+      - [x] 3.3.1.1 Subtask - Add a runnable controller-rendered Phoenix example covering public imports, assigns, stylesheet delivery and ordinary navigation.
+      - [x] 3.3.1.2 Subtask - Add Dstar guidance for rendering validated server-owned HEEX patches without adding Dstar, routes, actions or signals to ShadcnUI.
+      - [x] 3.3.1.3 Subtask - Add LiveView guidance for rendering explicit assigns and caller-owned events without making LiveView state a component contract.
 
-    - [ ] 3.3.2 Task - Complete version, migration and provenance records.
+    - [x] 3.3.2 Task - Complete version, migration and provenance records.
 
       Candidate consumers need to know what changed, what is licensed and how to recover.
 
-      - [ ] 3.3.2.1 Subtask - Reconcile README, changelog, migration notes, deprecation policy, compatibility floors and rollback guidance with the internal 0.1.0 scope.
-      - [ ] 3.3.2.2 Subtask - Audit all component/CSS provenance entries, pinned upstream revision, MIT notice and independent project identity.
-      - [ ] 3.3.2.3 Subtask - Distinguish implemented API, internal candidate, public availability, CI, deployment and manual review status throughout public documentation.
+      - [x] 3.3.2.1 Subtask - Reconcile README, changelog, migration notes, deprecation policy, compatibility floors and rollback guidance with the internal 0.1.0 scope.
+      - [x] 3.3.2.2 Subtask - Audit all component/CSS provenance entries, pinned upstream revision, MIT notice and independent project identity.
+      - [x] 3.3.2.3 Subtask - Distinguish implemented API, internal candidate, public availability, CI, deployment and manual review status throughout public documentation.
 
   - [ ] 3.4 Section - Phase 3 Integration Tests.
 

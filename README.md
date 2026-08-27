@@ -1,8 +1,17 @@
 # ShadcnUI
 
 Transport-neutral Phoenix function components using native HTML and isolated,
-shadcn-style CSS. Milestones A through D provide Foundation, Forms, Disclosure,
-Navigation, Content Surfaces, Overlays, and Interactive Surfaces.
+shadcn-style CSS. The repository is qualifying an internal `0.1.0` candidate;
+it is not publicly available on Hex and Milestone F acceptance is still pending.
+Milestones A through E provide Foundation, Forms, Disclosure, Navigation,
+Content Surfaces, Overlays, Interactive Surfaces, Media, and Motion.
+
+Start with the [component index](docs/components.md),
+[installation guide](docs/installation.md),
+[integration guide](docs/integrations.md), and
+[upgrade policy](docs/upgrading.md). Dstar and LiveView are documented as
+consumer-owned transports around the same stateless HEEX API; neither is a
+ShadcnUI application dependency or state owner.
 
 The [gallery](https://leco-industries-inc.github.io/shadcn_ui/) is a separate
 reference consumer. Milestone D adds seven component pages, four complete
