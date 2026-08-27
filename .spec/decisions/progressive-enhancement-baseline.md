@@ -15,8 +15,8 @@ affects:
 
 The design basis intentionally explores modern HTML and CSS. A zero-component-
 JavaScript claim is only useful when unsupported features leave semantic content
-and native controls available. Browser support changes over time and the Electron
-renderer has a separately pinned Chromium version.
+and native controls available. Browser support changes over time, and consumers
+may pin different web or embedded renderers outside the package's ownership.
 
 ## Decision
 
@@ -31,8 +31,9 @@ browser assumptions, and exact fallback behavior.
 - Reduced-motion preferences disable or shorten nonessential animation without
   removing state, status, or focus visibility.
 - Browser claims are verified from authoritative compatibility sources when a
-  component is specified and are exercised in the gallery's locked browser
-  matrix and supported Electron Chromium build.
+  component is specified and are exercised in the gallery's exact locked
+  Chromium, Firefox, and WebKit evidence matrix. Those builds are evidence, not
+  normative product or embedded-renderer targets.
 - The gallery distinguishes native behavior, package CSS enhancement, fallback,
   and demo-only behavior. It does not label demo shims as package capability.
 - Milestone A foundation components must work without JavaScript and without

@@ -51,3 +51,13 @@ will land through the Milestone E phases.
 3. [Make decorative motion optional, bounded, and safely duplicated](./bounded-motion-reduced-motion-and-duplication.md)
 4. [Keep responsive images caller-owned and reuse native Dialog](./responsive-media-and-native-gallery-lightbox.md)
 5. [Deliver each component with its actual gallery page](./incremental-motion-media-gallery-and-acceptance.md)
+
+## Milestone F decisions
+
+These decisions define documentation and internal release qualification. They
+add no component family, package runtime, transport or consumer-platform target.
+
+1. [Drive documentation from a closed catalogue and keep demo tooling progressive](./catalogue-driven-documentation-and-progressive-demo-tooling.md)
+2. [Keep compatibility and integration guidance consumer-neutral](./consumer-neutral-compatibility-and-integration-guidance.md)
+3. [Publish immutable gallery evidence with explicit operations](./versioned-gallery-publication-and-operations.md)
+4. [Qualify an internal release candidate through a clean consumer trial](./internal-release-candidate-and-clean-consumer-trial.md)

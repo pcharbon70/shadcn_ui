@@ -14,3 +14,4 @@ Plans are non-normative and must not rewrite completed milestone history.
 3. [Milestone C - Disclosure, Navigation, and Content Surfaces](./milestone-c-disclosure-navigation-and-content-surfaces/README.md)
 4. [Milestone D - Native Overlays and Interactive Surfaces](./milestone-d-native-overlays-and-interactive-surfaces/README.md)
 5. [Milestone E - Motion, Media, and Advanced CSS](./milestone-e-motion-media-and-advanced-css/README.md)
+6. [Milestone F - Online Gallery, Documentation, and Release Acceptance](./milestone-f-online-gallery-documentation-and-release-acceptance/README.md)

@@ -12,8 +12,8 @@ browser compatibility, deterministic assets, and deployment reliability.
 - Every public component has one stable online route, a rendered preview,
   copyable HEEX usage, API documentation, semantics, ownership boundaries,
   browser assumptions, and fallback behavior.
-- The gallery is useful on desktop, mobile, keyboard-only, and the supported
-  Electron renderer.
+- The gallery is useful on desktop, mobile, keyboard-only, and the exact locked
+  web engines used as reproducible evidence.
 - Package documentation and the gallery derive their component inventory from a
   checked, deterministic catalogue rather than drifting hand-maintained lists.
 - A release candidate can be built and verified without network-fetched runtime
@@ -23,15 +23,17 @@ browser compatibility, deterministic assets, and deployment reliability.
 
 - Categorized left navigation with a mobile equivalent.
 - Searchable component catalogue and one page per public component.
-- Foundation, Forms, Navigation, Content, Overlays, Motion, and Media categories.
+- Existing Foundation, Forms, Disclosure, Navigation, Content Surfaces,
+  Overlays, Interactive Surfaces, Media, and Motion categories without route or
+  category renames.
 - Stable deep links to components and individual examples.
 - Light and dark theme selection, responsive previews, reduced-motion
   inspection, and compatibility/fallback presentation.
 - Preview and HEEX source views with optional demo-only copy behavior.
 - Plain-language sections for “What it is,” “When to use it,” “What the
   application owns,” “Accessibility,” and “Browser fallback.”
-- Package version, build revision, upstream provenance, and supported Electron
-  version displayed on the site.
+- Package version, full build revision, upstream provenance, catalogue schema,
+  and exact web-evidence revision displayed on the site.
 
 ## Documentation and release scope
 
@@ -54,8 +56,8 @@ browser compatibility, deterministic assets, and deployment reliability.
   component registry.
 - Define demo-only JavaScript boundaries for theme persistence, source copying,
   and test controls; none may silently become required component behavior.
-- Establish a supported browser and Electron policy, including when newer CSS
-  features may be adopted or minimum versions raised.
+- Establish a consumer-neutral capability and web-engine evidence policy,
+  including when newer CSS features may be adopted or capability floors raised.
 
 ## Verification expectations
 
@@ -65,7 +67,8 @@ browser compatibility, deterministic assets, and deployment reliability.
   source example, rendering test, and browser acceptance route.
 - Cross-browser Playwright coverage checks navigation, themes, reduced motion,
   responsive layouts, focus visibility, critical interactions, and fallbacks.
-- Native Windows Electron smoke tests verify the production renderer boundary.
+- A clean Phoenix consumer trial verifies package installation, stylesheet
+  delivery, public imports, and representative controller-rendered HEEX.
 - Automated accessibility tools are combined with explicit keyboard, semantics,
   zoom, contrast, and screen-reader-oriented checks.
 - Deployment smoke tests verify the canonical site, assets, direct links, error
@@ -77,6 +80,16 @@ Milestone F is complete when the package and online gallery can be built from a
 clean checkout, every public API has verified documentation and examples, the
 supported compatibility matrix passes, provenance and licenses are complete,
 and the internal `0.1.0` release candidate is ready for a real consumer trial.
+
+ShadcnUI makes no Electron or other embedded-consumer support claim. Consumer
+applications own their pinned renderer, shell, CSP, transport, and deployment
+validation.
+
+## Accepted contracts and implementation plan
+
+- [Milestone F decisions](../decisions/README.md#milestone-f-decisions)
+- [Milestone F specifications](../specs/README.md#milestone-f-planned-contracts)
+- [Phased implementation plan](../planning/milestone-f-online-gallery-documentation-and-release-acceptance/README.md)
 
 ## Deferred work
 
