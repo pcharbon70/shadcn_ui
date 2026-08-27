@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "observed-not-normative",
+  "recordedOn": "2026-08-27",
+  "platform": {"os": "Windows 11 Pro", "nodePlatform": "win32", "architecture": "x64", "release": "10.0.26200"},
+  "lock": {"playwright": "1.62.1", "packageLockSha256": "bc47482d4502896f6dedf9d4e2ff002bd1595e91c1540041cb19f90b0fcbef8a"},
+  "engines": {
+    "chromium": {"revision": "1234", "version": "151.0.7922.34"},
+    "firefox": {"revision": "1538", "version": "153.0"},
+    "webkit": {"revision": "2336", "version": "26.5"}
+  },
+  "capabilityObservations": {
+    "source": ["priv/compatibility/native_overlays.json", "priv/compatibility/motion_media.json"],
+    "status": "measured-separately-from-outcomes"
+  },
+  "componentOutcomes": {
+    "nativeForms": {"status": "passed", "checks": ["focus", "keyboard", "reset", "submission", "disabled"]},
+    "nativeOverlays": {"status": "passed", "checks": ["invocation", "focus", "dismissal", "fallback"]},
+    "navigationAndDisclosure": {"status": "passed", "checks": ["landmarks", "links", "details", "ordinary-destination"]},
+    "scrollAndMedia": {"status": "passed", "checks": ["native-scroll", "real-links", "flat-fallback", "image-failure"]},
+    "boundedMotion": {"status": "passed", "checks": ["static-content", "finite-work", "reduced-motion"]}
+  },
+  "knownGaps": [
+    "Automated feature parsing is not proof for unexecuted browser or embedded-renderer builds.",
+    "Manual screen-reader and physical touch-device observations are tracked separately.",
+    "CI, deployed Pages smoke and public availability are not implied by this local record."
+  ]
+}

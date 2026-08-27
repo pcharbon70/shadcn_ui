@@ -7,25 +7,25 @@ Back to wave: [README](./README.md)
   Execute the complete capability-based browser, fallback, responsive and
   accessibility matrix without turning evidence engines into product targets.
 
-  - [ ] 4.1 Section - Refresh the consumer-neutral capability matrix.
+  - [x] 4.1 Section - Refresh the consumer-neutral capability matrix.
 
     Reconcile normative policy, authoritative source review and exact executable evidence.
 
-    - [ ] 4.1.1 Task - Audit capability declarations and fallbacks.
+    - [x] 4.1.1 Task - Audit capability declarations and fallbacks.
 
       Every public component needs a current capability bundle and useful baseline.
 
-      - [ ] 4.1.1.1 Subtask - Compare all catalogue entries to normative capability manifests, native semantics, optional CSS enhancements and documented fallbacks.
-      - [ ] 4.1.1.2 Subtask - Recheck authoritative platform sources and record review URLs, dates, caveats and deliberate deferrals.
-      - [ ] 4.1.1.3 Subtask - Reject browser-name, operating-system, Electron, embedded-renderer or user-agent branches from package support policy.
+      - [x] 4.1.1.1 Subtask - Compare all catalogue entries to normative capability manifests, native semantics, optional CSS enhancements and documented fallbacks.
+      - [x] 4.1.1.2 Subtask - Recheck authoritative platform sources and record review URLs, dates, caveats and deliberate deferrals.
+      - [x] 4.1.1.3 Subtask - Reject browser-name, operating-system, Electron, embedded-renderer or user-agent branches from package support policy.
 
-    - [ ] 4.1.2 Task - Regenerate exact-engine evidence.
+    - [x] 4.1.2 Task - Regenerate exact-engine evidence.
 
       Locked engines must exercise component outcomes rather than only parse features.
 
-      - [ ] 4.1.2.1 Subtask - Record exact Chromium, Firefox and WebKit revisions, platform, date and locked dependency identity.
-      - [ ] 4.1.2.2 Subtask - Measure declared capabilities and actual component outcomes separately, including native focus, dismissal, scrolling, forms and motion.
-      - [ ] 4.1.2.3 Subtask - Publish known gaps and unsupported paths without promoting demo probes or engine versions into normative package targets.
+      - [x] 4.1.2.1 Subtask - Record exact Chromium, Firefox and WebKit revisions, platform, date and locked dependency identity.
+      - [x] 4.1.2.2 Subtask - Measure declared capabilities and actual component outcomes separately, including native focus, dismissal, scrolling, forms and motion.
+      - [x] 4.1.2.3 Subtask - Publish known gaps and unsupported paths without promoting demo probes or engine versions into normative package targets.
 
   - [ ] 4.2 Section - Execute cross-engine semantic and fallback acceptance.
 

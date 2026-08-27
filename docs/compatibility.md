@@ -26,7 +26,8 @@ presentation only when its whole capability gate passes.
 
 The authoritative overlay and motion/media bundle data is distributed in
 `priv/compatibility/native_overlays.json` and
-`priv/compatibility/motion_media.json`.
+`priv/compatibility/motion_media.json`. The complete 41-component mapping and
+reviewed platform sources are in `priv/compatibility/catalogue.json`.
 
 ## Current reproducible evidence
 
@@ -35,6 +36,12 @@ The manifests were reviewed on 2026-08-25 (native overlays) and 2026-08-26
 Firefox 153.0 revision 1538, and WebKit 26.5 revision 2336. Those exact engines
 are test evidence, not normative targets or a promise about every browser with a
 similar version number. Feature parsing alone is not proof of behavior.
+
+The refreshed 2026-08-27 local record identifies Windows 11 Pro
+`10.0.26200`/x64, the exact `demo/package-lock.json` SHA-256, each Playwright
+browser revision, capability observations, component outcomes, and known gaps.
+It lives under `demo/priv/compatibility` because evidence is not normative
+package policy.
 
 Section-specific package, semantic, browser, fallback, forced-colors, responsive,
 and reduced-motion tests record observed behavior. Manual review and deployed
