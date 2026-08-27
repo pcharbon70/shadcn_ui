@@ -48,25 +48,25 @@ Back to wave: [README](./README.md)
       - [x] 1.2.2.2 Subtask - Make report generation independent of timestamps, working-tree ordering, remote services and machine-specific absolute paths.
       - [x] 1.2.2.3 Subtask - Keep generated reports ignored or test-owned and outside the actual release allowlist.
 
-  - [ ] 1.3 Section - Establish immutable build and site identity.
+  - [x] 1.3 Section - Establish immutable build and site identity.
 
     Define how local and published artifacts truthfully identify their source without runtime discovery.
 
-    - [ ] 1.3.1 Task - Validate release metadata inputs.
+    - [x] 1.3.1 Task - Validate release metadata inputs.
 
       Package, source, catalogue and upstream identities must be explicit reproducible inputs.
 
-      - [ ] 1.3.1.1 Subtask - Define validated package-version, full-revision, catalogue-schema and upstream-revision formats with deterministic development defaults.
-      - [ ] 1.3.1.2 Subtask - Inject build revision during export or CI rather than querying Git or remote services from package runtime.
-      - [ ] 1.3.1.3 Subtask - Reject partial, malformed, secret-like or mutable identity values before creating a release artifact.
+      - [x] 1.3.1.1 Subtask - Define validated package-version, full-revision, catalogue-schema and upstream-revision formats with deterministic development defaults.
+      - [x] 1.3.1.2 Subtask - Inject build revision during export or CI rather than querying Git or remote services from package runtime.
+      - [x] 1.3.1.3 Subtask - Reject partial, malformed, secret-like or mutable identity values before creating a release artifact.
 
-    - [ ] 1.3.2 Task - Render identity consistently.
+    - [x] 1.3.2 Task - Render identity consistently.
 
       HTML and machine-readable metadata must describe the same immutable build.
 
-      - [ ] 1.3.2.1 Subtask - Display package and build identity in the gallery shell without claiming deployment or browser support from version text.
-      - [ ] 1.3.2.2 Subtask - Seed deterministic release and health metadata from the same validated identity record.
-      - [ ] 1.3.2.3 Subtask - Verify identity is local, non-secret, escaped, stable across all routes and excluded from package runtime state.
+      - [x] 1.3.2.1 Subtask - Display package and build identity in the gallery shell without claiming deployment or browser support from version text.
+      - [x] 1.3.2.2 Subtask - Seed deterministic release and health metadata from the same validated identity record.
+      - [x] 1.3.2.3 Subtask - Verify identity is local, non-secret, escaped, stable across all routes and excluded from package runtime state.
 
   - [ ] 1.4 Section - Phase 1 Integration Tests.
 

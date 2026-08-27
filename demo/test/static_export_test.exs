@@ -10,6 +10,8 @@ defmodule ShadcnUIDemo.StaticExportTest do
 
     assert task =~ "ShadcnUIDemo.Catalogue.routes()"
     assert task =~ "route-manifest.json"
+    assert task =~ "BuildIdentity.release_metadata(identity)"
+    assert task =~ "BuildIdentity.health_metadata(identity)"
     assert task =~ "sitemap.xml"
     assert task =~ ":crypto.hash(:sha256"
     assert task =~ "reject_remote_runtime!"
@@ -21,6 +23,7 @@ defmodule ShadcnUIDemo.StaticExportTest do
     assert workflow =~ "pages: write"
     assert workflow =~ "id-token: write"
     assert workflow =~ "cancel-in-progress: false"
+    assert workflow =~ ~s(SHADCN_UI_BUILD_REVISION: ${{ github.sha }})
     assert deployment =~ "Rollback"
     assert ignore =~ "/export/"
     refute package =~ ~r/"demo"\s*,/

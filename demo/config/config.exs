@@ -9,7 +9,8 @@ import Config
 
 config :shadcn_ui_demo,
   namespace: ShadcnUIDemo,
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime],
+  build_revision: System.get_env("SHADCN_UI_BUILD_REVISION", String.duplicate("0", 40))
 
 # Configure the endpoint
 config :shadcn_ui_demo, ShadcnUIDemoWeb.Endpoint,
