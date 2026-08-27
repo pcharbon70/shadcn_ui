@@ -18,17 +18,18 @@ jobs:
     runs-on: ubuntu-latest
     env:
       SHADCN_UI_BUILD_REVISION: ${{ github.sha }}
+      SHADCN_UI_CANONICAL_URL: https://leco-industries-inc.github.io/shadcn_ui/
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 0
-      - uses: erlef/setup-beam@v1
+      - uses: erlef/setup-beam@54075bcc5e249e4758d363f27d099f55d843f124 # v1
         with:
-          elixir-version: "1.18"
-          otp-version: "27"
-      - uses: actions/setup-node@v4
+          elixir-version: "1.20.3"
+          otp-version: "29.0"
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
-          node-version: "22"
+          node-version: "22.13.1"
           cache: npm
           cache-dependency-path: |
             package-lock.json
@@ -75,9 +76,11 @@ jobs:
         working-directory: demo
       - run: npm run export:determinism && npm run export:check && npm run export:smoke
         working-directory: demo
-      - uses: actions/upload-pages-artifact@v3
+      - name: Upload the one verified immutable Pages artifact
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
           path: demo/export
+          retention-days: 30
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -92,12 +95,13 @@ jobs:
     steps:
       - name: Deploy exact verified artifact
         id: deployment
-        uses: actions/deploy-pages@v4
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
-          node-version: "22"
+          node-version: "22.13.1"
       - name: Smoke test canonical gallery
         run: node demo/scripts/smoke-gallery.mjs
         env:
           SHADCN_UI_GALLERY_URL: https://leco-industries-inc.github.io/shadcn_ui/
+          SHADCN_UI_EXPECTED_REVISION: ${{ github.sha }}

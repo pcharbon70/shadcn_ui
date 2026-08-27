@@ -29,7 +29,8 @@ defmodule ShadcnUIDemo.StaticExportTest do
     assert File.read!("scripts/check-export-determinism.mjs") =~ ~s(MIX_ENV: "test")
     refute task =~ "File.ls!()"
     refute task =~ ~r/(DateTime|NaiveDateTime|System\.system_time)/
-    assert workflow =~ "actions/upload-pages-artifact@v3"
+    assert workflow =~
+             "actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3"
     assert workflow =~ "pages: write"
     assert workflow =~ "id-token: write"
     assert workflow =~ "cancel-in-progress: false"

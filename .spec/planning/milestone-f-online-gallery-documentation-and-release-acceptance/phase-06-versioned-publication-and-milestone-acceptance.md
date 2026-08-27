@@ -27,25 +27,25 @@ Back to wave: [README](./README.md)
       - [x] 6.1.2.2 Subtask - Produce two byte-identical exports and audit local asset hashes, references, repository-subpath behavior, unknown routes and stale files.
       - [x] 6.1.2.3 Subtask - Ensure package contents remain independent of the gallery artifact, workflow configuration and deployment metadata.
 
-  - [ ] 6.2 Section - Harden deployment, smoke checks and rollback.
+  - [x] 6.2 Section - Harden deployment, smoke checks and rollback.
 
     Treat publication as an operational workflow with explicit ownership and recovery.
 
-    - [ ] 6.2.1 Task - Verify the reviewed Pages workflow.
+    - [x] 6.2.1 Task - Verify the reviewed Pages workflow.
 
       Pull requests should verify immutable artifacts while only reviewed main may publish.
 
-      - [ ] 6.2.1.1 Subtask - Pin workflow actions and permissions, build only repository inputs, upload one immutable artifact and prevent PR publication.
-      - [ ] 6.2.1.2 Subtask - Validate canonical host/subpath configuration, non-secret revision injection, concurrency and environment protection without source credentials.
-      - [ ] 6.2.1.3 Subtask - Add artifact-level smoke before deploy and retain enough immutable identity to select a verified rollback artifact.
+      - [x] 6.2.1.1 Subtask - Pin workflow actions and permissions, build only repository inputs, upload one immutable artifact and prevent PR publication.
+      - [x] 6.2.1.2 Subtask - Validate canonical host/subpath configuration, non-secret revision injection, concurrency and environment protection without source credentials.
+      - [x] 6.2.1.3 Subtask - Add artifact-level smoke before deploy and retain enough immutable identity to select a verified rollback artifact.
 
-    - [ ] 6.2.2 Task - Complete post-deploy and recovery operations.
+    - [x] 6.2.2 Task - Complete post-deploy and recovery operations.
 
       Maintainers need bounded checks and a tested path back to known-good content.
 
-      - [ ] 6.2.2.1 Subtask - Document ownership and run canonical home, direct route/fragment, CSS, script, media, search, sitemap, health, version and error checks after deploy.
-      - [ ] 6.2.2.2 Subtask - Define failure triage, rollback to a previously verified artifact, cache considerations and the recovery smoke sequence.
-      - [ ] 6.2.2.3 Subtask - Record local, CI, merge, deployment and post-deployment results separately; never infer publication success from a merged PR.
+      - [x] 6.2.2.1 Subtask - Document ownership and run canonical home, direct route/fragment, CSS, script, media, search, sitemap, health, version and error checks after deploy.
+      - [x] 6.2.2.2 Subtask - Define failure triage, rollback to a previously verified artifact, cache considerations and the recovery smoke sequence.
+      - [x] 6.2.2.3 Subtask - Record local, CI, merge, deployment and post-deployment results separately; never infer publication success from a merged PR.
 
   - [ ] 6.3 Section - Reconcile final documentation and release acceptance.
 
