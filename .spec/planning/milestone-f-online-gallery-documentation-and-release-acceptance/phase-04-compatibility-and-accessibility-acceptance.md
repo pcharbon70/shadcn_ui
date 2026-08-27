@@ -27,25 +27,25 @@ Back to wave: [README](./README.md)
       - [x] 4.1.2.2 Subtask - Measure declared capabilities and actual component outcomes separately, including native focus, dismissal, scrolling, forms and motion.
       - [x] 4.1.2.3 Subtask - Publish known gaps and unsupported paths without promoting demo probes or engine versions into normative package targets.
 
-  - [ ] 4.2 Section - Execute cross-engine semantic and fallback acceptance.
+  - [x] 4.2 Section - Execute cross-engine semantic and fallback acceptance.
 
     Exercise all public pages and representative compositions under real and deliberately missing capabilities.
 
-    - [ ] 4.2.1 Task - Verify native interaction and semantics.
+    - [x] 4.2.1 Task - Verify native interaction and semantics.
 
       Each control must retain its honest native operation and relationships.
 
-      - [ ] 4.2.1.1 Subtask - Exercise keyboard, focus order/return, names, descriptions, errors, disabled states, landmarks, lists, links, forms, dialogs and popovers.
-      - [ ] 4.2.1.2 Subtask - Assert forbidden menu/tab/tree/progress/selection/animation-state roles and unreachable invokers remain absent.
-      - [ ] 4.2.1.3 Subtask - Run independent-instance, replacement, long-content, repeated-ID and state-snapshot scenarios across both themes.
+      - [x] 4.2.1.1 Subtask - Exercise keyboard, focus order/return, names, descriptions, errors, disabled states, landmarks, lists, links, forms, dialogs and popovers.
+      - [x] 4.2.1.2 Subtask - Assert forbidden menu/tab/tree/progress/selection/animation-state roles and unreachable invokers remain absent.
+      - [x] 4.2.1.3 Subtask - Run independent-instance, replacement, long-content, repeated-ID and state-snapshot scenarios across both themes.
 
-    - [ ] 4.2.2 Task - Verify fallback and preference behavior.
+    - [x] 4.2.2 Task - Verify fallback and preference behavior.
 
       Missing enhancements must leave content and ordinary operations available.
 
-      - [ ] 4.2.2.1 Subtask - Exercise negative-capability, CSS-disabled, no-script, image-failure, unavailable-overlay and ordinary-destination fixtures.
-      - [ ] 4.2.2.2 Subtask - Check narrow/wide layouts, 200-percent zoom, RTL, forced colors, touch-sized targets, reduced motion and preference changes.
-      - [ ] 4.2.2.3 Subtask - Verify static repository-subpath pages behave equivalently and use no remote runtime or demo behavior shim.
+      - [x] 4.2.2.1 Subtask - Exercise negative-capability, CSS-disabled, no-script, image-failure, unavailable-overlay and ordinary-destination fixtures.
+      - [x] 4.2.2.2 Subtask - Check narrow/wide layouts, 200-percent zoom, RTL, forced colors, touch-sized targets, reduced motion and preference changes.
+      - [x] 4.2.2.3 Subtask - Verify static repository-subpath pages behave equivalently and use no remote runtime or demo behavior shim.
 
   - [ ] 4.3 Section - Complete automated and bounded manual accessibility review.
 
