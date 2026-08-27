@@ -47,25 +47,25 @@ Back to wave: [README](./README.md)
       - [x] 2.2.2.2 Subtask - Handle empty, unmatched, Unicode, long and HTML-like input as inert text without altering history or creating dynamic routes.
       - [x] 2.2.2.3 Subtask - Keep all links available without JavaScript and exclude search code/data from package contents.
 
-  - [ ] 2.3 Section - Complete example previews and stable source views.
+  - [x] 2.3 Section - Complete example previews and stable source views.
 
     Give every component a predictable page and every authored example a durable destination.
 
-    - [ ] 2.3.1 Task - Render catalogue-driven component sections.
+    - [x] 2.3.1 Task - Render catalogue-driven component sections.
 
       Pages should share an understandable structure without erasing component-specific guidance.
 
-      - [ ] 2.3.1.1 Subtask - Render what-it-is, when-to-use, application-ownership, accessibility, fallback and provenance sections from checked metadata.
-      - [ ] 2.3.1.2 Subtask - Render each example at its stable fragment with a descriptive heading, preview state, theme scope and responsive container.
-      - [ ] 2.3.1.3 Subtask - Add direct fragment links, canonical page identity and useful cross-links to related components and compositions.
+      - [x] 2.3.1.1 Subtask - Render what-it-is, when-to-use, application-ownership, accessibility, fallback and provenance sections from checked metadata.
+      - [x] 2.3.1.2 Subtask - Render each example at its stable fragment with a descriptive heading, preview state, theme scope and responsive container.
+      - [x] 2.3.1.3 Subtask - Add direct fragment links, canonical page identity and useful cross-links to related components and compositions.
 
-    - [ ] 2.3.2 Task - Pair previews with compile-checked HEEX source.
+    - [x] 2.3.2 Task - Pair previews with compile-checked HEEX source.
 
       Displayed code must correspond to a valid public API example and remain inert.
 
-      - [ ] 2.3.2.1 Subtask - Compile every authored snippet through public imports and compare its declared component identity to the preview.
-      - [ ] 2.3.2.2 Subtask - Render escaped source with optional demo-only copy feedback that remains usable as selectable text when scripting is absent.
-      - [ ] 2.3.2.3 Subtask - Expose light/dark, reduced-motion and missing-capability inspection without fabricating package behavior.
+      - [x] 2.3.2.1 Subtask - Compile every authored snippet through public imports and compare its declared component identity to the preview.
+      - [x] 2.3.2.2 Subtask - Render escaped source with optional demo-only copy feedback that remains usable as selectable text when scripting is absent.
+      - [x] 2.3.2.3 Subtask - Expose light/dark, reduced-motion and missing-capability inspection without fabricating package behavior.
 
   - [ ] 2.4 Section - Phase 2 Integration Tests.
 

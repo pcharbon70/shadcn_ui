@@ -14,6 +14,17 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @documentation_keys ~w(what when responsibilities accessibility fallback source)a
   @search_keys ~w(category keywords name route summary url)
   @static_base "/shadcn_ui"
+  @related_compositions %{
+    "foundation" => [:documentation],
+    "forms" => [:settings],
+    "disclosure" => [:responsive_drawers],
+    "navigation" => [:application_shell],
+    "content-surfaces" => [:documentation],
+    "overlays" => [:overlay_capabilities, :settings_confirmation],
+    "interactive-surfaces" => [:supplemental_help],
+    "media" => [:image_gallery, :media_browser],
+    "motion" => [:motion_preferences, :motion_media_capabilities]
+  }
 
   @public_identities %{
     button: {ShadcnUI.Components.Foundation.Button, :button, "foundation.button"},
@@ -143,6 +154,22 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   end
 
   def lookup_fragment(_route, _fragment), do: :error
+
+  @doc "Returns closed, deterministic related component and composition destinations."
+  @spec related(map()) :: %{components: [map()], compositions: [map()]}
+  def related(%{category: %{slug: category}, route: route}) do
+    %{
+      components:
+        Catalogue.components(category)
+        |> Enum.reject(&(&1.path == route))
+        |> Enum.take(3)
+        |> Enum.map(&Map.take(&1, [:label, :path])),
+      compositions:
+        Catalogue.compositions()
+        |> Enum.filter(&(&1.render in Map.fetch!(@related_compositions, category)))
+        |> Enum.map(&Map.take(&1, [:label, :path]))
+    }
+  end
 
   @doc "Returns the minimal, deterministic search document records in catalogue order."
   @spec search_records() :: [map()]

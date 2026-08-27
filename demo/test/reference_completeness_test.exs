@@ -50,7 +50,7 @@ defmodule ShadcnUIDemo.ReferenceCompletenessTest do
     template = File.read!("lib/shadcn_ui_demo_web/controllers/page_html/gallery.html.heex")
     controller = File.read!("lib/shadcn_ui_demo_web/controllers/gallery_controller.ex")
 
-    assert template =~ "@page.reference.source"
+    assert template =~ "@page.documentation_entry.documentation.source"
     assert template =~ "data-gallery-copy"
     refute controller =~ ~r/(Code\.|Module\.|String\.to_atom|binary_to_atom|apply\()/
   end

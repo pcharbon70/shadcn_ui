@@ -42,6 +42,25 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
     end
   end
 
+  test "every component has catalogue-driven guidance, a stable preview, source, and related links",
+       %{conn: conn} do
+    for component <- Catalogue.components() do
+      html = conn |> recycle() |> get(component.path) |> html_response(200)
+      fragment = "#{component.slug}-primary"
+
+      assert html =~ ~s(id="#{fragment}")
+      assert html =~ ~s(href="##{fragment}")
+      assert html =~ ~s(data-gallery-theme-scope="light")
+      assert html =~ ~s(data-gallery-motion-inspection="system")
+      assert html =~ ~s(id="#{fragment}-source")
+      assert html =~ "Application responsibilities"
+      assert html =~ "Accessibility"
+      assert html =~ "Fallback"
+      assert html =~ "Related documentation"
+      assert html =~ "Catalogue identity"
+    end
+  end
+
   test "unknown and mismatched paths return deterministic non-reflecting 404", %{conn: conn} do
     for path <- ["/missing", "/components/other/button", "/components/foundation/missing"] do
       html = conn |> recycle() |> get(path) |> html_response(404)

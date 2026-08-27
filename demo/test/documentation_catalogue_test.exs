@@ -57,6 +57,18 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
            end)
   end
 
+  test "related documentation stays within authored ordinary routes" do
+    for entry <- DocumentationCatalogue.entries() do
+      related = DocumentationCatalogue.related(entry)
+      destinations = Enum.map(related.components ++ related.compositions, & &1.path)
+
+      assert destinations != []
+      assert Enum.uniq(destinations) == destinations
+      assert Enum.all?(destinations, &(&1 in Catalogue.routes()))
+      refute entry.route in destinations
+    end
+  end
+
   test "closed lookups never derive executable identities from request text" do
     assert {:ok, %{public: %{module: ShadcnUI.Components.Foundation.Button}}} =
              DocumentationCatalogue.lookup("foundation", "button")

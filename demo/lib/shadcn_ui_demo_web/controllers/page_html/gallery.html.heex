@@ -46,26 +46,40 @@
   </p>
   <div :if={@page.kind == :component} class="gallery-reference">
     <section>
-      <h2>What it is</h2><p>{@page.reference.what}</p>
+      <h2>What it is</h2><p>{@page.documentation_entry.documentation.what}</p>
     </section>
 
     <section>
-      <h2>When to use it</h2><p>{@page.reference.when}</p>
+      <h2>When to use it</h2><p>{@page.documentation_entry.documentation.when}</p>
+    </section>
+
+    <section
+      id={hd(@page.documentation_entry.examples).fragment}
+      class="gallery-example"
+      data-gallery-example={hd(@page.documentation_entry.examples).source_id}
+      data-gallery-theme-scope={@theme}
+      data-gallery-motion-inspection={@motion}
+    >
+      <h2>{hd(@page.documentation_entry.examples).preview_label}</h2>
+      <p>
+        <a href={"##{hd(@page.documentation_entry.examples).fragment}"}>Link to this example</a>
+      </p>
+      <div class="gallery-example-preview">
+        <.component_examples render={@page.render} />
+      </div>
     </section>
 
     <section>
-      <h2>Examples</h2><.component_examples render={@page.render} />
-    </section>
-
-    <section>
-      <h2>Application responsibilities</h2><p>{@page.reference.responsibilities}</p>
+      <h2>Application responsibilities</h2><p>
+        {@page.documentation_entry.documentation.responsibilities}
+      </p>
     </section>
     <section :if={Map.get(@page.reference, :api)}>
       <h2>Attributes and item slots</h2><p>{@page.reference.api}</p>
     </section>
 
     <section>
-      <h2>Accessibility</h2><p>{@page.reference.accessibility}</p>
+      <h2>Accessibility</h2><p>{@page.documentation_entry.documentation.accessibility}</p>
     </section>
     <section>
       <h2>Native semantics and relationships</h2><p>{@page.reference.semantics}</p>
@@ -80,7 +94,7 @@
     </section>
 
     <section>
-      <h2>Fallback</h2><p>{@page.reference.fallback}</p>
+      <h2>Fallback</h2><p>{@page.documentation_entry.documentation.fallback}</p>
     </section>
     <section :if={Map.has_key?(@page.reference, :capability)}>
       <h2>Browser capabilities</h2><p>{@page.reference.capability}</p>
@@ -108,17 +122,42 @@
 
     <section>
       <h2>Provenance</h2><p>
-        Adapted from unscripted/ui commit <code>bd8f403</code> under its MIT notice.
+        Catalogue identity <code>{@page.documentation_entry.provenance_id}</code>, adapted from
+        unscripted/ui commit <code>{@build_identity.upstream_revision}</code>
+        under its MIT notice.
       </p>
     </section>
 
-    <section>
+    <nav aria-label="Related documentation">
+      <h2>Related documentation</h2>
+      <ul>
+        <li :for={component <- @page.related.components}>
+          <a href={component.path}>{component.label}</a>
+        </li>
+        <li :for={composition <- @page.related.compositions}>
+          <a href={composition.path}>{composition.label} example</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section
+      id={"#{hd(@page.documentation_entry.examples).fragment}-source"}
+      data-gallery-example-source={hd(@page.documentation_entry.examples).source_id}
+    >
       <h2>HEEX source</h2>
-      <button type="button" data-gallery-copy={"source-#{@page.slug}"}>Copy source</button>
-      <span class="gallery-copy-status" aria-live="polite"></span> <pre
+      <button
+        type="button"
+        data-gallery-copy={"source-#{@page.slug}"}
+        aria-describedby={"source-#{@page.slug}-status"}
+      >Copy source</button>
+      <span
+        id={"source-#{@page.slug}-status"}
+        class="gallery-copy-status"
+        aria-live="polite"
+      ></span> <pre
         id={"source-#{@page.slug}"}
         tabindex="0"
-      ><code>{@page.reference.source}</code></pre>
+      ><code>{@page.documentation_entry.documentation.source}</code></pre>
     </section>
   </div>
 

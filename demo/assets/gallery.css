@@ -33,6 +33,9 @@ a { color: inherit; }
 .gallery-layout main { min-width: 0; max-width: 72rem; padding: 1.5rem; }
 .gallery-reference { display: grid; gap: 1.5rem; }
 .gallery-reference > section { min-width: 0; }
+.gallery-reference > nav { min-width: 0; }
+.gallery-example { scroll-margin-block-start: 1rem; }
+.gallery-example-preview { min-width: 0; max-width: 100%; overflow-wrap: anywhere; padding: 1rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-lg); }
 .gallery-examples { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; max-width: 100%; }
 .gallery-examples > [data-shadcn-ui] { max-width: 100%; }
 .gallery-overlay-examples { display: grid; gap: 1.5rem; min-width: 0; }

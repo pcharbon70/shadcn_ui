@@ -22,6 +22,7 @@ defmodule ShadcnUIDemo.StaticExportTest do
     assert task =~ "reject_remote_runtime!"
     assert task =~ "~w(shadcn.css gallery.css gallery.js)"
     assert task =~ "ShadcnUIDemoWeb.GalleryAssets.path/1"
+    assert File.read!("scripts/check-export-determinism.mjs") =~ ~s(MIX_ENV: "test")
     refute task =~ "File.ls!()"
     refute task =~ ~r/(DateTime|NaiveDateTime|System\.system_time)/
     assert workflow =~ "actions/upload-pages-artifact@v3"
