@@ -1,6 +1,8 @@
 defmodule ShadcnUIDemo.BuildIdentityTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.release_publication.version_identity
+
   alias ShadcnUIDemo.BuildIdentity
 
   @revision "0123456789abcdef0123456789abcdef01234567"

@@ -37,3 +37,14 @@ if Enum.any?(
      ])
    ),
    do: raise("Demo media/evidence leaked into release")
+
+if Enum.any?(paths, fn path ->
+     String.contains?(path, [
+       "documentation_catalogue",
+       "build_identity",
+       "completeness_report",
+       "demo/",
+       ".spec/"
+     ])
+   end),
+   do: raise("Milestone F demo or planning foundations leaked into release")

@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 1 Phase - Catalogue And Build Identity Foundations.
+- [x] 1 Phase - Catalogue And Build Identity Foundations.
 
   Establish the immutable documentation inventory, safe identity mapping and
   reproducible build metadata before changing the public gallery experience.
@@ -68,27 +68,43 @@ Back to wave: [README](./README.md)
       - [x] 1.3.2.2 Subtask - Seed deterministic release and health metadata from the same validated identity record.
       - [x] 1.3.2.3 Subtask - Verify identity is local, non-secret, escaped, stable across all routes and excluded from package runtime state.
 
-  - [ ] 1.4 Section - Phase 1 Integration Tests.
+  - [x] 1.4 Section - Phase 1 Integration Tests.
 
     Prove schema safety, inventory parity, stable history, build identity and package isolation together.
 
-    - [ ] 1.4.1 Task - Exercise catalogue and identity integration.
+    - [x] 1.4.1 Task - Exercise catalogue and identity integration.
 
       Tests must use the actual compiled public surface and real gallery route inventory.
 
-      - [ ] 1.4.1.1 Subtask - Add documentation catalogue tests covering valid inventory, duplicates, omissions, mismatches, unsafe text and stable example fragments.
-      - [ ] 1.4.1.2 Subtask - Run every existing route, breadcrumb, canonical, sitemap, export and unknown-route regression from Milestones A-E.
-      - [ ] 1.4.1.3 Subtask - Generate identical identity and completeness outputs twice from fixed inputs and verify non-secret escaped content.
+      - [x] 1.4.1.1 Subtask - Add documentation catalogue tests covering valid inventory, duplicates, omissions, mismatches, unsafe text and stable example fragments.
+      - [x] 1.4.1.2 Subtask - Run every existing route, breadcrumb, canonical, sitemap, export and unknown-route regression from Milestones A-E.
+      - [x] 1.4.1.3 Subtask - Generate identical identity and completeness outputs twice from fixed inputs and verify non-secret escaped content.
 
-    - [ ] 1.4.2 Task - Verify phase boundaries and contracts.
+    - [x] 1.4.2 Task - Verify phase boundaries and contracts.
 
       The new planning subject must not weaken package, gallery or SpecLed gates.
 
-      - [ ] 1.4.2.1 Subtask - Audit the actual archive for absence of catalogue, search, report, demo and build-identity implementation files.
-      - [ ] 1.4.2.2 Subtask - Run package/demo precommit, affected browser smoke, SpecLed next/check for main and HEAD, and git diff --check.
-      - [ ] 1.4.2.3 Subtask - Record executed evidence and limitations, complete section commits in order and open one Phase 1 PR.
+      - [x] 1.4.2.1 Subtask - Audit the actual archive for absence of catalogue, search, report, demo and build-identity implementation files.
+      - [x] 1.4.2.2 Subtask - Run package/demo precommit, affected browser smoke, SpecLed next/check for main and HEAD, and git diff --check.
+      - [x] 1.4.2.3 Subtask - Record executed evidence and limitations, complete section commits in order and open one Phase 1 PR.
 
 ## Section delivery rule
 
 Complete and verify each section before committing it. Make one commit per
 section and one PR for this phase; do not merge without a later request.
+
+## Execution record
+
+Implemented on 2026-08-27 from synchronized `main` at `24a4139`.
+
+- Section 1.1 defines 41 closed documentation identities and safe route and
+  fragment lookup. Commit `ec625f8`.
+- Section 1.2 reconciles compiled public metadata, imports, ExDoc groups,
+  provenance, references, routes and deterministic completeness output. Commit
+  `58ee225`.
+- Section 1.3 validates package/build/catalogue/upstream identity, injects the
+  full revision in CI, and shares one identity between every page and export
+  metadata. Commit `8862a43`.
+- Section 1.4 adds milestone-wide and actual archive boundary acceptance. Its
+  verification results and known SpecLed runner limitation are recorded in the
+  phase PR; the fourth section commit is this execution-record delivery.

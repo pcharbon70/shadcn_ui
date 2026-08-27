@@ -1,6 +1,8 @@
 defmodule ShadcnUIDemo.StaticExportTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.documentation_catalogue.package_boundary
+
   test "export is closed, deterministic, local, ignored, and package-excluded" do
     task = File.read!("lib/mix/tasks/gallery.export.ex")
     workflow = File.read!("../.github/workflows/gallery.yml")

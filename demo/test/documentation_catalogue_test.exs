@@ -1,6 +1,13 @@
 defmodule ShadcnUIDemo.DocumentationCatalogueTest do
   use ExUnit.Case, async: false
 
+  # covers: shadcn_ui.documentation_catalogue.closed_schema
+  # covers: shadcn_ui.documentation_catalogue.public_api_parity
+  # covers: shadcn_ui.documentation_catalogue.stable_information_architecture
+  # covers: shadcn_ui.documentation_catalogue.stable_examples
+  # covers: shadcn_ui.documentation_catalogue.safe_resolution
+  # covers: shadcn_ui.documentation_catalogue.completeness_report
+
   alias ShadcnUIDemo.{Catalogue, DocumentationCatalogue}
 
   test "closed schema describes every stable component route" do
