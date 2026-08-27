@@ -84,6 +84,8 @@ defmodule ShadcnUI.MixProject do
       extras: [
         "README.md",
         "docs/components.md",
+        "docs/installation.md",
+        "docs/compatibility.md",
         "CHANGELOG.md",
         "THIRD_PARTY_NOTICES.md",
         "RELEASE.md",

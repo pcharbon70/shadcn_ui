@@ -27,25 +27,25 @@ Back to wave: [README](./README.md)
       - [x] 3.1.2.2 Subtask - Explain native baseline, package CSS enhancement, demo-only behavior and unsupported capability separately.
       - [x] 3.1.2.3 Subtask - Add related-pattern guidance without claiming tabs, menus, progress, animation state or other semantics a component does not implement.
 
-  - [ ] 3.2 Section - Complete installation, assets and compatibility guidance.
+  - [x] 3.2 Section - Complete installation, assets and compatibility guidance.
 
     Give consumers a reproducible path from dependency to styled HEEX without hidden tooling.
 
-    - [ ] 3.2.1 Task - Document package setup and styling.
+    - [x] 3.2.1 Task - Document package setup and styling.
 
       Installation instructions must match the distributed archive and public API.
 
-      - [ ] 3.2.1.1 Subtask - Document dependency selection, `use ShadcnUI`, direct imports and packaged stylesheet serving with Phoenix examples.
-      - [ ] 3.2.1.2 Subtask - Explain namespaced tokens, light/dark scopes, consumer overrides, CSS ordering, mixed-design-system isolation and reduced motion.
-      - [ ] 3.2.1.3 Subtask - Document CSP and confirm consumers need no Node, Tailwind, remote runtime asset or ShadcnUI JavaScript.
+      - [x] 3.2.1.1 Subtask - Document dependency selection, `use ShadcnUI`, direct imports and packaged stylesheet serving with Phoenix examples.
+      - [x] 3.2.1.2 Subtask - Explain namespaced tokens, light/dark scopes, consumer overrides, CSS ordering, mixed-design-system isolation and reduced motion.
+      - [x] 3.2.1.3 Subtask - Document CSP and confirm consumers need no Node, Tailwind, remote runtime asset or ShadcnUI JavaScript.
 
-    - [ ] 3.2.2 Task - Publish the capability and fallback policy.
+    - [x] 3.2.2 Task - Publish the capability and fallback policy.
 
       Users need actionable compatibility guidance rather than a vague browser list.
 
-      - [ ] 3.2.2.1 Subtask - List component capability bundles, native baselines, optional enhancements and exact fallbacks with evidence dates and locked-engine revisions.
-      - [ ] 3.2.2.2 Subtask - Explain how consumers evaluate their own browser or embedded renderer without implying ShadcnUI platform certification.
-      - [ ] 3.2.2.3 Subtask - Define the review and migration process for admitting a feature or raising a capability floor.
+      - [x] 3.2.2.1 Subtask - List component capability bundles, native baselines, optional enhancements and exact fallbacks with evidence dates and locked-engine revisions.
+      - [x] 3.2.2.2 Subtask - Explain how consumers evaluate their own browser or embedded renderer without implying ShadcnUI platform certification.
+      - [x] 3.2.2.3 Subtask - Define the review and migration process for admitting a feature or raising a capability floor.
 
   - [ ] 3.3 Section - Publish transport-neutral integration and upgrade guides.
 

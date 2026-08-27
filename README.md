@@ -295,6 +295,12 @@ stacks, submenus, and virtual anchors are outside the contract.
 
 ## Installation
 
+For a complete reproducible setup, including stylesheet delivery, CSP, theme
+tokens, mixed-design-system isolation, and reduced motion, read the
+[installation and assets guide](docs/installation.md). Compatibility is defined
+by capabilities and documented fallbacks, not browser brands; see the
+[compatibility and fallback policy](docs/compatibility.md).
+
 For sibling development, add the package as a path dependency:
 
 ```elixir
@@ -327,6 +333,12 @@ asset directory during its existing asset build and reference the resulting
 local URL from its root layout. Consumers do not need Tailwind, Node, or
 component JavaScript at runtime or build time; the package's maintainers use
 Node only to reproduce the committed CSS artifact.
+
+Import one defining module when a narrow namespace is preferable:
+
+```elixir
+import ShadcnUI.Components.Foundation.Button, only: [button: 1]
+```
 
 The package metadata is proprietary and supports local archive verification;
 it does not configure or authorize publication to Hex.
