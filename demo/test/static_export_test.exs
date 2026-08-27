@@ -15,6 +15,9 @@ defmodule ShadcnUIDemo.StaticExportTest do
     assert task =~ "BuildIdentity.release_metadata(identity)"
     assert task =~ "BuildIdentity.health_metadata(identity)"
     assert task =~ "sitemap.xml"
+    assert task =~ "DocumentationCatalogue.search_json()"
+    assert task =~ "search-index-"
+    assert task =~ ~s("search" => search)
     assert task =~ ":crypto.hash(:sha256"
     assert task =~ "reject_remote_runtime!"
     assert task =~ "~w(shadcn.css gallery.css gallery.js)"

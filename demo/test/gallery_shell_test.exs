@@ -42,4 +42,18 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert layout =~ "@build_identity.upstream_revision"
     refute layout =~ ~r/(supported Electron|certified browser|deployment successful)/i
   end
+
+  test "progressive search filters existing links without routing or remote data" do
+    layout = File.read!("lib/shadcn_ui_demo_web/components/layouts.ex")
+    javascript = File.read!("assets/gallery.js")
+
+    assert layout =~ ~s(label for="gallery-component-search")
+    assert layout =~ ~s(maxlength="200")
+    assert layout =~ "data-gallery-search-item"
+    assert layout =~ "DocumentationCatalogue.search_text!"
+    assert javascript =~ "item.hidden = !visible"
+    assert javascript =~ "searchStatus.textContent"
+    assert javascript =~ "new Set()"
+    refute javascript =~ ~r/(fetch\(|XMLHttpRequest|pushState|replaceState|innerHTML)/
+  end
 end

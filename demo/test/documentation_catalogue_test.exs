@@ -7,6 +7,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
   # covers: shadcn_ui.documentation_catalogue.stable_examples
   # covers: shadcn_ui.documentation_catalogue.safe_resolution
   # covers: shadcn_ui.documentation_catalogue.completeness_report
+  # covers: shadcn_ui.documentation_catalogue.deterministic_search
 
   alias ShadcnUIDemo.{Catalogue, DocumentationCatalogue}
 
@@ -130,6 +131,41 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
     assert Jason.decode!(first) |> length() == 41
     refute first =~ Path.expand("..")
     refute first =~ ~r/(20\d\d-\d\d-\d\d|system_time|DateTime)/
+  end
+
+  test "search document is minimal, deterministic, safe, and repository-subpath aware" do
+    assert :ok = DocumentationCatalogue.validate_search()
+    records = DocumentationCatalogue.search_records()
+
+    assert length(records) == 41
+    assert Enum.map(records, & &1["route"]) == Enum.map(Catalogue.components(), & &1.path)
+    assert Enum.uniq_by(records, & &1["url"]) == records
+
+    for record <- records do
+      assert Map.keys(record) == ~w(category keywords name route summary url)
+      assert record["url"] == "/shadcn_ui" <> record["route"]
+      assert is_list(record["keywords"])
+      refute inspect(record) =~ ~r/(HEEx|Elixir\.|<%|<script|javascript:)/i
+    end
+
+    first = DocumentationCatalogue.search_json()
+    assert first == DocumentationCatalogue.search_json()
+    assert %{"schemaVersion" => "1", "records" => ^records} = Jason.decode!(first)
+    refute first =~ Path.expand("..")
+  end
+
+  test "search normalization bounds Unicode and leaves hostile-looking text inert" do
+    assert DocumentationCatalogue.normalize_search(" Éléments <SCRIPT>alert(1)</SCRIPT> ") ==
+             "elements script alert 1 script"
+
+    assert String.length(DocumentationCatalogue.normalize_search(String.duplicate("x", 500))) ==
+             200
+
+    assert DocumentationCatalogue.search_text!("foundation", "button") =~ "button"
+
+    assert_raise ArgumentError, fn ->
+      DocumentationCatalogue.search_text!("<script>", "../../secret")
+    end
   end
 
   test "audit reports missing, duplicate, and stale identities deterministically" do

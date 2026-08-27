@@ -14,6 +14,12 @@ a { color: inherit; }
 .gallery-skip-link:focus { top: 1rem; }
 .gallery-masthead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.5rem; border-bottom: 1px solid var(--shadcn-ui-border); }
 .gallery-masthead nav { display: flex; flex-wrap: wrap; gap: .75rem; }
+.gallery-search { flex-basis: 100%; display: grid; gap: .375rem; }
+.gallery-search > div { display: flex; flex-wrap: wrap; gap: .5rem; }
+.gallery-search input { min-block-size: 2.75rem; min-width: min(100%, 18rem); max-width: 100%; box-sizing: border-box; }
+.gallery-search button { min-block-size: 2.75rem; }
+.gallery-search p { min-height: 1.5rem; margin: 0; }
+[data-gallery-search-item][hidden] { display: none; }
 .gallery-layout { display: grid; grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr); }
 .gallery-navigation { padding: 1.5rem; border-right: 1px solid var(--shadcn-ui-border); }
 .gallery-navigation h2, .gallery-mobile-navigation h2 { font-size: 1rem; }

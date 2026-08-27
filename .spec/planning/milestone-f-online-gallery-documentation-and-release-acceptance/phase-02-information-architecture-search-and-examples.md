@@ -27,25 +27,25 @@ Back to wave: [README](./README.md)
       - [x] 2.1.2.2 Subtask - Verify keyboard, touch target, focus return, long-label, zoom and no-script usability using native semantics.
       - [x] 2.1.2.3 Subtask - Ensure optional demo scripting changes no route availability or core navigation result.
 
-  - [ ] 2.2 Section - Add deterministic progressive search.
+  - [x] 2.2 Section - Add deterministic progressive search.
 
     Make the full inventory quickly discoverable without remote data or a client router.
 
-    - [ ] 2.2.1 Task - Generate the local search document.
+    - [x] 2.2.1 Task - Generate the local search document.
 
       Search records must be minimal, stable, safe and derived from the closed catalogue.
 
-      - [ ] 2.2.1.1 Subtask - Export normalized names, categories, summaries, keywords and stable URLs in deterministic catalogue order.
-      - [ ] 2.2.1.2 Subtask - Validate schema, encoding, uniqueness, route membership and repository-subpath URLs while excluding HEEX, executable markup and secrets.
-      - [ ] 2.2.1.3 Subtask - Hash or fingerprint the local search asset and verify two identical exports produce identical bytes.
+      - [x] 2.2.1.1 Subtask - Export normalized names, categories, summaries, keywords and stable URLs in deterministic catalogue order.
+      - [x] 2.2.1.2 Subtask - Validate schema, encoding, uniqueness, route membership and repository-subpath URLs while excluding HEEX, executable markup and secrets.
+      - [x] 2.2.1.3 Subtask - Hash or fingerprint the local search asset and verify two identical exports produce identical bytes.
 
-    - [ ] 2.2.2 Task - Implement the demo-only filter experience.
+    - [x] 2.2.2 Task - Implement the demo-only filter experience.
 
       Search should improve a complete link list and announce results honestly.
 
-      - [ ] 2.2.2.1 Subtask - Add a labelled search input that filters already-rendered catalogue links and reports result counts without fetching remote data.
-      - [ ] 2.2.2.2 Subtask - Handle empty, unmatched, Unicode, long and HTML-like input as inert text without altering history or creating dynamic routes.
-      - [ ] 2.2.2.3 Subtask - Keep all links available without JavaScript and exclude search code/data from package contents.
+      - [x] 2.2.2.1 Subtask - Add a labelled search input that filters already-rendered catalogue links and reports result counts without fetching remote data.
+      - [x] 2.2.2.2 Subtask - Handle empty, unmatched, Unicode, long and HTML-like input as inert text without altering history or creating dynamic routes.
+      - [x] 2.2.2.3 Subtask - Keep all links available without JavaScript and exclude search code/data from package contents.
 
   - [ ] 2.3 Section - Complete example previews and stable source views.
 

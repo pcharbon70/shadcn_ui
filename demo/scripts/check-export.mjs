@@ -5,6 +5,20 @@ import { join } from "node:path";
 const root = new URL("../export/", import.meta.url);
 const manifest = JSON.parse(await readFile(new URL("route-manifest.json", root), "utf8"));
 if (manifest.schemaVersion !== 1) throw new Error("unsupported route manifest");
+if (!/^search-index-[a-f0-9]{16}\.json$/.test(manifest.search.file) ||
+    manifest.search.schemaVersion !== "1" || manifest.search.records !== 41) throw new Error("invalid search manifest");
+const searchBytes = await readFile(new URL(manifest.search.file, root));
+if (createHash("sha256").update(searchBytes).digest("hex") !== manifest.search.sha256) throw new Error("stale search document hash");
+const search = JSON.parse(searchBytes);
+if (search.schemaVersion !== "1" || search.records.length !== 41) throw new Error("invalid search document");
+const searchKeys = ["category", "keywords", "name", "route", "summary", "url"];
+if (new Set(search.records.map(record => record.url)).size !== search.records.length) throw new Error("duplicate search URL");
+for (const record of search.records) {
+  if (JSON.stringify(Object.keys(record).sort()) !== JSON.stringify(searchKeys) ||
+      record.url !== `/shadcn_ui${record.route}` ||
+      !record.route.startsWith("/components/") ||
+      /<%|<script|javascript:|Elixir\./i.test(JSON.stringify(record))) throw new Error("unsafe search record");
+}
 const sitemap = await readFile(new URL("sitemap.xml", root), "utf8");
 const fixtures = JSON.parse(await readFile(new URL("../priv/media/fixtures.json", import.meta.url), "utf8"));
 const expectedMedia = fixtures.entries.map(entry => entry.file).sort();
@@ -103,3 +117,5 @@ for (const asset of assets) {
   const hash = createHash("sha256").update(content).digest("hex");
   if (manifest.assets[asset] !== hash) throw new Error(`stale asset hash: ${asset}`);
 }
+const rootFiles = (await readdir(root)).filter(file => file.startsWith("search-index-"));
+if (rootFiles.length !== 1 || rootFiles[0] !== manifest.search.file) throw new Error("unexpected search document inventory");

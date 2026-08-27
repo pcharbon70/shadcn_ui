@@ -12,6 +12,8 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @schema_version "1"
   @package_root Path.expand("../../..", __DIR__)
   @documentation_keys ~w(what when responsibilities accessibility fallback source)a
+  @search_keys ~w(category keywords name route summary url)
+  @static_base "/shadcn_ui"
 
   @public_identities %{
     button: {ShadcnUI.Components.Foundation.Button, :button, "foundation.button"},
@@ -142,9 +144,96 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
 
   def lookup_fragment(_route, _fragment), do: :error
 
+  @doc "Returns the minimal, deterministic search document records in catalogue order."
+  @spec search_records() :: [map()]
+  def search_records do
+    Enum.map(entries(), fn entry ->
+      %{
+        "category" => entry.category.label,
+        "keywords" => search_keywords(entry),
+        "name" => entry.label,
+        "route" => entry.route,
+        "summary" => entry.documentation.what,
+        "url" => @static_base <> entry.route
+      }
+    end)
+  end
+
+  @doc "Encodes the versioned search document without clocks, host paths, or executable data."
+  @spec search_json() :: String.t()
+  def search_json do
+    Jason.encode!(%{"records" => search_records(), "schemaVersion" => @schema_version})
+  end
+
+  @doc "Returns normalized authored search text for one closed component identity."
+  @spec search_text!(String.t(), String.t()) :: String.t()
+  def search_text!(category, slug) do
+    with {:ok, entry} <- lookup(category, slug) do
+      entry
+      |> search_record()
+      |> Map.take(~w(category keywords name summary))
+      |> Map.values()
+      |> List.flatten()
+      |> Enum.join(" ")
+      |> normalize_search()
+    else
+      :error -> raise ArgumentError, "unknown documentation catalogue identity"
+    end
+  end
+
+  @doc "Normalizes bounded search input without converting it to atoms or executable identities."
+  @spec normalize_search(String.t()) :: String.t()
+  def normalize_search(value) when is_binary(value) do
+    value
+    |> String.slice(0, 200)
+    |> String.normalize(:nfd)
+    |> String.replace(~r/\p{Mn}/u, "")
+    |> String.downcase()
+    |> String.replace(~r/[^\p{L}\p{N}]+/u, " ")
+    |> String.trim()
+  end
+
+  @spec validate_search() :: :ok | {:error, [String.t()]}
+  def validate_search do
+    records = search_records()
+    routes = MapSet.new(entries(), & &1.route)
+
+    errors =
+      records
+      |> Enum.with_index()
+      |> Enum.flat_map(fn {record, index} ->
+        []
+        |> maybe_error(
+          Map.keys(record) == @search_keys,
+          "search record #{index} has an open schema"
+        )
+        |> maybe_error(
+          MapSet.member?(routes, record["route"]),
+          "search record #{index} has an unknown route"
+        )
+        |> maybe_error(
+          record["url"] == @static_base <> record["route"],
+          "search record #{index} has an invalid URL"
+        )
+        |> maybe_error(
+          Enum.all?(Map.values(record), &safe_search_value?/1),
+          "search record #{index} has unsafe data"
+        )
+      end)
+      |> Kernel.++(
+        search_records()
+        |> Enum.map(& &1["url"])
+        |> duplicate_values()
+        |> Enum.map(&"duplicate search URL: #{&1}")
+      )
+      |> Enum.sort()
+
+    if errors == [], do: :ok, else: {:error, errors}
+  end
+
   @spec validate() :: :ok | {:error, [String.t()]}
   def validate do
-    audit(entries())
+    with :ok <- audit(entries()), do: validate_search()
   end
 
   @doc "Returns the compiled component identities imported by `use ShadcnUI`."
@@ -273,6 +362,24 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       end
     end)
   end
+
+  defp search_record(entry) do
+    Enum.find(search_records(), &(&1["route"] == entry.route))
+  end
+
+  defp search_keywords(entry) do
+    [entry.slug, entry.category.slug, Atom.to_string(entry.public.function)]
+    |> Enum.map(&String.replace(&1, ["-", "_"], " "))
+    |> Enum.uniq()
+  end
+
+  defp safe_search_value?(value) when is_binary(value) do
+    String.valid?(value) and
+      not String.contains?(String.downcase(value), ["<script", "<%", "javascript:"])
+  end
+
+  defp safe_search_value?(value) when is_list(value), do: Enum.all?(value, &safe_search_value?/1)
+  defp safe_search_value?(_value), do: false
 
   defp public_import_modules do
     @package_root

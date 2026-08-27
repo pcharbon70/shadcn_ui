@@ -40,6 +40,23 @@ defmodule ShadcnUIDemoWeb.Layouts do
         <a href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "light", @motion)}>Use light theme</a>
         <a href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "dark", @motion)}>Use dark theme</a>
       </nav></noscript>
+      <div class="gallery-search" data-gallery-search>
+        <label for="gallery-component-search">Search components</label>
+        <div>
+          <input
+            id="gallery-component-search"
+            type="search"
+            maxlength="200"
+            autocomplete="off"
+            aria-describedby="gallery-search-status"
+            data-gallery-search-input
+          />
+          <button type="button" data-gallery-search-reset>Clear</button>
+        </div>
+        <p id="gallery-search-status" aria-live="polite" data-gallery-search-status>
+          {length(@components)} components available
+        </p>
+      </div>
     </header>
 
     <div class="gallery-layout">
@@ -97,7 +114,14 @@ defmodule ShadcnUIDemoWeb.Layouts do
         </a>
       </h2>
       <ul>
-        <li :for={component <- Enum.filter(@components, &(&1.category == category.slug))}>
+        <li
+          :for={component <- Enum.filter(@components, &(&1.category == category.slug))}
+          data-gallery-search-item
+          data-gallery-search-route={component.path}
+          data-gallery-search-text={
+            ShadcnUIDemo.DocumentationCatalogue.search_text!(category.slug, component.slug)
+          }
+        >
           <a href={component.path} aria-current={@page.path == component.path && "page"}>
             {component.label}
           </a>
