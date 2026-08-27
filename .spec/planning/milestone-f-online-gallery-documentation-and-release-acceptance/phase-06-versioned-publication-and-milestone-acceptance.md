@@ -75,19 +75,53 @@ Back to wave: [README](./README.md)
 
       Final integration must preserve all prior component and package guarantees.
 
-      - [ ] 6.4.1.1 Subtask - Add milestone_f_acceptance and release tests covering every specification ID, catalogue relationship, evidence state and absent runtime/consumer target.
-      - [ ] 6.4.1.2 Subtask - Run package/demo precommit, warning-free ExDoc, deterministic CSS/export, provenance/license, actual archive and clean consumer checks from a fresh checkout.
+      - [x] 6.4.1.1 Subtask - Add milestone_f_acceptance and release tests covering every specification ID, catalogue relationship, evidence state and absent runtime/consumer target.
+      - [x] 6.4.1.2 Subtask - Run package/demo precommit, warning-free ExDoc, deterministic CSS/export, provenance/license, actual archive and clean consumer checks from a fresh checkout.
       - [ ] 6.4.1.3 Subtask - Run all A-F browser suites in locked engines, static-subpath smoke, required manual review and canonical post-deploy smoke after the reviewed publication occurs.
 
     - [ ] 6.4.2 Task - Record final evidence and delivery state.
 
       The execution record must be reproducible and distinguish every gate and authorized action.
 
-      - [ ] 6.4.2.1 Subtask - Run SpecLed next/check for main and HEAD plus git diff --check, retaining full diagnostics for any failure.
-      - [ ] 6.4.2.2 Subtask - Record commands, tool versions, revisions, artifact hashes, browser/manual results, consumer trial, workflow run, deployed smoke and unresolved limitations.
-      - [ ] 6.4.2.3 Subtask - Commit four sections and open one Phase 6 PR; publish only through reviewed main and do not publish Hex or create a public tag without separate authorization.
+      - [x] 6.4.2.1 Subtask - Run SpecLed next/check for main and HEAD plus git diff --check, retaining full diagnostics for any failure.
+      - [x] 6.4.2.2 Subtask - Record commands, tool versions, revisions, artifact hashes, browser/manual results, consumer trial, workflow run, deployed smoke and unresolved limitations.
+      - [x] 6.4.2.3 Subtask - Commit four sections and open one Phase 6 PR; publish only through reviewed main and do not publish Hex or create a public tag without separate authorization.
 
 ## Section delivery rule
 
 Complete and verify each section before committing it. Make one commit per
 section and one PR for this phase; do not merge without a later request.
+
+## Execution record
+
+- Tested source revision: `3ef5f82e0830d34b9be16a4b6f8945bc7761d93b`.
+- Toolchain: Elixir 1.20.3, OTP 29.0 and Node.js 22.13.1.
+- Clean builds: two independent build roots produced equivalent package,
+  documentation and gallery outputs. The package archive SHA-256 is
+  `38a9e118d400816a8a5780e655c1c10e0fb60e30138a13337b7a74f48e94fc07`
+  and the compiled CSS SHA-256 is
+  `d2128dd4b653375bab27d6bc070e1ef2c0ca11dd39a183ce6ab9e63eaf8047d8`.
+  Each export contains 645 gallery files and 143 documentation files; the
+  archive contains 62 entries.
+- Automated suites: 402 package tests, 91 demo tests and three isolated
+  archive-consumer tests passed. The isolated browser consumer trial passed.
+- Browser matrix: all 417 A-F Playwright tests passed without retry in locked
+  Chromium 151.0.7922.34, Firefox 153.0 and WebKit 26.5.
+- Static publication: both deterministic exports, the 634-route audit,
+  repository-subpath smoke, release/health manifests, hashes, media and the
+  non-reflecting 404 checks passed locally.
+- SpecLed: `mix spec.next` reports four new Phase 6 policy files outside current
+  subject coverage. Both `mix spec.check --base main` and
+  `mix spec.check --base HEAD` report four errors and 144 warnings because
+  nested verification shells select Elixir 1.18.0; the same verification
+  commands pass directly with the pinned Elixir 1.20.3 toolchain. The gate
+  remains failed and the transient `.spec/state.json` output was not retained.
+- Pending external/manual evidence: all six bounded manual accessibility
+  scenarios, final-revision CI, merge, reviewed-main deployment and canonical
+  post-deploy smoke. Consequently Phase 6 and Section 6.4 remain open and the
+  internal candidate remains blocked.
+- Publication boundary: no Hex package, public version tag, marketplace entry,
+  platform certification or upstream-affiliation claim was created.
+- Delivery: four section commits are proposed together in
+  [PR #26](https://github.com/Leco-Industries-Inc/shadcn_ui/pull/26); it remains
+  unmerged for review.

@@ -32,7 +32,7 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
     assert status["evidence"]["milestoneFRequirementsImplemented"] == 38
     assert status["evidence"]["milestoneFManualRequirementsPending"] == 1
     refute status["qualification"]["qualified"]
-    assert gates["phase-6-integration"] == "pending"
+    assert gates["phase-6-integration"] == "passed"
     assert gates["manual-accessibility"] == "pending"
     assert gates["ci-final-revision"] == "pending"
     assert gates["gallery-deployment"] == "pending"

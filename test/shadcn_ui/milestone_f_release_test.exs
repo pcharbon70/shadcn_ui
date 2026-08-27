@@ -15,7 +15,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-             "Mandatory manual accessibility, CI, and SpecLed gates are not all passing.",
+               "Mandatory manual accessibility, CI, and SpecLed gates are not all passing.",
              "status" => "blocked"
            }
 
