@@ -1,5 +1,14 @@
 # Changelog
 
+## Milestone F Phase 6 — unreleased
+
+- Add deterministic release and health manifests with canonical identity,
+  hashed local assets, complete static health targets, and secret rejection.
+- Pin the main-only Pages workflow and toolchains, expand canonical smoke, and
+  document retained-artifact rollback and recovery operations.
+- Reconcile all 38 Milestone F requirements while keeping qualification blocked
+  on manual accessibility, final CI, deployment smoke, and SpecLed.
+
 ## Milestone F Phase 5 — unreleased
 
 - Add committed-input candidate builds with output inventories and a disposable

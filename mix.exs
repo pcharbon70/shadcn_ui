@@ -92,6 +92,8 @@ defmodule ShadcnUI.MixProject do
         "docs/reproducible-candidate.md",
         "docs/clean-consumer-trial.md",
         "docs/release-candidate.md",
+        "docs/milestone-f-acceptance.md",
+        "docs/gallery-operations.md",
         "docs/provenance.md",
         "CHANGELOG.md",
         "THIRD_PARTY_NOTICES.md",

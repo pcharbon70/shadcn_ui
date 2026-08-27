@@ -17,12 +17,19 @@
     "documentationFiles": 139,
     "consumerTests": 3,
     "consumerBrowserTrial": true,
+    "milestoneFRequirements": 38,
+    "milestoneFRequirementsImplemented": 38,
+    "milestoneFManualRequirementsPending": 1,
+    "requirementLedger": "docs/milestone-f-acceptance.md",
     "finalPhase5Revision": null
   },
   "gates": [
     {"id": "clean-candidate", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "actual-archive-consumer", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "phase-5-integration", "kind": "local", "mandatory": true, "status": "passed"},
+    {"id": "phase-6-publication-artifact", "kind": "local", "mandatory": true, "status": "passed"},
+    {"id": "phase-6-operations", "kind": "local", "mandatory": true, "status": "passed"},
+    {"id": "phase-6-integration", "kind": "local", "mandatory": true, "status": "pending"},
     {"id": "locked-engine-compatibility", "kind": "browser", "mandatory": true, "status": "passed"},
     {"id": "automated-accessibility", "kind": "accessibility", "mandatory": true, "status": "passed"},
     {"id": "manual-accessibility", "kind": "manual", "mandatory": true, "status": "pending"},
@@ -41,6 +48,7 @@
     "manualAccessibility": "All six bounded scenarios in docs/accessibility-review.md remain PENDING.",
     "specled": "Both main and HEAD report 4 errors and 145 warnings. Nested verification shells select Elixir 1.18.0 and fail commands that pass directly with the pinned Elixir 1.20.3 toolchain; commands remain enabled and are not marked passed.",
     "browser": "The A-F matrix passed after one transient Firefox context-close protocol error in the first Milestone E Phase 6 run; the complete 24-test Phase 6 rerun passed.",
+    "deployment": "Phase 6 workflow, smoke, and rollback mechanisms are implemented. Final-revision CI, reviewed main deployment, and canonical post-deploy smoke remain separate pending gates.",
     "publication": "No Hex publish, public tag, marketplace listing, platform certification, or upstream affiliation is authorized."
   }
 }

@@ -47,25 +47,25 @@ Back to wave: [README](./README.md)
       - [x] 6.2.2.2 Subtask - Define failure triage, rollback to a previously verified artifact, cache considerations and the recovery smoke sequence.
       - [x] 6.2.2.3 Subtask - Record local, CI, merge, deployment and post-deployment results separately; never infer publication success from a merged PR.
 
-  - [ ] 6.3 Section - Reconcile final documentation and release acceptance.
+  - [x] 6.3 Section - Reconcile final documentation and release acceptance.
 
     Close every requirement and expose unresolved gates before declaring the internal candidate ready.
 
-    - [ ] 6.3.1 Task - Audit all catalogue and documentation relationships.
+    - [x] 6.3.1 Task - Audit all catalogue and documentation relationships.
 
       The final public reference must cover every actual API with no stale or invented entry.
 
-      - [ ] 6.3.1.1 Subtask - Re-run public API parity, component-page sections, examples/fragments, ExDoc, search, provenance and verification completeness.
-      - [ ] 6.3.1.2 Subtask - Verify README, controller/Dstar/LiveView guides, compatibility policy, changelog, migrations, release procedure and operations agree.
-      - [ ] 6.3.1.3 Subtask - Preserve every Milestones A-E route and contract and document deliberately deferred public Hex, marketplace, CLI, theme and new-family work.
+      - [x] 6.3.1.1 Subtask - Re-run public API parity, component-page sections, examples/fragments, ExDoc, search, provenance and verification completeness.
+      - [x] 6.3.1.2 Subtask - Verify README, controller/Dstar/LiveView guides, compatibility policy, changelog, migrations, release procedure and operations agree.
+      - [x] 6.3.1.3 Subtask - Preserve every Milestones A-E route and contract and document deliberately deferred public Hex, marketplace, CLI, theme and new-family work.
 
-    - [ ] 6.3.2 Task - Decide internal candidate qualification truthfully.
+    - [x] 6.3.2 Task - Decide internal candidate qualification truthfully.
 
       Qualification requires evidence, not completed planning checkboxes or a successful local run alone.
 
-      - [ ] 6.3.2.1 Subtask - Reconcile all 38 new requirements with implemented proof and fail missing, stale, contradictory or planning-only targets.
-      - [ ] 6.3.2.2 Subtask - Review clean builds, exact-engine results, automated and manual accessibility, consumer trial, CI, deploy and post-deploy gates.
-      - [ ] 6.3.2.3 Subtask - Mark the internal 0.1.0 candidate qualified only if all mandatory gates pass; otherwise publish an exact blocking-status record without Hex release.
+      - [x] 6.3.2.1 Subtask - Reconcile all 38 new requirements with implemented proof and fail missing, stale, contradictory or planning-only targets.
+      - [x] 6.3.2.2 Subtask - Review clean builds, exact-engine results, automated and manual accessibility, consumer trial, CI, deploy and post-deploy gates.
+      - [x] 6.3.2.3 Subtask - Mark the internal 0.1.0 candidate qualified only if all mandatory gates pass; otherwise publish an exact blocking-status record without Hex release.
 
   - [ ] 6.4 Section - Phase 6 Integration Tests.
 
