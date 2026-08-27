@@ -7,25 +7,25 @@ Back to wave: [README](./README.md)
   Rebuild and inspect the internal `0.1.0` candidate from clean inputs, then
   prove a separate Phoenix consumer can use what the archive actually contains.
 
-  - [ ] 5.1 Section - Make clean candidate builds reproducible.
+  - [x] 5.1 Section - Make clean candidate builds reproducible.
 
     Lock all inputs and compare actual outputs rather than relying on a developer working tree.
 
-    - [ ] 5.1.1 Task - Define the clean build procedure.
+    - [x] 5.1.1 Task - Define the clean build procedure.
 
       A disposable checkout must be able to recreate every candidate artifact with repository-owned commands.
 
-      - [ ] 5.1.1.1 Subtask - Pin and verify Elixir/OTP, Mix, Hex, rebar, Node, npm, Tailwind, Playwright and browser lock inputs used by the release procedure.
-      - [ ] 5.1.1.2 Subtask - Run package/demo setup, CSS build, ExDoc, gallery export, search/health metadata and archive creation without global build tools.
-      - [ ] 5.1.1.3 Subtask - Document offline/runtime asset boundaries and fail remote imports, undeclared downloads, untracked inputs or mutable environment dependencies.
+      - [x] 5.1.1.1 Subtask - Pin and verify Elixir/OTP, Mix, Hex, rebar, Node, npm, Tailwind, Playwright and browser lock inputs used by the release procedure.
+      - [x] 5.1.1.2 Subtask - Run package/demo setup, CSS build, ExDoc, gallery export, search/health metadata and archive creation without global build tools.
+      - [x] 5.1.1.3 Subtask - Document offline/runtime asset boundaries and fail remote imports, undeclared downloads, untracked inputs or mutable environment dependencies.
 
-    - [ ] 5.1.2 Task - Compare deterministic outputs and release contents.
+    - [x] 5.1.2 Task - Compare deterministic outputs and release contents.
 
       Two clean runs should produce the same consumer-relevant bytes and allowlist.
 
-      - [ ] 5.1.2.1 Subtask - Compare compiled CSS, static export, search data, health/release manifests and archive file/hash inventories from identical inputs.
-      - [ ] 5.1.2.2 Subtask - Audit the actual archive for runtime modules, CSS, metadata, README, changelog, migrations and notices and reject every excluded path class.
-      - [ ] 5.1.2.3 Subtask - Reconcile upstream provenance, MIT notices, independently authored material and the exact pinned upstream revision.
+      - [x] 5.1.2.1 Subtask - Compare compiled CSS, static export, search data, health/release manifests and archive file/hash inventories from identical inputs.
+      - [x] 5.1.2.2 Subtask - Audit the actual archive for runtime modules, CSS, metadata, README, changelog, migrations and notices and reject every excluded path class.
+      - [x] 5.1.2.3 Subtask - Reconcile upstream provenance, MIT notices, independently authored material and the exact pinned upstream revision.
 
   - [ ] 5.2 Section - Build an isolated clean Phoenix consumer.
 

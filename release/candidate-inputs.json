@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "candidateVersion": "0.1.0",
+  "toolchain": {
+    "elixir": "1.20.3",
+    "otp": "29",
+    "erts": "17.0.5",
+    "mix": "1.20.3",
+    "hex": "2.5.1",
+    "node": "22.13.1",
+    "npm": "10.9.2",
+    "tailwindcss": "4.3.3",
+    "playwright": "1.62.1",
+    "axeCore": "4.13.0"
+  },
+  "locks": {
+    "mix.lock": "ad8e13e7418692f0f768980a7a2d16e3961046953d66c350ba0d3fe5c09ad8bf",
+    "package-lock.json": "c36719dd4beaf35aea4f1ea8494b27c12e76b6aee28ddb6f1a3975ead1288b1a",
+    "demo/package-lock.json": "bc47482d4502896f6dedf9d4e2ff002bd1595e91c1540041cb19f90b0fcbef8a"
+  },
+  "rebar3": {
+    "selection": "MIX_REBAR3",
+    "sha256": "8dead71212b8008ec830c085607c23ec2997ab1c36a3c91901ac42c9814ee08c"
+  },
+  "browserEvidence": "demo/priv/compatibility/milestone_f_engine_evidence.json"
+}
