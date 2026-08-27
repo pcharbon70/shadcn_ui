@@ -1,0 +1,144 @@
+# Accessibility review record
+
+This ledger is the bounded Milestone F accessibility review record for the
+ShadcnUI package and gallery. It separates executable checks from observations
+that require a human reviewer, assistive technology, or physical hardware.
+Passing automation is not WCAG certification and does not complete the pending
+human scenarios below.
+
+## Automated evidence
+
+| Field | Recorded value |
+| --- | --- |
+| Status | Passed |
+| Date | 2026-08-27 |
+| Environment | Windows 11 Pro, win32 x64, release 10.0.26200 |
+| Engines | Chromium 151.0.7922.34, Firefox 153.0, WebKit 26.5 |
+| Tool | axe-core 4.13.0, installed from the locked demo dependency graph |
+| Scope | Representative light/dark pages, 640 px viewport, reduced motion, forced colors, failed images, native dialog closed/open states, focus entry and return |
+| Rules | WCAG 2 A/AA and WCAG 2.1 A/AA axe tags |
+| Result | No unresolved axe violations in the executed matrix; targeted semantic and keyboard assertions passed separately |
+| Exclusions | Best-practice rules are outside this release gate. The axe color-contrast rule runs in ordinary rendering but is disabled only in forced-colors emulation because the tool reports authored colors rather than the user-agent substitutions; structural rules and explicit forced-color assertions still run there. CSS-disabled and no-script paths use explicit assertions because injecting axe would invalidate those conditions. |
+| Native limitations | Axe does not prove native keyboard fidelity, reading order quality, zoom usability, platform accessibility-tree behavior, touch ergonomics, or screen-reader announcements. Those remain explicit or manual evidence. |
+
+Reproduce the automated evidence with:
+
+```console
+npm run browser:milestone-f-phase4
+```
+
+The executable suite is
+`test/browser/milestone-f-compatibility.spec.mjs`. The exact engine and lockfile
+identity is recorded separately in
+`demo/priv/compatibility/milestone_f_engine_evidence.json`.
+
+## Manual review protocol
+
+Every manual record must contain all of these fields: scenario identifier,
+functional categories, reviewer, date, hardware, browser, assistive technology
+or input device, reproducible steps, observations, defects, retest result, and
+status. A reviewer must replace `Unassigned` and `Not run` when executing a
+scenario. Screenshots may support an observation but cannot replace keyboard,
+touch, or assistive-technology use.
+
+Status values are `PENDING`, `BLOCKED`, `FAILED`, or `PASSED`. A mandatory
+defect keeps the scenario `FAILED` until its recorded retest passes. An
+unavailable platform or device stays `PENDING`; it is never inferred from a
+different engine or automated run.
+
+## Manual scenario ledger
+
+### MAN-01 — Keyboard traversal and visible focus
+
+- Functional categories: foundation, forms, disclosure, navigation, content surfaces
+- Reviewer: Unassigned
+- Date: Not run
+- Hardware: Physical keyboard required; machine pending
+- Browser: Native browser and version pending
+- Assistive technology or device: Keyboard only
+- Steps: Open representative pages in both themes; traverse forward and backward; activate buttons, links, form controls, summaries, navigation and skip links; confirm focus is never trapped, obscured, or lost.
+- Observations: Not observed by a human reviewer. Automated keyboard and focus assertions passed on 2026-08-27.
+- Defects: Not assessed manually
+- Retest result: Not applicable
+- Status: PENDING
+
+### MAN-02 — Native overlays, dismissal, and focus return
+
+- Functional categories: overlays, interactive surfaces
+- Reviewer: Unassigned
+- Date: Not run
+- Hardware: Physical keyboard required; machine pending
+- Browser: Native browser and version pending
+- Assistive technology or device: Keyboard only, then a screen reader in MAN-06
+- Steps: Open dialog, alert dialog, drawer, popover, dropdown actions, tooltip and hover-card examples; inspect initial focus, Escape behavior, cancellation, focus return, ordinary alternatives, and long content.
+- Observations: Not observed by a human reviewer. Automated native interaction and fallback assertions passed on 2026-08-27.
+- Defects: Not assessed manually
+- Retest result: Not applicable
+- Status: PENDING
+
+### MAN-03 — Zoom, reflow, RTL, and long content
+
+- Functional categories: all categories, with emphasis on navigation, content surfaces, overlays and media
+- Reviewer: Unassigned
+- Date: Not run
+- Hardware: Desktop display and physical keyboard pending
+- Browser: Native browser and version pending
+- Assistive technology or device: Browser zoom at 200 percent; RTL preference
+- Steps: Inspect representative pages at 200 percent zoom and narrow width in both themes; repeat with RTL; confirm text, controls, destinations and focus remain usable without clipped required content.
+- Observations: Not observed by a human reviewer. Automated bounded-layout and RTL assertions passed on 2026-08-27.
+- Defects: Not assessed manually
+- Retest result: Not applicable
+- Status: PENDING
+
+### MAN-04 — Windows high contrast and reduced motion
+
+- Functional categories: foundation, forms, overlays, motion, media
+- Reviewer: Unassigned
+- Date: Not run
+- Hardware: Windows device and display pending
+- Browser: Native Chromium- or Firefox-based browser and version pending
+- Assistive technology or device: Windows Contrast Theme; operating-system reduced-motion preference
+- Steps: Enable a Windows Contrast Theme and reduced motion; inspect focus, boundaries, selected/disabled states, overlay surfaces, motion alternatives and meaningful images in light and dark gallery themes.
+- Observations: Not observed by a human reviewer. Browser-emulated forced-colors and reduced-motion checks passed on 2026-08-27 but are not promoted to native Windows observations.
+- Defects: Not assessed manually
+- Retest result: Not applicable
+- Status: PENDING
+
+### MAN-05 — Physical touch and coarse pointer
+
+- Functional categories: navigation, forms, disclosure, overlays, interactive surfaces, media
+- Reviewer: Unassigned
+- Date: Not run
+- Hardware: Touchscreen or mobile device pending
+- Browser: Device browser and version pending
+- Assistive technology or device: Physical touch and coarse pointer
+- Steps: Activate representative targets without hover; scroll carousels and overflow surfaces; open and dismiss overlays; verify target spacing, accidental activation resistance, ordinary destinations and image alternatives.
+- Observations: Not observed. Browser viewport simulation is not accepted as physical touch evidence.
+- Defects: Not assessed manually
+- Retest result: Not applicable
+- Status: PENDING
+
+### MAN-06 — Screen-reader names, relationships, order, and feedback
+
+- Functional categories: forms, disclosure, navigation, content surfaces, overlays, media
+- Reviewer: Unassigned
+- Date: Not run
+- Hardware: Machine and audio output pending
+- Browser: Browser and version paired with the selected screen reader pending
+- Assistive technology or device: NVDA or another identified desktop screen reader and version
+- Steps: Navigate headings, landmarks, lists, links and form fields; inspect names, help and errors; operate disclosures and overlays; verify meaningful image alternatives, reading order, disabled explanations and feedback that the component contract actually defines.
+- Observations: Not observed. DOM assertions and axe results do not substitute for screen-reader output.
+- Defects: Not assessed manually
+- Retest result: Not applicable
+- Status: PENDING
+
+## Qualification gate
+
+The automated Milestone F accessibility gate currently passes. Human manual
+review remains open because every `MAN-*` scenario is `PENDING`. A release or
+publication record may describe the automated evidence, but it must not state
+that manual accessibility acceptance or WCAG certification is complete. Before
+qualification, the release owner must define which manual scenarios are
+mandatory for that candidate, assign reviewers and devices, resolve mandatory
+defects, and record passing retests. Unexecuted platforms remain pending rather
+than being represented as failures or successes.

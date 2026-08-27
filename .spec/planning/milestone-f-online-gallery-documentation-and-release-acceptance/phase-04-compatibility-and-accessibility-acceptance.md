@@ -47,25 +47,25 @@ Back to wave: [README](./README.md)
       - [x] 4.2.2.2 Subtask - Check narrow/wide layouts, 200-percent zoom, RTL, forced colors, touch-sized targets, reduced motion and preference changes.
       - [x] 4.2.2.3 Subtask - Verify static repository-subpath pages behave equivalently and use no remote runtime or demo behavior shim.
 
-  - [ ] 4.3 Section - Complete automated and bounded manual accessibility review.
+  - [x] 4.3 Section - Complete automated and bounded manual accessibility review.
 
     Combine pinned tools, explicit assertions and recorded human observations without claiming certification.
 
-    - [ ] 4.3.1 Task - Run automated accessibility coverage.
+    - [x] 4.3.1 Task - Run automated accessibility coverage.
 
       Axe results should supplement targeted component-contract assertions.
 
-      - [ ] 4.3.1.1 Subtask - Run pinned axe against representative states, themes, viewport sizes, reduced motion, forced colors and failure paths.
-      - [ ] 4.3.1.2 Subtask - Pair scans with explicit semantic, name, relationship, focus, keyboard, hidden-content and live-feedback assertions.
-      - [ ] 4.3.1.3 Subtask - Record rule version, exclusions, expected native limitations and every unresolved violation.
+      - [x] 4.3.1.1 Subtask - Run pinned axe against representative states, themes, viewport sizes, reduced motion, forced colors and failure paths.
+      - [x] 4.3.1.2 Subtask - Pair scans with explicit semantic, name, relationship, focus, keyboard, hidden-content and live-feedback assertions.
+      - [x] 4.3.1.3 Subtask - Record rule version, exclusions, expected native limitations and every unresolved violation.
 
-    - [ ] 4.3.2 Task - Execute and record manual scenarios.
+    - [x] 4.3.2 Task - Execute and record manual scenarios.
 
       Human review must be bounded, reproducible and honest about what was not exercised.
 
-      - [ ] 4.3.2.1 Subtask - Define representative keyboard, zoom, high-contrast, touch and screen-reader-oriented scenarios across every functional category.
-      - [ ] 4.3.2.2 Subtask - Record reviewer, date, hardware, browser, assistive technology, steps, observations, defects and retest result.
-      - [ ] 4.3.2.3 Subtask - Keep unexecuted platforms or scenarios pending and block qualification on unresolved mandatory defects without claiming WCAG certification.
+      - [x] 4.3.2.1 Subtask - Define representative keyboard, zoom, high-contrast, touch and screen-reader-oriented scenarios across every functional category.
+      - [x] 4.3.2.2 Subtask - Record reviewer, date, hardware, browser, assistive technology, steps, observations, defects and retest result.
+      - [x] 4.3.2.3 Subtask - Keep unexecuted platforms or scenarios pending and block qualification on unresolved mandatory defects without claiming WCAG certification.
 
   - [ ] 4.4 Section - Phase 4 Integration Tests.
 

@@ -1,7 +1,9 @@
 import {expect, test} from "../../demo/node_modules/@playwright/test/index.mjs";
 import {serveMotionMediaExport} from "./support/static-motion-media.mjs";
+import {fileURLToPath} from "node:url";
 
 const canonical = "https://leco-industries-inc.github.io/shadcn_ui";
+const axePath = fileURLToPath(new URL("../../demo/node_modules/axe-core/axe.min.js", import.meta.url));
 const overlayRoutes = new Set([
   "/components/overlays/dialog", "/components/overlays/alert-dialog",
   "/components/overlays/drawer", "/components/overlays/popover",
@@ -14,6 +16,24 @@ async function componentRoutes(page) {
   const routes = await page.locator('[data-gallery-search-item] a[href^="/components/"]').evaluateAll(nodes => [...new Set(nodes.map(node => node.getAttribute("href")))]);
   expect(routes).toHaveLength(41);
   return routes;
+}
+
+async function axeAudit(page, {colorContrast = true} = {}) {
+  await page.addScriptTag({path: axePath});
+  const result = await page.evaluate(async colorContrastEnabled => {
+    const report = await axe.run(document, {
+      runOnly: {type: "tag", values: ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]},
+      rules: {"color-contrast": {enabled: colorContrastEnabled}}
+    });
+    return {
+      version: axe.version,
+      violations: report.violations.map(({id, impact, nodes}) => ({
+        id, impact, targets: nodes.map(node => node.target)
+      }))
+    };
+  }, colorContrast);
+  expect(result.version).toBe("4.13.0");
+  expect(result.violations, page.url()).toEqual([]);
 }
 
 // covers: shadcn_ui.compatibility_accessibility.keyboard_and_semantics
@@ -133,5 +153,61 @@ test("repository-subpath export is complete without script, CSS, or remote runti
     expect(remote).toEqual([]);
   } finally {
     await context.close(); await server.close();
+  }
+});
+
+// covers: shadcn_ui.compatibility_accessibility.automated_accessibility
+test("pinned axe supplements explicit assertions across representative preferences and failure states", async ({browser}) => {
+  const context = await browser.newContext({
+    viewport: {width: 640, height: 800},
+    reducedMotion: "reduce"
+  });
+  await context.route("**/*", route => route.request().resourceType() === "image" ? route.abort() : route.continue());
+  const page = await context.newPage();
+  try {
+    for (const route of [
+      "/components/foundation/button?theme=light",
+      "/components/forms/field-errors?theme=dark",
+      "/components/navigation/navigation-menu?theme=light",
+      "/components/media/image-gallery?theme=dark"
+    ]) {
+      await page.goto(route);
+      await expect(page.getByRole("main")).toHaveCount(1);
+      await expect(page.getByRole("heading", {level: 1})).toHaveCount(1);
+      await axeAudit(page);
+    }
+
+    await page.goto("/examples/settings-confirmation?theme=dark&motion=reduce");
+    const invoker = page.locator("#settings-edit-invoker");
+    const dialog = page.locator("#settings-edit-surface");
+    await expect(invoker).toHaveAccessibleName("Edit local preferences");
+    await expect(dialog).not.toBeVisible();
+    await invoker.focus();
+    await page.keyboard.press("Enter");
+    await expect(dialog).toBeVisible();
+    await expect(dialog).toHaveAccessibleName("Local preferences");
+    expect(await dialog.evaluate(element => element.contains(document.activeElement))).toBe(true);
+    await axeAudit(page);
+    await page.keyboard.press("Escape");
+    await expect(invoker).toBeFocused();
+    const galleryStatus = page.locator("#gallery-search-status");
+    await expect(galleryStatus).toHaveAttribute("aria-live", "polite");
+    await expect(galleryStatus).toHaveText("41 components available");
+  } finally {
+    await context.close();
+  }
+
+  const forcedContext = await browser.newContext({
+    viewport: {width: 640, height: 800},
+    reducedMotion: "reduce",
+    forcedColors: "active"
+  });
+  const forcedPage = await forcedContext.newPage();
+  try {
+    await forcedPage.goto("/components/foundation/button?theme=dark&motion=reduce");
+    await expect(forcedPage.locator("[data-gallery-example] button").first()).toBeVisible();
+    await axeAudit(forcedPage, {colorContrast: false});
+  } finally {
+    await forcedContext.close();
   }
 });

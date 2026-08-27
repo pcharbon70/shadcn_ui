@@ -92,7 +92,7 @@ defmodule ShadcnUI.Components.Overlays.AlertDialog do
         :cancel_classes,
         class_names([
           "sui:inline-flex sui:min-h-9 sui:items-center sui:justify-center sui:rounded-lg",
-          "sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:text-sm sui:font-medium",
+          "sui:border sui:border-input sui:bg-background sui:px-4 sui:py-2 sui:text-sm sui:font-medium sui:text-foreground",
           classes_for(:focus, :default),
           assigns.cancel_class
         ])
