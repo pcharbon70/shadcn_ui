@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "candidateVersion": "0.1.0",
+  "recordedAt": "2026-08-27",
+  "qualification": {
+    "status": "blocked",
+    "qualified": false,
+    "reason": "Mandatory manual accessibility, CI, and SpecLed gates are not all passing."
+  },
+  "evidence": {
+    "cleanBuildRevision": "1b553a2d2e0de5a591690bdc5b761044c808be09",
+    "archiveSha256": "51febcd463bf9cb7f9106857a688bacea4fc3e48c6f090d8f778c4175441fbaa",
+    "compiledCssSha256": "d2128dd4b653375bab27d6bc070e1ef2c0ca11dd39a183ce6ab9e63eaf8047d8",
+    "archiveEntries": 62,
+    "galleryRoutes": 634,
+    "galleryFiles": 643,
+    "documentationFiles": 139,
+    "consumerTests": 3,
+    "consumerBrowserTrial": true,
+    "finalPhase5Revision": null
+  },
+  "gates": [
+    {"id": "clean-candidate", "kind": "local", "mandatory": true, "status": "passed"},
+    {"id": "actual-archive-consumer", "kind": "local", "mandatory": true, "status": "passed"},
+    {"id": "phase-5-integration", "kind": "local", "mandatory": true, "status": "passed"},
+    {"id": "locked-engine-compatibility", "kind": "browser", "mandatory": true, "status": "passed"},
+    {"id": "automated-accessibility", "kind": "accessibility", "mandatory": true, "status": "passed"},
+    {"id": "manual-accessibility", "kind": "manual", "mandatory": true, "status": "pending"},
+    {"id": "specled-main-head", "kind": "specification", "mandatory": true, "status": "failed"},
+    {"id": "ci-final-revision", "kind": "ci", "mandatory": true, "status": "pending"},
+    {"id": "merge", "kind": "publication", "mandatory": false, "status": "pending"},
+    {"id": "gallery-deployment", "kind": "deployment", "mandatory": false, "status": "pending"},
+    {"id": "post-deploy-smoke", "kind": "deployment", "mandatory": false, "status": "pending"},
+    {"id": "hex-publication", "kind": "publication", "mandatory": false, "status": "not-applicable"},
+    {"id": "public-version-tag", "kind": "publication", "mandatory": false, "status": "not-applicable"},
+    {"id": "marketplace-listing", "kind": "publication", "mandatory": false, "status": "not-applicable"},
+    {"id": "consumer-platform-certification", "kind": "certification", "mandatory": false, "status": "not-applicable"},
+    {"id": "official-upstream-affiliation", "kind": "affiliation", "mandatory": false, "status": "not-applicable"}
+  ],
+  "diagnostics": {
+    "manualAccessibility": "All six bounded scenarios in docs/accessibility-review.md remain PENDING.",
+    "specled": "Both main and HEAD report 4 errors and 145 warnings. Nested verification shells select Elixir 1.18.0 and fail commands that pass directly with the pinned Elixir 1.20.3 toolchain; commands remain enabled and are not marked passed.",
+    "browser": "The A-F matrix passed after one transient Firefox context-close protocol error in the first Milestone E Phase 6 run; the complete 24-test Phase 6 rerun passed.",
+    "publication": "No Hex publish, public tag, marketplace listing, platform certification, or upstream affiliation is authorized."
+  }
+}

@@ -49,6 +49,24 @@ an accepted ADR and specification change.
 There is no migration from an earlier public ShadcnUI release yet. The current
 candidate consolidates Milestones A–E under the same `0.1.0` internal scope.
 
+## Version decisions for future changes
+
+After `0.1.0` is internally qualified, removing or incompatibly changing a
+public component, attr, slot, closed value, semantic/fallback contract, token,
+CSS selector contract, capability floor, runtime boundary, or archive path
+requires a new internal minor candidate such as `0.2.0`, a migration record,
+and explicit rollback evidence. A compatible public addition also requires an
+internal minor decision; a compatible correction may use a patch decision.
+Before qualification, `0.1.0` may be rebuilt only when every prior candidate
+record is explicitly superseded and no consumer is told that the bytes are the
+same. Exact commit and archive hashes remain authoritative.
+
+Documentation-only wording does not by itself change the package version, but
+documentation that changes a promised contract is not documentation-only.
+Once a stable public-version policy exists, normal Semantic Versioning rules
+supersede this internal `0.x` convention. No breaking change may be hidden under
+an already-qualified archive identity.
+
 ## Rollback
 
 Restore the previous reviewed commit in the consumer lock, restore its matching

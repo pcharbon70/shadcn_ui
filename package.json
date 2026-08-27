@@ -4,6 +4,11 @@
   "private": true,
   "description": "Pinned build tooling for the ShadcnUI compiled stylesheet.",
   "scripts": {
+    "candidate:inputs": "node scripts/check-candidate-inputs.mjs",
+    "candidate:build": "node scripts/build-candidate.mjs",
+    "candidate:clean": "node scripts/run-clean-candidate.mjs",
+    "candidate:compare": "node scripts/compare-candidate-builds.mjs",
+    "consumer:clean": "node scripts/run-clean-consumer.mjs",
     "browser:milestone-f-phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-f-phase4.config.mjs",
     "browser:milestone-e-phase6": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase6.config.mjs",
     "browser:milestone-e-phase5": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase5.config.mjs",
