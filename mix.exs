@@ -83,6 +83,7 @@ defmodule ShadcnUI.MixProject do
       source_ref: "main",
       extras: [
         "README.md",
+        "docs/components.md",
         "CHANGELOG.md",
         "THIRD_PARTY_NOTICES.md",
         "RELEASE.md",

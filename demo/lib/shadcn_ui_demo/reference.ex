@@ -143,7 +143,13 @@ defmodule ShadcnUIDemo.Reference do
        "Native radio keys and submission remain authoritative. This is not a Tab Group; without enhancement CSS every panel remains visible."}
   }
 
-  def fetch!(render) when render in [:button, :badge, :alert, :card, :avatar, :skeleton] do
+  def fetch!(render) do
+    render
+    |> raw_fetch!()
+    |> enrich(render)
+  end
+
+  defp raw_fetch!(render) when render in [:button, :badge, :alert, :card, :avatar, :skeleton] do
     @references
     |> Map.fetch!(render)
     |> Map.put(
@@ -152,7 +158,7 @@ defmodule ShadcnUIDemo.Reference do
     )
   end
 
-  def fetch!(render) when is_map_key(@form_references, render) do
+  defp raw_fetch!(render) when is_map_key(@form_references, render) do
     {what, source} = Map.fetch!(@form_references, render)
 
     %{
@@ -170,7 +176,7 @@ defmodule ShadcnUIDemo.Reference do
     }
   end
 
-  def fetch!(render) when is_map_key(@content_references, render) do
+  defp raw_fetch!(render) when is_map_key(@content_references, render) do
     {what, source, semantics} = Map.fetch!(@content_references, render)
 
     %{
@@ -188,24 +194,24 @@ defmodule ShadcnUIDemo.Reference do
     }
   end
 
-  def fetch!(render)
-      when render in [
-             :dialog,
-             :alert_dialog,
-             :drawer,
-             :popover,
-             :dropdown_actions,
-             :tooltip,
-             :hover_card
-           ],
-      do: ShadcnUIDemo.OverlayReference.fetch!(render)
+  defp raw_fetch!(render)
+       when render in [
+              :dialog,
+              :alert_dialog,
+              :drawer,
+              :popover,
+              :dropdown_actions,
+              :tooltip,
+              :hover_card
+            ],
+       do: ShadcnUIDemo.OverlayReference.fetch!(render)
 
-  def fetch!(:carousel), do: ShadcnUIDemo.MediaReference.carousel()
-  def fetch!(:cover_flow), do: ShadcnUIDemo.MediaReference.cover_flow()
-  def fetch!(:image_gallery), do: ShadcnUIDemo.MediaReference.image_gallery()
-  def fetch!(:scroll_indicator), do: ShadcnUIDemo.MotionReference.scroll_indicator()
-  def fetch!(:marquee), do: ShadcnUIDemo.MotionReference.marquee()
-  def fetch!(:stagger), do: ShadcnUIDemo.MotionReference.stagger()
+  defp raw_fetch!(:carousel), do: ShadcnUIDemo.MediaReference.carousel()
+  defp raw_fetch!(:cover_flow), do: ShadcnUIDemo.MediaReference.cover_flow()
+  defp raw_fetch!(:image_gallery), do: ShadcnUIDemo.MediaReference.image_gallery()
+  defp raw_fetch!(:scroll_indicator), do: ShadcnUIDemo.MotionReference.scroll_indicator()
+  defp raw_fetch!(:marquee), do: ShadcnUIDemo.MotionReference.marquee()
+  defp raw_fetch!(:stagger), do: ShadcnUIDemo.MotionReference.stagger()
 
   def keys,
     do:
@@ -214,6 +220,37 @@ defmodule ShadcnUIDemo.Reference do
         Map.keys(@content_references) ++
         ShadcnUIDemo.OverlayReference.keys() ++
         [:carousel, :marquee, :stagger, :cover_flow, :scroll_indicator, :image_gallery]
+
+  defp enrich(reference, render) do
+    semantics =
+      Map.get(
+        reference,
+        :semantics,
+        "The rendered native elements, authored text, and document order remain authoritative."
+      )
+
+    enhancement =
+      case Map.get(reference, :capability) do
+        nil ->
+          "Package CSS applies scoped shadcn-style tokens, layout, focus, and state presentation without changing the native contract."
+
+        capability ->
+          "Package CSS adds the optional presentation only when its complete capability gate passes. #{capability}"
+      end
+
+    unsupported =
+      Map.get(reference, :comparison) ||
+        "ShadcnUI does not add application state, authorization, persistence, transport events, or a JavaScript behavior layer to this component."
+
+    reference
+    |> Map.put(:native_baseline, semantics)
+    |> Map.put(:package_enhancement, enhancement)
+    |> Map.put(
+      :demo_behavior,
+      "Theme switching, source copying, search, fixtures, and inspection controls on this page belong to the gallery only; #{inspect(render)} does not ship them."
+    )
+    |> Map.put(:unsupported, unsupported)
+  end
 
   defp fallback(:textarea),
     do: "Unsupported browsers keep the fixed native textarea instead of CSS content sizing."

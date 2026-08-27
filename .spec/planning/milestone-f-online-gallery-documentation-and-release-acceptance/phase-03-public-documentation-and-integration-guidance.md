@@ -7,25 +7,25 @@ Back to wave: [README](./README.md)
   Make the package understandable without reading implementation source or
   adopting the gallery's application structure.
 
-  - [ ] 3.1 Section - Complete public API and component guidance.
+  - [x] 3.1 Section - Complete public API and component guidance.
 
     Align gallery prose, ExDoc and compile-checked examples with the public inventory.
 
-    - [ ] 3.1.1 Task - Audit every public defining component.
+    - [x] 3.1.1 Task - Audit every public defining component.
 
       Public API documentation must describe the actual HEEX contract precisely.
 
-      - [ ] 3.1.1.1 Subtask - Document attrs, slots, defaults, closed values, globals, escaping, semantics, caller-owned state and deterministic IDs for every defining function.
-      - [ ] 3.1.1.2 Subtask - Add at least one compile-checked public-import HEEX example per function and link it to its gallery page and source.
-      - [ ] 3.1.1.3 Subtask - Group public modules in ExDoc while excluding internal validation, CSS, evidence and demo helpers.
+      - [x] 3.1.1.1 Subtask - Document attrs, slots, defaults, closed values, globals, escaping, semantics, caller-owned state and deterministic IDs for every defining function.
+      - [x] 3.1.1.2 Subtask - Add at least one compile-checked public-import HEEX example per function and link it to its gallery page and source.
+      - [x] 3.1.1.3 Subtask - Group public modules in ExDoc while excluding internal validation, CSS, evidence and demo helpers.
 
-    - [ ] 3.1.2 Task - Standardize plain-language component pages.
+    - [x] 3.1.2 Task - Standardize plain-language component pages.
 
       Repeated documentation headings should answer concrete consumer questions.
 
-      - [ ] 3.1.2.1 Subtask - Complete what-it-is, when-to-use, application-ownership, accessibility and browser-fallback sections for every catalogue entry.
-      - [ ] 3.1.2.2 Subtask - Explain native baseline, package CSS enhancement, demo-only behavior and unsupported capability separately.
-      - [ ] 3.1.2.3 Subtask - Add related-pattern guidance without claiming tabs, menus, progress, animation state or other semantics a component does not implement.
+      - [x] 3.1.2.1 Subtask - Complete what-it-is, when-to-use, application-ownership, accessibility and browser-fallback sections for every catalogue entry.
+      - [x] 3.1.2.2 Subtask - Explain native baseline, package CSS enhancement, demo-only behavior and unsupported capability separately.
+      - [x] 3.1.2.3 Subtask - Add related-pattern guidance without claiming tabs, menus, progress, animation state or other semantics a component does not implement.
 
   - [ ] 3.2 Section - Complete installation, assets and compatibility guidance.
 

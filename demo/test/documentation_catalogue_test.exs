@@ -30,9 +30,15 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert is_binary(entry.provenance_id)
 
       assert Enum.all?(
-               ~w(what when responsibilities accessibility fallback source)a,
+               ~w(what when responsibilities accessibility fallback source native_baseline package_enhancement demo_behavior unsupported)a,
                &is_binary(Map.fetch!(entry.documentation, &1))
              )
+
+      assert entry.links.gallery == entry.route
+      assert entry.links.source =~ "/lib/shadcn_ui/components/"
+      assert entry.links.api =~ ".html##{entry.public.function}/1"
+      assert is_list(entry.api.attributes)
+      assert is_list(entry.api.slots)
 
       assert [%{fragment: fragment, source_id: source_id, route: route}] = entry.examples
       assert fragment == "#{entry.slug}-primary"

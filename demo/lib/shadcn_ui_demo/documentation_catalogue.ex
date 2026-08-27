@@ -11,7 +11,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
 
   @schema_version "1"
   @package_root Path.expand("../../..", __DIR__)
-  @documentation_keys ~w(what when responsibilities accessibility fallback source)a
+  @documentation_keys ~w(what when responsibilities accessibility fallback source native_baseline package_enhancement demo_behavior unsupported)a
   @search_keys ~w(category keywords name route summary url)
   @static_base "/shadcn_ui"
   @related_compositions %{
@@ -104,6 +104,12 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
         render: component.render,
         public: %{module: module, function: function, arity: 1},
         documentation: Map.take(reference, @documentation_keys),
+        links: %{
+          gallery: component.path,
+          source: source_url(module),
+          api: api_url(module, function)
+        },
+        api: component_api(module, function),
         examples: [
           %{
             fragment: fragment,
@@ -384,6 +390,42 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       end
     end)
   end
+
+  defp component_api(module, function) do
+    metadata = module.__components__() |> Map.fetch!(function)
+
+    %{
+      attributes:
+        Enum.map(metadata.attrs, fn attribute ->
+          %{
+            name: attribute.name,
+            type: attribute.type,
+            required: attribute.required,
+            default: Keyword.get(attribute.opts, :default, :none),
+            values: Keyword.get(attribute.opts, :values),
+            global: attribute.type == :global,
+            included_globals: Keyword.get(attribute.opts, :include, [])
+          }
+        end),
+      slots:
+        Enum.map(metadata.slots, fn slot ->
+          %{name: slot.name, required: slot.required, attributes: Enum.map(slot.attrs, & &1.name)}
+        end)
+    }
+  end
+
+  defp source_url(module) do
+    path =
+      module
+      |> inspect()
+      |> String.replace_prefix("ShadcnUI.Components.", "")
+      |> Macro.underscore()
+
+    "https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/lib/shadcn_ui/components/#{path}.ex"
+  end
+
+  defp api_url(module, function),
+    do: "https://hexdocs.pm/shadcn_ui/#{inspect(module)}.html##{function}/1"
 
   defp search_record(entry) do
     %{

@@ -82,7 +82,24 @@
       <h2>Accessibility</h2><p>{@page.documentation_entry.documentation.accessibility}</p>
     </section>
     <section>
-      <h2>Native semantics and relationships</h2><p>{@page.reference.semantics}</p>
+      <h2>Native baseline</h2><p>
+        {@page.documentation_entry.documentation.native_baseline}
+      </p>
+    </section>
+    <section>
+      <h2>Package CSS enhancement</h2><p>
+        {@page.documentation_entry.documentation.package_enhancement}
+      </p>
+    </section>
+    <section>
+      <h2>Gallery-only behavior</h2><p>
+        {@page.documentation_entry.documentation.demo_behavior}
+      </p>
+    </section>
+    <section>
+      <h2>Not provided by this component</h2><p>
+        {@page.documentation_entry.documentation.unsupported}
+      </p>
     </section>
     <section :if={Map.get(@page.reference, :comparison)}>
       <h2>Choosing the related control</h2><p>{@page.reference.comparison}</p>
@@ -125,6 +142,10 @@
         Catalogue identity <code>{@page.documentation_entry.provenance_id}</code>, adapted from
         unscripted/ui commit <code>{@build_identity.upstream_revision}</code>
         under its MIT notice.
+      </p>
+      <p>
+        <a href={@page.documentation_entry.links.api}>Public API</a>
+        <a href={@page.documentation_entry.links.source}>Package source</a>
       </p>
     </section>
 
