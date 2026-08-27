@@ -7,26 +7,26 @@ Back to wave: [README](./README.md)
   Establish the immutable documentation inventory, safe identity mapping and
   reproducible build metadata before changing the public gallery experience.
 
-  - [ ] 1.1 Section - Define the documentation catalogue schema.
+  - [x] 1.1 Section - Define the documentation catalogue schema.
 
     Extend the closed gallery catalogue with explicit documentation identities
     while preserving every implemented route and category.
 
-    - [ ] 1.1.1 Task - Model public components and examples explicitly.
+    - [x] 1.1.1 Task - Model public components and examples explicitly.
 
       The schema must describe public APIs and authored examples without dynamic dispatch.
 
-      - [ ] 1.1.1.1 Subtask - Define closed fields for category, slug, module, function, route, purpose, documentation sections, provenance, examples and verification identities.
-      - [ ] 1.1.1.2 Subtask - Give examples authored stable unique fragment IDs, source identities, preview labels and component-page relationships.
-      - [ ] 1.1.1.3 Subtask - Preserve existing category labels, ordering, component slugs, canonical routes, breadcrumbs and sitemap destinations.
+      - [x] 1.1.1.1 Subtask - Define closed fields for category, slug, module, function, route, purpose, documentation sections, provenance, examples and verification identities.
+      - [x] 1.1.1.2 Subtask - Give examples authored stable unique fragment IDs, source identities, preview labels and component-page relationships.
+      - [x] 1.1.1.3 Subtask - Preserve existing category labels, ordering, component slugs, canonical routes, breadcrumbs and sitemap destinations.
 
-    - [ ] 1.1.2 Task - Enforce safe immutable resolution.
+    - [x] 1.1.2 Task - Enforce safe immutable resolution.
 
       Catalogue data and request text must never become executable identities.
 
-      - [ ] 1.1.2.1 Subtask - Resolve only closed strings to predeclared module/function pairs and reject unknown, duplicate or mismatched entries deterministically.
-      - [ ] 1.1.2.2 Subtask - Prove route, search and fragment text cannot create atoms, modules, functions, templates, asset paths or callbacks.
-      - [ ] 1.1.2.3 Subtask - Keep documentation metadata in the demo/build boundary and add no package registry or public runtime lookup API.
+      - [x] 1.1.2.1 Subtask - Resolve only closed strings to predeclared module/function pairs and reject unknown, duplicate or mismatched entries deterministically.
+      - [x] 1.1.2.2 Subtask - Prove route, search and fragment text cannot create atoms, modules, functions, templates, asset paths or callbacks.
+      - [x] 1.1.2.3 Subtask - Keep documentation metadata in the demo/build boundary and add no package registry or public runtime lookup API.
 
   - [ ] 1.2 Section - Reconcile the complete public inventory.
 
