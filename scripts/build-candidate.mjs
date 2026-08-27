@@ -44,7 +44,7 @@ run("node", ["scripts/check-candidate-inputs.mjs"]);
 run("npm", ["run", "assets:build"]);
 run("npm", ["run", "assets:check"]);
 run("mix", ["precommit"]);
-run("mix", ["docs", "--warnings-as-errors"]);
+run("mix", ["run", "scripts/build-deterministic-docs.exs"]);
 run("mix", ["hex.build"]);
 run("mix", ["run", "scripts/check-release-archive.exs"]);
 const demo = resolve(root, "demo");

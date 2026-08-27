@@ -15,7 +15,8 @@ node scripts/run-clean-candidate.mjs --ref HEAD --output /absolute/evidence/dire
 
 The command creates a detached disposable Git worktree, installs only locked
 Mix and npm dependencies, builds and checks CSS, runs package precommit,
-generates warning-free ExDoc, creates and audits the Hex archive, exports and
+generates warning-free deterministic HTML/Markdown ExDoc, creates and audits
+the Hex archive, exports and
 smoke-tests the gallery, records SHA-256 inventories, then removes the worktree.
 The output directory contains the actual archive, its unpacked file/hash
 inventory and `candidate-build.json`.
@@ -34,3 +35,9 @@ and unpacked archive inventories match. The outer Hex archive hash is recorded
 as additional evidence; if packaging metadata ever makes that container
 nondeterministic, the difference must be documented while the unpacked
 inventory remains identical. No difference is silently waived.
+
+The release documentation command normalizes presentation-only Makeup delimiter
+prefixes. EPUB is excluded from the reproducibility claim because ExDoc assigns
+it a random UUID; HTML and Markdown remain the published candidate formats.
+This normalization does not alter code examples, package code, tests, gallery
+behavior, consumer behavior, or application state.

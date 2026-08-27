@@ -4,7 +4,7 @@ import {createServer} from "node:http";
 import {cp, copyFile, mkdir, mkdtemp, readFile, rm, stat, writeFile} from "node:fs/promises";
 import {tmpdir} from "node:os";
 import {basename, extname, join, normalize, resolve, sep} from "node:path";
-import {fileURLToPath} from "node:url";
+import {fileURLToPath, pathToFileURL} from "node:url";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
 const value = flag => {
@@ -49,6 +49,22 @@ const runAsync = (name, args, cwd, env = process.env) => new Promise((resolveRun
 });
 const sha256 = async path => createHash("sha256").update(await readFile(path)).digest("hex");
 const contentType = path => ({".gz": "application/gzip", ".tar": "application/octet-stream"})[extname(path)] || "application/octet-stream";
+const reservePort = async () => {
+  const probe = createServer();
+  await new Promise(resolveReady => probe.listen(0, "127.0.0.1", resolveReady));
+  const port = probe.address().port;
+  await new Promise(resolveClosed => probe.close(resolveClosed));
+  return port;
+};
+const waitFor = async url => {
+  for (let attempt = 0; attempt < 100; attempt += 1) {
+    try {
+      if ((await fetch(url)).ok) return;
+    } catch {}
+    await new Promise(resolveWait => setTimeout(resolveWait, 100));
+  }
+  throw new Error(`consumer did not become ready at ${url}`);
+};
 
 await mkdir(join(publicDir, "tarballs"), {recursive: true});
 await mkdir(output, {recursive: true});
@@ -84,6 +100,53 @@ try {
   await runAsync("mix", ["compile", "--warnings-as-errors"], consumer, env);
   await runAsync("mix", ["test"], consumer, env);
 
+  const consumerPort = await reservePort();
+  const consumerOrigin = `http://127.0.0.1:${consumerPort}`;
+  const consumerServer = spawn(commandName("mix"), ["run", "--no-halt"], {
+    cwd: consumer,
+    env: {...env, CONSUMER_PORT: String(consumerPort)},
+    shell: process.platform === "win32"
+  });
+  let consumerStderr = "";
+  consumerServer.stderr.on("data", chunk => consumerStderr += chunk);
+  try {
+    await waitFor(consumerOrigin);
+    const playwright = pathToFileURL(join(root, "demo", "node_modules", "playwright", "index.mjs")).href;
+    const {chromium} = await import(playwright);
+    const browser = await chromium.launch({headless: true});
+    try {
+      const page = await browser.newPage();
+      const requests = [];
+      page.on("request", request => requests.push(request.url()));
+      const response = await page.goto(consumerOrigin);
+      if (!response?.ok()) throw new Error("consumer controller response failed");
+      await page.locator("#save").focus();
+      if (!(await page.locator("#save").evaluate(element => element === document.activeElement))) throw new Error("native button did not receive focus");
+      await page.locator("#email").fill("candidate@example.test");
+      await page.locator('[command="show-modal"]').click();
+      if (!(await page.locator("dialog").evaluate(element => element.open))) throw new Error("native dialog did not open");
+      await page.locator('[command="close"]').click();
+      if (await page.locator("dialog").evaluate(element => element.open)) throw new Error("native dialog did not close");
+      const stylesheet = await page.request.get(`${consumerOrigin}/assets/shadcn_ui.css`);
+      if (!stylesheet.ok() || !(await stylesheet.text()).includes("--shadcn-ui-background")) throw new Error("packaged stylesheet was not served");
+      if (requests.some(url => !url.startsWith(consumerOrigin))) throw new Error("consumer requested a remote runtime asset");
+      if (await page.locator("script").count()) throw new Error("consumer unexpectedly rendered package JavaScript");
+    } finally {
+      await browser.close();
+    }
+  } finally {
+    const closed = new Promise(resolveClosed => consumerServer.once("close", resolveClosed));
+    try {
+      await fetch(`${consumerOrigin}/__shutdown__`);
+    } catch {}
+    const stopped = await Promise.race([
+      closed.then(() => true),
+      new Promise(resolveWait => setTimeout(() => resolveWait(false), 5_000))
+    ]);
+    if (!stopped) consumerServer.kill();
+    if (consumerServer.exitCode && consumerServer.exitCode !== 1) throw new Error(`consumer server failed: ${consumerStderr}`);
+  }
+
   const lock = await readFile(join(consumer, "mix.lock"), "utf8");
   if (!lock.includes('"shadcn_ui": {:hex, :shadcn_ui') || !lock.includes('], "candidate",')) {
     throw new Error("consumer lock does not identify the candidate repository");
@@ -100,6 +163,7 @@ try {
       outsideSourceTree: !consumer.startsWith(root + sep),
       compiled: true,
       testsPassed: true,
+      browserPassed: true,
       packagedStylesheet: true,
       packageJavaScriptRequired: false,
       sourceModulesVisible: false
