@@ -22,6 +22,15 @@ defmodule CandidateConsumer.Router do
     |> send_file(200, ShadcnUI.stylesheet_path())
   end
 
+  get "/__shutdown__" do
+    Task.start(fn ->
+      Process.sleep(100)
+      System.stop(0)
+    end)
+
+    send_resp(conn, 200, "stopping")
+  end
+
   match _ do
     send_resp(conn, 404, "not found")
   end

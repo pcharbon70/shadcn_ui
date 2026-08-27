@@ -104,6 +104,9 @@ defmodule ShadcnUI.MilestoneFDocumentationTest do
           "docs/compatibility.md",
           "docs/integrations.md",
           "docs/upgrading.md",
+          "docs/reproducible-candidate.md",
+          "docs/clean-consumer-trial.md",
+          "docs/release-candidate.md",
           "docs/provenance.md"
         ] do
       assert path in extras
@@ -113,7 +116,7 @@ defmodule ShadcnUI.MilestoneFDocumentationTest do
     assert File.read!("CHANGELOG.md") =~ "Milestone F Phase 3"
     assert File.read!("docs/upgrading.md") =~ "## Rollback"
     assert File.read!("THIRD_PARTY_NOTICES.md") =~ "MIT License"
-    assert File.read!("RELEASE.md") =~ "Phases 4–6 remain pending"
+    assert File.read!("RELEASE.md") =~ "**blocked**, not qualified"
   end
 
   test "package source and dependency boundary remains transport neutral" do
