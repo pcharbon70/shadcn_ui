@@ -28,25 +28,25 @@ Back to wave: [README](./README.md)
       - [x] 1.1.2.2 Subtask - Prove route, search and fragment text cannot create atoms, modules, functions, templates, asset paths or callbacks.
       - [x] 1.1.2.3 Subtask - Keep documentation metadata in the demo/build boundary and add no package registry or public runtime lookup API.
 
-  - [ ] 1.2 Section - Reconcile the complete public inventory.
+  - [x] 1.2 Section - Reconcile the complete public inventory.
 
     Connect every Milestones A-E defining component to one gallery and documentation identity.
 
-    - [ ] 1.2.1 Task - Audit public API parity.
+    - [x] 1.2.1 Task - Audit public API parity.
 
       The checked inventory must neither omit a public component nor advertise an internal helper.
 
-      - [ ] 1.2.1.1 Subtask - Enumerate defining component modules and public functions through compile-time metadata without parsing user input.
-      - [ ] 1.2.1.2 Subtask - Compare that inventory to catalogue leaves, ExDoc groups, provenance records, source examples and existing browser routes.
-      - [ ] 1.2.1.3 Subtask - Fail on missing, duplicate, stale or internal-only entries with actionable deterministic diagnostics.
+      - [x] 1.2.1.1 Subtask - Enumerate defining component modules and public functions through compile-time metadata without parsing user input.
+      - [x] 1.2.1.2 Subtask - Compare that inventory to catalogue leaves, ExDoc groups, provenance records, source examples and existing browser routes.
+      - [x] 1.2.1.3 Subtask - Fail on missing, duplicate, stale or internal-only entries with actionable deterministic diagnostics.
 
-    - [ ] 1.2.2 Task - Produce a completeness report.
+    - [x] 1.2.2 Task - Produce a completeness report.
 
       Maintainers need one reproducible view of every required documentation relationship.
 
-      - [ ] 1.2.2.1 Subtask - Generate a sorted report linking component, route, fragments, docs, provenance, compile test, browser route and export artifact.
-      - [ ] 1.2.2.2 Subtask - Make report generation independent of timestamps, working-tree ordering, remote services and machine-specific absolute paths.
-      - [ ] 1.2.2.3 Subtask - Keep generated reports ignored or test-owned and outside the actual release allowlist.
+      - [x] 1.2.2.1 Subtask - Generate a sorted report linking component, route, fragments, docs, provenance, compile test, browser route and export artifact.
+      - [x] 1.2.2.2 Subtask - Make report generation independent of timestamps, working-tree ordering, remote services and machine-specific absolute paths.
+      - [x] 1.2.2.3 Subtask - Keep generated reports ignored or test-owned and outside the actual release allowlist.
 
   - [ ] 1.3 Section - Establish immutable build and site identity.
 

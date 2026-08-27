@@ -10,6 +10,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   alias ShadcnUIDemo.{Catalogue, Reference}
 
   @schema_version "1"
+  @package_root Path.expand("../../..", __DIR__)
   @documentation_keys ~w(what when responsibilities accessibility fallback source)a
 
   @public_identities %{
@@ -143,8 +144,67 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
 
   @spec validate() :: :ok | {:error, [String.t()]}
   def validate do
-    entries = entries()
+    audit(entries())
+  end
 
+  @doc "Returns the compiled component identities imported by `use ShadcnUI`."
+  @spec public_inventory() :: [{module(), atom(), 1}]
+  def public_inventory do
+    public_import_modules()
+    |> Enum.flat_map(fn module ->
+      Code.ensure_loaded!(module)
+
+      module.__components__()
+      |> Map.keys()
+      |> Enum.filter(&function_exported?(module, &1, 1))
+      |> Enum.map(&{module, &1, 1})
+    end)
+    |> Enum.sort_by(fn {module, function, arity} -> {inspect(module), function, arity} end)
+  end
+
+  @doc "Returns deterministic, path-independent documentation completeness rows."
+  @spec completeness_report() :: [map()]
+  def completeness_report do
+    provenance_ids = provenance_ids()
+    exdoc_modules = MapSet.new(exdoc_modules())
+    public_inventory = MapSet.new(public_inventory())
+
+    renderer =
+      File.read!(Path.join(@package_root, "demo/lib/shadcn_ui_demo_web/reference_components.ex"))
+
+    entries()
+    |> Enum.map(fn entry ->
+      identity = {entry.public.module, entry.public.function, entry.public.arity}
+
+      %{
+        category: entry.category.slug,
+        component: entry.slug,
+        route: entry.route,
+        public_module: inspect(entry.public.module),
+        public_function: Atom.to_string(entry.public.function),
+        fragments: Enum.map(entry.examples, & &1.fragment),
+        documentation: documentation_complete?(entry.documentation),
+        public_metadata: MapSet.member?(public_inventory, identity),
+        public_import: entry.public.module in public_import_modules(),
+        exdoc_group: MapSet.member?(exdoc_modules, entry.public.module),
+        provenance_id: entry.provenance_id,
+        provenance: MapSet.member?(provenance_ids, entry.provenance_id),
+        source_compile: entry.verification.source_compile,
+        renderer: renderer =~ ":#{entry.render}",
+        browser_route: entry.verification.browser_route,
+        export_route: entry.verification.export_route
+      }
+    end)
+    |> Enum.sort_by(& &1.route)
+  end
+
+  @doc "Encodes the sorted completeness report without timestamps or host paths."
+  @spec completeness_json() :: String.t()
+  def completeness_json, do: Jason.encode!(completeness_report())
+
+  @doc "Audits an authored entry list against compiled and repository evidence."
+  @spec audit([map()]) :: :ok | {:error, [String.t()]}
+  def audit(entries) when is_list(entries) do
     errors =
       []
       |> duplicate_errors(entries, :route)
@@ -152,11 +212,112 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       |> duplicate_public_errors(entries)
       |> duplicate_fragment_errors(entries)
       |> missing_identity_errors(entries)
+      |> compiled_inventory_errors(entries)
+      |> evidence_errors(entries)
 
     case Enum.sort(errors) do
       [] -> :ok
       errors -> {:error, errors}
     end
+  end
+
+  defp compiled_inventory_errors(errors, entries) do
+    documented = MapSet.new(entries, &{&1.public.module, &1.public.function, &1.public.arity})
+    compiled = MapSet.new(public_inventory())
+
+    errors ++
+      Enum.map(MapSet.difference(compiled, documented), fn identity ->
+        "missing documentation identity: #{inspect(identity)}"
+      end) ++
+      Enum.map(MapSet.difference(documented, compiled), fn identity ->
+        "stale documentation identity: #{inspect(identity)}"
+      end)
+  end
+
+  defp evidence_errors(errors, entries) do
+    imported = MapSet.new(public_import_modules())
+    exdoc = MapSet.new(exdoc_modules())
+    provenance = provenance_ids()
+
+    errors ++
+      Enum.flat_map(entries, fn entry ->
+        []
+        |> maybe_error(
+          MapSet.member?(imported, entry.public.module),
+          "public module is not imported: #{inspect(entry.public.module)}"
+        )
+        |> maybe_error(
+          MapSet.member?(exdoc, entry.public.module),
+          "public module is not in ExDoc groups: #{inspect(entry.public.module)}"
+        )
+        |> maybe_error(
+          MapSet.member?(provenance, entry.provenance_id),
+          "missing provenance: #{entry.provenance_id}"
+        )
+        |> maybe_error(
+          documentation_complete?(entry.documentation),
+          "incomplete documentation: #{entry.route}"
+        )
+        |> maybe_error(entry.route in Catalogue.routes(), "missing gallery route: #{entry.route}")
+      end)
+  end
+
+  defp maybe_error(errors, true, _message), do: errors
+  defp maybe_error(errors, false, message), do: [message | errors]
+
+  defp documentation_complete?(documentation) do
+    Enum.all?(@documentation_keys, fn key ->
+      case Map.fetch(documentation, key) do
+        {:ok, value} -> is_binary(value) and String.trim(value) != ""
+        :error -> false
+      end
+    end)
+  end
+
+  defp public_import_modules do
+    @package_root
+    |> Path.join("lib/shadcn_ui.ex")
+    |> File.read!()
+    |> section_between("@component_modules [", "]")
+    |> component_modules()
+  end
+
+  defp exdoc_modules do
+    @package_root
+    |> Path.join("mix.exs")
+    |> File.read!()
+    |> section_between("groups_for_modules: [", ~s("Package contract"))
+    |> component_modules()
+  end
+
+  defp component_modules(source) do
+    ~r/ShadcnUI\.Components(?:\.[A-Z][A-Za-z0-9_]*)+/
+    |> Regex.scan(source)
+    |> List.flatten()
+    |> Enum.uniq()
+    |> Enum.map(fn name ->
+      name
+      |> String.split(".")
+      |> Module.concat()
+    end)
+  end
+
+  defp section_between(source, opening, closing) do
+    with [_before, tail] <- String.split(source, opening, parts: 2),
+         [section, _after] <- String.split(tail, closing, parts: 2) do
+      section
+    else
+      _ -> raise "documentation catalogue source marker is missing"
+    end
+  end
+
+  defp provenance_ids do
+    @package_root
+    |> Path.join("priv/provenance/unscripted_ui.json")
+    |> File.read!()
+    |> Jason.decode!()
+    |> Map.fetch!("adaptations")
+    |> MapSet.new(&Map.fetch!(&1, "id"))
   end
 
   defp duplicate_errors(errors, entries, key) do

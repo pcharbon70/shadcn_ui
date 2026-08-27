@@ -92,4 +92,54 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
     refute package_source =~ "DocumentationCatalogue"
     refute release_source =~ "demo/lib/shadcn_ui_demo/documentation_catalogue.ex"
   end
+
+  test "compiled imports, ExDoc groups, provenance, routes, and references have exact parity" do
+    entries = DocumentationCatalogue.entries()
+    report = DocumentationCatalogue.completeness_report()
+
+    assert length(entries) == 41
+    assert length(DocumentationCatalogue.public_inventory()) == 41
+    assert length(report) == 41
+    assert Enum.map(report, & &1.route) == Enum.sort(Enum.map(entries, & &1.route))
+
+    for row <- report do
+      assert row.documentation
+      assert row.public_metadata
+      assert row.public_import
+      assert row.exdoc_group
+      assert row.provenance
+      assert row.renderer
+      assert row.browser_route == row.route
+      assert row.export_route == row.route
+      assert String.starts_with?(row.source_compile, "source:")
+    end
+  end
+
+  test "completeness output is deterministic and contains no host paths or clocks" do
+    first = DocumentationCatalogue.completeness_json()
+    second = DocumentationCatalogue.completeness_json()
+
+    assert first == second
+    assert Jason.decode!(first) |> length() == 41
+    refute first =~ Path.expand("..")
+    refute first =~ ~r/(20\d\d-\d\d-\d\d|system_time|DateTime)/
+  end
+
+  test "audit reports missing, duplicate, and stale identities deterministically" do
+    [first | rest] = DocumentationCatalogue.entries()
+
+    assert {:error, missing_errors} = DocumentationCatalogue.audit(rest)
+    assert Enum.any?(missing_errors, &String.starts_with?(&1, "missing documentation identity:"))
+
+    assert {:error, duplicate_errors} = DocumentationCatalogue.audit([first, first | rest])
+    assert "duplicate route: #{inspect(first.route)}" in duplicate_errors
+
+    stale = put_in(first.public.module, ShadcnUI.Component)
+    assert {:error, stale_errors} = DocumentationCatalogue.audit([stale | rest])
+    assert Enum.any?(stale_errors, &String.starts_with?(&1, "stale documentation identity:"))
+
+    assert missing_errors == Enum.sort(missing_errors)
+    assert duplicate_errors == Enum.sort(duplicate_errors)
+    assert stale_errors == Enum.sort(stale_errors)
+  end
 end
