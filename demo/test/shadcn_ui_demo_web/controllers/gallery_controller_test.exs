@@ -13,10 +13,11 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
       expected =
         case path do
           "/" -> 1
-          # Two authored example markers plus the shell link and breadcrumb.
-          "/examples/application-shell" -> 4
-          "/examples/" <> _ -> 2
-          _ -> 1
+          # Two authored markers plus desktop/mobile links and the breadcrumb.
+          "/examples/application-shell" -> 5
+          "/examples/" <> _ -> 3
+          # Desktop/mobile links plus the breadcrumb current location.
+          _ -> 3
         end
 
       assert length(Regex.scan(~r/aria-current="page"/, html)) == expected

@@ -44,40 +44,35 @@ defmodule ShadcnUIDemoWeb.Layouts do
 
     <div class="gallery-layout">
       <nav class="gallery-navigation" aria-label="Component navigation">
-        <section :for={category <- @categories}>
-          <a href={category.path} aria-current={@page.path == category.path && "page"}>
-            {category.label}
-          </a>
-          <ul>
-            <li :for={component <- Enum.filter(@components, &(&1.category == category.slug))}>
-              <a href={component.path} aria-current={@page.path == component.path && "page"}>
-                {component.label}
-              </a>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>Complete page examples</h2>
-          <ul>
-            <li :for={composition <- ShadcnUIDemo.Catalogue.compositions()}>
-              <a href={composition.path} aria-current={@page.path == composition.path && "page"}>
-                {composition.label}
-              </a>
-            </li>
-          </ul>
-        </section>
+        <.navigation_sections
+          page={@page}
+          categories={@categories}
+          components={@components}
+        />
       </nav>
+
+      <details class="gallery-mobile-navigation">
+        <summary>Browse components</summary>
+        <nav aria-label="Mobile component navigation">
+          <.navigation_sections
+            page={@page}
+            categories={@categories}
+            components={@components}
+          />
+        </nav>
+      </details>
 
       <main id="main-content" tabindex="-1">
         <nav aria-label="Breadcrumb">
           <a href="/" aria-current={@page.kind == :landing && "page"}>Gallery</a>
           <span :if={@page.kind in [:category, :component]} aria-hidden="true"> / </span>
-          <a :if={@page.kind in [:category, :component]} href={category_for(@categories, @page).path}>{category_for(
-            @categories,
-            @page
-          ).label}</a>
+          <a
+            :if={@page.kind in [:category, :component]}
+            href={category_for(@categories, @page).path}
+            aria-current={@page.kind == :category && "page"}
+          >{category_for(@categories, @page).label}</a>
           <span :if={@page.kind == :component} aria-hidden="true"> / </span>
-          <span :if={@page.kind == :component}>{@page.label}</span>
+          <span :if={@page.kind == :component} aria-current="page">{@page.label}</span>
           <span :if={@page.kind == :composition} aria-hidden="true"> / </span>
           <span :if={@page.kind == :composition} aria-current="page">{@page.title}</span>
         </nav>
@@ -86,6 +81,39 @@ defmodule ShadcnUIDemoWeb.Layouts do
         {render_slot(@inner_block)}
       </main>
     </div>
+    """
+  end
+
+  attr :page, :map, required: true
+  attr :categories, :list, required: true
+  attr :components, :list, required: true
+
+  defp navigation_sections(assigns) do
+    ~H"""
+    <section :for={category <- @categories}>
+      <h2>
+        <a href={category.path} aria-current={@page.path == category.path && "page"}>
+          {category.label}
+        </a>
+      </h2>
+      <ul>
+        <li :for={component <- Enum.filter(@components, &(&1.category == category.slug))}>
+          <a href={component.path} aria-current={@page.path == component.path && "page"}>
+            {component.label}
+          </a>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Complete page examples</h2>
+      <ul>
+        <li :for={composition <- ShadcnUIDemo.Catalogue.compositions()}>
+          <a href={composition.path} aria-current={@page.path == composition.path && "page"}>
+            {composition.label}
+          </a>
+        </li>
+      </ul>
+    </section>
     """
   end
 

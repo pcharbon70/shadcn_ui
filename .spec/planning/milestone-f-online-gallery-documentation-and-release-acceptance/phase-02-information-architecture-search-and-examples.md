@@ -7,25 +7,25 @@ Back to wave: [README](./README.md)
   Turn the Phase 1 inventory into responsive, searchable and deep-linkable
   public documentation while preserving ordinary no-script navigation.
 
-  - [ ] 2.1 Section - Complete responsive gallery navigation.
+  - [x] 2.1 Section - Complete responsive gallery navigation.
 
     Expose the full stable catalogue through useful desktop and mobile structures.
 
-    - [ ] 2.1.1 Task - Refine categorized desktop navigation.
+    - [x] 2.1.1 Task - Refine categorized desktop navigation.
 
       The persistent navigation should make hierarchy and current location obvious.
 
-      - [ ] 2.1.1.1 Subtask - Render all existing categories and leaves from authored catalogue metadata with ordinary links and accurate current-page state.
-      - [ ] 2.1.1.2 Subtask - Preserve skip link, named navigation, breadcrumb, one main landmark, page heading and visible focus order.
-      - [ ] 2.1.1.3 Subtask - Keep category labels and routes stable and avoid menu, tree, tab or client-router role overstatement.
+      - [x] 2.1.1.1 Subtask - Render all existing categories and leaves from authored catalogue metadata with ordinary links and accurate current-page state.
+      - [x] 2.1.1.2 Subtask - Preserve skip link, named navigation, breadcrumb, one main landmark, page heading and visible focus order.
+      - [x] 2.1.1.3 Subtask - Keep category labels and routes stable and avoid menu, tree, tab or client-router role overstatement.
 
-    - [ ] 2.1.2 Task - Add an equivalent mobile navigation path.
+    - [x] 2.1.2 Task - Add an equivalent mobile navigation path.
 
       Narrow layouts need complete reachable navigation without copying application behavior into the package.
 
-      - [ ] 2.1.2.1 Subtask - Provide a native responsive disclosure or in-flow catalogue navigation with the same ordered destinations.
-      - [ ] 2.1.2.2 Subtask - Verify keyboard, touch target, focus return, long-label, zoom and no-script usability using native semantics.
-      - [ ] 2.1.2.3 Subtask - Ensure optional demo scripting changes no route availability or core navigation result.
+      - [x] 2.1.2.1 Subtask - Provide a native responsive disclosure or in-flow catalogue navigation with the same ordered destinations.
+      - [x] 2.1.2.2 Subtask - Verify keyboard, touch target, focus return, long-label, zoom and no-script usability using native semantics.
+      - [x] 2.1.2.3 Subtask - Ensure optional demo scripting changes no route availability or core navigation result.
 
   - [ ] 2.2 Section - Add deterministic progressive search.
 
