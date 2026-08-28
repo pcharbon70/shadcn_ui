@@ -7,26 +7,26 @@ Back to wave: [README](./README.md)
   Pin the presentation target, accept durable visual and semantic boundaries and
   create deterministic local reference evidence before changing shared markup.
 
-  - [ ] 1.1 Section - Decide the presentation-parity boundary.
+  - [x] 1.1 Section - Decide the presentation-parity boundary.
 
     Define what is being adapted and where existing ShadcnUI truth takes precedence.
 
-    - [ ] 1.1.1 Task - Pin upstream presentation truth.
+    - [x] 1.1.1 Task - Pin upstream presentation truth.
 
       Replace the moving public site with reviewed, reproducible implementation input.
 
-      - [ ] 1.1.1.1 Subtask - Record the exact unscripted/ui revision, reviewed documentation paths, public reference URLs and review date.
-      - [ ] 1.1.1.2 Subtask - Inventory the header, desktop catalogue, mobile navigation, article, specimen, code, capability and support-table patterns in scope.
-      - [ ] 1.1.1.3 Subtask - Define an explicit later-update process that requires review and never synchronizes upstream automatically.
+      - [x] 1.1.1.1 Subtask - Record the exact unscripted/ui revision, reviewed documentation paths, public reference URLs and review date.
+      - [x] 1.1.1.2 Subtask - Inventory the header, desktop catalogue, mobile navigation, article, specimen, code, capability and support-table patterns in scope.
+      - [x] 1.1.1.3 Subtask - Define an explicit later-update process that requires review and never synchronizes upstream automatically.
 
-    - [ ] 1.1.2 Task - Accept visual, semantic and asset policy.
+    - [x] 1.1.2 Task - Accept visual, semantic and asset policy.
 
       High fidelity cannot override truthful branding, native semantics or package isolation.
 
-      - [ ] 1.1.2.1 Subtask - Specify accepted viewports, themes, states, metrics and tolerances for structural and visual parity.
-      - [ ] 1.1.2.2 Subtask - Preserve ShadcnUI branding, Phoenix source and accepted local contracts where upstream widget semantics differ.
-      - [ ] 1.1.2.3 Subtask - Decide no-script mobile navigation and Preview/Code semantics without claiming unsupported menu or tab contracts.
-      - [ ] 1.1.2.4 Subtask - Accept provenance, local font/icon licensing, truthful script claims, reference ownership and semantic-exception rules in a durable decision.
+      - [x] 1.1.2.1 Subtask - Specify accepted viewports, themes, states, metrics and tolerances for structural and visual parity.
+      - [x] 1.1.2.2 Subtask - Preserve ShadcnUI branding, Phoenix source and accepted local contracts where upstream widget semantics differ.
+      - [x] 1.1.2.3 Subtask - Decide no-script mobile navigation and Preview/Code semantics without claiming unsupported menu or tab contracts.
+      - [x] 1.1.2.4 Subtask - Accept provenance, local font/icon licensing, truthful script claims, reference ownership and semantic-exception rules in a durable decision.
 
   - [ ] 1.2 Section - Author requirements and deterministic evidence.
 
