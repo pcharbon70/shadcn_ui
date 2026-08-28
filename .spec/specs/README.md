@@ -44,3 +44,10 @@ verification targets are assignments, not claims that evidence already exists.
 - [Public documentation and integration guidance](./public_documentation.spec.md)
 - [Consumer-neutral compatibility and accessibility acceptance](./compatibility_accessibility.spec.md)
 - [Internal release candidate and versioned gallery publication](./release_publication.spec.md)
+
+## Milestone G contracts
+
+These additive requirements govern the separate gallery presentation and its
+checked evidence. Existing package and component contracts remain authoritative.
+
+- [Pinned gallery presentation and visual evidence](./gallery_presentation.spec.md)

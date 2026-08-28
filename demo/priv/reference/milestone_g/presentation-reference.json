@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "checked-source-derived-reference",
+  "decision": "shadcn_ui.pinned_gallery_presentation_parity",
+  "upstream": {
+    "repository": "https://github.com/timoransky/unscripted-ui",
+    "publicReference": "https://unscripted.janci.dev/",
+    "commit": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+    "reviewDate": "2026-08-28",
+    "inputs": [
+      {"path": "src/layouts/BaseLayout.astro", "sha256": "d7bac0c2bd2b5ffb65750b9a3681e8fd0223da9aec0e6cdd4725ce9585f9d02e", "bytes": 3459},
+      {"path": "src/layouts/DocsLayout.astro", "sha256": "008aff26573338952c5e13dad726ee2f96629bc3490500a6b52614939ac89f28", "bytes": 416},
+      {"path": "src/components/Header.astro", "sha256": "849c865655d7532696008adcb0bc315eaa43b2a1d858ba464f0cefa543dddce2", "bytes": 2404},
+      {"path": "src/components/Sidebar.astro", "sha256": "0257141128a329e62513d6d8e25f25bb886417f7ebee0151f1914589865f53bf", "bytes": 1950},
+      {"path": "src/components/MobileNav.astro", "sha256": "a25dbee7a8ab8eba2e30c68d64c6f89df71ea8123d6e15e940465588c42104a1", "bytes": 4875},
+      {"path": "src/components/ComponentPreview.astro", "sha256": "565ff0c3f93de6f15717da7874d257adae647dd8c6891777710f8a33ff375d25", "bytes": 3856},
+      {"path": "src/components/CodeBlock.astro", "sha256": "4143df8a45128c056cb7245c0002b595739fbeb23ee1415da3af7b2af89db617", "bytes": 522},
+      {"path": "src/components/SupportBadge.astro", "sha256": "d363131b96f3f1f7008c08954c87faa6cdfcf5a9833e86ff4d64cbeb127c06b4", "bytes": 506},
+      {"path": "src/components/SupportTable.astro", "sha256": "17b98c139b928f1a168bf6ac6c31c5e2ed692538aa058e366b47174b7277b2bb", "bytes": 6617},
+      {"path": "src/pages/components/[slug].astro", "sha256": "90b58550b031180aaa64f938b45c523a1f4f69a5b7c1a130d6d19ee60438115b", "bytes": 1617},
+      {"path": "src/data/nav.ts", "sha256": "9e1aaeb4fa7cd6b2e454686c39caff58e8fead237018950388d93df4550d2a11", "bytes": 1527},
+      {"path": "src/styles/global.css", "sha256": "232fed62b16c0df785a06bd91ecc6ce7a5eb7775babf15169642d7f1049f7988", "bytes": 9576},
+      {"path": "src/content/components/accordion.mdx", "sha256": "7787586b7f985e23dfcbe88dea9ebdf72454f60fbd8205bd51b45e5c76880802", "bytes": 1335},
+      {"path": "src/demos/accordion/basic.html", "sha256": "2898290163303fb58008586274a91862d46db2605d62636b9bb31c628abf6943", "bytes": 3274}
+    ]
+  },
+  "capturePolicy": {
+    "kind": "source-derived-reference-state",
+    "networkRequiredForVerification": false,
+    "movingPublicSiteAuthoritative": false,
+    "rasterGoldensOwnedBy": "later local ShadcnUI phase evidence",
+    "pinnedBuildStatus": "blocked-by-npm-exit-handler-never-called",
+    "tolerances": {"criticalGeometryPixels": 2, "repeatedMetricPixels": 2, "pixelDifferenceRatio": 0.0075, "perChannelThreshold": 0.12, "lockedTextWrap": "exact"}
+  },
+  "authoredMetrics": {
+    "headerHeightPixels": 56,
+    "shellMaxWidthPixels": 1152,
+    "shellInlinePaddingPixels": 20,
+    "desktopCatalogueWidthPixels": 220,
+    "desktopGridGapPixels": 40,
+    "mainBlockPaddingPixels": 32,
+    "catalogueStickyOffsetPixels": 80,
+    "catalogueViewportReservePixels": 96,
+    "articleMeasureCh": 72,
+    "articleDescriptionMeasureCh": 60,
+    "specimenMinimumHeightPixels": 192,
+    "specimenRadiusPixels": 12,
+    "specimenPreviewPaddingPixels": 32,
+    "specimenCodeMaxHeightPixels": 416,
+    "desktopBreakpointPixels": 1024
+  },
+  "states": [
+    {"id":"desktop-light","theme":"light","viewport":{"width":1440,"height":1200},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":true,"mobileNavigation":"unavailable"}},
+    {"id":"desktop-dark","theme":"dark","viewport":{"width":1440,"height":1200},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":true,"mobileNavigation":"unavailable"}},
+    {"id":"tablet-light","theme":"light","viewport":{"width":1024,"height":1366},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":true,"mobileNavigation":"unavailable"}},
+    {"id":"tablet-dark","theme":"dark","viewport":{"width":1024,"height":1366},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":true,"mobileNavigation":"unavailable"}},
+    {"id":"mobile-390-light-closed","theme":"light","viewport":{"width":390,"height":844},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":false,"mobileNavigation":"closed"}},
+    {"id":"mobile-390-light-open","theme":"light","viewport":{"width":390,"height":844},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":false,"mobileNavigation":"open"}},
+    {"id":"mobile-390-dark-closed","theme":"dark","viewport":{"width":390,"height":844},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":false,"mobileNavigation":"closed"}},
+    {"id":"mobile-390-dark-open","theme":"dark","viewport":{"width":390,"height":844},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":false,"mobileNavigation":"open"}},
+    {"id":"mobile-320-light-closed","theme":"light","viewport":{"width":320,"height":568},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":false,"mobileNavigation":"closed"}},
+    {"id":"mobile-320-light-open","theme":"light","viewport":{"width":320,"height":568},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":false,"mobileNavigation":"open"}},
+    {"id":"mobile-320-dark-closed","theme":"dark","viewport":{"width":320,"height":568},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":false,"mobileNavigation":"closed"}},
+    {"id":"mobile-320-dark-open","theme":"dark","viewport":{"width":320,"height":568},"scale":1,"motion":"reduced","scroll":{"x":0,"y":0},"accordion":{"mode":"exclusive","openItem":0},"specimen":{"view":"preview"},"shell":{"desktopCatalogue":false,"mobileNavigation":"open"}}
+  ],
+  "fontReview": {
+    "family": "Bricolage Grotesque",
+    "upstreamBinaryPath": "public/fonts/bricolage-grotesque-wght.woff2",
+    "upstreamBinarySha256": "a97804dc9fbe5fc972a08018c5eda4dab7ef2346f64c57e61419d05e6de4ea1c",
+    "upstreamBinaryBytes": 41344,
+    "license": "SIL Open Font License 1.1",
+    "licenseSourceRepository": "https://github.com/ateliertriay/bricolage",
+    "licenseSourceCommit": "84745e5b96261ae5f8c6c856e262fe78d1d6efdd",
+    "licenseNotice": "licenses/bricolage-grotesque-OFL.txt",
+    "binaryCopied": false,
+    "phase3Gate": "reproduce-or-map-binary-and-update-demo-notices"
+  }
+}

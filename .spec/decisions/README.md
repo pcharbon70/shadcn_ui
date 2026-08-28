@@ -61,3 +61,10 @@ add no component family, package runtime, transport or consumer-platform target.
 2. [Keep compatibility and integration guidance consumer-neutral](./consumer-neutral-compatibility-and-integration-guidance.md)
 3. [Publish immutable gallery evidence with explicit operations](./versioned-gallery-publication-and-operations.md)
 4. [Qualify an internal release candidate through a clean consumer trial](./internal-release-candidate-and-clean-consumer-trial.md)
+
+## Milestone G decisions
+
+This decision governs presentation work in the separate gallery. It does not
+change package component semantics or accept a package runtime.
+
+1. [Pin gallery presentation parity and preserve semantic truth](./pinned-gallery-presentation-parity.md)

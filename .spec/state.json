@@ -226,6 +226,21 @@
       },
       {
         "affects": [
+          "shadcn_ui.gallery",
+          "shadcn_ui.documentation_catalogue",
+          "shadcn_ui.public_documentation",
+          "shadcn_ui.compatibility_accessibility",
+          "shadcn_ui.provenance",
+          "shadcn_ui.release_publication"
+        ],
+        "date": "2026-08-28",
+        "file": ".spec/decisions/pinned-gallery-presentation-parity.md",
+        "id": "shadcn_ui.pinned_gallery_presentation_parity",
+        "status": "accepted",
+        "title": "Pin Gallery Presentation Parity and Preserve Semantic Truth"
+      },
+      {
+        "affects": [
           "shadcn_ui.component_contract",
           "shadcn_ui.popover_components",
           "shadcn_ui.overlay_contract",
@@ -356,7 +371,7 @@
       "entity_id": "shadcn_ui.component_contract",
       "file": ".spec/specs/component_contract.spec.md",
       "level": "error",
-      "message": "Verification command failed: mix precommit\n==> mime\nCompiling 1 file (.ex)\nGenerated mime app\n==> jason\nCompiling 10 files (.ex)\nGenerated jason app\n==> plug_crypto\nCompiling 5 files (.ex)\nGenerated plug_crypto app\n==> shadcn_ui\n===> Analyzing applications...\n===> Compiling yamerl\nc:/Leco/elixir/shadcn_ui/deps/yamerl/src/yamerl_node_binary.erl:65:9: Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.\nCompile directive 'nowarn_deprecated_catch' can be used to suppress\nwarnings in selected modules.\n%   65|    case catch base64:decode(Text) of\n%     |         ^\n\nc:/Leco/elixir/shadcn_ui/deps/yamerl/src/yamerl_node_binary.erl:72:9: Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.\nCompile directive 'nowarn_deprecated_catch' can be used to suppress\nwarnings in selected modules.\n%   72|    case catch base64:decode(Text) of\n%     |         ^\n\n    ââ src/yamerl_node_binary.erl:\n    â\n 65 â     case catch base64:decode(Text) of\n    â          â°ââ Warning: 'catch ."
+      "message": "Verification command failed: mix precommit\n==> mime\nCompiling 1 file (.ex)\nGenerated mime app\n==> jason\nCompiling 10 files (.ex)\nGenerated jason app\n==> plug_crypto\nCompiling 5 files (.ex)\nGenerated plug_crypto app\n==> shadcn_ui\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 28-Aug-2026::09:10:32.884000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 28-Aug-2026::09:10:32.904000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco"
     },
     {
       "code": "verification_target_missing_reference",
@@ -566,7 +581,7 @@
       "entity_id": "shadcn_ui.form_contract",
       "file": ".spec/specs/form_contract.spec.md",
       "level": "error",
-      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.3191687466.2232811522.126355>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Erro"
+      "message": "Verification command failed: mix precommit\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 28-Aug-2026::09:10:33.929000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 28-Aug-2026::09:10:33.944000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco/elixir/shadcn_ui/_build/test/lib/*/ebin\" command failed. Errors may have been logged above. You can recompile this dependency with \"mix deps.compile yamerl --force\", update it with \"mix"
     },
     {
       "code": "verification_target_missing_reference",
@@ -615,7 +630,7 @@
       "entity_id": "shadcn_ui.gallery",
       "file": ".spec/specs/gallery.spec.md",
       "level": "error",
-      "message": "Verification command failed: npm run gallery:smoke\n> @leco/shadcn-ui-assets@0.1.0 gallery:smoke\n> npm --prefix demo run export:determinism\n\n\n> @leco/shadcn-ui-gallery@0.1.0 export:determinism\n> node scripts/check-export-determinism.mjs\n\nfile:///c:/Leco/elixir/shadcn_ui/demo/scripts/check-export-determinism.mjs:18\r\n  if (result.status !== 0) throw new Error(result.stderr || result.stdout || \"gallery export failed\");\r\n                                 ^\r\n\r\nError: Error while loading project :elixir_make at c:/Leco/elixir/shadcn_ui/demo/deps/elixir_make\r\n** (ArgumentError) cannot escape #Reference<0.3382829466.3038117889.210386>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\r\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\r\n    (elixir 1.18.0) src/elixir_quote.erl:150: :el"
+      "message": "Verification command failed: npm run gallery:smoke\n> @leco/shadcn-ui-assets@0.1.0 gallery:smoke\n> npm --prefix demo run export:determinism\n\n\n> @leco/shadcn-ui-gallery@0.1.0 export:determinism\n> node scripts/check-export-determinism.mjs\n\n13 |     cwd: demo,\n14 |     encoding: \"utf8\",\n15 |     env: { ...process.env, MIX_ENV: \"test\" },\n16 |     shell: process.platform === \"win32\"\n17 |   });\n18 |   if (result.status !== 0) throw new Error(result.stderr || result.stdout || \"gallery export failed\");\n                                          ^\nerror: Error while loading project :elixir_make at c:/Leco/elixir/shadcn_ui/demo/deps/elixir_make\n** (ArgumentError) cannot escape #Reference<0.3258850888.41025553.77096>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: "
     },
     {
       "code": "verification_target_missing_reference",
@@ -1164,6 +1179,34 @@
       "message": "Verification target test/shadcn_ui/milestone_d_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.theme_matrix"
     },
     {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery_presentation",
+      "file": ".spec/specs/gallery_presentation.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: demo/test/milestone_g_catalogue_test.exs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery_presentation",
+      "file": ".spec/specs/gallery_presentation.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/browser/milestone-g-presentation.spec.mjs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery_presentation",
+      "file": ".spec/specs/gallery_presentation.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/browser/milestone-g-shell.spec.mjs"
+    },
+    {
+      "code": "verification_target_missing",
+      "entity_id": "shadcn_ui.gallery_presentation",
+      "file": ".spec/specs/gallery_presentation.spec.md",
+      "level": "warning",
+      "message": "Verification target file does not exist: test/shadcn_ui/milestone_g_acceptance_test.exs"
+    },
+    {
       "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.motion_media_gallery",
       "file": ".spec/specs/motion_media_gallery.spec.md",
@@ -1245,7 +1288,7 @@
       "entity_id": "shadcn_ui.package",
       "file": ".spec/specs/package.spec.md",
       "level": "error",
-      "message": "Verification command failed: mix precommit\n==> phoenix_html\nCompiling 6 files (.ex)\n\n== Compilation error in file lib/phoenix_html/form.ex ==\n** (ArgumentError) cannot escape #Reference<0.2974715466.3306553349.52667>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:150: :elixir_quote.do_escape/2\n    (elixir 1.18.0) src/elixir_quote.erl:381: :elixir_quote.do_quote/2\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:163: :elixir_quote.do_escape/2\ncould not compile dependency :phoenix_html, \"mix compile\" failed. Error"
+      "message": "Verification command failed: mix precommit\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 28-Aug-2026::09:10:39.352000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 28-Aug-2026::09:10:39.384000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco/elixir/shadcn_ui/_build/test/lib/*/ebin\" command failed. Errors may have been logged above. You can recompile this dependency with \"mix deps.compile yamerl --force\", update it with \"mix"
     },
     {
       "code": "verification_target_missing_reference",
@@ -1290,32 +1333,60 @@
       "message": "Verification target test/shadcn_ui/milestone_c_acceptance_test.exs does not reference covered requirement: shadcn_ui.provenance.site_assets_excluded"
     },
     {
-      "code": "surface_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.release_publication",
       "file": ".spec/specs/release_publication.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: docs/gallery-operations.md"
+      "message": "Verification target test/shadcn_ui/milestone_f_release_test.exs does not reference covered requirement: shadcn_ui.release_publication.clean_checkout"
     },
     {
-      "code": "surface_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.release_publication",
       "file": ".spec/specs/release_publication.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: docs/release-candidate.md"
+      "message": "Verification target test/shadcn_ui/milestone_f_release_test.exs does not reference covered requirement: shadcn_ui.release_publication.clean_consumer_trial"
     },
     {
-      "code": "surface_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.release_publication",
       "file": ".spec/specs/release_publication.spec.md",
       "level": "warning",
-      "message": "Surface entry does not exist: test/shadcn_ui/milestone_f_release_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_f_release_test.exs does not reference covered requirement: shadcn_ui.release_publication.deterministic_export"
     },
     {
-      "code": "verification_target_missing",
+      "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.release_publication",
       "file": ".spec/specs/release_publication.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_f_release_test.exs"
+      "message": "Verification target test/shadcn_ui/milestone_f_release_test.exs does not reference covered requirement: shadcn_ui.release_publication.explicit_archive"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.release_publication",
+      "file": ".spec/specs/release_publication.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_f_release_test.exs does not reference covered requirement: shadcn_ui.release_publication.health_manifest"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.release_publication",
+      "file": ".spec/specs/release_publication.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_f_release_test.exs does not reference covered requirement: shadcn_ui.release_publication.internal_candidate_only"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.release_publication",
+      "file": ".spec/specs/release_publication.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_f_release_test.exs does not reference covered requirement: shadcn_ui.release_publication.truthful_gates"
+    },
+    {
+      "code": "verification_target_missing_reference",
+      "entity_id": "shadcn_ui.release_publication",
+      "file": ".spec/specs/release_publication.spec.md",
+      "level": "warning",
+      "message": "Verification target test/shadcn_ui/milestone_f_release_test.exs does not reference covered requirement: shadcn_ui.release_publication.version_identity"
     },
     {
       "code": "verification_target_missing_reference",
@@ -2330,6 +2401,118 @@
         "stability": "stable",
         "statement": "Every current component page shall render under explicit light and dark data-shadcn-theme scopes, default safely to light, preserve readable focus and content at narrow widths, and keep core content usable when demo-only scripting is disabled.",
         "subject_id": "shadcn_ui.gallery"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.accessibility_matrix",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Presentation acceptance shall retain keyboard, visible-focus, pinned axe, 200 percent zoom, narrow width, forced-colors, reduced-motion, CSS-disabled and no-script coverage in both themes while keeping source order and landmarks independent of cosmetic classes.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.article_hierarchy",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Every component article shall lead with its title and concise value proposition, pair each rendered specimen with its compile-checked HEEx source, and then present how it works, accessibility, exact fallback, application ownership and provenance in a consistent heading order.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.catalogue_metadata",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The closed documentation catalogue shall author concise introductions, capability identities, how-it-works points, support rows, exact fallbacks, named specimens and upstream or local-exception identities without resolving request, fragment or search text into executable identities.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.complete_migration",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Milestone completion shall require the accepted presentation system on every component, composition, category, landing and documentation route, with complete catalogue metadata or an explicit reviewed exception and no regression of Milestones A through F.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.deterministic_distribution",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Identical inputs shall produce byte-identical local assets and repository-subpath-safe static exports with no remote runtime dependency, new package release content or implied promotion from local evidence to CI, deployment or manual acceptance.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.local_assets",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Fonts, icons, highlighting and reference artifacts shall be local, hash-pinned, licensed, reproducible and excluded from package contents; unavailable display assets shall use the documented system fallback rather than a remote request.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.pinned_reference",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Gallery presentation shall target the accepted exact unscripted/ui revision, reviewed source paths and checked local evidence rather than a moving public site or automatic upstream synchronization.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.presentation_system",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Gallery-only local typography, prose, capability badges, specimens, escaped source, support tables and metadata shall form one reusable scoped presentation system with deterministic assets, no unrestricted reset and no package utility or runtime surface.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.progressive_navigation",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Skip link, named navigation, breadcrumb, one main landmark, visible focus, current-page state, component search and every ordinary destination shall remain complete without demo JavaScript, while mobile navigation uses honest native disclosure rather than unsupported menu or dialog claims.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.semantic_exceptions",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "ShadcnUI branding, Phoenix HEEx and accepted native component contracts shall override conflicting upstream presentation claims, and every intentional difference shall be documented instead of gaining richer ARIA, keyboard, state or runtime behavior for visual similarity.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.shell",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation and secondary immutable build metadata using the accepted reference geometry and documented exceptions.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.specimen_semantics",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Preview and Code selection shall use the accepted labelled native radio contract without tab roles, keep both addressable regions in source order and preserve direct-fragment, print, CSS-disabled and no-script access; optional copy feedback remains demo-only.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.stable_identity",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Existing category and component routes, canonical identities, breadcrumbs and example fragments shall remain stable while visible ordering, labels and presentation migrate.",
+        "subject_id": "shadcn_ui.gallery_presentation"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation.visual_evidence",
+        "priority": "must",
+        "stability": "evolving",
+        "statement": "Checked local evidence shall hash the pinned inputs and record deterministic light and dark reference states at 1440x1200, 1024x1366, 390x844 and 320x568 with theme, scale, font, motion, open state, scroll position, geometry and accepted tolerances, without remote access during verification.",
+        "subject_id": "shadcn_ui.gallery_presentation"
       },
       {
         "file": ".spec/specs/media_components.spec.md",
@@ -3731,6 +3914,31 @@
           "verification_minimum_strength": null
         },
         "title": "Online component gallery"
+      },
+      {
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "id": "shadcn_ui.gallery_presentation",
+        "meta": {
+          "decisions": [
+            "shadcn_ui.pinned_gallery_presentation_parity",
+            "shadcn_ui.gallery_static_publication",
+            "shadcn_ui.catalogue_driven_documentation",
+            "shadcn_ui.versioned_gallery_publication",
+            "shadcn_ui.upstream_provenance"
+          ],
+          "id": "shadcn_ui.gallery_presentation",
+          "kind": "application",
+          "status": "active",
+          "summary": "Pinned Unscripted-style documentation presentation, closed authored metadata, deterministic local visual evidence, and complete gallery migration without changing package semantics.",
+          "surface": [
+            "demo/**",
+            ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/**",
+            "test/shadcn_ui/milestone_g_phase1_acceptance_test.exs",
+            "test/browser/milestone-g-*.spec.mjs"
+          ],
+          "verification_minimum_strength": null
+        },
+        "title": "Pinned gallery presentation and visual evidence"
       },
       {
         "file": ".spec/specs/media_components.spec.md",
@@ -5144,6 +5352,75 @@
       },
       {
         "covers": [
+          "shadcn_ui.gallery_presentation.pinned_reference",
+          "shadcn_ui.gallery_presentation.visual_evidence",
+          "shadcn_ui.gallery_presentation.local_assets",
+          "shadcn_ui.gallery_presentation.semantic_exceptions"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase1_reference_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.pinned_reference",
+          "shadcn_ui.gallery_presentation.local_assets",
+          "shadcn_ui.gallery_presentation.deterministic_distribution"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase1_acceptance_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.shell",
+          "shadcn_ui.gallery_presentation.progressive_navigation",
+          "shadcn_ui.gallery_presentation.stable_identity"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-shell.spec.mjs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.presentation_system",
+          "shadcn_ui.gallery_presentation.specimen_semantics",
+          "shadcn_ui.gallery_presentation.visual_evidence",
+          "shadcn_ui.gallery_presentation.accessibility_matrix"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-presentation.spec.mjs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.article_hierarchy",
+          "shadcn_ui.gallery_presentation.catalogue_metadata",
+          "shadcn_ui.gallery_presentation.stable_identity",
+          "shadcn_ui.gallery_presentation.complete_migration"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_catalogue_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.semantic_exceptions",
+          "shadcn_ui.gallery_presentation.deterministic_distribution",
+          "shadcn_ui.gallery_presentation.complete_migration"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_acceptance_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.media_components.carousel_structure",
           "shadcn_ui.media_components.carousel_controls",
           "shadcn_ui.media_components.carousel_layout"
@@ -6279,13 +6556,13 @@
   "specification_version": "1.0",
   "summary": {
     "decision_parse_errors": 0,
-    "decisions": 28,
+    "decisions": 29,
     "exceptions": 0,
-    "findings": 144,
-    "requirements": 252,
+    "findings": 152,
+    "requirements": 266,
     "scenarios": 0,
-    "subjects": 26,
-    "verifications": 159
+    "subjects": 27,
+    "verifications": 165
   },
   "verification": {
     "claims": [
@@ -10545,6 +10822,237 @@
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
         "verification_index": 11
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.local_assets",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase1_reference_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.pinned_reference",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase1_reference_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.semantic_exceptions",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase1_reference_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase1_reference_test.exs",
+        "verification_index": 0
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase1_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.local_assets",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase1_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.pinned_reference",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase1_acceptance_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.progressive_navigation",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-shell.spec.mjs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.shell",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-shell.spec.mjs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-shell.spec.mjs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-presentation.spec.mjs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.presentation_system",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-presentation.spec.mjs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.specimen_semantics",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-presentation.spec.mjs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-presentation.spec.mjs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_catalogue_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.catalogue_metadata",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_catalogue_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_catalogue_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_catalogue_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.semantic_exceptions",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.media_components.carousel_controls",
@@ -14884,14 +15392,14 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 169,
+      "claimed": 183,
       "executed": 16,
-      "linked": 596
+      "linked": 603
     },
     "threshold_failures": 0
   },
   "workspace": {
-    "decision_count": 28,
-    "spec_count": 26
+    "decision_count": 29,
+    "spec_count": 27
   }
 }
