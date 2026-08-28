@@ -43,6 +43,7 @@ defmodule ShadcnUIDemo.MixProject do
       {:phoenix, "~> 1.8.9"},
       {:phoenix_html, "~> 4.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:tidewave, "~> 0.6", only: :dev},
       {:lazy_html, ">= 0.1.0", only: :test},
       {:telemetry_metrics, "~> 1.0"},
       {:telemetry_poller, "~> 1.0"},
