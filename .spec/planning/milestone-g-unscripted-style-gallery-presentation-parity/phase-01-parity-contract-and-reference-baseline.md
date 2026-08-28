@@ -49,25 +49,25 @@ Back to wave: [README](./README.md)
       - [x] 1.2.2.3 Subtask - Record viewport, scale, font, theme, open state, scroll position, upstream revision and tooling in a deterministic manifest.
       - [x] 1.2.2.4 Subtask - Store reviewed local references or derived measurements without timestamps, remote runtime assets or machine-specific paths.
 
-  - [ ] 1.3 Section - Phase 1 Integration Tests.
+  - [x] 1.3 Section - Phase 1 Integration Tests.
 
     Prove the accepted contract, evidence, licensing and unchanged package boundary together.
 
-    - [ ] 1.3.1 Task - Validate SpecLed and reference consistency.
+    - [x] 1.3.1 Task - Validate SpecLed and reference consistency.
 
       Roadmap, decision, requirements, coverage and captures must describe one target.
 
-      - [ ] 1.3.1.1 Subtask - Run SpecLed prime/next/check and fail missing IDs, decision links, phase owners or verification mappings.
-      - [ ] 1.3.1.2 Subtask - Validate reference manifests, hashes, formats, viewport uniqueness and pinned upstream identity twice.
-      - [ ] 1.3.1.3 Subtask - Review visual tolerances and semantic exceptions before authorizing shared shell implementation.
+      - [x] 1.3.1.1 Subtask - Run SpecLed prime/next/check and fail missing IDs, decision links, phase owners or verification mappings.
+      - [x] 1.3.1.2 Subtask - Validate reference manifests, hashes, formats, viewport uniqueness and pinned upstream identity twice.
+      - [x] 1.3.1.3 Subtask - Review visual tolerances and semantic exceptions before authorizing shared shell implementation.
 
-    - [ ] 1.3.2 Task - Verify boundaries and record delivery.
+    - [x] 1.3.2 Task - Verify boundaries and record delivery.
 
       Planning and reference assets cannot alter package behavior or publication truth.
 
-      - [ ] 1.3.2.1 Subtask - Audit the package archive for absence of fonts, captures, gallery styles, planning data and reference tooling.
-      - [ ] 1.3.2.2 Subtask - Run package/demo precommit, existing A-F acceptance and git diff --check, recording pre-existing limitations separately.
-      - [ ] 1.3.2.3 Subtask - Record evidence, complete one commit per coherent section and open the Phase 1 PR without implementing Phase 2 markup.
+      - [x] 1.3.2.1 Subtask - Audit the package archive for absence of fonts, captures, gallery styles, planning data and reference tooling.
+      - [x] 1.3.2.2 Subtask - Run package/demo precommit, existing A-F acceptance and git diff --check, recording pre-existing limitations separately.
+      - [x] 1.3.2.3 Subtask - Record evidence, complete one commit per coherent section and open the Phase 1 PR without implementing Phase 2 markup.
 
 ## Section delivery rule
 
