@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://leco-industries.invalid/shadcn-ui/milestone-g-presentation-reference.schema.json",
+  "title": "Milestone G pinned presentation reference",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "evidenceType", "decision", "upstream", "capturePolicy", "authoredMetrics", "states", "fontReview"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "evidenceType": {"const": "checked-source-derived-reference"},
+    "decision": {"const": "shadcn_ui.pinned_gallery_presentation_parity"},
+    "upstream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "publicReference", "commit", "reviewDate", "inputs"],
+      "properties": {
+        "repository": {"const": "https://github.com/timoransky/unscripted-ui"},
+        "publicReference": {"const": "https://unscripted.janci.dev/"},
+        "commit": {"pattern": "^[0-9a-f]{40}$"},
+        "reviewDate": {"format": "date"},
+        "inputs": {
+          "type": "array",
+          "minItems": 14,
+          "uniqueItems": true,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256", "bytes"],
+            "properties": {
+              "path": {"type": "string", "minLength": 1},
+              "sha256": {"pattern": "^[0-9a-f]{64}$"},
+              "bytes": {"type": "integer", "minimum": 1}
+            }
+          }
+        }
+      }
+    },
+    "capturePolicy": {"type": "object"},
+    "authoredMetrics": {"type": "object"},
+    "states": {
+      "type": "array",
+      "minItems": 12,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "theme", "viewport", "scale", "motion", "scroll", "accordion", "specimen", "shell"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "theme": {"enum": ["light", "dark"]},
+          "viewport": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["width", "height"],
+            "properties": {
+              "width": {"enum": [1440, 1024, 390, 320]},
+              "height": {"enum": [1200, 1366, 844, 568]}
+            }
+          },
+          "scale": {"const": 1},
+          "motion": {"const": "reduced"},
+          "scroll": {"const": {"x": 0, "y": 0}},
+          "accordion": {"const": {"mode": "exclusive", "openItem": 0}},
+          "specimen": {"const": {"view": "preview"}},
+          "shell": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["desktopCatalogue", "mobileNavigation"],
+            "properties": {
+              "desktopCatalogue": {"type": "boolean"},
+              "mobileNavigation": {"enum": ["unavailable", "closed", "open"]}
+            }
+          }
+        }
+      }
+    },
+    "fontReview": {"type": "object"}
+  }
+}

@@ -28,26 +28,26 @@ Back to wave: [README](./README.md)
       - [x] 1.1.2.3 Subtask - Decide no-script mobile navigation and Preview/Code semantics without claiming unsupported menu or tab contracts.
       - [x] 1.1.2.4 Subtask - Accept provenance, local font/icon licensing, truthful script claims, reference ownership and semantic-exception rules in a durable decision.
 
-  - [ ] 1.2 Section - Author requirements and deterministic evidence.
+  - [x] 1.2 Section - Author requirements and deterministic evidence.
 
     Turn the parity goal into current truth and checked local reference inputs.
 
-    - [ ] 1.2.1 Task - Extend specifications and coverage.
+    - [x] 1.2.1 Task - Extend specifications and coverage.
 
       New requirements must be additive and must not rewrite Milestones A-F history.
 
-      - [ ] 1.2.1.1 Subtask - Add gallery requirements for the shell, presentation system, article hierarchy, catalogue metadata and complete migration.
-      - [ ] 1.2.1.2 Subtask - Add visual-evidence, local-asset, no-script, accessibility and package-isolation requirements with explicit stability.
-      - [ ] 1.2.1.3 Subtask - Create a Milestone G coverage map assigning every new and re-exercised requirement to phases and concrete evidence.
+      - [x] 1.2.1.1 Subtask - Add gallery requirements for the shell, presentation system, article hierarchy, catalogue metadata and complete migration.
+      - [x] 1.2.1.2 Subtask - Add visual-evidence, local-asset, no-script, accessibility and package-isolation requirements with explicit stability.
+      - [x] 1.2.1.3 Subtask - Create a Milestone G coverage map assigning every new and re-exercised requirement to phases and concrete evidence.
 
-    - [ ] 1.2.2 Task - Capture the local reference matrix.
+    - [x] 1.2.2 Task - Capture the local reference matrix.
 
       Implementation and review must not depend on upstream network availability.
 
-      - [ ] 1.2.2.1 Subtask - Audit the display-font license, icons and substantially adapted documentation markup or CSS and update required notices.
-      - [ ] 1.2.2.2 Subtask - Capture light/dark desktop, tablet, 390px and 320px Accordion and shell reference states.
-      - [ ] 1.2.2.3 Subtask - Record viewport, scale, font, theme, open state, scroll position, upstream revision and tooling in a deterministic manifest.
-      - [ ] 1.2.2.4 Subtask - Store reviewed local references or derived measurements without timestamps, remote runtime assets or machine-specific paths.
+      - [x] 1.2.2.1 Subtask - Audit the display-font license, icons and substantially adapted documentation markup or CSS and update required notices.
+      - [x] 1.2.2.2 Subtask - Capture light/dark desktop, tablet, 390px and 320px Accordion and shell reference states.
+      - [x] 1.2.2.3 Subtask - Record viewport, scale, font, theme, open state, scroll position, upstream revision and tooling in a deterministic manifest.
+      - [x] 1.2.2.4 Subtask - Store reviewed local references or derived measurements without timestamps, remote runtime assets or machine-specific paths.
 
   - [ ] 1.3 Section - Phase 1 Integration Tests.
 
