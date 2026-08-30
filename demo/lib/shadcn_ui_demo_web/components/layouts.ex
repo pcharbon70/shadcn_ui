@@ -80,8 +80,12 @@ defmodule ShadcnUIDemoWeb.Layouts do
       </div>
     </div>
 
-    <div class="gallery-layout">
-      <nav class="gallery-navigation" aria-label="Component navigation">
+    <div class="gallery-layout" data-gallery-documentation-grid>
+      <nav
+        class="gallery-navigation"
+        aria-label="Component navigation"
+        data-gallery-desktop-catalogue
+      >
         <.navigation_sections
           page={@page}
           categories={@categories}
@@ -102,8 +106,8 @@ defmodule ShadcnUIDemoWeb.Layouts do
         </nav>
       </details>
 
-      <main id="main-content" tabindex="-1">
-        <nav aria-label="Breadcrumb">
+      <main id="main-content" tabindex="-1" data-gallery-main>
+        <nav class="gallery-breadcrumb" aria-label="Breadcrumb" data-gallery-breadcrumb>
           <a href="/" aria-current={@page.kind == :landing && "page"}>Gallery</a>
           <span :if={@page.kind in [:category, :component]} aria-hidden="true"> / </span>
           <a
@@ -150,12 +154,17 @@ defmodule ShadcnUIDemoWeb.Layouts do
         </li>
       </ul>
     </section>
-    <section>
+    <section class="gallery-navigation__showcases">
       <h2>Complete page examples</h2>
       <ul>
         <li :for={composition <- ShadcnUIDemo.Catalogue.compositions()}>
-          <a href={composition.path} aria-current={@page.path == composition.path && "page"}>
-            {composition.label}
+          <a
+            href={composition.path}
+            aria-current={@page.path == composition.path && "page"}
+            data-gallery-showcase
+          >
+            <span>{composition.label}</span>
+            <span class="gallery-navigation__marker" aria-hidden="true">Example</span>
           </a>
         </li>
       </ul>

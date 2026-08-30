@@ -19,25 +19,25 @@ Back to wave: [README](./README.md)
       - [x] 2.1.1.2 Subtask - Apply local translucency, border, blur, focus and responsive visibility without remote assets or global resets.
       - [x] 2.1.1.3 Subtask - Keep `data-shadcn-theme` authoritative, preserve first-render and no-script behavior and exclude misleading zero-script or support claims.
 
-  - [ ] 2.2 Section - Build the desktop documentation frame.
+  - [x] 2.2 Section - Build the desktop documentation frame.
 
     Match accepted geometry while retaining zoom-resilient and min-width-safe behavior.
 
-    - [ ] 2.2.1 Task - Establish the centered grid.
+    - [x] 2.2.1 Task - Establish the centered grid.
 
       Header and article content need one deliberate horizontal rhythm.
 
-      - [ ] 2.2.1.1 Subtask - Implement the maximum width, inline padding, fixed catalogue column, minmax main column and accepted inter-column gap.
-      - [ ] 2.2.1.2 Subtask - Align header, breadcrumb, article and footer while keeping wide examples inside the viewport.
-      - [ ] 2.2.1.3 Subtask - Preserve source order, skip target, one main landmark and responsive collapse independently of layout classes.
+      - [x] 2.2.1.1 Subtask - Implement the maximum width, inline padding, fixed catalogue column, minmax main column and accepted inter-column gap.
+      - [x] 2.2.1.2 Subtask - Align header, breadcrumb, article and footer while keeping wide examples inside the viewport.
+      - [x] 2.2.1.3 Subtask - Preserve source order, skip target, one main landmark and responsive collapse independently of layout classes.
 
-    - [ ] 2.2.2 Task - Refine the persistent catalogue.
+    - [x] 2.2.2 Task - Refine the persistent catalogue.
 
       Component navigation should be compact, scannable and independently scrollable.
 
-      - [ ] 2.2.2.1 Subtask - Make the catalogue sticky below the header with bounded viewport height, native overflow and stable scrollbars.
-      - [ ] 2.2.2.2 Subtask - Style category labels, compact links, optional showcase markers and current-page state with semantic tokens.
-      - [ ] 2.2.2.3 Subtask - Add progressive overflow affordances without hiding destinations or requiring script.
+      - [x] 2.2.2.1 Subtask - Make the catalogue sticky below the header with bounded viewport height, native overflow and stable scrollbars.
+      - [x] 2.2.2.2 Subtask - Style category labels, compact links, optional showcase markers and current-page state with semantic tokens.
+      - [x] 2.2.2.3 Subtask - Add progressive overflow affordances without hiding destinations or requiring script.
 
   - [ ] 2.3 Section - Complete responsive navigation and secondary tools.
 

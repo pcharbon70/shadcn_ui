@@ -31,17 +31,24 @@ a { color: inherit; }
 .gallery-search button { min-block-size: 2.75rem; }
 .gallery-search p { min-height: 1.5rem; margin: 0; }
 [data-gallery-search-item][hidden] { display: none; }
-.gallery-layout { display: grid; grid-template-columns: minmax(12rem, 16rem) minmax(0, 1fr); }
-.gallery-navigation { padding: 1.5rem; border-right: 1px solid var(--shadcn-ui-border); }
-.gallery-navigation h2, .gallery-mobile-navigation h2 { font-size: 1rem; }
-.gallery-navigation ul { padding-left: 1rem; }
-.gallery-navigation a, .gallery-mobile-navigation a { min-block-size: 2.75rem; display: flex; align-items: center; overflow-wrap: anywhere; }
-.gallery-navigation a[aria-current="page"], .gallery-mobile-navigation a[aria-current="page"] { font-weight: 700; text-decoration-thickness: .15em; }
+.gallery-layout { display: grid; grid-template-columns: 13.75rem minmax(0, 1fr); gap: 2.5rem; max-inline-size: 72rem; margin-inline: auto; padding-inline: 1.25rem; box-sizing: border-box; }
+.gallery-navigation { position: sticky; inset-block-start: 5rem; align-self: start; max-block-size: calc(100vh - 6rem); max-block-size: calc(100dvh - 6rem); overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; scrollbar-color: var(--shadcn-ui-muted-foreground) transparent; padding-block: 2rem; }
+.gallery-navigation section + section { margin-block-start: 1.25rem; }
+.gallery-navigation h2, .gallery-mobile-navigation h2 { margin: 0 0 .25rem; color: var(--shadcn-ui-muted-foreground); font-size: .75rem; font-weight: 700; letter-spacing: .08em; line-height: 1.25rem; text-transform: uppercase; }
+.gallery-navigation ul { margin: 0; padding: 0; list-style: none; }
+.gallery-navigation li + li { margin-block-start: .125rem; }
+.gallery-navigation a { display: flex; align-items: center; justify-content: space-between; gap: .5rem; min-block-size: 2rem; padding: .25rem .5rem; border-radius: var(--shadcn-ui-radius-md); box-sizing: border-box; color: var(--shadcn-ui-muted-foreground); overflow-wrap: anywhere; text-decoration: none; }
+.gallery-navigation a:hover { color: var(--shadcn-ui-accent-foreground); background: var(--shadcn-ui-accent); }
+.gallery-navigation a[aria-current="page"], .gallery-mobile-navigation a[aria-current="page"] { color: var(--shadcn-ui-foreground); background: var(--shadcn-ui-muted); box-shadow: inset .125rem 0 0 currentColor; font-weight: 700; text-decoration-thickness: .15em; }
+.gallery-navigation__marker { flex: none; padding: .0625rem .25rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-sm); font-size: .625rem; font-weight: 600; letter-spacing: .04em; line-height: 1rem; text-transform: uppercase; }
 .gallery-mobile-navigation { display: none; padding: 1rem 1.5rem; border-bottom: 1px solid var(--shadcn-ui-border); }
 .gallery-mobile-navigation summary { min-block-size: 2.75rem; display: flex; align-items: center; cursor: pointer; font-weight: 700; }
 .gallery-mobile-navigation nav { padding-block-start: .75rem; }
 .gallery-mobile-navigation ul { padding-inline-start: 1.25rem; }
-.gallery-layout main { min-width: 0; max-width: 72rem; padding: 1.5rem; }
+.gallery-mobile-navigation a { min-block-size: 2.75rem; display: flex; align-items: center; overflow-wrap: anywhere; }
+.gallery-layout main { min-inline-size: 0; max-inline-size: 100%; padding-block: 2rem 4rem; overflow-wrap: anywhere; }
+.gallery-layout main > * { max-inline-size: 100%; }
+.gallery-breadcrumb { margin-block-end: 1.5rem; color: var(--shadcn-ui-muted-foreground); }
 .gallery-reference { display: grid; gap: 1.5rem; }
 .gallery-reference > section { min-width: 0; }
 .gallery-reference > nav { min-width: 0; }
@@ -74,8 +81,8 @@ pre { max-width: 100%; overflow: auto; padding: 1rem; background: var(--shadcn-u
 .gallery-media-wide { flex-basis: 52rem !important; }
 .gallery-media-wide-row { display: flex; justify-content: space-between; gap: 2rem; }
 
-@media (max-width: 48rem) {
-  .gallery-layout { grid-template-columns: 1fr; }
+@media (max-width: 63.999rem) {
+  .gallery-layout { display: block; }
   .gallery-navigation { display: none; }
   .gallery-mobile-navigation { display: block; }
 }
@@ -87,6 +94,7 @@ pre { max-width: 100%; overflow: auto; padding: 1rem; background: var(--shadcn-u
 
 @media (forced-colors: active) {
   .gallery-product-header { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .gallery-navigation a[aria-current="page"], .gallery-mobile-navigation a[aria-current="page"] { outline: 1px solid currentColor; }
 }
 
 @media (prefers-reduced-motion: reduce) {

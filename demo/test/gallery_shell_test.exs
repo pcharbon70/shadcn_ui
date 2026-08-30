@@ -12,14 +12,40 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert layout =~ ~s(aria-label="Mobile component navigation")
     assert layout =~ ~s(<summary>Browse components</summary>)
     assert layout =~ "<.navigation_sections"
+    assert layout =~ "data-gallery-documentation-grid"
+    assert layout =~ "data-gallery-desktop-catalogue"
+    assert layout =~ "data-gallery-main"
     refute layout =~ ~r/(role="(?:menu|tree|tablist)"|ResizeObserver|appendChild|insertBefore)/
-    assert css =~ "minmax(12rem, 16rem)"
+    assert css =~ "13.75rem minmax(0, 1fr)"
     assert css =~ "body { margin: 0; min-width: 0; }"
-    assert css =~ "max-width: 48rem"
+    assert css =~ "max-width: 63.999rem"
     assert css =~ ":focus-visible"
     assert css =~ "min-block-size: 2.75rem"
     assert css =~ ".gallery-mobile-navigation { display: none;"
     assert css =~ ".gallery-mobile-navigation { display: block;"
+  end
+
+  test "desktop documentation grid and persistent catalogue use the pinned geometry" do
+    layout = File.read!("lib/shadcn_ui_demo_web/components/layouts.ex")
+    css = File.read!("assets/gallery.css")
+
+    assert layout =~
+             ~r/data-gallery-documentation-grid.*data-gallery-desktop-catalogue.*data-gallery-main/s
+
+    assert layout =~ ~s(data-gallery-breadcrumb)
+    assert layout =~ ~s(data-gallery-showcase)
+
+    assert css =~ "grid-template-columns: 13.75rem minmax(0, 1fr)"
+    assert css =~ "gap: 2.5rem"
+    assert css =~ "max-inline-size: 72rem"
+    assert css =~ "padding-inline: 1.25rem"
+    assert css =~ "inset-block-start: 5rem"
+    assert css =~ "max-block-size: calc(100dvh - 6rem)"
+    assert css =~ "overflow-y: auto"
+    assert css =~ "scrollbar-gutter: stable"
+    assert css =~ "overscroll-behavior: contain"
+    assert css =~ "box-shadow: inset .125rem 0 0 currentColor"
+    refute css =~ "scrollbar-width: none"
   end
 
   test "compact product header exposes truthful primary destinations and theme controls" do
@@ -56,7 +82,7 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert length(Regex.scan(~r/<\.navigation_sections/, layout)) == 2
     assert layout =~ ~s(<a href={category.path})
     assert layout =~ ~s(<a href={component.path})
-    assert layout =~ ~s(<a href={composition.path})
+    assert layout =~ ~r/<a[^>]*href={composition.path}/
     refute layout =~ ~r/(phx-click|data-on-click|pushState|replaceState|role="menu")/
   end
 
