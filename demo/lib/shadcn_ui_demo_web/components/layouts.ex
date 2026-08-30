@@ -16,18 +16,37 @@ defmodule ShadcnUIDemoWeb.Layouts do
 
     ~H"""
     <a class="gallery-skip-link" href="#main-content">Skip to main content</a>
-    <header class="gallery-masthead">
-      <a href="/">ShadcnUI Gallery</a>
+    <header class="gallery-product-header" data-gallery-product-header>
+      <div class="gallery-product-header__inner">
+        <a class="gallery-wordmark" href="/" aria-label="ShadcnUI home">
+          <span>ShadcnUI</span><span aria-hidden="true">/gallery</span>
+        </a>
+        <nav class="gallery-primary-navigation" aria-label="Primary navigation">
+          <a href="/examples/documentation">Docs</a>
+          <a href="/components/foundation">Components</a>
+          <a
+            href="https://github.com/Leco-Industries-Inc/shadcn_ui"
+            aria-label="ShadcnUI repository"
+          >Repository</a>
+        </nav>
+        <div class="gallery-theme-control" role="group" aria-label="Theme">
+          <button type="button" data-gallery-theme="light" aria-pressed={@theme == "light"}>
+            Light
+          </button>
+          <button type="button" data-gallery-theme="dark" aria-pressed={@theme == "dark"}>
+            Dark
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="gallery-secondary-tools" data-gallery-secondary-tools>
       <span data-gallery-build-identity>
         Package {@build_identity.package_version} · build
         <code>{@build_identity.build_revision}</code>
         · catalogue {@build_identity.catalogue_schema} · upstream
         <code>{@build_identity.upstream_revision}</code>
       </span>
-      <div aria-label="Theme">
-        <button type="button" data-gallery-theme="light" aria-pressed={@theme == "light"}>Light</button>
-        <button type="button" data-gallery-theme="dark" aria-pressed={@theme == "dark"}>Dark</button>
-      </div>
       <nav aria-label="Motion inspection">
         <a
           :for={{value, label} <- [{"system", "System motion"}, {"reduce", "Reduce motion"}]}
@@ -59,7 +78,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
           {length(@components)} components available
         </p>
       </div>
-    </header>
+    </div>
 
     <div class="gallery-layout">
       <nav class="gallery-navigation" aria-label="Component navigation">

@@ -7,17 +7,17 @@ Back to wave: [README](./README.md)
   Replace the catalogue-like frame with the accepted compact header,
   constrained documentation grid and complete responsive navigation shell.
 
-  - [ ] 2.1 Section - Build the compact global header.
+  - [x] 2.1 Section - Build the compact global header.
 
     Give product identity and primary actions a stable single-row hierarchy.
 
-    - [ ] 2.1.1 Task - Implement truthful product navigation and theme control.
+    - [x] 2.1.1 Task - Implement truthful product navigation and theme control.
 
       The header should resemble the pinned reference while remaining a ShadcnUI demo.
 
-      - [ ] 2.1.1.1 Subtask - Render ShadcnUI branding, primary Docs and Components destinations, repository access and a compact theme control in the accepted sticky header height.
-      - [ ] 2.1.1.2 Subtask - Apply local translucency, border, blur, focus and responsive visibility without remote assets or global resets.
-      - [ ] 2.1.1.3 Subtask - Keep `data-shadcn-theme` authoritative, preserve first-render and no-script behavior and exclude misleading zero-script or support claims.
+      - [x] 2.1.1.1 Subtask - Render ShadcnUI branding, primary Docs and Components destinations, repository access and a compact theme control in the accepted sticky header height.
+      - [x] 2.1.1.2 Subtask - Apply local translucency, border, blur, focus and responsive visibility without remote assets or global resets.
+      - [x] 2.1.1.3 Subtask - Keep `data-shadcn-theme` authoritative, preserve first-render and no-script behavior and exclude misleading zero-script or support claims.
 
   - [ ] 2.2 Section - Build the desktop documentation frame.
 

@@ -5,7 +5,7 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     layout = File.read!("lib/shadcn_ui_demo_web/components/layouts.ex")
     css = File.read!("assets/gallery.css")
 
-    assert layout =~ ~r/gallery-masthead.*<nav.*<main/s
+    assert layout =~ ~r/data-gallery-product-header.*<nav.*<main/s
     assert layout =~ ~s(href="#main-content")
     assert layout =~ ~s(aria-label="Breadcrumb")
     assert layout =~ ~s(aria-label="Component navigation")
@@ -20,6 +20,34 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert css =~ "min-block-size: 2.75rem"
     assert css =~ ".gallery-mobile-navigation { display: none;"
     assert css =~ ".gallery-mobile-navigation { display: block;"
+  end
+
+  test "compact product header exposes truthful primary destinations and theme controls" do
+    layout = File.read!("lib/shadcn_ui_demo_web/components/layouts.ex")
+    css = File.read!("assets/gallery.css")
+
+    assert layout =~ ~s(data-gallery-product-header)
+    assert layout =~ ~s(aria-label="ShadcnUI home")
+    assert layout =~ ~s(aria-label="Primary navigation")
+    assert layout =~ ~s(href="/examples/documentation")
+    assert layout =~ ~s(href="/components/foundation")
+    assert layout =~ ~s(href="https://github.com/Leco-Industries-Inc/shadcn_ui")
+    assert layout =~ ~s(role="group" aria-label="Theme")
+    assert layout =~ ~s(data-gallery-secondary-tools)
+
+    [header] =
+      Regex.run(~r/<header[^>]*data-gallery-product-header[^>]*>.*?<\/header>/s, layout)
+
+    refute header =~ "data-gallery-build-identity"
+
+    refute layout =~ ~r/(script bytes shipped: 0|ships zero JavaScript)/i
+
+    assert css =~ "position: sticky"
+    assert css =~ "block-size: 3.5rem"
+    assert css =~ "max-inline-size: 72rem"
+    assert css =~ "padding-inline: 1.25rem"
+    assert css =~ "backdrop-filter: blur(8px)"
+    assert css =~ "@media (forced-colors: active)"
   end
 
   test "desktop and mobile navigation share every ordered ordinary destination" do
