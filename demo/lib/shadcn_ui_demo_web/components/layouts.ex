@@ -16,64 +16,75 @@ defmodule ShadcnUIDemoWeb.Layouts do
 
     ~H"""
     <a class="gallery-skip-link" href="#main-content">Skip to main content</a>
-    <header class="gallery-masthead">
-      <a href="/">ShadcnUI Gallery</a>
-      <span data-gallery-build-identity>
-        Package {@build_identity.package_version} · build
-        <code>{@build_identity.build_revision}</code>
-        · catalogue {@build_identity.catalogue_schema} · upstream
-        <code>{@build_identity.upstream_revision}</code>
-      </span>
-      <div aria-label="Theme">
-        <button type="button" data-gallery-theme="light" aria-pressed={@theme == "light"}>Light</button>
-        <button type="button" data-gallery-theme="dark" aria-pressed={@theme == "dark"}>Dark</button>
-      </div>
-      <nav aria-label="Motion inspection">
-        <a
-          :for={{value, label} <- [{"system", "System motion"}, {"reduce", "Reduce motion"}]}
-          href={ShadcnUIDemo.GalleryPreferences.link(@page.path, @theme, value)}
-          data-gallery-preference
-          data-gallery-light-href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "light", value)}
-          data-gallery-dark-href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "dark", value)}
-          aria-current={@motion == value && "true"}
-        >{label}</a>
-      </nav>
-      <noscript><nav aria-label="Theme links">
-        <a href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "light", @motion)}>Use light theme</a>
-        <a href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "dark", @motion)}>Use dark theme</a>
-      </nav></noscript>
-      <div class="gallery-search" data-gallery-search>
-        <label for="gallery-component-search">Search components</label>
-        <div>
-          <input
-            id="gallery-component-search"
-            type="search"
-            maxlength="200"
-            autocomplete="off"
-            aria-describedby="gallery-search-status"
-            data-gallery-search-input
-          />
-          <button type="button" data-gallery-search-reset>Clear</button>
+    <header class="gallery-product-header" data-gallery-product-header>
+      <div class="gallery-product-header__inner">
+        <a class="gallery-wordmark" href="/" aria-label="ShadcnUI home">
+          <span>ShadcnUI</span><span aria-hidden="true">/gallery</span>
+        </a>
+        <nav class="gallery-primary-navigation" aria-label="Primary navigation">
+          <a href="/examples/documentation">Docs</a>
+          <a href="/components/foundation">Components</a>
+          <a
+            href="https://github.com/Leco-Industries-Inc/shadcn_ui"
+            aria-label="ShadcnUI repository"
+          >Repository</a>
+        </nav>
+        <details class="gallery-mobile-navigation" data-gallery-mobile-navigation>
+          <summary>Navigation</summary>
+          <div class="gallery-mobile-navigation__panel" data-gallery-mobile-navigation-panel>
+            <nav class="gallery-mobile-primary-navigation" aria-label="Mobile primary navigation">
+              <a href="/examples/documentation">Docs</a>
+              <a href="/components/foundation">Components</a>
+              <a
+                href="https://github.com/Leco-Industries-Inc/shadcn_ui"
+                aria-label="ShadcnUI repository"
+              >Repository</a>
+            </nav>
+            <nav aria-label="Mobile component navigation">
+              <.navigation_sections
+                page={@page}
+                categories={@categories}
+                components={@components}
+                search_texts={@search_texts}
+              />
+            </nav>
+          </div>
+        </details>
+        <div class="gallery-theme-control" role="group" aria-label="Theme">
+          <button type="button" data-gallery-theme="light" aria-pressed={@theme == "light"}>
+            Light
+          </button>
+          <button type="button" data-gallery-theme="dark" aria-pressed={@theme == "dark"}>
+            Dark
+          </button>
         </div>
-        <p id="gallery-search-status" aria-live="polite" data-gallery-search-status>
-          {length(@components)} components available
-        </p>
       </div>
     </header>
 
-    <div class="gallery-layout">
-      <nav class="gallery-navigation" aria-label="Component navigation">
-        <.navigation_sections
-          page={@page}
-          categories={@categories}
-          components={@components}
-          search_texts={@search_texts}
-        />
-      </nav>
-
-      <details class="gallery-mobile-navigation">
-        <summary>Browse components</summary>
-        <nav aria-label="Mobile component navigation">
+    <div class="gallery-layout" data-gallery-documentation-grid>
+      <div class="gallery-catalogue" data-gallery-catalogue>
+        <search class="gallery-search" data-gallery-search>
+          <label for="gallery-component-search">Search components</label>
+          <div>
+            <input
+              id="gallery-component-search"
+              type="search"
+              maxlength="200"
+              autocomplete="off"
+              aria-describedby="gallery-search-status"
+              data-gallery-search-input
+            />
+            <button type="button" data-gallery-search-reset>Clear</button>
+          </div>
+          <p id="gallery-search-status" aria-live="polite" data-gallery-search-status>
+            {length(@components)} components available
+          </p>
+        </search>
+        <nav
+          class="gallery-navigation"
+          aria-label="Component navigation"
+          data-gallery-desktop-catalogue
+        >
           <.navigation_sections
             page={@page}
             categories={@categories}
@@ -81,10 +92,10 @@ defmodule ShadcnUIDemoWeb.Layouts do
             search_texts={@search_texts}
           />
         </nav>
-      </details>
+      </div>
 
-      <main id="main-content" tabindex="-1">
-        <nav aria-label="Breadcrumb">
+      <main id="main-content" tabindex="-1" data-gallery-main>
+        <nav class="gallery-breadcrumb" aria-label="Breadcrumb" data-gallery-breadcrumb>
           <a href="/" aria-current={@page.kind == :landing && "page"}>Gallery</a>
           <span :if={@page.kind in [:category, :component]} aria-hidden="true"> / </span>
           <a
@@ -102,6 +113,31 @@ defmodule ShadcnUIDemoWeb.Layouts do
         {render_slot(@inner_block)}
       </main>
     </div>
+
+    <footer class="gallery-metadata" data-gallery-metadata>
+      <div class="gallery-metadata__inner">
+        <p data-gallery-build-identity>
+          Package {@build_identity.package_version} · build
+          <code>{@build_identity.build_revision}</code>
+          · catalogue {@build_identity.catalogue_schema} · upstream
+          <code>{@build_identity.upstream_revision}</code>
+        </p>
+        <nav aria-label="Motion inspection">
+          <a
+            :for={{value, label} <- [{"system", "System motion"}, {"reduce", "Reduce motion"}]}
+            href={ShadcnUIDemo.GalleryPreferences.link(@page.path, @theme, value)}
+            data-gallery-preference
+            data-gallery-light-href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "light", value)}
+            data-gallery-dark-href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "dark", value)}
+            aria-current={@motion == value && "true"}
+          >{label}</a>
+        </nav>
+        <noscript><nav aria-label="Theme links">
+          <a href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "light", @motion)}>Use light theme</a>
+          <a href={ShadcnUIDemo.GalleryPreferences.link(@page.path, "dark", @motion)}>Use dark theme</a>
+        </nav></noscript>
+      </div>
+    </footer>
     """
   end
 
@@ -131,12 +167,17 @@ defmodule ShadcnUIDemoWeb.Layouts do
         </li>
       </ul>
     </section>
-    <section>
+    <section class="gallery-navigation__showcases">
       <h2>Complete page examples</h2>
       <ul>
         <li :for={composition <- ShadcnUIDemo.Catalogue.compositions()}>
-          <a href={composition.path} aria-current={@page.path == composition.path && "page"}>
-            {composition.label}
+          <a
+            href={composition.path}
+            aria-current={@page.path == composition.path && "page"}
+            data-gallery-showcase
+          >
+            <span>{composition.label}</span>
+            <span class="gallery-navigation__marker" aria-hidden="true">Example</span>
           </a>
         </li>
       </ul>

@@ -367,13 +367,6 @@
   },
   "findings": [
     {
-      "code": "verification_command_failed",
-      "entity_id": "shadcn_ui.component_contract",
-      "file": ".spec/specs/component_contract.spec.md",
-      "level": "error",
-      "message": "Verification command failed: mix precommit\n==> mime\nCompiling 1 file (.ex)\nGenerated mime app\n==> jason\nCompiling 10 files (.ex)\nGenerated jason app\n==> plug_crypto\nCompiling 5 files (.ex)\nGenerated plug_crypto app\n==> shadcn_ui\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 28-Aug-2026::09:10:32.884000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 28-Aug-2026::09:10:32.904000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco"
-    },
-    {
       "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.component_contract",
       "file": ".spec/specs/component_contract.spec.md",
@@ -577,13 +570,6 @@
       "message": "Verification target test/shadcn_ui/milestone_c_acceptance_test.exs does not reference covered requirement: shadcn_ui.disclosure.shared_contract"
     },
     {
-      "code": "verification_command_failed",
-      "entity_id": "shadcn_ui.form_contract",
-      "file": ".spec/specs/form_contract.spec.md",
-      "level": "error",
-      "message": "Verification command failed: mix precommit\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 28-Aug-2026::09:10:33.929000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 28-Aug-2026::09:10:33.944000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco/elixir/shadcn_ui/_build/test/lib/*/ebin\" command failed. Errors may have been logged above. You can recompile this dependency with \"mix deps.compile yamerl --force\", update it with \"mix"
-    },
-    {
       "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.form_contract",
       "file": ".spec/specs/form_contract.spec.md",
@@ -624,13 +610,6 @@
       "file": ".spec/specs/gallery.spec.md",
       "level": "warning",
       "message": "Surface entry does not exist: test/browser/milestone-a-gallery.spec.mjs"
-    },
-    {
-      "code": "verification_command_failed",
-      "entity_id": "shadcn_ui.gallery",
-      "file": ".spec/specs/gallery.spec.md",
-      "level": "error",
-      "message": "Verification command failed: npm run gallery:smoke\n> @leco/shadcn-ui-assets@0.1.0 gallery:smoke\n> npm --prefix demo run export:determinism\n\n\n> @leco/shadcn-ui-gallery@0.1.0 export:determinism\n> node scripts/check-export-determinism.mjs\n\n13 |     cwd: demo,\n14 |     encoding: \"utf8\",\n15 |     env: { ...process.env, MIX_ENV: \"test\" },\n16 |     shell: process.platform === \"win32\"\n17 |   });\n18 |   if (result.status !== 0) throw new Error(result.stderr || result.stdout || \"gallery export failed\");\n                                          ^\nerror: Error while loading project :elixir_make at c:/Leco/elixir/shadcn_ui/demo/deps/elixir_make\n** (ArgumentError) cannot escape #Reference<0.3258850888.41025553.77096>. The supported values are: lists, tuples, maps, atoms, numbers, bitstrings, PIDs and remote functions in the format &Mod.fun/arity\n    (elixir 1.18.0) src/elixir_quote.erl:542: :elixir_quote.argument_error/1\n    (elixir 1.18.0) src/elixir_quote.erl:450: :elixir_quote.do_quote_simple_list/3\n    (elixir 1.18.0) src/elixir_quote.erl:450: "
     },
     {
       "code": "verification_target_missing_reference",
@@ -1197,13 +1176,6 @@
       "entity_id": "shadcn_ui.gallery_presentation",
       "file": ".spec/specs/gallery_presentation.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/browser/milestone-g-shell.spec.mjs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.gallery_presentation",
-      "file": ".spec/specs/gallery_presentation.spec.md",
-      "level": "warning",
       "message": "Verification target file does not exist: test/shadcn_ui/milestone_g_acceptance_test.exs"
     },
     {
@@ -1282,13 +1254,6 @@
       "file": ".spec/specs/navigation_components.spec.md",
       "level": "warning",
       "message": "Verification target test/shadcn_ui/milestone_c_acceptance_test.exs does not reference covered requirement: shadcn_ui.navigation.sticky_fallback"
-    },
-    {
-      "code": "verification_command_failed",
-      "entity_id": "shadcn_ui.package",
-      "file": ".spec/specs/package.spec.md",
-      "level": "error",
-      "message": "Verification command failed: mix precommit\n===> Using custom resource rebar_pkg_resource that implements a deprecated api. It should be upgraded to rebar_resource_v2.\n=ERROR REPORT==== 28-Aug-2026::09:10:39.352000 ===\nbeam\\beam_load.c(604): Error loading function rebar_pkg_resource:init/2:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n=ERROR REPORT==== 28-Aug-2026::09:10:39.384000 ===\nbeam\\beam_load.c(604): Error loading function rebar_prv_deps:source_text/1:\n  please re-compile this module with an Erlang/OTP 29 compiler or update your Erlang/OTP version\n\n\n===> Failed creating providers. Run with DIAGNOSTIC=1 for stacktrace or consult rebar3.crashdump.\n** (Mix) Could not compile dependency :yamerl, \"escript.exe c:/Users/pcharbonneau.LECOINDS/.mix/elixir/1-18/rebar3 bare compile --paths c:/Leco/elixir/shadcn_ui/_build/test/lib/*/ebin\" command failed. Errors may have been logged above. You can recompile this dependency with \"mix deps.compile yamerl --force\", update it with \"mix"
     },
     {
       "code": "verification_target_missing_reference",
@@ -3933,6 +3898,7 @@
           "surface": [
             "demo/**",
             ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/**",
+            "playwright.milestone-g-*.config.mjs",
             "test/shadcn_ui/milestone_g_phase1_acceptance_test.exs",
             "test/browser/milestone-g-*.spec.mjs"
           ],
@@ -5377,7 +5343,8 @@
         "covers": [
           "shadcn_ui.gallery_presentation.shell",
           "shadcn_ui.gallery_presentation.progressive_navigation",
-          "shadcn_ui.gallery_presentation.stable_identity"
+          "shadcn_ui.gallery_presentation.stable_identity",
+          "shadcn_ui.gallery_presentation.accessibility_matrix"
         ],
         "file": ".spec/specs/gallery_presentation.spec.md",
         "kind": "test_file",
@@ -6558,7 +6525,7 @@
     "decision_parse_errors": 0,
     "decisions": 29,
     "exceptions": 0,
-    "findings": 152,
+    "findings": 147,
     "requirements": 266,
     "scenarios": 0,
     "subjects": 27,
@@ -6693,7 +6660,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6704,7 +6671,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6715,7 +6682,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6726,7 +6693,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6737,7 +6704,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6748,7 +6715,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6759,7 +6726,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6770,7 +6737,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6781,7 +6748,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6792,7 +6759,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -6803,7 +6770,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.component_contract",
         "target": "mix precommit",
         "verification_index": 0
@@ -9267,7 +9234,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.form_contract",
         "target": "mix precommit",
         "verification_index": 2
@@ -9278,7 +9245,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.form_contract",
         "target": "mix precommit",
         "verification_index": 2
@@ -9289,7 +9256,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.form_contract",
         "target": "mix precommit",
         "verification_index": 2
@@ -10158,7 +10125,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.gallery",
         "target": "npm run gallery:smoke",
         "verification_index": 5
@@ -10169,7 +10136,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.gallery",
         "target": "npm run gallery:smoke",
         "verification_index": 5
@@ -10901,12 +10868,23 @@
         "verification_index": 1
       },
       {
+        "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-shell.spec.mjs",
+        "verification_index": 2
+      },
+      {
         "cover_id": "shadcn_ui.gallery_presentation.progressive_navigation",
         "file": ".spec/specs/gallery_presentation.spec.md",
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-shell.spec.mjs",
         "verification_index": 2
@@ -10917,7 +10895,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-shell.spec.mjs",
         "verification_index": 2
@@ -10928,7 +10906,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-shell.spec.mjs",
         "verification_index": 2
@@ -13315,7 +13293,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.package",
         "target": "mix precommit",
         "verification_index": 1
@@ -13326,7 +13304,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.package",
         "target": "mix precommit",
         "verification_index": 1
@@ -13337,7 +13315,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.package",
         "target": "mix precommit",
         "verification_index": 1
@@ -13348,7 +13326,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.package",
         "target": "mix precommit",
         "verification_index": 1
@@ -13359,7 +13337,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.package",
         "target": "mix precommit",
         "verification_index": 1
@@ -13370,7 +13348,7 @@
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "executed",
         "subject_id": "shadcn_ui.package",
         "target": "mix precommit",
         "verification_index": 1
@@ -15392,9 +15370,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 183,
-      "executed": 16,
-      "linked": 603
+      "claimed": 158,
+      "executed": 38,
+      "linked": 607
     },
     "threshold_failures": 0
   },

@@ -60,7 +60,8 @@ test("layout survives accessibility preferences, narrow width, and 200 percent z
 
   await expect(page.getByRole("navigation", { name: "Component navigation" }))
     .toBeHidden();
-  await expect(page.getByText("Browse components", { exact: true })).toBeVisible();
+  await expect(page.locator("[data-gallery-mobile-navigation]")).toBeVisible();
+  await expect(page.locator("[data-gallery-mobile-navigation] summary")).toHaveText("Navigation");
   await expect(page.getByRole("main")).toBeVisible();
   await expect(page.getByText("A deliberately long default action", { exact: false }))
     .toBeVisible();
