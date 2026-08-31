@@ -147,6 +147,32 @@ target is planned proof, not evidence that the migration or publication exists.
     - shadcn_ui.gallery_presentation.accessibility_matrix
 
 - kind: test_file
+  target: demo/test/milestone_g_phase5_accordion_test.exs
+  covers:
+    - shadcn_ui.gallery_presentation.article_hierarchy
+    - shadcn_ui.gallery_presentation.catalogue_metadata
+    - shadcn_ui.gallery_presentation.stable_identity
+    - shadcn_ui.gallery_presentation.visual_evidence
+    - shadcn_ui.gallery_presentation.semantic_exceptions
+
+- kind: test_file
+  target: test/browser/milestone-g-accordion-visual.spec.mjs
+  covers:
+    - shadcn_ui.gallery_presentation.shell
+    - shadcn_ui.gallery_presentation.presentation_system
+    - shadcn_ui.gallery_presentation.visual_evidence
+    - shadcn_ui.gallery_presentation.accessibility_matrix
+
+- kind: test_file
+  target: test/browser/milestone-g-accordion-acceptance.spec.mjs
+  covers:
+    - shadcn_ui.gallery_presentation.article_hierarchy
+    - shadcn_ui.gallery_presentation.specimen_semantics
+    - shadcn_ui.gallery_presentation.stable_identity
+    - shadcn_ui.gallery_presentation.accessibility_matrix
+    - shadcn_ui.gallery_presentation.semantic_exceptions
+
+- kind: test_file
   target: demo/test/milestone_g_catalogue_test.exs
   covers:
     - shadcn_ui.gallery_presentation.article_hierarchy

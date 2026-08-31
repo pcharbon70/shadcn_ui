@@ -109,6 +109,17 @@ at the demo build or server-render boundary and emits escaped static markup.
 There is no browser tokenizer, remote asset, dynamic evaluator or package
 runtime. Optional source-copy feedback remains demo-only.
 
+The accepted Accordion pilot applies this policy with two separately identified
+specimens: the pinned-reference-style exclusive FAQ is primary, and an
+independent group with multiple initially open items documents the additional
+public mode. Its checked support rows distinguish native `details` operation,
+exclusive `name` grouping, `::details-content` and `interpolate-size`; missing
+grouping remains independent and missing or reduced animation remains instant.
+The locked-engine run proves those outcomes for the recorded builds without
+turning the builds into browser-brand support targets. This article, specimen,
+support, ownership and provenance structure is accepted as the migration
+template for later catalogue phases.
+
 ### Assets, provenance and evidence ownership
 
 Gallery fonts, icons, source highlighting and captures are local, hash-pinned,

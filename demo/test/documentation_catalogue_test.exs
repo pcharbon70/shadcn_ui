@@ -40,20 +40,19 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert is_list(entry.api.attributes)
       assert is_list(entry.api.slots)
 
-      assert [
-               %{
-                 fragment: fragment,
-                 source_fragment: source_fragment,
-                 source_id: source_id,
-                 layout: "centered",
-                 route: route
-               }
-             ] = entry.examples
+      for example <- entry.examples do
+        assert example.source_fragment == "#{example.fragment}-source"
+        assert example.route == "#{entry.route}##{example.fragment}"
+        assert example.source =~ "<.#{entry.public.function}"
+        assert example.layout in ~w(centered constrained)
+      end
 
-      assert fragment == "#{entry.slug}-primary"
-      assert source_fragment == "#{fragment}-source"
-      assert source_id == "reference:#{entry.render}"
-      assert route == "#{entry.route}##{fragment}"
+      if entry.render != :accordion do
+        assert [example] = entry.examples
+        assert example.fragment == "#{entry.slug}-primary"
+        assert example.source_id == "reference:#{entry.render}"
+        assert example.layout == "centered"
+      end
     end
   end
 
@@ -69,7 +68,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
              String.starts_with?(route, "/components/") and
                fragment =~ ~r/^[a-z0-9-]+$/ and
                String.starts_with?(source_id, "reference:") and
-               String.ends_with?(label, " primary example")
+               is_binary(label) and label != ""
            end)
   end
 

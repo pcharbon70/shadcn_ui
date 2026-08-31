@@ -54,23 +54,39 @@
       </p>
       <div class="gallery-reference__capabilities" aria-label="Component capabilities">
         <.capability_badge
+          :if={is_nil(@page.documentation_entry.presentation)}
           id={"#{@page.slug}-native-baseline"}
           identity="native-baseline"
           label="Native baseline"
           description={@page.documentation_entry.documentation.native_baseline}
         />
         <.capability_badge
-          :if={Map.has_key?(@page.reference, :capability)}
+          :if={
+            is_nil(@page.documentation_entry.presentation) &&
+              Map.has_key?(@page.reference, :capability)
+          }
           id={"#{@page.slug}-progressive-enhancement"}
           identity="progressive-enhancement"
           label="Progressive enhancement"
           description={@page.documentation_entry.documentation.package_enhancement}
         />
         <.capability_badge
+          :if={is_nil(@page.documentation_entry.presentation)}
           id={"#{@page.slug}-fallback"}
           identity="fallback"
           label="Exact fallback"
           description={@page.documentation_entry.documentation.fallback}
+        />
+        <.capability_badge
+          :for={
+            capability <-
+              (@page.documentation_entry.presentation &&
+                 @page.documentation_entry.presentation.capabilities) || []
+          }
+          id={"#{@page.slug}-#{capability.identity}"}
+          identity={capability.identity}
+          label={capability.label}
+          description={Map.fetch!(@page.reference, capability.field)}
         />
       </div>
     </header>
@@ -89,13 +105,15 @@
       <.specimen
         id={example.fragment}
         label={example.preview_label}
-        source={@page.documentation_entry.documentation.source}
+        source={example.source}
         source_id={example.source_id}
         theme={@theme}
         motion={@motion}
         layout={example.layout}
       >
-        <:preview><.component_examples render={@page.render} /></:preview>
+        <:preview>
+          <.component_examples render={@page.render} example_id={example.source_id} />
+        </:preview>
         <:actions>
           <a href={"##{example.fragment}"}>Preview link</a>
           <a href={"##{example.source_fragment}"}>Code link</a>
@@ -105,7 +123,7 @@
 
     <section class="gallery-reference__guidance" data-gallery-how-it-works>
       <h2>How it works</h2>
-      <ul>
+      <ul :if={is_nil(@page.documentation_entry.presentation)}>
         <li>
           <code>{"<.#{@page.documentation_entry.public.function}>"}</code>
           {@page.documentation_entry.documentation.native_baseline}
@@ -123,13 +141,21 @@
           {@page.documentation_entry.documentation.unsupported}
         </li>
       </ul>
+      <ul :if={@page.documentation_entry.presentation}>
+        <li :for={item <- @page.documentation_entry.presentation.how_it_works}>
+          <code>{item.code}</code> {Map.fetch!(@page.reference, item.field)}
+        </li>
+      </ul>
       <p>Examples use package semantic tokens in explicit light and dark scopes.</p>
     </section>
 
     <section class="gallery-reference__support" data-gallery-component-support>
       <h2>Accessibility and browser support</h2>
       <p>{@page.documentation_entry.documentation.accessibility}</p>
-      <div :if={Map.has_key?(@page.reference, :capability)}>
+      <div :if={
+        Map.has_key?(@page.reference, :capability) &&
+          is_nil(@page.documentation_entry.presentation)
+      }>
         <.capability_badge
           id={"#{@page.slug}-authored-policy"}
           identity="authored-policy"
@@ -142,6 +168,7 @@
         </p>
       </div>
       <.support_table
+        :if={is_nil(@page.documentation_entry.presentation)}
         label={"#{@page.label} support and fallback"}
         rows={[
           %{
@@ -151,8 +178,27 @@
           }
         ]}
       />
+      <.support_table
+        :if={@page.documentation_entry.presentation}
+        label={"#{@page.label} support and fallback"}
+        rows={
+          Enum.map(@page.documentation_entry.presentation.support_rows, fn row ->
+            %{
+              feature: row.feature,
+              evidence: Map.fetch!(@page.reference, row.evidence),
+              fallback: Map.fetch!(@page.reference, row.fallback)
+            }
+          end)
+        }
+      />
     </section>
-    <section :if={Map.has_key?(@page.reference, :capability)} id="ordinary-alternative">
+    <section
+      :if={
+        Map.has_key?(@page.reference, :capability) &&
+          is_nil(@page.documentation_entry.presentation)
+      }
+      id="ordinary-alternative"
+    >
       <h2>Ordinary alternative: complete information and controls</h2>
       <p>
         Read the complete manual and review preferences here without opening a surface. No data is saved or deleted.
@@ -205,6 +251,9 @@
       <p>
         The documentation presentation is adapted locally; ShadcnUI's Phoenix API and native
         semantic contract remain authoritative.
+      </p>
+      <p :if={@page.documentation_entry.presentation}>
+        {@page.documentation_entry.presentation.adaptation}
       </p>
     </section>
   </div>

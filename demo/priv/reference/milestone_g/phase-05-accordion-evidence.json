@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-phase-05-accordion-vertical-pilot",
+  "evidenceType": "local-automated-pilot-acceptance",
+  "recordedOn": "2026-08-31",
+  "reference": "demo/priv/reference/milestone_g/presentation-reference.json",
+  "runner": {
+    "playwright": "1.62.1",
+    "engine": "chromium",
+    "engineVersion": "151.0.7922.34",
+    "deviceScaleFactor": 1,
+    "motion": "reduce"
+  },
+  "tolerances": {"maxDiffPixelRatio": 0.0075, "perChannelThreshold": 0.12},
+  "goldens": [
+    {"id":"accordion-desktop-light","viewport":{"width":1440,"height":1200},"theme":"light","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-desktop-light-chromium.png","sha256":"dfb19f5622226b4775dbb7b0302d1802ce46c8d06d0f5a4ae9fde09104e7c9bf"},
+    {"id":"accordion-desktop-dark","viewport":{"width":1440,"height":1200},"theme":"dark","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-desktop-dark-chromium.png","sha256":"0a74c7b049c2331bb1096eb07bbb224969aa541aad53510e8a6deed4de68ed95"},
+    {"id":"accordion-support-light","viewport":{"width":1440,"height":1200},"theme":"light","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-support-light-chromium.png","sha256":"71d18ed73a0a2d617d29196062a366443d258a7d428d33fcb385d8b6e169d2fe"},
+    {"id":"accordion-support-dark","viewport":{"width":1440,"height":1200},"theme":"dark","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-support-dark-chromium.png","sha256":"283aac0fdea375d6aa1536ad518b727459e3ed48779d1b2771f7d593eafd1314"},
+    {"id":"accordion-tablet-light","viewport":{"width":1024,"height":1366},"theme":"light","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-tablet-light-chromium.png","sha256":"8256db4b31f324b5d0feaae4dfcd9de662e1e8d94207c2210f8b86218ba34ab3"},
+    {"id":"accordion-tablet-dark","viewport":{"width":1024,"height":1366},"theme":"dark","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-tablet-dark-chromium.png","sha256":"a2ae1a163139729f7afedbf8df01a8fdb475b74e7aea0d288ae7244b25ab72cc"},
+    {"id":"accordion-390-panel-light","viewport":{"width":390,"height":844},"theme":"light","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-panel-light-chromium.png","sha256":"9ccd54493c880298c7fc5df2ba0fbf3c34d135edf42ed65e60bb79a43425c705"},
+    {"id":"accordion-390-panel-dark","viewport":{"width":390,"height":844},"theme":"dark","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-panel-dark-chromium.png","sha256":"052db96c8e7d96ee960bbdf6ab504f2e28bbd0474c25a5b4afbb87a5c6ebce23"},
+    {"id":"accordion-390-navigation-light","viewport":{"width":390,"height":844},"theme":"light","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-navigation-light-chromium.png","sha256":"7e79a6abcbe8fcce27b388ac9487468f2bd0fac75b6917afeaa630314ba87c75"},
+    {"id":"accordion-390-navigation-dark","viewport":{"width":390,"height":844},"theme":"dark","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-navigation-dark-chromium.png","sha256":"3a3083f93bdf75f7c1770c9533c08bb223dbfa3e3fcdfeb79cb66831dc7a73a0"},
+    {"id":"accordion-320-source-light","viewport":{"width":320,"height":568},"theme":"light","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-320-source-light-chromium.png","sha256":"9b2bb7527c7ad2060f82e919df53202d6358054d32582a3155af18e808e6dd76"},
+    {"id":"accordion-320-source-dark","viewport":{"width":320,"height":568},"theme":"dark","file":"test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-320-source-dark-chromium.png","sha256":"70bbc8b1514ba740aace583085d6a1ad99c5939e0fbad033e3ab8bde7764a1bd"}
+  ],
+  "approvedDifferences": [
+    "ShadcnUI/gallery branding replaces the upstream product identity.",
+    "Displayed source uses compile-checked Phoenix function-component and slot syntax.",
+    "The primary specimen uses native details name grouping and deterministic Phoenix-rendered IDs; it does not emulate a scripted ARIA accordion.",
+    "The independent specimen and exact capability fallbacks extend the upstream primary example to document the complete ShadcnUI contract."
+  ],
+  "approvedTemplate": {
+    "status": "accepted-for-phase-06-metadata-and-phase-07-migration",
+    "parts": ["documentation shell", "article hierarchy", "paired preview and code specimen", "capability badges", "support evidence", "ownership", "related documentation", "provenance"]
+  },
+  "verification": {
+    "packagePrecommit": "passed-406-tests",
+    "demoPrecommit": "passed-110-tests",
+    "pilotExactEngineBrowser": "passed-9-tests",
+    "pilotVisual": "passed-8-tests-12-goldens",
+    "inheritedExactEngineBrowser": "passed-15-tests",
+    "priorMilestoneGBrowser": "passed-13-tests",
+    "deterministicExport": "passed-634-routes-4-assets",
+    "releaseArchiveAudit": "passed-62-entries",
+    "specNext": "ready-for-check",
+    "specCheck": "warning-baseline-nonzero-0-errors-146-warnings"
+  },
+  "states": {
+    "localAutomated": "passed",
+    "upstreamRenderedComparison": "unavailable-recorded-phase-01",
+    "manualAccessibility": "not-run",
+    "deployment": "not-run"
+  }
+}
