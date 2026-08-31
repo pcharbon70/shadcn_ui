@@ -55,7 +55,7 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
         <section
           id={"#{@id}-preview"}
           class="gallery-specimen__panel gallery-specimen__preview"
-          aria-label="Rendered preview"
+          aria-label={"#{@label} rendered preview"}
           tabindex="-1"
           data-gallery-specimen-preview
         >
@@ -65,7 +65,7 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
         <section
           id={"#{@id}-source"}
           class="gallery-specimen__panel gallery-specimen__code"
-          aria-label="HEEx source"
+          aria-label={"#{@label} HEEx source"}
           tabindex="-1"
           data-gallery-specimen-source
         >

@@ -1,7 +1,10 @@
 import {expect, test} from "../../demo/node_modules/@playwright/test/index.mjs";
 
 // covers: shadcn_ui.gallery_presentation.visual_evidence
+// covers: shadcn_ui.gallery_presentation.shell
+// covers: shadcn_ui.gallery_presentation.presentation_system
 // covers: shadcn_ui.gallery_presentation.responsive_article
+// covers: shadcn_ui.gallery_presentation.accessibility_matrix
 // covers: shadcn_ui.disclosure.accordion_modes
 
 const route = "/components/disclosure/accordion";

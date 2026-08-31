@@ -16,6 +16,7 @@ surface:
   - docs/compatibility.md
   - docs/accessibility-review.md
   - test/browser/milestone-f-compatibility.spec.mjs
+  - test/browser/milestone-g-accordion-acceptance.spec.mjs
   - test/shadcn_ui/milestone_f_capability_policy_test.exs
   - test/shadcn_ui/milestone_f_acceptance_test.exs
 ```
@@ -75,6 +76,9 @@ Milestone G Phase 4 keeps these acceptance questions independent of visible
 documentation labels. Catalogue-wide checks locate paired source through stable
 specimen hooks and scope native component controls to the rendered preview, so
 the gallery's own Preview/Code radios do not change component evidence.
+Phase 5 adds exact-engine real-page Accordion evidence for native grouping,
+keyboard focus and missing-presentation fallbacks without making the observed
+engine versions normative.
 
 ```spec-verification
 - kind: test_file
@@ -98,5 +102,14 @@ the gallery's own Preview/Code radios do not change component evidence.
     - shadcn_ui.compatibility_accessibility.capability_policy
     - shadcn_ui.compatibility_accessibility.consumer_boundary
     - shadcn_ui.compatibility_accessibility.manual_review
+    - shadcn_ui.compatibility_accessibility.evidence_separation
+
+- kind: test_file
+  target: test/browser/milestone-g-accordion-acceptance.spec.mjs
+  covers:
+    - shadcn_ui.compatibility_accessibility.capability_policy
+    - shadcn_ui.compatibility_accessibility.fallback_evidence
+    - shadcn_ui.compatibility_accessibility.responsive_and_preferences
+    - shadcn_ui.compatibility_accessibility.keyboard_and_semantics
     - shadcn_ui.compatibility_accessibility.evidence_separation
 ```

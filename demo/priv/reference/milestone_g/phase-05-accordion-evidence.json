@@ -36,6 +36,18 @@
     "status": "accepted-for-phase-06-metadata-and-phase-07-migration",
     "parts": ["documentation shell", "article hierarchy", "paired preview and code specimen", "capability badges", "support evidence", "ownership", "related documentation", "provenance"]
   },
+  "verification": {
+    "packagePrecommit": "passed-406-tests",
+    "demoPrecommit": "passed-110-tests",
+    "pilotExactEngineBrowser": "passed-9-tests",
+    "pilotVisual": "passed-8-tests-12-goldens",
+    "inheritedExactEngineBrowser": "passed-15-tests",
+    "priorMilestoneGBrowser": "passed-13-tests",
+    "deterministicExport": "passed-634-routes-4-assets",
+    "releaseArchiveAudit": "passed-62-entries",
+    "specNext": "ready-for-check",
+    "specCheck": "warning-baseline-nonzero-0-errors-146-warnings"
+  },
   "states": {
     "localAutomated": "passed",
     "upstreamRenderedComparison": "unavailable-recorded-phase-01",

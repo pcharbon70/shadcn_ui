@@ -187,7 +187,7 @@ defmodule ShadcnUIDemo.Reference do
       comparison:
         "Choose exclusive mode for one-open-at-a-time questions. Choose independent mode when several answers may stay open; it is not a tab widget and does not add arrow-key focus management.",
       fallback:
-        "Without exclusive grouping, every details item remains independently operable. Without animation capabilities, opening and closing is instant. Reduced motion also keeps the transition instant.",
+        "Without package CSS, disclosure remains native and instant. Without exclusive grouping, every details item remains independently operable. Reduced motion also keeps opening and closing instant.",
       capability:
         "The details name attribute requests native exclusive grouping. Engines without that behavior keep independent native disclosures.",
       details_content:

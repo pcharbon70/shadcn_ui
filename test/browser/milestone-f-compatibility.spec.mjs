@@ -52,7 +52,8 @@ test("all 41 public pages retain honest semantics, relationships, identity, and 
     for (const heading of ["How it works", "Accessibility and browser support", "Application ownership and API", "Related documentation", "Provenance"]) {
       await expect(page.getByRole("heading", {name: heading, exact: true})).toBeVisible();
     }
-    await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
+    const expectedSources = route === "/components/disclosure/accordion" ? 2 : 1;
+    await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(expectedSources);
     const ids = await page.locator("[id]").evaluateAll(nodes => nodes.map(node => node.id));
     expect(new Set(ids).size, route).toBe(ids.length);
     await expect(page.locator('main [role="menu"],main [role="menubar"],main [role="tab"],main [role="tablist"],main [role="tabpanel"],main [role="tree"],main [role="treeitem"],main [aria-selected]')).toHaveCount(0);
@@ -150,7 +151,7 @@ test("repository-subpath export is complete without script, CSS, or remote runti
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonical + route);
       await page.locator('link[rel="stylesheet"]').evaluateAll(nodes => nodes.forEach(node => node.remove()));
       await expect(page.getByRole("heading", {level: 1})).toBeVisible();
-      await expect(page.getByRole("heading", {name: "HEEX source", exact: true})).toBeVisible();
+      await expect(page.getByRole("heading", {name: "HEEX source", exact: true}).first()).toBeVisible();
     }
     expect(remote).toEqual([]);
   } finally {

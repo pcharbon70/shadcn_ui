@@ -51,7 +51,7 @@ defmodule ShadcnUIDemo.ReferenceCompletenessTest do
     presentation = File.read!("lib/shadcn_ui_demo_web/components/presentation_components.ex")
     controller = File.read!("lib/shadcn_ui_demo_web/controllers/gallery_controller.ex")
 
-    assert template =~ "@page.documentation_entry.documentation.source"
+    assert template =~ "source={example.source}"
     assert presentation =~ "data-gallery-copy"
     assert presentation =~ "Phoenix.HTML.html_escape()"
     refute controller =~ ~r/(Code\.|Module\.|String\.to_atom|binary_to_atom|apply\()/

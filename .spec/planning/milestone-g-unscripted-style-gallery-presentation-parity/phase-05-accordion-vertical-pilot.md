@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 5 Phase - Accordion Vertical Pilot.
+- [x] 5 Phase - Accordion Vertical Pilot.
 
   Prove the complete target system on one real component before multiplying it
   across the catalogue.
@@ -55,24 +55,24 @@ Back to wave: [README](./README.md)
       - [x] 5.2.2.2 Subtask - Record ShadcnUI branding, Phoenix-source and semantic differences from the upstream reference.
       - [x] 5.2.2.3 Subtask - Approve the resulting shell, article and specimen patterns as the migration template.
 
-  - [ ] 5.3 Section - Phase 5 Integration Tests.
+  - [x] 5.3 Section - Phase 5 Integration Tests.
 
     Lock the pilot with semantic, interaction, source, visual and export evidence.
 
-    - [ ] 5.3.1 Task - Automate complete Accordion acceptance.
+    - [x] 5.3.1 Task - Automate complete Accordion acceptance.
 
       Both modes and all progressive states need real evidence.
 
-      - [ ] 5.3.1.1 Subtask - Add rendering tests for modes, metadata, specimens, fragments, support, ownership and provenance.
-      - [ ] 5.3.1.2 Subtask - Add visual comparisons plus native open/close, exclusivity, keyboard, theme, motion and no-script browser checks.
-      - [ ] 5.3.1.3 Subtask - Verify direct static routes/fragments, repository-subpath assets and byte-identical repeated exports.
+      - [x] 5.3.1.1 Subtask - Add rendering tests for modes, metadata, specimens, fragments, support, ownership and provenance.
+      - [x] 5.3.1.2 Subtask - Add visual comparisons plus native open/close, exclusivity, keyboard, theme, motion and no-script browser checks.
+      - [x] 5.3.1.3 Subtask - Verify direct static routes/fragments, repository-subpath assets and byte-identical repeated exports.
 
-    - [ ] 5.3.2 Task - Re-run inherited gates and record delivery.
+    - [x] 5.3.2 Task - Re-run inherited gates and record delivery.
 
       Pilot approval cannot weaken package or completed milestone truth.
 
-      - [ ] 5.3.2.1 Subtask - Run A-F package/demo/browser regressions, archive audit, SpecLed next/check and git diff --check.
-      - [ ] 5.3.2.2 Subtask - Record evidence, complete one commit per coherent section and open one Phase 5 PR without migrating unrelated pages.
+      - [x] 5.3.2.1 Subtask - Run A-F package/demo/browser regressions, archive audit, SpecLed next/check and git diff --check.
+      - [x] 5.3.2.2 Subtask - Record evidence, complete one commit per coherent section and open one Phase 5 PR without migrating unrelated pages.
 
 ## Section delivery rule
 
