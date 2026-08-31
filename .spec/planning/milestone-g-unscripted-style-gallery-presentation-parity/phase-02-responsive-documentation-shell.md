@@ -39,25 +39,25 @@ Back to wave: [README](./README.md)
       - [x] 2.2.2.2 Subtask - Style category labels, compact links, optional showcase markers and current-page state with semantic tokens.
       - [x] 2.2.2.3 Subtask - Add progressive overflow affordances without hiding destinations or requiring script.
 
-  - [ ] 2.3 Section - Complete responsive navigation and secondary tools.
+  - [x] 2.3 Section - Complete responsive navigation and secondary tools.
 
     Mobile navigation, search and build identity must remain useful without dominating the shell.
 
-    - [ ] 2.3.1 Task - Deliver the accepted mobile catalogue path.
+    - [x] 2.3.1 Task - Deliver the accepted mobile catalogue path.
 
       Narrow layouts need a polished surface and complete ordinary fallback.
 
-      - [ ] 2.3.1.1 Subtask - Implement the accepted native dialog, disclosure or in-flow contract with honest naming and all ordered destinations.
-      - [ ] 2.3.1.2 Subtask - Cover open/close behavior, focus order, long labels, safe areas, zoom and reduced motion.
-      - [ ] 2.3.1.3 Subtask - Keep every destination reachable without optional demo script or leading-edge invoker behavior.
+      - [x] 2.3.1.1 Subtask - Implement the accepted native dialog, disclosure or in-flow contract with honest naming and all ordered destinations.
+      - [x] 2.3.1.2 Subtask - Cover open/close behavior, focus order, long labels, safe areas, zoom and reduced motion.
+      - [x] 2.3.1.3 Subtask - Keep every destination reachable without optional demo script or leading-edge invoker behavior.
 
-    - [ ] 2.3.2 Task - Rehome search and immutable identity.
+    - [x] 2.3.2 Task - Rehome search and immutable identity.
 
       Secondary tools should support browsing rather than set the page hierarchy.
 
-      - [ ] 2.3.2.1 Subtask - Place the labelled component filter in the catalogue and preserve local filtering, reset, normalization and announcements.
-      - [ ] 2.3.2.2 Subtask - Move package, build, catalogue and upstream identity into a secondary footer or metadata surface.
-      - [ ] 2.3.2.3 Subtask - Preserve escaped deterministic values, no-script completeness and absence of remote search or client routing.
+      - [x] 2.3.2.1 Subtask - Place the labelled component filter in the catalogue and preserve local filtering, reset, normalization and announcements.
+      - [x] 2.3.2.2 Subtask - Move package, build, catalogue and upstream identity into a secondary footer or metadata surface.
+      - [x] 2.3.2.3 Subtask - Preserve escaped deterministic values, no-script completeness and absence of remote search or client routing.
 
   - [ ] 2.4 Section - Phase 2 Integration Tests.
 

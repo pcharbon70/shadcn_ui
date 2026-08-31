@@ -42,6 +42,21 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
     end
   end
 
+  test "responsive shell renders one search identity, native navigation, and footer metadata", %{
+    conn: conn
+  } do
+    html = conn |> get("/components/foundation/button") |> html_response(200)
+
+    assert html =~ ~s(<summary>Navigation</summary>)
+    assert html =~ ~s(aria-label="Mobile primary navigation")
+    assert html =~ ~s(aria-label="Mobile component navigation")
+    assert html =~ ~s(data-gallery-metadata)
+    assert html =~ ~s(data-gallery-build-identity)
+    assert length(Regex.scan(~r/id="gallery-component-search"/, html)) == 1
+    assert length(Regex.scan(~r/id="gallery-search-status"/, html)) == 1
+    refute html =~ ~r/(aria-modal="true"|role="menu"|role="dialog")/
+  end
+
   test "every component has catalogue-driven guidance, a stable preview, source, and related links",
        %{conn: conn} do
     for component <- Catalogue.components() do
