@@ -7,27 +7,27 @@ Back to wave: [README](./README.md)
   Restructure the shared component article around an immediate value
   proposition and specimen while retaining every required guidance contract.
 
-  - [ ] 4.1 Section - Define the component article flow.
+  - [x] 4.1 Section - Define the component article flow.
 
     Establish a predictable hierarchy without erasing component-specific guidance.
 
-    - [ ] 4.1.1 Task - Build the introduction and shared sequencing.
+    - [x] 4.1.1 Task - Build the introduction and shared sequencing.
 
       Visitors should understand the component before encountering schema-shaped documentation.
 
-      - [ ] 4.1.1.1 Subtask - Render one display heading, concise description and capability badges from checked catalogue data.
-      - [ ] 4.1.1.2 Subtask - Keep canonical identity, breadcrumb and stable page heading while reducing breadcrumb emphasis.
-      - [ ] 4.1.1.3 Subtask - Fold what-it-is and when-to-use meaning into the introduction or nearby usage guidance.
-      - [ ] 4.1.1.4 Subtask - Order primary specimen, how-it-works, accessibility, support, ownership/API, related content and provenance with rules for optional sections.
+      - [x] 4.1.1.1 Subtask - Render one display heading, concise description and capability badges from checked catalogue data.
+      - [x] 4.1.1.2 Subtask - Keep canonical identity, breadcrumb and stable page heading while reducing breadcrumb emphasis.
+      - [x] 4.1.1.3 Subtask - Fold what-it-is and when-to-use meaning into the introduction or nearby usage guidance.
+      - [x] 4.1.1.4 Subtask - Order primary specimen, how-it-works, accessibility, support, ownership/API, related content and provenance with rules for optional sections.
 
-    - [ ] 4.1.2 Task - Reframe detailed guidance and metadata.
+    - [x] 4.1.2 Task - Reframe detailed guidance and metadata.
 
       Secondary information remains complete but follows the questions raised by the example.
 
-      - [ ] 4.1.2.1 Subtask - Render how-it-works points with inline code and component-specific semantic explanations.
-      - [ ] 4.1.2.2 Subtask - Place accessibility and exact fallback beside capability and browser evidence.
-      - [ ] 4.1.2.3 Subtask - Keep application ownership, API attributes/slots and related-control comparisons complete.
-      - [ ] 4.1.2.4 Subtask - Move catalogue identity, upstream revision and adaptation summary into a consistent lower-priority provenance surface.
+      - [x] 4.1.2.1 Subtask - Render how-it-works points with inline code and component-specific semantic explanations.
+      - [x] 4.1.2.2 Subtask - Place accessibility and exact fallback beside capability and browser evidence.
+      - [x] 4.1.2.3 Subtask - Keep application ownership, API attributes/slots and related-control comparisons complete.
+      - [x] 4.1.2.4 Subtask - Move catalogue identity, upstream revision and adaptation summary into a consistent lower-priority provenance surface.
 
   - [ ] 4.2 Section - Integrate stable paired examples.
 
