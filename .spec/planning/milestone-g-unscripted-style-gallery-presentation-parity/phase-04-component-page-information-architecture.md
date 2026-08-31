@@ -29,25 +29,25 @@ Back to wave: [README](./README.md)
       - [x] 4.1.2.3 Subtask - Keep application ownership, API attributes/slots and related-control comparisons complete.
       - [x] 4.1.2.4 Subtask - Move catalogue identity, upstream revision and adaptation summary into a consistent lower-priority provenance surface.
 
-  - [ ] 4.2 Section - Integrate stable paired examples.
+  - [x] 4.2 Section - Integrate stable paired examples.
 
     Make preview and compile-checked source one specimen without breaking deep links.
 
-    - [ ] 4.2.1 Task - Bind catalogue examples to specimen frames.
+    - [x] 4.2.1 Task - Bind catalogue examples to specimen frames.
 
       Existing examples retain their API and durable destinations.
 
-      - [ ] 4.2.1.1 Subtask - Render each example at its existing preview fragment with descriptive name, layout, theme and motion metadata.
-      - [ ] 4.2.1.2 Subtask - Place its exact escaped source in the same figure while retaining the source fragment.
-      - [ ] 4.2.1.3 Subtask - Support direct preview/source entry with useful focus, scroll position and browser history.
+      - [x] 4.2.1.1 Subtask - Render each example at its existing preview fragment with descriptive name, layout, theme and motion metadata.
+      - [x] 4.2.1.2 Subtask - Place its exact escaped source in the same figure while retaining the source fragment.
+      - [x] 4.2.1.3 Subtask - Support direct preview/source entry with useful focus, scroll position and browser history.
 
-    - [ ] 4.2.2 Task - Preserve progressive access and ordinary navigation.
+    - [x] 4.2.2 Task - Preserve progressive access and ordinary navigation.
 
       View controls and related links cannot become client application behavior.
 
-      - [ ] 4.2.2.1 Subtask - Make Preview initially visible while keeping Code reachable through native controls and fragments.
-      - [ ] 4.2.2.2 Subtask - Ensure print, no-script, find-in-page and assistive-technology access to descriptions and source.
-      - [ ] 4.2.2.3 Subtask - Keep copy bounded to rendered source and related component/composition links as ordinary destinations.
+      - [x] 4.2.2.1 Subtask - Make Preview initially visible while keeping Code reachable through native controls and fragments.
+      - [x] 4.2.2.2 Subtask - Ensure print, no-script, find-in-page and assistive-technology access to descriptions and source.
+      - [x] 4.2.2.3 Subtask - Keep copy bounded to rendered source and related component/composition links as ordinary destinations.
 
   - [ ] 4.3 Section - Phase 4 Integration Tests.
 

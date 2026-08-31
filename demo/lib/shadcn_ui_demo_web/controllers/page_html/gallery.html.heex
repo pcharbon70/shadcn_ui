@@ -76,23 +76,30 @@
     </header>
 
     <section
-      id={hd(@page.documentation_entry.examples).fragment}
+      :for={example <- @page.documentation_entry.examples}
+      id={example.fragment}
       class="gallery-example"
-      data-gallery-example={hd(@page.documentation_entry.examples).source_id}
+      tabindex="-1"
+      data-gallery-example={example.source_id}
+      data-gallery-example-layout={example.layout}
       data-gallery-theme-scope={@theme}
       data-gallery-motion-inspection={@motion}
     >
-      <h2>{hd(@page.documentation_entry.examples).preview_label}</h2>
-      <p>
-        <a href={"##{hd(@page.documentation_entry.examples).fragment}"}>Link to this example</a>
-      </p>
+      <h2>{example.preview_label}</h2>
       <.specimen
-        id={hd(@page.documentation_entry.examples).fragment}
-        label={hd(@page.documentation_entry.examples).preview_label}
+        id={example.fragment}
+        label={example.preview_label}
         source={@page.documentation_entry.documentation.source}
-        layout="centered"
+        source_id={example.source_id}
+        theme={@theme}
+        motion={@motion}
+        layout={example.layout}
       >
         <:preview><.component_examples render={@page.render} /></:preview>
+        <:actions>
+          <a href={"##{example.fragment}"}>Preview link</a>
+          <a href={"##{example.source_fragment}"}>Code link</a>
+        </:actions>
       </.specimen>
     </section>
 

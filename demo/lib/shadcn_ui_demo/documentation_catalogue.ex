@@ -113,8 +113,10 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
         examples: [
           %{
             fragment: fragment,
+            source_fragment: "#{fragment}-source",
             source_id: "reference:#{component.render}",
             preview_label: "#{component.label} primary example",
+            layout: "centered",
             route: "#{component.path}##{fragment}"
           }
         ],

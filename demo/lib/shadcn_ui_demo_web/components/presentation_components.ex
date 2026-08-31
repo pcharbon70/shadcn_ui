@@ -9,6 +9,9 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
   attr :id, :string, required: true
   attr :label, :string, required: true
   attr :source, :string, required: true
+  attr :source_id, :string, required: true
+  attr :theme, :string, required: true, values: ~w(light dark)
+  attr :motion, :string, required: true, values: ~w(system reduce)
   attr :layout, :string, default: "centered", values: @layouts
   slot :preview, required: true
   slot :actions
@@ -23,7 +26,10 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
     <figure
       class={["gallery-specimen", @layout_class]}
       data-gallery-specimen={@id}
+      data-gallery-specimen-source-id={@source_id}
       data-gallery-specimen-layout={@layout}
+      data-gallery-specimen-theme={@theme}
+      data-gallery-specimen-motion={@motion}
     >
       <figcaption class="gallery-specimen__caption">{@label}</figcaption>
       <fieldset class="gallery-specimen__views">
@@ -50,6 +56,7 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
           id={"#{@id}-preview"}
           class="gallery-specimen__panel gallery-specimen__preview"
           aria-label="Rendered preview"
+          tabindex="-1"
           data-gallery-specimen-preview
         >
           {render_slot(@preview)}
@@ -59,6 +66,7 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
           id={"#{@id}-source"}
           class="gallery-specimen__panel gallery-specimen__code"
           aria-label="HEEx source"
+          tabindex="-1"
           data-gallery-specimen-source
         >
           <h3 class="gallery-visually-hidden">HEEX source</h3>
@@ -205,6 +213,9 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
           id={"presentation-fixture-#{layout}"}
           label={"#{String.capitalize(layout)} preview layout"}
           source={@fixture_source}
+          source_id={"fixture:#{layout}"}
+          theme="light"
+          motion="reduce"
           layout={layout}
         >
           <:preview>
