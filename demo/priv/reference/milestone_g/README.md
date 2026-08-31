@@ -6,6 +6,8 @@ does not vendor unscripted/ui and is excluded from the ShadcnUI package archive.
 `presentation-reference.json` records exact upstream source hashes, authored
 geometry and the light/dark viewport/open-state matrix derived from the pinned
 revision. `presentation-reference.schema.json` validates that closed evidence.
+`phase-05-accordion-evidence.json` records the approved local Accordion pilot
+goldens, explicit upstream differences and the reusable migration template.
 The source-derived states are authoritative Phase 1 inputs because a moving
 deployment cannot be deterministic. Later phases add reviewed local ShadcnUI
 raster goldens without changing these upstream identities silently.

@@ -35,25 +35,25 @@ Back to wave: [README](./README.md)
       - [x] 5.1.3.2 Subtask - Explain keyboard and disclosure semantics, focus, reduced motion and the exact instant-open or independent fallback.
       - [x] 5.1.3.3 Subtask - Render locked engine evidence while keeping application responsibilities, provenance and related documentation complete.
 
-  - [ ] 5.2 Section - Tune and approve pilot parity.
+  - [x] 5.2 Section - Tune and approve pilot parity.
 
     Resolve shared-system issues against the locked matrix before bulk migration.
 
-    - [ ] 5.2.1 Task - Review desktop, mobile and theme fidelity.
+    - [x] 5.2.1 Task - Review desktop, mobile and theme fidelity.
 
       Bounded reference measurements replace subjective polish passes.
 
-      - [ ] 5.2.1.1 Subtask - Compare shell, title, badges, specimen, Accordion width, prose, code and support table at accepted light/dark desktop states.
-      - [ ] 5.2.1.2 Subtask - Compare tablet, 390px and 320px states with open panels, long source, mobile navigation and overflow.
-      - [ ] 5.2.1.3 Subtask - Resolve typography, wrapping, contrast, borders, spacing and scroll position within accepted tolerances.
+      - [x] 5.2.1.1 Subtask - Compare shell, title, badges, specimen, Accordion width, prose, code and support table at accepted light/dark desktop states.
+      - [x] 5.2.1.2 Subtask - Compare tablet, 390px and 320px states with open panels, long source, mobile navigation and overflow.
+      - [x] 5.2.1.3 Subtask - Resolve typography, wrapping, contrast, borders, spacing and scroll position within accepted tolerances.
 
-    - [ ] 5.2.2 Task - Review fallbacks and explicit exceptions.
+    - [x] 5.2.2 Task - Review fallbacks and explicit exceptions.
 
       Local differences must be visible decisions rather than unnoticed drift.
 
-      - [ ] 5.2.2.1 Subtask - Exercise no-script, keyboard-only, reduced-motion, forced-colors, zoom and unsupported-enhancement states.
-      - [ ] 5.2.2.2 Subtask - Record ShadcnUI branding, Phoenix-source and semantic differences from the upstream reference.
-      - [ ] 5.2.2.3 Subtask - Approve the resulting shell, article and specimen patterns as the migration template.
+      - [x] 5.2.2.1 Subtask - Exercise no-script, keyboard-only, reduced-motion, forced-colors, zoom and unsupported-enhancement states.
+      - [x] 5.2.2.2 Subtask - Record ShadcnUI branding, Phoenix-source and semantic differences from the upstream reference.
+      - [x] 5.2.2.3 Subtask - Approve the resulting shell, article and specimen patterns as the migration template.
 
   - [ ] 5.3 Section - Phase 5 Integration Tests.
 
