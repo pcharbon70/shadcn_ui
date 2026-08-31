@@ -163,12 +163,15 @@ defmodule Mix.Tasks.Gallery.Export do
     File.mkdir_p!(target)
 
     # Windows Mix builds may retain older copied priv files. Export only the
-    # three assets actually selected by the closed compiled manifest.
-    ~w(shadcn.css gallery.css gallery.js)
+    # assets actually selected by the closed compiled manifest.
+    ~w(shadcn.css gallery.css gallery.js bricolage-grotesque-wght.woff2)
     |> Enum.map(&ShadcnUIDemoWeb.GalleryAssets.path/1)
     |> Enum.map(fn path ->
-      unless Regex.match?(~r"^/assets/(?:shadcn|gallery)-[a-f0-9]{16}\.(?:css|js)$", path),
-        do: Mix.raise("unexpected gallery asset path: #{path}")
+      unless Regex.match?(
+               ~r"^/assets/(?:shadcn|gallery|bricolage-grotesque-wght)-[a-f0-9]{16}\.(?:css|js|woff2)$",
+               path
+             ),
+             do: Mix.raise("unexpected gallery asset path: #{path}")
 
       Path.basename(path)
     end)

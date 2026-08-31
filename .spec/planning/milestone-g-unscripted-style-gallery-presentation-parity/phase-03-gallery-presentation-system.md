@@ -7,25 +7,25 @@ Back to wave: [README](./README.md)
   Establish reusable gallery-only typography, prose, capability, specimen, code
   and evidence patterns before restructuring every component article.
 
-  - [ ] 3.1 Section - Establish typography and prose foundations.
+  - [x] 3.1 Section - Establish typography and prose foundations.
 
     Give documentation a consistent hierarchy, rhythm and readable measure.
 
-    - [ ] 3.1.1 Task - Integrate the reviewed type system.
+    - [x] 3.1.1 Task - Integrate the reviewed type system.
 
       Typography must be local, deterministic and resilient when the display face is unavailable.
 
-      - [ ] 3.1.1.1 Subtask - Add the approved licensed display font and fallbacks with explicit preload, weights and demo-only asset identity.
-      - [ ] 3.1.1.2 Subtask - Define heading, body, small, monospace, tracking and line-height scales through gallery-owned variables.
-      - [ ] 3.1.1.3 Subtask - Verify fallback metrics, zoom, Unicode, long identifiers and both themes without changing package tokens.
+      - [x] 3.1.1.1 Subtask - Add the approved licensed display font and fallbacks with explicit preload, weights and demo-only asset identity.
+      - [x] 3.1.1.2 Subtask - Define heading, body, small, monospace, tracking and line-height scales through gallery-owned variables.
+      - [x] 3.1.1.3 Subtask - Verify fallback metrics, zoom, Unicode, long identifiers and both themes without changing package tokens.
 
-    - [ ] 3.1.2 Task - Build the documentation prose scope.
+    - [x] 3.1.2 Task - Build the documentation prose scope.
 
       Authored guidance should read as one article rather than default HTML fragments.
 
-      - [ ] 3.1.2.1 Subtask - Style headings, paragraphs, lists, links, inline code, quotes, anchors and section spacing under an explicit gallery scope.
-      - [ ] 3.1.2.2 Subtask - Set readable measures while allowing specimens and support tables to use the full article column.
-      - [ ] 3.1.2.3 Subtask - Keep landmarks and heading order independent of decorative typography.
+      - [x] 3.1.2.1 Subtask - Style headings, paragraphs, lists, links, inline code, quotes, anchors and section spacing under an explicit gallery scope.
+      - [x] 3.1.2.2 Subtask - Set readable measures while allowing specimens and support tables to use the full article column.
+      - [x] 3.1.2.3 Subtask - Keep landmarks and heading order independent of decorative typography.
 
   - [ ] 3.2 Section - Build specimens and compatibility evidence.
 

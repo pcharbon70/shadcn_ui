@@ -1,5 +1,13 @@
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("./bricolage-grotesque-wght-a97804dc9fbe5fc9.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
 :root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--gallery-font-body, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
   color: var(--shadcn-ui-foreground);
   background: var(--shadcn-ui-background);
 }
@@ -8,7 +16,24 @@ body { margin: 0; min-width: 0; }
 a { color: inherit; }
 :focus-visible { outline: 2px solid var(--shadcn-ui-ring); outline-offset: 3px; }
 
-.gallery-shell { min-height: 100vh; font-size: .875rem; line-height: 1.5; }
+.gallery-shell {
+  --gallery-font-display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --gallery-font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --gallery-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --gallery-text-xs: .75rem;
+  --gallery-text-sm: .875rem;
+  --gallery-text-base: 1rem;
+  --gallery-text-lg: 1.125rem;
+  --gallery-text-xl: 1.25rem;
+  --gallery-text-2xl: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  --gallery-leading-tight: 1.15;
+  --gallery-leading-copy: 1.7;
+  --gallery-tracking-display: -.035em;
+  min-height: 100vh;
+  font-family: var(--gallery-font-body);
+  font-size: var(--gallery-text-sm);
+  line-height: 1.5;
+}
 .gallery-copy-status { min-height: 1.25rem; }
 .gallery-skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 50; padding: .75rem; background: var(--shadcn-ui-background); }
 .gallery-skip-link:focus { top: 1rem; }
@@ -56,6 +81,35 @@ a { color: inherit; }
 .gallery-layout main { min-inline-size: 0; max-inline-size: 100%; padding-block: 2rem 4rem; overflow-wrap: anywhere; }
 .gallery-layout main > * { max-inline-size: 100%; }
 .gallery-breadcrumb { margin-block-end: 1.5rem; color: var(--shadcn-ui-muted-foreground); }
+.gallery-article > h1,
+.gallery-article h2,
+.gallery-article h3,
+.gallery-article h4 {
+  font-family: var(--gallery-font-display);
+  font-weight: 650;
+  letter-spacing: var(--gallery-tracking-display);
+  line-height: var(--gallery-leading-tight);
+  text-wrap: balance;
+}
+.gallery-article > h1 { max-inline-size: 24ch; margin: 0 0 1rem; font-size: var(--gallery-text-2xl); }
+.gallery-article h2 { margin: 0 0 .75rem; font-size: var(--gallery-text-xl); }
+.gallery-article h3 { margin: 0 0 .625rem; font-size: var(--gallery-text-lg); }
+.gallery-article h4 { margin: 0 0 .5rem; font-size: var(--gallery-text-base); }
+.gallery-article :is(p, ul, ol, blockquote) { max-inline-size: 72ch; }
+.gallery-article :is(p, ul, ol, blockquote) { margin-block: 0 1rem; font-size: var(--gallery-text-base); line-height: var(--gallery-leading-copy); }
+.gallery-article :is(ul, ol) { padding-inline-start: 1.5rem; }
+.gallery-article li + li { margin-block-start: .375rem; }
+.gallery-article a { text-decoration-line: underline; text-decoration-thickness: .08em; text-underline-offset: .18em; }
+.gallery-article a:hover { text-decoration-thickness: .14em; }
+.gallery-article code { font-family: var(--gallery-font-mono); font-size: .875em; overflow-wrap: anywhere; }
+.gallery-article :not(pre) > code { padding: .125rem .3rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-sm); background: var(--shadcn-ui-muted); }
+.gallery-article blockquote { margin-inline: 0; padding-inline-start: 1rem; border-inline-start: .2rem solid var(--shadcn-ui-border); color: var(--shadcn-ui-muted-foreground); }
+.gallery-article [id] { scroll-margin-block-start: 5rem; }
+.gallery-reference > section,
+.gallery-reference > nav { min-inline-size: 0; }
+.gallery-reference > section + section,
+.gallery-reference > section + nav,
+.gallery-reference > nav + section { margin-block-start: .5rem; }
 .gallery-metadata { border-block-start: 1px solid var(--shadcn-ui-border); color: var(--shadcn-ui-muted-foreground); }
 .gallery-metadata__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 1rem 2rem; max-inline-size: 72rem; margin-inline: auto; padding: 1.25rem; box-sizing: border-box; }
 .gallery-metadata p { min-inline-size: 0; margin: 0; overflow-wrap: anywhere; }

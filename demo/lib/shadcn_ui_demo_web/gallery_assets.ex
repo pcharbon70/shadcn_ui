@@ -8,7 +8,8 @@ defmodule ShadcnUIDemoWeb.GalleryAssets do
               else: %{}
 
   @spec path(String.t()) :: String.t()
-  def path(name) when name in ["shadcn.css", "gallery.css", "gallery.js"] do
+  def path(name)
+      when name in ["shadcn.css", "gallery.css", "gallery.js", "bricolage-grotesque-wght.woff2"] do
     Map.fetch!(@manifest, name)
   end
 end

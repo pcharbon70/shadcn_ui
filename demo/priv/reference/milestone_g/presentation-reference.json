@@ -72,7 +72,10 @@
     "licenseSourceRepository": "https://github.com/ateliertriay/bricolage",
     "licenseSourceCommit": "84745e5b96261ae5f8c6c856e262fe78d1d6efdd",
     "licenseNotice": "licenses/bricolage-grotesque-OFL.txt",
-    "binaryCopied": false,
-    "phase3Gate": "reproduce-or-map-binary-and-update-demo-notices"
+    "binaryCopied": true,
+    "localBinaryPath": "demo/assets/fonts/bricolage-grotesque-wght.woff2",
+    "localBinarySha256": "a97804dc9fbe5fc972a08018c5eda4dab7ef2346f64c57e61419d05e6de4ea1c",
+    "localBinaryBytes": 41344,
+    "phase3Gate": "satisfied-by-exact-pinned-binary-and-retained-ofl"
   }
 }

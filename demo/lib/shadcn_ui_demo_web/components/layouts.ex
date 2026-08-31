@@ -94,7 +94,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
         </nav>
       </div>
 
-      <main id="main-content" tabindex="-1" data-gallery-main>
+      <main id="main-content" class="gallery-article" tabindex="-1" data-gallery-main>
         <nav class="gallery-breadcrumb" aria-label="Breadcrumb" data-gallery-breadcrumb>
           <a href="/" aria-current={@page.kind == :landing && "page"}>Gallery</a>
           <span :if={@page.kind in [:category, :component]} aria-hidden="true"> / </span>
