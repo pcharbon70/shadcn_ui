@@ -45,18 +45,21 @@ defmodule ShadcnUIDemo.MilestoneGPhase1ReferenceTest do
     assert Enum.all?(states, &(&1["motion"] == "reduced" and &1["scale"] == 1))
   end
 
-  test "font approval retains the OFL but does not copy a binary prematurely" do
+  test "font approval retains the OFL and maps the exact Phase 3 binary" do
     font = @manifest["fontReview"]
     notice = Path.join(Path.dirname(@manifest_path), font["licenseNotice"])
 
     assert font["license"] == "SIL Open Font License 1.1"
-    assert font["binaryCopied"] == false
+    assert font["binaryCopied"] == true
 
     assert font["upstreamBinarySha256"] ==
              "a97804dc9fbe5fc972a08018c5eda4dab7ef2346f64c57e61419d05e6de4ea1c"
 
     assert File.read!(notice) =~ "SIL OPEN FONT LICENSE Version 1.1"
-    refute File.exists?("priv/reference/milestone_g/bricolage-grotesque-wght.woff2")
+    binary = Path.expand("../#{font["localBinaryPath"]}", File.cwd!())
+    bytes = File.read!(binary)
+    assert byte_size(bytes) == font["localBinaryBytes"]
+    assert Base.encode16(:crypto.hash(:sha256, bytes), case: :lower) == font["localBinarySha256"]
   end
 
   test "reference artifacts contain no machine paths, timestamps, or remote runtime assets" do

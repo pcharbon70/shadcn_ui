@@ -29,6 +29,7 @@ erl_crash.dump
 /priv/static/assets/gallery-*.css
 /priv/static/assets/gallery-*.js
 /priv/static/assets/shadcn-*.css
+/priv/static/assets/bricolage-grotesque-wght-*.woff2
 /priv/static/assets/manifest.json
 /node_modules/
 

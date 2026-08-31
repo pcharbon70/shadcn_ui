@@ -19,7 +19,8 @@ defmodule ShadcnUIDemo.GalleryBoundaryTest do
     build = File.read!("scripts/build-assets.mjs")
     ignore = File.read!(".gitignore")
 
-    refute source =~ ~r/(https?:|@import|url\(|analytics|fonts\.google)/i
+    refute source =~ ~r/(https?:|@import|analytics|fonts\.google)/i
+    assert source =~ ~s|url("./bricolage-grotesque-wght-a97804dc9fbe5fc9.woff2")|
     assert source =~ "system-ui"
     assert build =~ ~s|createHash("sha256")|
     assert build =~ "shadcn_ui.css"

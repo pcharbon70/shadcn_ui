@@ -1169,13 +1169,6 @@
       "entity_id": "shadcn_ui.gallery_presentation",
       "file": ".spec/specs/gallery_presentation.spec.md",
       "level": "warning",
-      "message": "Verification target file does not exist: test/browser/milestone-g-presentation.spec.mjs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.gallery_presentation",
-      "file": ".spec/specs/gallery_presentation.spec.md",
-      "level": "warning",
       "message": "Verification target file does not exist: test/shadcn_ui/milestone_g_acceptance_test.exs"
     },
     {
@@ -3900,7 +3893,8 @@
             ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/**",
             "playwright.milestone-g-*.config.mjs",
             "test/shadcn_ui/milestone_g_phase1_acceptance_test.exs",
-            "test/browser/milestone-g-*.spec.mjs"
+            "test/browser/milestone-g-*.spec.mjs",
+            "test/browser/milestone-g-*.spec.mjs-snapshots/**"
           ],
           "verification_minimum_strength": null
         },
@@ -6525,7 +6519,7 @@
     "decision_parse_errors": 0,
     "decisions": 29,
     "exceptions": 0,
-    "findings": 147,
+    "findings": 146,
     "requirements": 266,
     "scenarios": 0,
     "subjects": 27,
@@ -10917,7 +10911,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-presentation.spec.mjs",
         "verification_index": 3
@@ -10928,7 +10922,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-presentation.spec.mjs",
         "verification_index": 3
@@ -10939,7 +10933,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-presentation.spec.mjs",
         "verification_index": 3
@@ -10950,7 +10944,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-presentation.spec.mjs",
         "verification_index": 3
@@ -15370,9 +15364,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 158,
+      "claimed": 154,
       "executed": 38,
-      "linked": 607
+      "linked": 611
     },
     "threshold_failures": 0
   },

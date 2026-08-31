@@ -125,11 +125,21 @@ for (const entry of manifest.routes) {
 }
 
 const assets = await readdir(new URL("assets/", root));
-if (assets.length !== 3 || Object.keys(manifest.assets).length !== 3) throw new Error("export must contain exactly three selected assets");
+const assetPatterns = [
+  /^shadcn-[a-f0-9]{16}\.css$/,
+  /^gallery-[a-f0-9]{16}\.css$/,
+  /^gallery-[a-f0-9]{16}\.js$/,
+  /^bricolage-grotesque-wght-[a-f0-9]{16}\.woff2$/
+];
+if (assets.length !== 4 || Object.keys(manifest.assets).length !== 4 ||
+    assetPatterns.some(pattern => assets.filter(asset => pattern.test(asset)).length !== 1)) {
+  throw new Error("export must contain exactly four selected style, script, and font assets");
+}
 for (const asset of assets) {
   const content = await readFile(new URL(`assets/${asset}`, root));
   const hash = createHash("sha256").update(content).digest("hex");
   if (manifest.assets[asset] !== hash) throw new Error(`stale asset hash: ${asset}`);
+  if (asset.endsWith(".woff2") && hash !== "a97804dc9fbe5fc972a08018c5eda4dab7ef2346f64c57e61419d05e6de4ea1c") throw new Error("gallery font identity drift");
 }
 for (const check of health.checks.assets) {
   const content = await readFile(new URL(check.file, root));

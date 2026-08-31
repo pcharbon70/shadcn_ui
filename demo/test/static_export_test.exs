@@ -24,7 +24,7 @@ defmodule ShadcnUIDemo.StaticExportTest do
     assert task =~ ":crypto.hash(:sha256"
     assert task =~ "reject_remote_runtime!"
     assert task =~ "canonical_url"
-    assert task =~ "~w(shadcn.css gallery.css gallery.js)"
+    assert task =~ "~w(shadcn.css gallery.css gallery.js bricolage-grotesque-wght.woff2)"
     assert task =~ "ShadcnUIDemoWeb.GalleryAssets.path/1"
     assert File.read!("scripts/check-export-determinism.mjs") =~ ~s(MIX_ENV: "test")
     refute task =~ "File.ls!()"

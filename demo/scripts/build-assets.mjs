@@ -8,12 +8,13 @@ const output = join(root, "priv", "static", "assets");
 const inputs = [
   ["shadcn", join(root, "..", "priv", "static", "shadcn_ui.css"), "css"],
   ["gallery", join(root, "assets", "gallery.css"), "css"],
-  ["gallery", join(root, "assets", "gallery.js"), "js"]
+  ["gallery", join(root, "assets", "gallery.js"), "js"],
+  ["bricolage-grotesque-wght", join(root, "assets", "fonts", "bricolage-grotesque-wght.woff2"), "woff2"]
 ];
 
 await mkdir(output, { recursive: true });
 for (const entry of await (await import("node:fs/promises")).readdir(output)) {
-  if (/^(?:shadcn|gallery)-[a-f0-9]{16}\.(?:css|js)$/.test(entry)) await rm(join(output, entry));
+  if (/^(?:shadcn|gallery|bricolage-grotesque-wght)-[a-f0-9]{16}\.(?:css|js|woff2)$/.test(entry)) await rm(join(output, entry));
 }
 
 const manifest = {};

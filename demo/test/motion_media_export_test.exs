@@ -10,7 +10,8 @@ defmodule ShadcnUIDemo.MotionMediaExportTest do
     Mix.Task.rerun("gallery.export")
     refute File.exists?("export/stale-test.svg")
     manifest = Jason.decode!(File.read!("export/route-manifest.json"))
-    assert map_size(manifest["assets"]) == 3
+    assert map_size(manifest["assets"]) == 4
+    assert Enum.any?(Map.keys(manifest["assets"]), &String.ends_with?(&1, ".woff2"))
     assert Map.keys(manifest["media"]) |> Enum.sort() == ~w(grove.svg harbor.svg ridge.svg)
 
     for entry <- MediaFixtures.entries() do
