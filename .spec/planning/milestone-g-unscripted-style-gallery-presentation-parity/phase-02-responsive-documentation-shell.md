@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 2 Phase - Responsive Documentation Shell.
+- [x] 2 Phase - Responsive Documentation Shell.
 
   Replace the catalogue-like frame with the accepted compact header,
   constrained documentation grid and complete responsive navigation shell.
@@ -59,25 +59,25 @@ Back to wave: [README](./README.md)
       - [x] 2.3.2.2 Subtask - Move package, build, catalogue and upstream identity into a secondary footer or metadata surface.
       - [x] 2.3.2.3 Subtask - Preserve escaped deterministic values, no-script completeness and absence of remote search or client routing.
 
-  - [ ] 2.4 Section - Phase 2 Integration Tests.
+  - [x] 2.4 Section - Phase 2 Integration Tests.
 
     Verify the shell across routes, input methods, responsive states and static paths.
 
-    - [ ] 2.4.1 Task - Exercise the complete shell.
+    - [x] 2.4.1 Task - Exercise the complete shell.
 
       Tests should target semantics and stable hooks rather than cosmetic class strings.
 
-      - [ ] 2.4.1.1 Subtask - Cover desktop, tablet and mobile header, catalogue, current page, breadcrumb, skip link, main and metadata states.
-      - [ ] 2.4.1.2 Subtask - Exercise keyboard, touch, 200 percent zoom, 320px width, long labels, catalogue scrolling and visible focus.
-      - [ ] 2.4.1.3 Subtask - Verify search, theme, mobile navigation and destinations with scripting enabled and disabled.
-      - [ ] 2.4.1.4 Subtask - Update brittle shell tests to semantic or `data-gallery-*` hooks and retain hostile-input and route-safety assertions.
+      - [x] 2.4.1.1 Subtask - Cover desktop, tablet and mobile header, catalogue, current page, breadcrumb, skip link, main and metadata states.
+      - [x] 2.4.1.2 Subtask - Exercise keyboard, touch, 200 percent zoom, 320px width, long labels, catalogue scrolling and visible focus.
+      - [x] 2.4.1.3 Subtask - Verify search, theme, mobile navigation and destinations with scripting enabled and disabled.
+      - [x] 2.4.1.4 Subtask - Update brittle shell tests to semantic or `data-gallery-*` hooks and retain hostile-input and route-safety assertions.
 
-    - [ ] 2.4.2 Task - Re-run inherited gates and record delivery.
+    - [x] 2.4.2 Task - Re-run inherited gates and record delivery.
 
       A presentation rewrite must leave export determinism and package isolation intact.
 
-      - [ ] 2.4.2.1 Subtask - Run A-F controller/browser regressions, two static exports, package audit, SpecLed next/check and git diff --check.
-      - [ ] 2.4.2.2 Subtask - Record evidence, complete one commit per coherent section and open one Phase 2 PR.
+      - [x] 2.4.2.1 Subtask - Run A-F controller/browser regressions, two static exports, package audit, SpecLed next/check and git diff --check.
+      - [x] 2.4.2.2 Subtask - Record evidence, complete one commit per coherent section and open one Phase 2 PR.
 
 ## Section delivery rule
 

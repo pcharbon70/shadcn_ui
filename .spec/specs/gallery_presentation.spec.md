@@ -14,6 +14,7 @@ decisions:
 surface:
   - demo/**
   - .spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/**
+  - playwright.milestone-g-*.config.mjs
   - test/shadcn_ui/milestone_g_phase1_acceptance_test.exs
   - test/browser/milestone-g-*.spec.mjs
 ```
@@ -119,6 +120,7 @@ target is planned proof, not evidence that the migration or publication exists.
     - shadcn_ui.gallery_presentation.shell
     - shadcn_ui.gallery_presentation.progressive_navigation
     - shadcn_ui.gallery_presentation.stable_identity
+    - shadcn_ui.gallery_presentation.accessibility_matrix
 
 - kind: test_file
   target: test/browser/milestone-g-presentation.spec.mjs

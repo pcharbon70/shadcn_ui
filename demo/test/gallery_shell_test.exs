@@ -69,7 +69,7 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     refute layout =~ ~r/(script bytes shipped: 0|ships zero JavaScript)/i
 
     assert css =~ "position: sticky"
-    assert css =~ "block-size: 3.5rem"
+    assert css =~ "block-size: calc(3.5rem - 1px)"
     assert css =~ "max-inline-size: 72rem"
     assert css =~ "padding-inline: 1.25rem"
     assert css =~ "backdrop-filter: blur(8px)"
