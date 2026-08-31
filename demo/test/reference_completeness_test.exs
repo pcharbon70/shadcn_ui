@@ -48,10 +48,12 @@ defmodule ShadcnUIDemo.ReferenceCompletenessTest do
 
   test "source is displayed as escaped inert text and never request-evaluated" do
     template = File.read!("lib/shadcn_ui_demo_web/controllers/page_html/gallery.html.heex")
+    presentation = File.read!("lib/shadcn_ui_demo_web/components/presentation_components.ex")
     controller = File.read!("lib/shadcn_ui_demo_web/controllers/gallery_controller.ex")
 
     assert template =~ "@page.documentation_entry.documentation.source"
-    assert template =~ "data-gallery-copy"
+    assert presentation =~ "data-gallery-copy"
+    assert presentation =~ "Phoenix.HTML.html_escape()"
     refute controller =~ ~r/(Code\.|Module\.|String\.to_atom|binary_to_atom|apply\()/
   end
 end

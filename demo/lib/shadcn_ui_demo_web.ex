@@ -67,6 +67,7 @@ defmodule ShadcnUIDemoWeb do
       import ShadcnUIDemoWeb.ContentNavigationCompositions
       import ShadcnUIDemoWeb.OverlayCompositions
       import ShadcnUIDemoWeb.MotionMediaCompositions
+      import ShadcnUIDemoWeb.PresentationComponents
 
       # Common modules used in templates
       alias ShadcnUIDemoWeb.Layouts

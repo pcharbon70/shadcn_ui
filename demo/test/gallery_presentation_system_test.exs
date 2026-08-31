@@ -25,4 +25,41 @@ defmodule ShadcnUIDemo.GalleryPresentationSystemTest do
     refute css =~ ~r/^h[1-6]\s*\{/m
     refute css =~ ~r/^p\s*\{/m
   end
+
+  test "specimens keep honest radio semantics, source order, and closed layouts" do
+    component = File.read!("lib/shadcn_ui_demo_web/components/presentation_components.ex")
+    page = File.read!("lib/shadcn_ui_demo_web/controllers/page_html/gallery.html.heex")
+    css = File.read!("assets/gallery.css")
+
+    assert component =~ ~s(<figure)
+    assert component =~ ~s(<fieldset class="gallery-specimen__views">)
+    assert component =~ ~s(type="radio")
+    assert component =~ ~s(data-gallery-specimen-preview)
+    assert component =~ ~s(data-gallery-specimen-source)
+    assert component =~ ~s(data-gallery-copy)
+    assert component =~ ~s(tabindex="0")
+    assert component =~ "@layouts ~w(centered start constrained tall overflow composition)"
+    assert component =~ "Phoenix.HTML.html_escape()"
+    assert component =~ "highlight_heex"
+    refute component =~ ~r/(role="(?:tab|tablist|tabpanel)"|phx-click)/
+    assert page =~ "<.specimen"
+    assert css =~ "@media print"
+    assert css =~ ".gallery-specimen__panel:target"
+  end
+
+  test "capability badges and support tables keep authored policy distinct" do
+    component = File.read!("lib/shadcn_ui_demo_web/components/presentation_components.ex")
+    css = File.read!("assets/gallery.css")
+
+    assert component =~ "@capability_identities"
+    assert component =~ ~s(data-gallery-capability={@identity})
+    assert component =~ ~s(data-gallery-support-table)
+    assert component =~ "Locked-engine evidence"
+    assert component =~ "When missing"
+    assert component =~ ~s(scope="col")
+    assert component =~ ~s(scope="row")
+    assert css =~ "@supports (color: color-mix"
+    assert css =~ "@media (forced-colors: active)"
+    refute component =~ ~r/(navigator|userAgent|CSS\.supports)/
+  end
 end

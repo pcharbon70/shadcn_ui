@@ -25,10 +25,13 @@ defmodule ShadcnUIDemo.MilestoneFPhase2AcceptanceTest do
       assert html =~
                ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui#{entry.route}")
 
-      assert html =~
-               entry.documentation.source
-               |> Phoenix.HTML.html_escape()
-               |> Phoenix.HTML.safe_to_string()
+      rendered_source =
+        html
+        |> LazyHTML.from_document()
+        |> LazyHTML.query("##{example.fragment}-code code")
+        |> LazyHTML.text()
+
+      assert rendered_source == entry.documentation.source
     end
   end
 

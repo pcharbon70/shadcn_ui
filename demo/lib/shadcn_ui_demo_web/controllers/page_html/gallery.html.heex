@@ -64,9 +64,14 @@
       <p>
         <a href={"##{hd(@page.documentation_entry.examples).fragment}"}>Link to this example</a>
       </p>
-      <div class="gallery-example-preview">
-        <.component_examples render={@page.render} />
-      </div>
+      <.specimen
+        id={hd(@page.documentation_entry.examples).fragment}
+        label={hd(@page.documentation_entry.examples).preview_label}
+        source={@page.documentation_entry.documentation.source}
+        layout="centered"
+      >
+        <:preview><.component_examples render={@page.render} /></:preview>
+      </.specimen>
     </section>
 
     <section>
@@ -114,11 +119,28 @@
       <h2>Fallback</h2><p>{@page.documentation_entry.documentation.fallback}</p>
     </section>
     <section :if={Map.has_key?(@page.reference, :capability)}>
-      <h2>Browser capabilities</h2><p>{@page.reference.capability}</p>
+      <h2>Browser capabilities</h2>
+      <.capability_badge
+        id={"#{@page.slug}-authored-policy"}
+        identity="authored-policy"
+        label="Authored capability policy"
+        description="This policy is authored from the closed catalogue and is not inferred from the current visitor."
+      />
+      <p>{@page.reference.capability}</p>
       <a href="/examples/overlay-capabilities">Inspect the locked browser capability matrix</a>
       <p>
         Native behavior and package CSS are distinct from demo-only theme and source-copy helpers.
       </p>
+      <.support_table
+        label={"#{@page.label} support and fallback"}
+        rows={[
+          %{
+            feature: "Native operation and optional package presentation",
+            evidence: "Reviewed in the locked Chromium, Firefox, and WebKit evidence matrix.",
+            fallback: @page.documentation_entry.documentation.fallback
+          }
+        ]}
+      />
     </section>
     <section :if={Map.has_key?(@page.reference, :capability)} id="ordinary-alternative">
       <h2>Ordinary alternative: complete information and controls</h2>
@@ -160,26 +182,6 @@
         </li>
       </ul>
     </nav>
-
-    <section
-      id={"#{hd(@page.documentation_entry.examples).fragment}-source"}
-      data-gallery-example-source={hd(@page.documentation_entry.examples).source_id}
-    >
-      <h2>HEEX source</h2>
-      <button
-        type="button"
-        data-gallery-copy={"source-#{@page.slug}"}
-        aria-describedby={"source-#{@page.slug}-status"}
-      >Copy source</button>
-      <span
-        id={"source-#{@page.slug}-status"}
-        class="gallery-copy-status"
-        aria-live="polite"
-      ></span> <pre
-        id={"source-#{@page.slug}"}
-        tabindex="0"
-      ><code>{@page.documentation_entry.documentation.source}</code></pre>
-    </section>
   </div>
 
   <.content_navigation_composition

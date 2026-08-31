@@ -27,35 +27,35 @@ Back to wave: [README](./README.md)
       - [x] 3.1.2.2 Subtask - Set readable measures while allowing specimens and support tables to use the full article column.
       - [x] 3.1.2.3 Subtask - Keep landmarks and heading order independent of decorative typography.
 
-  - [ ] 3.2 Section - Build specimens and compatibility evidence.
+  - [x] 3.2 Section - Build specimens and compatibility evidence.
 
     Create the reusable surfaces that make examples and leading-edge behavior understandable.
 
-    - [ ] 3.2.1 Task - Implement the Preview and Code specimen.
+    - [x] 3.2.1 Task - Implement the Preview and Code specimen.
 
       Rendered output and valid HEEx become two honest views of one durable example.
 
-      - [ ] 3.2.1.1 Subtask - Create a figure with rounded border, Preview/Code controls, action area, minimum preview height and responsive padding.
-      - [ ] 3.2.1.2 Subtask - Use the accepted native view contract without unsupported ARIA tab roles.
-      - [ ] 3.2.1.3 Subtask - Support closed centered, start-aligned, constrained, tall, overflow and composition preview layouts.
-      - [ ] 3.2.1.4 Subtask - Preserve stable preview/source fragments, direct entry, scroll margin, print and no-script access.
+      - [x] 3.2.1.1 Subtask - Create a figure with rounded border, Preview/Code controls, action area, minimum preview height and responsive padding.
+      - [x] 3.2.1.2 Subtask - Use the accepted native view contract without unsupported ARIA tab roles.
+      - [x] 3.2.1.3 Subtask - Support closed centered, start-aligned, constrained, tall, overflow and composition preview layouts.
+      - [x] 3.2.1.4 Subtask - Preserve stable preview/source fragments, direct entry, scroll margin, print and no-script access.
 
-    - [ ] 3.2.2 Task - Refine source and copy presentation.
+    - [x] 3.2.2 Task - Refine source and copy presentation.
 
       Source remains inert, selectable and legible without optional helpers.
 
-      - [ ] 3.2.2.1 Subtask - Add deterministic HEEx highlighting or token styling at the accepted demo build/render boundary.
-      - [ ] 3.2.2.2 Subtask - Place copy inside the code surface with accessible name, focus and success/failure feedback.
-      - [ ] 3.2.2.3 Subtask - Preserve escaping, keyboard scrolling and bounded long-source overflow without remote assets.
+      - [x] 3.2.2.1 Subtask - Add deterministic HEEx highlighting or token styling at the accepted demo build/render boundary.
+      - [x] 3.2.2.2 Subtask - Place copy inside the code surface with accessible name, focus and success/failure feedback.
+      - [x] 3.2.2.3 Subtask - Preserve escaping, keyboard scrolling and bounded long-source overflow without remote assets.
 
-    - [ ] 3.2.3 Task - Implement capability and support surfaces.
+    - [x] 3.2.3 Task - Implement capability and support surfaces.
 
       Current-browser hints, locked evidence and normative fallbacks must remain distinct.
 
-      - [ ] 3.2.3.1 Subtask - Render compact capability badges from closed identities with accessible descriptions and forced-colors treatment.
-      - [ ] 3.2.3.2 Subtask - Use CSS `@supports` only for valid live presentation while retaining authored policy independently.
-      - [ ] 3.2.3.3 Subtask - Create responsive support tables with feature, locked-engine evidence and exact when-missing columns.
-      - [ ] 3.2.3.4 Subtask - Provide native overflow and useful table headings without hiding or duplicating information at narrow widths.
+      - [x] 3.2.3.1 Subtask - Render compact capability badges from closed identities with accessible descriptions and forced-colors treatment.
+      - [x] 3.2.3.2 Subtask - Use CSS `@supports` only for valid live presentation while retaining authored policy independently.
+      - [x] 3.2.3.3 Subtask - Create responsive support tables with feature, locked-engine evidence and exact when-missing columns.
+      - [x] 3.2.3.4 Subtask - Provide native overflow and useful table headings without hiding or duplicating information at narrow widths.
 
   - [ ] 3.3 Section - Phase 3 Integration Tests.
 
