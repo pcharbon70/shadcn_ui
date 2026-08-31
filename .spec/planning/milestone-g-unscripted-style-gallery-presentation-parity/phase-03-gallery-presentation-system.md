@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 3 Phase - Gallery Presentation System.
+- [x] 3 Phase - Gallery Presentation System.
 
   Establish reusable gallery-only typography, prose, capability, specimen, code
   and evidence patterns before restructuring every component article.
@@ -57,25 +57,25 @@ Back to wave: [README](./README.md)
       - [x] 3.2.3.3 Subtask - Create responsive support tables with feature, locked-engine evidence and exact when-missing columns.
       - [x] 3.2.3.4 Subtask - Provide native overflow and useful table headings without hiding or duplicating information at narrow widths.
 
-  - [ ] 3.3 Section - Phase 3 Integration Tests.
+  - [x] 3.3 Section - Phase 3 Integration Tests.
 
     Verify shared primitives before article migration multiplies their use.
 
-    - [ ] 3.3.1 Task - Exercise presentation states.
+    - [x] 3.3.1 Task - Exercise presentation states.
 
       Representative fixtures must cover every closed layout and evidence mode.
 
-      - [ ] 3.3.1.1 Subtask - Add fixtures for prose, badges, support rows, preview layouts, long source, copy status and empty actions.
-      - [ ] 3.3.1.2 Subtask - Compare light/dark desktop/mobile golden states within accepted typography, spacing, code and overflow tolerances.
-      - [ ] 3.3.1.3 Subtask - Run keyboard, axe, zoom, forced-colors, reduced-motion, print and no-script checks.
+      - [x] 3.3.1.1 Subtask - Add fixtures for prose, badges, support rows, preview layouts, long source, copy status and empty actions.
+      - [x] 3.3.1.2 Subtask - Compare light/dark desktop/mobile golden states within accepted typography, spacing, code and overflow tolerances.
+      - [x] 3.3.1.3 Subtask - Run keyboard, axe, zoom, forced-colors, reduced-motion, print and no-script checks.
 
-    - [ ] 3.3.2 Task - Verify isolation and record delivery.
+    - [x] 3.3.2 Task - Verify isolation and record delivery.
 
       Gallery primitives must not become package utilities or introduce a global reset.
 
-      - [ ] 3.3.2.1 Subtask - Audit selectors, local assets and archive contents for gallery scoping and package exclusion.
-      - [ ] 3.3.2.2 Subtask - Run package/demo precommit, deterministic asset/export checks, A-F regressions, SpecLed next/check and git diff --check.
-      - [ ] 3.3.2.3 Subtask - Record evidence, complete one commit per coherent section and open one Phase 3 PR.
+      - [x] 3.3.2.1 Subtask - Audit selectors, local assets and archive contents for gallery scoping and package exclusion.
+      - [x] 3.3.2.2 Subtask - Run package/demo precommit, deterministic asset/export checks, A-F regressions, SpecLed next/check and git diff --check.
+      - [x] 3.3.2.3 Subtask - Record evidence, complete one commit per coherent section and open one Phase 3 PR.
 
 ## Section delivery rule
 

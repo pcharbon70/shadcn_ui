@@ -38,13 +38,13 @@ for (const route of routes) {
   const canonical = html.match(/<link\s+rel="canonical"\s+href="([^"]+)"/);
   const expectedCanonical = new URL(route.replace(/\/$/, ""), base).href;
   if (canonical?.[1] !== expectedCanonical) throw new Error(`invalid canonical: ${route}`);
-  for (const match of html.matchAll(/(?:href|src)="([^"]+\.(?:css|js))"/g)) assets.add(new URL(match[1], response.url).href);
+  for (const match of html.matchAll(/(?:href|src)="([^"]+\.(?:css|js|woff2))"/g)) assets.add(new URL(match[1], response.url).href);
   for (const match of html.matchAll(/(?:src|srcset)="([^"]*media\/[^"]*)"/g)) {
     for (const candidate of match[1].split(",")) media.add(new URL(candidate.trim().split(/\s+/)[0], response.url).href);
   }
 }
 
-if (assets.size !== 3) throw new Error(`expected three local fingerprinted assets, found ${assets.size}`);
+if (assets.size !== 4) throw new Error(`expected four local fingerprinted assets, found ${assets.size}`);
 for (const url of assets) {
   if (!url.startsWith(base)) throw new Error(`asset escaped canonical gallery origin: ${url}`);
   const response = await fetch(url, { redirect: "error" });

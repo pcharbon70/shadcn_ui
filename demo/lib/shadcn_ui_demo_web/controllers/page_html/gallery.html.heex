@@ -194,6 +194,8 @@
     invalid={@page.invalid}
   />
 
+  <.presentation_fixture :if={@page.kind == :composition && @page.render == :documentation} />
+
   <.overlay_composition
     :if={
       @page.kind == :composition &&

@@ -151,6 +151,12 @@ a { color: inherit; }
 .gallery-support-table :is(th, td) { padding: .75rem 1rem; border-block-start: 1px solid var(--shadcn-ui-border); text-align: start; vertical-align: top; }
 .gallery-support-table thead th { color: var(--shadcn-ui-muted-foreground); background: var(--shadcn-ui-muted); font-size: var(--gallery-text-xs); letter-spacing: .04em; text-transform: uppercase; }
 .gallery-support-table tbody th { font-weight: 650; }
+.gallery-presentation-fixture { display: grid; gap: 2rem; margin-block-start: 3rem; padding-block-start: 2rem; border-block-start: 1px solid var(--shadcn-ui-border); }
+.gallery-presentation-fixture > section { min-inline-size: 0; }
+.gallery-presentation-fixture__eyebrow { margin-block-end: .5rem !important; color: var(--shadcn-ui-muted-foreground); font-size: var(--gallery-text-xs) !important; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.gallery-presentation-fixture__badges { display: flex; flex-wrap: wrap; gap: .5rem; }
+.gallery-presentation-fixture__specimens { display: grid; gap: 1.5rem; }
+.gallery-presentation-fixture__sample { display: grid; gap: .25rem; max-inline-size: 28rem; }
 .gallery-metadata { border-block-start: 1px solid var(--shadcn-ui-border); color: var(--shadcn-ui-muted-foreground); }
 .gallery-metadata__inner { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 1rem 2rem; max-inline-size: 72rem; margin-inline: auto; padding: 1.25rem; box-sizing: border-box; }
 .gallery-metadata p { min-inline-size: 0; margin: 0; overflow-wrap: anywhere; }
@@ -218,6 +224,7 @@ pre { max-width: 100%; overflow: auto; padding: 1rem; background: var(--shadcn-u
 @media print {
   .gallery-specimen__toolbar { display: none; }
   .gallery-specimen__panel { display: block !important; }
+  .gallery-specimen:has(.gallery-specimen__code:target) .gallery-specimen__preview { display: flex !important; }
   .gallery-specimen__preview { min-block-size: 0; }
   .gallery-specimen__code pre { max-block-size: none; white-space: pre-wrap; }
 }

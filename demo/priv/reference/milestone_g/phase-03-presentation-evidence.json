@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-phase-03-gallery-presentation-system",
+  "evidenceType": "local-automated-presentation-evidence",
+  "reference": "demo/priv/reference/milestone_g/presentation-reference.json",
+  "runner": {
+    "playwright": "1.62.1",
+    "engine": "chromium",
+    "engineVersion": "151.0.7922.34",
+    "deviceScaleFactor": 1,
+    "motion": "reduce"
+  },
+  "tolerances": {
+    "maxDiffPixelRatio": 0.0075,
+    "perChannelThreshold": 0.12
+  },
+  "goldens": [
+    {
+      "id": "presentation-1440-light",
+      "theme": "light",
+      "viewport": {"width": 1440, "height": 1200},
+      "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-1440-light-chromium.png",
+      "sha256": "23fc06aff204e2e37cf564319086d4748cc556d77416e2d0ff1a4517c62ea855"
+    },
+    {
+      "id": "presentation-1440-dark",
+      "theme": "dark",
+      "viewport": {"width": 1440, "height": 1200},
+      "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-1440-dark-chromium.png",
+      "sha256": "918ce412d23ade50f3cb2b72d90e0fbade8081afbcf9e2ac306b7512d45ed786"
+    },
+    {
+      "id": "presentation-390-light",
+      "theme": "light",
+      "viewport": {"width": 390, "height": 844},
+      "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-390-light-chromium.png",
+      "sha256": "125ef2346c4de612a74442cd49216a39967eb16c667e48f2a40fea34a4472542"
+    },
+    {
+      "id": "presentation-390-dark",
+      "theme": "dark",
+      "viewport": {"width": 390, "height": 844},
+      "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-390-dark-chromium.png",
+      "sha256": "5bfac3794dc5b3dbc79e657f3b0feeadf8c55f859180c9bf155098818045250d"
+    }
+  ],
+  "automatedCoverage": [
+    "closed prose, badge, support-row and specimen fixtures",
+    "native radio keyboard and no-script selection",
+    "direct fragments, print and CSS-disabled source order",
+    "copy success or failure feedback",
+    "bounded long-source overflow",
+    "200 percent zoom, forced colors and reduced motion",
+    "pinned axe semantic audit",
+    "light and dark desktop and mobile golden comparison"
+  ],
+  "verification": {
+    "demoPrecommit": "passed-105-tests",
+    "packagePrecommit": "passed-406-tests",
+    "phaseBrowser": "passed-5-tests",
+    "deterministicExport": "passed",
+    "releaseArchiveAudit": "passed-62-entries",
+    "specNext": "ready-for-check",
+    "specCheck": "warning-baseline-nonzero-0-errors-146-warnings",
+    "specCheckMainBaselineWarnings": 147
+  },
+  "states": {
+    "localAutomated": "passed",
+    "ci": "not-run",
+    "manualAccessibility": "not-run",
+    "deployment": "not-run"
+  }
+}

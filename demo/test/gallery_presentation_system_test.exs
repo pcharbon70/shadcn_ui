@@ -62,4 +62,36 @@ defmodule ShadcnUIDemo.GalleryPresentationSystemTest do
     assert css =~ "@media (forced-colors: active)"
     refute component =~ ~r/(navigator|userAgent|CSS\.supports)/
   end
+
+  test "checked presentation evidence hashes locked local goldens" do
+    evidence =
+      "priv/reference/milestone_g/phase-03-presentation-evidence.json"
+      |> File.read!()
+      |> Jason.decode!()
+
+    assert evidence["evidenceType"] == "local-automated-presentation-evidence"
+    assert evidence["states"]["localAutomated"] == "passed"
+    assert evidence["states"]["ci"] == "not-run"
+    assert evidence["states"]["manualAccessibility"] == "not-run"
+    assert evidence["states"]["deployment"] == "not-run"
+    assert length(evidence["goldens"]) == 4
+
+    for golden <- evidence["goldens"] do
+      bytes = File.read!(Path.expand("../#{golden["file"]}", File.cwd!()))
+      assert Base.encode16(:crypto.hash(:sha256, bytes), case: :lower) == golden["sha256"]
+    end
+  end
+
+  test "presentation primitives stay demo-only without an unrestricted reset" do
+    css = File.read!("assets/gallery.css")
+    package = File.read!("../mix.exs")
+    archive = File.read!("../scripts/check-release-archive.exs")
+
+    refute css =~ ~r/(^|,\s*)\*\s*\{/m
+    refute css =~ ~r/^html\s*\{/m
+    refute css =~ ~r/@import|https?:\/\//
+    refute package =~ ~r/"demo"\s*,/
+    assert archive =~ ~s("demo/")
+    refute File.exists?("../priv/static/bricolage-grotesque-wght.woff2")
+  end
 end

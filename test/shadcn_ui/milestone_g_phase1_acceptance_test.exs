@@ -51,6 +51,7 @@ defmodule ShadcnUI.MilestoneGPhase1AcceptanceTest do
     assert encoded_once == encoded_twice
     assert @manifest["capturePolicy"]["networkRequiredForVerification"] == false
     assert @manifest["fontReview"]["binaryCopied"] == true
+
     assert @manifest["fontReview"]["localBinarySha256"] ==
              @manifest["fontReview"]["upstreamBinarySha256"]
 

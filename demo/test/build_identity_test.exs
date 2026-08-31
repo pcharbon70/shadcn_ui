@@ -33,12 +33,14 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
              BuildIdentity.release_metadata(identity)
   end
 
-  test "uses an explicit deterministic development revision" do
+  test "uses the explicit configured revision and derives development identity" do
     assert {:ok, identity} = BuildIdentity.current()
+    configured_revision = Application.fetch_env!(:shadcn_ui_demo, :build_revision)
+
     assert identity.package_version == "0.1.0"
     assert identity.catalogue_schema == "1"
-    assert identity.build_revision == BuildIdentity.development_revision()
-    assert identity.development
+    assert identity.build_revision == configured_revision
+    assert identity.development == (configured_revision == BuildIdentity.development_revision())
     assert identity.upstream_revision =~ ~r/^[0-9a-f]{40}$/
   end
 

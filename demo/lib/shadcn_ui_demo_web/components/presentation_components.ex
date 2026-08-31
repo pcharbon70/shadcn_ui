@@ -133,6 +133,100 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
     """
   end
 
+  def presentation_fixture(assigns) do
+    assigns =
+      assigns
+      |> assign(:layouts, @layouts)
+      |> assign(
+        :fixture_source,
+        ~S(<.button id="deterministic-long-identifier-for-keyboard-overflow-evidence" variant={:outline}>Save translated preferences safely</.button>)
+      )
+      |> assign(:support_rows, [
+        %{
+          feature: "Native radio selection",
+          evidence: "Locked Chromium, Firefox, and WebKit exercise the ordinary radio group.",
+          fallback: "Without presentation CSS, Preview and Code remain visible in source order."
+        },
+        %{
+          feature: "Optional source copy feedback",
+          evidence: "The locked demo-script check records success and failure text.",
+          fallback:
+            "Source remains selectable and keyboard-scrollable when copying is unavailable."
+        }
+      ])
+
+    ~H"""
+    <article class="gallery-presentation-fixture" data-gallery-presentation-fixture>
+      <header>
+        <p class="gallery-presentation-fixture__eyebrow">Presentation system fixture</p>
+        <h2>Reusable documentation surfaces</h2>
+        <p>
+          This checked fixture keeps prose, every closed preview layout, capability identities,
+          long source, empty actions, and exact fallback evidence together.
+        </p>
+      </header>
+
+      <section data-gallery-prose-fixture>
+        <h3>Readable prose and durable anchors</h3>
+        <p>
+          Unicode remains authored text: español, العربية, 日本語. Long identifiers such as
+          <code>deterministic_long_identifier_for_gallery_presentation_evidence</code>
+          wrap safely.
+        </p>
+        <ul>
+          <li>Landmarks and heading order stay independent of typography.</li>
+          <li><a href="#presentation-support">Ordinary fragments remain addressable.</a></li>
+        </ul>
+        <blockquote>
+          Fallback meaning stays visible instead of becoming a color-only promise.
+        </blockquote>
+      </section>
+
+      <section class="gallery-presentation-fixture__badges" aria-label="Capability identity examples">
+        <.capability_badge
+          :for={
+            {identity, label} <- [
+              {"authored-policy", "Authored policy"},
+              {"native-baseline", "Native baseline"},
+              {"progressive-enhancement", "Progressive enhancement"},
+              {"fallback", "Exact fallback"}
+            ]
+          }
+          id={"presentation-#{identity}"}
+          identity={identity}
+          label={label}
+          description={"Closed #{label} identity; not a visitor-specific support claim."}
+        />
+      </section>
+
+      <section class="gallery-presentation-fixture__specimens" aria-label="Closed specimen layouts">
+        <.specimen
+          :for={{layout, index} <- Enum.with_index(@layouts)}
+          id={"presentation-fixture-#{layout}"}
+          label={"#{String.capitalize(layout)} preview layout"}
+          source={@fixture_source}
+          layout={layout}
+        >
+          <:preview>
+            <div class="gallery-presentation-fixture__sample">
+              <strong>{index + 1}. {String.capitalize(layout)}</strong>
+              <span>Complete rendered content remains in document order.</span>
+            </div>
+          </:preview>
+          <:actions :if={layout == "centered"}>
+            <a href="#presentation-support">Support evidence</a>
+          </:actions>
+        </.specimen>
+      </section>
+
+      <section id="presentation-support">
+        <h3>Support evidence</h3>
+        <.support_table label="Presentation system support and fallback" rows={@support_rows} />
+      </section>
+    </article>
+    """
+  end
+
   def highlight_heex(source) when is_binary(source) do
     token = ~r/(<!--[\s\S]*?-->|<%[\s\S]*?%>|<\/?[A-Za-z][A-Za-z0-9_.:-]*|\/?\s*>)/
 

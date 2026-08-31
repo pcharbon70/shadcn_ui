@@ -17,6 +17,7 @@ surface:
   - playwright.milestone-g-*.config.mjs
   - test/shadcn_ui/milestone_g_phase1_acceptance_test.exs
   - test/browser/milestone-g-*.spec.mjs
+  - test/browser/milestone-g-*.spec.mjs-snapshots/**
 ```
 
 ## Requirements
