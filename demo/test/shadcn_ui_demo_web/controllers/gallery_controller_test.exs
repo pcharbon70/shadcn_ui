@@ -68,9 +68,10 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
       assert html =~ ~s(data-gallery-theme-scope="light")
       assert html =~ ~s(data-gallery-motion-inspection="system")
       assert html =~ ~s(id="#{fragment}-source")
-      assert html =~ "Application responsibilities"
-      assert html =~ "Accessibility"
-      assert html =~ "Fallback"
+      assert html =~ ~s(data-gallery-component-article)
+      assert html =~ "How it works"
+      assert html =~ "Accessibility and browser support"
+      assert html =~ "Application ownership and API"
       assert html =~ "Related documentation"
       assert html =~ "Catalogue identity"
     end

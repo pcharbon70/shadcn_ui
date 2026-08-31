@@ -44,93 +44,103 @@
   <p :if={@page.kind == :category && @page.slug == "motion"}>
     Complete static content with optional bounded decorative previews and entrance effects.
   </p>
-  <div :if={@page.kind == :component} class="gallery-reference">
-    <section>
-      <h2>What it is</h2><p>{@page.documentation_entry.documentation.what}</p>
-    </section>
-
-    <section>
-      <h2>When to use it</h2><p>{@page.documentation_entry.documentation.when}</p>
-    </section>
+  <div :if={@page.kind == :component} class="gallery-reference" data-gallery-component-article>
+    <header class="gallery-reference__introduction">
+      <p class="gallery-reference__description">
+        {@page.documentation_entry.documentation.what}
+      </p>
+      <p class="gallery-reference__usage">
+        <strong>When to use it.</strong> {@page.documentation_entry.documentation.when}
+      </p>
+      <div class="gallery-reference__capabilities" aria-label="Component capabilities">
+        <.capability_badge
+          id={"#{@page.slug}-native-baseline"}
+          identity="native-baseline"
+          label="Native baseline"
+          description={@page.documentation_entry.documentation.native_baseline}
+        />
+        <.capability_badge
+          :if={Map.has_key?(@page.reference, :capability)}
+          id={"#{@page.slug}-progressive-enhancement"}
+          identity="progressive-enhancement"
+          label="Progressive enhancement"
+          description={@page.documentation_entry.documentation.package_enhancement}
+        />
+        <.capability_badge
+          id={"#{@page.slug}-fallback"}
+          identity="fallback"
+          label="Exact fallback"
+          description={@page.documentation_entry.documentation.fallback}
+        />
+      </div>
+    </header>
 
     <section
-      id={hd(@page.documentation_entry.examples).fragment}
+      :for={example <- @page.documentation_entry.examples}
+      id={example.fragment}
       class="gallery-example"
-      data-gallery-example={hd(@page.documentation_entry.examples).source_id}
+      tabindex="-1"
+      data-gallery-example={example.source_id}
+      data-gallery-example-layout={example.layout}
       data-gallery-theme-scope={@theme}
       data-gallery-motion-inspection={@motion}
     >
-      <h2>{hd(@page.documentation_entry.examples).preview_label}</h2>
-      <p>
-        <a href={"##{hd(@page.documentation_entry.examples).fragment}"}>Link to this example</a>
-      </p>
+      <h2>{example.preview_label}</h2>
       <.specimen
-        id={hd(@page.documentation_entry.examples).fragment}
-        label={hd(@page.documentation_entry.examples).preview_label}
+        id={example.fragment}
+        label={example.preview_label}
         source={@page.documentation_entry.documentation.source}
-        layout="centered"
+        source_id={example.source_id}
+        theme={@theme}
+        motion={@motion}
+        layout={example.layout}
       >
         <:preview><.component_examples render={@page.render} /></:preview>
+        <:actions>
+          <a href={"##{example.fragment}"}>Preview link</a>
+          <a href={"##{example.source_fragment}"}>Code link</a>
+        </:actions>
       </.specimen>
     </section>
 
-    <section>
-      <h2>Application responsibilities</h2><p>
-        {@page.documentation_entry.documentation.responsibilities}
-      </p>
-    </section>
-    <section :if={Map.get(@page.reference, :api)}>
-      <h2>Attributes and item slots</h2><p>{@page.reference.api}</p>
-    </section>
-
-    <section>
-      <h2>Accessibility</h2><p>{@page.documentation_entry.documentation.accessibility}</p>
-    </section>
-    <section>
-      <h2>Native baseline</h2><p>
-        {@page.documentation_entry.documentation.native_baseline}
-      </p>
-    </section>
-    <section>
-      <h2>Package CSS enhancement</h2><p>
-        {@page.documentation_entry.documentation.package_enhancement}
-      </p>
-    </section>
-    <section>
-      <h2>Gallery-only behavior</h2><p>
-        {@page.documentation_entry.documentation.demo_behavior}
-      </p>
-    </section>
-    <section>
-      <h2>Not provided by this component</h2><p>
-        {@page.documentation_entry.documentation.unsupported}
-      </p>
-    </section>
-    <section :if={Map.get(@page.reference, :comparison)}>
-      <h2>Choosing the related control</h2><p>{@page.reference.comparison}</p>
-    </section>
-    <section>
-      <h2>Themes</h2><p>
-        Examples use package semantic tokens in explicit light and dark scopes.
-      </p>
+    <section class="gallery-reference__guidance" data-gallery-how-it-works>
+      <h2>How it works</h2>
+      <ul>
+        <li>
+          <code>{"<.#{@page.documentation_entry.public.function}>"}</code>
+          {@page.documentation_entry.documentation.native_baseline}
+        </li>
+        <li>
+          <code>package CSS</code>
+          {@page.documentation_entry.documentation.package_enhancement}
+        </li>
+        <li>
+          <code>gallery only</code>
+          {@page.documentation_entry.documentation.demo_behavior}
+        </li>
+        <li>
+          <code>application boundary</code>
+          {@page.documentation_entry.documentation.unsupported}
+        </li>
+      </ul>
+      <p>Examples use package semantic tokens in explicit light and dark scopes.</p>
     </section>
 
-    <section>
-      <h2>Fallback</h2><p>{@page.documentation_entry.documentation.fallback}</p>
-    </section>
-    <section :if={Map.has_key?(@page.reference, :capability)}>
-      <h2>Browser capabilities</h2>
-      <.capability_badge
-        id={"#{@page.slug}-authored-policy"}
-        identity="authored-policy"
-        label="Authored capability policy"
-        description="This policy is authored from the closed catalogue and is not inferred from the current visitor."
-      />
-      <p>{@page.reference.capability}</p>
-      <a href="/examples/overlay-capabilities">Inspect the locked browser capability matrix</a>
-      <p>
-        Native behavior and package CSS are distinct from demo-only theme and source-copy helpers.
-      </p>
+    <section class="gallery-reference__support" data-gallery-component-support>
+      <h2>Accessibility and browser support</h2>
+      <p>{@page.documentation_entry.documentation.accessibility}</p>
+      <div :if={Map.has_key?(@page.reference, :capability)}>
+        <.capability_badge
+          id={"#{@page.slug}-authored-policy"}
+          identity="authored-policy"
+          label="Authored capability policy"
+          description="This policy is authored from the closed catalogue and is not inferred from the current visitor."
+        />
+        <p>{@page.reference.capability}</p>
+        <p>
+          <a href="/examples/overlay-capabilities">Inspect the locked browser capability matrix</a>
+        </p>
+      </div>
       <.support_table
         label={"#{@page.label} support and fallback"}
         rows={[
@@ -159,11 +169,14 @@
       </p>
     </section>
 
-    <section>
-      <h2>Provenance</h2><p>
-        Catalogue identity <code>{@page.documentation_entry.provenance_id}</code>, adapted from
-        unscripted/ui commit <code>{@build_identity.upstream_revision}</code>
-        under its MIT notice.
+    <section class="gallery-reference__ownership" data-gallery-ownership>
+      <h2>Application ownership and API</h2>
+      <p>{@page.documentation_entry.documentation.responsibilities}</p>
+      <p :if={Map.get(@page.reference, :api)}>
+        <strong>Attributes and item slots.</strong> {@page.reference.api}
+      </p>
+      <p :if={Map.get(@page.reference, :comparison)}>
+        <strong>Choosing the related control.</strong> {@page.reference.comparison}
       </p>
       <p>
         <a href={@page.documentation_entry.links.api}>Public API</a>
@@ -182,6 +195,18 @@
         </li>
       </ul>
     </nav>
+
+    <section class="gallery-reference__provenance" data-gallery-provenance>
+      <h2>Provenance</h2><p>
+        Catalogue identity <code>{@page.documentation_entry.provenance_id}</code>, adapted from
+        unscripted/ui commit <code>{@build_identity.upstream_revision}</code>
+        under its MIT notice.
+      </p>
+      <p>
+        The documentation presentation is adapted locally; ShadcnUI's Phoenix API and native
+        semantic contract remain authoritative.
+      </p>
+    </section>
   </div>
 
   <.content_navigation_composition

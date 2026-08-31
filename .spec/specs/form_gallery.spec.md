@@ -69,6 +69,11 @@ surface:
 
 ## Verification
 
+Milestone G Phase 4 changes only the shared documentation hierarchy. Forms
+coverage locates compile-checked source through the stable specimen surface and
+continues to exercise form inputs inside the rendered preview, distinct from
+the gallery's native Preview/Code controls.
+
 ```spec-verification
 - kind: test_file
   target: demo/test/shadcn_ui_demo/form_catalog_test.exs

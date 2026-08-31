@@ -69,6 +69,11 @@ surface:
 
 ## Verification
 
+Milestone G Phase 4 groups accessibility, authored capability policy, exact
+fallback, ownership, related controls, ordinary alternatives, and provenance
+under stable requirement-level surfaces. Overlay browser checks no longer
+depend on the former separated-source or subsection labels.
+
 The closed catalogue now supplies five Overlays leaves and two Interactive
 Surfaces leaves. Reference pages render actual components, inert HEEx source,
 native policy/mode/edge examples and a complete visible alternative. Canonical

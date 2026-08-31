@@ -35,8 +35,8 @@ defmodule ShadcnUIDemo.OverlayCatalogTest do
 
           assert html =~ ~s(id="ordinary-alternative")
           assert html =~ "HEEX source"
-          assert html =~ "Browser capabilities"
-          assert html =~ "Choosing the related control"
+          assert html =~ "Accessibility and browser support"
+          assert html =~ "Application ownership and API"
           assert html =~ "bd8f403"
           ids = Regex.scan(~r/\bid="([^"]+)"/, html, capture: :all_but_first) |> List.flatten()
           assert ids == Enum.uniq(ids)

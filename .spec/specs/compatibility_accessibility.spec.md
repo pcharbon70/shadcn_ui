@@ -71,6 +71,11 @@ surface:
 
 ## Verification
 
+Milestone G Phase 4 keeps these acceptance questions independent of visible
+documentation labels. Catalogue-wide checks locate paired source through stable
+specimen hooks and scope native component controls to the rendered preview, so
+the gallery's own Preview/Code radios do not change component evidence.
+
 ```spec-verification
 - kind: test_file
   target: test/browser/milestone-f-compatibility.spec.mjs

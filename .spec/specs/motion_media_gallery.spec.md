@@ -153,6 +153,11 @@ distinguish direct tests, CI, manual checks and actual Pages publication.
 
 ## Verification
 
+Milestone G Phase 4 moves each Media and Motion source into the shared paired
+specimen without changing its compile-checked text, native preview, capability
+evidence, motion preference, fallback, or static-subpath behavior. Browser
+acceptance addresses the source region through its stable specimen hook.
+
 All listed targets are implemented. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 and candidate evidence record actual results and outstanding gates. No
 placeholder test, disabled check or local result substitutes for CI, manual

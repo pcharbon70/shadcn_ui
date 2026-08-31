@@ -40,8 +40,18 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert is_list(entry.api.attributes)
       assert is_list(entry.api.slots)
 
-      assert [%{fragment: fragment, source_id: source_id, route: route}] = entry.examples
+      assert [
+               %{
+                 fragment: fragment,
+                 source_fragment: source_fragment,
+                 source_id: source_id,
+                 layout: "centered",
+                 route: route
+               }
+             ] = entry.examples
+
       assert fragment == "#{entry.slug}-primary"
+      assert source_fragment == "#{fragment}-source"
       assert source_id == "reference:#{entry.render}"
       assert route == "#{entry.route}##{fragment}"
     end

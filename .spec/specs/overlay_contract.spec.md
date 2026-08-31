@@ -86,6 +86,11 @@ surface:
 
 ## Verification
 
+Milestone G Phase 4 only regroups overlay documentation around the rendered
+specimen and nearby support evidence. Its gallery-only view controls add no
+overlay invocation, state, focus, dismissal, nesting, or application behavior;
+the native overlay contract and locked engine evidence remain unchanged.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/components/overlays/overlay_contract_test.exs

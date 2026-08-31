@@ -49,9 +49,10 @@ test("all 41 public pages retain honest semantics, relationships, identity, and 
     await expect(page.getByRole("heading", {level: 1})).toHaveCount(1);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", canonical + route);
     await expect(page.getByRole("navigation", {name: "Component navigation"}).locator('[aria-current="page"]')).toHaveCount(1);
-    for (const heading of ["What it is", "Application responsibilities", "Accessibility", "Native baseline", "Fallback", "Provenance", "HEEX source"]) {
+    for (const heading of ["How it works", "Accessibility and browser support", "Application ownership and API", "Related documentation", "Provenance"]) {
       await expect(page.getByRole("heading", {name: heading, exact: true})).toBeVisible();
     }
+    await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
     const ids = await page.locator("[id]").evaluateAll(nodes => nodes.map(node => node.id));
     expect(new Set(ids).size, route).toBe(ids.length);
     await expect(page.locator('main [role="menu"],main [role="menubar"],main [role="tab"],main [role="tablist"],main [role="tabpanel"],main [role="tree"],main [role="treeitem"],main [aria-selected]')).toHaveCount(0);
@@ -67,7 +68,7 @@ test("representative native controls preserve focus, keyboard, dismissal, scroll
   await expect(button).toBeFocused();
 
   await page.goto("/components/forms/input");
-  const input = page.locator("[data-gallery-example] input").first();
+  const input = page.locator("[data-gallery-specimen-preview] input").first();
   await input.focus();
   await input.fill("native value");
   await expect(input).toHaveValue("native value");
@@ -123,7 +124,7 @@ test("missing CSS, script, media, optional presentation, and constrained layouts
     expect(bounds.x + bounds.width).toBeLessThanOrEqual(640);
     await page.locator('link[rel="stylesheet"]').evaluateAll(nodes => nodes.forEach(node => node.remove()));
     await expect(page.getByRole("heading", {level: 1})).toBeVisible();
-    await expect(page.getByRole("heading", {name: "Fallback", exact: true})).toBeVisible();
+    await expect(page.getByRole("heading", {name: "Accessibility and browser support", exact: true})).toBeVisible();
     if (overlayRoutes.has(route)) await expect(page.locator("#ordinary-alternative")).toBeVisible();
   }
   await page.goto("/components/media/image-gallery");

@@ -132,6 +132,21 @@ target is planned proof, not evidence that the migration or publication exists.
     - shadcn_ui.gallery_presentation.accessibility_matrix
 
 - kind: test_file
+  target: demo/test/milestone_g_phase4_article_test.exs
+  covers:
+    - shadcn_ui.gallery_presentation.article_hierarchy
+    - shadcn_ui.gallery_presentation.specimen_semantics
+    - shadcn_ui.gallery_presentation.stable_identity
+
+- kind: test_file
+  target: test/browser/milestone-g-article.spec.mjs
+  covers:
+    - shadcn_ui.gallery_presentation.article_hierarchy
+    - shadcn_ui.gallery_presentation.specimen_semantics
+    - shadcn_ui.gallery_presentation.stable_identity
+    - shadcn_ui.gallery_presentation.accessibility_matrix
+
+- kind: test_file
   target: demo/test/milestone_g_catalogue_test.exs
   covers:
     - shadcn_ui.gallery_presentation.article_hierarchy
