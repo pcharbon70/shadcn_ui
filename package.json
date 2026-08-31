@@ -12,6 +12,7 @@
     "browser:milestone-f-phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-f-phase4.config.mjs",
     "browser:milestone-g-phase2": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-phase2.config.mjs",
     "browser:milestone-g-phase3": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-phase3.config.mjs",
+    "browser:milestone-g-phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-phase4.config.mjs",
     "browser:milestone-e-phase6": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase6.config.mjs",
     "browser:milestone-e-phase5": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase5.config.mjs",
     "browser:milestone-e-phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase4.config.mjs",

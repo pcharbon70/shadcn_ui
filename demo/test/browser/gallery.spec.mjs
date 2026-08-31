@@ -21,7 +21,7 @@ test("keyboard navigation exposes the skip link and direct component routes", as
     await expect(page.getByRole("navigation", { name: "Component navigation" }))
       .toBeVisible();
     await expect(page.getByRole("navigation", { name: "Component navigation" }).locator('[aria-current="page"]')).toHaveCount(1);
-    await expect(page.getByRole("heading", { name: "HEEX source" })).toBeVisible();
+    await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
     await expect(page.locator("pre code")).not.toBeEmpty();
   }
 });

@@ -66,6 +66,11 @@ surface:
 
 ## Verification
 
+Milestone G Phase 4 adds native Preview/Code radios around component examples.
+Milestone C browser evidence therefore scopes its Radio Panels count to the
+rendered component while retaining CSS-disabled access to both documentation
+views and every component panel.
+
 ```spec-verification
 - kind: test_file
   target: demo/test/shadcn_ui_demo/content_navigation_catalog_test.exs

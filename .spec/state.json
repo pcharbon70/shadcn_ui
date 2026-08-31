@@ -5360,6 +5360,29 @@
       {
         "covers": [
           "shadcn_ui.gallery_presentation.article_hierarchy",
+          "shadcn_ui.gallery_presentation.specimen_semantics",
+          "shadcn_ui.gallery_presentation.stable_identity"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase4_article_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.article_hierarchy",
+          "shadcn_ui.gallery_presentation.specimen_semantics",
+          "shadcn_ui.gallery_presentation.stable_identity",
+          "shadcn_ui.gallery_presentation.accessibility_matrix"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-article.spec.mjs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.article_hierarchy",
           "shadcn_ui.gallery_presentation.catalogue_metadata",
           "shadcn_ui.gallery_presentation.stable_identity",
           "shadcn_ui.gallery_presentation.complete_migration"
@@ -6523,7 +6546,7 @@
     "requirements": 266,
     "scenarios": 0,
     "subjects": 27,
-    "verifications": 165
+    "verifications": 167
   },
   "verification": {
     "claims": [
@@ -10955,10 +10978,87 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase4_article_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.specimen_semantics",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase4_article_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase4_article_test.exs",
+        "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-article.spec.mjs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-article.spec.mjs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.specimen_semantics",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-article.spec.mjs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-article.spec.mjs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
         "strength": "claimed",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 4
+        "verification_index": 6
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.catalogue_metadata",
@@ -10969,7 +11069,7 @@
         "strength": "claimed",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 4
+        "verification_index": 6
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -10980,7 +11080,7 @@
         "strength": "claimed",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 4
+        "verification_index": 6
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
@@ -10991,7 +11091,7 @@
         "strength": "claimed",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 4
+        "verification_index": 6
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -11002,7 +11102,7 @@
         "strength": "claimed",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 5
+        "verification_index": 7
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -11013,7 +11113,7 @@
         "strength": "claimed",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 5
+        "verification_index": 7
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.semantic_exceptions",
@@ -11024,7 +11124,7 @@
         "strength": "claimed",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 5
+        "verification_index": 7
       },
       {
         "cover_id": "shadcn_ui.media_components.carousel_controls",
@@ -15366,7 +15466,7 @@
     "strength_summary": {
       "claimed": 154,
       "executed": 38,
-      "linked": 611
+      "linked": 618
     },
     "threshold_failures": 0
   },

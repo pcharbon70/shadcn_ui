@@ -110,6 +110,12 @@ surface:
 
 ## Verification
 
+Milestone G Phase 4 presents component guidance as an introduction, paired
+preview/source specimen, explanation, accessibility and support, ownership,
+related documentation, and provenance. Existing routes, headings, landmarks,
+ordinary destinations, themes, no-script content, and controller rendering
+remain authoritative while visible subsection labels evolve.
+
 Milestone E Phase 6 consolidates all Media/Motion references and compositions
 with A–D route audits, current composition navigation and complete breadcrumbs.
 The publication smoke inventory includes every E route and local media. Real

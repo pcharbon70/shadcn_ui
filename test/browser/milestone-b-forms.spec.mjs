@@ -18,7 +18,7 @@ test("every Forms route has stable navigation, breadcrumb, source, and relations
     await expect(page.locator("h1")).toHaveCount(1);
     await expect(page.getByRole("navigation", { name: "Component navigation", exact: true }).locator('[aria-current="page"]')).toHaveCount(1);
     await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toContainText("Forms");
-    await expect(page.getByRole("heading", { name: "HEEX source" })).toBeVisible();
+    await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
     await expect(page.locator("pre code")).not.toBeEmpty();
     expect(await page.locator("[id]").evaluateAll((nodes) => new Set(nodes.map((node) => node.id)).size === nodes.length)).toBe(true);
   }

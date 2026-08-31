@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 4 Phase - Component Page Information Architecture.
+- [x] 4 Phase - Component Page Information Architecture.
 
   Restructure the shared component article around an immediate value
   proposition and specimen while retaining every required guidance contract.
@@ -49,25 +49,25 @@ Back to wave: [README](./README.md)
       - [x] 4.2.2.2 Subtask - Ensure print, no-script, find-in-page and assistive-technology access to descriptions and source.
       - [x] 4.2.2.3 Subtask - Keep copy bounded to rendered source and related component/composition links as ordinary destinations.
 
-  - [ ] 4.3 Section - Phase 4 Integration Tests.
+  - [x] 4.3 Section - Phase 4 Integration Tests.
 
     Verify every shared article permutation before the Accordion pilot.
 
-    - [ ] 4.3.1 Task - Exercise structure, permutations and deep links.
+    - [x] 4.3.1 Task - Exercise structure, permutations and deep links.
 
       Required information must survive the visible hierarchy change.
 
-      - [ ] 4.3.1.1 Subtask - Render representative pages with one or multiple specimens, capabilities, comparisons, overlays and minimal optional metadata.
-      - [ ] 4.3.1.2 Subtask - Assert headings, fragments, view controls, source compilation, related links, provenance and history entry.
-      - [ ] 4.3.1.3 Subtask - Verify no-script, print, keyboard, axe, zoom, long source and narrow overflow.
+      - [x] 4.3.1.1 Subtask - Render representative pages with one or multiple specimens, capabilities, comparisons, overlays and minimal optional metadata.
+      - [x] 4.3.1.2 Subtask - Assert headings, fragments, view controls, source compilation, related links, provenance and history entry.
+      - [x] 4.3.1.3 Subtask - Verify no-script, print, keyboard, axe, zoom, long source and narrow overflow.
 
-    - [ ] 4.3.2 Task - Reconcile documentation acceptance and delivery.
+    - [x] 4.3.2 Task - Reconcile documentation acceptance and delivery.
 
       Labels may change, but every normative page requirement remains proven.
 
-      - [ ] 4.3.2.1 Subtask - Replace brittle old-heading and separated-source tests with stable requirement-level assertions.
-      - [ ] 4.3.2.2 Subtask - Run catalogue, source, controller, browser, export, archive and SpecLed checks plus git diff --check.
-      - [ ] 4.3.2.3 Subtask - Record evidence, complete one commit per coherent section and open one Phase 4 PR.
+      - [x] 4.3.2.1 Subtask - Replace brittle old-heading and separated-source tests with stable requirement-level assertions.
+      - [x] 4.3.2.2 Subtask - Run catalogue, source, controller, browser, export, archive and SpecLed checks plus git diff --check.
+      - [x] 4.3.2.3 Subtask - Record evidence, complete one commit per coherent section and open one Phase 4 PR.
 
 ## Section delivery rule
 

@@ -29,7 +29,7 @@ test("every component route has source, current navigation, complete fallback an
       await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
       await expect(page.getByRole("navigation", { name: "Component navigation", exact: true }).locator('[aria-current="page"]')).toHaveCount(1);
       await expect(page.locator("#ordinary-alternative")).toBeVisible();
-      await expect(page.getByRole("heading", { name: "HEEX source", exact: true })).toBeVisible();
+      await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
       expect(await page.locator("pre code").textContent()).toContain("<.");
       expect(await page.locator('link[rel="canonical"]').getAttribute("href")).toBe(`https://leco-industries-inc.github.io/shadcn_ui/components/${leaf}`);
     }

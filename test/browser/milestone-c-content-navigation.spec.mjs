@@ -35,7 +35,7 @@ test("closed Milestone C routes expose navigation, breadcrumbs, source, and 404s
     await expect(page.getByRole("heading", { level: 1, name: label })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toContainText(label);
     await expect(page.getByRole("link", { name: label, exact: true }).first()).toHaveAttribute("aria-current", "page");
-    await expect(page.getByRole("heading", { name: "HEEX source" })).toBeVisible();
+    await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
     await expect(page.locator("pre code")).not.toBeEmpty();
   }
 
@@ -112,7 +112,7 @@ test("no-script and CSS-disabled pages retain all authored content and native co
   const page = await context.newPage();
   await page.goto("/components/content-surfaces/radio-panels");
 
-  await expect(page.getByRole("radio")).toHaveCount(3);
+  await expect(page.locator("[data-shadcn-ui-radio-panels]").getByRole("radio")).toHaveCount(3);
   for (const panel of await page.locator("[data-shadcn-ui-radio-panel]").all()) {
     await expect(panel).toBeVisible();
   }

@@ -15,7 +15,7 @@ export default defineConfig({
   ],
   use: {headless: true, baseURL: "http://127.0.0.1:4111", trace: "retain-on-failure"},
   webServer: {
-    command: "mix gallery.export && mix phx.server",
+    command: "mix do gallery.export, phx.server",
     cwd: fileURLToPath(new URL("./demo", import.meta.url)),
     url: "http://127.0.0.1:4111",
     env: {...process.env, MIX_ENV: "test", PHX_SERVER: "true", PORT: "4111"},

@@ -134,6 +134,10 @@ surface:
 
 ## Verification
 
+Milestone G Phase 4 styling remains in the separate demo stylesheet. Scoped
+article contrast and specimen fragment rules do not alter the canonical package
+asset, its tokens, component capability gates, or consumer theme contract.
+
 Milestone E Phase 5 uses only complete prefixed container/grid/image utilities
 and unchanged existing Dialog styles. Enlarged images contain within 60dvb,
 with native content scrolling and sticky close. Complete important utilities

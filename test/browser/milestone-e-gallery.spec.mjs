@@ -24,7 +24,7 @@ for(const theme of ["light","dark"]) test(`${theme}: all E references and compos
     await expect(nav.locator('[aria-current="page"]')).toHaveAttribute("href",path);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href",canonical+path);
     if(path.startsWith("/components/")) {
-      await expect(page.getByRole("heading",{name:"HEEX source",exact:true})).toBeVisible();
+      await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
       expect(await page.locator("pre code").last().textContent()).toContain("<.");
     } else await expect(page.getByRole("navigation",{name:"Breadcrumb"})).toContainText(await page.locator("h1").textContent());
     const ids=await page.locator("[id]").evaluateAll(nodes=>nodes.map(n=>n.id));expect(new Set(ids).size).toBe(ids.length);

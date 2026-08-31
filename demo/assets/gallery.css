@@ -176,8 +176,11 @@ a { color: inherit; }
 .gallery-reference__description { margin: 0 !important; color: var(--shadcn-ui-muted-foreground); font-size: var(--gallery-text-lg) !important; }
 .gallery-reference__usage { margin: 0 !important; }
 .gallery-reference__capabilities { display: flex; flex-wrap: wrap; gap: .5rem; }
+.gallery-reference .gallery-capability-badge,
+.gallery-reference .gallery-support-table thead th { color: var(--shadcn-ui-foreground); }
 .gallery-reference__guidance li code { display: inline-block; margin-inline-end: .25rem; }
 .gallery-reference__provenance { padding-block-start: 1rem; border-block-start: 1px solid var(--shadcn-ui-border); color: var(--shadcn-ui-muted-foreground); font-size: var(--gallery-text-sm); }
+.gallery-reference__provenance code { color: var(--shadcn-ui-foreground); }
 .gallery-example { scroll-margin-block-start: 1rem; }
 .gallery-example-preview { min-width: 0; max-width: 100%; overflow-wrap: anywhere; padding: 1rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-lg); }
 .gallery-examples { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; max-width: 100%; }
