@@ -7,33 +7,33 @@ Back to wave: [README](./README.md)
   Prove the complete target system on one real component before multiplying it
   across the catalogue.
 
-  - [ ] 5.1 Section - Deliver the complete Accordion article.
+  - [x] 5.1 Section - Deliver the complete Accordion article.
 
     Cover the component's two public grouping modes with useful, restrained specimens.
 
-    - [ ] 5.1.1 Task - Build the exclusive primary specimen.
+    - [x] 5.1.1 Task - Build the exclusive primary specimen.
 
       The primary example should provide the clarity and geometry of the pinned reference.
 
-      - [ ] 5.1.1.1 Subtask - Author three useful FAQ items in a centered constrained preview with one initially open exclusive panel.
-      - [ ] 5.1.1.2 Subtask - Pair the exact compile-checked Phoenix HEEx and retain stable preview/source fragments.
-      - [ ] 5.1.1.3 Subtask - Match accepted spacing and visual restraint without silently changing the public Accordion API.
+      - [x] 5.1.1.1 Subtask - Author three useful FAQ items in a centered constrained preview with one initially open exclusive panel.
+      - [x] 5.1.1.2 Subtask - Pair the exact compile-checked Phoenix HEEx and retain stable preview/source fragments.
+      - [x] 5.1.1.3 Subtask - Match accepted spacing and visual restraint without silently changing the public Accordion API.
 
-    - [ ] 5.1.2 Task - Document independent grouping and native ownership.
+    - [x] 5.1.2 Task - Document independent grouping and native ownership.
 
       ShadcnUI behavior beyond the upstream primary specimen needs deliberate coverage.
 
-      - [ ] 5.1.2.1 Subtask - Add an independent-mode specimen with multiple open panels and distinct stable identity.
-      - [ ] 5.1.2.2 Subtask - Explain native `details`/`summary`, exclusive `name`, initial `open`, deterministic IDs and caller-owned replacement or persistence.
-      - [ ] 5.1.2.3 Subtask - Preserve normalization, protected semantics and find-in-page behavior verified by existing component tests.
+      - [x] 5.1.2.1 Subtask - Add an independent-mode specimen with multiple open panels and distinct stable identity.
+      - [x] 5.1.2.2 Subtask - Explain native `details`/`summary`, exclusive `name`, initial `open`, deterministic IDs and caller-owned replacement or persistence.
+      - [x] 5.1.2.3 Subtask - Preserve normalization, protected semantics and find-in-page behavior verified by existing component tests.
 
-    - [ ] 5.1.3 Task - Complete capability, accessibility and support guidance.
+    - [x] 5.1.3 Task - Complete capability, accessibility and support guidance.
 
       Leading-edge animation must remain optional presentation with exact fallback.
 
-      - [ ] 5.1.3.1 Subtask - Add checked identities for exclusive grouping, `::details-content` and `interpolate-size` where applicable.
-      - [ ] 5.1.3.2 Subtask - Explain keyboard and disclosure semantics, focus, reduced motion and the exact instant-open or independent fallback.
-      - [ ] 5.1.3.3 Subtask - Render locked engine evidence while keeping application responsibilities, provenance and related documentation complete.
+      - [x] 5.1.3.1 Subtask - Add checked identities for exclusive grouping, `::details-content` and `interpolate-size` where applicable.
+      - [x] 5.1.3.2 Subtask - Explain keyboard and disclosure semantics, focus, reduced motion and the exact instant-open or independent fallback.
+      - [x] 5.1.3.3 Subtask - Render locked engine evidence while keeping application responsibilities, provenance and related documentation complete.
 
   - [ ] 5.2 Section - Tune and approve pilot parity.
 

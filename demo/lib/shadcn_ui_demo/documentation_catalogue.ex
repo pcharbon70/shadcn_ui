@@ -95,6 +95,8 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       {module, function, provenance_id} = Map.fetch!(@public_identities, component.render)
       fragment = "#{component.slug}-primary"
 
+      examples = examples(component, reference, fragment)
+
       %{
         schema_version: @schema_version,
         category: Map.take(category, [:label, :slug, :path]),
@@ -110,16 +112,8 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
           api: api_url(module, function)
         },
         api: component_api(module, function),
-        examples: [
-          %{
-            fragment: fragment,
-            source_fragment: "#{fragment}-source",
-            source_id: "reference:#{component.render}",
-            preview_label: "#{component.label} primary example",
-            layout: "centered",
-            route: "#{component.path}##{fragment}"
-          }
-        ],
+        examples: examples,
+        presentation: presentation(component.render),
         provenance_id: provenance_id,
         verification: %{
           source_compile: "source:#{component.render}",
@@ -129,6 +123,83 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       }
     end)
   end
+
+  defp examples(%{render: :accordion} = component, reference, fragment) do
+    [
+      %{
+        fragment: fragment,
+        source_fragment: "#{fragment}-source",
+        source_id: "reference:accordion:exclusive",
+        preview_label: "Exclusive FAQ",
+        layout: "constrained",
+        route: "#{component.path}##{fragment}",
+        source: reference.source
+      },
+      %{
+        fragment: "accordion-independent",
+        source_fragment: "accordion-independent-source",
+        source_id: "reference:accordion:independent",
+        preview_label: "Independent sections",
+        layout: "constrained",
+        route: "#{component.path}#accordion-independent",
+        source: reference.independent_source
+      }
+    ]
+  end
+
+  defp examples(component, reference, fragment) do
+    [
+      %{
+        fragment: fragment,
+        source_fragment: "#{fragment}-source",
+        source_id: "reference:#{component.render}",
+        preview_label: "#{component.label} primary example",
+        layout: "centered",
+        route: "#{component.path}##{fragment}",
+        source: reference.source
+      }
+    ]
+  end
+
+  defp presentation(:accordion) do
+    %{
+      capabilities: [
+        %{identity: "native-baseline", label: "Native disclosure", field: :native_baseline},
+        %{identity: "exclusive-grouping", label: "Exclusive grouping", field: :capability},
+        %{identity: "details-content", label: "Animated content", field: :details_content},
+        %{identity: "interpolate-size", label: "Intrinsic size", field: :interpolate_size},
+        %{identity: "fallback", label: "Exact fallback", field: :fallback}
+      ],
+      how_it_works: [
+        %{code: "<details><summary>", field: :native_baseline},
+        %{code: ~s(name="faq"), field: :capability},
+        %{code: "open", field: :open_state},
+        %{code: "id + item key", field: :stable_identity},
+        %{code: "application boundary", field: :responsibilities}
+      ],
+      support_rows: [
+        %{
+          feature: "Exclusive grouping",
+          evidence: :exclusive_evidence,
+          fallback: :exclusive_fallback
+        },
+        %{
+          feature: "Animated disclosure content",
+          evidence: :details_content_evidence,
+          fallback: :motion_fallback
+        },
+        %{
+          feature: "Intrinsic-size interpolation",
+          evidence: :interpolate_size_evidence,
+          fallback: :motion_fallback
+        }
+      ],
+      adaptation:
+        "The article presentation is adapted from the pinned unscripted/ui Accordion reference. Phoenix slot syntax, deterministic IDs, and the package's native disclosure contract are deliberate local differences."
+    }
+  end
+
+  defp presentation(_render), do: nil
 
   @spec lookup(String.t(), String.t()) :: {:ok, map()} | :error
   def lookup(category, slug) when is_binary(category) and is_binary(slug) do

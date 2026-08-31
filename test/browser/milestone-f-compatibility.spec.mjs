@@ -74,7 +74,7 @@ test("representative native controls preserve focus, keyboard, dismissal, scroll
   await expect(input).toHaveValue("native value");
 
   await page.goto("/components/disclosure/accordion");
-  const details = page.locator("#gallery-independent-item-closed");
+  const details = page.locator("#faq-sections-item-support");
   const summary = details.locator("summary");
   await summary.focus(); await page.keyboard.press("Enter");
   await expect(details).toHaveAttribute("open", "");

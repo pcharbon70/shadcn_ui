@@ -3,6 +3,7 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
   use ShadcnUI
 
   attr :render, :atom, required: true
+  attr :example_id, :string, default: nil
 
   def component_examples(%{render: :image_gallery} = assigns) do
     ~H"""
@@ -416,16 +417,41 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
     """
   end
 
-  def component_examples(%{render: :accordion} = assigns) do
+  def component_examples(
+        %{render: :accordion, example_id: "reference:accordion:exclusive"} = assigns
+      ) do
     ~H"""
     <div class="gallery-examples">
-      <.accordion id="gallery-independent" mode={:independent}>
-        <:item key="open" summary="Open snapshot" open>Independent content stays native.</:item>
-        <:item key="closed" summary="Closed snapshot">Find-in-page content remains authored.</:item>
+      <.accordion id="faq" mode={:exclusive}>
+        <:item key="billing" summary="Can I change my billing plan?" open>
+          Yes. Choose a new plan in billing settings; the application owns saving the change.
+        </:item>
+        <:item key="security" summary="How do I secure my account?">
+          Enable multi-factor authentication and keep recovery codes in a safe place.
+        </:item>
+        <:item key="support" summary="Where can I get help?">
+          Contact your support team through its ordinary help destination.
+        </:item>
       </.accordion>
-      <.accordion id="gallery-exclusive" mode={:exclusive}>
-        <:item key="one" summary="Exclusive one" open>First panel.</:item>
-        <:item key="two" summary="Exclusive two">Second panel.</:item>
+    </div>
+    """
+  end
+
+  def component_examples(
+        %{render: :accordion, example_id: "reference:accordion:independent"} = assigns
+      ) do
+    ~H"""
+    <div class="gallery-examples">
+      <.accordion id="faq-sections" mode={:independent}>
+        <:item key="account" summary="Account guidance" open>
+          Review your profile details and keep the contact information current.
+        </:item>
+        <:item key="privacy" summary="Privacy guidance" open>
+          Review the application's privacy notice before sharing personal information.
+        </:item>
+        <:item key="support" summary="Support guidance">
+          Use the application's ordinary support destination when you need more help.
+        </:item>
       </.accordion>
     </div>
     """

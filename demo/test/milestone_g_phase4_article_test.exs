@@ -38,7 +38,7 @@ defmodule ShadcnUIDemo.MilestoneGPhase4ArticleTest do
         assert html =~ ~s(href="##{example.source_fragment}")
 
         highlighted =
-          entry.documentation.source
+          example.source
           |> PresentationComponents.highlight_heex()
           |> Phoenix.HTML.safe_to_string()
 

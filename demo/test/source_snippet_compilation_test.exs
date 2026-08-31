@@ -5,32 +5,31 @@ defmodule ShadcnUIDemo.SourceSnippetCompilationTest do
 
   alias ShadcnUIDemo.DocumentationCatalogue
 
-  @compiled_identities (for entry <- DocumentationCatalogue.entries() do
+  @compiled_identities (for entry <- DocumentationCatalogue.entries(),
+                            example <- entry.examples do
                           ast =
                             Phoenix.LiveView.TagEngine.compile(
-                              entry.documentation.source,
+                              example.source,
                               caller: __ENV__,
                               file: "catalogue:#{entry.route}",
                               line: 1,
                               tag_handler: Phoenix.LiveView.HTMLEngine
                             )
 
-                          def compile_checked_source(unquote(entry.render), assigns),
+                          def compile_checked_source(unquote(example.source_id), assigns),
                             do: unquote(ast)
 
-                          {entry.render, entry.public.function,
-                           entry.examples |> hd() |> Map.fetch!(:source_id)}
+                          {example.source_id, entry.public.function}
                         end)
 
   # covers: shadcn_ui.documentation_catalogue.stable_examples
 
   test "every exact displayed snippet compiles through the public ShadcnUI imports" do
     expected =
-      Enum.map(DocumentationCatalogue.entries(), fn entry ->
-        assert entry.documentation.source =~ "<.#{entry.public.function}"
-        assert hd(entry.examples).source_id == "reference:#{entry.render}"
-        {entry.render, entry.public.function, hd(entry.examples).source_id}
-      end)
+      for entry <- DocumentationCatalogue.entries(), example <- entry.examples do
+        assert example.source =~ "<.#{entry.public.function}"
+        {example.source_id, entry.public.function}
+      end
 
     assert @compiled_identities == expected
     assert function_exported?(__MODULE__, :__info__, 1)

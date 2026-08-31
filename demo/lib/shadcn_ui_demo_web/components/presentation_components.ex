@@ -4,7 +4,7 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
   use Phoenix.Component
 
   @layouts ~w(centered start constrained tall overflow composition)
-  @capability_identities ~w(authored-policy native-baseline progressive-enhancement fallback)
+  @capability_identities ~w(authored-policy native-baseline progressive-enhancement exclusive-grouping details-content interpolate-size fallback)
 
   attr :id, :string, required: true
   attr :label, :string, required: true

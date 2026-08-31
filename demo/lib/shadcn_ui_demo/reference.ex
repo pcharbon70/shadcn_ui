@@ -113,10 +113,6 @@ defmodule ShadcnUIDemo.Reference do
   }
 
   @content_references %{
-    accordion:
-      {"Native details and summary disclosure in independent or progressively exclusive groups.",
-       ~S(<.accordion id="faq"><:item key="billing" summary="Billing">Billing details.</:item></.accordion>),
-       "Native summary activation, focus, and find-in-page remain browser-owned; unsupported exclusive grouping remains independently operable."},
     navigation_menu:
       {"Named destination navigation built from a native nav, list, and real anchors.",
        ~S(<.navigation_menu accessible_name="Primary"><:item key="home" destination="/" label="Home" current={:page} /></.navigation_menu>),
@@ -176,6 +172,67 @@ defmodule ShadcnUIDemo.Reference do
     }
   end
 
+  defp raw_fetch!(:accordion) do
+    %{
+      what:
+        "Native details and summary disclosure for useful FAQ answers and independently open sections.",
+      when:
+        "Use it when readers should reveal authored content in place without requiring application state or a script runtime.",
+      responsibilities:
+        "The application owns the questions and answers, replacing or updating content, persistence across navigation, and any outcomes linked from an answer.",
+      accessibility:
+        "Native summary activation, focus, keyboard behavior, and find-in-page remain browser-owned. Heading hierarchy and answer content remain caller-owned.",
+      semantics:
+        "Each item renders one details and summary pair. Mode :exclusive gives the details elements one shared name; mode :independent omits it. The first authored open item is preserved for an exclusive group and every authored open item is preserved for independent sections.",
+      comparison:
+        "Choose exclusive mode for one-open-at-a-time questions. Choose independent mode when several answers may stay open; it is not a tab widget and does not add arrow-key focus management.",
+      fallback:
+        "Without exclusive grouping, every details item remains independently operable. Without animation capabilities, opening and closing is instant. Reduced motion also keeps the transition instant.",
+      capability:
+        "The details name attribute requests native exclusive grouping. Engines without that behavior keep independent native disclosures.",
+      details_content:
+        "The ::details-content pseudo-element enables a bounded CSS reveal transition without hiding the native details content.",
+      interpolate_size:
+        "interpolate-size: allow-keywords lets the transition reach the answer's intrinsic block size when the engine supports it.",
+      exclusive_evidence:
+        "The locked Chromium 151, Firefox 153, and WebKit 26.5 matrix exercises native details operation; grouping is asserted only when the engine exposes the details name capability.",
+      details_content_evidence:
+        "The locked engine matrix checks disclosure outcomes while the package gates animation with @supports selector(details::details-content).",
+      interpolate_size_evidence:
+        "The package requests allow-keywords only inside the complete details-content capability gate; locked-engine outcomes remain native and usable regardless of support.",
+      open_state:
+        "The open item attribute supplies the initial server-rendered state; no gallery or package runtime stores later disclosure state.",
+      stable_identity:
+        "The accordion id and each closed item key form deterministic details, summary, and content IDs, so callers must keep them stable across renders.",
+      exclusive_fallback:
+        "Items remain separate native details elements, so more than one answer may be open.",
+      motion_fallback:
+        "Answers open and close instantly; reduced-motion policy deliberately selects the same behavior.",
+      source: ~S(<.accordion id="faq" mode={:exclusive}>
+  <:item key="billing" summary="Can I change my billing plan?" open>
+    Yes. Choose a new plan in billing settings; the application owns saving the change.
+  </:item>
+  <:item key="security" summary="How do I secure my account?">
+    Enable multi-factor authentication and keep recovery codes in a safe place.
+  </:item>
+  <:item key="support" summary="Where can I get help?">
+    Contact your support team through its ordinary help destination.
+  </:item>
+</.accordion>),
+      independent_source: ~S(<.accordion id="faq-sections" mode={:independent}>
+  <:item key="account" summary="Account guidance" open>
+    Review your profile details and keep the contact information current.
+  </:item>
+  <:item key="privacy" summary="Privacy guidance" open>
+    Review the application's privacy notice before sharing personal information.
+  </:item>
+  <:item key="support" summary="Support guidance">
+    Use the application's ordinary support destination when you need more help.
+  </:item>
+</.accordion>)
+    }
+  end
+
   defp raw_fetch!(render) when is_map_key(@content_references, render) do
     {what, source, semantics} = Map.fetch!(@content_references, render)
 
@@ -217,6 +274,7 @@ defmodule ShadcnUIDemo.Reference do
     do:
       Map.keys(@references) ++
         Map.keys(@form_references) ++
+        [:accordion] ++
         Map.keys(@content_references) ++
         ShadcnUIDemo.OverlayReference.keys() ++
         [:carousel, :marquee, :stagger, :cover_flow, :scroll_indicator, :image_gallery]
