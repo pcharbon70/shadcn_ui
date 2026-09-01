@@ -8,25 +8,25 @@ Back to wave: [README](./README.md)
   in reviewable waves, refining package CSS only when an audited difference
   belongs to the reusable component.
 
-  - [ ] 7.1 Section - Migrate Foundation and Forms.
+  - [x] 7.1 Section - Migrate Foundation and Forms.
 
     Start with the broadest set of common static and native-control examples.
 
-    - [ ] 7.1.1 Task - Migrate Foundation pages.
+    - [x] 7.1.1 Task - Migrate Foundation pages.
 
       Button, Badge, Alert, Card, Avatar and Skeleton establish common specimen composition.
 
-      - [ ] 7.1.1.1 Subtask - Apply introductions, capabilities, paired source and reordered guidance to all Foundation routes.
-      - [ ] 7.1.1.2 Subtask - Compare each available upstream counterpart and record local visual or API exceptions.
-      - [ ] 7.1.1.3 Subtask - Cover variant density, icons, long labels, loading presentation and responsive card/avatar layouts.
+      - [x] 7.1.1.1 Subtask - Apply introductions, capabilities, paired source and reordered guidance to all Foundation routes.
+      - [x] 7.1.1.2 Subtask - Compare each available upstream counterpart and record local visual or API exceptions.
+      - [x] 7.1.1.3 Subtask - Cover variant density, icons, long labels, loading presentation and responsive card/avatar layouts.
 
-    - [ ] 7.1.2 Task - Migrate Forms pages and complete compositions.
+    - [x] 7.1.2 Task - Migrate Forms pages and complete compositions.
 
       Native controls need realistic states without turning the gallery into application validation runtime.
 
-      - [ ] 7.1.2.1 Subtask - Migrate field, text, choice, select and measurement component routes in coherent groups.
-      - [ ] 7.1.2.2 Subtask - Refine sign-in, profile and settings compositions under the same shell and prose hierarchy.
-      - [ ] 7.1.2.3 Subtask - Preserve labels, descriptions, errors, submission boundaries, forced-colors behavior and no-script form semantics.
+      - [x] 7.1.2.1 Subtask - Migrate field, text, choice, select and measurement component routes in coherent groups.
+      - [x] 7.1.2.2 Subtask - Refine sign-in, profile and settings compositions under the same shell and prose hierarchy.
+      - [x] 7.1.2.3 Subtask - Preserve labels, descriptions, errors, submission boundaries, forced-colors behavior and no-script form semantics.
 
   - [ ] 7.2 Section - Migrate Navigation, Content and Interactive families.
 

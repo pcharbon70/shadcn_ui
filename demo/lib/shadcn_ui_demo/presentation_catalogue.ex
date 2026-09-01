@@ -69,6 +69,8 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   }
   @accordion_route "/components/disclosure/accordion"
   @accordion_evidence "demo/priv/reference/milestone_g/phase-05-accordion-evidence.json"
+  @phase_7_1_prefixes ["/components/foundation/", "/components/forms/"]
+  @phase_7_1_evidence "demo/priv/reference/milestone_g/phase-07-section-1-evidence.json"
 
   @spec layout_identities() :: [String.t()]
   def layout_identities, do: Map.keys(@layout_classes) |> Enum.sort()
@@ -106,19 +108,34 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
       migrated: true,
       visually_reviewed: true,
       accepted: true,
+      migration_wave: "5",
       visual_evidence: [@accordion_evidence]
     }
   end
 
-  def status(_route) do
-    %{
-      authored_ready: true,
-      migrated: false,
-      visually_reviewed: false,
-      accepted: false,
-      visual_evidence: []
-    }
+  def status(route) when is_binary(route) do
+    if Enum.any?(@phase_7_1_prefixes, &String.starts_with?(route, &1)) do
+      %{
+        authored_ready: true,
+        migrated: true,
+        visually_reviewed: true,
+        accepted: false,
+        migration_wave: "7.1",
+        visual_evidence: [@phase_7_1_evidence]
+      }
+    else
+      %{
+        authored_ready: true,
+        migrated: false,
+        visually_reviewed: false,
+        accepted: false,
+        migration_wave: nil,
+        visual_evidence: []
+      }
+    end
   end
+
+  def status(_route), do: status("")
 
   @doc "Returns pinned upstream counterpart records keyed by provenance identity."
   @spec counterparts() :: %{String.t() => map()}
@@ -306,6 +323,12 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
           |> require(
             status.visual_evidence != [] or not status.visually_reviewed,
             "reviewed route lacks visual evidence: #{record.route}"
+          )
+          |> require(
+            Enum.all?(status.visual_evidence, fn path ->
+              path |> then(&Path.join(@package_root, &1)) |> File.regular?()
+            end),
+            "route has missing visual evidence: #{record.route}"
           )
         end)
       )

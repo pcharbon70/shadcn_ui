@@ -1,9 +1,30 @@
-<main class="gallery-standalone" data-shadcn-theme="light">
-  <a href="/components/forms">Back to Forms</a>
-  <h1>{@page.title}</h1>
-  <p>
-    This is caller-owned demonstration data. Submission only displays allowlisted received values.
-  </p>
-  <p :if={!@submittable}>Static export: submission is intentionally disabled.</p>
-  <.composition kind={@page.kind} form={@form} submittable={@submittable} />
-</main>
+<Layouts.gallery
+  page={@page}
+  categories={@categories}
+  components={@components}
+  theme={@theme}
+  motion={@motion}
+  build_identity={@build_identity}
+>
+  <article class="gallery-reference" data-gallery-form-composition={@page.form_kind}>
+    <header class="gallery-reference__introduction">
+      <p class="gallery-reference__description">
+        A complete caller-owned form composition using native submission and public ShadcnUI components.
+      </p>
+      <p>
+        This is caller-owned demonstration data. Submission displays allowlisted received values; it performs no authentication, persistence, authorization, or domain operation.
+      </p>
+      <p :if={!@submittable}>Static export: submission is intentionally disabled.</p>
+    </header>
+    <section aria-label={"#{@page.title} form specimen"}>
+      <.composition kind={@page.form_kind} form={@form} submittable={@submittable} />
+    </section>
+    <section class="gallery-reference__ownership" data-gallery-ownership>
+      <h2>Application ownership</h2>
+      <p>
+        A consuming application owns validation timing, translated errors, authorization, requests, persistence, pending transitions, focus, and outcomes.
+      </p>
+      <p><a href="/components/forms">Review the component contracts</a></p>
+    </section>
+  </article>
+</Layouts.gallery>

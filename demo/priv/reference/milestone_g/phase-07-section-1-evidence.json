@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "local-reviewed-migration-wave",
+  "phase": "milestone-g-phase-07-section-1",
+  "families": ["foundation", "forms"],
+  "componentRoutes": 21,
+  "compositionRoutes": ["/forms/sign-in", "/forms/profile", "/forms/settings"],
+  "reviewedStates": [
+    "variants",
+    "icon-labels",
+    "long-labels",
+    "loading-snapshots",
+    "validation-relationships",
+    "native-submission",
+    "static-export-disabled-submission",
+    "forced-colors-contract",
+    "no-script-semantics"
+  ],
+  "accepted": false,
+  "acceptancePhase": "8"
+}

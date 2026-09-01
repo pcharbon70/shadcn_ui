@@ -48,14 +48,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
         assert example.source_fragment == "#{example.fragment}-source"
         assert example.route == "#{entry.route}##{example.fragment}"
         assert example.source =~ "<.#{entry.public.function}"
-        assert example.layout in ~w(centered constrained)
+        assert example.layout in PresentationCatalogue.layout_identities()
       end
 
       if entry.render != :accordion do
         assert [example] = entry.examples
         assert example.fragment == "#{entry.slug}-primary"
         assert example.source_id == "reference:#{entry.render}"
-        assert example.layout == "centered"
       end
     end
   end
@@ -91,11 +90,9 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
              "demo/priv/reference/milestone_g/phase-05-accordion-evidence.json"
            ]
 
-    refute Enum.any?(inventory, fn record ->
-             record.route != pilot.route and
-               (record.status.migrated or record.status.visually_reviewed or
-                  record.status.accepted)
-           end)
+    assert Enum.count(inventory, & &1.status.migrated) == 22
+    assert Enum.count(inventory, & &1.status.visually_reviewed) == 22
+    assert Enum.count(inventory, & &1.status.accepted) == 1
   end
 
   test "semantic exceptions and gallery-only routes are explicit" do
@@ -331,8 +328,8 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert row.authored_ready
     end
 
-    assert Enum.count(report, & &1.migrated) == 1
-    assert Enum.count(report, & &1.visually_reviewed) == 1
+    assert Enum.count(report, & &1.migrated) == 22
+    assert Enum.count(report, & &1.visually_reviewed) == 22
     assert Enum.count(report, & &1.accepted) == 1
   end
 

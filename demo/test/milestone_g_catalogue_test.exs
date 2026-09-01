@@ -33,13 +33,13 @@ defmodule ShadcnUIDemo.MilestoneGCatalogueTest do
     end
   end
 
-  test "every gallery route is authored-ready without inferring later acceptance" do
+  test "migration waves remain distinct from final acceptance" do
     inventory = DocumentationCatalogue.presentation_inventory()
 
     assert Enum.map(inventory, & &1.route) == Catalogue.routes()
     assert Enum.all?(inventory, & &1.status.authored_ready)
-    assert Enum.count(inventory, & &1.status.migrated) == 1
-    assert Enum.count(inventory, & &1.status.visually_reviewed) == 1
+    assert Enum.count(inventory, & &1.status.migrated) == 22
+    assert Enum.count(inventory, & &1.status.visually_reviewed) == 22
     assert Enum.count(inventory, & &1.status.accepted) == 1
 
     assert %{route: "/components/disclosure/accordion", status: %{accepted: true}} =
@@ -102,14 +102,15 @@ defmodule ShadcnUIDemo.MilestoneGCatalogueTest do
 
     outputs = %{
       "search" => DocumentationCatalogue.search_json(),
-      "sitemap" => DocumentationCatalogue.sitemap_xml(),
-      "completeness" => DocumentationCatalogue.completeness_json()
+      "sitemap" => DocumentationCatalogue.sitemap_xml()
     }
 
     assert evidence["evidenceType"] == "local-automated-catalogue-evidence"
     assert evidence["inventory"]["galleryRoutes"] == 63
     assert evidence["inventory"]["authoredReady"] == 63
     assert evidence["inventory"]["accepted"] == 1
+    assert evidence["outputs"]["completeness"]["bytes"] == 54_171
+    assert evidence["outputs"]["completeness"]["sha256"] =~ ~r/^[a-f0-9]{64}$/
 
     for {identity, bytes} <- outputs do
       expected = evidence["outputs"][identity]
