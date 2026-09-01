@@ -7,6 +7,8 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   converted to atoms, modules, callbacks, templates, or asset paths.
   """
 
+  alias ShadcnUIDemo.Catalogue
+
   @package_root Path.expand("../../..", __DIR__)
   @layout_classes %{
     "centered" => "gallery-specimen--centered",
@@ -18,10 +20,55 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   }
   @feature_identities ~w(authored-policy native-baseline progressive-enhancement exclusive-grouping details-content interpolate-size fallback)
   @semantic_exceptions ~w(content.radio_panels overlays.dropdown-actions media.carousel media.cover-flow)
-  @required_presentation_keys ~w(description how_it_works features support_rows exact_fallback counterpart)a
+  @required_presentation_keys ~w(description how_it_works features support_rows exact_fallback counterpart status)a
   @required_feature_keys ~w(identity label description reference evidence fallback)a
   @required_support_keys ~w(identity feature evidence fallback)a
   @cosmetic_keys ~w(class classes class_name css)a
+  @category_descriptions %{
+    "foundation" =>
+      "Foundational controls and content surfaces with native semantics and closed visual choices.",
+    "forms" =>
+      "Native form primitives, controls, validation relationships, and measurement surfaces.",
+    "disclosure" => "Native disclosure with independent and progressively exclusive grouping.",
+    "navigation" => "Destination navigation and caller-heading-preserving header compositions.",
+    "content-surfaces" =>
+      "Native scrolling, honest separation, and radio-based content selection.",
+    "overlays" =>
+      "Native modal dialogs and nonmodal popovers with explicit ordinary alternatives.",
+    "interactive-surfaces" =>
+      "Supplemental descriptions and link previews whose required information stays visible.",
+    "media" =>
+      "Native scrollable media and dialog compositions with complete static alternatives.",
+    "motion" =>
+      "Complete static content with optional bounded decorative previews and entrance effects."
+  }
+  @composition_descriptions %{
+    image_gallery:
+      "A complete image-gallery composition with local media, captions, destinations, and a native dialog viewer.",
+    motion_preferences:
+      "A gallery-only motion-preference composition with complete content in system and reduced modes.",
+    media_browser:
+      "A complete media-browser composition that retains native scrolling and ordinary destinations.",
+    motion_media_capabilities:
+      "An authored capability record for motion and media enhancement gates and exact fallbacks.",
+    overlay_capabilities:
+      "An authored matrix of overlay capability gates, evidence, and ordinary alternatives.",
+    settings_confirmation:
+      "A settings flow showing caller-owned confirmation and native dialog responsibilities.",
+    responsive_drawers:
+      "Responsive details and filters with a useful bounded dialog or normal-flow fallback.",
+    anchored_actions:
+      "Document actions whose anchors and native controls remain useful without optional placement.",
+    supplemental_help:
+      "Supplemental help that preserves complete visible guidance and ordinary destinations.",
+    documentation:
+      "The checked fixture for reusable documentation prose, badges, specimens, source, and support surfaces.",
+    settings: "A complete settings composition built from public form and content components.",
+    application_shell:
+      "A complete application-shell composition with caller-owned navigation, headings, and actions."
+  }
+  @accordion_route "/components/disclosure/accordion"
+  @accordion_evidence "demo/priv/reference/milestone_g/phase-05-accordion-evidence.json"
 
   @spec layout_identities() :: [String.t()]
   def layout_identities, do: Map.keys(@layout_classes) |> Enum.sort()
@@ -50,6 +97,28 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   end
 
   def feature(_presentation, _identity), do: :error
+
+  @doc "Returns factual, non-inferred migration and acceptance states for a route."
+  @spec status(String.t()) :: map()
+  def status(@accordion_route) do
+    %{
+      authored_ready: true,
+      migrated: true,
+      visually_reviewed: true,
+      accepted: true,
+      visual_evidence: [@accordion_evidence]
+    }
+  end
+
+  def status(_route) do
+    %{
+      authored_ready: true,
+      migrated: false,
+      visually_reviewed: false,
+      accepted: false,
+      visual_evidence: []
+    }
+  end
 
   @doc "Returns pinned upstream counterpart records keyed by provenance identity."
   @spec counterparts() :: %{String.t() => map()}
@@ -185,6 +254,66 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
     }
   end
 
+  @doc "Returns presentation readiness data for every closed gallery route."
+  @spec inventory([map()]) :: [map()]
+  def inventory(component_entries) when is_list(component_entries) do
+    components = Map.new(component_entries, &{&1.route, component_inventory(&1)})
+
+    Catalogue.routes()
+    |> Enum.map(fn route ->
+      case Map.fetch(components, route) do
+        {:ok, component} -> component
+        :error -> page_inventory(route)
+      end
+    end)
+  end
+
+  @doc "Audits complete route coverage and factual readiness-state ordering."
+  @spec audit_inventory([map()]) :: :ok | {:error, [String.t()]}
+  def audit_inventory(inventory) when is_list(inventory) do
+    routes = Enum.map(inventory, & &1.route)
+    expected = Catalogue.routes()
+
+    errors =
+      []
+      |> require(
+        routes == expected,
+        "presentation inventory route order does not match catalogue"
+      )
+      |> Kernel.++(
+        inventory
+        |> Enum.flat_map(fn record ->
+          status = record.status
+
+          []
+          |> require(nonempty?(record.description), "missing route description: #{record.route}")
+          |> require(record.features != [], "missing route features: #{record.route}")
+          |> require(record.support_rows != [], "missing route support: #{record.route}")
+          |> require(nonempty?(record.exact_fallback), "missing route fallback: #{record.route}")
+          |> require(status.authored_ready, "route is not authored-ready: #{record.route}")
+          |> require(
+            not status.migrated or status.authored_ready,
+            "migrated route is not authored-ready: #{record.route}"
+          )
+          |> require(
+            not status.visually_reviewed or status.migrated,
+            "reviewed route is not migrated: #{record.route}"
+          )
+          |> require(
+            not status.accepted or status.visually_reviewed,
+            "accepted route is not reviewed: #{record.route}"
+          )
+          |> require(
+            status.visual_evidence != [] or not status.visually_reviewed,
+            "reviewed route lacks visual evidence: #{record.route}"
+          )
+        end)
+      )
+      |> Enum.sort()
+
+    if errors == [], do: :ok, else: {:error, errors}
+  end
+
   @doc "Audits declared presentation records and their specimen relationships."
   @spec audit([map()]) :: :ok | {:error, [String.t()]}
   def audit(entries) when is_list(entries) do
@@ -211,6 +340,105 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
     else
       []
     end
+  end
+
+  defp component_inventory(entry) do
+    presentation = entry.presentation
+
+    %{
+      route: entry.route,
+      kind: "component",
+      identity: entry.provenance_id,
+      label: entry.label,
+      description: presentation.description,
+      specimens: entry.examples,
+      features: presentation.features,
+      support_rows: presentation.support_rows,
+      exact_fallback: presentation.exact_fallback,
+      counterpart: presentation.counterpart,
+      exception:
+        if(presentation.counterpart.kind == "semantic-exception",
+          do: "accepted-semantic-exception",
+          else: nil
+        ),
+      status: presentation.status
+    }
+  end
+
+  defp page_inventory("/") do
+    local_page(
+      "/",
+      "landing",
+      "gallery.landing",
+      "ShadcnUI gallery",
+      "Transport-neutral Phoenix components with shadcn-style semantic tokens and complete ordinary routes."
+    )
+  end
+
+  defp page_inventory(route) do
+    case Enum.find(Catalogue.categories(), &(&1.path == route)) do
+      nil ->
+        composition_inventory(route)
+
+      category ->
+        local_page(
+          route,
+          "category",
+          "gallery.category.#{category.slug}",
+          category.label,
+          Map.fetch!(@category_descriptions, category.slug)
+        )
+    end
+  end
+
+  defp composition_inventory(route) do
+    composition = Enum.find(Catalogue.compositions(), &(&1.path == route))
+
+    local_page(
+      route,
+      "composition",
+      "gallery.composition.#{composition.slug}",
+      composition.label,
+      Map.fetch!(@composition_descriptions, composition.render)
+    )
+  end
+
+  defp local_page(route, kind, identity, label, description) do
+    fallback =
+      "Without optional gallery presentation, complete content and ordinary destinations remain in document order."
+
+    feature =
+      feature_record(
+        "native-baseline",
+        "Semantic page baseline",
+        "The route renders authored landmarks, headings, content, and ordinary destinations.",
+        "gallery.route",
+        "Controller and static-export tests exercise the same closed route.",
+        fallback
+      )
+
+    %{
+      route: route,
+      kind: kind,
+      identity: identity,
+      label: label,
+      description: description,
+      specimens: [],
+      features: [feature],
+      support_rows: support_rows([feature], [feature.identity]),
+      exact_fallback: fallback,
+      counterpart: %{
+        identity: identity,
+        kind: "local-only",
+        repository: nil,
+        revision: nil,
+        upstream_paths: [],
+        local_changes:
+          "Gallery-only authored route; no package API or upstream component counterpart."
+      },
+      exception: "gallery-route-without-component-specimens",
+      status: status(route)
+    }
   end
 
   defp feature_record(identity, label, description, reference, evidence, fallback) do
@@ -241,7 +469,9 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
     presentation = Map.get(entry, :presentation)
 
     specimen_errors(entry) ++
-      if is_nil(presentation), do: [], else: presentation_errors(entry, presentation)
+      if is_nil(presentation),
+        do: ["missing presentation: #{entry.route}"],
+        else: presentation_errors(entry, presentation)
   end
 
   defp specimen_errors(entry) do

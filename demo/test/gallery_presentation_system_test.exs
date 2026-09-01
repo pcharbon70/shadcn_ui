@@ -28,6 +28,7 @@ defmodule ShadcnUIDemo.GalleryPresentationSystemTest do
 
   test "specimens keep honest radio semantics, source order, and closed layouts" do
     component = File.read!("lib/shadcn_ui_demo_web/components/presentation_components.ex")
+    catalogue = File.read!("lib/shadcn_ui_demo/presentation_catalogue.ex")
     page = File.read!("lib/shadcn_ui_demo_web/controllers/page_html/gallery.html.heex")
     css = File.read!("assets/gallery.css")
 
@@ -38,7 +39,13 @@ defmodule ShadcnUIDemo.GalleryPresentationSystemTest do
     assert component =~ ~s(data-gallery-specimen-source)
     assert component =~ ~s(data-gallery-copy)
     assert component =~ ~s(tabindex="0")
-    assert component =~ "@layouts ~w(centered start constrained tall overflow composition)"
+    assert component =~ "@layouts PresentationCatalogue.layout_identities()"
+    assert component =~ "PresentationCatalogue.layout_class!(assigns.layout)"
+
+    for layout <- ~w(centered start constrained tall overflow composition) do
+      assert catalogue =~ ~s("#{layout}" => "gallery-specimen--#{layout}")
+    end
+
     assert component =~ "Phoenix.HTML.html_escape()"
     assert component =~ "highlight_heex"
     refute component =~ ~r/(role="(?:tab|tablist|tabpanel)"|phx-click)/

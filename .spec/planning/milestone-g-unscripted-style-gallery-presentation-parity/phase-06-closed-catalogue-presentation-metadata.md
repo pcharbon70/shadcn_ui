@@ -36,25 +36,25 @@ Back to wave: [README](./README.md)
       - [x] 6.1.3.3 Subtask - Prove route, search, fragment, feature and layout text cannot create atoms, modules, callbacks, templates, assets or code.
       - [x] 6.1.3.4 Subtask - Keep presentation metadata, evidence and completeness output outside package contents.
 
-  - [ ] 6.2 Section - Populate and audit the complete inventory.
+  - [x] 6.2 Section - Populate and audit the complete inventory.
 
     Prepare all routes for ordered migration and make omissions or exceptions visible.
 
-    - [ ] 6.2.1 Task - Author metadata in migration order.
+    - [x] 6.2.1 Task - Author metadata in migration order.
 
       Content preparation follows the later page waves and reuses accepted identities.
 
-      - [ ] 6.2.1.1 Subtask - Populate Foundation, Disclosure and Forms introductions, specimens, features, support and upstream mappings.
-      - [ ] 6.2.1.2 Subtask - Populate Navigation, Content Surfaces, Overlays and Interactive Surfaces with explicit semantic exceptions.
-      - [ ] 6.2.1.3 Subtask - Populate Media, Motion, landing, category, composition and documentation presentation data without inventing APIs.
+      - [x] 6.2.1.1 Subtask - Populate Foundation, Disclosure and Forms introductions, specimens, features, support and upstream mappings.
+      - [x] 6.2.1.2 Subtask - Populate Navigation, Content Surfaces, Overlays and Interactive Surfaces with explicit semantic exceptions.
+      - [x] 6.2.1.3 Subtask - Populate Media, Motion, landing, category, composition and documentation presentation data without inventing APIs.
 
-    - [ ] 6.2.2 Task - Extend deterministic completeness reporting.
+    - [x] 6.2.2 Task - Extend deterministic completeness reporting.
 
       Maintainers need one view of migration readiness and final proof.
 
-      - [ ] 6.2.2.1 Subtask - Report description, specimens, fragments, source, features, support, fallback, mapping, exception and visual evidence per route.
-      - [ ] 6.2.2.2 Subtask - Distinguish authored-ready, migrated, visually reviewed and accepted states without inferring later states.
-      - [ ] 6.2.2.3 Subtask - Keep reports sorted, timestamp-free, ignored or test-owned and outside release contents.
+      - [x] 6.2.2.1 Subtask - Report description, specimens, fragments, source, features, support, fallback, mapping, exception and visual evidence per route.
+      - [x] 6.2.2.2 Subtask - Distinguish authored-ready, migrated, visually reviewed and accepted states without inferring later states.
+      - [x] 6.2.2.3 Subtask - Keep reports sorted, timestamp-free, ignored or test-owned and outside release contents.
 
   - [ ] 6.3 Section - Phase 6 Integration Tests.
 

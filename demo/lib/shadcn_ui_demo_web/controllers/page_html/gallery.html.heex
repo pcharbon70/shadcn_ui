@@ -54,7 +54,7 @@
       </p>
       <div class="gallery-reference__capabilities" aria-label="Component capabilities">
         <.capability_badge
-          :if={is_nil(@page.documentation_entry.presentation)}
+          :if={not @page.documentation_entry.presentation.status.migrated}
           id={"#{@page.slug}-native-baseline"}
           identity="native-baseline"
           label="Native baseline"
@@ -62,7 +62,7 @@
         />
         <.capability_badge
           :if={
-            is_nil(@page.documentation_entry.presentation) &&
+            not @page.documentation_entry.presentation.status.migrated &&
               Map.has_key?(@page.reference, :capability)
           }
           id={"#{@page.slug}-progressive-enhancement"}
@@ -71,7 +71,7 @@
           description={@page.documentation_entry.documentation.package_enhancement}
         />
         <.capability_badge
-          :if={is_nil(@page.documentation_entry.presentation)}
+          :if={not @page.documentation_entry.presentation.status.migrated}
           id={"#{@page.slug}-fallback"}
           identity="fallback"
           label="Exact fallback"
@@ -80,8 +80,10 @@
         <.capability_badge
           :for={
             capability <-
-              (@page.documentation_entry.presentation &&
-                 @page.documentation_entry.presentation.features) || []
+              if(@page.documentation_entry.presentation.status.migrated,
+                do: @page.documentation_entry.presentation.features,
+                else: []
+              )
           }
           id={"#{@page.slug}-#{capability.identity}"}
           identity={capability.identity}
@@ -123,7 +125,7 @@
 
     <section class="gallery-reference__guidance" data-gallery-how-it-works>
       <h2>How it works</h2>
-      <ul :if={is_nil(@page.documentation_entry.presentation)}>
+      <ul :if={not @page.documentation_entry.presentation.status.migrated}>
         <li>
           <code>{"<.#{@page.documentation_entry.public.function}>"}</code>
           {@page.documentation_entry.documentation.native_baseline}
@@ -141,7 +143,7 @@
           {@page.documentation_entry.documentation.unsupported}
         </li>
       </ul>
-      <ul :if={@page.documentation_entry.presentation}>
+      <ul :if={@page.documentation_entry.presentation.status.migrated}>
         <li :for={item <- @page.documentation_entry.presentation.how_it_works}>
           <code>{item.code}</code> {item.description}
         </li>
@@ -154,7 +156,7 @@
       <p>{@page.documentation_entry.documentation.accessibility}</p>
       <div :if={
         Map.has_key?(@page.reference, :capability) &&
-          is_nil(@page.documentation_entry.presentation)
+          not @page.documentation_entry.presentation.status.migrated
       }>
         <.capability_badge
           id={"#{@page.slug}-authored-policy"}
@@ -168,7 +170,7 @@
         </p>
       </div>
       <.support_table
-        :if={is_nil(@page.documentation_entry.presentation)}
+        :if={not @page.documentation_entry.presentation.status.migrated}
         label={"#{@page.label} support and fallback"}
         rows={[
           %{
@@ -179,7 +181,7 @@
         ]}
       />
       <.support_table
-        :if={@page.documentation_entry.presentation}
+        :if={@page.documentation_entry.presentation.status.migrated}
         label={"#{@page.label} support and fallback"}
         rows={@page.documentation_entry.presentation.support_rows}
       />
@@ -187,7 +189,7 @@
     <section
       :if={
         Map.has_key?(@page.reference, :capability) &&
-          is_nil(@page.documentation_entry.presentation)
+          not @page.documentation_entry.presentation.status.migrated
       }
       id="ordinary-alternative"
     >
@@ -244,7 +246,7 @@
         The documentation presentation is adapted locally; ShadcnUI's Phoenix API and native
         semantic contract remain authoritative.
       </p>
-      <p :if={@page.documentation_entry.presentation}>
+      <p :if={@page.documentation_entry.presentation.status.migrated}>
         {@page.documentation_entry.presentation.counterpart.local_changes}
       </p>
     </section>

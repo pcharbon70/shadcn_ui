@@ -18,12 +18,12 @@ defmodule ShadcnUIDemo.MilestoneFPhase1AcceptanceTest do
     report = DocumentationCatalogue.completeness_report()
 
     assert length(entries) == 41
-    assert length(report) == 41
+    assert length(report) == 63
 
     assert MapSet.new(entries, & &1.route) ==
              Catalogue.components() |> MapSet.new(& &1.path)
 
-    assert Enum.all?(report, fn row ->
+    assert Enum.all?(Enum.filter(report, &(&1.kind == "component")), fn row ->
              row.documentation and row.public_metadata and row.public_import and
                row.exdoc_group and row.provenance and row.renderer and
                row.browser_route == row.route and row.export_route == row.route

@@ -115,12 +115,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
         api: component_api(module, function),
         examples: examples,
         presentation:
-          presentation(
-            component.render,
+          component.render
+          |> PresentationCatalogue.article(
             function,
             reference,
             Map.fetch!(counterparts, provenance_id)
-          ),
+          )
+          |> Map.put(:status, PresentationCatalogue.status(component.path)),
         provenance_id: provenance_id,
         verification: %{
           source_compile: "source:#{component.render}",
@@ -182,11 +183,6 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       }
     ]
   end
-
-  defp presentation(:accordion, function, reference, counterpart),
-    do: PresentationCatalogue.article(:accordion, function, reference, counterpart)
-
-  defp presentation(_render, _function, _reference, _counterpart), do: nil
 
   @spec lookup(String.t(), String.t()) :: {:ok, map()} | :error
   def lookup(category, slug) when is_binary(category) and is_binary(slug) do
@@ -322,11 +318,17 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @spec validate() :: :ok | {:error, [String.t()]}
   def validate do
     entries = entries()
+    inventory = PresentationCatalogue.inventory(entries)
 
     with :ok <- audit(entries),
          :ok <- PresentationCatalogue.audit(entries),
+         :ok <- PresentationCatalogue.audit_inventory(inventory),
          do: validate_search()
   end
+
+  @doc "Returns presentation readiness metadata for every closed gallery route."
+  @spec presentation_inventory() :: [map()]
+  def presentation_inventory, do: entries() |> PresentationCatalogue.inventory()
 
   @doc "Returns the compiled component identities imported by `use ShadcnUI`."
   @spec public_inventory() :: [{module(), atom(), 1}]
@@ -353,28 +355,69 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     renderer =
       File.read!(Path.join(@package_root, "demo/lib/shadcn_ui_demo_web/reference_components.ex"))
 
-    entries()
-    |> Enum.map(fn entry ->
-      identity = {entry.public.module, entry.public.function, entry.public.arity}
+    entry_by_route = Map.new(entries(), &{&1.route, &1})
 
-      %{
-        category: entry.category.slug,
-        component: entry.slug,
-        route: entry.route,
-        public_module: inspect(entry.public.module),
-        public_function: Atom.to_string(entry.public.function),
-        fragments: Enum.map(entry.examples, & &1.fragment),
-        documentation: documentation_complete?(entry.documentation),
-        public_metadata: MapSet.member?(public_inventory, identity),
-        public_import: entry.public.module in public_import_modules(),
-        exdoc_group: MapSet.member?(exdoc_modules, entry.public.module),
-        provenance_id: entry.provenance_id,
-        provenance: MapSet.member?(provenance_ids, entry.provenance_id),
-        source_compile: entry.verification.source_compile,
-        renderer: renderer =~ ":#{entry.render}",
-        browser_route: entry.verification.browser_route,
-        export_route: entry.verification.export_route
+    presentation_inventory()
+    |> Enum.map(fn presentation ->
+      entry = Map.get(entry_by_route, presentation.route)
+      status = presentation.status
+
+      base = %{
+        route: presentation.route,
+        kind: presentation.kind,
+        identity: presentation.identity,
+        description: is_binary(presentation.description),
+        specimens: length(presentation.specimens),
+        specimen_exception: presentation.exception,
+        fragments: Enum.map(presentation.specimens, & &1.fragment),
+        source: Enum.all?(presentation.specimens, &(is_binary(&1.source) and &1.source != "")),
+        features: Enum.map(presentation.features, & &1.identity),
+        support: Enum.map(presentation.support_rows, & &1.identity),
+        fallback: is_binary(presentation.exact_fallback),
+        mapping: presentation.counterpart.kind,
+        exception: presentation.exception,
+        authored_ready: status.authored_ready,
+        migrated: status.migrated,
+        visually_reviewed: status.visually_reviewed,
+        accepted: status.accepted,
+        visual_evidence: status.visual_evidence,
+        browser_route: presentation.route,
+        export_route: presentation.route
       }
+
+      if entry do
+        identity = {entry.public.module, entry.public.function, entry.public.arity}
+
+        Map.merge(base, %{
+          category: entry.category.slug,
+          component: entry.slug,
+          public_module: inspect(entry.public.module),
+          public_function: Atom.to_string(entry.public.function),
+          documentation: documentation_complete?(entry.documentation),
+          public_metadata: MapSet.member?(public_inventory, identity),
+          public_import: entry.public.module in public_import_modules(),
+          exdoc_group: MapSet.member?(exdoc_modules, entry.public.module),
+          provenance_id: entry.provenance_id,
+          provenance: MapSet.member?(provenance_ids, entry.provenance_id),
+          source_compile: entry.verification.source_compile,
+          renderer: renderer =~ ":#{entry.render}"
+        })
+      else
+        Map.merge(base, %{
+          category: nil,
+          component: nil,
+          public_module: nil,
+          public_function: nil,
+          documentation: true,
+          public_metadata: nil,
+          public_import: nil,
+          exdoc_group: nil,
+          provenance_id: nil,
+          provenance: nil,
+          source_compile: nil,
+          renderer: true
+        })
+      end
     end)
     |> Enum.sort_by(& &1.route)
   end

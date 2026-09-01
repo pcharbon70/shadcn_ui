@@ -28,6 +28,10 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert Code.ensure_loaded?(entry.public.module)
       assert function_exported?(entry.public.module, entry.public.function, entry.public.arity)
       assert is_binary(entry.provenance_id)
+      assert is_map(entry.presentation)
+      assert entry.presentation.description == entry.documentation.what
+      assert entry.presentation.exact_fallback == entry.documentation.fallback
+      assert entry.presentation.counterpart.identity == entry.provenance_id
 
       assert Enum.all?(
                ~w(what when responsibilities accessibility fallback source native_baseline package_enhancement demo_behavior unsupported)a,
@@ -53,6 +57,67 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
         assert example.source_id == "reference:#{entry.render}"
         assert example.layout == "centered"
       end
+    end
+  end
+
+  test "presentation inventory covers every component and gallery-only route in catalogue order" do
+    inventory = DocumentationCatalogue.presentation_inventory()
+
+    assert :ok = PresentationCatalogue.audit_inventory(inventory)
+    assert length(inventory) == 63
+    assert Enum.map(inventory, & &1.route) == Catalogue.routes()
+
+    assert Enum.frequencies_by(inventory, & &1.kind) == %{
+             "landing" => 1,
+             "category" => 9,
+             "component" => 41,
+             "composition" => 12
+           }
+
+    for record <- inventory do
+      assert record.status.authored_ready
+      assert is_binary(record.description) and record.description != ""
+      assert record.features != []
+      assert record.support_rows != []
+      assert is_binary(record.exact_fallback) and record.exact_fallback != ""
+    end
+
+    pilot = Enum.find(inventory, &(&1.route == "/components/disclosure/accordion"))
+    assert pilot.status.migrated
+    assert pilot.status.visually_reviewed
+    assert pilot.status.accepted
+
+    assert pilot.status.visual_evidence == [
+             "demo/priv/reference/milestone_g/phase-05-accordion-evidence.json"
+           ]
+
+    refute Enum.any?(inventory, fn record ->
+             record.route != pilot.route and
+               (record.status.migrated or record.status.visually_reviewed or
+                  record.status.accepted)
+           end)
+  end
+
+  test "semantic exceptions and gallery-only routes are explicit" do
+    entries = DocumentationCatalogue.entries()
+
+    assert entries
+           |> Enum.filter(&(&1.presentation.counterpart.kind == "semantic-exception"))
+           |> Enum.map(& &1.provenance_id)
+           |> Enum.sort() ==
+             ~w(content.radio_panels media.carousel media.cover-flow overlays.dropdown-actions)
+
+    local =
+      DocumentationCatalogue.presentation_inventory()
+      |> Enum.reject(&(&1.kind == "component"))
+
+    assert length(local) == 22
+
+    for record <- local do
+      assert record.counterpart.kind == "local-only"
+      assert record.counterpart.upstream_paths == []
+      assert record.exception == "gallery-route-without-component-specimens"
+      assert record.specimens == []
     end
   end
 
@@ -123,6 +188,11 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
     end
 
     hostile = ["unknown", "gallery-specimen--centered", "<script>", "Elixir.System", "../asset"]
+
+    for value <- hostile do
+      assert_raise ArgumentError, fn -> PresentationCatalogue.layout_class!(value) end
+    end
+
     before = :erlang.system_info(:atom_count)
 
     for value <- hostile do
@@ -235,10 +305,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
 
     assert length(entries) == 41
     assert length(DocumentationCatalogue.public_inventory()) == 41
-    assert length(report) == 41
-    assert Enum.map(report, & &1.route) == Enum.sort(Enum.map(entries, & &1.route))
+    assert length(report) == 63
+    assert Enum.map(report, & &1.route) == Enum.sort(Catalogue.routes())
 
-    for row <- report do
+    component_report = Enum.filter(report, &(&1.kind == "component"))
+    assert Enum.map(component_report, & &1.route) == Enum.sort(Enum.map(entries, & &1.route))
+
+    for row <- component_report do
       assert row.documentation
       assert row.public_metadata
       assert row.public_import
@@ -248,7 +321,19 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert row.browser_route == row.route
       assert row.export_route == row.route
       assert String.starts_with?(row.source_compile, "source:")
+      assert row.description
+      assert row.specimens > 0
+      assert row.source
+      assert row.features != []
+      assert row.support != []
+      assert row.fallback
+      assert row.mapping in ~w(upstream-counterpart semantic-exception)
+      assert row.authored_ready
     end
+
+    assert Enum.count(report, & &1.migrated) == 1
+    assert Enum.count(report, & &1.visually_reviewed) == 1
+    assert Enum.count(report, & &1.accepted) == 1
   end
 
   test "completeness output is deterministic and contains no host paths or clocks" do
@@ -256,7 +341,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
     second = DocumentationCatalogue.completeness_json()
 
     assert first == second
-    assert Jason.decode!(first) |> length() == 41
+    assert Jason.decode!(first) |> length() == 63
     refute first =~ Path.expand("..")
     refute first =~ ~r/(20\d\d-\d\d-\d\d|system_time|DateTime)/
   end
