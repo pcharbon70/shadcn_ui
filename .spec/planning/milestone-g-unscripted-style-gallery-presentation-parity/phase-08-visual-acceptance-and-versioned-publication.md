@@ -47,25 +47,25 @@ Back to wave: [README](./README.md)
       - [x] 8.2.2.2 Subtask - Audit actual package contents for absence of gallery CSS, fonts, icons, captures, metadata, scripts and deployment files.
       - [x] 8.2.2.3 Subtask - Run deterministic package CSS and clean-consumer acceptance if any reusable component style changed.
 
-  - [ ] 8.3 Section - Publish and verify the redesigned static gallery.
+  - [x] 8.3 Section - Publish and verify the redesigned static gallery.
 
     Publication remains an explicit reviewed state after local and CI acceptance.
 
-    - [ ] 8.3.1 Task - Qualify the immutable export.
+    - [x] 8.3.1 Task - Qualify the immutable export.
 
       The artifact must contain every redesigned route and only declared local assets.
 
-      - [ ] 8.3.1.1 Subtask - Produce two byte-identical exports and audit routes, fragments, code, search, sitemap, health, fonts, icons, CSS, scripts and media.
-      - [ ] 8.3.1.2 Subtask - Verify repository-subpath URLs, canonical identities, direct entry, content types, unknown routes and stale-file rejection.
-      - [ ] 8.3.1.3 Subtask - Confirm release metadata identifies the package, build, catalogue, upstream component revision and presentation reference revision truthfully.
+      - [x] 8.3.1.1 Subtask - Produce two byte-identical exports and audit routes, fragments, code, search, sitemap, health, fonts, icons, CSS, scripts and media.
+      - [x] 8.3.1.2 Subtask - Verify repository-subpath URLs, canonical identities, direct entry, content types, unknown routes and stale-file rejection.
+      - [x] 8.3.1.3 Subtask - Confirm release metadata identifies the package, build, catalogue, upstream component revision and presentation reference revision truthfully.
 
-    - [ ] 8.3.2 Task - Execute reviewed deployment and recovery checks.
+    - [x] 8.3.2 Task - Execute reviewed deployment and recovery checks.
 
       Merge, deployment and post-deploy success remain separate recorded states.
 
-      - [ ] 8.3.2.1 Subtask - Publish only through the reviewed workflow after authorized merge and retain the immutable artifact selected for rollback.
-      - [ ] 8.3.2.2 Subtask - Run canonical home, representative routes/fragments, assets, search, sitemap, health, version and error smoke checks.
-      - [ ] 8.3.2.3 Subtask - Exercise or review rollback to a previously verified artifact and run the documented recovery smoke sequence.
+      - [x] 8.3.2.1 Subtask - Publish only through the reviewed workflow after authorized merge and retain the immutable artifact selected for rollback.
+      - [x] 8.3.2.2 Subtask - Run canonical home, representative routes/fragments, assets, search, sitemap, health, version and error smoke checks.
+      - [x] 8.3.2.3 Subtask - Exercise or review rollback to a previously verified artifact and run the documented recovery smoke sequence.
 
   - [ ] 8.4 Section - Milestone G Integration And Acceptance.
 

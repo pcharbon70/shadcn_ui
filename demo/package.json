@@ -8,6 +8,8 @@
     "export:check": "node scripts/check-export.mjs",
     "export:smoke": "node scripts/smoke-export.mjs",
     "export:determinism": "node scripts/check-export-determinism.mjs",
+    "publication:milestone-g:record": "node scripts/record-milestone-g-publication.mjs --write",
+    "publication:milestone-g:check": "node scripts/record-milestone-g-publication.mjs --check",
     "browser:test": "playwright test",
     "browser:forms": "playwright test --config=playwright.forms.config.mjs",
     "browser:milestone-b": "playwright test --config=playwright.milestone-b.config.mjs",
