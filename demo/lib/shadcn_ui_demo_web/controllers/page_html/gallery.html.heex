@@ -189,7 +189,7 @@
     <section
       :if={
         Map.has_key?(@page.reference, :capability) &&
-          not @page.documentation_entry.presentation.status.migrated
+          @page.documentation_entry.category.slug in ["overlays", "interactive-surfaces"]
       }
       id="ordinary-alternative"
     >
@@ -252,47 +252,72 @@
     </section>
   </div>
 
-  <.content_navigation_composition
-    :if={
-      @page.kind == :composition &&
-        @page.render in [:documentation, :settings, :application_shell]
+  <article
+    :if={@page.kind == :composition}
+    class="gallery-reference"
+    data-gallery-composition-article={
+      @page.presentation.status.migrated && @page.presentation.identity
     }
-    render={@page.render}
-    selected={@page.selected}
-    invalid={@page.invalid}
-  />
+  >
+    <header
+      :if={@page.presentation.status.migrated}
+      class="gallery-reference__introduction"
+    >
+      <p class="gallery-reference__description">{@page.presentation.description}</p>
+      <div class="gallery-reference__capabilities" aria-label="Composition capabilities">
+        <.capability_badge
+          :for={feature <- @page.presentation.features}
+          id={"#{@page.slug}-#{feature.identity}"}
+          identity={feature.identity}
+          label={feature.label}
+          description={feature.description}
+        />
+      </div>
+    </header>
 
-  <.presentation_fixture :if={@page.kind == :composition && @page.render == :documentation} />
+    <section class="gallery-composition-body" data-gallery-composition-body>
+      <.content_navigation_composition
+        :if={@page.render in [:documentation, :settings, :application_shell]}
+        render={@page.render}
+        selected={@page.selected}
+        invalid={@page.invalid}
+      />
 
-  <.overlay_composition
-    :if={
-      @page.kind == :composition &&
-        @page.render in [
-          :overlay_capabilities,
-          :settings_confirmation,
-          :responsive_drawers,
-          :anchored_actions,
-          :supplemental_help
-        ]
-    }
-    render={@page.render}
-  />
+      <.presentation_fixture :if={@page.render == :documentation} />
 
-  <.motion_media_capabilities :if={
-    @page.kind == :composition && @page.render == :motion_media_capabilities
-  } />
+      <.overlay_composition
+        :if={
+          @page.render in [
+            :overlay_capabilities,
+            :settings_confirmation,
+            :responsive_drawers,
+            :anchored_actions,
+            :supplemental_help
+          ]
+        }
+        render={@page.render}
+      />
 
-  <ShadcnUIDemoWeb.MediaExamples.media_browser :if={
-    @page.kind == :composition && @page.render == :media_browser
-  } />
-  <ShadcnUIDemoWeb.ImageGalleryExamples.composition :if={
-    @page.kind == :composition && @page.render == :image_gallery
-  } />
+      <.motion_media_capabilities :if={@page.render == :motion_media_capabilities} />
 
-  <ShadcnUIDemoWeb.MotionExamples.motion_preferences
-    :if={@page.kind == :composition && @page.render == :motion_preferences}
-    theme={@theme}
-  />
+      <ShadcnUIDemoWeb.MediaExamples.media_browser :if={@page.render == :media_browser} />
+      <ShadcnUIDemoWeb.ImageGalleryExamples.composition :if={@page.render == :image_gallery} />
+
+      <ShadcnUIDemoWeb.MotionExamples.motion_preferences
+        :if={@page.render == :motion_preferences}
+        theme={@theme}
+      />
+    </section>
+
+    <section :if={@page.presentation.status.migrated} data-gallery-component-support>
+      <h2>Support and exact fallback</h2>
+      <.support_table
+        label={"#{@page.label} support and fallback"}
+        rows={@page.presentation.support_rows}
+      />
+      <p>{@page.presentation.exact_fallback}</p>
+    </section>
+  </article>
 
   <p :if={@page.kind == :not_found}>
     The requested gallery page does not exist. <a href="/">Return to the gallery.</a>

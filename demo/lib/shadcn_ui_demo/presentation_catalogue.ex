@@ -71,6 +71,23 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   @accordion_evidence "demo/priv/reference/milestone_g/phase-05-accordion-evidence.json"
   @phase_7_1_prefixes ["/components/foundation/", "/components/forms/"]
   @phase_7_1_evidence "demo/priv/reference/milestone_g/phase-07-section-1-evidence.json"
+  @phase_7_2_prefixes [
+    "/components/navigation/",
+    "/components/content-surfaces/",
+    "/components/overlays/",
+    "/components/interactive-surfaces/"
+  ]
+  @phase_7_2_routes ~w(
+    /examples/documentation
+    /examples/settings
+    /examples/application-shell
+    /examples/overlay-capabilities
+    /examples/settings-confirmation
+    /examples/responsive-drawers
+    /examples/anchored-actions
+    /examples/supplemental-help
+  )
+  @phase_7_2_evidence "demo/priv/reference/milestone_g/phase-07-section-2-evidence.json"
 
   @spec layout_identities() :: [String.t()]
   def layout_identities, do: Map.keys(@layout_classes) |> Enum.sort()
@@ -114,24 +131,37 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   end
 
   def status(route) when is_binary(route) do
-    if Enum.any?(@phase_7_1_prefixes, &String.starts_with?(route, &1)) do
-      %{
-        authored_ready: true,
-        migrated: true,
-        visually_reviewed: true,
-        accepted: false,
-        migration_wave: "7.1",
-        visual_evidence: [@phase_7_1_evidence]
-      }
-    else
-      %{
-        authored_ready: true,
-        migrated: false,
-        visually_reviewed: false,
-        accepted: false,
-        migration_wave: nil,
-        visual_evidence: []
-      }
+    cond do
+      Enum.any?(@phase_7_1_prefixes, &String.starts_with?(route, &1)) ->
+        %{
+          authored_ready: true,
+          migrated: true,
+          visually_reviewed: true,
+          accepted: false,
+          migration_wave: "7.1",
+          visual_evidence: [@phase_7_1_evidence]
+        }
+
+      Enum.any?(@phase_7_2_prefixes, &String.starts_with?(route, &1)) or
+          route in @phase_7_2_routes ->
+        %{
+          authored_ready: true,
+          migrated: true,
+          visually_reviewed: true,
+          accepted: false,
+          migration_wave: "7.2",
+          visual_evidence: [@phase_7_2_evidence]
+        }
+
+      true ->
+        %{
+          authored_ready: true,
+          migrated: false,
+          visually_reviewed: false,
+          accepted: false,
+          migration_wave: nil,
+          visual_evidence: []
+        }
     end
   end
 

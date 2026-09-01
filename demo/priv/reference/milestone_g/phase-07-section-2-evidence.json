@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "local-reviewed-migration-wave",
+  "phase": "milestone-g-phase-07-section-2",
+  "families": ["navigation", "content-surfaces", "overlays", "interactive-surfaces"],
+  "componentRoutes": 13,
+  "compositionRoutes": 8,
+  "semanticExceptions": ["content.radio_panels", "overlays.dropdown-actions"],
+  "reviewedStates": [
+    "current-location",
+    "sticky-fallback",
+    "native-overflow",
+    "radio-not-tabs",
+    "modal-dismissal",
+    "nonmodal-positioning",
+    "ordinary-alternatives",
+    "supplemental-content",
+    "narrow-layouts"
+  ],
+  "accepted": false,
+  "acceptancePhase": "8"
+}

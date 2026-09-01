@@ -91,4 +91,97 @@ defmodule ShadcnUIDemo.MilestoneGPhase7MigrationTest do
     assert static =~ "Static export: submission is intentionally disabled."
     refute static =~ ~s(action="/forms/submit")
   end
+
+  test "Phase 7.2 migrates navigation, content, overlay, and interactive component routes", %{
+    conn: conn
+  } do
+    entries =
+      DocumentationCatalogue.entries()
+      |> Enum.filter(
+        &(&1.category.slug in [
+            "navigation",
+            "content-surfaces",
+            "overlays",
+            "interactive-surfaces"
+          ])
+      )
+
+    assert length(entries) == 13
+
+    for entry <- entries do
+      assert entry.presentation.status.migrated
+      assert entry.presentation.status.visually_reviewed
+      refute entry.presentation.status.accepted
+      assert entry.presentation.status.migration_wave == "7.2"
+
+      html = conn |> recycle() |> get(entry.route) |> html_response(200)
+      assert html =~ entry.presentation.counterpart.local_changes
+      assert html =~ ~s(data-gallery-component-support)
+
+      if entry.category.slug in ["overlays", "interactive-surfaces"] do
+        assert html =~ ~s(id="ordinary-alternative")
+      end
+    end
+
+    exceptions =
+      entries
+      |> Enum.filter(&(&1.presentation.counterpart.kind == "semantic-exception"))
+      |> Enum.map(& &1.provenance_id)
+      |> Enum.sort()
+
+    assert exceptions == ~w(content.radio_panels overlays.dropdown-actions)
+  end
+
+  test "Phase 7.2 related compositions use the shared introduction and fallback wrapper", %{
+    conn: conn
+  } do
+    renders = [
+      :documentation,
+      :settings,
+      :application_shell,
+      :overlay_capabilities,
+      :settings_confirmation,
+      :responsive_drawers,
+      :anchored_actions,
+      :supplemental_help
+    ]
+
+    compositions = Enum.filter(Catalogue.compositions(), &(&1.render in renders))
+    assert length(compositions) == 8
+
+    for composition <- compositions do
+      {:ok, presentation} =
+        DocumentationCatalogue.lookup_presentation_route(composition.path)
+
+      assert presentation.status.migration_wave == "7.2"
+      html = conn |> recycle() |> get(composition.path) |> html_response(200)
+      assert html =~ ~s(data-gallery-composition-article="#{presentation.identity}")
+      assert html =~ "Support and exact fallback"
+      assert html =~ presentation.description
+      assert html =~ presentation.exact_fallback
+    end
+  end
+
+  test "Phase 7.2 closes distinct layout and evidence identities" do
+    entries = DocumentationCatalogue.entries() |> Map.new(&{&1.render, &1})
+
+    for render <- [:navigation_menu, :scroll_area],
+        do: assert(hd(entries[render].examples).layout == "overflow")
+
+    for render <- [:dialog, :drawer], do: assert(hd(entries[render].examples).layout == "tall")
+
+    evidence =
+      "priv/reference/milestone_g/phase-07-section-2-evidence.json"
+      |> File.read!()
+      |> Jason.decode!()
+
+    assert evidence["componentRoutes"] == 13
+    assert evidence["compositionRoutes"] == 8
+
+    assert evidence["semanticExceptions"] ==
+             ~w(content.radio_panels overlays.dropdown-actions)
+
+    assert "ordinary-alternatives" in evidence["reviewedStates"]
+    refute evidence["accepted"]
+  end
 end

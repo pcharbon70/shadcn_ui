@@ -209,6 +209,24 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
             ],
        do: "constrained"
 
+  defp example_layout(render) when render in [:navigation_menu, :scroll_area], do: "overflow"
+
+  defp example_layout(render) when render in [:dialog, :drawer], do: "tall"
+
+  defp example_layout(render)
+       when render in [
+              :header,
+              :section_header,
+              :separator,
+              :radio_panels,
+              :alert_dialog,
+              :popover,
+              :dropdown_actions,
+              :tooltip,
+              :hover_card
+            ],
+       do: "constrained"
+
   defp example_layout(_render), do: "centered"
 
   @spec lookup(String.t(), String.t()) :: {:ok, map()} | :error
@@ -230,6 +248,16 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   end
 
   def lookup_route(_route), do: :error
+
+  @spec lookup_presentation_route(String.t()) :: {:ok, map()} | :error
+  def lookup_presentation_route(route) when is_binary(route) do
+    case Enum.find(presentation_inventory(), &(&1.route == route)) do
+      nil -> :error
+      presentation -> {:ok, presentation}
+    end
+  end
+
+  def lookup_presentation_route(_route), do: :error
 
   @spec lookup_fragment(String.t(), String.t()) :: {:ok, map()} | :error
   def lookup_fragment(route, fragment) when is_binary(route) and is_binary(fragment) do

@@ -42,6 +42,8 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   def composition(conn, %{"example" => example} = params) do
     case Catalogue.lookup_composition(example) do
       {:ok, item} ->
+        {:ok, presentation} = DocumentationCatalogue.lookup_presentation_route(item.path)
+
         selected =
           if params["view"] in ["profile", "security"], do: params["view"], else: "profile"
 
@@ -53,6 +55,7 @@ defmodule ShadcnUIDemoWeb.GalleryController do
           Map.merge(item, %{
             kind: :composition,
             title: item.label,
+            presentation: presentation,
             selected: selected,
             invalid: invalid
           })

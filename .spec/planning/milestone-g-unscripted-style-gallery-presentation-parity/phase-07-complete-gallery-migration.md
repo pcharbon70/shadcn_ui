@@ -28,25 +28,25 @@ Back to wave: [README](./README.md)
       - [x] 7.1.2.2 Subtask - Refine sign-in, profile and settings compositions under the same shell and prose hierarchy.
       - [x] 7.1.2.3 Subtask - Preserve labels, descriptions, errors, submission boundaries, forced-colors behavior and no-script form semantics.
 
-  - [ ] 7.2 Section - Migrate Navigation, Content and Interactive families.
+  - [x] 7.2 Section - Migrate Navigation, Content and Interactive families.
 
     Preserve honest semantic distinctions while aligning documentation presentation.
 
-    - [ ] 7.2.1 Task - Migrate Navigation and Content Surfaces.
+    - [x] 7.2.1 Task - Migrate Navigation and Content Surfaces.
 
       Destination navigation, native scrolling and radio selection require different explanations despite shared polish.
 
-      - [ ] 7.2.1.1 Subtask - Migrate Navigation Menu, Header and Section Header with current-location, sticky and fallback evidence.
-      - [ ] 7.2.1.2 Subtask - Migrate Scroll Area, Separator and Radio Panels with overflow, edge-affordance and non-tab exception guidance.
-      - [ ] 7.2.1.3 Subtask - Refine documentation, settings and application-shell compositions without adding routes or application state.
+      - [x] 7.2.1.1 Subtask - Migrate Navigation Menu, Header and Section Header with current-location, sticky and fallback evidence.
+      - [x] 7.2.1.2 Subtask - Migrate Scroll Area, Separator and Radio Panels with overflow, edge-affordance and non-tab exception guidance.
+      - [x] 7.2.1.3 Subtask - Refine documentation, settings and application-shell compositions without adding routes or application state.
 
-    - [ ] 7.2.2 Task - Migrate Overlays and Interactive Surfaces.
+    - [x] 7.2.2 Task - Migrate Overlays and Interactive Surfaces.
 
       Native platform behavior and ordinary alternatives must remain more important than visual similarity.
 
-      - [ ] 7.2.2.1 Subtask - Migrate Dialog, Alert Dialog, Drawer, Popover and Dropdown Actions with modality, dismissal, positioning and fallback evidence.
-      - [ ] 7.2.2.2 Subtask - Migrate Tooltip and Hover Card with visible required information and supplemental-surface boundaries intact.
-      - [ ] 7.2.2.3 Subtask - Refine overlay capability and composition routes, including ordinary alternatives and narrow layouts.
+      - [x] 7.2.2.1 Subtask - Migrate Dialog, Alert Dialog, Drawer, Popover and Dropdown Actions with modality, dismissal, positioning and fallback evidence.
+      - [x] 7.2.2.2 Subtask - Migrate Tooltip and Hover Card with visible required information and supplemental-surface boundaries intact.
+      - [x] 7.2.2.3 Subtask - Refine overlay capability and composition routes, including ordinary alternatives and narrow layouts.
 
   - [ ] 7.3 Section - Migrate Media and Motion.
 
