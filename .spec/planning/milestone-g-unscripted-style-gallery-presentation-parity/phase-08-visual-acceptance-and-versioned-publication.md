@@ -7,25 +7,25 @@ Back to wave: [README](./README.md)
   Execute the complete locked visual, semantic, accessibility, export,
   provenance and publication matrix, then reconcile Milestone G truthfully.
 
-  - [ ] 8.1 Section - Complete deterministic visual acceptance.
+  - [x] 8.1 Section - Complete deterministic visual acceptance.
 
     Turn the reviewed presentation target into reproducible final evidence.
 
-    - [ ] 8.1.1 Task - Run the locked reference matrix.
+    - [x] 8.1.1 Task - Run the locked reference matrix.
 
       Final comparison covers every shared pattern and representative component family.
 
-      - [ ] 8.1.1.1 Subtask - Capture accepted desktop, tablet, 390px and 320px light/dark states with pinned fonts, scale and browser builds.
-      - [ ] 8.1.1.2 Subtask - Compare shell geometry, typography, navigation, specimens, code, support tables and responsive reflow within documented tolerances.
-      - [ ] 8.1.1.3 Subtask - Review diffs exceeding tolerance and either fix them or record an accepted local exception tied to a semantic or branding reason.
+      - [x] 8.1.1.1 Subtask - Capture accepted desktop, tablet, 390px and 320px light/dark states with pinned fonts, scale and browser builds.
+      - [x] 8.1.1.2 Subtask - Compare shell geometry, typography, navigation, specimens, code, support tables and responsive reflow within documented tolerances.
+      - [x] 8.1.1.3 Subtask - Review diffs exceeding tolerance and either fix them or record an accepted local exception tied to a semantic or branding reason.
 
-    - [ ] 8.1.2 Task - Prove reference evidence remains deterministic.
+    - [x] 8.1.2 Task - Prove reference evidence remains deterministic.
 
       Golden updates need the same review discipline as source changes.
 
-      - [ ] 8.1.2.1 Subtask - Verify manifest identity, hashes, capture settings and absence of remote runtime dependence.
-      - [ ] 8.1.2.2 Subtask - Re-run representative captures from identical inputs and bound platform-specific rendering variance explicitly.
-      - [ ] 8.1.2.3 Subtask - Reject unexplained bulk golden replacement or reference updates from an unpinned upstream site.
+      - [x] 8.1.2.1 Subtask - Verify manifest identity, hashes, capture settings and absence of remote runtime dependence.
+      - [x] 8.1.2.2 Subtask - Re-run representative captures from identical inputs and bound platform-specific rendering variance explicitly.
+      - [x] 8.1.2.3 Subtask - Reject unexplained bulk golden replacement or reference updates from an unpinned upstream site.
 
   - [ ] 8.2 Section - Run complete functional and accessibility regression.
 
