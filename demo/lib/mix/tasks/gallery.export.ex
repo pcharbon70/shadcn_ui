@@ -236,15 +236,9 @@ defmodule Mix.Tasks.Gallery.Export do
   end
 
   defp write_sitemap! do
-    base = "https://leco-industries-inc.github.io/shadcn_ui"
-
-    urls =
-      (ShadcnUIDemo.Catalogue.routes() ++ ShadcnUIDemo.Catalogue.form_routes())
-      |> Enum.map_join("", &"<url><loc>#{base}#{&1}</loc></url>")
-
     File.write!(
       Path.join(@output, "sitemap.xml"),
-      "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>"
+      ShadcnUIDemo.DocumentationCatalogue.sitemap_xml()
     )
   end
 

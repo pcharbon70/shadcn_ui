@@ -1158,20 +1158,6 @@
       "message": "Verification target test/shadcn_ui/milestone_d_acceptance_test.exs does not reference covered requirement: shadcn_ui.gallery.theme_matrix"
     },
     {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.gallery_presentation",
-      "file": ".spec/specs/gallery_presentation.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: demo/test/milestone_g_catalogue_test.exs"
-    },
-    {
-      "code": "verification_target_missing",
-      "entity_id": "shadcn_ui.gallery_presentation",
-      "file": ".spec/specs/gallery_presentation.spec.md",
-      "level": "warning",
-      "message": "Verification target file does not exist: test/shadcn_ui/milestone_g_acceptance_test.exs"
-    },
-    {
       "code": "verification_target_missing_reference",
       "entity_id": "shadcn_ui.motion_media_gallery",
       "file": ".spec/specs/motion_media_gallery.spec.md",
@@ -2381,7 +2367,7 @@
         "id": "shadcn_ui.gallery_presentation.catalogue_metadata",
         "priority": "must",
         "stability": "stable",
-        "statement": "The closed documentation catalogue shall author concise introductions, capability identities, how-it-works points, support rows, exact fallbacks, named specimens and upstream or local-exception identities without resolving request, fragment or search text into executable identities.",
+        "statement": "The closed documentation catalogue shall author concise introductions, capability identities, how-it-works points, support rows, exact fallbacks, named specimens and upstream or local-exception identities, and shall separately record authored-ready, migrated, visually reviewed and accepted states without resolving request, fragment, feature, layout or search text into executable identities.",
         "subject_id": "shadcn_ui.gallery_presentation"
       },
       {
@@ -2397,7 +2383,7 @@
         "id": "shadcn_ui.gallery_presentation.deterministic_distribution",
         "priority": "must",
         "stability": "stable",
-        "statement": "Identical inputs shall produce byte-identical local assets and repository-subpath-safe static exports with no remote runtime dependency, new package release content or implied promotion from local evidence to CI, deployment or manual acceptance.",
+        "statement": "Identical inputs shall produce byte-identical local assets, canonical search, sitemap and completeness outputs, and repository-subpath-safe static exports with no remote runtime dependency, new package release content or implied promotion from local evidence to CI, deployment or manual acceptance.",
         "subject_id": "shadcn_ui.gallery_presentation"
       },
       {
@@ -6594,7 +6580,7 @@
     "decision_parse_errors": 0,
     "decisions": 29,
     "exceptions": 0,
-    "findings": 146,
+    "findings": 144,
     "requirements": 266,
     "scenarios": 0,
     "subjects": 27,
@@ -11316,7 +11302,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
         "verification_index": 9
@@ -11327,7 +11313,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
         "verification_index": 9
@@ -11338,7 +11324,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
         "verification_index": 9
@@ -11349,7 +11335,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
         "verification_index": 9
@@ -11360,7 +11346,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
         "verification_index": 10
@@ -11371,7 +11357,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
         "verification_index": 10
@@ -11382,7 +11368,7 @@
         "kind": "test_file",
         "meets_minimum": true,
         "required_strength": "claimed",
-        "strength": "claimed",
+        "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
         "verification_index": 10
@@ -15725,9 +15711,9 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 154,
+      "claimed": 147,
       "executed": 38,
-      "linked": 637
+      "linked": 644
     },
     "threshold_failures": 0
   },

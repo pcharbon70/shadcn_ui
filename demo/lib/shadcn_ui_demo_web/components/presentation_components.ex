@@ -3,8 +3,10 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
 
   use Phoenix.Component
 
-  @layouts ~w(centered start constrained tall overflow composition)
-  @capability_identities ~w(authored-policy native-baseline progressive-enhancement exclusive-grouping details-content interpolate-size fallback)
+  alias ShadcnUIDemo.PresentationCatalogue
+
+  @layouts PresentationCatalogue.layout_identities()
+  @capability_identities PresentationCatalogue.feature_identities()
 
   attr :id, :string, required: true
   attr :label, :string, required: true
@@ -19,7 +21,7 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
   def specimen(assigns) do
     assigns =
       assigns
-      |> assign(:layout_class, Map.fetch!(layout_classes(), assigns.layout))
+      |> assign(:layout_class, PresentationCatalogue.layout_class!(assigns.layout))
       |> assign(:highlighted_source, highlight_heex(assigns.source))
 
     ~H"""
@@ -264,16 +266,5 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
       end
     end)
     |> Phoenix.HTML.raw()
-  end
-
-  defp layout_classes do
-    %{
-      "centered" => "gallery-specimen--centered",
-      "start" => "gallery-specimen--start",
-      "constrained" => "gallery-specimen--constrained",
-      "tall" => "gallery-specimen--tall",
-      "overflow" => "gallery-specimen--overflow",
-      "composition" => "gallery-specimen--composition"
-    }
   end
 end

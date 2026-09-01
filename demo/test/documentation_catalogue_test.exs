@@ -9,7 +9,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
   # covers: shadcn_ui.documentation_catalogue.completeness_report
   # covers: shadcn_ui.documentation_catalogue.deterministic_search
 
-  alias ShadcnUIDemo.{Catalogue, DocumentationCatalogue}
+  alias ShadcnUIDemo.{Catalogue, DocumentationCatalogue, PresentationCatalogue}
 
   test "closed schema describes every stable component route" do
     assert :ok = DocumentationCatalogue.validate()
@@ -28,6 +28,10 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert Code.ensure_loaded?(entry.public.module)
       assert function_exported?(entry.public.module, entry.public.function, entry.public.arity)
       assert is_binary(entry.provenance_id)
+      assert is_map(entry.presentation)
+      assert entry.presentation.description == entry.documentation.what
+      assert entry.presentation.exact_fallback == entry.documentation.fallback
+      assert entry.presentation.counterpart.identity == entry.provenance_id
 
       assert Enum.all?(
                ~w(what when responsibilities accessibility fallback source native_baseline package_enhancement demo_behavior unsupported)a,
@@ -56,6 +60,67 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
     end
   end
 
+  test "presentation inventory covers every component and gallery-only route in catalogue order" do
+    inventory = DocumentationCatalogue.presentation_inventory()
+
+    assert :ok = PresentationCatalogue.audit_inventory(inventory)
+    assert length(inventory) == 63
+    assert Enum.map(inventory, & &1.route) == Catalogue.routes()
+
+    assert Enum.frequencies_by(inventory, & &1.kind) == %{
+             "landing" => 1,
+             "category" => 9,
+             "component" => 41,
+             "composition" => 12
+           }
+
+    for record <- inventory do
+      assert record.status.authored_ready
+      assert is_binary(record.description) and record.description != ""
+      assert record.features != []
+      assert record.support_rows != []
+      assert is_binary(record.exact_fallback) and record.exact_fallback != ""
+    end
+
+    pilot = Enum.find(inventory, &(&1.route == "/components/disclosure/accordion"))
+    assert pilot.status.migrated
+    assert pilot.status.visually_reviewed
+    assert pilot.status.accepted
+
+    assert pilot.status.visual_evidence == [
+             "demo/priv/reference/milestone_g/phase-05-accordion-evidence.json"
+           ]
+
+    refute Enum.any?(inventory, fn record ->
+             record.route != pilot.route and
+               (record.status.migrated or record.status.visually_reviewed or
+                  record.status.accepted)
+           end)
+  end
+
+  test "semantic exceptions and gallery-only routes are explicit" do
+    entries = DocumentationCatalogue.entries()
+
+    assert entries
+           |> Enum.filter(&(&1.presentation.counterpart.kind == "semantic-exception"))
+           |> Enum.map(& &1.provenance_id)
+           |> Enum.sort() ==
+             ~w(content.radio_panels media.carousel media.cover-flow overlays.dropdown-actions)
+
+    local =
+      DocumentationCatalogue.presentation_inventory()
+      |> Enum.reject(&(&1.kind == "component"))
+
+    assert length(local) == 22
+
+    for record <- local do
+      assert record.counterpart.kind == "local-only"
+      assert record.counterpart.upstream_paths == []
+      assert record.exception == "gallery-route-without-component-specimens"
+      assert record.specimens == []
+    end
+  end
+
   test "authored examples have stable unique fragments and explicit relationships" do
     relationships =
       for entry <- DocumentationCatalogue.entries(), example <- entry.examples do
@@ -70,6 +135,112 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
                String.starts_with?(source_id, "reference:") and
                is_binary(label) and label != ""
            end)
+  end
+
+  test "presentation metadata resolves literal content through closed identities" do
+    assert {:ok, accordion} =
+             DocumentationCatalogue.lookup("disclosure", "accordion")
+
+    presentation = accordion.presentation
+
+    assert presentation.description == accordion.documentation.what
+    assert presentation.exact_fallback == accordion.documentation.fallback
+    assert presentation.defining_function == "accordion"
+    assert presentation.counterpart.identity == accordion.provenance_id
+    assert presentation.counterpart.kind == "upstream-counterpart"
+    assert presentation.counterpart.revision =~ ~r/^[a-f0-9]{40}$/
+    assert presentation.counterpart.upstream_paths != []
+
+    assert Enum.all?(presentation.how_it_works, fn point ->
+             is_binary(point.code) and is_binary(point.description)
+           end)
+
+    assert Enum.map(presentation.features, & &1.identity) ==
+             ~w(native-baseline exclusive-grouping details-content interpolate-size fallback)
+
+    for feature <- presentation.features do
+      assert Map.keys(feature) |> Enum.sort() ==
+               ~w(description evidence fallback identity label reference)a |> Enum.sort()
+
+      assert {:ok, ^feature} = PresentationCatalogue.feature(presentation, feature.identity)
+      assert Enum.all?(Map.values(feature), &(is_binary(&1) and &1 != ""))
+    end
+
+    assert :error = PresentationCatalogue.feature(presentation, "unknown")
+
+    for example <- accordion.examples do
+      assert example.specimen_id == "#{example.fragment}-specimen"
+      assert example.preview_fragment == example.fragment
+      assert example.source_fragment == "#{example.fragment}-source"
+      assert example.source_relationship == example.source_id
+      assert example.source_compile == accordion.verification.source_compile
+      assert example.component_identity == accordion.provenance_id
+    end
+  end
+
+  test "layout resolution is closed and cosmetic classes stay outside catalogue metadata" do
+    assert PresentationCatalogue.layout_identities() ==
+             ~w(centered composition constrained overflow start tall)
+
+    for identity <- PresentationCatalogue.layout_identities() do
+      assert PresentationCatalogue.layout_class!(identity) ==
+               "gallery-specimen--#{identity}"
+    end
+
+    hostile = ["unknown", "gallery-specimen--centered", "<script>", "Elixir.System", "../asset"]
+
+    for value <- hostile do
+      assert_raise ArgumentError, fn -> PresentationCatalogue.layout_class!(value) end
+    end
+
+    before = :erlang.system_info(:atom_count)
+
+    for value <- hostile do
+      assert_raise ArgumentError, fn -> PresentationCatalogue.layout_class!(value) end
+    end
+
+    assert :erlang.system_info(:atom_count) == before
+
+    metadata = DocumentationCatalogue.entries() |> Enum.map(& &1.presentation) |> inspect()
+    refute metadata =~ ~r/(gallery-specimen--|class_name|"class")/
+  end
+
+  test "presentation audit rejects missing, duplicate, unknown, and cosmetic declarations" do
+    entries = DocumentationCatalogue.entries()
+    index = Enum.find_index(entries, &(&1.render == :accordion))
+    accordion = Enum.at(entries, index)
+
+    missing = put_in(accordion.presentation.description, "")
+
+    assert {:error, errors} =
+             PresentationCatalogue.audit(List.replace_at(entries, index, missing))
+
+    assert "missing presentation description: #{accordion.route}" in errors
+
+    duplicate =
+      update_in(accordion.presentation.features, fn [first | rest] -> [first, first | rest] end)
+
+    assert {:error, errors} =
+             PresentationCatalogue.audit(List.replace_at(entries, index, duplicate))
+
+    assert Enum.any?(errors, &String.starts_with?(&1, "duplicate feature:"))
+
+    unknown =
+      update_in(accordion.examples, fn [first | rest] ->
+        [Map.put(first, :layout, "<script>") | rest]
+      end)
+
+    assert {:error, errors} =
+             PresentationCatalogue.audit(List.replace_at(entries, index, unknown))
+
+    assert "unknown specimen layout: #{accordion.route}" in errors
+
+    cosmetic = update_in(accordion.presentation, &Map.put(&1, :class, "arbitrary visitor class"))
+
+    assert {:error, errors} =
+             PresentationCatalogue.audit(List.replace_at(entries, index, cosmetic))
+
+    assert "cosmetic class leaked into presentation metadata: #{accordion.route}" in errors
   end
 
   test "related documentation stays within authored ordinary routes" do
@@ -134,10 +305,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
 
     assert length(entries) == 41
     assert length(DocumentationCatalogue.public_inventory()) == 41
-    assert length(report) == 41
-    assert Enum.map(report, & &1.route) == Enum.sort(Enum.map(entries, & &1.route))
+    assert length(report) == 63
+    assert Enum.map(report, & &1.route) == Enum.sort(Catalogue.routes())
 
-    for row <- report do
+    component_report = Enum.filter(report, &(&1.kind == "component"))
+    assert Enum.map(component_report, & &1.route) == Enum.sort(Enum.map(entries, & &1.route))
+
+    for row <- component_report do
       assert row.documentation
       assert row.public_metadata
       assert row.public_import
@@ -147,7 +321,19 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert row.browser_route == row.route
       assert row.export_route == row.route
       assert String.starts_with?(row.source_compile, "source:")
+      assert row.description
+      assert row.specimens > 0
+      assert row.source
+      assert row.features != []
+      assert row.support != []
+      assert row.fallback
+      assert row.mapping in ~w(upstream-counterpart semantic-exception)
+      assert row.authored_ready
     end
+
+    assert Enum.count(report, & &1.migrated) == 1
+    assert Enum.count(report, & &1.visually_reviewed) == 1
+    assert Enum.count(report, & &1.accepted) == 1
   end
 
   test "completeness output is deterministic and contains no host paths or clocks" do
@@ -155,7 +341,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
     second = DocumentationCatalogue.completeness_json()
 
     assert first == second
-    assert Jason.decode!(first) |> length() == 41
+    assert Jason.decode!(first) |> length() == 63
     refute first =~ Path.expand("..")
     refute first =~ ~r/(20\d\d-\d\d-\d\d|system_time|DateTime)/
   end

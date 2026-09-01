@@ -33,11 +33,12 @@ defmodule ShadcnUIDemo.MilestoneGPhase5AccordionTest do
     assert Enum.at(entry.examples, 0).source =~ ~s(mode={:exclusive})
     assert Enum.at(entry.examples, 1).source =~ ~s(mode={:independent})
 
-    assert Enum.map(entry.presentation.capabilities, & &1.identity) ==
+    assert Enum.map(entry.presentation.features, & &1.identity) ==
              ~w(native-baseline exclusive-grouping details-content interpolate-size fallback)
 
     assert length(entry.presentation.support_rows) == 3
-    assert entry.presentation.adaptation =~ "Phoenix slot syntax"
+    assert entry.presentation.counterpart.identity == "disclosure.accordion"
+    assert entry.presentation.counterpart.local_changes =~ "deterministic native details"
   end
 
   test "Accordion article renders exact fragments, modes, guidance, ownership, and provenance", %{

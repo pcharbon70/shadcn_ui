@@ -54,7 +54,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery_presentation.catalogue_metadata
-  statement: The closed documentation catalogue shall author concise introductions, capability identities, how-it-works points, support rows, exact fallbacks, named specimens and upstream or local-exception identities without resolving request, fragment or search text into executable identities.
+  statement: The closed documentation catalogue shall author concise introductions, capability identities, how-it-works points, support rows, exact fallbacks, named specimens and upstream or local-exception identities, and shall separately record authored-ready, migrated, visually reviewed and accepted states without resolving request, fragment, feature, layout or search text into executable identities.
   priority: must
   stability: stable
 
@@ -84,7 +84,7 @@ surface:
   stability: evolving
 
 - id: shadcn_ui.gallery_presentation.deterministic_distribution
-  statement: Identical inputs shall produce byte-identical local assets and repository-subpath-safe static exports with no remote runtime dependency, new package release content or implied promotion from local evidence to CI, deployment or manual acceptance.
+  statement: Identical inputs shall produce byte-identical local assets, canonical search, sitemap and completeness outputs, and repository-subpath-safe static exports with no remote runtime dependency, new package release content or implied promotion from local evidence to CI, deployment or manual acceptance.
   priority: must
   stability: stable
 

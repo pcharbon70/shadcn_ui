@@ -7,13 +7,14 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   text and is not part of the ShadcnUI package API.
   """
 
-  alias ShadcnUIDemo.{Catalogue, Reference}
+  alias ShadcnUIDemo.{Catalogue, PresentationCatalogue, Reference}
 
   @schema_version "1"
   @package_root Path.expand("../../..", __DIR__)
   @documentation_keys ~w(what when responsibilities accessibility fallback source native_baseline package_enhancement demo_behavior unsupported)a
   @search_keys ~w(category keywords name route summary url)
   @static_base "/shadcn_ui"
+  @publication_base "https://leco-industries-inc.github.io/shadcn_ui"
   @related_compositions %{
     "foundation" => [:documentation],
     "forms" => [:settings],
@@ -88,6 +89,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @spec entries() :: [map()]
   def entries do
     categories = Map.new(Catalogue.categories(), &{&1.slug, &1})
+    counterparts = PresentationCatalogue.counterparts()
 
     Enum.map(Catalogue.components(), fn component ->
       category = Map.fetch!(categories, component.category)
@@ -95,7 +97,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       {module, function, provenance_id} = Map.fetch!(@public_identities, component.render)
       fragment = "#{component.slug}-primary"
 
-      examples = examples(component, reference, fragment)
+      examples = examples(component, reference, fragment, provenance_id)
 
       %{
         schema_version: @schema_version,
@@ -113,7 +115,14 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
         },
         api: component_api(module, function),
         examples: examples,
-        presentation: presentation(component.render),
+        presentation:
+          component.render
+          |> PresentationCatalogue.article(
+            function,
+            reference,
+            Map.fetch!(counterparts, provenance_id)
+          )
+          |> Map.put(:status, PresentationCatalogue.status(component.path)),
         provenance_id: provenance_id,
         verification: %{
           source_compile: "source:#{component.render}",
@@ -124,12 +133,17 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     end)
   end
 
-  defp examples(%{render: :accordion} = component, reference, fragment) do
+  defp examples(%{render: :accordion} = component, reference, fragment, component_identity) do
     [
       %{
         fragment: fragment,
+        preview_fragment: fragment,
         source_fragment: "#{fragment}-source",
+        specimen_id: "#{fragment}-specimen",
+        component_identity: component_identity,
         source_id: "reference:accordion:exclusive",
+        source_relationship: "reference:accordion:exclusive",
+        source_compile: "source:accordion",
         preview_label: "Exclusive FAQ",
         layout: "constrained",
         route: "#{component.path}##{fragment}",
@@ -137,8 +151,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       },
       %{
         fragment: "accordion-independent",
+        preview_fragment: "accordion-independent",
         source_fragment: "accordion-independent-source",
+        specimen_id: "accordion-independent-specimen",
+        component_identity: component_identity,
         source_id: "reference:accordion:independent",
+        source_relationship: "reference:accordion:independent",
+        source_compile: "source:accordion",
         preview_label: "Independent sections",
         layout: "constrained",
         route: "#{component.path}#accordion-independent",
@@ -147,12 +166,17 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     ]
   end
 
-  defp examples(component, reference, fragment) do
+  defp examples(component, reference, fragment, component_identity) do
     [
       %{
         fragment: fragment,
+        preview_fragment: fragment,
         source_fragment: "#{fragment}-source",
+        specimen_id: "#{fragment}-specimen",
+        component_identity: component_identity,
         source_id: "reference:#{component.render}",
+        source_relationship: "reference:#{component.render}",
+        source_compile: "source:#{component.render}",
         preview_label: "#{component.label} primary example",
         layout: "centered",
         route: "#{component.path}##{fragment}",
@@ -160,46 +184,6 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       }
     ]
   end
-
-  defp presentation(:accordion) do
-    %{
-      capabilities: [
-        %{identity: "native-baseline", label: "Native disclosure", field: :native_baseline},
-        %{identity: "exclusive-grouping", label: "Exclusive grouping", field: :capability},
-        %{identity: "details-content", label: "Animated content", field: :details_content},
-        %{identity: "interpolate-size", label: "Intrinsic size", field: :interpolate_size},
-        %{identity: "fallback", label: "Exact fallback", field: :fallback}
-      ],
-      how_it_works: [
-        %{code: "<details><summary>", field: :native_baseline},
-        %{code: ~s(name="faq"), field: :capability},
-        %{code: "open", field: :open_state},
-        %{code: "id + item key", field: :stable_identity},
-        %{code: "application boundary", field: :responsibilities}
-      ],
-      support_rows: [
-        %{
-          feature: "Exclusive grouping",
-          evidence: :exclusive_evidence,
-          fallback: :exclusive_fallback
-        },
-        %{
-          feature: "Animated disclosure content",
-          evidence: :details_content_evidence,
-          fallback: :motion_fallback
-        },
-        %{
-          feature: "Intrinsic-size interpolation",
-          evidence: :interpolate_size_evidence,
-          fallback: :motion_fallback
-        }
-      ],
-      adaptation:
-        "The article presentation is adapted from the pinned unscripted/ui Accordion reference. Phoenix slot syntax, deterministic IDs, and the package's native disclosure contract are deliberate local differences."
-    }
-  end
-
-  defp presentation(_render), do: nil
 
   @spec lookup(String.t(), String.t()) :: {:ok, map()} | :error
   def lookup(category, slug) when is_binary(category) and is_binary(slug) do
@@ -267,7 +251,17 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @doc "Encodes the versioned search document without clocks, host paths, or executable data."
   @spec search_json() :: String.t()
   def search_json do
-    Jason.encode!(%{"records" => search_records(), "schemaVersion" => @schema_version})
+    canonical_json(%{"records" => search_records(), "schemaVersion" => @schema_version})
+  end
+
+  @doc "Encodes the deterministic canonical sitemap from closed authored routes."
+  @spec sitemap_xml() :: String.t()
+  def sitemap_xml do
+    urls =
+      (Catalogue.routes() ++ Catalogue.form_routes())
+      |> Enum.map_join("", &"<url><loc>#{@publication_base}#{&1}</loc></url>")
+
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>"
   end
 
   @doc "Returns normalized authored search text for one closed component identity."
@@ -334,8 +328,18 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
 
   @spec validate() :: :ok | {:error, [String.t()]}
   def validate do
-    with :ok <- audit(entries()), do: validate_search()
+    entries = entries()
+    inventory = PresentationCatalogue.inventory(entries)
+
+    with :ok <- audit(entries),
+         :ok <- PresentationCatalogue.audit(entries),
+         :ok <- PresentationCatalogue.audit_inventory(inventory),
+         do: validate_search()
   end
+
+  @doc "Returns presentation readiness metadata for every closed gallery route."
+  @spec presentation_inventory() :: [map()]
+  def presentation_inventory, do: entries() |> PresentationCatalogue.inventory()
 
   @doc "Returns the compiled component identities imported by `use ShadcnUI`."
   @spec public_inventory() :: [{module(), atom(), 1}]
@@ -362,35 +366,76 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     renderer =
       File.read!(Path.join(@package_root, "demo/lib/shadcn_ui_demo_web/reference_components.ex"))
 
-    entries()
-    |> Enum.map(fn entry ->
-      identity = {entry.public.module, entry.public.function, entry.public.arity}
+    entry_by_route = Map.new(entries(), &{&1.route, &1})
 
-      %{
-        category: entry.category.slug,
-        component: entry.slug,
-        route: entry.route,
-        public_module: inspect(entry.public.module),
-        public_function: Atom.to_string(entry.public.function),
-        fragments: Enum.map(entry.examples, & &1.fragment),
-        documentation: documentation_complete?(entry.documentation),
-        public_metadata: MapSet.member?(public_inventory, identity),
-        public_import: entry.public.module in public_import_modules(),
-        exdoc_group: MapSet.member?(exdoc_modules, entry.public.module),
-        provenance_id: entry.provenance_id,
-        provenance: MapSet.member?(provenance_ids, entry.provenance_id),
-        source_compile: entry.verification.source_compile,
-        renderer: renderer =~ ":#{entry.render}",
-        browser_route: entry.verification.browser_route,
-        export_route: entry.verification.export_route
+    presentation_inventory()
+    |> Enum.map(fn presentation ->
+      entry = Map.get(entry_by_route, presentation.route)
+      status = presentation.status
+
+      base = %{
+        route: presentation.route,
+        kind: presentation.kind,
+        identity: presentation.identity,
+        description: is_binary(presentation.description),
+        specimens: length(presentation.specimens),
+        specimen_exception: presentation.exception,
+        fragments: Enum.map(presentation.specimens, & &1.fragment),
+        source: Enum.all?(presentation.specimens, &(is_binary(&1.source) and &1.source != "")),
+        features: Enum.map(presentation.features, & &1.identity),
+        support: Enum.map(presentation.support_rows, & &1.identity),
+        fallback: is_binary(presentation.exact_fallback),
+        mapping: presentation.counterpart.kind,
+        exception: presentation.exception,
+        authored_ready: status.authored_ready,
+        migrated: status.migrated,
+        visually_reviewed: status.visually_reviewed,
+        accepted: status.accepted,
+        visual_evidence: status.visual_evidence,
+        browser_route: presentation.route,
+        export_route: presentation.route
       }
+
+      if entry do
+        identity = {entry.public.module, entry.public.function, entry.public.arity}
+
+        Map.merge(base, %{
+          category: entry.category.slug,
+          component: entry.slug,
+          public_module: inspect(entry.public.module),
+          public_function: Atom.to_string(entry.public.function),
+          documentation: documentation_complete?(entry.documentation),
+          public_metadata: MapSet.member?(public_inventory, identity),
+          public_import: entry.public.module in public_import_modules(),
+          exdoc_group: MapSet.member?(exdoc_modules, entry.public.module),
+          provenance_id: entry.provenance_id,
+          provenance: MapSet.member?(provenance_ids, entry.provenance_id),
+          source_compile: entry.verification.source_compile,
+          renderer: renderer =~ ":#{entry.render}"
+        })
+      else
+        Map.merge(base, %{
+          category: nil,
+          component: nil,
+          public_module: nil,
+          public_function: nil,
+          documentation: true,
+          public_metadata: nil,
+          public_import: nil,
+          exdoc_group: nil,
+          provenance_id: nil,
+          provenance: nil,
+          source_compile: nil,
+          renderer: true
+        })
+      end
     end)
     |> Enum.sort_by(& &1.route)
   end
 
   @doc "Encodes the sorted completeness report without timestamps or host paths."
   @spec completeness_json() :: String.t()
-  def completeness_json, do: Jason.encode!(completeness_report())
+  def completeness_json, do: canonical_json(completeness_report())
 
   @doc "Audits an authored entry list against compiled and repository evidence."
   @spec audit([map()]) :: :ok | {:error, [String.t()]}
@@ -623,4 +668,16 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     |> Enum.filter(fn {_value, count} -> count > 1 end)
     |> Enum.map(&elem(&1, 0))
   end
+
+  defp canonical_json(value), do: value |> ordered_json_value() |> Jason.encode!()
+
+  defp ordered_json_value(value) when is_map(value) do
+    value
+    |> Enum.map(fn {key, nested} -> {to_string(key), ordered_json_value(nested)} end)
+    |> Enum.sort_by(&elem(&1, 0))
+    |> Jason.OrderedObject.new()
+  end
+
+  defp ordered_json_value(value) when is_list(value), do: Enum.map(value, &ordered_json_value/1)
+  defp ordered_json_value(value), do: value
 end
