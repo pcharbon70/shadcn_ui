@@ -68,6 +68,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's component contract.
+
 Popover accepts one title slot, accessible label or external labelledby naming
 source. Manual mode persists until native hide/toggle; no autofocus or static
 expanded state is imposed. Dropdown Actions uses self-closing keyed action slots

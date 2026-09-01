@@ -1,0 +1,455 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-phase-08-section-1",
+  "evidenceType": "deterministic-locked-visual-acceptance",
+  "acceptedPhase7Revision": "b080488cc0c64d246b20cb26633932623698fb36",
+  "reference": {
+    "file": "demo/priv/reference/milestone_g/presentation-reference.json",
+    "sha256": "f8a103d2c1c7c4a60d8b13ee8d4f704d207e57a7ee461b2d400b39228aa76c57",
+    "upstreamCommit": "bd8f403030c8d1f46804da6eda733fde7e908e63"
+  },
+  "capture": {
+    "playwright": "1.62.1",
+    "engine": "chromium",
+    "engineVersion": "151.0.7922.34",
+    "deviceScaleFactor": 1,
+    "linuxSystemFallbackFont": "Noto Sans",
+    "motion": "reduce",
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1200
+      },
+      {
+        "width": 1024,
+        "height": 1366
+      },
+      {
+        "width": 390,
+        "height": 844
+      },
+      {
+        "width": 320,
+        "height": 568
+      }
+    ],
+    "tolerances": {
+      "maxDiffPixelRatio": 0.0075,
+      "perChannelThreshold": 0.12
+    }
+  },
+  "matrix": {
+    "goldenCount": 52,
+    "families": [
+      "foundation",
+      "forms",
+      "disclosure",
+      "navigation",
+      "content-surfaces",
+      "overlays",
+      "interactive-surfaces",
+      "media",
+      "motion"
+    ],
+    "groups": [
+      {
+        "id": "presentation-primitives",
+        "directory": "test/browser/milestone-g-presentation.spec.mjs-snapshots",
+        "count": 4,
+        "files": [
+          {
+            "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-1440-dark-chromium.png",
+            "sha256": "899751c2ed77721b15819bd85c3e35d32d62d5678ebcf3d66d741010307eb214",
+            "bytes": 130987,
+            "width": 1440,
+            "height": 1200
+          },
+          {
+            "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-1440-light-chromium.png",
+            "sha256": "92bb63d3953de1c3e65cb3d8c9328ab462a3c3e8e0e41862ecfdacf251cce553",
+            "bytes": 129851,
+            "width": 1440,
+            "height": 1200
+          },
+          {
+            "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-390-dark-chromium.png",
+            "sha256": "fb1b152de8bbbfb8ca206d12816ebbae26bdfdf685f430b5a2d22612d8416e20",
+            "bytes": 34362,
+            "width": 390,
+            "height": 844
+          },
+          {
+            "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-390-light-chromium.png",
+            "sha256": "f49b96f2864ba98727efbf9fadc2ac0b7949a2d5a56d5d8888d28fc803f4c0d5",
+            "bytes": 33566,
+            "width": 390,
+            "height": 844
+          }
+        ]
+      },
+      {
+        "id": "accordion-pilot",
+        "directory": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots",
+        "count": 12,
+        "files": [
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-320-source-dark-chromium.png",
+            "sha256": "70bbc8b1514ba740aace583085d6a1ad99c5939e0fbad033e3ab8bde7764a1bd",
+            "bytes": 28325,
+            "width": 282,
+            "height": 416
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-320-source-light-chromium.png",
+            "sha256": "9b2bb7527c7ad2060f82e919df53202d6358054d32582a3155af18e808e6dd76",
+            "bytes": 27265,
+            "width": 282,
+            "height": 416
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-navigation-dark-chromium.png",
+            "sha256": "3a3083f93bdf75f7c1770c9533c08bb223dbfa3e3fcdfeb79cb66831dc7a73a0",
+            "bytes": 21924,
+            "width": 390,
+            "height": 844
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-navigation-light-chromium.png",
+            "sha256": "7e79a6abcbe8fcce27b388ac9487468f2bd0fac75b6917afeaa630314ba87c75",
+            "bytes": 22266,
+            "width": 390,
+            "height": 844
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-panel-dark-chromium.png",
+            "sha256": "052db96c8e7d96ee960bbdf6ab504f2e28bbd0474c25a5b4afbb87a5c6ebce23",
+            "bytes": 21130,
+            "width": 352,
+            "height": 392
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-panel-light-chromium.png",
+            "sha256": "9ccd54493c880298c7fc5df2ba0fbf3c34d135edf42ed65e60bb79a43425c705",
+            "bytes": 20643,
+            "width": 352,
+            "height": 392
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-desktop-dark-chromium.png",
+            "sha256": "0a74c7b049c2331bb1096eb07bbb224969aa541aad53510e8a6deed4de68ed95",
+            "bytes": 129467,
+            "width": 1440,
+            "height": 1200
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-desktop-light-chromium.png",
+            "sha256": "dfb19f5622226b4775dbb7b0302d1802ce46c8d06d0f5a4ae9fde09104e7c9bf",
+            "bytes": 128508,
+            "width": 1440,
+            "height": 1200
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-support-dark-chromium.png",
+            "sha256": "57e816b3fd049231b473d725e137fc1d17d7560e6b35948446d4a0a65497e5e9",
+            "bytes": 77487,
+            "width": 852,
+            "height": 527
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-support-light-chromium.png",
+            "sha256": "7af7564577207441eada95b8fd78156bd21eee05315bd91b9061a4a906375858",
+            "bytes": 78017,
+            "width": 852,
+            "height": 527
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-tablet-dark-chromium.png",
+            "sha256": "a2ae1a163139729f7afedbf8df01a8fdb475b74e7aea0d288ae7244b25ab72cc",
+            "bytes": 140967,
+            "width": 1024,
+            "height": 1366
+          },
+          {
+            "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-tablet-light-chromium.png",
+            "sha256": "8256db4b31f324b5d0feaae4dfcd9de662e1e8d94207c2210f8b86218ba34ab3",
+            "bytes": 140140,
+            "width": 1024,
+            "height": 1366
+          }
+        ]
+      },
+      {
+        "id": "migrated-families",
+        "directory": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots",
+        "count": 36,
+        "files": [
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-content-surfaces-desktop-dark-chromium.png",
+            "sha256": "47752e0bcc21cd16be6810a55669a7c98fd6c60e47b8d802065499d20feae4b0",
+            "bytes": 30429,
+            "width": 854,
+            "height": 322
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-content-surfaces-desktop-light-chromium.png",
+            "sha256": "1277ba8ba01117c8a97da92c97545848833a9685f7cd9cd70d693624f639d41a",
+            "bytes": 29753,
+            "width": 854,
+            "height": 322
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-content-surfaces-mobile-dark-chromium.png",
+            "sha256": "2539cea6a0222c2968759e4cf2eeccf4fca727d93d916a5004eaa50962fdefb3",
+            "bytes": 22303,
+            "width": 352,
+            "height": 385
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-content-surfaces-mobile-light-chromium.png",
+            "sha256": "2b9d12fe43312491d0e1daf350227fb8f3fcf47ce84bf7c32773d8307da217cb",
+            "bytes": 21828,
+            "width": 352,
+            "height": 385
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-disclosure-desktop-dark-chromium.png",
+            "sha256": "389becfff15f3a4067ad81dcf99357f852e165be967c4fcfe6c04dba83736f5c",
+            "bytes": 23025,
+            "width": 854,
+            "height": 372
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-disclosure-desktop-light-chromium.png",
+            "sha256": "e9445d7842acbc5a30054eba389b8eacb39f60cb9bb558be2775fb4986dfb309",
+            "bytes": 22513,
+            "width": 854,
+            "height": 372
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-disclosure-mobile-dark-chromium.png",
+            "sha256": "92313865ad917ce190d627dbb854482fba69c6424f9ac9a4bd357372f7050805",
+            "bytes": 21514,
+            "width": 352,
+            "height": 392
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-disclosure-mobile-light-chromium.png",
+            "sha256": "ae837c17b95b4316ef8e204788ef463413c579c48e089ed3276b02c2951d19d0",
+            "bytes": 20960,
+            "width": 352,
+            "height": 392
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-forms-desktop-dark-chromium.png",
+            "sha256": "6c7016581359ebe64a9a7ef5f0d9ad3aa08da0f67f7a5329e50e45458d19b8e9",
+            "bytes": 19086,
+            "width": 854,
+            "height": 360
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-forms-desktop-light-chromium.png",
+            "sha256": "4cd3a37d75115030bcaa17b334bddee69628514c42899338f49f7e6ac8f8325d",
+            "bytes": 18765,
+            "width": 854,
+            "height": 360
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-forms-mobile-dark-chromium.png",
+            "sha256": "af9921ca6793a668391a1bfb34ff6e0622b3293f759efa2ec406fcc27330ec3a",
+            "bytes": 18122,
+            "width": 352,
+            "height": 424
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-forms-mobile-light-chromium.png",
+            "sha256": "4f4b3bf1774af64282d98eb9f1214b67f237ebceda07e3d358fbc123966aee68",
+            "bytes": 17875,
+            "width": 352,
+            "height": 424
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-foundation-desktop-dark-chromium.png",
+            "sha256": "02988ed24b7212bfa9c621d436f55d4417395bb4e9ea99937ada8cabec5b6c12",
+            "bytes": 31584,
+            "width": 854,
+            "height": 308
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-foundation-desktop-light-chromium.png",
+            "sha256": "833bd3d1d3b13c13be85a585f8d80cea832a7b88ad2c2ba3bdbdbfe5c889b75f",
+            "bytes": 30814,
+            "width": 854,
+            "height": 308
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-foundation-mobile-dark-chromium.png",
+            "sha256": "2e4786ca419d77144d8b2ea6095f2ee52643706521f4ee691a080476768ef273",
+            "bytes": 31762,
+            "width": 352,
+            "height": 564
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-foundation-mobile-light-chromium.png",
+            "sha256": "8bc69456090e5060f2152f899cd96759a01005a175e6dd97a5c1d0825eb500c4",
+            "bytes": 31046,
+            "width": 352,
+            "height": 564
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-interactive-surfaces-desktop-dark-chromium.png",
+            "sha256": "6b5cb6d34905a4d296cd18f916cd59ff8a70405db4eb9a461167805984a867f3",
+            "bytes": 25008,
+            "width": 854,
+            "height": 391
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-interactive-surfaces-desktop-light-chromium.png",
+            "sha256": "d9fd05a7b0e4996c43784956e01a5c27dbc9a03e680fff443f63abeffeee3217",
+            "bytes": 24770,
+            "width": 854,
+            "height": 391
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-interactive-surfaces-mobile-dark-chromium.png",
+            "sha256": "3c5deb5a61511283963272c5d473d58b7b872e217a27e1bf06d89feb92a7d174",
+            "bytes": 23852,
+            "width": 352,
+            "height": 445
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-interactive-surfaces-mobile-light-chromium.png",
+            "sha256": "bbbdfda631168baae3a2c45daed4ba87dc426f96c6c8d06cd9cf2764f59870ad",
+            "bytes": 23675,
+            "width": 352,
+            "height": 445
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-media-desktop-dark-chromium.png",
+            "sha256": "468fdee433e0ec251bc7e142b198ab6cea2d95f39cd0ffa085770d17e5cc744a",
+            "bytes": 38043,
+            "width": 854,
+            "height": 546
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-media-desktop-light-chromium.png",
+            "sha256": "1df182b8fac1641b41b884cb4c221fe5b865d95d0637fc15bbd4edf2ed19c9ab",
+            "bytes": 37946,
+            "width": 854,
+            "height": 546
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-media-mobile-dark-chromium.png",
+            "sha256": "35d700de7b1401ea7de24a8f73ba0ce9a0af8eb5f77a57040a2771d9d84486db",
+            "bytes": 28804,
+            "width": 352,
+            "height": 546
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-media-mobile-light-chromium.png",
+            "sha256": "0bdd011191c8183fabfe069d88fdf5c5fc332f35b526f3c1e65ce216e8995597",
+            "bytes": 28743,
+            "width": 352,
+            "height": 546
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-motion-desktop-dark-chromium.png",
+            "sha256": "e8eaea166d96f1999465c11a650cf21b5140d83a40878d7d18ed56291f247e7f",
+            "bytes": 180432,
+            "width": 854,
+            "height": 2150
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-motion-desktop-light-chromium.png",
+            "sha256": "a220617eb8605bb8578c9b5a9751c24190af21ae90d78a3dd23e7d2684e8aa40",
+            "bytes": 179220,
+            "width": 854,
+            "height": 2150
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-motion-mobile-dark-chromium.png",
+            "sha256": "410194490c245dd1e1e54a76069d29311f753d8e44d687519ec3f1054463a95c",
+            "bytes": 132323,
+            "width": 352,
+            "height": 2178
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-motion-mobile-light-chromium.png",
+            "sha256": "01e19e2e1af2e40a1af1bc2f9cc99ea8995d5b21a57c78f1d0af3c71f3e8e26f",
+            "bytes": 134497,
+            "width": 352,
+            "height": 2178
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-navigation-desktop-dark-chromium.png",
+            "sha256": "6578c77608595a09c0dd51ee197e4e7d6be26d487d89690940045e0ba5461c2b",
+            "bytes": 19933,
+            "width": 854,
+            "height": 290
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-navigation-desktop-light-chromium.png",
+            "sha256": "61eed03006f6357ec5dc2bc837218b760d27ba1f591921e342afa167d319ed2c",
+            "bytes": 19582,
+            "width": 854,
+            "height": 290
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-navigation-mobile-dark-chromium.png",
+            "sha256": "ac641824a97dd23e04ebda988cb5d3d600843ce2fdb2b5499a904e976d878435",
+            "bytes": 19843,
+            "width": 352,
+            "height": 398
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-navigation-mobile-light-chromium.png",
+            "sha256": "c6199a60ec0b7b09bcf21d27213964a00f8c82f6180adde74b7c78a56b3d513f",
+            "bytes": 19643,
+            "width": 352,
+            "height": 398
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-overlays-desktop-dark-chromium.png",
+            "sha256": "23f53ccacc19484d11a2974d49d7803a12cdbacf2bb6ae04de54b7a9a4a3373e",
+            "bytes": 43969,
+            "width": 854,
+            "height": 642
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-overlays-desktop-light-chromium.png",
+            "sha256": "68e7a3a2a956048fb88d141d7f5f83cd7772e92a9ad54ca151c7e8f2c63501d2",
+            "bytes": 43718,
+            "width": 854,
+            "height": 642
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-overlays-mobile-dark-chromium.png",
+            "sha256": "308e02ebd096d7b99aead0082fa54e580fab716c96b06b4aef7a7c34690603dd",
+            "bytes": 42538,
+            "width": 352,
+            "height": 717
+          },
+          {
+            "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-overlays-mobile-light-chromium.png",
+            "sha256": "fd514e2acd67fd178fe7ddf69b8625f9f3b3fd28c0e9880f6f37ad5571aa8c4c",
+            "bytes": 42233,
+            "width": 352,
+            "height": 717
+          }
+        ]
+      }
+    ]
+  },
+  "determinism": {
+    "movingPublicSiteAuthoritative": false,
+    "remoteRuntimeRequired": false,
+    "duplicateCaptureRuns": "passed-from-identical-local-inputs",
+    "generationCommand": "node scripts/check-milestone-g-visual-evidence.mjs --write",
+    "verificationCommand": "node scripts/check-milestone-g-visual-evidence.mjs --check"
+  },
+  "exceptions": [],
+  "status": "passed"
+}

@@ -94,6 +94,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's component contract.
+
 The Select caller-data atom regression verifies that fresh option tokens are
 not existing atoms before or after their first render. It does not use a
 VM-wide atom count, which is affected by unrelated asynchronous module loading,

@@ -153,6 +153,9 @@ distinguish direct tests, CI, manual checks and actual Pages publication.
 
 ## Verification
 
+The Phase 8 browser-harness stability refinement preserves the existing gallery
+behavior and keeps this subject's declared verification current.
+
 Milestone G Phase 4 moves each Media and Motion source into the shared paired
 specimen without changing its compile-checked text, native preview, capability
 evidence, motion preference, fallback, or static-subpath behavior. Browser

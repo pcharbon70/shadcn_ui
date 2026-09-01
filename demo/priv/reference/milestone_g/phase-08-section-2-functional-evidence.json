@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-phase-08-section-2",
+  "evidenceType": "complete-functional-accessibility-regression",
+  "inventory": {
+    "canonicalRoutes": 63,
+    "componentRoutes": 41,
+    "families": 9,
+    "migratedRoutes": 63,
+    "reviewedRoutes": 63
+  },
+  "browserMatrix": {
+    "engines": [
+      {"name": "chromium", "version": "151.0.7922.34"},
+      {"name": "firefox", "version": "153.0"},
+      {"name": "webkit", "version": "26.5"}
+    ],
+    "phase8Tests": 9,
+    "states": [
+      "ordinary-navigation",
+      "direct-fragments",
+      "progressive-search",
+      "theme-persistence",
+      "mobile-navigation",
+      "preview-source-selection",
+      "copy-feedback",
+      "keyboard-only",
+      "axe-wcag-2a-2aa-21aa",
+      "zoom-200-percent",
+      "width-320-pixels",
+      "forced-colors",
+      "reduced-motion",
+      "long-content",
+      "javascript-disabled",
+      "presentation-assets-missing",
+      "native-fallbacks"
+    ],
+    "completeExistingMatrix": "passed-after-bounded-webkit-harness-stability-fix"
+  },
+  "packageAudit": {
+    "changedRuntimeFiles": [],
+    "archiveEntries": 62,
+    "galleryAssetsExcluded": [
+      "gallery.css",
+      "gallery.js",
+      "fonts",
+      "icons",
+      "goldens",
+      "reference-metadata",
+      "deployment-workflow"
+    ],
+    "cleanConsumerStatus": "not-required-no-reusable-package-change"
+  },
+  "gates": [
+    "mix precommit",
+    "demo: mix precommit",
+    "mix docs",
+    "mix hex.build",
+    "mix run scripts/check-release-archive.exs",
+    "npm run assets:check",
+    "npm run browser:milestone-d-phase1 through browser:milestone-d-phase5",
+    "npm run browser:milestone-d-gallery",
+    "npm run browser:milestone-e-phase1 through browser:milestone-e-phase6",
+    "npm run browser:milestone-g-phase2 through browser:milestone-g-phase8",
+    "demo: npm run browser:test",
+    "demo: npm run browser:milestone-c"
+  ],
+  "status": "passed"
+}

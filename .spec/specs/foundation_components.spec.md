@@ -73,6 +73,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's component contract.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/components/foundation/button_test.exs

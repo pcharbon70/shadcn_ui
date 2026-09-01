@@ -45,7 +45,12 @@ jobs:
       - run: npm run export:determinism && npm run export:check && npm run export:smoke
         working-directory: demo
       - run: mix spec.check --base origin/main
-      - run: npx playwright install --with-deps chromium firefox webkit
+      - name: Install locked browsers and visual fallback font
+        run: |
+          npx playwright install --with-deps chromium firefox webkit
+          sudo apt-get install --no-install-recommends -y fonts-noto-core
+          fc-cache -f
+          fc-match Inter | grep -F "NotoSans-Regular.ttf"
         working-directory: demo
       - run: npm run browser:milestone-d-phase1
       - run: npm run browser:milestone-d-phase2
@@ -75,6 +80,7 @@ jobs:
       - run: npm run browser:milestone-g-phase5
       - run: npm run browser:milestone-g-phase5-acceptance
       - run: npm run browser:milestone-g-phase7
+      - run: npm run browser:milestone-g-phase8
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo

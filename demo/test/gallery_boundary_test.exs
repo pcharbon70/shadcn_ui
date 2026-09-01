@@ -1,6 +1,10 @@
 defmodule ShadcnUIDemo.GalleryBoundaryTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.gallery.controller_rendered shadcn_ui.gallery.demo_only_script
+  # covers: shadcn_ui.gallery.deterministic_assets shadcn_ui.gallery.excluded_from_package
+  # covers: shadcn_ui.gallery.no_application_frameworks shadcn_ui.gallery.separate_application
+
   test "demo is a controller-only path consumer outside package release files" do
     mix = File.read!("mix.exs")
     router = File.read!("lib/shadcn_ui_demo_web/router.ex")

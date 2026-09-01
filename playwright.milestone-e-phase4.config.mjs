@@ -2,7 +2,7 @@ import { defineConfig, devices } from "./demo/node_modules/@playwright/test/inde
 import { fileURLToPath } from "node:url";
 export default defineConfig({
   testDir:"./test/browser", testMatch:["milestone-e-scroll-indicator.spec.mjs","milestone-e-cover-flow.spec.mjs"],
-  outputDir:"./test-results/milestone-e-phase4", workers:1, reporter:"line",
+  outputDir:"./test-results/milestone-e-phase4", workers:1, reporter:"line", timeout:120_000,
   projects:[{name:"chromium",use:{...devices["Desktop Chrome"]}},
     {name:"firefox",use:{...devices["Desktop Firefox"]}}, {name:"webkit",use:{...devices["Desktop Safari"]}}],
   use:{headless:true,baseURL:"http://127.0.0.1:4108"},

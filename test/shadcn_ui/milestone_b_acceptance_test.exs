@@ -16,6 +16,11 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
   # covers: shadcn_ui.forms.native_select shadcn_ui.forms.enhanced_select
   # covers: shadcn_ui.forms.slider shadcn_ui.forms.progress shadcn_ui.forms.meter
   # covers: shadcn_ui.stylesheet.semantic_tokens shadcn_ui.stylesheet.reduced_motion
+  # covers: shadcn_ui.gallery.closed_catalog shadcn_ui.gallery.component_guidance
+  # covers: shadcn_ui.gallery.deterministic_assets shadcn_ui.gallery.excluded_from_package
+  # covers: shadcn_ui.gallery.safe_resolution shadcn_ui.gallery.semantic_shell
+  # covers: shadcn_ui.gallery.stable_routes shadcn_ui.gallery.static_export
+  # covers: shadcn_ui.gallery.theme_matrix
   # covers: shadcn_ui.stylesheet.no_runtime_assets shadcn_ui.stylesheet.form_fallbacks
   # covers: shadcn_ui.stylesheet.form_resilience
   # covers: shadcn_ui.provenance.pinned_revision shadcn_ui.provenance.component_mapping

@@ -3,6 +3,8 @@ defmodule ShadcnUIDemo.StaticExportTest do
 
   # covers: shadcn_ui.documentation_catalogue.package_boundary
   # covers: shadcn_ui.documentation_catalogue.deterministic_search
+  # covers: shadcn_ui.gallery.closed_catalog shadcn_ui.gallery.deterministic_assets
+  # covers: shadcn_ui.gallery.excluded_from_package shadcn_ui.gallery.static_export
 
   test "export is closed, deterministic, local, ignored, and package-excluded" do
     task = File.read!("lib/mix/tasks/gallery.export.ex")

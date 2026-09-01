@@ -83,6 +83,9 @@ surface:
 
 ## Verification
 
+Phase 8 publication runbook review is current proof for the documented gallery
+recovery boundary; it does not change the public documentation contract.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/milestone_f_documentation_test.exs

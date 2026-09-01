@@ -134,6 +134,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's stylesheet contract.
+
 Milestone G Phase 4 styling remains in the separate demo stylesheet. Scoped
 article contrast and specimen fragment rules do not alter the canonical package
 asset, its tokens, component capability gates, or consumer theme contract.

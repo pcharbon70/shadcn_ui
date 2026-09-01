@@ -143,6 +143,9 @@ keyboard focus must never depend on animated color or opacity.
 
 ## Verification
 
+The Phase 8 browser-harness stability refinement preserves the existing motion
+behavior and keeps this subject's declared verification current.
+
 All three rendering and browser targets now exist. The [Milestone E plan](../planning/milestone-e-motion-media-and-advanced-css/README.md)
 assigns their implementation phases. Missing targets remain visible in SpecLed
 until implemented; no placeholder passing test or disabled gate substitutes for

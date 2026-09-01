@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-phase-08-section-3",
+  "evidenceType": "immutable-static-gallery-publication-qualification",
+  "qualification": {
+    "sourceRevision": "b9b261740001cb1905e28b5a2be405b4dd7704f5",
+    "canonicalUrl": "https://leco-industries-inc.github.io/shadcn_ui/",
+    "packageVersion": "0.1.0",
+    "catalogueSchema": "1",
+    "upstreamComponentRevision": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+    "presentationReferenceRevision": "bd8f403030c8d1f46804da6eda733fde7e908e63"
+  },
+  "artifact": {
+    "files": 646,
+    "routes": 634,
+    "assets": 4,
+    "searchRecords": 41,
+    "treeSha256": "b9d9f1310b0761a50143bf1347f935168e88682cb5a42eb4c3671d1439a260c5",
+    "manifests": [
+      {
+        "file": "route-manifest.json",
+        "bytes": 167524,
+        "sha256": "9ee6e8050d2db73efa6af662f339c8414f8c03f388e0783ffc3eb59b710fd832"
+      },
+      {
+        "file": "release.json",
+        "bytes": 1194,
+        "sha256": "c0b72183cf79999d1e16af27b07cb472b49e6163e1136cef08035ea58634a91d"
+      },
+      {
+        "file": "health.json",
+        "bytes": 1529,
+        "sha256": "95c90860dffd3ed8966000db60c397fb1ba5e591105c88e9ef02f77480299f91"
+      },
+      {
+        "file": "sitemap.xml",
+        "bytes": 6450,
+        "sha256": "f77d0936817a0943bb97f36ab243f985ace0a60c4feb45131252a65f60d79f1d"
+      },
+      {
+        "file": "search-index-befcd501eea93c26.json",
+        "bytes": 10569,
+        "sha256": "befcd501eea93c265b70a5c62dfee06c518e032ad78384041079100c4808196d"
+      }
+    ]
+  },
+  "verification": {
+    "duplicateExports": "byte-identical",
+    "repositorySubpath": "passed",
+    "directEntryAndFragments": "passed",
+    "contentTypes": "passed",
+    "unknownRoutes": "passed-non-reflecting-404",
+    "staleFiles": "rejected",
+    "remoteRuntimeAssets": [],
+    "commands": [
+      "MIX_ENV=test mix gallery.export",
+      "npm run export:determinism",
+      "npm run export:check",
+      "npm run export:smoke"
+    ]
+  },
+  "workflow": {
+    "pullRequestVerification": "pending",
+    "reviewedMainMerge": "pending",
+    "deployment": "pending",
+    "postDeploySmoke": "pending",
+    "artifactRetentionDays": 30
+  },
+  "recovery": {
+    "runbook": "docs/gallery-operations.md",
+    "status": "reviewed",
+    "priorVerifiedArtifact": null,
+    "firstPublicationPolicy": "stop-and-reviewed-revert; never invent an unverified rollback artifact",
+    "recoverySmoke": "same complete canonical smoke as deployment"
+  },
+  "status": "locally-qualified-pending-reviewed-main-publication"
+}

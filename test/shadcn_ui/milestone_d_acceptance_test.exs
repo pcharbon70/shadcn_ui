@@ -14,6 +14,13 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
   # covers: shadcn_ui.overlay.application_boundary
   # covers: shadcn_ui.stylesheet.reduced_motion shadcn_ui.stylesheet.no_runtime_assets
   # covers: shadcn_ui.stylesheet.overlay_fallbacks shadcn_ui.stylesheet.overlay_resilience
+  # covers: shadcn_ui.gallery.closed_catalog shadcn_ui.gallery.component_guidance
+  # covers: shadcn_ui.gallery.controller_rendered shadcn_ui.gallery.demo_only_script
+  # covers: shadcn_ui.gallery.deterministic_assets shadcn_ui.gallery.excluded_from_package
+  # covers: shadcn_ui.gallery.no_application_frameworks shadcn_ui.gallery.online_publication
+  # covers: shadcn_ui.gallery.safe_resolution shadcn_ui.gallery.semantic_shell
+  # covers: shadcn_ui.gallery.separate_application shadcn_ui.gallery.stable_routes
+  # covers: shadcn_ui.gallery.static_export shadcn_ui.gallery.theme_matrix
   # covers: shadcn_ui.dialog.native_modal shadcn_ui.dialog.dismissal_policy
   # covers: shadcn_ui.dialog.initial_focus shadcn_ui.dialog.alert_dialog
   # covers: shadcn_ui.dialog.alert_ownership shadcn_ui.dialog.protected_semantics

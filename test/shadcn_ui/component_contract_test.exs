@@ -8,6 +8,7 @@ defmodule ShadcnUI.ComponentContractTest do
   # covers: shadcn_ui.component.deterministic_identity
   # covers: shadcn_ui.component.presentation_snapshot
   # covers: shadcn_ui.component.progressive_floor
+  # covers: shadcn_ui.component.honest_interaction_names
 
   alias Phoenix.HTML.Safe
   alias ShadcnUI.Component

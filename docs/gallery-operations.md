@@ -56,6 +56,13 @@ result from the deploy job.
    `release.json`, `health.json`, all direct routes/assets, and 404 behavior
    describe the same recovered revision.
 
+For the first reviewed publication, no previously smoke-verified Pages artifact
+may exist. In that case, record that absence explicitly, stop the failed
+publication, and use a reviewed revert on `main`; never nominate an older failed
+or merely built artifact as a rollback candidate. The first deployment whose
+canonical smoke passes becomes the earliest eligible artifact for later
+rollback.
+
 GitHub artifact retention is 30 days. If the chosen run is outside retention,
 use a reviewed revert on `main`; never fetch or reconstruct mutable site files.
 Package rollback and public Hex publication are separate and are not authorized
