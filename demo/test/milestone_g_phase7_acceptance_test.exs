@@ -31,7 +31,7 @@ defmodule ShadcnUIDemo.MilestoneGPhase7AcceptanceTest do
       assert html =~ ~s(data-gallery-product-header)
       assert html =~ ~s(data-gallery-main)
       assert html =~ ~s(data-gallery-metadata)
-      assert html =~ ~s(data-gallery-build-identity)
+      assert html =~ ~s(data-gallery-package-version>Package 0.1.0</p>)
 
       assert html =~
                ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui#{presentation.route}")

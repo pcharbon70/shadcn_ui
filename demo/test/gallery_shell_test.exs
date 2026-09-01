@@ -64,7 +64,7 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     [header] =
       Regex.run(~r/<header[^>]*data-gallery-product-header[^>]*>.*?<\/header>/s, layout)
 
-    refute header =~ "data-gallery-build-identity"
+    refute header =~ "data-gallery-package-version"
 
     refute layout =~ ~r/(script bytes shipped: 0|ships zero JavaScript)/i
 
@@ -114,14 +114,14 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     refute javascript =~ ~r/(fetch\(|XMLHttpRequest|pushState|replaceState|location\s*=)/
   end
 
-  test "shell renders one complete escaped build identity without support claims" do
+  test "shell footer renders only the package version without deployment identifiers" do
     layout = File.read!("lib/shadcn_ui_demo_web/components/layouts.ex")
 
-    assert layout =~ "data-gallery-build-identity"
+    assert layout =~ "data-gallery-package-version"
     assert layout =~ "@build_identity.package_version"
-    assert layout =~ "@build_identity.build_revision"
-    assert layout =~ "@build_identity.catalogue_schema"
-    assert layout =~ "@build_identity.upstream_revision"
+    refute layout =~ "@build_identity.build_revision"
+    refute layout =~ "@build_identity.catalogue_schema"
+    refute layout =~ "@build_identity.upstream_revision"
     refute layout =~ ~r/(supported Electron|certified browser|deployment successful)/i
   end
 

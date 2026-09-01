@@ -28,7 +28,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery_presentation.shell
-  statement: The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation and secondary immutable build metadata using the accepted reference geometry and documented exceptions.
+  statement: The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation and a footer exposing only the package version using the accepted reference geometry and documented exceptions; build, catalogue and upstream revisions remain in non-visual release evidence.
   priority: must
   stability: evolving
 

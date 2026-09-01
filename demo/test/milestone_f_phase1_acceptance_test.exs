@@ -30,16 +30,23 @@ defmodule ShadcnUIDemo.MilestoneFPhase1AcceptanceTest do
            end)
   end
 
-  test "every canonical route renders one identical escaped identity", %{conn: conn} do
+  test "every canonical route footer renders only the package version", %{conn: conn} do
     identity = BuildIdentity.current!()
 
     for route <- Catalogue.routes() do
       html = conn |> recycle() |> get(route) |> html_response(200)
-      assert length(Regex.scan(~r/data-gallery-build-identity/, html)) == 1
-      assert html =~ identity.package_version
-      assert html =~ identity.build_revision
-      assert html =~ identity.catalogue_schema
-      assert html =~ identity.upstream_revision
+
+      footer =
+        html
+        |> LazyHTML.from_document()
+        |> LazyHTML.query("[data-gallery-package-version]")
+        |> LazyHTML.text()
+        |> String.trim()
+
+      assert footer == "Package #{identity.package_version}"
+      refute footer =~ identity.build_revision
+      refute footer =~ identity.upstream_revision
+      refute footer =~ ~r/(build|catalogue|upstream)/i
     end
   end
 

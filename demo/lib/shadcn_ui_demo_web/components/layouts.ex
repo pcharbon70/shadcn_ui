@@ -116,12 +116,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
 
     <footer class="gallery-metadata" data-gallery-metadata>
       <div class="gallery-metadata__inner">
-        <p data-gallery-build-identity>
-          Package {@build_identity.package_version} · build
-          <code>{@build_identity.build_revision}</code>
-          · catalogue {@build_identity.catalogue_schema} · upstream
-          <code>{@build_identity.upstream_revision}</code>
-        </p>
+        <p data-gallery-package-version>Package {@build_identity.package_version}</p>
         <nav aria-label="Motion inspection">
           <a
             :for={{value, label} <- [{"system", "System motion"}, {"reduce", "Reduce motion"}]}
