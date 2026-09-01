@@ -211,7 +211,11 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
 
   defp example_layout(render) when render in [:navigation_menu, :scroll_area], do: "overflow"
 
-  defp example_layout(render) when render in [:dialog, :drawer], do: "tall"
+  defp example_layout(render) when render in [:carousel, :cover_flow, :marquee], do: "overflow"
+
+  defp example_layout(render)
+       when render in [:dialog, :drawer, :image_gallery, :scroll_indicator],
+       do: "tall"
 
   defp example_layout(render)
        when render in [
@@ -226,6 +230,8 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
               :hover_card
             ],
        do: "constrained"
+
+  defp example_layout(:stagger), do: "constrained"
 
   defp example_layout(_render), do: "centered"
 

@@ -38,8 +38,8 @@ defmodule ShadcnUIDemo.MilestoneGCatalogueTest do
 
     assert Enum.map(inventory, & &1.route) == Catalogue.routes()
     assert Enum.all?(inventory, & &1.status.authored_ready)
-    assert Enum.count(inventory, & &1.status.migrated) == 43
-    assert Enum.count(inventory, & &1.status.visually_reviewed) == 43
+    assert Enum.count(inventory, & &1.status.migrated) == 53
+    assert Enum.count(inventory, & &1.status.visually_reviewed) == 53
     assert Enum.count(inventory, & &1.status.accepted) == 1
 
     assert %{route: "/components/disclosure/accordion", status: %{accepted: true}} =

@@ -48,25 +48,25 @@ Back to wave: [README](./README.md)
       - [x] 7.2.2.2 Subtask - Migrate Tooltip and Hover Card with visible required information and supplemental-surface boundaries intact.
       - [x] 7.2.2.3 Subtask - Refine overlay capability and composition routes, including ordinary alternatives and narrow layouts.
 
-  - [ ] 7.3 Section - Migrate Media and Motion.
+  - [x] 7.3 Section - Migrate Media and Motion.
 
     Advanced visual components require controlled previews and exact reduced-motion fallbacks.
 
-    - [ ] 7.3.1 Task - Migrate native media pages.
+    - [x] 7.3.1 Task - Migrate native media pages.
 
       Media specimens must remain responsive, local and meaningful without enhancement.
 
-      - [ ] 7.3.1.1 Subtask - Migrate Carousel, Cover Flow and Image Gallery with local fixtures, overflow and destination/dialog behavior.
-      - [ ] 7.3.1.2 Subtask - Refine media browser and image-gallery compositions under the accepted wide/tall specimen modes.
-      - [ ] 7.3.1.3 Subtask - Preserve responsive-image ownership, rights metadata, static export paths and inactive-content safety.
+      - [x] 7.3.1.1 Subtask - Migrate Carousel, Cover Flow and Image Gallery with local fixtures, overflow and destination/dialog behavior.
+      - [x] 7.3.1.2 Subtask - Refine media browser and image-gallery compositions under the accepted wide/tall specimen modes.
+      - [x] 7.3.1.3 Subtask - Preserve responsive-image ownership, rights metadata, static export paths and inactive-content safety.
 
-    - [ ] 7.3.2 Task - Migrate motion and advanced-CSS pages.
+    - [x] 7.3.2 Task - Migrate motion and advanced-CSS pages.
 
       Decorative motion remains bounded and optional throughout the polished presentation.
 
-      - [ ] 7.3.2.1 Subtask - Migrate Marquee, Stagger, Scroll Indicator and related motion routes with capability and fallback evidence.
-      - [ ] 7.3.2.2 Subtask - Refine motion-preferences and capability compositions without adding a package runtime.
-      - [ ] 7.3.2.3 Subtask - Verify reduced motion, duplicated decorative content, static completeness and locked media budgets.
+      - [x] 7.3.2.1 Subtask - Migrate Marquee, Stagger, Scroll Indicator and related motion routes with capability and fallback evidence.
+      - [x] 7.3.2.2 Subtask - Refine motion-preferences and capability compositions without adding a package runtime.
+      - [x] 7.3.2.3 Subtask - Verify reduced motion, duplicated decorative content, static completeness and locked media budgets.
 
   - [ ] 7.4 Section - Complete landing, category and documentation routes.
 

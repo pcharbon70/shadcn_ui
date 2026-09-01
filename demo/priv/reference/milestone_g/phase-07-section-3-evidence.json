@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "local-reviewed-migration-wave",
+  "phase": "milestone-g-phase-07-section-3",
+  "families": ["media", "motion"],
+  "componentRoutes": 6,
+  "compositionRoutes": 4,
+  "semanticExceptions": ["media.carousel", "media.cover-flow"],
+  "reviewedStates": [
+    "native-scrolling",
+    "local-media",
+    "responsive-images",
+    "rights-metadata",
+    "dialog-destinations",
+    "inactive-content-safety",
+    "bounded-motion",
+    "reduced-motion",
+    "static-completeness",
+    "locked-media-budgets"
+  ],
+  "accepted": false,
+  "acceptancePhase": "8"
+}

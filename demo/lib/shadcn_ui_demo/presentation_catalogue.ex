@@ -88,6 +88,14 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
     /examples/supplemental-help
   )
   @phase_7_2_evidence "demo/priv/reference/milestone_g/phase-07-section-2-evidence.json"
+  @phase_7_3_prefixes ["/components/media/", "/components/motion/"]
+  @phase_7_3_routes ~w(
+    /examples/image-gallery
+    /examples/motion-preferences
+    /examples/media-browser
+    /examples/motion-media-capabilities
+  )
+  @phase_7_3_evidence "demo/priv/reference/milestone_g/phase-07-section-3-evidence.json"
 
   @spec layout_identities() :: [String.t()]
   def layout_identities, do: Map.keys(@layout_classes) |> Enum.sort()
@@ -151,6 +159,17 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
           accepted: false,
           migration_wave: "7.2",
           visual_evidence: [@phase_7_2_evidence]
+        }
+
+      Enum.any?(@phase_7_3_prefixes, &String.starts_with?(route, &1)) or
+          route in @phase_7_3_routes ->
+        %{
+          authored_ready: true,
+          migrated: true,
+          visually_reviewed: true,
+          accepted: false,
+          migration_wave: "7.3",
+          visual_evidence: [@phase_7_3_evidence]
         }
 
       true ->

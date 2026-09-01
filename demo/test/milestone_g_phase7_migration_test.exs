@@ -184,4 +184,67 @@ defmodule ShadcnUIDemo.MilestoneGPhase7MigrationTest do
     assert "ordinary-alternatives" in evidence["reviewedStates"]
     refute evidence["accepted"]
   end
+
+  test "Phase 7.3 migrates Media and Motion components with exact fallback evidence", %{
+    conn: conn
+  } do
+    entries =
+      DocumentationCatalogue.entries()
+      |> Enum.filter(&(&1.category.slug in ["media", "motion"]))
+
+    assert length(entries) == 6
+
+    for entry <- entries do
+      assert entry.presentation.status.migrated
+      assert entry.presentation.status.visually_reviewed
+      refute entry.presentation.status.accepted
+      assert entry.presentation.status.migration_wave == "7.3"
+
+      html = conn |> recycle() |> get(entry.route <> "?motion=reduce") |> html_response(200)
+      assert html =~ ~s(data-gallery-motion-inspection="reduce")
+      assert html =~ entry.presentation.exact_fallback
+      assert html =~ entry.presentation.counterpart.local_changes
+    end
+  end
+
+  test "Phase 7.3 media and motion compositions retain local complete content", %{conn: conn} do
+    renders = [:image_gallery, :motion_preferences, :media_browser, :motion_media_capabilities]
+    compositions = Enum.filter(Catalogue.compositions(), &(&1.render in renders))
+    assert length(compositions) == 4
+
+    for composition <- compositions do
+      {:ok, presentation} =
+        DocumentationCatalogue.lookup_presentation_route(composition.path)
+
+      assert presentation.status.migration_wave == "7.3"
+      html = conn |> recycle() |> get(composition.path <> "?motion=reduce") |> html_response(200)
+      assert html =~ ~s(data-gallery-composition-article="#{presentation.identity}")
+      assert html =~ "Support and exact fallback"
+      refute html =~ ~r/https?:\/\/(?:images|cdn|media)\./
+    end
+  end
+
+  test "Phase 7.3 closes advanced layouts and records semantic exceptions" do
+    entries = DocumentationCatalogue.entries() |> Map.new(&{&1.render, &1})
+
+    for render <- [:carousel, :cover_flow, :marquee],
+        do: assert(hd(entries[render].examples).layout == "overflow")
+
+    for render <- [:image_gallery, :scroll_indicator],
+        do: assert(hd(entries[render].examples).layout == "tall")
+
+    assert hd(entries.stagger.examples).layout == "constrained"
+
+    evidence =
+      "priv/reference/milestone_g/phase-07-section-3-evidence.json"
+      |> File.read!()
+      |> Jason.decode!()
+
+    assert evidence["componentRoutes"] == 6
+    assert evidence["compositionRoutes"] == 4
+    assert evidence["semanticExceptions"] == ~w(media.carousel media.cover-flow)
+    assert "reduced-motion" in evidence["reviewedStates"]
+    assert "rights-metadata" in evidence["reviewedStates"]
+    refute evidence["accepted"]
+  end
 end
