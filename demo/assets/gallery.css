@@ -181,6 +181,19 @@ a { color: inherit; }
 .gallery-reference__guidance li code { display: inline-block; margin-inline-end: .25rem; }
 .gallery-reference__provenance { padding-block-start: 1rem; border-block-start: 1px solid var(--shadcn-ui-border); color: var(--shadcn-ui-muted-foreground); font-size: var(--gallery-text-sm); }
 .gallery-reference__provenance code { color: var(--shadcn-ui-foreground); }
+.gallery-discovery__featured,
+.gallery-discovery__destinations { display: grid; gap: 1rem; }
+.gallery-discovery__featured-grid,
+.gallery-discovery__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; min-inline-size: 0; }
+.gallery-discovery__preview,
+.gallery-discovery__card { min-inline-size: 0; }
+.gallery-discovery__preview { display: grid; align-content: start; gap: .75rem; }
+.gallery-discovery__preview > h3 { margin: 0; }
+.gallery-discovery__card { padding: 1rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-lg); background: var(--shadcn-ui-background); }
+.gallery-discovery__card > :last-child { margin-block-end: 0; }
+.gallery-discovery__card-meta { color: var(--shadcn-ui-muted-foreground); font-size: var(--gallery-text-sm) !important; }
+.gallery-discovery__destinations ul { margin: 0; padding: 0; list-style: none; }
+.gallery-discovery__destinations a { min-block-size: 2.75rem; display: flex; align-items: center; padding: .75rem 1rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-lg); box-sizing: border-box; }
 .gallery-example { scroll-margin-block-start: 1rem; }
 .gallery-example-preview { min-width: 0; max-width: 100%; overflow-wrap: anywhere; padding: 1rem; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-lg); }
 .gallery-examples { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; max-width: 100%; }

@@ -90,8 +90,8 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
              "demo/priv/reference/milestone_g/phase-05-accordion-evidence.json"
            ]
 
-    assert Enum.count(inventory, & &1.status.migrated) == 53
-    assert Enum.count(inventory, & &1.status.visually_reviewed) == 53
+    assert Enum.count(inventory, & &1.status.migrated) == 63
+    assert Enum.count(inventory, & &1.status.visually_reviewed) == 63
     assert Enum.count(inventory, & &1.status.accepted) == 1
   end
 
@@ -328,8 +328,8 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
       assert row.authored_ready
     end
 
-    assert Enum.count(report, & &1.migrated) == 53
-    assert Enum.count(report, & &1.visually_reviewed) == 53
+    assert Enum.count(report, & &1.migrated) == 63
+    assert Enum.count(report, & &1.visually_reviewed) == 63
     assert Enum.count(report, & &1.accepted) == 1
   end
 

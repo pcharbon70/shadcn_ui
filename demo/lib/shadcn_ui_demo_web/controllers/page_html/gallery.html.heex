@@ -6,44 +6,124 @@
   motion={@motion}
   build_identity={@build_identity}
 >
-  <p :if={@page.kind == :landing}>
-    Transport-neutral Phoenix components with shadcn-style semantic tokens.
-  </p>
-  <nav :if={@page.kind == :landing} aria-label="Complete page examples">
-    <a :for={composition <- ShadcnUIDemo.Catalogue.compositions()} href={composition.path}>
-      {composition.label}
-    </a>
-  </nav>
+  <article
+    :if={@page.kind == :landing}
+    class="gallery-reference gallery-discovery"
+    data-gallery-discovery="landing"
+  >
+    <header class="gallery-reference__introduction">
+      <p class="gallery-reference__description">{@page.presentation.description}</p>
+      <div class="gallery-reference__capabilities" aria-label="Gallery capabilities">
+        <.capability_badge
+          :for={feature <- @page.presentation.features}
+          id={"landing-#{feature.identity}"}
+          identity={feature.identity}
+          label={feature.label}
+          description={feature.description}
+        />
+      </div>
+    </header>
 
-  <p :if={@page.kind == :category && @page.slug == "foundation"}>
-    Six foundational controls and content surfaces.
-  </p>
-  <p :if={@page.kind == :category && @page.slug == "forms"}>
-    Fifteen native form primitives, controls, and measurement surfaces.
-  </p>
-  <nav :if={@page.kind == :category && @page.slug == "forms"} aria-label="Complete form examples">
-    <a href="/forms/sign-in">Sign in composition</a>
-    <a href="/forms/profile">Profile composition</a>
-    <a href="/forms/settings">Settings composition</a>
-  </nav>
-  <p :if={@page.kind == :category && @page.slug == "disclosure"}>
-    Native disclosure with independent and progressively exclusive grouping.
-  </p>
-  <p :if={@page.kind == :category && @page.slug == "navigation"}>
-    Destination navigation and caller-heading-preserving header compositions.
-  </p>
-  <p :if={@page.kind == :category && @page.slug == "content-surfaces"}>
-    Native scrolling, honest separation, and radio-based content selection.
-  </p>
-  <p :if={@page.kind == :category && @page.slug == "overlays"}>
-    Native modal dialogs and nonmodal popovers with explicit ordinary alternatives.
-  </p>
-  <p :if={@page.kind == :category && @page.slug == "interactive-surfaces"}>
-    Supplemental descriptions and link previews. Required information stays visible.
-  </p>
-  <p :if={@page.kind == :category && @page.slug == "motion"}>
-    Complete static content with optional bounded decorative previews and entrance effects.
-  </p>
+    <section class="gallery-discovery__featured" data-gallery-featured-specimens>
+      <h2>Representative components</h2>
+      <div class="gallery-discovery__featured-grid">
+        <section :for={entry <- @page.featured_entries} class="gallery-discovery__preview">
+          <h3>{entry.label}</h3>
+          <.specimen
+            id={"landing-#{entry.slug}"}
+            label={hd(entry.examples).preview_label}
+            source={hd(entry.examples).source}
+            source_id={hd(entry.examples).source_id}
+            theme={@theme}
+            motion={@motion}
+            layout={hd(entry.examples).layout}
+          >
+            <:preview>
+              <.component_examples
+                render={entry.render}
+                example_id={hd(entry.examples).source_id}
+              />
+            </:preview>
+            <:actions>
+              <a href={entry.route}>Open {entry.label}</a>
+            </:actions>
+          </.specimen>
+        </section>
+      </div>
+    </section>
+
+    <nav class="gallery-discovery__destinations" aria-label="Complete page examples">
+      <h2>Complete page examples</h2>
+      <ul class="gallery-discovery__grid">
+        <li :for={composition <- ShadcnUIDemo.Catalogue.compositions()}>
+          <a href={composition.path}>{composition.label}</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section data-gallery-component-support>
+      <h2>Support and exact fallback</h2>
+      <.support_table
+        label="Gallery discovery support and fallback"
+        rows={@page.presentation.support_rows}
+      />
+      <p>{@page.presentation.exact_fallback}</p>
+    </section>
+  </article>
+
+  <article
+    :if={@page.kind == :category}
+    class="gallery-reference gallery-discovery"
+    data-gallery-discovery={@page.slug}
+  >
+    <header class="gallery-reference__introduction">
+      <p class="gallery-reference__description">{@page.presentation.description}</p>
+      <div class="gallery-reference__capabilities" aria-label="Category capabilities">
+        <.capability_badge
+          :for={feature <- @page.presentation.features}
+          id={"#{@page.slug}-#{feature.identity}"}
+          identity={feature.identity}
+          label={feature.label}
+          description={feature.description}
+        />
+      </div>
+    </header>
+
+    <section data-gallery-category-components>
+      <h2>{@page.label} components</h2>
+      <div class="gallery-discovery__grid">
+        <article :for={entry <- @page.entries} class="gallery-discovery__card">
+          <h3><a href={entry.route}>{entry.label}</a></h3>
+          <p>{entry.documentation.what}</p>
+          <p class="gallery-discovery__card-meta">
+            {entry.presentation.features |> Enum.map_join(" · ", & &1.label)}
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <nav
+      :if={@page.slug == "forms"}
+      class="gallery-discovery__destinations"
+      aria-label="Complete form examples"
+    >
+      <h2>Complete form examples</h2>
+      <ul class="gallery-discovery__grid">
+        <li><a href="/forms/sign-in">Sign in composition</a></li>
+        <li><a href="/forms/profile">Profile composition</a></li>
+        <li><a href="/forms/settings">Settings composition</a></li>
+      </ul>
+    </nav>
+
+    <section data-gallery-component-support>
+      <h2>Support and exact fallback</h2>
+      <.support_table
+        label={"#{@page.label} discovery support and fallback"}
+        rows={@page.presentation.support_rows}
+      />
+      <p>{@page.presentation.exact_fallback}</p>
+    </section>
+  </article>
   <div :if={@page.kind == :component} class="gallery-reference" data-gallery-component-article>
     <header class="gallery-reference__introduction">
       <p class="gallery-reference__description">
@@ -319,7 +399,29 @@
     </section>
   </article>
 
-  <p :if={@page.kind == :not_found}>
-    The requested gallery page does not exist. <a href="/">Return to the gallery.</a>
-  </p>
+  <article
+    :if={@page.kind == :not_found}
+    class="gallery-reference gallery-discovery"
+    data-gallery-error-page
+  >
+    <header class="gallery-reference__introduction">
+      <p class="gallery-reference__description">
+        This gallery destination does not exist. The response does not repeat request input.
+      </p>
+    </header>
+    <nav class="gallery-discovery__destinations" aria-label="Available documentation">
+      <h2>Continue with a documented destination</h2>
+      <ul class="gallery-discovery__grid">
+        <li><a href="/">Gallery home</a></li>
+        <li><a href="/examples/documentation">Documentation composition</a></li>
+        <li><a href="/components/foundation">Browse components</a></li>
+      </ul>
+    </nav>
+    <section class="gallery-reference__provenance" data-gallery-provenance>
+      <h2>Build and provenance</h2>
+      <p>
+        This deterministic fallback uses the same gallery shell and build identity as canonical routes.
+      </p>
+    </section>
+  </article>
 </Layouts.gallery>

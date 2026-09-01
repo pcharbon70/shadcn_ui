@@ -247,4 +247,106 @@ defmodule ShadcnUIDemo.MilestoneGPhase7MigrationTest do
     assert "rights-metadata" in evidence["reviewedStates"]
     refute evidence["accepted"]
   end
+
+  test "Phase 7.4 migrates every landing and category discovery route", %{conn: conn} do
+    inventory = DocumentationCatalogue.presentation_inventory()
+    discovery = Enum.filter(inventory, &(&1.kind in ["landing", "category"]))
+
+    assert length(inventory) == 63
+    assert length(discovery) == 10
+    assert Enum.all?(inventory, & &1.status.migrated)
+    assert Enum.all?(inventory, & &1.status.visually_reviewed)
+    assert Enum.count(inventory, & &1.status.accepted) == 1
+
+    for presentation <- discovery do
+      assert presentation.status.migration_wave == "7.4"
+      refute presentation.status.accepted
+
+      discovery_identity =
+        if presentation.kind == "landing",
+          do: "landing",
+          else: String.trim_leading(presentation.route, "/components/")
+
+      html = conn |> recycle() |> get(presentation.route) |> html_response(200)
+      assert html =~ ~s(data-gallery-discovery="#{discovery_identity}")
+      assert html =~ presentation.description
+      assert html =~ presentation.exact_fallback
+      assert html =~ ~s(data-gallery-component-support)
+    end
+  end
+
+  test "landing renders catalogue-derived representative previews and ordinary destinations", %{
+    conn: conn
+  } do
+    html = conn |> get("/") |> html_response(200)
+
+    assert html =~ ~s(data-gallery-featured-specimens)
+    assert length(Regex.scan(~r/data-gallery-specimen="landing-/, html)) == 3
+
+    for route <- [
+          "/components/foundation/button",
+          "/components/disclosure/accordion",
+          "/components/media/carousel"
+        ],
+        do: assert(html =~ ~s(href="#{route}"))
+
+    for composition <- Catalogue.compositions(),
+        do: assert(html =~ ~s(href="#{composition.path}"))
+  end
+
+  test "category pages expose concise component summaries through ordinary links", %{conn: conn} do
+    entries = DocumentationCatalogue.entries()
+
+    for category <- Catalogue.categories() do
+      expected = Enum.filter(entries, &(&1.category.slug == category.slug))
+      html = conn |> recycle() |> get(category.path) |> html_response(200)
+
+      assert html =~ ~s(data-gallery-category-components)
+      assert length(Regex.scan(~r/class="gallery-discovery__card"/, html)) == length(expected)
+
+      for entry <- expected do
+        assert html =~ ~s(href="#{entry.route}")
+        assert html =~ entry.documentation.what
+      end
+    end
+
+    forms = conn |> recycle() |> get("/components/forms") |> html_response(200)
+    for route <- Catalogue.form_routes(), do: assert(forms =~ ~s(href="#{route}"))
+  end
+
+  test "documentation, composition, and not-found surfaces share deterministic presentation", %{
+    conn: conn
+  } do
+    documentation = conn |> get("/examples/documentation") |> html_response(200)
+    assert documentation =~ ~s(data-gallery-composition-body)
+    assert documentation =~ ~s(data-gallery-product-header)
+
+    for composition <- Catalogue.compositions() do
+      html = conn |> recycle() |> get(composition.path) |> html_response(200)
+      assert html =~ ~s(data-gallery-composition-body)
+    end
+
+    not_found = conn |> recycle() |> get("/components/phase7-reflection") |> html_response(404)
+    assert not_found =~ ~s(data-gallery-error-page)
+    assert not_found =~ ~s(data-gallery-product-header)
+    assert not_found =~ "The response does not repeat request input."
+    refute not_found =~ "phase7-reflection"
+    refute not_found =~ ~s(rel="canonical")
+  end
+
+  test "Phase 7.4 evidence records discovery, export, and non-reflecting error review" do
+    evidence =
+      "priv/reference/milestone_g/phase-07-section-4-evidence.json"
+      |> File.read!()
+      |> Jason.decode!()
+
+    assert evidence["inventoryRoutes"] == 10
+    assert evidence["landingRoutes"] == 1
+    assert evidence["categoryRoutes"] == 9
+    assert "not-found" in evidence["additionalSurfaces"]
+    assert "no-script-discovery" in evidence["reviewedStates"]
+    assert "non-reflecting-errors" in evidence["reviewedStates"]
+    refute evidence["accepted"]
+    assert evidence["acceptancePhase"] == "8"
+  end
 end

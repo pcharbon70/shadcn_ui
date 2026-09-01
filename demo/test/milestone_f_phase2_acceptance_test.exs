@@ -45,7 +45,7 @@ defmodule ShadcnUIDemo.MilestoneFPhase2AcceptanceTest do
     assert html =~ "41 components available"
 
     for component <- Catalogue.components() do
-      assert length(Regex.scan(~r/href="#{Regex.escape(component.path)}"/, html)) == 2
+      assert length(Regex.scan(~r/href="#{Regex.escape(component.path)}"/, html)) >= 2
     end
   end
 end

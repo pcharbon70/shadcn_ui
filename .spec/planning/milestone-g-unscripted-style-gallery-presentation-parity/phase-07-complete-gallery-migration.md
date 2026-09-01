@@ -68,25 +68,25 @@ Back to wave: [README](./README.md)
       - [x] 7.3.2.2 Subtask - Refine motion-preferences and capability compositions without adding a package runtime.
       - [x] 7.3.2.3 Subtask - Verify reduced motion, duplicated decorative content, static completeness and locked media budgets.
 
-  - [ ] 7.4 Section - Complete landing, category and documentation routes.
+  - [x] 7.4 Section - Complete landing, category and documentation routes.
 
     The whole public site—not only component articles—must share one deliberate system.
 
-    - [ ] 7.4.1 Task - Redesign discovery pages.
+    - [x] 7.4.1 Task - Redesign discovery pages.
 
       Landing and category pages should introduce the library and help visitors choose a destination.
 
-      - [ ] 7.4.1.1 Subtask - Build a ShadcnUI landing page using the accepted header, typography, feature badges and representative component previews.
-      - [ ] 7.4.1.2 Subtask - Refine category pages with concise introductions, useful component summaries and ordinary links from the closed catalogue.
-      - [ ] 7.4.1.3 Subtask - Preserve search inventory, sitemap, canonical routes and no-script discovery.
+      - [x] 7.4.1.1 Subtask - Build a ShadcnUI landing page using the accepted header, typography, feature badges and representative component previews.
+      - [x] 7.4.1.2 Subtask - Refine category pages with concise introductions, useful component summaries and ordinary links from the closed catalogue.
+      - [x] 7.4.1.3 Subtask - Preserve search inventory, sitemap, canonical routes and no-script discovery.
 
-    - [ ] 7.4.2 Task - Align documentation and error surfaces.
+    - [x] 7.4.2 Task - Align documentation and error surfaces.
 
       Installation, integration, compatibility and failure pages need the same shell without hiding operational truth.
 
-      - [ ] 7.4.2.1 Subtask - Apply presentation primitives to available documentation routes and cross-link them from the product header.
-      - [ ] 7.4.2.2 Subtask - Refine 404, fallback and build/provenance surfaces with deterministic non-reflecting content.
-      - [ ] 7.4.2.3 Subtask - Audit every composition and non-component route for old shell fragments or unscoped default styling.
+      - [x] 7.4.2.1 Subtask - Apply presentation primitives to available documentation routes and cross-link them from the product header.
+      - [x] 7.4.2.2 Subtask - Refine 404, fallback and build/provenance surfaces with deterministic non-reflecting content.
+      - [x] 7.4.2.3 Subtask - Audit every composition and non-component route for old shell fragments or unscoped default styling.
 
   - [ ] 7.5 Section - Phase 7 Integration Tests.
 
