@@ -7,7 +7,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   text and is not part of the ShadcnUI package API.
   """
 
-  alias ShadcnUIDemo.{Catalogue, Reference}
+  alias ShadcnUIDemo.{Catalogue, PresentationCatalogue, Reference}
 
   @schema_version "1"
   @package_root Path.expand("../../..", __DIR__)
@@ -88,6 +88,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @spec entries() :: [map()]
   def entries do
     categories = Map.new(Catalogue.categories(), &{&1.slug, &1})
+    counterparts = PresentationCatalogue.counterparts()
 
     Enum.map(Catalogue.components(), fn component ->
       category = Map.fetch!(categories, component.category)
@@ -95,7 +96,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       {module, function, provenance_id} = Map.fetch!(@public_identities, component.render)
       fragment = "#{component.slug}-primary"
 
-      examples = examples(component, reference, fragment)
+      examples = examples(component, reference, fragment, provenance_id)
 
       %{
         schema_version: @schema_version,
@@ -113,7 +114,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
         },
         api: component_api(module, function),
         examples: examples,
-        presentation: presentation(component.render),
+        presentation:
+          presentation(
+            component.render,
+            function,
+            reference,
+            Map.fetch!(counterparts, provenance_id)
+          ),
         provenance_id: provenance_id,
         verification: %{
           source_compile: "source:#{component.render}",
@@ -124,12 +131,17 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     end)
   end
 
-  defp examples(%{render: :accordion} = component, reference, fragment) do
+  defp examples(%{render: :accordion} = component, reference, fragment, component_identity) do
     [
       %{
         fragment: fragment,
+        preview_fragment: fragment,
         source_fragment: "#{fragment}-source",
+        specimen_id: "#{fragment}-specimen",
+        component_identity: component_identity,
         source_id: "reference:accordion:exclusive",
+        source_relationship: "reference:accordion:exclusive",
+        source_compile: "source:accordion",
         preview_label: "Exclusive FAQ",
         layout: "constrained",
         route: "#{component.path}##{fragment}",
@@ -137,8 +149,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       },
       %{
         fragment: "accordion-independent",
+        preview_fragment: "accordion-independent",
         source_fragment: "accordion-independent-source",
+        specimen_id: "accordion-independent-specimen",
+        component_identity: component_identity,
         source_id: "reference:accordion:independent",
+        source_relationship: "reference:accordion:independent",
+        source_compile: "source:accordion",
         preview_label: "Independent sections",
         layout: "constrained",
         route: "#{component.path}#accordion-independent",
@@ -147,12 +164,17 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     ]
   end
 
-  defp examples(component, reference, fragment) do
+  defp examples(component, reference, fragment, component_identity) do
     [
       %{
         fragment: fragment,
+        preview_fragment: fragment,
         source_fragment: "#{fragment}-source",
+        specimen_id: "#{fragment}-specimen",
+        component_identity: component_identity,
         source_id: "reference:#{component.render}",
+        source_relationship: "reference:#{component.render}",
+        source_compile: "source:#{component.render}",
         preview_label: "#{component.label} primary example",
         layout: "centered",
         route: "#{component.path}##{fragment}",
@@ -161,45 +183,10 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     ]
   end
 
-  defp presentation(:accordion) do
-    %{
-      capabilities: [
-        %{identity: "native-baseline", label: "Native disclosure", field: :native_baseline},
-        %{identity: "exclusive-grouping", label: "Exclusive grouping", field: :capability},
-        %{identity: "details-content", label: "Animated content", field: :details_content},
-        %{identity: "interpolate-size", label: "Intrinsic size", field: :interpolate_size},
-        %{identity: "fallback", label: "Exact fallback", field: :fallback}
-      ],
-      how_it_works: [
-        %{code: "<details><summary>", field: :native_baseline},
-        %{code: ~s(name="faq"), field: :capability},
-        %{code: "open", field: :open_state},
-        %{code: "id + item key", field: :stable_identity},
-        %{code: "application boundary", field: :responsibilities}
-      ],
-      support_rows: [
-        %{
-          feature: "Exclusive grouping",
-          evidence: :exclusive_evidence,
-          fallback: :exclusive_fallback
-        },
-        %{
-          feature: "Animated disclosure content",
-          evidence: :details_content_evidence,
-          fallback: :motion_fallback
-        },
-        %{
-          feature: "Intrinsic-size interpolation",
-          evidence: :interpolate_size_evidence,
-          fallback: :motion_fallback
-        }
-      ],
-      adaptation:
-        "The article presentation is adapted from the pinned unscripted/ui Accordion reference. Phoenix slot syntax, deterministic IDs, and the package's native disclosure contract are deliberate local differences."
-    }
-  end
+  defp presentation(:accordion, function, reference, counterpart),
+    do: PresentationCatalogue.article(:accordion, function, reference, counterpart)
 
-  defp presentation(_render), do: nil
+  defp presentation(_render, _function, _reference, _counterpart), do: nil
 
   @spec lookup(String.t(), String.t()) :: {:ok, map()} | :error
   def lookup(category, slug) when is_binary(category) and is_binary(slug) do
@@ -334,7 +321,11 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
 
   @spec validate() :: :ok | {:error, [String.t()]}
   def validate do
-    with :ok <- audit(entries()), do: validate_search()
+    entries = entries()
+
+    with :ok <- audit(entries),
+         :ok <- PresentationCatalogue.audit(entries),
+         do: validate_search()
   end
 
   @doc "Returns the compiled component identities imported by `use ShadcnUI`."

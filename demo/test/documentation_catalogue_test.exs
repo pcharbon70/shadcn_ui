@@ -9,7 +9,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
   # covers: shadcn_ui.documentation_catalogue.completeness_report
   # covers: shadcn_ui.documentation_catalogue.deterministic_search
 
-  alias ShadcnUIDemo.{Catalogue, DocumentationCatalogue}
+  alias ShadcnUIDemo.{Catalogue, DocumentationCatalogue, PresentationCatalogue}
 
   test "closed schema describes every stable component route" do
     assert :ok = DocumentationCatalogue.validate()
@@ -70,6 +70,107 @@ defmodule ShadcnUIDemo.DocumentationCatalogueTest do
                String.starts_with?(source_id, "reference:") and
                is_binary(label) and label != ""
            end)
+  end
+
+  test "presentation metadata resolves literal content through closed identities" do
+    assert {:ok, accordion} =
+             DocumentationCatalogue.lookup("disclosure", "accordion")
+
+    presentation = accordion.presentation
+
+    assert presentation.description == accordion.documentation.what
+    assert presentation.exact_fallback == accordion.documentation.fallback
+    assert presentation.defining_function == "accordion"
+    assert presentation.counterpart.identity == accordion.provenance_id
+    assert presentation.counterpart.kind == "upstream-counterpart"
+    assert presentation.counterpart.revision =~ ~r/^[a-f0-9]{40}$/
+    assert presentation.counterpart.upstream_paths != []
+
+    assert Enum.all?(presentation.how_it_works, fn point ->
+             is_binary(point.code) and is_binary(point.description)
+           end)
+
+    assert Enum.map(presentation.features, & &1.identity) ==
+             ~w(native-baseline exclusive-grouping details-content interpolate-size fallback)
+
+    for feature <- presentation.features do
+      assert Map.keys(feature) |> Enum.sort() ==
+               ~w(description evidence fallback identity label reference)a |> Enum.sort()
+
+      assert {:ok, ^feature} = PresentationCatalogue.feature(presentation, feature.identity)
+      assert Enum.all?(Map.values(feature), &(is_binary(&1) and &1 != ""))
+    end
+
+    assert :error = PresentationCatalogue.feature(presentation, "unknown")
+
+    for example <- accordion.examples do
+      assert example.specimen_id == "#{example.fragment}-specimen"
+      assert example.preview_fragment == example.fragment
+      assert example.source_fragment == "#{example.fragment}-source"
+      assert example.source_relationship == example.source_id
+      assert example.source_compile == accordion.verification.source_compile
+      assert example.component_identity == accordion.provenance_id
+    end
+  end
+
+  test "layout resolution is closed and cosmetic classes stay outside catalogue metadata" do
+    assert PresentationCatalogue.layout_identities() ==
+             ~w(centered composition constrained overflow start tall)
+
+    for identity <- PresentationCatalogue.layout_identities() do
+      assert PresentationCatalogue.layout_class!(identity) ==
+               "gallery-specimen--#{identity}"
+    end
+
+    hostile = ["unknown", "gallery-specimen--centered", "<script>", "Elixir.System", "../asset"]
+    before = :erlang.system_info(:atom_count)
+
+    for value <- hostile do
+      assert_raise ArgumentError, fn -> PresentationCatalogue.layout_class!(value) end
+    end
+
+    assert :erlang.system_info(:atom_count) == before
+
+    metadata = DocumentationCatalogue.entries() |> Enum.map(& &1.presentation) |> inspect()
+    refute metadata =~ ~r/(gallery-specimen--|class_name|"class")/
+  end
+
+  test "presentation audit rejects missing, duplicate, unknown, and cosmetic declarations" do
+    entries = DocumentationCatalogue.entries()
+    index = Enum.find_index(entries, &(&1.render == :accordion))
+    accordion = Enum.at(entries, index)
+
+    missing = put_in(accordion.presentation.description, "")
+
+    assert {:error, errors} =
+             PresentationCatalogue.audit(List.replace_at(entries, index, missing))
+
+    assert "missing presentation description: #{accordion.route}" in errors
+
+    duplicate =
+      update_in(accordion.presentation.features, fn [first | rest] -> [first, first | rest] end)
+
+    assert {:error, errors} =
+             PresentationCatalogue.audit(List.replace_at(entries, index, duplicate))
+
+    assert Enum.any?(errors, &String.starts_with?(&1, "duplicate feature:"))
+
+    unknown =
+      update_in(accordion.examples, fn [first | rest] ->
+        [Map.put(first, :layout, "<script>") | rest]
+      end)
+
+    assert {:error, errors} =
+             PresentationCatalogue.audit(List.replace_at(entries, index, unknown))
+
+    assert "unknown specimen layout: #{accordion.route}" in errors
+
+    cosmetic = update_in(accordion.presentation, &Map.put(&1, :class, "arbitrary visitor class"))
+
+    assert {:error, errors} =
+             PresentationCatalogue.audit(List.replace_at(entries, index, cosmetic))
+
+    assert "cosmetic class leaked into presentation metadata: #{accordion.route}" in errors
   end
 
   test "related documentation stays within authored ordinary routes" do

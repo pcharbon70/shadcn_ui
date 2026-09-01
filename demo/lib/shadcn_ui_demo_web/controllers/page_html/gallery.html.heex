@@ -81,12 +81,12 @@
           :for={
             capability <-
               (@page.documentation_entry.presentation &&
-                 @page.documentation_entry.presentation.capabilities) || []
+                 @page.documentation_entry.presentation.features) || []
           }
           id={"#{@page.slug}-#{capability.identity}"}
           identity={capability.identity}
           label={capability.label}
-          description={Map.fetch!(@page.reference, capability.field)}
+          description={capability.description}
         />
       </div>
     </header>
@@ -143,7 +143,7 @@
       </ul>
       <ul :if={@page.documentation_entry.presentation}>
         <li :for={item <- @page.documentation_entry.presentation.how_it_works}>
-          <code>{item.code}</code> {Map.fetch!(@page.reference, item.field)}
+          <code>{item.code}</code> {item.description}
         </li>
       </ul>
       <p>Examples use package semantic tokens in explicit light and dark scopes.</p>
@@ -181,15 +181,7 @@
       <.support_table
         :if={@page.documentation_entry.presentation}
         label={"#{@page.label} support and fallback"}
-        rows={
-          Enum.map(@page.documentation_entry.presentation.support_rows, fn row ->
-            %{
-              feature: row.feature,
-              evidence: Map.fetch!(@page.reference, row.evidence),
-              fallback: Map.fetch!(@page.reference, row.fallback)
-            }
-          end)
-        }
+        rows={@page.documentation_entry.presentation.support_rows}
       />
     </section>
     <section
@@ -253,7 +245,7 @@
         semantic contract remain authoritative.
       </p>
       <p :if={@page.documentation_entry.presentation}>
-        {@page.documentation_entry.presentation.adaptation}
+        {@page.documentation_entry.presentation.counterpart.local_changes}
       </p>
     </section>
   </div>

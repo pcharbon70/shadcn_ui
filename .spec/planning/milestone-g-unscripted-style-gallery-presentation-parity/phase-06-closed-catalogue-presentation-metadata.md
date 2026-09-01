@@ -7,34 +7,34 @@ Back to wave: [README](./README.md)
   Extend the immutable documentation inventory so every page can render the
   approved system without dynamic dispatch or parallel hand-maintained lists.
 
-  - [ ] 6.1 Section - Model and validate presentation content.
+  - [x] 6.1 Section - Model and validate presentation content.
 
     Introductions, specimens, capabilities, explanation and support become closed authored data.
 
-    - [ ] 6.1.1 Task - Extend component article metadata.
+    - [x] 6.1.1 Task - Extend component article metadata.
 
       Shared presentation needs structure without turning prose into executable configuration.
 
-      - [ ] 6.1.1.1 Subtask - Add concise description, how-it-works points, capability identities, support rows and exact fallback fields.
-      - [ ] 6.1.1.2 Subtask - Add named specimen layout, source relationship and stable preview/source fragment metadata.
-      - [ ] 6.1.1.3 Subtask - Add pinned upstream counterpart or explicit local-only/semantic-exception identity.
+      - [x] 6.1.1.1 Subtask - Add concise description, how-it-works points, capability identities, support rows and exact fallback fields.
+      - [x] 6.1.1.2 Subtask - Add named specimen layout, source relationship and stable preview/source fragment metadata.
+      - [x] 6.1.1.3 Subtask - Add pinned upstream counterpart or explicit local-only/semantic-exception identity.
 
-    - [ ] 6.1.2 Task - Define closed layout and evidence identities.
+    - [x] 6.1.2 Task - Define closed layout and evidence identities.
 
       Convenience values cannot become arbitrary class injection or dynamic rendering.
 
-      - [ ] 6.1.2.1 Subtask - Map approved width, alignment, height, overflow and composition modes to complete static gallery class strings.
-      - [ ] 6.1.2.2 Subtask - Define feature identities with authored labels, descriptions, references, engine evidence and fallback meaning.
-      - [ ] 6.1.2.3 Subtask - Reject unknown values and keep cosmetic classes outside public catalogue metadata.
+      - [x] 6.1.2.1 Subtask - Map approved width, alignment, height, overflow and composition modes to complete static gallery class strings.
+      - [x] 6.1.2.2 Subtask - Define feature identities with authored labels, descriptions, references, engine evidence and fallback meaning.
+      - [x] 6.1.2.3 Subtask - Reject unknown values and keep cosmetic classes outside public catalogue metadata.
 
-    - [ ] 6.1.3 Task - Enforce deterministic relationships and safe resolution.
+    - [x] 6.1.3 Task - Enforce deterministic relationships and safe resolution.
 
       Every declaration must resolve to real authored content without becoming a registry.
 
-      - [ ] 6.1.3.1 Subtask - Reject duplicate or missing descriptions, fragments, specimen IDs, features, support rows and upstream mappings.
-      - [ ] 6.1.3.2 Subtask - Require each specimen to connect a real preview, compile-checked source, component identity, fragment pair and closed layout.
-      - [ ] 6.1.3.3 Subtask - Prove route, search, fragment, feature and layout text cannot create atoms, modules, callbacks, templates, assets or code.
-      - [ ] 6.1.3.4 Subtask - Keep presentation metadata, evidence and completeness output outside package contents.
+      - [x] 6.1.3.1 Subtask - Reject duplicate or missing descriptions, fragments, specimen IDs, features, support rows and upstream mappings.
+      - [x] 6.1.3.2 Subtask - Require each specimen to connect a real preview, compile-checked source, component identity, fragment pair and closed layout.
+      - [x] 6.1.3.3 Subtask - Prove route, search, fragment, feature and layout text cannot create atoms, modules, callbacks, templates, assets or code.
+      - [x] 6.1.3.4 Subtask - Keep presentation metadata, evidence and completeness output outside package contents.
 
   - [ ] 6.2 Section - Populate and audit the complete inventory.
 
