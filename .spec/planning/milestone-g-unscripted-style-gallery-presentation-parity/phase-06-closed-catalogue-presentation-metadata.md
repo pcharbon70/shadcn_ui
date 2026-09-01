@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 6 Phase - Closed Catalogue Presentation Metadata.
+- [x] 6 Phase - Closed Catalogue Presentation Metadata.
 
   Extend the immutable documentation inventory so every page can render the
   approved system without dynamic dispatch or parallel hand-maintained lists.
@@ -56,25 +56,25 @@ Back to wave: [README](./README.md)
       - [x] 6.2.2.2 Subtask - Distinguish authored-ready, migrated, visually reviewed and accepted states without inferring later states.
       - [x] 6.2.2.3 Subtask - Keep reports sorted, timestamp-free, ignored or test-owned and outside release contents.
 
-  - [ ] 6.3 Section - Phase 6 Integration Tests.
+  - [x] 6.3 Section - Phase 6 Integration Tests.
 
     Prove full coverage, safe resolution, deterministic outputs and unchanged public inventory.
 
-    - [ ] 6.3.1 Task - Exercise schema and completeness.
+    - [x] 6.3.1 Task - Exercise schema and completeness.
 
       Validation should fail actionable omissions before browser migration review.
 
-      - [ ] 6.3.1.1 Subtask - Add positive and negative tests for each new field, closed value, relationship and hostile-looking string.
-      - [ ] 6.3.1.2 Subtask - Compare defining functions, routes, examples, source, ExDoc, provenance and presentation metadata one-to-one.
-      - [ ] 6.3.1.3 Subtask - Generate identical search, sitemap and completeness outputs twice from fixed inputs.
+      - [x] 6.3.1.1 Subtask - Add positive and negative tests for each new field, closed value, relationship and hostile-looking string.
+      - [x] 6.3.1.2 Subtask - Compare defining functions, routes, examples, source, ExDoc, provenance and presentation metadata one-to-one.
+      - [x] 6.3.1.3 Subtask - Generate identical search, sitemap and completeness outputs twice from fixed inputs.
 
-    - [ ] 6.3.2 Task - Verify boundaries and record delivery.
+    - [x] 6.3.2 Task - Verify boundaries and record delivery.
 
       Catalogue expansion cannot rename history or expand package runtime scope.
 
-      - [ ] 6.3.2.1 Subtask - Re-run stable route/canonical/fragment tests, archive exclusions and dynamic-dispatch rejection.
-      - [ ] 6.3.2.2 Subtask - Run package/demo precommit, A-F acceptance, deterministic export, SpecLed next/check and git diff --check.
-      - [ ] 6.3.2.3 Subtask - Record evidence, complete one commit per coherent section and open one Phase 6 PR.
+      - [x] 6.3.2.1 Subtask - Re-run stable route/canonical/fragment tests, archive exclusions and dynamic-dispatch rejection.
+      - [x] 6.3.2.2 Subtask - Run package/demo precommit, A-F acceptance, deterministic export, SpecLed next/check and git diff --check.
+      - [x] 6.3.2.3 Subtask - Record evidence, complete one commit per coherent section and open one Phase 6 PR.
 
 ## Section delivery rule
 

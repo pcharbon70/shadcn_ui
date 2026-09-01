@@ -14,6 +14,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @documentation_keys ~w(what when responsibilities accessibility fallback source native_baseline package_enhancement demo_behavior unsupported)a
   @search_keys ~w(category keywords name route summary url)
   @static_base "/shadcn_ui"
+  @publication_base "https://leco-industries-inc.github.io/shadcn_ui"
   @related_compositions %{
     "foundation" => [:documentation],
     "forms" => [:settings],
@@ -250,7 +251,17 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @doc "Encodes the versioned search document without clocks, host paths, or executable data."
   @spec search_json() :: String.t()
   def search_json do
-    Jason.encode!(%{"records" => search_records(), "schemaVersion" => @schema_version})
+    canonical_json(%{"records" => search_records(), "schemaVersion" => @schema_version})
+  end
+
+  @doc "Encodes the deterministic canonical sitemap from closed authored routes."
+  @spec sitemap_xml() :: String.t()
+  def sitemap_xml do
+    urls =
+      (Catalogue.routes() ++ Catalogue.form_routes())
+      |> Enum.map_join("", &"<url><loc>#{@publication_base}#{&1}</loc></url>")
+
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>"
   end
 
   @doc "Returns normalized authored search text for one closed component identity."
@@ -424,7 +435,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
 
   @doc "Encodes the sorted completeness report without timestamps or host paths."
   @spec completeness_json() :: String.t()
-  def completeness_json, do: Jason.encode!(completeness_report())
+  def completeness_json, do: canonical_json(completeness_report())
 
   @doc "Audits an authored entry list against compiled and repository evidence."
   @spec audit([map()]) :: :ok | {:error, [String.t()]}
@@ -657,4 +668,16 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     |> Enum.filter(fn {_value, count} -> count > 1 end)
     |> Enum.map(&elem(&1, 0))
   end
+
+  defp canonical_json(value), do: value |> ordered_json_value() |> Jason.encode!()
+
+  defp ordered_json_value(value) when is_map(value) do
+    value
+    |> Enum.map(fn {key, nested} -> {to_string(key), ordered_json_value(nested)} end)
+    |> Enum.sort_by(&elem(&1, 0))
+    |> Jason.OrderedObject.new()
+  end
+
+  defp ordered_json_value(value) when is_list(value), do: Enum.map(value, &ordered_json_value/1)
+  defp ordered_json_value(value), do: value
 end

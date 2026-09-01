@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "local-automated-catalogue-evidence",
+  "phase": "milestone-g-phase-06",
+  "inventory": {
+    "galleryRoutes": 63,
+    "components": 41,
+    "landingRoutes": 1,
+    "categoryRoutes": 9,
+    "compositionRoutes": 12,
+    "authoredReady": 63,
+    "migrated": 1,
+    "visuallyReviewed": 1,
+    "accepted": 1
+  },
+  "outputs": {
+    "search": {
+      "bytes": 10569,
+      "sha256": "befcd501eea93c265b70a5c62dfee06c518e032ad78384041079100c4808196d"
+    },
+    "sitemap": {
+      "bytes": 6450,
+      "sha256": "f77d0936817a0943bb97f36ab243f985ace0a60c4feb45131252a65f60d79f1d"
+    },
+    "completeness": {
+      "bytes": 54171,
+      "sha256": "f40d260c66291cc7c25926047390856da2741339b7ffb6b0f4a79110effd970d"
+    }
+  },
+  "boundaries": {
+    "packageRuntimeChanged": false,
+    "packageArchiveChanged": false,
+    "remoteEvidenceRequired": false,
+    "timestampsIncluded": false
+  }
+}
