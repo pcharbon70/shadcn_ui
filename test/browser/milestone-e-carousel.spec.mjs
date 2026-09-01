@@ -67,9 +67,11 @@ test("actual static subpath Carousel and media remain operable without JavaScrip
     await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion","reduce");
     await expect(page.locator("html")).toHaveAttribute("data-shadcn-theme","dark");
     const region=page.locator("#reference-images");
-    await region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last().click();
+    const lastIndex = region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last();
+    await lastIndex.focus(); await page.keyboard.press("Enter");
     await expect(region.locator("li").last()).toBeFocused();
-    await page.getByRole("link",{name:"Open the complete media browser",exact:true}).click();
+    const mediaBrowserLink = page.getByRole("link",{name:"Open the complete media browser",exact:true});
+    await mediaBrowserLink.focus(); await page.keyboard.press("Enter");
     await expect(page.locator("h1")).toHaveText("Media browser");
     for (const img of await page.locator("#media-browser img").all()) {
       await img.scrollIntoViewIfNeeded(); await expect.poll(()=>img.evaluate(e=>e.complete && e.naturalWidth>0)).toBe(true);
@@ -90,12 +92,14 @@ for (const theme of ["light", "dark"]) {
     await form.getByRole("checkbox").check(); await form.getByRole("button",{name:"Reset local preferences"}).click();
     await expect(form.getByRole("textbox")).toHaveValue("A landscape"); await expect(form.getByRole("checkbox")).not.toBeChecked();
     const region=page.locator("#reference-images");
-    await region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last().click();
+    const lastIndex = region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last();
+    await lastIndex.focus(); await page.keyboard.press("Enter");
     await expect(region.locator("li").last()).toBeFocused();
     await page.setViewportSize({width:1024,height:850});
     await page.getByRole("heading",{name:"Original local images"}).scrollIntoViewIfNeeded();
     await page.screenshot({path:testInfo.outputPath(`carousel-${theme}.png`)});
-    await page.getByRole("link",{name:"Open the complete media browser",exact:true}).click();
+    const mediaBrowserLink = page.getByRole("link",{name:"Open the complete media browser",exact:true});
+    await mediaBrowserLink.focus(); await page.keyboard.press("Enter");
     await expect(page.locator("h1")).toHaveText("Media browser");
     for (const img of await page.locator("#media-browser img").all()) {
       await img.scrollIntoViewIfNeeded();

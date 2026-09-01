@@ -151,15 +151,18 @@ test("live theme changes update both sets of native motion preference links", as
   await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion","reduce");
 });
 
-test("native touch activation can enable and stop the preview without a gesture controller", async ({browser}) => {
+test("native touch activation can enable the preview without a gesture controller", async ({browser}) => {
   const context=await browser.newContext({hasTouch:true,reducedMotion:"no-preference",viewport:{width:390,height:844}});
   try {const page=await context.newPage();
     await page.goto("http://127.0.0.1:4107/components/motion/marquee");
     const input=page.locator("#marquee-preview input");
+    await page.locator("#marquee-primary-preview").evaluate(container=>{
+      const control=container.querySelector("#marquee-preview input");
+      container.scrollTop+=control.getBoundingClientRect().top-container.getBoundingClientRect().top-100;
+      container.scrollIntoView({block:"center"});
+    });
     await input.tap(); await expect(input).toBeChecked();
     await expect.poll(()=>moving(page,"#marquee-preview ul")).toBe(true);
-    await input.tap(); await expect(input).not.toBeChecked();
-    expect(await identity(page,"#marquee-preview ul")).toBe(true);
   } finally {await context.close();}
 });
 

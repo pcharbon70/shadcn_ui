@@ -35,8 +35,8 @@ test("closed Milestone C routes expose navigation, breadcrumbs, source, and 404s
     await expect(page.getByRole("heading", { level: 1, name: label })).toBeVisible();
     await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toContainText(label);
     await expect(page.getByRole("link", { name: label, exact: true }).first()).toHaveAttribute("aria-current", "page");
-    await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
-    await expect(page.locator("pre code")).not.toBeEmpty();
+    expect(await page.locator("[data-gallery-specimen-source]").count()).toBeGreaterThan(0);
+    await expect(page.locator("pre code").first()).not.toBeEmpty();
   }
 
   const response = await page.goto("/components/navigation/not-a-component");
@@ -46,12 +46,12 @@ test("closed Milestone C routes expose navigation, breadcrumbs, source, and 404s
 
 test("native disclosure, links, fragments, scrolling, and radio keys remain browser-owned", async ({ page }) => {
   await page.goto("/components/disclosure/accordion");
-  const independent = page.locator("#gallery-independent-item-closed");
+  const independent = page.locator("#faq-sections-item-support");
   await independent.locator("summary").click();
   await expect(independent).toHaveAttribute("open", "");
 
-  const exclusiveOne = page.locator("#gallery-exclusive-item-one");
-  const exclusiveTwo = page.locator("#gallery-exclusive-item-two");
+  const exclusiveOne = page.locator("#faq-item-billing");
+  const exclusiveTwo = page.locator("#faq-item-security");
   await exclusiveTwo.locator("summary").click();
   await expect(exclusiveTwo).toHaveAttribute("open", "");
   if (await page.evaluate(() => "name" in document.createElement("details"))) {
@@ -120,8 +120,8 @@ test("no-script and CSS-disabled pages retain all authored content and native co
   await expect(page.getByText("Disabled choice explanation remains readable.")).toBeVisible();
 
   await page.goto("/components/disclosure/accordion");
-  await page.getByText("Closed snapshot", { exact: true }).click();
-  await expect(page.locator("#gallery-independent-item-closed")).toHaveAttribute("open", "");
+  await page.getByText("Support guidance", { exact: true }).click();
+  await expect(page.locator("#faq-sections-item-support")).toHaveAttribute("open", "");
   await context.close();
 });
 

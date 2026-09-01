@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 7 Phase - Complete Gallery Migration.
+- [x] 7 Phase - Complete Gallery Migration.
 
   Apply the approved shell, article and specimen system to every remaining route
   in reviewable waves, refining package CSS only when an audited difference
@@ -88,26 +88,26 @@ Back to wave: [README](./README.md)
       - [x] 7.4.2.2 Subtask - Refine 404, fallback and build/provenance surfaces with deterministic non-reflecting content.
       - [x] 7.4.2.3 Subtask - Audit every composition and non-component route for old shell fragments or unscoped default styling.
 
-  - [ ] 7.5 Section - Phase 7 Integration Tests.
+  - [x] 7.5 Section - Phase 7 Integration Tests.
 
     Prove complete migration and catch family-specific regressions before final publication acceptance.
 
-    - [ ] 7.5.1 Task - Exercise the entire route inventory.
+    - [x] 7.5.1 Task - Exercise the entire route inventory.
 
       Every route needs structural, source, metadata and representative visual proof.
 
-      - [ ] 7.5.1.1 Subtask - Assert the accepted shell and article/discovery structure across every canonical route and static export destination.
-      - [ ] 7.5.1.2 Subtask - Compare representative light/dark desktop/mobile goldens for each family and every distinct specimen layout.
-      - [ ] 7.5.1.3 Subtask - Run family interaction, keyboard, axe, zoom, forced-colors, reduced-motion and no-script suites.
-      - [ ] 7.5.1.4 Subtask - Fail any completeness entry that remains authored-ready but not migrated and reviewed.
+      - [x] 7.5.1.1 Subtask - Assert the accepted shell and article/discovery structure across every canonical route and static export destination.
+      - [x] 7.5.1.2 Subtask - Compare representative light/dark desktop/mobile goldens for each family and every distinct specimen layout.
+      - [x] 7.5.1.3 Subtask - Run family interaction, keyboard, axe, zoom, forced-colors, reduced-motion and no-script suites.
+      - [x] 7.5.1.4 Subtask - Fail any completeness entry that remains authored-ready but not migrated and reviewed.
 
-    - [ ] 7.5.2 Task - Reconcile package changes and delivery.
+    - [x] 7.5.2 Task - Reconcile package changes and delivery.
 
       Any component-level CSS refinement requires separate contract and provenance proof.
 
-      - [ ] 7.5.2.1 Subtask - Audit component changes against reusable package ownership, semantic tests, CSS isolation and upstream adaptation records.
-      - [ ] 7.5.2.2 Subtask - Run all A-G package/demo/browser suites, deterministic CSS/export, archive, SpecLed and git diff checks.
-      - [ ] 7.5.2.3 Subtask - Record evidence, complete one commit per coherent migration section and open one Phase 7 PR.
+      - [x] 7.5.2.1 Subtask - Audit component changes against reusable package ownership, semantic tests, CSS isolation and upstream adaptation records.
+      - [x] 7.5.2.2 Subtask - Run all A-G package/demo/browser suites, deterministic CSS/export, archive, SpecLed and git diff checks.
+      - [x] 7.5.2.3 Subtask - Record evidence, complete one commit per coherent migration section and open one Phase 7 PR.
 
 ## Section delivery rule
 

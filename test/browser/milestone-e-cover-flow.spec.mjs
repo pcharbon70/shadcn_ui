@@ -25,7 +25,7 @@ test("static no-script subpath retains images, preference links and real index n
   try{const page=await context.newPage(),remote=[];page.on("request",r=>{if(new URL(r.url()).hostname!=="127.0.0.1")remote.push(r.url());});
     await page.goto(server.url);await page.getByRole("link",{name:"Reduce motion",exact:true}).click();await page.getByRole("link",{name:"Use dark theme"}).click();
     await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion","reduce");await expect(page.locator("html")).toHaveAttribute("data-shadcn-theme","dark");
-    const region=page.locator("#cover-reference");await region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last().click();await expect(region.locator("li").last()).toBeFocused();
+    const region=page.locator("#cover-reference"),lastIndex=region.locator("..").locator("[data-shadcn-ui-carousel-index] a").last();await lastIndex.focus();await page.keyboard.press("Enter");await expect(region.locator("li").last()).toBeFocused();
     for(const img of await region.locator("img").all()){await img.scrollIntoViewIfNeeded();await expect.poll(()=>img.evaluate(el=>el.complete&&el.naturalWidth>0)).toBe(true);}
     const href=await region.locator("a").first().getAttribute("href");expect((await page.request.get(new URL(href,page.url()).href)).status()).toBe(200);
     await expect(page.locator("#cover-failure img").first()).toHaveAttribute("alt","Intentionally unavailable landscape");expect(remote).toEqual([]);

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "complete-reviewed-migration-integration",
+  "phase": "milestone-g-phase-07-section-5",
+  "inventory": {
+    "totalRoutes": 63,
+    "landingRoutes": 1,
+    "categoryRoutes": 9,
+    "componentRoutes": 41,
+    "compositionRoutes": 12,
+    "migratedRoutes": 63,
+    "reviewedRoutes": 63,
+    "acceptedRoutes": 1
+  },
+  "browserMatrix": {
+    "families": [
+      "foundation",
+      "forms",
+      "disclosure",
+      "navigation",
+      "content-surfaces",
+      "overlays",
+      "interactive-surfaces",
+      "media",
+      "motion"
+    ],
+    "themes": ["light", "dark"],
+    "viewports": ["desktop", "mobile"],
+    "specimenLayouts": ["centered", "composition", "constrained", "overflow", "start", "tall"],
+    "states": [
+      "keyboard",
+      "axe-wcag-2a-2aa-21aa",
+      "zoom-200-percent",
+      "forced-colors",
+      "reduced-motion",
+      "no-script",
+      "static-export"
+    ],
+    "lockedEvidence": [
+      "test/browser/milestone-g-presentation.spec.mjs-snapshots",
+      "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots",
+      "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots"
+    ]
+  },
+  "packageAudit": {
+    "changedRuntimeFiles": [],
+    "packageBoundary": "All Phase 7 implementation files are demo, test, evidence, plan, or verification configuration files.",
+    "provenance": "No reusable package component or package CSS change was required by the gallery-only migration.",
+    "refreshedGeneratedFixtures": [
+      "test/fixtures/milestone_d_drawers.html",
+      "test/fixtures/milestone_d_popovers.html",
+      "test/fixtures/milestone_e_image_gallery.html",
+      "test/fixtures/milestone_e_budgets.json"
+    ]
+  },
+  "gates": [
+    "mix precommit",
+    "mix docs",
+    "mix hex.build",
+    "mix run scripts/check-release-archive.exs",
+    "demo: mix precommit",
+    "demo: npm run assets:check",
+    "demo: npm run export:determinism",
+    "demo: npm run export:check",
+    "demo: npm run export:smoke",
+    "demo: npm run browser:test",
+    "demo: npm run browser:milestone-c",
+    "npm run browser:milestone-d-phase1 through browser:milestone-d-phase5",
+    "npm run browser:milestone-d-gallery",
+    "npm run browser:milestone-e-phase1 through browser:milestone-e-phase6",
+    "npm run browser:milestone-g-phase2",
+    "npm run browser:milestone-g-phase3",
+    "npm run browser:milestone-g-phase4",
+    "npm run browser:milestone-g-phase5",
+    "npm run browser:milestone-g-phase5-acceptance",
+    "npm run browser:milestone-g-phase7",
+    "mix spec.check --base origin/main",
+    "git diff --check"
+  ],
+  "accepted": false,
+  "acceptancePhase": "8"
+}

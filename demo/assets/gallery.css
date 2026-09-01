@@ -126,7 +126,7 @@ a { color: inherit; }
 .gallery-specimen--start .gallery-specimen__preview { align-items: flex-start; justify-content: flex-start; }
 .gallery-specimen--constrained .gallery-specimen__preview > * { inline-size: min(100%, 28rem); }
 .gallery-specimen--tall .gallery-specimen__preview { min-block-size: 28rem; align-items: flex-start; }
-.gallery-specimen--overflow .gallery-specimen__preview { justify-content: flex-start; max-block-size: 28rem; }
+.gallery-specimen--overflow .gallery-specimen__preview { align-items: flex-start; justify-content: flex-start; max-block-size: 28rem; }
 .gallery-specimen--composition .gallery-specimen__preview { display: block; }
 .gallery-specimen__code { position: relative; background: color-mix(in srgb, var(--shadcn-ui-muted) 70%, var(--shadcn-ui-background)); }
 .gallery-specimen__code-actions { position: sticky; inset-block-start: 0; z-index: 1; display: flex; align-items: center; justify-content: flex-end; gap: .5rem; min-block-size: 3rem; padding: .5rem; box-sizing: border-box; background: var(--shadcn-ui-muted); border-block-end: 1px solid var(--shadcn-ui-border); }
@@ -156,6 +156,7 @@ a { color: inherit; }
 .gallery-support-table caption { padding: .75rem 1rem; color: var(--shadcn-ui-foreground); font-family: var(--gallery-font-display); font-size: var(--gallery-text-base); font-weight: 650; text-align: start; }
 .gallery-support-table :is(th, td) { padding: .75rem 1rem; border-block-start: 1px solid var(--shadcn-ui-border); text-align: start; vertical-align: top; }
 .gallery-support-table thead th { color: var(--shadcn-ui-muted-foreground); background: var(--shadcn-ui-muted); font-size: var(--gallery-text-xs); letter-spacing: .04em; text-transform: uppercase; }
+.gallery-support-table tr > :first-child { width: 8rem; }
 .gallery-support-table tbody th { font-weight: 650; }
 .gallery-presentation-fixture { display: grid; gap: 2rem; margin-block-start: 3rem; padding-block-start: 2rem; border-block-start: 1px solid var(--shadcn-ui-border); }
 .gallery-presentation-fixture > section { min-inline-size: 0; }

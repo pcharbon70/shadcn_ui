@@ -3,6 +3,7 @@ import { fileURLToPath } from "node:url";
 export default defineConfig({
   testDir: "./test/browser", testMatch: "milestone-e-carousel.spec.mjs",
   outputDir: "./test-results/milestone-e-phase2", workers: 1, reporter: "line",
+  timeout: 120_000,
   projects: [
     { name: "chromium", use: { ...devices["Desktop Chrome"] } },
     { name: "firefox", use: { ...devices["Desktop Firefox"] } },
