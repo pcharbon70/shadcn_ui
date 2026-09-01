@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "local-reviewed-migration-wave",
+  "phase": "milestone-g-phase-07-section-4",
+  "inventoryRoutes": 10,
+  "landingRoutes": 1,
+  "categoryRoutes": 9,
+  "additionalSurfaces": [
+    "documentation-composition",
+    "form-compositions",
+    "not-found",
+    "build-provenance-footer"
+  ],
+  "reviewedStates": [
+    "representative-previews",
+    "component-summaries",
+    "ordinary-destinations",
+    "no-script-discovery",
+    "search-inventory",
+    "sitemap",
+    "canonical-routes",
+    "non-reflecting-errors",
+    "scoped-styles"
+  ],
+  "accepted": false,
+  "acceptancePhase": "8"
+}

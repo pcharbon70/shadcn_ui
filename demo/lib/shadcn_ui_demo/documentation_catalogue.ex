@@ -178,12 +178,62 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
         source_relationship: "reference:#{component.render}",
         source_compile: "source:#{component.render}",
         preview_label: "#{component.label} primary example",
-        layout: "centered",
+        layout: example_layout(component.render),
         route: "#{component.path}##{fragment}",
         source: reference.source
       }
     ]
   end
+
+  defp example_layout(render)
+       when render in [:button, :badge, :avatar, :label, :help, :field_errors],
+       do: "start"
+
+  defp example_layout(render)
+       when render in [
+              :alert,
+              :card,
+              :skeleton,
+              :field,
+              :error_summary,
+              :input,
+              :textarea,
+              :checkbox,
+              :radio_group,
+              :switch,
+              :native_select,
+              :enhanced_select,
+              :slider,
+              :progress,
+              :meter
+            ],
+       do: "constrained"
+
+  defp example_layout(render) when render in [:navigation_menu, :scroll_area], do: "overflow"
+
+  defp example_layout(render) when render in [:carousel, :cover_flow, :marquee], do: "overflow"
+
+  defp example_layout(render)
+       when render in [:dialog, :drawer, :image_gallery, :scroll_indicator],
+       do: "tall"
+
+  defp example_layout(render)
+       when render in [
+              :header,
+              :section_header,
+              :separator,
+              :radio_panels,
+              :alert_dialog,
+              :popover,
+              :dropdown_actions,
+              :tooltip,
+              :hover_card
+            ],
+       do: "constrained"
+
+  defp example_layout(:stagger), do: "constrained"
+
+  defp example_layout(_render), do: "centered"
 
   @spec lookup(String.t(), String.t()) :: {:ok, map()} | :error
   def lookup(category, slug) when is_binary(category) and is_binary(slug) do
@@ -204,6 +254,16 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   end
 
   def lookup_route(_route), do: :error
+
+  @spec lookup_presentation_route(String.t()) :: {:ok, map()} | :error
+  def lookup_presentation_route(route) when is_binary(route) do
+    case Enum.find(presentation_inventory(), &(&1.route == route)) do
+      nil -> :error
+      presentation -> {:ok, presentation}
+    end
+  end
+
+  def lookup_presentation_route(_route), do: :error
 
   @spec lookup_fragment(String.t(), String.t()) :: {:ok, map()} | :error
   def lookup_fragment(route, fragment) when is_binary(route) and is_binary(fragment) do
@@ -391,6 +451,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
         migrated: status.migrated,
         visually_reviewed: status.visually_reviewed,
         accepted: status.accepted,
+        migration_wave: status.migration_wave,
         visual_evidence: status.visual_evidence,
         browser_route: presentation.route,
         export_route: presentation.route

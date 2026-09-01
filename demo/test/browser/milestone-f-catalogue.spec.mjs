@@ -107,7 +107,9 @@ test("pinned axe, focus, reduced motion, narrow layout, long labels, and zoom pa
 
   await page.evaluate(() => { document.documentElement.style.zoom = "2"; });
   await expect(page.locator("main")).toBeVisible();
-  await expect(page.getByText("Error Summary primary example", { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Error Summary primary example", exact: true }),
+  ).toBeVisible();
   expect((await page.locator("body").boundingBox()).width).toBeLessThanOrEqual(390);
   await context.close();
 });

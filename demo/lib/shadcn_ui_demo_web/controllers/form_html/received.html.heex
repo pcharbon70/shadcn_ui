@@ -1,12 +1,25 @@
-<main class="gallery-standalone" data-shadcn-theme="light">
-  <h1>Received demonstration values</h1>
-  <p>No authentication, persistence, authorization, or domain operation was performed.</p>
-  <dl data-demo-received-values>
-    <div :for={{key, value} <- @values}>
-      <dt>{key}</dt>
-      <dd :if={is_list(value)}><span :for={item <- value}>{item}</span></dd>
-      <dd :if={!is_list(value)}>{value}</dd>
-    </div>
-  </dl>
-  <a href="/components/forms">Return to Forms</a>
-</main>
+<Layouts.gallery
+  page={@page}
+  categories={@categories}
+  components={@components}
+  theme={@theme}
+  motion={@motion}
+  build_identity={@build_identity}
+>
+  <article class="gallery-reference" data-gallery-form-outcome>
+    <header class="gallery-reference__introduction">
+      <p class="gallery-reference__description">Allowlisted demonstration values received.</p>
+      <p>No authentication, persistence, authorization, or domain operation was performed.</p>
+    </header>
+    <section aria-label="Received values">
+      <dl data-demo-received-values>
+        <div :for={{key, value} <- @values}>
+          <dt>{key}</dt>
+          <dd :if={is_list(value)}><span :for={item <- value}>{item}</span></dd>
+          <dd :if={!is_list(value)}>{value}</dd>
+        </div>
+      </dl>
+    </section>
+    <p><a href="/components/forms">Return to Forms</a></p>
+  </article>
+</Layouts.gallery>

@@ -70,6 +70,11 @@ jobs:
       - run: mix run scripts/render-motion-media-budgets.exs --check
       - run: npm run browser:milestone-e-phase6
       - run: npm run browser:milestone-g-phase2
+      - run: npm run browser:milestone-g-phase3
+      - run: npm run browser:milestone-g-phase4
+      - run: npm run browser:milestone-g-phase5
+      - run: npm run browser:milestone-g-phase5-acceptance
+      - run: npm run browser:milestone-g-phase7
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo

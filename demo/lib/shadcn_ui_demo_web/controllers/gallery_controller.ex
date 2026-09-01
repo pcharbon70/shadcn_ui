@@ -4,13 +4,44 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   alias ShadcnUIDemo.{BuildIdentity, Catalogue, DocumentationCatalogue, Reference}
 
   def landing(conn, params) do
-    render_page(conn, params, %{kind: :landing, title: "ShadcnUI Gallery", path: "/"})
+    {:ok, presentation} = DocumentationCatalogue.lookup_presentation_route("/")
+
+    featured_entries =
+      ["foundation", "disclosure", "media"]
+      |> Enum.map(fn category ->
+        component = category |> Catalogue.components() |> hd()
+        {:ok, entry} = DocumentationCatalogue.lookup_route(component.path)
+        entry
+      end)
+
+    render_page(conn, params, %{
+      kind: :landing,
+      title: "ShadcnUI Gallery",
+      path: "/",
+      presentation: presentation,
+      featured_entries: featured_entries
+    })
   end
 
   def category(conn, %{"category" => category} = params) do
     case Catalogue.lookup_category(category) do
       {:ok, item} ->
-        render_page(conn, params, Map.merge(item, %{kind: :category, title: item.label}))
+        {:ok, presentation} = DocumentationCatalogue.lookup_presentation_route(item.path)
+
+        entries =
+          DocumentationCatalogue.entries()
+          |> Enum.filter(&(&1.category.slug == item.slug))
+
+        render_page(
+          conn,
+          params,
+          Map.merge(item, %{
+            kind: :category,
+            title: item.label,
+            presentation: presentation,
+            entries: entries
+          })
+        )
 
       :error ->
         not_found(conn, params)
@@ -42,6 +73,8 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   def composition(conn, %{"example" => example} = params) do
     case Catalogue.lookup_composition(example) do
       {:ok, item} ->
+        {:ok, presentation} = DocumentationCatalogue.lookup_presentation_route(item.path)
+
         selected =
           if params["view"] in ["profile", "security"], do: params["view"], else: "profile"
 
@@ -53,6 +86,7 @@ defmodule ShadcnUIDemoWeb.GalleryController do
           Map.merge(item, %{
             kind: :composition,
             title: item.label,
+            presentation: presentation,
             selected: selected,
             invalid: invalid
           })
@@ -66,7 +100,12 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   def not_found(conn, params) do
     conn
     |> put_status(:not_found)
-    |> render_page(params, %{kind: :not_found, title: "Page not found", path: nil})
+    |> render_page(params, %{
+      kind: :not_found,
+      title: "Page not found",
+      path: "/",
+      canonical: false
+    })
   end
 
   defp render_page(conn, params, page) do
@@ -77,7 +116,11 @@ defmodule ShadcnUIDemoWeb.GalleryController do
     |> put_view(html: ShadcnUIDemoWeb.PageHTML)
     |> render(:gallery,
       page_title: page.title,
-      canonical_url: page.path && "https://leco-industries-inc.github.io/shadcn_ui" <> page.path,
+      canonical_url:
+        if(Map.get(page, :canonical, true),
+          do: "https://leco-industries-inc.github.io/shadcn_ui" <> page.path,
+          else: nil
+        ),
       page: page,
       theme: theme,
       motion: motion,
