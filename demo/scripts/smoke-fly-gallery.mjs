@@ -35,7 +35,9 @@ for (const path of [
   const response = await get(path, "text/html");
   const html = await response.text();
   const canonical = new URL(path, base).href;
-  if (!html.includes("ShadcnUI Gallery")) throw new Error(`invalid gallery response: ${path}`);
+  if (!html.includes('aria-label="ShadcnUI home"')) {
+    throw new Error(`invalid gallery response: ${path}`);
+  }
   if (!html.includes(`rel="canonical" href="${canonical}"`)) {
     throw new Error(`invalid canonical response: ${path}`);
   }

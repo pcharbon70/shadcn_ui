@@ -120,6 +120,10 @@ runtime boundary, package contents, or existing verification.
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's gallery contract.
 
+Deployment and static-publication smoke identify the shared shell through its
+stable ShadcnUI home link label, independent of route-specific page titles and
+secondary build or provenance metadata.
+
 Milestone G Phase 4 presents component guidance as an introduction, paired
 preview/source specimen, explanation, accessibility and support, ownership,
 related documentation, and provenance. Existing routes, headings, landmarks,

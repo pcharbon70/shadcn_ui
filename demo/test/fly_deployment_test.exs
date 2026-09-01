@@ -55,5 +55,6 @@ defmodule ShadcnUIDemo.FlyDeploymentTest do
     assert operations =~ "rollback"
     assert operations =~ "separate states"
     assert smoke =~ "assets.size !== 4"
+    assert smoke =~ ~s(aria-label=\"ShadcnUI home\")
   end
 end

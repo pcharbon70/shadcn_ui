@@ -93,6 +93,9 @@ surface:
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's release contract.
 
+Canonical smoke identifies every route through the stable ShadcnUI home link
+label rather than requiring route-specific titles or secondary metadata text.
+
 ```spec-verification
 - kind: test_file
   target: demo/test/build_identity_test.exs
