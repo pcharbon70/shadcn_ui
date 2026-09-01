@@ -16,7 +16,7 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
     assert @workflow =~ "branches: [main]"
     assert @workflow =~ "contents: read"
     assert @workflow =~ "SHADCN_UI_BUILD_REVISION: ${{ github.sha }}"
-    assert @workflow =~ "https://leco-shadcn-ui-demo.fly.dev/"
+    assert @workflow =~ "https://pcharbon70-shadcn-ui-demo.fly.dev/"
     refute @workflow =~ "pages: write"
     refute @workflow =~ "id-token: write"
     refute @workflow =~ "actions/deploy-pages"

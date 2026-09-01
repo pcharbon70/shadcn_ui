@@ -2026,6 +2026,14 @@
       },
       {
         "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.mit_license",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "ShadcnUI shall declare the standard SPDX MIT license identifier and include the complete root MIT license text in its release archive.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
         "id": "shadcn_ui.package.no_consumer_asset_toolchain",
         "priority": "must",
         "stability": "stable",
@@ -2269,7 +2277,7 @@
         "id": "shadcn_ui.release_publication.explicit_archive",
         "priority": "must",
         "stability": "stable",
-        "statement": "The actual candidate archive shall match the explicit allowlist, contain complete notices and documentation, and exclude demo, tests, generated site output, build tools, dependencies, observations, credentials, and mutable files.",
+        "statement": "The actual candidate archive shall match the explicit allowlist, contain the complete MIT license, third-party notices, and documentation, and exclude demo, tests, generated site output, build tools, dependencies, observations, credentials, and mutable files.",
         "subject_id": "shadcn_ui.release_publication"
       },
       {
@@ -3158,6 +3166,7 @@
             "priv/static/shadcn_ui.css",
             "priv/compatibility/*.json",
             "README.md",
+            "LICENSE",
             "CHANGELOG.md",
             "THIRD_PARTY_NOTICES.md",
             "test/shadcn_ui/package_test.exs",
@@ -3212,7 +3221,7 @@
           "summary": "Auditable pinned provenance for substantially adapted unscripted/ui material.",
           "surface": [
             "THIRD_PARTY_NOTICES.md",
-            "priv/provenance/unscripted_ui.json",
+            "priv/provenance/**",
             "README.md",
             "test/shadcn_ui/provenance_test.exs",
             "test/shadcn_ui/milestone_c_acceptance_test.exs"
@@ -3280,6 +3289,7 @@
             "package-lock.json",
             "README.md",
             "CHANGELOG.md",
+            "LICENSE",
             "RELEASE.md",
             "THIRD_PARTY_NOTICES.md",
             "docs/release-candidate.md",
@@ -5189,6 +5199,7 @@
           "shadcn_ui.package.transport_neutral",
           "shadcn_ui.package.public_import_surface",
           "shadcn_ui.package.explicit_release_files",
+          "shadcn_ui.package.mit_license",
           "shadcn_ui.package.no_consumer_asset_toolchain"
         ],
         "execute": true,
@@ -5204,6 +5215,7 @@
           "shadcn_ui.package.transport_neutral",
           "shadcn_ui.package.public_import_surface",
           "shadcn_ui.package.explicit_release_files",
+          "shadcn_ui.package.mit_license",
           "shadcn_ui.package.no_consumer_asset_toolchain"
         ],
         "file": ".spec/specs/package.spec.md",
@@ -5689,7 +5701,7 @@
     "decisions": 30,
     "exceptions": 0,
     "findings": 0,
-    "requirements": 266,
+    "requirements": 267,
     "scenarios": 0,
     "subjects": 27,
     "verifications": 179
@@ -13078,6 +13090,17 @@
         "verification_index": 1
       },
       {
+        "cover_id": "shadcn_ui.package.mit_license",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "executed",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit",
+        "verification_index": 1
+      },
+      {
         "cover_id": "shadcn_ui.package.no_consumer_asset_toolchain",
         "file": ".spec/specs/package.spec.md",
         "kind": "command",
@@ -13134,6 +13157,17 @@
       },
       {
         "cover_id": "shadcn_ui.package.independent_mix_project",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.package.mit_license",
         "file": ".spec/specs/package.spec.md",
         "kind": "test_file",
         "meets_minimum": true,
@@ -15172,8 +15206,8 @@
     "default_minimum_strength": "claimed",
     "strength_summary": {
       "claimed": 5,
-      "executed": 37,
-      "linked": 819
+      "executed": 38,
+      "linked": 820
     },
     "threshold_failures": 0
   },

@@ -118,6 +118,7 @@ defmodule ShadcnUI.MilestoneAAcceptanceTest do
     expected =
       [
         "CHANGELOG.md",
+        "LICENSE",
         "README.md",
         "THIRD_PARTY_NOTICES.md",
         "mix.exs",

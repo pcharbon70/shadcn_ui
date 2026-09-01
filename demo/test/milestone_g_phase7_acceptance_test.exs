@@ -34,7 +34,7 @@ defmodule ShadcnUIDemo.MilestoneGPhase7AcceptanceTest do
       assert html =~ ~s(data-gallery-package-version>Package 0.1.0</p>)
 
       assert html =~
-               ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui#{presentation.route}")
+               ~s(rel="canonical" href="https://pcharbon70-shadcn-ui-demo.fly.dev#{presentation.route}")
 
       case presentation.kind do
         "landing" ->

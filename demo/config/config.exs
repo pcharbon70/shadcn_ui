@@ -14,7 +14,7 @@ config :shadcn_ui_demo,
   canonical_url:
     System.get_env(
       "SHADCN_UI_CANONICAL_URL",
-      "https://leco-industries-inc.github.io/shadcn_ui/"
+      "https://pcharbon70-shadcn-ui-demo.fly.dev/"
     )
 
 # Configure the endpoint

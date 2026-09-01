@@ -1,7 +1,7 @@
 # Gallery publication operations
 
-The ShadcnUI maintainers own the Fly.io application `leco-shadcn-ui-demo` and
-the canonical gallery at `https://leco-shadcn-ui-demo.fly.dev/`. The source
+The ShadcnUI maintainers own the Fly.io application `pcharbon70-shadcn-ui-demo` and
+the canonical gallery at `https://pcharbon70-shadcn-ui-demo.fly.dev/`. The source
 repository owns the non-secret Docker, Machine, service and health-check
 configuration. Fly secrets own `SECRET_KEY_BASE`; no secret value belongs in
 source, build arguments, artifacts, logs, or release records.
@@ -20,7 +20,7 @@ deploy the immutable revision:
 
 ```text
 flyctl config validate --strict -c demo/fly.toml
-flyctl secrets set -a leco-shadcn-ui-demo SECRET_KEY_BASE=<generated-secret>
+flyctl secrets set -a pcharbon70-shadcn-ui-demo SECRET_KEY_BASE=<generated-secret>
 flyctl deploy . -c demo/fly.toml --ha=false --build-arg SHADCN_UI_BUILD_REVISION=<40-character revision>
 ```
 
@@ -34,7 +34,7 @@ portable fallback; they are not the canonical Fly runtime.
 Run from the deployed revision with both variables set:
 
 ```text
-SHADCN_UI_GALLERY_URL=https://leco-shadcn-ui-demo.fly.dev/
+SHADCN_UI_GALLERY_URL=https://pcharbon70-shadcn-ui-demo.fly.dev/
 SHADCN_UI_EXPECTED_REVISION=<40-character deployed revision>
 npm --prefix demo run smoke:fly
 ```
@@ -54,7 +54,7 @@ infer this result from Machine health alone.
    as a stale deployment, not as an acceptable cache delay.
 3. Select the most recent Fly release whose immutable image identity and
    post-deploy smoke both passed. Use `flyctl releases` to identify it and
-   `flyctl releases rollback <version> -a leco-shadcn-ui-demo` to restore it. Do
+   `flyctl releases rollback <version> -a pcharbon70-shadcn-ui-demo` to restore it. Do
    not rebuild an unrecorded working tree.
 4. Confirm Fly reports the rollback Machine healthy. Run the complete canonical
    smoke with the selected 40-character revision.

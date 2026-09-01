@@ -1,7 +1,7 @@
 # Gallery deployment
 
 The canonical gallery is the separate, stateless Phoenix demo at
-`https://leco-shadcn-ui-demo.fly.dev/`. It runs as an immutable OTP release on
+`https://pcharbon70-shadcn-ui-demo.fly.dev/`. It runs as an immutable OTP release on
 Fly.io; it is not part of the ShadcnUI package archive and it does not add an
 application runtime to package consumers.
 

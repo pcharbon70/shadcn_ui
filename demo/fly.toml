@@ -1,4 +1,4 @@
-app = "leco-shadcn-ui-demo"
+app = "pcharbon70-shadcn-ui-demo"
 primary_region = "yyz"
 kill_signal = "SIGTERM"
 kill_timeout = "5s"
@@ -7,11 +7,11 @@ kill_timeout = "5s"
   dockerfile = "Dockerfile"
 
   [build.args]
-    SHADCN_UI_CANONICAL_URL = "https://leco-shadcn-ui-demo.fly.dev/"
+    SHADCN_UI_CANONICAL_URL = "https://pcharbon70-shadcn-ui-demo.fly.dev/"
 
 [env]
-  DNS_CLUSTER_QUERY = "leco-shadcn-ui-demo.internal"
-  PHX_HOST = "leco-shadcn-ui-demo.fly.dev"
+  DNS_CLUSTER_QUERY = "pcharbon70-shadcn-ui-demo.internal"
+  PHX_HOST = "pcharbon70-shadcn-ui-demo.fly.dev"
   PHX_SERVER = "true"
   PORT = "8080"
 

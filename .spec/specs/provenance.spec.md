@@ -9,7 +9,7 @@ decisions:
   - shadcn_ui.upstream_provenance
 surface:
   - THIRD_PARTY_NOTICES.md
-  - priv/provenance/unscripted_ui.json
+  - priv/provenance/**
   - README.md
   - test/shadcn_ui/provenance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
@@ -70,7 +70,8 @@ Local changes add explicit close, semantic keyed figures, validated responsive
 metadata, complete captions and separate ordinary destinations. Full images
 contain; origin CSS is deliberately deferred. Only prefixed static utilities
 and existing Dialog CSS ship. No upstream site artwork or command shim is copied;
-the existing complete MIT notice and original local fixture rights remain intact.
+the existing complete MIT notice remains intact and original local fixtures are
+distributed under the project's MIT License.
 
 Phase 4 maps Scroll Indicator and Cover Flow to pinned basic.html and respective
 progress.css/flow.css sources. Local adaptations omit completion claims, scroll

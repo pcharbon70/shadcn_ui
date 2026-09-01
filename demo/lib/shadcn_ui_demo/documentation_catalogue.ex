@@ -14,7 +14,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @documentation_keys ~w(what when responsibilities accessibility fallback source native_baseline package_enhancement demo_behavior unsupported)a
   @search_keys ~w(category keywords name route summary url)
   @static_base "/shadcn_ui"
-  @publication_base "https://leco-industries-inc.github.io/shadcn_ui"
+  @publication_base "https://pcharbon70-shadcn-ui-demo.fly.dev"
   @reference_renderer File.read!(
                         Path.join(
                           @package_root,
@@ -611,7 +611,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       |> String.replace_prefix("ShadcnUI.Components.", "")
       |> Macro.underscore()
 
-    "https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/lib/shadcn_ui/components/#{path}.ex"
+    "https://github.com/pcharbon70/shadcn_ui/blob/main/lib/shadcn_ui/components/#{path}.ex"
   end
 
   defp api_url(module, function),

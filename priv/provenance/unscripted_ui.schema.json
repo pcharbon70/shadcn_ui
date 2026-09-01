@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://leco.ca/schemas/shadcn-ui/unscripted-ui-provenance.schema.json",
+  "$id": "https://pcharbon70.github.io/shadcn_ui/schemas/unscripted-ui-provenance.schema.json",
   "title": "ShadcnUI unscripted/ui provenance",
   "type": "object",
   "additionalProperties": false,

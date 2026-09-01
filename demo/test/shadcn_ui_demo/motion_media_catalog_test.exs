@@ -23,7 +23,7 @@ defmodule ShadcnUIDemo.MotionMediaCatalogTest do
     assert html =~ "26.5"
 
     assert html =~
-             ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui/examples/motion-media-capabilities")
+             ~s(rel="canonical" href="https://pcharbon70-shadcn-ui-demo.fly.dev/examples/motion-media-capabilities")
 
     assert {:ok, %{render: :carousel}} = Catalogue.lookup_component("media", "carousel")
     assert {:ok, %{render: :image_gallery}} = Catalogue.lookup_component("media", "image-gallery")

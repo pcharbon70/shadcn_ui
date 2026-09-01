@@ -15,6 +15,7 @@ surface:
   - package-lock.json
   - README.md
   - CHANGELOG.md
+  - LICENSE
   - RELEASE.md
   - THIRD_PARTY_NOTICES.md
   - docs/release-candidate.md
@@ -72,7 +73,7 @@ surface:
   stability: evolving
 
 - id: shadcn_ui.release_publication.explicit_archive
-  statement: The actual candidate archive shall match the explicit allowlist, contain complete notices and documentation, and exclude demo, tests, generated site output, build tools, dependencies, observations, credentials, and mutable files.
+  statement: The actual candidate archive shall match the explicit allowlist, contain the complete MIT license, third-party notices, and documentation, and exclude demo, tests, generated site output, build tools, dependencies, observations, credentials, and mutable files.
   priority: must
   stability: stable
 

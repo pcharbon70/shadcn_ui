@@ -13,10 +13,10 @@ defmodule ShadcnUIDemo.FlyDeploymentTest do
   test "Fly configuration deploys one bounded stateless release with an HTTP health check" do
     config = File.read!("fly.toml")
 
-    assert config =~ ~s(app = "leco-shadcn-ui-demo")
+    assert config =~ ~s(app = "pcharbon70-shadcn-ui-demo")
     assert config =~ ~s(primary_region = "yyz")
     assert config =~ ~s(dockerfile = "Dockerfile")
-    assert config =~ ~s(PHX_HOST = "leco-shadcn-ui-demo.fly.dev")
+    assert config =~ ~s(PHX_HOST = "pcharbon70-shadcn-ui-demo.fly.dev")
     assert config =~ ~s(path = "/healthz")
     assert config =~ ~s(auto_stop_machines = "stop")
     assert config =~ ~s(min_machines_running = 0)

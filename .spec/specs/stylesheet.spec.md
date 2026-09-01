@@ -43,11 +43,12 @@ surface:
   - test/shadcn_ui/milestone_d_acceptance_test.exs
 ```
 
-## Publication boundary
+## Project identity boundary
 
-The README's canonical gallery link now targets the stateless Fly.io demo. That
-publication-location change does not alter this subject's requirements,
-semantics, runtime boundary, package contents, or existing verification.
+ShadcnUI is a personal MIT-licensed project. Repository ownership, package
+scope, schema identifiers, and the canonical Fly hostname are publication
+identity only; they do not alter this subject's requirements, semantics,
+runtime boundary, package contents, or existing verification.
 
 ## Requirements
 

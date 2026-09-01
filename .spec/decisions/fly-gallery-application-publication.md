@@ -17,8 +17,9 @@ affects:
 ## Context
 
 The reviewed GitHub Pages workflow proved the deterministic exporter but the
-repository is owned by `pcharbon70`, while the accepted Pages canonical origin
-named `leco-industries-inc`. Its first deployment therefore could not pass the
+repository is owned by the maintainer's personal GitHub account, while the
+accepted Pages canonical origin named a retired organization. Its first
+deployment therefore could not pass the
 canonical smoke. The maintainers now choose Fly.io as the actual demo host and
 want to publish the controller-rendered Phoenix application rather than make a
 static host the public runtime.

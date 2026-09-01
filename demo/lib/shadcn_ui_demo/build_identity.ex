@@ -12,7 +12,7 @@ defmodule ShadcnUIDemo.BuildIdentity do
   @revision_pattern ~r/^[0-9a-f]{40}$/
   @version_pattern ~r/^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?$/
   @schema_pattern ~r/^[1-9]\d*$/
-  @canonical_url "https://leco-industries-inc.github.io/shadcn_ui/"
+  @canonical_url "https://pcharbon70-shadcn-ui-demo.fly.dev/"
 
   @type t :: %{
           package_version: String.t(),

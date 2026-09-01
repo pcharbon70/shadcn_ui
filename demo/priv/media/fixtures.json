@@ -11,7 +11,7 @@
       "sha256": "8bcdea48371c4309d9235a58f6b7fc6b8ba464382762ba53c6ec43e2d118366a",
       "alt": "Angular mountain ridges beneath a warm sun",
       "source": "Original geometric illustration authored for the ShadcnUI demo",
-      "license": "LicenseRef-LECO-Proprietary"
+      "license": "MIT"
     },
     {
       "key": "harbor",
@@ -23,7 +23,7 @@
       "sha256": "d9efabbc784cc3a6f800e8a76e8a6b74bf8dcce065cd2ac2539ca9914265bfef",
       "alt": "A white sailboat crossing a blue harbor",
       "source": "Original geometric illustration authored for the ShadcnUI demo",
-      "license": "LicenseRef-LECO-Proprietary"
+      "license": "MIT"
     },
     {
       "key": "grove",
@@ -35,7 +35,7 @@
       "sha256": "81b8a700299fbb7c18263ccf3ec8ceb96fd6923a6756002816f3c4919d9b78ef",
       "alt": "Three evergreen trees on a low green hill",
       "source": "Original geometric illustration authored for the ShadcnUI demo",
-      "license": "LicenseRef-LECO-Proprietary"
+      "license": "MIT"
     }
   ],
   "failures": [

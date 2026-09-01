@@ -17,7 +17,7 @@ defmodule ShadcnUIDemo.PublicationManifestTest do
     assert release["identity"]["catalogueSchema"] == "1"
 
     assert release["identity"]["canonicalUrl"] ==
-             "https://leco-industries-inc.github.io/shadcn_ui/"
+             "https://pcharbon70-shadcn-ui-demo.fly.dev/"
 
     assert release["identity"]["buildRevision"] =~ ~r/^[0-9a-f]{40}$/
     assert release["identity"]["upstreamRevision"] =~ ~r/^[0-9a-f]{40}$/

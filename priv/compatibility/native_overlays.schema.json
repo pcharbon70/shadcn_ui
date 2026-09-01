@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://leco-industries-inc.github.io/shadcn_ui/schemas/native-overlays.schema.json",
+  "$id": "https://pcharbon70.github.io/shadcn_ui/schemas/native-overlays.schema.json",
   "title": "ShadcnUI native overlay capability manifest",
   "type": "object",
   "additionalProperties": false,

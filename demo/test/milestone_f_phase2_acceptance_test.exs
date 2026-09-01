@@ -23,7 +23,7 @@ defmodule ShadcnUIDemo.MilestoneFPhase2AcceptanceTest do
       assert html =~ ~s(data-gallery-example="#{example.source_id}")
 
       assert html =~
-               ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui#{entry.route}")
+               ~s(rel="canonical" href="https://pcharbon70-shadcn-ui-demo.fly.dev#{entry.route}")
 
       rendered_source =
         html

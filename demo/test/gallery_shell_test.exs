@@ -57,7 +57,7 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert layout =~ ~s(aria-label="Primary navigation")
     assert layout =~ ~s(href="/examples/documentation")
     assert layout =~ ~s(href="/components/foundation")
-    assert layout =~ ~s(href="https://github.com/Leco-Industries-Inc/shadcn_ui")
+    assert layout =~ ~s(href="https://github.com/pcharbon70/shadcn_ui")
     assert layout =~ ~s(role="group" aria-label="Theme")
     assert layout =~ ~s(data-gallery-metadata)
 

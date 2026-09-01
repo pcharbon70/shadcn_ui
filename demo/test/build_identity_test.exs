@@ -15,7 +15,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
                build_revision: @revision,
                catalogue_schema: "1",
                upstream_revision: @upstream,
-               canonical_url: "https://leco-industries-inc.github.io/shadcn_ui/"
+               canonical_url: "https://pcharbon70-shadcn-ui-demo.fly.dev/"
              })
 
     refute identity.development
@@ -25,7 +25,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
              "buildRevision" => @revision,
              "catalogueSchema" => "1",
              "upstreamRevision" => @upstream,
-             "canonicalUrl" => "https://leco-industries-inc.github.io/shadcn_ui/",
+             "canonicalUrl" => "https://pcharbon70-shadcn-ui-demo.fly.dev/",
              "development" => false
            }
 
@@ -51,11 +51,11 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
                build_revision: @revision,
                catalogue_schema: "1",
                upstream_revision: @upstream,
-               canonical_url: "https://leco-shadcn-ui-demo.fly.dev/"
+               canonical_url: "https://pcharbon70-shadcn-ui-demo.fly.dev/"
              })
 
     assert BuildIdentity.canonical_url(identity, "/components/foundation/button") ==
-             "https://leco-shadcn-ui-demo.fly.dev/components/foundation/button"
+             "https://pcharbon70-shadcn-ui-demo.fly.dev/components/foundation/button"
   end
 
   test "rejects partial, symbolic, secret-like, mutable, and malformed values" do
@@ -76,7 +76,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
       {:catalogue_schema, "0"},
       {:upstream_revision, "main"},
       {:upstream_revision, nil},
-      {:canonical_url, "http://leco-industries-inc.github.io/shadcn_ui/"},
+      {:canonical_url, "http://pcharbon70-shadcn-ui-demo.fly.dev/"},
       {:canonical_url, "https://user@example.test/shadcn_ui/?token=secret"},
       {:canonical_url, "https://example.test/not-normalized"},
       {:canonical_url, "https://example.test/a/../b/"}

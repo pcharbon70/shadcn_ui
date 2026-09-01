@@ -25,7 +25,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
           <a href="/examples/documentation">Docs</a>
           <a href="/components/foundation">Components</a>
           <a
-            href="https://github.com/Leco-Industries-Inc/shadcn_ui"
+            href="https://github.com/pcharbon70/shadcn_ui"
             aria-label="ShadcnUI repository"
           >Repository</a>
         </nav>
@@ -36,7 +36,7 @@ defmodule ShadcnUIDemoWeb.Layouts do
               <a href="/examples/documentation">Docs</a>
               <a href="/components/foundation">Components</a>
               <a
-                href="https://github.com/Leco-Industries-Inc/shadcn_ui"
+                href="https://github.com/pcharbon70/shadcn_ui"
                 aria-label="ShadcnUI repository"
               >Repository</a>
             </nav>

@@ -28,7 +28,7 @@ defmodule ShadcnUIDemo.MotionGalleryTest do
       assert html =~ ~s(data-shadcn-motion="#{motion}")
 
       assert html =~
-               ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui#{path}")
+               ~s(rel="canonical" href="https://pcharbon70-shadcn-ui-demo.fly.dev#{path}")
 
       assert html =~ "data-shadcn-ui-motion"
 

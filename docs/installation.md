@@ -7,7 +7,7 @@ The internal `0.1.0` candidate is not publicly available on Hex.
 ```elixir
 # Reviewed internal revision
 {:shadcn_ui,
- git: "https://github.com/Leco-Industries-Inc/shadcn_ui.git",
+  git: "https://github.com/pcharbon70/shadcn_ui.git",
  ref: "<reviewed-commit-sha>"}
 
 # Sibling development only

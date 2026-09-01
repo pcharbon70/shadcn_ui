@@ -16,7 +16,7 @@ test("desktop navigation, breadcrumbs, fragments, history, and 404s remain ordin
   await expect(page.getByRole("navigation", { name: "Breadcrumb" })).toContainText("Foundation / Button");
   await expect(page.locator("#button-primary")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Button primary example" })).toBeVisible();
-  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://leco-industries-inc.github.io/shadcn_ui${componentRoute}`);
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", `https://pcharbon70-shadcn-ui-demo.fly.dev${componentRoute}`);
   await expect(page.getByRole("navigation", { name: "Component navigation" }).locator('[aria-current="page"]')).toHaveCount(1);
 
   await page.getByRole("navigation", { name: "Related documentation" }).getByRole("link", { name: "Badge" }).click();
