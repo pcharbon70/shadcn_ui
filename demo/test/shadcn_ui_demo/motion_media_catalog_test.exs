@@ -3,6 +3,7 @@ defmodule ShadcnUIDemo.MotionMediaCatalogTest do
   alias ShadcnUIDemo.{Catalogue, GalleryPreferences}
   # covers: shadcn_ui.motion_media_gallery.incremental_catalog
   # covers: shadcn_ui.motion_media_gallery.motion_inspection
+  # covers: shadcn_ui.motion_media_gallery.references
   test "adds an actual foundation composition without advertising unfinished components", %{
     conn: conn
   } do

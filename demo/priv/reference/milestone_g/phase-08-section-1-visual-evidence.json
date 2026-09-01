@@ -13,6 +13,7 @@
     "engine": "chromium",
     "engineVersion": "151.0.7922.34",
     "deviceScaleFactor": 1,
+    "linuxSystemFallbackFont": "Noto Sans",
     "motion": "reduce",
     "themes": [
       "light",

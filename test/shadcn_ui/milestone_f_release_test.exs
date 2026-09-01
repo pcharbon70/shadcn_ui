@@ -5,6 +5,15 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
   @status Path.join(@root, "release/candidate-status.json")
   @inputs Path.join(@root, "release/candidate-inputs.json")
 
+  # covers: shadcn_ui.release_publication.clean_checkout
+  # covers: shadcn_ui.release_publication.clean_consumer_trial
+  # covers: shadcn_ui.release_publication.deterministic_export
+  # covers: shadcn_ui.release_publication.explicit_archive
+  # covers: shadcn_ui.release_publication.health_manifest
+  # covers: shadcn_ui.release_publication.internal_candidate_only
+  # covers: shadcn_ui.release_publication.truthful_gates
+  # covers: shadcn_ui.release_publication.version_identity
+
   test "candidate version and blocking status are internally consistent" do
     status = @status |> File.read!() |> Jason.decode!()
     project_version = Mix.Project.config()[:version]
@@ -15,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Mandatory manual accessibility, CI, and SpecLed gates are not all passing.",
+               "Mandatory manual accessibility and final-revision CI gates are not all passing.",
              "status" => "blocked"
            }
 

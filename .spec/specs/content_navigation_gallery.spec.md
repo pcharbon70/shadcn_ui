@@ -66,6 +66,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's gallery contract.
+
 Milestone G Phase 4 adds native Preview/Code radios around component examples.
 Milestone C browser evidence therefore scopes its Radio Panels count to the
 rendered component while retaining CSS-disabled access to both documentation

@@ -3,8 +3,9 @@ defmodule ShadcnUI.MilestoneGPhase8VisualTest do
 
   @evidence "demo/priv/reference/milestone_g/phase-08-section-1-visual-evidence.json"
 
-  # covers: shadcn_ui.gallery_presentation.deterministic_visual_evidence
-  # covers: shadcn_ui.gallery_presentation.visual_matrix
+  # covers: shadcn_ui.gallery_presentation.visual_evidence
+  # covers: shadcn_ui.gallery_presentation.local_assets
+  # covers: shadcn_ui.gallery_presentation.deterministic_distribution
 
   test "final visual evidence binds every reviewed golden to pinned capture inputs" do
     evidence = @evidence |> File.read!() |> Jason.decode!()
@@ -17,6 +18,7 @@ defmodule ShadcnUI.MilestoneGPhase8VisualTest do
 
     assert evidence["capture"]["themes"] == ~w(light dark)
     assert evidence["capture"]["deviceScaleFactor"] == 1
+    assert evidence["capture"]["linuxSystemFallbackFont"] == "Noto Sans"
     assert evidence["capture"]["motion"] == "reduce"
 
     assert evidence["capture"]["viewports"] == [

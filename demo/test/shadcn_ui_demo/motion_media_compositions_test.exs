@@ -3,6 +3,7 @@ defmodule ShadcnUIDemo.MotionMediaCompositionsTest do
   alias ShadcnUIDemo.MediaFixtures
   # covers: shadcn_ui.motion_media_gallery.capability_evidence
   # covers: shadcn_ui.motion_media_gallery.fixture_manifest
+  # covers: shadcn_ui.motion_media_gallery.compositions
   test "local figures, failure cases and separate evidence are visible", %{conn: conn} do
     html = conn |> get("/examples/motion-media-capabilities") |> html_response(200)
 

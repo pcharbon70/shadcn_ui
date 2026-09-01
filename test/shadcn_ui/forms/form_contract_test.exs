@@ -9,6 +9,7 @@ defmodule ShadcnUI.Forms.FormContractTest do
   # covers: shadcn_ui.form.error_ownership shadcn_ui.form.pending_snapshot
   # covers: shadcn_ui.form.validation_boundary shadcn_ui.form.deterministic_relationships
   # covers: shadcn_ui.form.invalid_state shadcn_ui.form.protected_globals
+  # covers: shadcn_ui.form.native_states shadcn_ui.form.native_submission
 
   defmodule EscapeFixture do
     use Phoenix.Component

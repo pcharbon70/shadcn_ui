@@ -36,6 +36,9 @@ state model.
   handling are smoke-tested before publication.
 - Local verification, CI verification, merge, deployment and post-deployment
   smoke are separate recorded states. No earlier state implies a later one.
+- Publication qualification requires every declared verification target to carry
+  explicit requirement annotations that agree with the current subject specs;
+  a warning-only SpecLed result is not promoted to a passing gate.
 - The runbook names workflow ownership, configuration, rollback to a previously
   verified artifact and recovery checks. Credentials remain in the hosting
   platform, never in source or exported files.

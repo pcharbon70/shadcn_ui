@@ -23,7 +23,7 @@ decisions:
 surface:
   - demo/**
   - scripts/**
-  - test/browser/milestone-a-gallery.spec.mjs
+  - demo/test/browser/gallery.spec.mjs
   - test/browser/milestone-b-forms.spec.mjs
   - test/browser/milestone-c-content-navigation.spec.mjs
   - test/browser/milestone-d-*.spec.mjs
@@ -109,6 +109,9 @@ surface:
 ```
 
 ## Verification
+
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's gallery contract.
 
 Milestone G Phase 4 presents component guidance as an introduction, paired
 preview/source specimen, explanation, accessibility and support, ownership,

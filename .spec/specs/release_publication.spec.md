@@ -83,6 +83,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's release contract.
+
 ```spec-verification
 - kind: test_file
   target: demo/test/build_identity_test.exs

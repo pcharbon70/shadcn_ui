@@ -77,6 +77,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's component contract.
+
 Drawer renders one named body region with `tabindex="0"`. Its title and explicit
 exit precede the body, and the optional footer follows it outside the overflow
 region. `initial_focus` selects `auto`, `content`, or `close`; logical `edge`

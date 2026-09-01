@@ -1,5 +1,9 @@
 import { expect, test } from "@playwright/test";
 
+// covers: shadcn_ui.gallery.component_guidance shadcn_ui.gallery.demo_only_script
+// covers: shadcn_ui.gallery.semantic_shell shadcn_ui.gallery.stable_routes
+// covers: shadcn_ui.gallery.theme_matrix
+
 const componentPaths = ["button", "badge", "alert", "card", "avatar", "skeleton"]
   .map((slug) => `/components/foundation/${slug}`);
 

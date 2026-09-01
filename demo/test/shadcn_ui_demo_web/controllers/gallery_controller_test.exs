@@ -1,6 +1,10 @@
 defmodule ShadcnUIDemoWeb.GalleryControllerTest do
   use ShadcnUIDemoWeb.ConnCase
 
+  # covers: shadcn_ui.gallery.component_guidance shadcn_ui.gallery.safe_resolution
+  # covers: shadcn_ui.gallery.semantic_shell shadcn_ui.gallery.stable_routes
+  # covers: shadcn_ui.gallery.theme_matrix
+
   alias ShadcnUIDemo.Catalogue
 
   test "every canonical route renders the expected shell and authored-composition current markers",

@@ -4,6 +4,8 @@ import { expect, test } from "../../demo/node_modules/@playwright/test/index.mjs
 // covers: shadcn_ui.content_gallery.fallbacks
 // covers: shadcn_ui.content_gallery.content_stress
 // covers: shadcn_ui.content_gallery.browser_behavior
+// covers: shadcn_ui.gallery.component_guidance shadcn_ui.gallery.semantic_shell
+// covers: shadcn_ui.gallery.stable_routes shadcn_ui.gallery.theme_matrix
 
 const categories = [
   ["disclosure", "Disclosure"],

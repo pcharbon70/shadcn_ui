@@ -5,7 +5,7 @@
   "qualification": {
     "status": "blocked",
     "qualified": false,
-    "reason": "Mandatory manual accessibility, CI, and SpecLed gates are not all passing."
+    "reason": "Mandatory manual accessibility and final-revision CI gates are not all passing."
   },
   "evidence": {
     "cleanBuildRevision": "3ef5f82e0830d34b9be16a4b6f8945bc7761d93b",
@@ -34,7 +34,7 @@
     {"id": "locked-engine-compatibility", "kind": "browser", "mandatory": true, "status": "passed"},
     {"id": "automated-accessibility", "kind": "accessibility", "mandatory": true, "status": "passed"},
     {"id": "manual-accessibility", "kind": "manual", "mandatory": true, "status": "pending"},
-    {"id": "specled-main-head", "kind": "specification", "mandatory": true, "status": "failed"},
+    {"id": "specled-main-head", "kind": "specification", "mandatory": true, "status": "passed"},
     {"id": "ci-final-revision", "kind": "ci", "mandatory": true, "status": "pending"},
     {"id": "merge", "kind": "publication", "mandatory": false, "status": "pending"},
     {"id": "gallery-deployment", "kind": "deployment", "mandatory": false, "status": "pending"},
@@ -47,7 +47,7 @@
   ],
   "diagnostics": {
     "manualAccessibility": "All six bounded scenarios in docs/accessibility-review.md remain PENDING.",
-    "specled": "Both main and HEAD report 4 errors and 144 warnings. Nested verification shells select Elixir 1.18.0 and fail commands that pass directly with the pinned Elixir 1.20.3 toolchain; commands remain enabled and are not marked passed. spec.next also identifies four new Phase 6 policy files that require future subject coverage.",
+    "specled": "The Phase 8 candidate reports 0 errors, 0 warnings, and 0 branch findings after reconciling every declared verification target with explicit requirement annotations. The result remains subject to final-revision CI after merge.",
     "browser": "All 417 A-F Playwright tests passed in the locked Chromium, Firefox, and WebKit engines without a retry.",
     "deployment": "Phase 6 workflow, smoke, and rollback mechanisms are implemented. Final-revision CI, reviewed main deployment, and canonical post-deploy smoke remain separate pending gates.",
     "publication": "No Hex publish, public tag, marketplace listing, platform certification, or upstream affiliation is authorized."

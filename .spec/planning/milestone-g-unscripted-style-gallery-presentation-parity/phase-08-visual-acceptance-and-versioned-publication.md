@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 8 Phase - Visual Acceptance And Versioned Publication.
+- [x] 8 Phase - Visual Acceptance And Versioned Publication.
 
   Execute the complete locked visual, semantic, accessibility, export,
   provenance and publication matrix, then reconcile Milestone G truthfully.
@@ -67,25 +67,25 @@ Back to wave: [README](./README.md)
       - [x] 8.3.2.2 Subtask - Run canonical home, representative routes/fragments, assets, search, sitemap, health, version and error smoke checks.
       - [x] 8.3.2.3 Subtask - Exercise or review rollback to a previously verified artifact and run the documented recovery smoke sequence.
 
-  - [ ] 8.4 Section - Milestone G Integration And Acceptance.
+  - [x] 8.4 Section - Milestone G Integration And Acceptance.
 
     Reconcile every requirement and evidence state without equating completed plans with completion.
 
-    - [ ] 8.4.1 Task - Execute milestone-wide gates.
+    - [x] 8.4.1 Task - Execute milestone-wide gates.
 
       Final acceptance preserves all prior component, package and publication guarantees.
 
-      - [ ] 8.4.1.1 Subtask - Run package/demo precommit, all A-G tests, exact-engine browser suites, visual matrix, deterministic builds/exports, provenance and archive audits.
-      - [ ] 8.4.1.2 Subtask - Run SpecLed next/check for main and HEAD plus git diff --check and retain full diagnostics for failures.
-      - [ ] 8.4.1.3 Subtask - Reconcile every Milestone G requirement with real implementation and evidence, rejecting stale, contradictory or planning-only targets.
+      - [x] 8.4.1.1 Subtask - Run package/demo precommit, all A-G tests, exact-engine browser suites, visual matrix, deterministic builds/exports, provenance and archive audits.
+      - [x] 8.4.1.2 Subtask - Run SpecLed next/check for main and HEAD plus git diff --check and retain full diagnostics for failures.
+      - [x] 8.4.1.3 Subtask - Reconcile every Milestone G requirement with real implementation and evidence, rejecting stale, contradictory or planning-only targets.
 
-    - [ ] 8.4.2 Task - Record final truth and delivery.
+    - [x] 8.4.2 Task - Record final truth and delivery.
 
       The redesigned site is complete only when local, reviewed and deployed states support the claim.
 
-      - [ ] 8.4.2.1 Subtask - Record revisions, commands, tool versions, hashes, browser/manual results, visual exceptions, workflow run, deployed smoke and limitations.
-      - [ ] 8.4.2.2 Subtask - Mark Milestone G complete only if mandatory gates pass; otherwise publish the exact blocking status without overstating parity or deployment.
-      - [ ] 8.4.2.3 Subtask - Complete one commit per coherent section and open one Phase 8 PR; do not merge, deploy or tag without separate authorization.
+      - [x] 8.4.2.1 Subtask - Record revisions, commands, tool versions, hashes, browser/manual results, visual exceptions, workflow run, deployed smoke and limitations.
+      - [x] 8.4.2.2 Subtask - Mark Milestone G complete only if mandatory gates pass; otherwise publish the exact blocking status without overstating parity or deployment.
+      - [x] 8.4.2.3 Subtask - Complete one commit per coherent section and open one Phase 8 PR; do not merge, deploy or tag without separate authorization.
 
 ## Section delivery rule
 

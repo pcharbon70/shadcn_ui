@@ -69,6 +69,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's gallery contract.
+
 Milestone G Phase 4 changes only the shared documentation hierarchy. Forms
 coverage locates compile-checked source through the stable specimen surface and
 continues to exercise form inputs inside the rendered preview, distinct from

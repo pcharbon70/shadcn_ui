@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-phase-08-section-4",
+  "evidenceType": "milestone-g-integration-and-acceptance",
+  "candidate": {
+    "testedSourceRevision": "99cbf30895897b98609b802c47cbc44539e059b6",
+    "packageVersion": "0.1.0",
+    "catalogueSchema": "1",
+    "canonicalUrl": "https://leco-industries-inc.github.io/shadcn_ui/"
+  },
+  "tools": {
+    "elixir": "1.18.4",
+    "otp": "27",
+    "bunNodeCompatibility": "1.3.10",
+    "npm": "11.4.2",
+    "playwright": "1.62.1",
+    "axeCore": "4.13.0",
+    "engines": {
+      "chromium": "151.0.7922.34",
+      "firefox": "153.0",
+      "webkit": "26.5"
+    }
+  },
+  "requirements": {
+    "total": 14,
+    "implemented": 14,
+    "locallyVerified": 14,
+    "planningOnlyTargets": [],
+    "contradictions": []
+  },
+  "localGates": {
+    "packagePrecommit": "passed-414-tests-plus-docs-archive-and-assets",
+    "demoPrecommit": "passed-145-tests-plus-assets",
+    "browserSuitesAThroughG": "passed",
+    "phase8LockedEngines": "passed-9-of-9",
+    "linuxVisualFallbackFont": "passed-noto-sans-pinned-in-ci",
+    "lockedVisualMatrix": "passed-52-of-52-no-exceptions",
+    "deterministicExports": "passed-two-byte-identical-646-file-exports",
+    "staticExportAudit": "passed-634-routes-4-local-assets",
+    "packageArchiveAudit": "passed-62-entries",
+    "provenanceAndLicenses": "passed",
+    "gitDiffCheck": "passed"
+  },
+  "specLed": {
+    "candidate": "passed",
+    "errors": 0,
+    "warnings": 0,
+    "branchFindings": 0,
+    "baselineMainBeforeRepair": "failed-0-errors-144-warnings",
+    "mainAfterMerge": "pending"
+  },
+  "accessibility": {
+    "automated": "passed",
+    "keyboardAndFocus": "passed-automated",
+    "axe": "passed-no-unresolved-violations",
+    "zoom200Percent": "passed-automated",
+    "width320Pixels": "passed-automated",
+    "forcedColors": "passed-emulated",
+    "reducedMotion": "passed",
+    "javascriptDisabled": "passed",
+    "cssAssetsMissing": "passed",
+    "manualScenarios": {
+      "status": "pending",
+      "count": 6,
+      "ledger": "docs/accessibility-review.md",
+      "claim": "No manual accessibility acceptance or WCAG certification is claimed."
+    }
+  },
+  "publication": {
+    "pullRequest": "pending",
+    "finalRevisionCi": "pending",
+    "reviewedMainMerge": "pending",
+    "deployment": "pending",
+    "postDeploySmoke": "pending",
+    "recordPolicy": "GitHub workflow and deployment records remain authoritative after this pre-merge evidence snapshot."
+  },
+  "limitations": [
+    "Six bounded human accessibility scenarios remain pending and are not represented as automated or manual passes.",
+    "This committed snapshot does not pre-claim pull-request CI, merge, deployment, or post-deployment smoke."
+  ],
+  "visualExceptions": [],
+  "status": "local-milestone-g-acceptance-passed-pending-reviewed-publication"
+}

@@ -108,6 +108,7 @@ const manifest = {
     engine: phase3.runner.engine,
     engineVersion: phase3.runner.engineVersion,
     deviceScaleFactor: phase3.runner.deviceScaleFactor,
+    linuxSystemFallbackFont: "Noto Sans",
     motion: phase3.runner.motion,
     themes: ["light", "dark"],
     viewports: [

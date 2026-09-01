@@ -86,6 +86,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's component contract.
+
 Protected HTML globals are matched case-insensitively, including their documented
 atom/string and underscore/hyphen aliases, so mixed-case attribute spelling
 cannot override native identity or accessibility relationships.

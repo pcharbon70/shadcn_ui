@@ -69,6 +69,9 @@ surface:
 
 ## Verification
 
+Verification files carry explicit `covers` annotations so declared proof remains
+bidirectionally traceable without changing this subject's component contract.
+
 Tooltip uses a single self-closing structured trigger slot (`label`, native
 button/link attributes, class and unrelated globals), not caller-supplied nested
 control markup. Its explicit `describedby` references are deduplicated before the

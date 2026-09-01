@@ -1,6 +1,9 @@
 defmodule ShadcnUIDemo.CatalogueTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.gallery.closed_catalog shadcn_ui.gallery.safe_resolution
+  # covers: shadcn_ui.gallery.stable_routes
+
   alias ShadcnUIDemo.Catalogue
 
   test "catalogue is ordered, unique, complete, and deterministic" do

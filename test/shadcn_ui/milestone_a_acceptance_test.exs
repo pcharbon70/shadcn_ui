@@ -23,6 +23,15 @@ defmodule ShadcnUI.MilestoneAAcceptanceTest do
   # covers: shadcn_ui.provenance.mit_notice shadcn_ui.provenance.no_upstream_runtime
   # covers: shadcn_ui.provenance.site_assets_excluded
   # covers: shadcn_ui.provenance.independent_identity
+  # covers: shadcn_ui.foundation.badge shadcn_ui.foundation.button
+  # covers: shadcn_ui.foundation.button_content
+  # covers: shadcn_ui.gallery.closed_catalog shadcn_ui.gallery.component_guidance
+  # covers: shadcn_ui.gallery.controller_rendered shadcn_ui.gallery.demo_only_script
+  # covers: shadcn_ui.gallery.deterministic_assets shadcn_ui.gallery.excluded_from_package
+  # covers: shadcn_ui.gallery.no_application_frameworks shadcn_ui.gallery.online_publication
+  # covers: shadcn_ui.gallery.safe_resolution shadcn_ui.gallery.semantic_shell
+  # covers: shadcn_ui.gallery.separate_application shadcn_ui.gallery.stable_routes
+  # covers: shadcn_ui.gallery.static_export shadcn_ui.gallery.theme_matrix
 
   alias Phoenix.HTML.Safe
 
