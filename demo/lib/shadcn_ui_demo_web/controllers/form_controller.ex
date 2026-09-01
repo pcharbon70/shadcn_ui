@@ -47,6 +47,7 @@ defmodule ShadcnUIDemoWeb.FormController do
   defp render_gallery(conn, params, template, page, assigns) do
     theme = GalleryPreferences.theme(params)
     motion = GalleryPreferences.motion(params)
+    build_identity = BuildIdentity.current!()
 
     render(
       conn,
@@ -55,13 +56,13 @@ defmodule ShadcnUIDemoWeb.FormController do
         page_title: page.title,
         canonical_url:
           if(page.path in Catalogue.form_routes(),
-            do: "https://leco-industries-inc.github.io/shadcn_ui" <> page.path,
+            do: BuildIdentity.canonical_url(build_identity, page.path),
             else: nil
           ),
         page: page,
         theme: theme,
         motion: motion,
-        build_identity: BuildIdentity.current!(),
+        build_identity: build_identity,
         categories: Catalogue.categories(),
         components: Catalogue.components()
       ] ++ assigns

@@ -10,6 +10,16 @@ defmodule ShadcnUIDemoWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :health do
+    plug :accepts, ["json"]
+  end
+
+  scope "/", ShadcnUIDemoWeb do
+    pipe_through :health
+
+    get "/healthz", HealthController, :show
+  end
+
   scope "/", ShadcnUIDemoWeb do
     pipe_through :browser
 

@@ -16,9 +16,9 @@ CI, merge, deployment, smoke, and manual evidence. Dstar and LiveView are docume
 consumer-owned transports around the same stateless HEEX API; neither is a
 ShadcnUI application dependency or state owner.
 
-The [gallery](https://leco-industries-inc.github.io/shadcn_ui/) is a separate
+The [gallery](https://leco-shadcn-ui-demo.fly.dev/) is a separate
 reference consumer. Milestone D adds seven component pages, four complete
-compositions, and a [capability matrix](https://leco-industries-inc.github.io/shadcn_ui/examples/overlay-capabilities).
+compositions, and a [capability matrix](https://leco-shadcn-ui-demo.fly.dev/examples/overlay-capabilities).
 New pages become public when their reviewed change is merged and the Pages
 deployment succeeds; a local acceptance run is not proof of publication.
 
@@ -271,7 +271,7 @@ and acceptance evidence. See
 [`.spec/milestones`](./.spec/milestones/README.md) for the roadmap.
 
 The canonical gallery is
-<https://leco-industries-inc.github.io/shadcn_ui/>. It is a separate
+<https://leco-shadcn-ui-demo.fly.dev/>. It is a separate
 Phoenix reference consumer and is not part of the package runtime or archive.
 
 ## Native overlay capability contract
@@ -1458,5 +1458,5 @@ run `mix deps.get --locked`, `npm ci`, `npm run assets:build`, `mix test`, and
 `mix gallery.export`. `npm run export:check` audits the export and
 `npm run smoke -- <base-url>` checks a deployed artifact. See the
 [deployment runbook](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/demo/DEPLOYMENT.md)
-for the approved GitHub Pages environment, retention, exact-artifact deployment,
-and rollback procedure.
+for the approved Fly application, immutable release deployment, health check,
+post-deploy smoke, and rollback procedure.

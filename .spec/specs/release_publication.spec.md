@@ -4,9 +4,9 @@
 id: shadcn_ui.release_publication
 kind: application
 status: active
-summary: Reproducible internal candidate, clean consumer trial, immutable static publication metadata, deployment operations, and truthful release gates.
+summary: Reproducible internal candidate, clean consumer trial, immutable gallery identity, stateless Fly.io deployment operations, and truthful release gates.
 decisions:
-  - shadcn_ui.versioned_gallery_publication
+  - shadcn_ui.fly_gallery_publication
   - shadcn_ui.internal_release_candidate
   - shadcn_ui.upstream_provenance
 surface:
@@ -21,10 +21,16 @@ surface:
   - docs/gallery-operations.md
   - demo/lib/shadcn_ui_demo/build_identity.ex
   - demo/test/build_identity_test.exs
+  - demo/Dockerfile
+  - demo/fly.toml
+  - demo/rel/**
+  - demo/test/fly_deployment_test.exs
   - scripts/**
   - .github/workflows/**
   - test/shadcn_ui/milestone_f_release_test.exs
   - test/shadcn_ui/milestone_f_phase1_acceptance_test.exs
+  - test/shadcn_ui/milestone_f_phase6_acceptance_test.exs
+  - test/shadcn_ui/milestone_f_publication_operations_test.exs
 ```
 
 ## Requirements
@@ -46,7 +52,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.release_publication.deployment_workflow
-  statement: Reviewed main shall publish the verified immutable artifact through the approved Pages workflow, while pull requests verify without publishing and repository source contains no deployment credential.
+  statement: Reviewed source shall publish an immutable stateless gallery release through the approved Fly.io configuration and explicit deploy procedure, while local and pull-request verification do not publish and repository source contains no deployment credential.
   priority: must
   stability: stable
 
@@ -109,8 +115,16 @@ bidirectionally traceable without changing this subject's release contract.
     - shadcn_ui.release_publication.internal_candidate_only
     - shadcn_ui.release_publication.truthful_gates
 
+- kind: test_file
+  target: demo/test/fly_deployment_test.exs
+  covers:
+    - shadcn_ui.release_publication.version_identity
+    - shadcn_ui.release_publication.health_manifest
+    - shadcn_ui.release_publication.deployment_workflow
+    - shadcn_ui.release_publication.post_deploy_and_rollback
+
 - kind: command
-  target: npm run gallery:smoke
+  target: npm --prefix demo run smoke:fly
   covers:
     - shadcn_ui.release_publication.deployment_workflow
     - shadcn_ui.release_publication.post_deploy_and_rollback

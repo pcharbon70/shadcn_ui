@@ -2,7 +2,7 @@ defmodule ShadcnUI.MixProject do
   use Mix.Project
 
   @source_url "https://github.com/Leco-Industries-Inc/shadcn_ui"
-  @gallery_url "https://leco-industries-inc.github.io/shadcn_ui/"
+  @gallery_url "https://leco-shadcn-ui-demo.fly.dev/"
   @version "0.1.0"
 
   def project do

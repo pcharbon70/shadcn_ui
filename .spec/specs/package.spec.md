@@ -4,7 +4,7 @@
 id: shadcn_ui.package
 kind: package
 status: active
-summary: Independently buildable transport-neutral Phoenix function-component package.
+summary: Independently buildable transport-neutral Phoenix function-component package whose metadata links to the separately deployed Fly.io gallery.
 decisions:
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.isolated_compiled_css

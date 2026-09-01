@@ -25,6 +25,12 @@ surface:
   - README.md
 ```
 
+## Publication boundary
+
+The README's canonical gallery link now targets the stateless Fly.io demo. That
+publication-location change does not alter this subject's requirements,
+semantics, runtime boundary, package contents, or existing verification.
+
 ## Requirements
 
 ```spec-requirements

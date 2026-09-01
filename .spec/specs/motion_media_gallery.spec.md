@@ -102,6 +102,12 @@ Milestone D's recorded local SpecLed runner issue remains an explicit environmen
 limitation, not an excuse to weaken the gate. The final release record must
 distinguish direct tests, CI, manual checks and actual Pages publication.
 
+## Publication boundary
+
+The README's canonical gallery link now targets the stateless Fly.io demo. That
+publication-location change does not alter this subject's requirements,
+semantics, runtime boundary, package contents, or existing verification.
+
 ## Requirements
 
 ```spec-requirements

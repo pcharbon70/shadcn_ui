@@ -7,9 +7,8 @@ status: active
 summary: Pinned Unscripted-style documentation presentation, closed authored metadata, deterministic local visual evidence, and complete gallery migration without changing package semantics.
 decisions:
   - shadcn_ui.pinned_gallery_presentation_parity
-  - shadcn_ui.gallery_static_publication
+  - shadcn_ui.fly_gallery_publication
   - shadcn_ui.catalogue_driven_documentation
-  - shadcn_ui.versioned_gallery_publication
   - shadcn_ui.upstream_provenance
 surface:
   - demo/**

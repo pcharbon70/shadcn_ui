@@ -9,11 +9,12 @@ const releaseBytes = await readFile(new URL("release.json", root));
 const healthBytes = await readFile(new URL("health.json", root));
 const release = JSON.parse(releaseBytes);
 const health = JSON.parse(healthBytes);
+const canonicalBase = release.identity.canonicalUrl.replace(/\/$/, "");
 const digest = bytes => createHash("sha256").update(bytes).digest("hex");
 if (manifest.publication.release.sha256 !== digest(releaseBytes) ||
     manifest.publication.health.sha256 !== digest(healthBytes)) throw new Error("stale publication manifest reference");
 if (release.schemaVersion !== 1 || health.schemaVersion !== 1 ||
-    release.identity.canonicalUrl !== "https://leco-industries-inc.github.io/shadcn_ui/" ||
+    !release.identity.canonicalUrl.startsWith("https://") ||
     health.canonicalUrl !== release.identity.canonicalUrl || health.runtime !== "static") throw new Error("invalid publication identity");
 if (!/^[0-9a-f]{40}$/.test(release.identity.buildRevision) ||
     !/^[0-9a-f]{40}$/.test(release.identity.upstreamRevision)) throw new Error("invalid immutable revision identity");
@@ -43,7 +44,7 @@ for (const entry of fixtures.entries) {
   if (content.length !== entry.bytes || createHash("sha256").update(content).digest("hex") !== entry.sha256 ||
       manifest.media[entry.file].sha256 !== entry.sha256 || manifest.media[entry.file].mime !== entry.mime) throw new Error("stale media fixture: " + entry.file);
 }
-if (!sitemap.includes("<loc>https://leco-industries-inc.github.io/shadcn_ui/examples/motion-media-capabilities</loc>")) throw new Error("missing motion/media route");
+if (!sitemap.includes(`<loc>${canonicalBase}/examples/motion-media-capabilities</loc>`)) throw new Error("missing motion/media route");
 const overlayRoutes = [
   "/components/overlays", "/components/interactive-surfaces",
   ...["dialog", "alert-dialog", "drawer", "popover", "dropdown-actions"].map(name => `/components/overlays/${name}`),
@@ -54,13 +55,13 @@ const galleryRoutes = ["/components/media/image-gallery", "/examples/image-galle
 const mediaRoutes = ["/components/media", "/components/media/carousel", "/components/media/cover-flow", "/examples/media-browser", ...galleryRoutes];
 const motionRoutes = ["/components/motion", "/components/motion/marquee", "/components/motion/stagger", "/components/motion/scroll-indicator", "/examples/motion-preferences"];
 for (const route of [...mediaRoutes, ...motionRoutes]) {
-  if (!sitemap.includes(`<loc>https://leco-industries-inc.github.io/shadcn_ui${route}</loc>`)) throw new Error(`missing media route: ${route}`);
+  if (!sitemap.includes(`<loc>${canonicalBase}${route}</loc>`)) throw new Error(`missing media route: ${route}`);
   for (const theme of ["light", "dark"]) for (const motion of ["system", "reduce", "unexpected"]) {
     if (!manifest.routes.some(e=>e.request===`${route}?theme=${theme}&motion=${motion}` && e.status===200)) throw new Error("missing media preference variant");
   }
 }
 for (const route of overlayRoutes) {
-  if (!sitemap.includes(`<loc>https://leco-industries-inc.github.io/shadcn_ui${route}</loc>`)) throw new Error(`missing sitemap route: ${route}`);
+  if (!sitemap.includes(`<loc>${canonicalBase}${route}</loc>`)) throw new Error(`missing sitemap route: ${route}`);
   for (const suffix of ["", "?theme=light", "?theme=dark", "?theme=minty"]) {
     if (!manifest.routes.some(entry => entry.request === route + suffix && entry.status === 200)) throw new Error(`missing route variant: ${route}${suffix}`);
   }
@@ -88,7 +89,7 @@ for (const entry of manifest.routes) {
     }
   }
   if (!html.includes("<main") || (!html.includes("Component navigation") && !html.includes("data-demo-form"))) throw new Error(`missing landmarks: ${entry.file}`);
-  const runtime = html.replace(/<a\b[^>]*>/gi, "").replace(/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^"]*"\s*\/?\s*>/gi, "");
+  const runtime = html.replace(/<a\b[^>]*>/gi, "").replace(/<link\s+rel="canonical"\s+href="https:\/\/[^"]+"\s*\/?\s*>/gi, "");
   if (/(?:src|href|srcset)="(?:https?:)?\/\//i.test(runtime)) throw new Error(`remote runtime URL: ${entry.file}`);
   const route = entry.request.split("?")[0];
   if (motionRoutes.includes(route)) {
@@ -115,7 +116,7 @@ for (const entry of manifest.routes) {
     for (const fragment of html.matchAll(/href="#(shadcn-ui-media-[^"]+)"/g)) if (!ids.includes(fragment[1])) throw new Error("broken Carousel index");
   }
   if (overlayRoutes.includes(route)) {
-    if (!html.includes(`rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui${route}"`)) throw new Error(`missing canonical URL: ${entry.file}`);
+    if (!html.includes(`rel="canonical" href="${canonicalBase}${route}"`)) throw new Error(`missing canonical URL: ${entry.file}`);
     const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(match => match[1]);
     if (new Set(ids).size !== ids.length) throw new Error(`duplicate identity: ${entry.file}`);
     if (route.startsWith("/components/") && route.split("/").length === 4 && (!html.includes("HEEX source") || !html.includes('id="ordinary-alternative"'))) throw new Error(`missing reference: ${entry.file}`);

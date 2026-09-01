@@ -111,6 +111,7 @@ defmodule ShadcnUIDemoWeb.GalleryController do
   defp render_page(conn, params, page) do
     theme = ShadcnUIDemo.GalleryPreferences.theme(params)
     motion = ShadcnUIDemo.GalleryPreferences.motion(params)
+    build_identity = BuildIdentity.current!()
 
     conn
     |> put_view(html: ShadcnUIDemoWeb.PageHTML)
@@ -118,13 +119,13 @@ defmodule ShadcnUIDemoWeb.GalleryController do
       page_title: page.title,
       canonical_url:
         if(Map.get(page, :canonical, true),
-          do: "https://leco-industries-inc.github.io/shadcn_ui" <> page.path,
+          do: BuildIdentity.canonical_url(build_identity, page.path),
           else: nil
         ),
       page: page,
       theme: theme,
       motion: motion,
-      build_identity: BuildIdentity.current!(),
+      build_identity: build_identity,
       categories: Catalogue.categories(),
       components: Catalogue.components()
     )

@@ -6,6 +6,7 @@ kind: policy
 status: active
 summary: Complete plain-language component, installation, transport-neutral integration, upgrade, and provenance documentation.
 decisions:
+  - shadcn_ui.fly_gallery_publication
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.catalogue_driven_documentation
   - shadcn_ui.consumer_neutral_compatibility

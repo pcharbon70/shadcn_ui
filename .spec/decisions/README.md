@@ -68,3 +68,7 @@ This decision governs presentation work in the separate gallery. It does not
 change package component semantics or accept a package runtime.
 
 1. [Pin gallery presentation parity and preserve semantic truth](./pinned-gallery-presentation-parity.md)
+
+## Current gallery publication decision
+
+1. [Publish the stateless gallery application on Fly.io](./fly-gallery-application-publication.md)
