@@ -4,7 +4,7 @@ kill_signal = "SIGTERM"
 kill_timeout = "5s"
 
 [build]
-  dockerfile = "demo/Dockerfile"
+  dockerfile = "Dockerfile"
 
   [build.args]
     SHADCN_UI_CANONICAL_URL = "https://leco-shadcn-ui-demo.fly.dev/"

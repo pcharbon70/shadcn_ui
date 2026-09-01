@@ -15,7 +15,7 @@ defmodule ShadcnUIDemo.FlyDeploymentTest do
 
     assert config =~ ~s(app = "leco-shadcn-ui-demo")
     assert config =~ ~s(primary_region = "yyz")
-    assert config =~ ~s(dockerfile = "demo/Dockerfile")
+    assert config =~ ~s(dockerfile = "Dockerfile")
     assert config =~ ~s(PHX_HOST = "leco-shadcn-ui-demo.fly.dev")
     assert config =~ ~s(path = "/healthz")
     assert config =~ ~s(auto_stop_machines = "stop")
