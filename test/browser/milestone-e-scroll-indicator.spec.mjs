@@ -28,7 +28,7 @@ test("static subpath works without scripts, including preferences and native for
     await page.goto(server.url);await page.getByRole("link",{name:"Reduce motion",exact:true}).click();await page.getByRole("link",{name:"Use dark theme"}).click();
     await expect(page.locator("html")).toHaveAttribute("data-shadcn-theme","dark");await expect(page.locator("html")).toHaveAttribute("data-shadcn-motion","reduce");
     const region=page.locator("#indicator-small");await region.focus();await page.keyboard.press("End");await expect.poll(()=>region.evaluate(el=>el.scrollTop)).toBeGreaterThan(0);
-    const form=region.locator("form");await form.getByRole("textbox").fill("Changed");await form.getByRole("button").click();await expect(form.getByRole("textbox")).toHaveValue("A local draft");
+    const form=region.locator("form"),reset=form.getByRole("button");await form.getByRole("textbox").fill("Changed");await reset.focus();await page.keyboard.press("Enter");await expect(form.getByRole("textbox")).toHaveValue("A local draft");
     expect(await width(page,"indicator-small")).toBe(0);expect(remote).toEqual([]);
   }finally{await context.close();await server.close();}
 });

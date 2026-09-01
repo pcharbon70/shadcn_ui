@@ -75,6 +75,7 @@ jobs:
       - run: npm run browser:milestone-g-phase5
       - run: npm run browser:milestone-g-phase5-acceptance
       - run: npm run browser:milestone-g-phase7
+      - run: npm run browser:milestone-g-phase8
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo

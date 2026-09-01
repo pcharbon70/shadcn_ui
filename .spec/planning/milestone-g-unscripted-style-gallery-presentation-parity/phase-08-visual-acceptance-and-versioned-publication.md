@@ -27,25 +27,25 @@ Back to wave: [README](./README.md)
       - [x] 8.1.2.2 Subtask - Re-run representative captures from identical inputs and bound platform-specific rendering variance explicitly.
       - [x] 8.1.2.3 Subtask - Reject unexplained bulk golden replacement or reference updates from an unpinned upstream site.
 
-  - [ ] 8.2 Section - Run complete functional and accessibility regression.
+  - [x] 8.2 Section - Run complete functional and accessibility regression.
 
     Visual parity cannot mask loss of semantics, fallback or ordinary navigation.
 
-    - [ ] 8.2.1 Task - Exercise supported interaction and preference states.
+    - [x] 8.2.1 Task - Exercise supported interaction and preference states.
 
       Real browser behavior remains grounded in package and gallery contracts.
 
-      - [ ] 8.2.1.1 Subtask - Run all component interactions, direct fragments, search, theme, mobile navigation, source views and copy feedback in locked engines.
-      - [ ] 8.2.1.2 Subtask - Run keyboard-only, pinned axe, 200 percent zoom, 320px width, forced-colors, reduced-motion and long-content review.
-      - [ ] 8.2.1.3 Subtask - Run JavaScript-disabled and missing-capability paths and verify complete destinations, source, content and exact fallbacks.
+      - [x] 8.2.1.1 Subtask - Run all component interactions, direct fragments, search, theme, mobile navigation, source views and copy feedback in locked engines.
+      - [x] 8.2.1.2 Subtask - Run keyboard-only, pinned axe, 200 percent zoom, 320px width, forced-colors, reduced-motion and long-content review.
+      - [x] 8.2.1.3 Subtask - Run JavaScript-disabled and missing-capability paths and verify complete destinations, source, content and exact fallbacks.
 
-    - [ ] 8.2.2 Task - Reconcile catalogue and package completeness.
+    - [x] 8.2.2 Task - Reconcile catalogue and package completeness.
 
       Every public identity must connect to a migrated page and current proof.
 
-      - [ ] 8.2.2.1 Subtask - Re-run public API, catalogue, source, ExDoc, provenance, support, exception, route and visual-evidence completeness.
-      - [ ] 8.2.2.2 Subtask - Audit actual package contents for absence of gallery CSS, fonts, icons, captures, metadata, scripts and deployment files.
-      - [ ] 8.2.2.3 Subtask - Run deterministic package CSS and clean-consumer acceptance if any reusable component style changed.
+      - [x] 8.2.2.1 Subtask - Re-run public API, catalogue, source, ExDoc, provenance, support, exception, route and visual-evidence completeness.
+      - [x] 8.2.2.2 Subtask - Audit actual package contents for absence of gallery CSS, fonts, icons, captures, metadata, scripts and deployment files.
+      - [x] 8.2.2.3 Subtask - Run deterministic package CSS and clean-consumer acceptance if any reusable component style changed.
 
   - [ ] 8.3 Section - Publish and verify the redesigned static gallery.
 
