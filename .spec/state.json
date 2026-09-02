@@ -190,7 +190,10 @@
           "shadcn_ui.component_contract",
           "shadcn_ui.disclosure_components",
           "shadcn_ui.stylesheet",
-          "shadcn_ui.content_navigation_gallery"
+          "shadcn_ui.content_navigation_gallery",
+          "shadcn_ui.package",
+          "shadcn_ui.public_documentation",
+          "shadcn_ui.gallery_presentation"
         ],
         "date": "2026-08-25",
         "file": ".spec/decisions/native-disclosure-and-grouping.md",
@@ -1357,7 +1360,7 @@
         "id": "shadcn_ui.gallery_presentation.accessibility_matrix",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Presentation acceptance shall retain keyboard, visible-focus, pinned axe, 200 percent zoom, narrow width, forced-colors, reduced-motion, CSS-disabled and no-script coverage in both themes while keeping source order and landmarks independent of cosmetic classes.",
+        "statement": "Presentation acceptance shall retain keyboard, visible-focus, pinned axe, 200 percent zoom, narrow width, forced-colors, reduced-motion, CSS-disabled and no-script coverage in both themes, including LTR and RTL Accordion containment plus package-owned row, chevron, and motion outcomes, while keeping source order and landmarks independent of cosmetic classes.",
         "subject_id": "shadcn_ui.gallery_presentation"
       },
       {
@@ -2037,7 +2040,7 @@
         "id": "shadcn_ui.package.no_consumer_asset_toolchain",
         "priority": "must",
         "stability": "stable",
-        "statement": "A package consumer shall use the distributed stylesheet without installing Node.js, Tailwind CSS, or a ShadcnUI JavaScript runtime.",
+        "statement": "A package consumer shall receive component-scoped Accordion geometry, decorative affordance, row presentation, and reduced-motion behavior in the distributed stylesheet and use that stylesheet without installing Node.js, Tailwind CSS, or a ShadcnUI JavaScript runtime.",
         "subject_id": "shadcn_ui.package"
       },
       {
@@ -2181,7 +2184,7 @@
         "id": "shadcn_ui.public_documentation.compatibility_and_fallback",
         "priority": "must",
         "stability": "stable",
-        "statement": "Documentation shall identify native baselines, optional capability-gated enhancements, exact fallbacks, reduced-motion behavior, and how current browser evidence differs from normative policy.",
+        "statement": "Documentation shall identify native baselines, optional capability-gated enhancements, exact fallbacks, reduced-motion behavior, and how current browser evidence differs from normative policy, including that Accordion row, chevron, and reveal presentation is CSS-only while native details state and access remain authoritative.",
         "subject_id": "shadcn_ui.public_documentation"
       },
       {

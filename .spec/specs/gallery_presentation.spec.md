@@ -78,7 +78,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery_presentation.accessibility_matrix
-  statement: Presentation acceptance shall retain keyboard, visible-focus, pinned axe, 200 percent zoom, narrow width, forced-colors, reduced-motion, CSS-disabled and no-script coverage in both themes while keeping source order and landmarks independent of cosmetic classes.
+  statement: Presentation acceptance shall retain keyboard, visible-focus, pinned axe, 200 percent zoom, narrow width, forced-colors, reduced-motion, CSS-disabled and no-script coverage in both themes, including LTR and RTL Accordion containment plus package-owned row, chevron, and motion outcomes, while keeping source order and landmarks independent of cosmetic classes.
   priority: must
   stability: evolving
 
