@@ -119,6 +119,10 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert javascript =~ ~s|document.querySelectorAll("[data-gallery-search-scope]")|
     assert javascript =~ "visualViewport"
     assert javascript =~ "ResizeObserver"
+
+    assert javascript =~
+             ~r/queueMobileNavigationFit.*fitMobileNavigation\(\).*requestAnimationFrame/s
+
     assert javascript =~ "specimenViews = new Map()"
     assert javascript =~ ~s(window.addEventListener("hashchange")
     assert javascript =~ "history.replaceState"

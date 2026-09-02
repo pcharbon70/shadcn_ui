@@ -20,28 +20,28 @@
       "theme": "light",
       "viewport": {"width": 1440, "height": 1200},
       "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-1440-light-chromium.png",
-      "sha256": "92bb63d3953de1c3e65cb3d8c9328ab462a3c3e8e0e41862ecfdacf251cce553"
+      "sha256": "a5a332981074bf7ad4bc9c3ba05acb70d07cda2e0f72135ebf016d3692b00e9d"
     },
     {
       "id": "presentation-1440-dark",
       "theme": "dark",
       "viewport": {"width": 1440, "height": 1200},
       "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-1440-dark-chromium.png",
-      "sha256": "899751c2ed77721b15819bd85c3e35d32d62d5678ebcf3d66d741010307eb214"
+      "sha256": "0dd2b0a9f4db641896be28e4a1d7181f4b64a37157a2e669da42bc4eb37537a1"
     },
     {
       "id": "presentation-390-light",
       "theme": "light",
       "viewport": {"width": 390, "height": 844},
       "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-390-light-chromium.png",
-      "sha256": "f49b96f2864ba98727efbf9fadc2ac0b7949a2d5a56d5d8888d28fc803f4c0d5"
+      "sha256": "710a5187bc08bc4f781509b87e6392c8ac2ae7a105f07f017073328fda08fe92"
     },
     {
       "id": "presentation-390-dark",
       "theme": "dark",
       "viewport": {"width": 390, "height": 844},
       "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-390-dark-chromium.png",
-      "sha256": "fb1b152de8bbbfb8ca206d12816ebbae26bdfdf685f430b5a2d22612d8416e20"
+      "sha256": "8d021bb18ad6149b75fdf2ffe2bec73d20fd9dcb5934dd2f5e865eaafd2d2141"
     }
   ],
   "automatedCoverage": [
@@ -55,6 +55,7 @@
     "light and dark desktop and mobile golden comparison"
   ],
   "phase7Refresh": "Golden bytes were re-recorded after migrated articles joined the shared wrapper and overflow specimens adopted start alignment so tall native content remains reachable; presentation primitives and tolerances are unchanged.",
+  "r4Refresh": "Golden bytes were reviewed and re-recorded after pinned title, body and heading metrics, authored capability styling, compact mobile chrome and consistent HEEx source surfaces were accepted in remediation R4; native semantics and tolerances are unchanged.",
   "verification": {
     "demoPrecommit": "passed-105-tests",
     "packagePrecommit": "passed-406-tests",

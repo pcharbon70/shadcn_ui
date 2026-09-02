@@ -265,7 +265,7 @@ category route and is not an Accordion comparison target.
 
 ## R4 - Pinned Presentation Alignment
 
-- [ ] R4 Phase - Align the Accordion article and shell with pinned presentation.
+- [x] R4 Phase - Align the Accordion article and shell with pinned presentation.
 
   Resolve the remaining visual drift after correctness fixes, using the pinned
   source rather than measurements from a later public-site revision.
@@ -321,19 +321,19 @@ category route and is not an Accordion comparison target.
       - [x] R4.3.1.2 Subtask - Style capability and source surfaces consistently without copying live visitor support claims or upstream zero-JavaScript branding.
       - [x] R4.3.1.3 Subtask - Update the exception ledger only for reviewed differences with a semantic, content, accessibility or branding reason.
 
-  - [ ] R4.4 Section - R4 Integration Tests.
+  - [x] R4.4 Section - R4 Integration Tests.
 
     Lock the adjusted presentation without conflating moving-site similarity
     with accepted pinned parity.
 
-    - [ ] R4.4.1 Task - Run article and responsive acceptance.
+    - [x] R4.4.1 Task - Run article and responsive acceptance.
 
       Stable geometry and wrapping assertions precede golden refreshes.
 
-      - [ ] R4.4.1.1 Subtask - Run Accordion article, specimen, catalogue, shell and complete-migration tests.
-      - [ ] R4.4.1.2 Subtask - Run light/dark desktop, tablet, 390px and 320px geometry assertions with motion suppressed.
-      - [ ] R4.4.1.3 Subtask - Run keyboard, axe, zoom, forced-colors, print, CSS-disabled and no-script checks before reviewing visual diffs.
-      - [ ] R4.4.1.4 Subtask - Run deterministic export, `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
+      - [x] R4.4.1.1 Subtask - Run Accordion article, specimen, catalogue, shell and complete-migration tests.
+      - [x] R4.4.1.2 Subtask - Run light/dark desktop, tablet, 390px and 320px geometry assertions with motion suppressed.
+      - [x] R4.4.1.3 Subtask - Run keyboard, axe, zoom, forced-colors, print, CSS-disabled and no-script checks before reviewing visual diffs.
+      - [x] R4.4.1.4 Subtask - Run deterministic export, `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
 
 ## R5 - Deterministic Visual Evidence
 

@@ -4,6 +4,8 @@ status: accepted
 date: 2026-08-28
 affects:
   - shadcn_ui.gallery
+  - shadcn_ui.gallery_presentation
+  - shadcn_ui.content_navigation_gallery
   - shadcn_ui.documentation_catalogue
   - shadcn_ui.public_documentation
   - shadcn_ui.compatibility_accessibility
@@ -134,6 +136,18 @@ The locked-engine run proves those outcomes for the recorded builds without
 turning the builds into browser-brand support targets. This article, specimen,
 support, ownership and provenance structure is accepted as the migration
 template for later catalogue phases.
+
+The Remediation R4 review accepts the pinned Accordion questions and support
+copy as the primary specimen content, a 30px article title and compact 14px
+introductory prose, and the pinned dark source surface in both gallery themes.
+At narrow widths component search belongs inside the same native navigation
+disclosure as its results, so the closed state does not add a separate search
+control above the article. These are presentation and content decisions only:
+the independent Accordion remains a separate local specimen, authored support
+metadata remains authoritative, and no richer navigation or component widget
+contract is introduced. The reviewed exception ledger and refreshed hashes for
+all affected locked goldens are repository evidence for this accepted local
+alignment.
 
 ### Assets, provenance and evidence ownership
 

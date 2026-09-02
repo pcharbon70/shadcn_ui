@@ -22,13 +22,13 @@ a { color: inherit; }
   --gallery-font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   --gallery-text-xs: .75rem;
   --gallery-text-sm: .875rem;
-  --gallery-text-base: .875rem;
-  --gallery-text-lg: 1.0625rem;
-  --gallery-text-xl: 1.375rem;
+  --gallery-text-base: 1rem;
+  --gallery-text-lg: 1.125rem;
+  --gallery-text-xl: 1.25rem;
   --gallery-text-2xl: 1.875rem;
   --gallery-leading-tight: 1.15;
-  --gallery-leading-copy: 1.5;
-  --gallery-tracking-display: -.025em;
+  --gallery-leading-copy: 1.7;
+  --gallery-tracking-display: -.035em;
   min-height: 100vh;
   font-family: var(--gallery-font-body);
   font-size: var(--gallery-text-sm);
@@ -92,12 +92,15 @@ a { color: inherit; }
   line-height: var(--gallery-leading-tight);
   text-wrap: balance;
 }
-.gallery-article > h1 { max-inline-size: 24ch; margin: 0 0 .375rem; font-size: var(--gallery-text-2xl); font-weight: 700; }
-.gallery-article h2 { margin: 0 0 .75rem; font-size: var(--gallery-text-xl); font-weight: 600; letter-spacing: -.02em; }
+.gallery-article > h1 { max-inline-size: 24ch; margin: 0 0 .375rem; font-size: var(--gallery-text-2xl); font-weight: 700; letter-spacing: -.025em; }
+.gallery-article h2 { margin: 0 0 .75rem; font-size: var(--gallery-text-xl); }
 .gallery-article h3 { margin: 0 0 .625rem; font-size: var(--gallery-text-lg); }
 .gallery-article h4 { margin: 0 0 .5rem; font-size: var(--gallery-text-base); }
+.gallery-article h2:where(:not(.gallery-specimen *)) { font-size: 1.375rem; font-weight: 600; letter-spacing: -.02em; }
+.gallery-article h3:where(:not(.gallery-specimen *)) { font-size: 1.0625rem; font-weight: 600; letter-spacing: -.01em; }
 .gallery-article :is(p, ul, ol, blockquote) { max-inline-size: 72ch; }
 .gallery-article :is(p, ul, ol, blockquote) { margin-block: 0 1rem; font-size: var(--gallery-text-base); line-height: var(--gallery-leading-copy); }
+.gallery-article :is(p, ul, ol, blockquote):where(:not(.gallery-specimen *)) { font-size: .875rem; line-height: 1.5; }
 .gallery-article :is(ul, ol) { padding-inline-start: 1.5rem; }
 .gallery-article li + li { margin-block-start: .375rem; }
 .gallery-article a { text-decoration-line: underline; text-decoration-thickness: .08em; text-underline-offset: .18em; }
@@ -161,7 +164,7 @@ a { color: inherit; }
 .gallery-capability-badge[data-gallery-capability="progressive-enhancement"] .gallery-capability-badge__mark { background: var(--shadcn-ui-primary); }
 .gallery-support-table { max-inline-size: 100%; overflow: auto; overscroll-behavior-inline: contain; border: 1px solid var(--shadcn-ui-border); border-radius: var(--shadcn-ui-radius-lg); }
 .gallery-support-table table { inline-size: 100%; min-inline-size: 42rem; border-collapse: collapse; font-size: var(--gallery-text-sm); line-height: 1.5; }
-.gallery-support-table caption { padding: .75rem 1rem; color: var(--shadcn-ui-foreground); font-family: var(--gallery-font-display); font-size: var(--gallery-text-base); font-weight: 650; text-align: start; }
+.gallery-support-table caption { padding: .75rem 1rem; color: var(--shadcn-ui-foreground); font-family: var(--gallery-font-display); font-size: .875rem; font-weight: 650; text-align: start; }
 .gallery-support-table :is(th, td) { padding: .75rem 1rem; border-block-start: 1px solid var(--shadcn-ui-border); text-align: start; vertical-align: top; }
 .gallery-support-table thead th { color: var(--shadcn-ui-muted-foreground); background: var(--shadcn-ui-muted); font-size: var(--gallery-text-xs); letter-spacing: .04em; text-transform: uppercase; }
 .gallery-support-table tr > :first-child { width: 8rem; }
@@ -182,7 +185,7 @@ a { color: inherit; }
 .gallery-reference > section { min-width: 0; }
 .gallery-reference > nav { min-width: 0; }
 .gallery-reference__introduction { display: grid; gap: .75rem; padding-block-end: .5rem; }
-.gallery-reference__description { max-inline-size: 60ch !important; margin: 0 !important; color: var(--shadcn-ui-muted-foreground); font-size: var(--gallery-text-base) !important; }
+.gallery-reference__description { max-inline-size: 60ch !important; margin: 0 !important; color: var(--shadcn-ui-muted-foreground); font-size: .875rem !important; line-height: 1.5 !important; }
 .gallery-reference__usage { margin: 0 !important; }
 .gallery-reference__capabilities { display: flex; flex-wrap: wrap; gap: .5rem; }
 .gallery-reference .gallery-capability-badge,

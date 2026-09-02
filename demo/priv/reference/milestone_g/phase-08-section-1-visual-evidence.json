@@ -63,29 +63,29 @@
         "files": [
           {
             "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-1440-dark-chromium.png",
-            "sha256": "899751c2ed77721b15819bd85c3e35d32d62d5678ebcf3d66d741010307eb214",
-            "bytes": 130987,
+            "sha256": "0dd2b0a9f4db641896be28e4a1d7181f4b64a37157a2e669da42bc4eb37537a1",
+            "bytes": 124631,
             "width": 1440,
             "height": 1200
           },
           {
             "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-1440-light-chromium.png",
-            "sha256": "92bb63d3953de1c3e65cb3d8c9328ab462a3c3e8e0e41862ecfdacf251cce553",
-            "bytes": 129851,
+            "sha256": "a5a332981074bf7ad4bc9c3ba05acb70d07cda2e0f72135ebf016d3692b00e9d",
+            "bytes": 123456,
             "width": 1440,
             "height": 1200
           },
           {
             "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-390-dark-chromium.png",
-            "sha256": "fb1b152de8bbbfb8ca206d12816ebbae26bdfdf685f430b5a2d22612d8416e20",
-            "bytes": 34362,
+            "sha256": "8d021bb18ad6149b75fdf2ffe2bec73d20fd9dcb5934dd2f5e865eaafd2d2141",
+            "bytes": 66463,
             "width": 390,
             "height": 844
           },
           {
             "file": "test/browser/milestone-g-presentation.spec.mjs-snapshots/presentation-390-light-chromium.png",
-            "sha256": "f49b96f2864ba98727efbf9fadc2ac0b7949a2d5a56d5d8888d28fc803f4c0d5",
-            "bytes": 33566,
+            "sha256": "710a5187bc08bc4f781509b87e6392c8ac2ae7a105f07f017073328fda08fe92",
+            "bytes": 65345,
             "width": 390,
             "height": 844
           }
@@ -98,85 +98,85 @@
         "files": [
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-320-source-dark-chromium.png",
-            "sha256": "70bbc8b1514ba740aace583085d6a1ad99c5939e0fbad033e3ab8bde7764a1bd",
-            "bytes": 28325,
+            "sha256": "6f412e315c93950b11df04a3bd35d6c9b12957d04c2d4b45475efee10dcf58e9",
+            "bytes": 34208,
             "width": 282,
-            "height": 416
+            "height": 474
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-320-source-light-chromium.png",
-            "sha256": "9b2bb7527c7ad2060f82e919df53202d6358054d32582a3155af18e808e6dd76",
-            "bytes": 27265,
+            "sha256": "a6b99bb063c57663f1b362e0b391fa121f7e6f0410827a9cd3e7ea89d7b13eda",
+            "bytes": 33746,
             "width": 282,
-            "height": 416
+            "height": 474
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-navigation-dark-chromium.png",
-            "sha256": "3a3083f93bdf75f7c1770c9533c08bb223dbfa3e3fcdfeb79cb66831dc7a73a0",
-            "bytes": 21924,
+            "sha256": "c3256f09cea17279a8b49fa610b35dccfcb971498233162a49d7f529cf3efb40",
+            "bytes": 22807,
             "width": 390,
             "height": 844
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-navigation-light-chromium.png",
-            "sha256": "7e79a6abcbe8fcce27b388ac9487468f2bd0fac75b6917afeaa630314ba87c75",
-            "bytes": 22266,
+            "sha256": "8d85bbbdfaa011410c634bb962ed3afe06beec9acc878358c3f9d244931159dc",
+            "bytes": 23292,
             "width": 390,
             "height": 844
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-panel-dark-chromium.png",
-            "sha256": "052db96c8e7d96ee960bbdf6ab504f2e28bbd0474c25a5b4afbb87a5c6ebce23",
-            "bytes": 21130,
+            "sha256": "3cc981e7f9f39056b5695fe0ed5bd39622f23bccc502a051f961d9aa4862b634",
+            "bytes": 24160,
             "width": 352,
-            "height": 392
+            "height": 338
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-390-panel-light-chromium.png",
-            "sha256": "9ccd54493c880298c7fc5df2ba0fbf3c34d135edf42ed65e60bb79a43425c705",
-            "bytes": 20643,
+            "sha256": "73b7041fa345c9592c8b72510c3a6bc00d9678687d57bb88b2a787f1bf80f7d2",
+            "bytes": 23784,
             "width": 352,
-            "height": 392
+            "height": 338
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-desktop-dark-chromium.png",
-            "sha256": "0a74c7b049c2331bb1096eb07bbb224969aa541aad53510e8a6deed4de68ed95",
-            "bytes": 129467,
+            "sha256": "8b629bc7d18a89e86d6c23d9bcafda555b6a1b4de53a1972a559991401617860",
+            "bytes": 129605,
             "width": 1440,
             "height": 1200
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-desktop-light-chromium.png",
-            "sha256": "dfb19f5622226b4775dbb7b0302d1802ce46c8d06d0f5a4ae9fde09104e7c9bf",
-            "bytes": 128508,
+            "sha256": "32947853d363682d8b7c43a8749e6cdead9d171f3d12230fbbdcea7d4452dd1c",
+            "bytes": 128726,
             "width": 1440,
             "height": 1200
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-support-dark-chromium.png",
-            "sha256": "57e816b3fd049231b473d725e137fc1d17d7560e6b35948446d4a0a65497e5e9",
-            "bytes": 77487,
+            "sha256": "d725c0efd7a2df7d6e42c2b65a005c4a2a577b24af9792066379de463271db55",
+            "bytes": 75143,
             "width": 852,
-            "height": 527
+            "height": 514
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-support-light-chromium.png",
-            "sha256": "7af7564577207441eada95b8fd78156bd21eee05315bd91b9061a4a906375858",
-            "bytes": 78017,
+            "sha256": "fab218ce64506e5a4679ddef8a41930faa16470241ed92e794466e0662b456b5",
+            "bytes": 75710,
             "width": 852,
-            "height": 527
+            "height": 514
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-tablet-dark-chromium.png",
-            "sha256": "a2ae1a163139729f7afedbf8df01a8fdb475b74e7aea0d288ae7244b25ab72cc",
-            "bytes": 140967,
+            "sha256": "c834c5b2bc6229272d33e40e496d3163fe002efd8b882b4bd8211cada9e35581",
+            "bytes": 152589,
             "width": 1024,
             "height": 1366
           },
           {
             "file": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/accordion-tablet-light-chromium.png",
-            "sha256": "8256db4b31f324b5d0feaae4dfcd9de662e1e8d94207c2210f8b86218ba34ab3",
-            "bytes": 140140,
+            "sha256": "e2b0c0204604ef29fd50c39ebbf4c4f442dfce4921ba9fbadd0a73fbf924b829",
+            "bytes": 151647,
             "width": 1024,
             "height": 1366
           }
@@ -189,15 +189,15 @@
         "files": [
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-content-surfaces-desktop-dark-chromium.png",
-            "sha256": "47752e0bcc21cd16be6810a55669a7c98fd6c60e47b8d802065499d20feae4b0",
-            "bytes": 30429,
+            "sha256": "8216c1c2f04c7f47ce166b3a3986bb04ab65a7f8f50a2ecbf775ed99f1e14a62",
+            "bytes": 30854,
             "width": 854,
             "height": 322
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-content-surfaces-desktop-light-chromium.png",
-            "sha256": "1277ba8ba01117c8a97da92c97545848833a9685f7cd9cd70d693624f639d41a",
-            "bytes": 29753,
+            "sha256": "74171139ef07e0478e15ffdf803319c48d615727fd69b8cdc30c36a8260dc414",
+            "bytes": 30202,
             "width": 854,
             "height": 322
           },
@@ -217,71 +217,71 @@
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-disclosure-desktop-dark-chromium.png",
-            "sha256": "389becfff15f3a4067ad81dcf99357f852e165be967c4fcfe6c04dba83736f5c",
-            "bytes": 23025,
+            "sha256": "c77f1ff3f327857b082ebff6783d152798c8bbcc386e546f8a1aa52793f89cba",
+            "bytes": 25356,
             "width": 854,
-            "height": 372
+            "height": 347
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-disclosure-desktop-light-chromium.png",
-            "sha256": "e9445d7842acbc5a30054eba389b8eacb39f60cb9bb558be2775fb4986dfb309",
-            "bytes": 22513,
+            "sha256": "6a278773ca97d071460c48396c2395041cbdaf70e6c99286c7d707d4bec36c66",
+            "bytes": 24965,
             "width": 854,
-            "height": 372
+            "height": 347
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-disclosure-mobile-dark-chromium.png",
-            "sha256": "92313865ad917ce190d627dbb854482fba69c6424f9ac9a4bd357372f7050805",
-            "bytes": 21514,
+            "sha256": "39e6b39d2e68cc84d67f10dbd0d69c28115ad31edba8fbe4287d959e9339aaf1",
+            "bytes": 22853,
             "width": 352,
-            "height": 392
+            "height": 335
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-disclosure-mobile-light-chromium.png",
-            "sha256": "ae837c17b95b4316ef8e204788ef463413c579c48e089ed3276b02c2951d19d0",
-            "bytes": 20960,
+            "sha256": "3fcd8863a9c6dc93c4501f8935202395d2c8bd58fbfa4cadfbf6673048ad0665",
+            "bytes": 22531,
             "width": 352,
-            "height": 392
+            "height": 335
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-forms-desktop-dark-chromium.png",
-            "sha256": "6c7016581359ebe64a9a7ef5f0d9ad3aa08da0f67f7a5329e50e45458d19b8e9",
-            "bytes": 19086,
+            "sha256": "05d4f8748ccc2dcb5955cfa9b507a34c671a848f92fc45a32e9862d819239c0e",
+            "bytes": 19094,
             "width": 854,
-            "height": 360
+            "height": 361
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-forms-desktop-light-chromium.png",
-            "sha256": "4cd3a37d75115030bcaa17b334bddee69628514c42899338f49f7e6ac8f8325d",
-            "bytes": 18765,
+            "sha256": "bd8bc96e4cb0daea303026ee1b4c77267054a8bdd10bce081832352dea0a9c6a",
+            "bytes": 18773,
             "width": 854,
-            "height": 360
+            "height": 361
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-forms-mobile-dark-chromium.png",
-            "sha256": "af9921ca6793a668391a1bfb34ff6e0622b3293f759efa2ec406fcc27330ec3a",
-            "bytes": 18122,
+            "sha256": "dc7b95d878c1020fe7b759aadc506b55d23b4b9328ba2e033dbacff4922308f1",
+            "bytes": 18129,
             "width": 352,
-            "height": 424
+            "height": 425
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-forms-mobile-light-chromium.png",
-            "sha256": "4f4b3bf1774af64282d98eb9f1214b67f237ebceda07e3d358fbc123966aee68",
-            "bytes": 17875,
+            "sha256": "8e98c14fea22571c43a7d72c014421422ad788dad1a139fc16c7d657c4b8fb44",
+            "bytes": 17882,
             "width": 352,
-            "height": 424
+            "height": 425
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-foundation-desktop-dark-chromium.png",
-            "sha256": "02988ed24b7212bfa9c621d436f55d4417395bb4e9ea99937ada8cabec5b6c12",
-            "bytes": 31584,
+            "sha256": "6f51901d6dab0530e7d0337c189bfe44fedad52587d0f206cffb8d95189bbe05",
+            "bytes": 31580,
             "width": 854,
             "height": 308
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-foundation-desktop-light-chromium.png",
-            "sha256": "833bd3d1d3b13c13be85a585f8d80cea832a7b88ad2c2ba3bdbdbfe5c889b75f",
-            "bytes": 30814,
+            "sha256": "88584a85f5ba7116fdd2f8cdb9a29c9e9851dd2e7ba23be691a580535d5aa145",
+            "bytes": 30813,
             "width": 854,
             "height": 308
           },
@@ -301,31 +301,31 @@
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-interactive-surfaces-desktop-dark-chromium.png",
-            "sha256": "6b5cb6d34905a4d296cd18f916cd59ff8a70405db4eb9a461167805984a867f3",
-            "bytes": 25008,
+            "sha256": "b1d0b7b7c7a6f639c7df00602d35823b0b436dd85ea5e7fe2d351a3467657884",
+            "bytes": 25018,
             "width": 854,
-            "height": 391
+            "height": 392
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-interactive-surfaces-desktop-light-chromium.png",
-            "sha256": "d9fd05a7b0e4996c43784956e01a5c27dbc9a03e680fff443f63abeffeee3217",
-            "bytes": 24770,
+            "sha256": "cb6de1459e3ec35dcd7ad37c5c75538b6b4c085f8a27d2cc54c44012b36850fe",
+            "bytes": 24779,
             "width": 854,
-            "height": 391
+            "height": 392
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-interactive-surfaces-mobile-dark-chromium.png",
-            "sha256": "3c5deb5a61511283963272c5d473d58b7b872e217a27e1bf06d89feb92a7d174",
-            "bytes": 23852,
+            "sha256": "b4d7bb13209977308ec5a079048e668f9e08bd99c48dbccdb7f123ff01e89208",
+            "bytes": 23863,
             "width": 352,
-            "height": 445
+            "height": 446
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-interactive-surfaces-mobile-light-chromium.png",
-            "sha256": "bbbdfda631168baae3a2c45daed4ba87dc426f96c6c8d06cd9cf2764f59870ad",
-            "bytes": 23675,
+            "sha256": "09552e7edba254ff898daeb7c8bb8114a9204c94246be7a46e767d9a4fb041f9",
+            "bytes": 23684,
             "width": 352,
-            "height": 445
+            "height": 446
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-media-desktop-dark-chromium.png",
@@ -357,22 +357,22 @@
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-motion-desktop-dark-chromium.png",
-            "sha256": "e8eaea166d96f1999465c11a650cf21b5140d83a40878d7d18ed56291f247e7f",
-            "bytes": 180432,
+            "sha256": "40f11e13176c8a5ba79303e6412cd7c8bf694b1b6607b7e029d09a128379e780",
+            "bytes": 180396,
             "width": 854,
-            "height": 2150
+            "height": 2151
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-motion-desktop-light-chromium.png",
-            "sha256": "a220617eb8605bb8578c9b5a9751c24190af21ae90d78a3dd23e7d2684e8aa40",
-            "bytes": 179220,
+            "sha256": "b70a1fb8298a756abe4e117597593c71231d2a4a88b7ad423f60b6b224ee13e5",
+            "bytes": 179182,
             "width": 854,
-            "height": 2150
+            "height": 2151
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-motion-mobile-dark-chromium.png",
-            "sha256": "410194490c245dd1e1e54a76069d29311f753d8e44d687519ec3f1054463a95c",
-            "bytes": 132323,
+            "sha256": "be8afc0e483d2db264a7b266df6f35e8fa973c006c1c7bc2673af8031be926e5",
+            "bytes": 132200,
             "width": 352,
             "height": 2178
           },
@@ -413,22 +413,22 @@
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-overlays-desktop-dark-chromium.png",
-            "sha256": "23f53ccacc19484d11a2974d49d7803a12cdbacf2bb6ae04de54b7a9a4a3373e",
-            "bytes": 43969,
+            "sha256": "b53c00e3a382d5c68e3ac1a3c4aa2704d38499630bfe4d938d9c899ed2c2a9b8",
+            "bytes": 43991,
             "width": 854,
-            "height": 642
+            "height": 643
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-overlays-desktop-light-chromium.png",
-            "sha256": "68e7a3a2a956048fb88d141d7f5f83cd7772e92a9ad54ca151c7e8f2c63501d2",
-            "bytes": 43718,
+            "sha256": "139ff25dd53f7ecdba5ee9a028ae09c54e2bafd18ba45ce189fbf0ace26c2aba",
+            "bytes": 43744,
             "width": 854,
-            "height": 642
+            "height": 643
           },
           {
             "file": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/phase7-overlays-mobile-dark-chromium.png",
-            "sha256": "308e02ebd096d7b99aead0082fa54e580fab716c96b06b4aef7a7c34690603dd",
-            "bytes": 42538,
+            "sha256": "9caaa0283f98eecf7fcd45f22ec3e73a0d863f8d688c50b25c9d128ff4a14a2e",
+            "bytes": 42520,
             "width": 352,
             "height": 717
           },

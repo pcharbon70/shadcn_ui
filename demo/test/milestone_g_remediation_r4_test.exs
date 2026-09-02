@@ -1,7 +1,20 @@
 defmodule ShadcnUIDemo.MilestoneGRemediationR4Test do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.gallery_presentation.pinned_reference
+  # covers: shadcn_ui.gallery_presentation.shell
+  # covers: shadcn_ui.gallery_presentation.progressive_navigation
+  # covers: shadcn_ui.gallery_presentation.presentation_system
+  # covers: shadcn_ui.gallery_presentation.article_hierarchy
+  # covers: shadcn_ui.gallery_presentation.catalogue_metadata
+  # covers: shadcn_ui.gallery_presentation.visual_evidence
+  # covers: shadcn_ui.gallery_presentation.semantic_exceptions
+  # covers: shadcn_ui.gallery_presentation.accessibility_matrix
+  # covers: shadcn_ui.gallery_presentation.deterministic_distribution
+
   @exceptions_path "priv/reference/milestone_g/remediation-r4-exceptions.json"
+  @integration_path "priv/reference/milestone_g/remediation-r4-integration-evidence.json"
+  @repo_root Path.expand("../..", __DIR__)
 
   test "R4.1 primary Accordion uses the pinned FAQ while the independent example stays local" do
     reference = File.read!("lib/shadcn_ui_demo/reference.ex")
@@ -53,8 +66,11 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR4Test do
     assert layout =~ ~s(aria-current={@page.path == component.path && "page"})
 
     assert css =~ "--gallery-text-2xl: 1.875rem"
-    assert css =~ "--gallery-text-xl: 1.375rem"
-    assert css =~ "--gallery-leading-copy: 1.5"
+    assert css =~ "font-size: 1.375rem; font-weight: 600; letter-spacing: -.02em"
+
+    assert css =~
+             ":is(p, ul, ol, blockquote):where(:not(.gallery-specimen *)) { font-size: .875rem; line-height: 1.5; }"
+
     assert css =~ "max-inline-size: 60ch !important"
     assert css =~ ".gallery-catalogue { display: none; }"
     assert css =~ ".gallery-layout main { padding-block: 1rem 3rem; }"
@@ -104,5 +120,60 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR4Test do
     assert css =~ "font-family: var(--gallery-font-mono)"
     assert css =~ ~s|[data-gallery-capability="progressive-enhancement"]|
     refute css =~ ~r/@supports[^\{]*\{\s*\.gallery-capability-badge/s
+  end
+
+  test "R4.4 records stable reviewed goldens and closes every integration gate" do
+    evidence = @integration_path |> File.read!() |> Jason.decode!()
+
+    accordion_visual =
+      File.read!(Path.join(@repo_root, "test/browser/milestone-g-accordion-visual.spec.mjs"))
+
+    migration =
+      File.read!(Path.join(@repo_root, "test/browser/milestone-g-phase7-migration.spec.mjs"))
+
+    assert evidence["schemaVersion"] == 1
+    assert evidence["status"] == "passed-remediation-r4-complete"
+    assert evidence["upstreamCommit"] == "bd8f403030c8d1f46804da6eda733fde7e908e63"
+    assert evidence["reviewedGoldenChanges"] == 38
+    assert evidence["expectedFailuresRemaining"] == 0
+
+    for group <- evidence["goldenGroups"] do
+      files =
+        @repo_root
+        |> Path.join(group["glob"])
+        |> Path.wildcard()
+        |> Enum.sort()
+
+      manifest =
+        Enum.map_join(files, fn file ->
+          digest =
+            file
+            |> File.read!()
+            |> then(&:crypto.hash(:sha256, &1))
+            |> Base.encode16(case: :lower)
+
+          relative = Path.relative_to(file, @repo_root)
+          "#{digest}  #{relative}\n"
+        end)
+
+      actual = manifest |> then(&:crypto.hash(:sha256, &1)) |> Base.encode16(case: :lower)
+      assert length(files) == group["files"]
+      assert actual == group["sha256sumLinesDigest"], "golden group drift for #{group["id"]}"
+    end
+
+    assert evidence["verification"]["packageTests"] == %{
+             "tests" => 419,
+             "failures" => 0,
+             "status" => "passed"
+           }
+
+    assert evidence["verification"]["demoTests"]["status"] == "passed"
+
+    assert evidence["verification"]["crossEngineFunctional"]["engines"] ==
+             ~w(chromium firefox webkit)
+
+    assert evidence["verification"]["deterministicExport"] == "passed"
+    refute accordion_visual =~ ~s(test.fail(true, "R4)
+    refute migration =~ ~s(test.fail(true, "R4)
   end
 end

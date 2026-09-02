@@ -76,7 +76,10 @@ const fitMobileNavigation = () => {
   );
 };
 
-const queueMobileNavigationFit = () => requestAnimationFrame(fitMobileNavigation);
+const queueMobileNavigationFit = () => {
+  fitMobileNavigation();
+  requestAnimationFrame(fitMobileNavigation);
+};
 
 mobileNavigation?.addEventListener("toggle", queueMobileNavigationFit);
 window.addEventListener("resize", queueMobileNavigationFit);

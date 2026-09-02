@@ -2,8 +2,19 @@ import {expect, test} from "../../demo/node_modules/@playwright/test/index.mjs";
 
 // covers: shadcn_ui.gallery_presentation.shell
 // covers: shadcn_ui.gallery_presentation.progressive_navigation
-// covers: shadcn_ui.gallery_presentation.responsive_article
+// covers: shadcn_ui.gallery_presentation.presentation_system
 // covers: shadcn_ui.gallery_presentation.visual_evidence
+// covers: shadcn_ui.gallery_presentation.semantic_exceptions
+// covers: shadcn_ui.gallery_presentation.accessibility_matrix
+// covers: shadcn_ui.compatibility_accessibility.responsive_and_preferences
+// covers: shadcn_ui.compatibility_accessibility.keyboard_and_semantics
+// covers: shadcn_ui.content_gallery.content_stress
+// covers: shadcn_ui.content_gallery.browser_behavior
+// covers: shadcn_ui.gallery.controller_rendered
+// covers: shadcn_ui.gallery.semantic_shell
+// covers: shadcn_ui.gallery.component_guidance
+// covers: shadcn_ui.gallery.theme_matrix
+// covers: shadcn_ui.gallery.demo_only_script
 
 const route = "/components/disclosure/accordion";
 

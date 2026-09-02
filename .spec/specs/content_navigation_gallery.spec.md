@@ -14,6 +14,7 @@ decisions:
 surface:
   - demo/**
   - test/browser/milestone-c-content-navigation.spec.mjs
+  - test/browser/milestone-g-remediation-r4.spec.mjs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
   - test/shadcn_ui/milestone_b_documentation_test.exs
   - test/shadcn_ui/milestone_c_documentation_test.exs
@@ -80,6 +81,9 @@ Milestone G Phase 4 adds native Preview/Code radios around component examples.
 Milestone C browser evidence therefore scopes its Radio Panels count to the
 rendered component while retaining CSS-disabled access to both documentation
 views and every component panel.
+Remediation R4 verifies that mobile component search remains discoverable only
+after opening the honest native navigation disclosure and retains the current
+ordinary destination at the two narrow acceptance widths.
 
 ```spec-verification
 - kind: test_file
@@ -116,4 +120,10 @@ views and every component panel.
     - shadcn_ui.content_gallery.content_stress
     - shadcn_ui.content_gallery.browser_behavior
     - shadcn_ui.content_gallery.release_boundary
+
+- kind: test_file
+  target: test/browser/milestone-g-remediation-r4.spec.mjs
+  covers:
+    - shadcn_ui.content_gallery.content_stress
+    - shadcn_ui.content_gallery.browser_behavior
 ```
