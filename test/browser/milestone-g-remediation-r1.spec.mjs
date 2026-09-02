@@ -82,12 +82,11 @@ test("VR-03 summaries and focus paint stay inside their details and specimen", a
 });
 
 test("VR-02 every mobile destination can be fully revealed and visibly focused", async ({page}) => {
-  test.fail(true, "R3 will remove the expected-failure marker after viewport containment lands.");
-
   const violations = [];
   for (const state of [
     {id: "mobile-320", width: 320, height: 568},
-    {id: "mobile-390", width: 390, height: 844}
+    {id: "mobile-390", width: 390, height: 844},
+    {id: "zoom-200", width: 800, height: 600, zoom: 2}
   ]) {
     await openAccordion(page, state);
     const disclosure = page.locator("[data-gallery-mobile-navigation]");
@@ -106,6 +105,7 @@ test("VR-02 every mobile destination can be fully revealed and visibly focused",
         viewportHeight: innerHeight,
         link: {top: linkRect.top, bottom: linkRect.bottom},
         panel: {top: panelRect.top, bottom: panelRect.bottom},
+        overscrollBehavior: getComputedStyle(panel).overscrollBehavior,
         active: document.activeElement === element,
         atMaximumScroll: Math.abs(panel.scrollTop + panel.clientHeight - panel.scrollHeight) <= 1
       };
@@ -114,6 +114,7 @@ test("VR-02 every mobile destination can be fully revealed and visibly focused",
     if (geometry.link.top < -epsilon ||
         geometry.link.bottom + 4 > geometry.viewportHeight + epsilon ||
         geometry.panel.bottom > geometry.viewportHeight + epsilon ||
+        geometry.overscrollBehavior !== "contain" ||
         !geometry.active ||
         !geometry.atMaximumScroll) {
       violations.push({state: state.id, geometry});

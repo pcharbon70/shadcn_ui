@@ -206,20 +206,20 @@ category route and is not an Accordion comparison target.
   Keep native disclosure and radio semantics while removing clipped content and
   contradictory presentation state.
 
-  - [ ] R3.1 Section - Make mobile navigation fully reachable.
+  - [x] R3.1 Section - Make mobile navigation fully reachable.
 
     The panel must use the actual wrapped header and dynamic viewport rather
     than a fixed assumed header height.
 
-    - [ ] R3.1.1 Task - Bound the panel to remaining viewport space.
+    - [x] R3.1.1 Task - Bound the panel to remaining viewport space.
 
       Safe-area padding, browser chrome changes and zoom must not conceal the
       final destination.
 
-      - [ ] R3.1.1.1 Subtask - Replace the fixed 4.5rem viewport reservation with layout derived from the header's actual block size or an equivalent robust containment strategy.
-      - [ ] R3.1.1.2 Subtask - Preserve internal scrolling, overscroll containment and visible focus at 320px, 390px, 200 percent zoom and wrapped-theme-control states.
-      - [ ] R3.1.1.3 Subtask - Verify every destination, including the final composition link, can be completely revealed by pointer, touch and keyboard navigation.
-      - [ ] R3.1.1.4 Subtask - Retain non-modal native disclosure semantics and document the intentional accessibility-tree difference from upstream's dialog.
+      - [x] R3.1.1.1 Subtask - Replace the fixed 4.5rem viewport reservation with layout derived from the header's actual block size or an equivalent robust containment strategy.
+      - [x] R3.1.1.2 Subtask - Preserve internal scrolling, overscroll containment and visible focus at 320px, 390px, 200 percent zoom and wrapped-theme-control states.
+      - [x] R3.1.1.3 Subtask - Verify every destination, including the final composition link, can be completely revealed by pointer, touch and keyboard navigation.
+      - [x] R3.1.1.4 Subtask - Retain non-modal native disclosure semantics and document the intentional accessibility-tree difference from upstream's dialog.
 
   - [ ] R3.2 Section - Make direct specimen fragments and radios agree.
 

@@ -92,8 +92,11 @@ Differences are documented rather than concealed to improve screenshots.
 
 The mobile catalogue uses a native `details` disclosure with an honest
 "Navigation" name and complete ordinary links. CSS may present it as a bounded
-panel, but no dialog, menu, focus trap or invoker-command claim is made. The
+panel whose available block size follows the actual wrapped header and dynamic
+viewport, but no dialog, menu, focus trap or invoker-command claim is made. The
 open disclosure remains in document order and operable without demo JavaScript.
+Unlike the upstream dialog presentation, its accessibility tree intentionally
+remains a native disclosure followed by ordinary named navigation landmarks.
 
 Preview and Code use a labelled native radio group as presentation selection,
 with no tablist, tab or tabpanel roles. Both addressable regions remain in source
