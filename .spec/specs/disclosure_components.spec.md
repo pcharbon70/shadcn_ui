@@ -58,7 +58,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.disclosure.fallback
-  statement: Unsupported exclusive grouping shall degrade to independently operable details, and absent CSS or animation support shall retain every summary and content region in native document order with reduced motion preserving state and access.
+  statement: Unsupported exclusive grouping shall degrade to independently operable details, and absent CSS or animation support shall retain every summary and content region in native document order; the decorative logical-end chevron shall follow native open state, while operating-system reduction and explicit ancestor motion suppression remove its and the content reveal's transitions without changing state or access.
   priority: must
   stability: stable
 

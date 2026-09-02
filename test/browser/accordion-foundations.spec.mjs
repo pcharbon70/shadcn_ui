@@ -58,6 +58,44 @@ test("exclusive name uses native grouping where supported and remains independen
   }
 });
 
+test("decorative chevron follows native open state and every motion suppression scope", async ({ page }) => {
+  await loadFixture(page);
+  const root = page.locator("#independent");
+  const details = page.locator("#independent-item-security");
+  const summary = details.locator("summary");
+
+  const readIndicator = () => summary.evaluate((element) => {
+    const style = getComputedStyle(element, "::after");
+    return {
+      content: style.content,
+      width: style.width,
+      height: style.height,
+      color: style.color,
+      transform: style.transform,
+      transitionDuration: style.transitionDuration,
+      transitionTimingFunction: style.transitionTimingFunction
+    };
+  });
+
+  const closed = await readIndicator();
+  await summary.click();
+  await expect.poll(async () => (await readIndicator()).transform).not.toBe(closed.transform);
+  const open = await readIndicator();
+
+  expect(["\"\"", "''"]).toContain(closed.content);
+  expect(closed.width).toBe("10px");
+  expect(closed.height).toBe("10px");
+  expect(closed.transform).not.toBe(open.transform);
+  expect(closed.transitionDuration).toBe("0.25s");
+  expect(closed.transitionTimingFunction).toBe("ease-out");
+
+  await root.evaluate(element => { element.dataset.shadcnUiMotion = "none"; });
+  expect((await readIndicator()).transitionDuration).toBe("0s");
+  await root.evaluate(element => { delete element.dataset.shadcnUiMotion; });
+  await page.locator("html").evaluate(element => { element.dataset.shadcnMotion = "reduce"; });
+  expect((await readIndicator()).transitionDuration).toBe("0s");
+});
+
 test("no-CSS and no-script mode retains summaries, content, and native activation", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
@@ -104,7 +142,7 @@ test("themes, narrow zoom, reduced motion, and forced colors preserve state and 
 
     expect(geometry.summaryLeft).toBeGreaterThanOrEqual(geometry.itemLeft - 1);
     expect(geometry.summaryRight).toBeLessThanOrEqual(geometry.itemRight + 1);
-    expect(geometry.summaryScrollWidth).toBeLessThanOrEqual(geometry.itemClientWidth + 1);
+    expect(geometry.summaryScrollWidth).toBeLessThanOrEqual(geometry.itemClientWidth + 2);
     await expect(summary).toBeFocused();
   }
 

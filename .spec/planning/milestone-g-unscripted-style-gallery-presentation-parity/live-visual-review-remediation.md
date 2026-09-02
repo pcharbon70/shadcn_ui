@@ -148,28 +148,28 @@ category route and is not an Accordion comparison target.
       - [x] R2.1.1.2 Subtask - Verify long summaries wrap without inline overflow in LTR and RTL.
       - [x] R2.1.1.3 Subtask - Verify focus outlines remain fully visible at narrow width, 200 percent zoom and forced colors.
 
-  - [ ] R2.2 Section - Restore the disclosure affordance and accepted motion.
+  - [x] R2.2 Section - Restore the disclosure affordance and accepted motion.
 
     The visual indicator is decorative; native expanded state and activation
     remain authoritative.
 
-    - [ ] R2.2.1 Task - Add an open-state chevron.
+    - [x] R2.2.1 Task - Add an open-state chevron.
 
       Match the pinned shape, position and rotation without adding hidden text,
       duplicate controls or scripted state.
 
-      - [ ] R2.2.1.1 Subtask - Render a CSS-generated logical-end chevron with sufficient contrast in light, dark and forced-colors modes.
-      - [ ] R2.2.1.2 Subtask - Rotate it from closed to open using the native `[open]` state and keep it out of the accessibility tree.
-      - [ ] R2.2.1.3 Subtask - Remove or retain native marker styling only where it has a visible fallback purpose; do not produce duplicate indicators.
+      - [x] R2.2.1.1 Subtask - Render a CSS-generated logical-end chevron with sufficient contrast in light, dark and forced-colors modes.
+      - [x] R2.2.1.2 Subtask - Rotate it from closed to open using the native `[open]` state and keep it out of the accessibility tree.
+      - [x] R2.2.1.3 Subtask - Remove or retain native marker styling only where it has a visible fallback purpose; do not produce duplicate indicators.
 
-    - [ ] R2.2.2 Task - Reconcile component transition behavior.
+    - [x] R2.2.2 Task - Reconcile component transition behavior.
 
       Pinned timing may be adapted through component-scoped values, but reduced
       motion must always win.
 
-      - [ ] R2.2.2.1 Subtask - Align reveal, opacity and chevron timing/easing with the R1 pinned measurement or record the token-based exception.
-      - [ ] R2.2.2.2 Subtask - Make the Accordion a recognized motion root or add an exact ancestor suppression rule for explicit none/reduce states.
-      - [ ] R2.2.2.3 Subtask - Preserve instant native disclosure when animation capabilities are missing.
+      - [x] R2.2.2.1 Subtask - Align reveal, opacity and chevron timing/easing with the R1 pinned measurement or record the token-based exception.
+      - [x] R2.2.2.2 Subtask - Make the Accordion a recognized motion root or add an exact ancestor suppression rule for explicit none/reduce states.
+      - [x] R2.2.2.3 Subtask - Preserve instant native disclosure when animation capabilities are missing.
 
   - [ ] R2.3 Section - Align reusable row presentation where approved.
 

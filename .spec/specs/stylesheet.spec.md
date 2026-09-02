@@ -94,7 +94,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.stylesheet.reduced_motion
-  statement: The stylesheet shall preserve state and meaning while disabling or shortening nonessential component animation under prefers-reduced-motion.
+  statement: The stylesheet shall preserve state and meaning while disabling or shortening nonessential component animation under prefers-reduced-motion and documented explicit ancestor suppression scopes, including Accordion reveal and decorative indicator transitions.
   priority: must
   stability: stable
 

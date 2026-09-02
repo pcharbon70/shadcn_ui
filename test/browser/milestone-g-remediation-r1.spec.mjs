@@ -192,8 +192,6 @@ test("VR-05 direct source fragments agree with the native radio selection", asyn
 });
 
 test("VR-06 explicit and operating-system reduced motion both suppress Accordion transitions", async ({browser}) => {
-  test.fail(true, "R2/R3 will remove the expected-failure marker after explicit motion suppression lands.");
-
   const violations = [];
   for (const state of [
     {id: "operating-system", reducedMotion: "reduce", query: "system"},
