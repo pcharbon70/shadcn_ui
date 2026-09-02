@@ -130,7 +130,7 @@ category route and is not an Accordion comparison target.
 
 ## R2 - Accordion Package Correctness
 
-- [ ] R2 Phase - Correct reusable Accordion geometry and visual affordance.
+- [x] R2 Phase - Correct reusable Accordion geometry and visual affordance.
 
   Fix the package-level defects using scoped styles and native disclosure state,
   without adding a second interaction model.
@@ -185,19 +185,19 @@ category route and is not an Accordion comparison target.
       - [x] R2.3.1.2 Subtask - Align summary padding, minimum target size, answer foreground and hover underline without relying on color alone.
       - [x] R2.3.1.3 Subtask - Verify caller classes, themes and consumer token overrides remain effective.
 
-  - [ ] R2.4 Section - R2 Integration Tests.
+  - [x] R2.4 Section - R2 Integration Tests.
 
     Prove the component fix through package fixtures, compiled CSS and real
     gallery rendering.
 
-    - [ ] R2.4.1 Task - Run package and browser acceptance.
+    - [x] R2.4.1 Task - Run package and browser acceptance.
 
       The generated asset and semantic contract must remain deterministic.
 
-      - [ ] R2.4.1.1 Subtask - Run Accordion rendering tests, stylesheet tests, the native fixture suite and Milestone C acceptance.
-      - [ ] R2.4.1.2 Subtask - Run narrow, zoom, RTL, forced-colors, reduced-motion, CSS-disabled and no-script Accordion browser states in both themes.
-      - [ ] R2.4.1.3 Subtask - Run the locked asset build/check, package archive audit and BulmaUI coexistence coverage.
-      - [ ] R2.4.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check` before section delivery.
+      - [x] R2.4.1.1 Subtask - Run Accordion rendering tests, stylesheet tests, the native fixture suite and Milestone C acceptance.
+      - [x] R2.4.1.2 Subtask - Run narrow, zoom, RTL, forced-colors, reduced-motion, CSS-disabled and no-script Accordion browser states in both themes.
+      - [x] R2.4.1.3 Subtask - Run the locked asset build/check, package archive audit and BulmaUI coexistence coverage.
+      - [x] R2.4.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check` before section delivery.
 
 ## R3 - Gallery Navigation And Specimen State
 
