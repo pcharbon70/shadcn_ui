@@ -123,5 +123,5 @@ section and one PR for this phase; do not merge without a later request.
 - Publication boundary: no Hex package, public version tag, marketplace entry,
   platform certification or upstream-affiliation claim was created.
 - Delivery: four section commits are proposed together in
-  [PR #26](https://github.com/Leco-Industries-Inc/shadcn_ui/pull/26); it remains
+  [PR #26](https://github.com/pcharbon70/shadcn_ui/pull/26); it remains
   unmerged for review.

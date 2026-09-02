@@ -6,6 +6,7 @@ defmodule ShadcnUI.PackageTest do
   # covers: shadcn_ui.package.transport_neutral
   # covers: shadcn_ui.package.public_import_surface
   # covers: shadcn_ui.package.explicit_release_files
+  # covers: shadcn_ui.package.mit_license
   # covers: shadcn_ui.package.no_consumer_asset_toolchain
 
   defmodule ConsumerFixture do
@@ -90,11 +91,11 @@ defmodule ShadcnUI.PackageTest do
   test "uses an explicit package release allowlist" do
     package = Mix.Project.config()[:package]
 
-    assert package[:licenses] == ["LicenseRef-LECO-Proprietary"]
+    assert package[:licenses] == ["MIT"]
 
     assert package[:links] == %{
-             "Gallery" => "https://leco-industries-inc.github.io/shadcn_ui/",
-             "GitHub" => "https://github.com/Leco-Industries-Inc/shadcn_ui"
+             "Gallery" => "https://pcharbon70-shadcn-ui-demo.fly.dev/",
+             "GitHub" => "https://github.com/pcharbon70/shadcn_ui"
            }
 
     assert package[:files] == [
@@ -104,6 +105,7 @@ defmodule ShadcnUI.PackageTest do
              "priv/provenance",
              "mix.exs",
              "README.md",
+             "LICENSE",
              "CHANGELOG.md",
              "THIRD_PARTY_NOTICES.md"
            ]

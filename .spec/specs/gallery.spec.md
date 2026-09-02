@@ -4,12 +4,12 @@
 id: shadcn_ui.gallery
 kind: application
 status: active
-summary: Separate controller-rendered Phoenix consumer with deterministic static online publication.
+summary: Separate controller-rendered Phoenix consumer with deterministic assets, portable static evidence, and a stateless Fly.io publication.
 decisions:
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.scoped_theme_token_contract
   - shadcn_ui.progressive_enhancement_baseline
-  - shadcn_ui.gallery_static_publication
+  - shadcn_ui.fly_gallery_publication
   - shadcn_ui.deterministic_form_accessibility
   - shadcn_ui.enhanced_select_boundary
   - shadcn_ui.native_disclosure_grouping
@@ -33,6 +33,13 @@ surface:
   - test/shadcn_ui/milestone_d_acceptance_test.exs
   - README.md
 ```
+
+## Project identity boundary
+
+ShadcnUI is a personal MIT-licensed project. Repository ownership, package
+scope, schema identifiers, and the canonical Fly hostname are publication
+identity only; they do not alter this subject's requirements, semantics,
+runtime boundary, package contents, or existing verification.
 
 ## Requirements
 
@@ -98,7 +105,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery.online_publication
-  statement: CI shall publish the verified static artifact to an approved HTTPS host, expose its canonical URL, run direct-route and asset smoke checks, and retain a documented rollback procedure without placing credentials in the repository.
+  statement: A reviewed immutable OTP release of the stateless demo shall publish to the approved Fly.io HTTPS origin, expose its exact canonical URL and source identity, pass service health plus direct-route and asset smoke checks, and retain a documented rollback procedure without placing credentials in the repository.
   priority: must
   stability: evolving
 
@@ -112,6 +119,10 @@ surface:
 
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's gallery contract.
+
+Deployment and static-publication smoke identify the shared shell through its
+stable ShadcnUI home link label, independent of route-specific page titles and
+secondary build or provenance metadata.
 
 Milestone G Phase 4 presents component guidance as an introduction, paired
 preview/source specimen, explanation, accessibility and support, ownership,
@@ -158,6 +169,13 @@ and escaping symlinks are rejected. All A–D component routes remain unchanged.
     - shadcn_ui.gallery.no_application_frameworks
     - shadcn_ui.gallery.demo_only_script
     - shadcn_ui.gallery.deterministic_assets
+
+- kind: test_file
+  target: demo/test/fly_deployment_test.exs
+  covers:
+    - shadcn_ui.gallery.separate_application
+    - shadcn_ui.gallery.deterministic_assets
+    - shadcn_ui.gallery.online_publication
     - shadcn_ui.gallery.excluded_from_package
 
 - kind: test_file
@@ -198,6 +216,10 @@ and escaping symlinks are rejected. All A–D component routes remain unchanged.
   execute: true
   covers:
     - shadcn_ui.gallery.static_export
+
+- kind: command
+  target: npm --prefix demo run smoke:fly
+  covers:
     - shadcn_ui.gallery.online_publication
 
 - kind: test_file

@@ -25,7 +25,7 @@ defmodule Mix.Tasks.Gallery.Export do
 
     copy_assets!()
     copy_media!()
-    write_sitemap!()
+    write_sitemap!(identity.canonical_url)
     search = write_search!()
     assets = asset_hashes()
     release = write_release_manifest!(identity, assets, search)
@@ -202,7 +202,7 @@ defmodule Mix.Tasks.Gallery.Export do
       html
       |> String.replace(~r/<a\b[^>]*>/i, "")
       |> String.replace(
-        ~r/<link\s+rel="canonical"\s+href="https:\/\/leco-industries-inc\.github\.io\/shadcn_ui[^\"]*"\s*\/?\s*>/i,
+        ~r/<link\s+rel="canonical"\s+href="https:\/\/[^\"]+"\s*\/?\s*>/i,
         ""
       )
 
@@ -235,10 +235,10 @@ defmodule Mix.Tasks.Gallery.Export do
     end
   end
 
-  defp write_sitemap! do
+  defp write_sitemap!(canonical_url) do
     File.write!(
       Path.join(@output, "sitemap.xml"),
-      ShadcnUIDemo.DocumentationCatalogue.sitemap_xml()
+      ShadcnUIDemo.DocumentationCatalogue.sitemap_xml(canonical_url)
     )
   end
 

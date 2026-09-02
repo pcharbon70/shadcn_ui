@@ -1,0 +1,42 @@
+app = "pcharbon70-shadcn-ui-demo"
+primary_region = "yyz"
+kill_signal = "SIGTERM"
+kill_timeout = "5s"
+
+[build]
+  dockerfile = "Dockerfile"
+
+  [build.args]
+    SHADCN_UI_CANONICAL_URL = "https://pcharbon70-shadcn-ui-demo.fly.dev/"
+
+[env]
+  DNS_CLUSTER_QUERY = "pcharbon70-shadcn-ui-demo.internal"
+  PHX_HOST = "pcharbon70-shadcn-ui-demo.fly.dev"
+  PHX_SERVER = "true"
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = "requests"
+    soft_limit = 200
+    hard_limit = 250
+
+  [[http_service.checks]]
+    grace_period = "10s"
+    interval = "30s"
+    method = "GET"
+    path = "/healthz"
+    timeout = "5s"
+
+    [http_service.checks.headers]
+      X-Forwarded-Proto = "https"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

@@ -32,12 +32,11 @@ defmodule ShadcnUIDemo.StaticExportTest do
     refute task =~ "File.ls!()"
     refute task =~ ~r/(DateTime|NaiveDateTime|System\.system_time)/
 
-    assert workflow =~
-             "actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3"
-
-    assert workflow =~ "pages: write"
-    assert workflow =~ "id-token: write"
-    assert workflow =~ "cancel-in-progress: false"
+    refute workflow =~ "actions/upload-pages-artifact"
+    refute workflow =~ "actions/deploy-pages"
+    refute workflow =~ "pages: write"
+    refute workflow =~ "id-token: write"
+    assert workflow =~ "cancel-in-progress: true"
     assert workflow =~ ~s(SHADCN_UI_BUILD_REVISION: ${{ github.sha }})
     assert deployment =~ "Rollback"
     assert ignore =~ "/export/"

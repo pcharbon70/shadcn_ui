@@ -6,7 +6,7 @@
     "testedSourceRevision": "99cbf30895897b98609b802c47cbc44539e059b6",
     "packageVersion": "0.1.0",
     "catalogueSchema": "1",
-    "canonicalUrl": "https://leco-industries-inc.github.io/shadcn_ui/"
+    "canonicalUrl": "https://pcharbon70-shadcn-ui-demo.fly.dev/"
   },
   "tools": {
     "elixir": "1.18.4",

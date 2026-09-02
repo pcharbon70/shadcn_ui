@@ -16,13 +16,13 @@ CI, merge, deployment, smoke, and manual evidence. Dstar and LiveView are docume
 consumer-owned transports around the same stateless HEEX API; neither is a
 ShadcnUI application dependency or state owner.
 
-The [gallery](https://leco-industries-inc.github.io/shadcn_ui/) is a separate
+The [gallery](https://pcharbon70-shadcn-ui-demo.fly.dev/) is a separate
 reference consumer. Milestone D adds seven component pages, four complete
-compositions, and a [capability matrix](https://leco-industries-inc.github.io/shadcn_ui/examples/overlay-capabilities).
+compositions, and a [capability matrix](https://pcharbon70-shadcn-ui-demo.fly.dev/examples/overlay-capabilities).
 New pages become public when their reviewed change is merged and the Pages
 deployment succeeds; a local acceptance run is not proof of publication.
 
-Milestone E [motion/media foundations](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/motion-media-foundations.md) add
+Milestone E [motion/media foundations](https://github.com/pcharbon70/shadcn_ui/blob/main/docs/motion-media-foundations.md) add
 internal image and bounded-motion contracts, scoped motion suppression, local
 demo fixtures and `/examples/motion-media-capabilities`. The gallery supports
 ordinary system/reduced-motion links, including no-script static exports.
@@ -34,8 +34,8 @@ and `/components/media/cover-flow`, expanding both compositions with actual
 components. Phase 5 adds `/components/media/image-gallery` and the substantial
 `/examples/image-gallery` composition. The Phase 6 candidate consolidates all six
 components, gallery navigation and acceptance. See the
-[motion/media guide](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/motion-media-guide.md)
-and [acceptance record](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/milestone-e-acceptance.md)
+[motion/media guide](https://github.com/pcharbon70/shadcn_ui/blob/main/docs/motion-media-guide.md)
+and [acceptance record](https://github.com/pcharbon70/shadcn_ui/blob/main/docs/milestone-e-acceptance.md)
 for native semantics and distinct automated, manual, CI and publication status.
 Milestone F remains separate; a local candidate does not establish publication.
 
@@ -54,7 +54,7 @@ and a separate ordinary destination. Choose `lightbox={:none}` for nonmodal
 browsing. Full images contain, long captions scroll, and failed images retain
 meaning. The optional thumbnail-origin effect is deliberately deferred after
 three-engine testing; no component JavaScript or slideshow state ships.
-See the [complete Image Gallery API and ownership guide](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/image-gallery.md)
+See the [complete Image Gallery API and ownership guide](https://github.com/pcharbon70/shadcn_ui/blob/main/docs/image-gallery.md)
 for metadata, keyed caption slots, native focus/dismissal, loading hints,
 replacement, explicit nested-modal restrictions and provenance.
 
@@ -101,7 +101,7 @@ polling or runtime JS. Stationary scrolling does not advance either effect.
 Removing CSS retains complete content. Replacing markup may reset native
 position/focus; browsers may also restore document state. Applications own
 restoration, meaningful text, image rights/privacy, sources and navigation.
-See the [CSS exception ledger](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/docs/motion-media-css-exceptions.md) for exact
+See the [CSS exception ledger](https://github.com/pcharbon70/shadcn_ui/blob/main/docs/motion-media-css-exceptions.md) for exact
 gates and pinned provenance. Demo capability records distinguish parsing from
 actual component behavior and do not detect the visiting browser.
 
@@ -271,7 +271,7 @@ and acceptance evidence. See
 [`.spec/milestones`](./.spec/milestones/README.md) for the roadmap.
 
 The canonical gallery is
-<https://leco-industries-inc.github.io/shadcn_ui/>. It is a separate
+<https://pcharbon70-shadcn-ui-demo.fly.dev/>. It is a separate
 Phoenix reference consumer and is not part of the package runtime or archive.
 
 ## Native overlay capability contract
@@ -323,7 +323,7 @@ Internal consumers may instead pin a reviewed Git revision from the standalone
 repository:
 
 ```elixir
-{:shadcn_ui, git: "https://github.com/Leco-Industries-Inc/shadcn_ui.git", ref: "<commit-sha>"}
+{:shadcn_ui, git: "https://github.com/pcharbon70/shadcn_ui.git", ref: "<commit-sha>"}
 ```
 
 Import the package's public defining component modules with:
@@ -352,8 +352,8 @@ Import one defining module when a narrow namespace is preferable:
 import ShadcnUI.Components.Foundation.Button, only: [button: 1]
 ```
 
-The package metadata is proprietary and supports local archive verification;
-it does not configure or authorize publication to Hex.
+The package is licensed under the MIT License and supports local archive
+verification; it is not yet configured for publication to Hex.
 
 Contributors build the stylesheet with pinned package-local tooling:
 
@@ -1457,6 +1457,6 @@ The gallery is maintained independently under `demo`. From that directory,
 run `mix deps.get --locked`, `npm ci`, `npm run assets:build`, `mix test`, and
 `mix gallery.export`. `npm run export:check` audits the export and
 `npm run smoke -- <base-url>` checks a deployed artifact. See the
-[deployment runbook](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/demo/DEPLOYMENT.md)
-for the approved GitHub Pages environment, retention, exact-artifact deployment,
-and rollback procedure.
+[deployment runbook](https://github.com/pcharbon70/shadcn_ui/blob/main/demo/DEPLOYMENT.md)
+for the approved Fly application, immutable release deployment, health check,
+post-deploy smoke, and rollback procedure.

@@ -97,6 +97,22 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   )
   @phase_7_3_evidence "demo/priv/reference/milestone_g/phase-07-section-3-evidence.json"
   @phase_7_4_evidence "demo/priv/reference/milestone_g/phase-07-section-4-evidence.json"
+  @provenance_manifest @package_root
+                       |> Path.join("priv/provenance/unscripted_ui.json")
+                       |> File.read!()
+                       |> Jason.decode!()
+  @upstream Map.fetch!(@provenance_manifest, "upstream")
+  @upstream_repository Map.fetch!(@upstream, "repository")
+  @upstream_revision Map.fetch!(@upstream, "commit")
+  @adaptations Map.fetch!(@provenance_manifest, "adaptations")
+  @available_visual_evidence [
+                               @accordion_evidence,
+                               @phase_7_1_evidence,
+                               @phase_7_2_evidence,
+                               @phase_7_3_evidence,
+                               @phase_7_4_evidence
+                             ]
+                             |> Map.new(&{&1, File.regular?(Path.join(@package_root, &1))})
 
   @spec layout_identities() :: [String.t()]
   def layout_identities, do: Map.keys(@layout_classes) |> Enum.sort()
@@ -200,15 +216,7 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   @doc "Returns pinned upstream counterpart records keyed by provenance identity."
   @spec counterparts() :: %{String.t() => map()}
   def counterparts do
-    manifest =
-      @package_root
-      |> Path.join("priv/provenance/unscripted_ui.json")
-      |> File.read!()
-      |> Jason.decode!()
-
-    upstream = Map.fetch!(manifest, "upstream")
-
-    Map.new(Map.fetch!(manifest, "adaptations"), fn adaptation ->
+    Map.new(@adaptations, fn adaptation ->
       identity = Map.fetch!(adaptation, "id")
 
       {identity,
@@ -219,8 +227,8 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
              do: "semantic-exception",
              else: "upstream-counterpart"
            ),
-         repository: Map.fetch!(upstream, "repository"),
-         revision: Map.fetch!(upstream, "commit"),
+         repository: @upstream_repository,
+         revision: @upstream_revision,
          upstream_paths: Map.fetch!(adaptation, "upstreamPaths"),
          local_changes: Map.fetch!(adaptation, "localChanges")
        }}
@@ -386,7 +394,7 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
           )
           |> require(
             Enum.all?(status.visual_evidence, fn path ->
-              path |> then(&Path.join(@package_root, &1)) |> File.regular?()
+              Map.get(@available_visual_evidence, path, false)
             end),
             "route has missing visual evidence: #{record.route}"
           )

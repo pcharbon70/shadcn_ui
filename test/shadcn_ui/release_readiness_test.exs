@@ -1,7 +1,7 @@
 defmodule ShadcnUI.ReleaseReadinessTest do
   use ExUnit.Case, async: true
 
-  @gallery_url "https://leco-industries-inc.github.io/shadcn_ui/"
+  @gallery_url "https://pcharbon70-shadcn-ui-demo.fly.dev/"
 
   test "documents the internal candidate and canonical gallery" do
     project = Mix.Project.config()
@@ -45,6 +45,7 @@ defmodule ShadcnUI.ReleaseReadinessTest do
              "priv/provenance",
              "mix.exs",
              "README.md",
+             "LICENSE",
              "CHANGELOG.md",
              "THIRD_PARTY_NOTICES.md"
            ]

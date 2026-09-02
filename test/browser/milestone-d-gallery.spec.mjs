@@ -31,7 +31,7 @@ test("every component route has source, current navigation, complete fallback an
       await expect(page.locator("#ordinary-alternative")).toBeVisible();
       await expect(page.locator("[data-gallery-specimen-source]")).toHaveCount(1);
       expect(await page.locator("pre code").textContent()).toContain("<.");
-      expect(await page.locator('link[rel="canonical"]').getAttribute("href")).toBe(`https://leco-industries-inc.github.io/shadcn_ui/components/${leaf}`);
+      expect(await page.locator('link[rel="canonical"]').getAttribute("href")).toBe(`https://pcharbon70-shadcn-ui-demo.fly.dev/components/${leaf}`);
     }
   }
 });

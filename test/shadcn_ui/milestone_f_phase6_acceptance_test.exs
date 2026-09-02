@@ -107,12 +107,13 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
     refute File.read!("mix.exs") =~ ~r/{:(dstar|ash|electron),/
   end
 
-  test "publication remains reviewed-main-only and the final revision is not pre-claimed" do
+  test "publication verification covers main and the final revision is not pre-claimed" do
     workflow = File.read!(".github/workflows/gallery.yml")
     status = Jason.decode!(File.read!("release/candidate-status.json"))
 
-    assert workflow =~ "github.event_name == 'push'"
-    assert workflow =~ "github.ref == 'refs/heads/main'"
+    assert workflow =~ "push:"
+    assert workflow =~ "branches: [main]"
+    refute workflow =~ "actions/deploy-pages"
     assert status["evidence"]["finalPhase5Revision"] == nil
 
     assert status["gates"]

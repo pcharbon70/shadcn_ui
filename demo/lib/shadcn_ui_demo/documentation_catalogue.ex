@@ -14,7 +14,19 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   @documentation_keys ~w(what when responsibilities accessibility fallback source native_baseline package_enhancement demo_behavior unsupported)a
   @search_keys ~w(category keywords name route summary url)
   @static_base "/shadcn_ui"
-  @publication_base "https://leco-industries-inc.github.io/shadcn_ui"
+  @publication_base "https://pcharbon70-shadcn-ui-demo.fly.dev"
+  @reference_renderer File.read!(
+                        Path.join(
+                          @package_root,
+                          "demo/lib/shadcn_ui_demo_web/reference_components.ex"
+                        )
+                      )
+  @package_entry_source File.read!(Path.join(@package_root, "lib/shadcn_ui.ex"))
+  @package_mix_source File.read!(Path.join(@package_root, "mix.exs"))
+  @provenance_manifest @package_root
+                       |> Path.join("priv/provenance/unscripted_ui.json")
+                       |> File.read!()
+                       |> Jason.decode!()
   @related_compositions %{
     "foundation" => [:documentation],
     "forms" => [:settings],
@@ -315,11 +327,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   end
 
   @doc "Encodes the deterministic canonical sitemap from closed authored routes."
-  @spec sitemap_xml() :: String.t()
-  def sitemap_xml do
+  @spec sitemap_xml(String.t()) :: String.t()
+  def sitemap_xml(publication_base \\ @publication_base) when is_binary(publication_base) do
+    publication_base = String.trim_trailing(publication_base, "/")
+
     urls =
       (Catalogue.routes() ++ Catalogue.form_routes())
-      |> Enum.map_join("", &"<url><loc>#{@publication_base}#{&1}</loc></url>")
+      |> Enum.map_join("", &"<url><loc>#{publication_base}#{&1}</loc></url>")
 
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?><urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">#{urls}</urlset>"
   end
@@ -423,9 +437,6 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
     exdoc_modules = MapSet.new(exdoc_modules())
     public_inventory = MapSet.new(public_inventory())
 
-    renderer =
-      File.read!(Path.join(@package_root, "demo/lib/shadcn_ui_demo_web/reference_components.ex"))
-
     entry_by_route = Map.new(entries(), &{&1.route, &1})
 
     presentation_inventory()
@@ -472,7 +483,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
           provenance_id: entry.provenance_id,
           provenance: MapSet.member?(provenance_ids, entry.provenance_id),
           source_compile: entry.verification.source_compile,
-          renderer: renderer =~ ":#{entry.render}"
+          renderer: @reference_renderer =~ ":#{entry.render}"
         })
       else
         Map.merge(base, %{
@@ -600,7 +611,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
       |> String.replace_prefix("ShadcnUI.Components.", "")
       |> Macro.underscore()
 
-    "https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/lib/shadcn_ui/components/#{path}.ex"
+    "https://github.com/pcharbon70/shadcn_ui/blob/main/lib/shadcn_ui/components/#{path}.ex"
   end
 
   defp api_url(module, function),
@@ -641,17 +652,13 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   defp safe_search_value?(_value), do: false
 
   defp public_import_modules do
-    @package_root
-    |> Path.join("lib/shadcn_ui.ex")
-    |> File.read!()
+    @package_entry_source
     |> section_between("@component_modules [", "]")
     |> component_modules()
   end
 
   defp exdoc_modules do
-    @package_root
-    |> Path.join("mix.exs")
-    |> File.read!()
+    @package_mix_source
     |> section_between("groups_for_modules: [", ~s("Package contract"))
     |> component_modules()
   end
@@ -678,10 +685,7 @@ defmodule ShadcnUIDemo.DocumentationCatalogue do
   end
 
   defp provenance_ids do
-    @package_root
-    |> Path.join("priv/provenance/unscripted_ui.json")
-    |> File.read!()
-    |> Jason.decode!()
+    @provenance_manifest
     |> Map.fetch!("adaptations")
     |> MapSet.new(&Map.fetch!(&1, "id"))
   end

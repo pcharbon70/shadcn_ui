@@ -50,7 +50,7 @@ defmodule ShadcnUI.Components.Overlays.OverlayCapabilityManifestTest do
            }
 
     refute inspect(manifest["componentCapabilitySets"]) =~
-             ~r/(windows|linux|macos|electron|lecowin|chromium|firefox|webkit)/i
+             ~r/(windows|linux|macos|electron|chromium|firefox|webkit)/i
   end
 
   test "requires caller-owned ordinary fallback and explicit review controls" do

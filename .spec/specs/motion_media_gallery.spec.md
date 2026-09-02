@@ -102,6 +102,13 @@ Milestone D's recorded local SpecLed runner issue remains an explicit environmen
 limitation, not an excuse to weaken the gate. The final release record must
 distinguish direct tests, CI, manual checks and actual Pages publication.
 
+## Project identity boundary
+
+ShadcnUI is a personal MIT-licensed project. Repository ownership, package
+scope, schema identifiers, and the canonical Fly hostname are publication
+identity only; they do not alter this subject's requirements, semantics,
+runtime boundary, package contents, or existing verification.
+
 ## Requirements
 
 ```spec-requirements

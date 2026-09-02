@@ -1,7 +1,8 @@
 ---
 id: shadcn_ui.versioned_gallery_publication
-status: accepted
+status: superseded
 date: 2026-08-27
+superseded_by: shadcn_ui.fly_gallery_publication
 affects:
   - shadcn_ui.release_publication
   - shadcn_ui.documentation_catalogue

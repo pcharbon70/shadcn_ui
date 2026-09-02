@@ -172,7 +172,7 @@ test("semantic hooks, hostile routes, pinned axe, and ordinary history stay stab
   await expect(page.locator("[data-gallery-product-header]")).toHaveCount(1);
   await expect(page.locator("[data-gallery-documentation-grid]")).toHaveCount(1);
   await expect(page.locator("[data-gallery-main]")).toHaveCount(1);
-  await expect(page.locator("[data-gallery-build-identity]")).toContainText(/Package 0\.1\.0 · build/);
+  await expect(page.locator("[data-gallery-package-version]")).toHaveText("Package 0.1.0");
   await expect(page.getByRole("navigation", {name: "Breadcrumb"})).toContainText("Foundation / Button");
 
   await page.addScriptTag({content: axe});

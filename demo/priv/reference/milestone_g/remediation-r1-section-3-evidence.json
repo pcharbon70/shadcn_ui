@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r1-section-3",
+  "evidenceType": "defect-baseline-integration-and-reconciliation",
+  "testedRevision": "e79099e5e747082e1e54a80e92d43b0d9da96b44",
+  "baseline": "demo/priv/reference/milestone_g/remediation-r1-baseline.json",
+  "results": {
+    "packageAccordion": {
+      "command": "mix test test/shadcn_ui/components/disclosure/accordion_test.exs test/shadcn_ui/disclosure_components_test.exs",
+      "tests": 15,
+      "failures": 0,
+      "status": "passed"
+    },
+    "demoReference": {
+      "command": "mix test test/milestone_g_remediation_r1_test.exs test/milestone_g_phase1_reference_test.exs test/milestone_g_phase5_accordion_test.exs",
+      "tests": 11,
+      "failures": 0,
+      "status": "passed"
+    },
+    "shellBrowser": {
+      "command": "npm run browser:milestone-g-phase2",
+      "engine": "chromium",
+      "tests": 5,
+      "failures": 0,
+      "status": "passed"
+    },
+    "presentationBrowser": {
+      "command": "npm run browser:milestone-g-phase3",
+      "engine": "chromium",
+      "tests": 5,
+      "failures": 0,
+      "status": "passed"
+    },
+    "accordionAcceptance": {
+      "command": "npm run browser:milestone-g-phase5-acceptance",
+      "engines": ["chromium", "firefox", "webkit"],
+      "tests": 9,
+      "failures": 0,
+      "status": "passed"
+    },
+    "remediationBrowser": {
+      "command": "npm run browser:milestone-g-remediation-r1",
+      "engine": "chromium",
+      "tests": 6,
+      "expectedFailures": 5,
+      "ordinaryPasses": 1,
+      "unexpectedFailures": 0,
+      "unexpectedPasses": 0,
+      "status": "passed-with-confirmed-expected-failures"
+    }
+  },
+  "confirmedExpectedFailures": [
+    "VR-03 summary and focus containment",
+    "VR-02 mobile navigation reachability and visible focus",
+    "VR-04 and VR-07 pinned Accordion affordance and row treatment",
+    "VR-05 direct source fragment and radio consistency",
+    "VR-06 explicit gallery reduced-motion suppression"
+  ],
+  "passingFallback": "Direct Preview and Code fragments remain reachable without JavaScript, and both authored regions are visible when presentation CSS is disabled.",
+  "specLed": {
+    "next": "ready-for-check",
+    "check": "passed",
+    "errors": 0,
+    "warnings": 0,
+    "branchFindings": 0
+  },
+  "diffReview": {
+    "gitDiffCheck": "passed",
+    "goldenFilesChanged": [],
+    "movingSiteRuntimeInputs": [],
+    "completedMilestoneCheckboxesChanged": []
+  },
+  "reconciliation": {
+    "decisionChangeRequired": false,
+    "currentTruthChangeRequired": false,
+    "reason": "The accepted pinned-parity, native-disclosure, progressive-navigation, radio-panel and reduced-motion contracts already require the desired outcomes and preserve the recorded semantic exceptions.",
+    "goldensChanged": [],
+    "movingSiteDependencyAdded": false,
+    "completedMilestoneHistoryRewritten": false,
+    "nextImplementation": ["R2 Accordion Package Correctness", "R3 Gallery Navigation And Specimen State"]
+  },
+  "status": "passed-remediation-r1-complete"
+}

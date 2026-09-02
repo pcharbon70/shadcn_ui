@@ -13,7 +13,7 @@ defmodule ShadcnUIDemo.MilestoneECatalogueTest do
       assert html =~ "Component navigation"
 
       assert html =~
-               ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui#{path}")
+               ~s(rel="canonical" href="https://pcharbon70-shadcn-ui-demo.fly.dev#{path}")
 
       if path != "/", do: assert(html =~ ~s(aria-current="page"))
     end

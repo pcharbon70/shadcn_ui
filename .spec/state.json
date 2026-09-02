@@ -90,6 +90,19 @@
       },
       {
         "affects": [
+          "shadcn_ui.gallery",
+          "shadcn_ui.gallery_presentation",
+          "shadcn_ui.public_documentation",
+          "shadcn_ui.release_publication"
+        ],
+        "date": "2026-09-01",
+        "file": ".spec/decisions/fly-gallery-application-publication.md",
+        "id": "shadcn_ui.fly_gallery_publication",
+        "status": "accepted",
+        "title": "Publish The Stateless Gallery Application On Fly.io"
+      },
+      {
+        "affects": [
           "shadcn_ui.component_contract",
           "shadcn_ui.form_contract",
           "shadcn_ui.form_components",
@@ -111,7 +124,8 @@
         "date": "2026-08-24",
         "file": ".spec/decisions/gallery-static-publication.md",
         "id": "shadcn_ui.gallery_static_publication",
-        "status": "accepted",
+        "status": "superseded",
+        "superseded_by": "shadcn_ui.fly_gallery_publication",
         "title": "Keep the Gallery Separate and Publish a Static Export"
       },
       {
@@ -360,7 +374,8 @@
         "date": "2026-08-27",
         "file": ".spec/decisions/versioned-gallery-publication-and-operations.md",
         "id": "shadcn_ui.versioned_gallery_publication",
-        "status": "accepted",
+        "status": "superseded",
+        "superseded_by": "shadcn_ui.fly_gallery_publication",
         "title": "Publish Immutable Gallery Evidence With Explicit Operations"
       }
     ]
@@ -1286,7 +1301,7 @@
         "id": "shadcn_ui.gallery.online_publication",
         "priority": "must",
         "stability": "evolving",
-        "statement": "CI shall publish the verified static artifact to an approved HTTPS host, expose its canonical URL, run direct-route and asset smoke checks, and retain a documented rollback procedure without placing credentials in the repository.",
+        "statement": "A reviewed immutable OTP release of the stateless demo shall publish to the approved Fly.io HTTPS origin, expose its exact canonical URL and source identity, pass service health plus direct-route and asset smoke checks, and retain a documented rollback procedure without placing credentials in the repository.",
         "subject_id": "shadcn_ui.gallery"
       },
       {
@@ -1422,7 +1437,7 @@
         "id": "shadcn_ui.gallery_presentation.shell",
         "priority": "must",
         "stability": "evolving",
-        "statement": "The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation and secondary immutable build metadata using the accepted reference geometry and documented exceptions.",
+        "statement": "The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation and a footer exposing only the package version using the accepted reference geometry and documented exceptions; build, catalogue and upstream revisions remain in non-visual release evidence.",
         "subject_id": "shadcn_ui.gallery_presentation"
       },
       {
@@ -2011,6 +2026,14 @@
       },
       {
         "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.mit_license",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "ShadcnUI shall declare the standard SPDX MIT license identifier and include the complete root MIT license text in its release archive.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
         "id": "shadcn_ui.package.no_consumer_asset_toolchain",
         "priority": "must",
         "stability": "stable",
@@ -2238,7 +2261,7 @@
         "id": "shadcn_ui.release_publication.deployment_workflow",
         "priority": "must",
         "stability": "stable",
-        "statement": "Reviewed main shall publish the verified immutable artifact through the approved Pages workflow, while pull requests verify without publishing and repository source contains no deployment credential.",
+        "statement": "Reviewed source shall publish an immutable stateless gallery release through the approved Fly.io configuration and explicit deploy procedure, while local and pull-request verification do not publish and repository source contains no deployment credential.",
         "subject_id": "shadcn_ui.release_publication"
       },
       {
@@ -2254,7 +2277,7 @@
         "id": "shadcn_ui.release_publication.explicit_archive",
         "priority": "must",
         "stability": "stable",
-        "statement": "The actual candidate archive shall match the explicit allowlist, contain complete notices and documentation, and exclude demo, tests, generated site output, build tools, dependencies, observations, credentials, and mutable files.",
+        "statement": "The actual candidate archive shall match the explicit allowlist, contain the complete MIT license, third-party notices, and documentation, and exclude demo, tests, generated site output, build tools, dependencies, observations, credentials, and mutable files.",
         "subject_id": "shadcn_ui.release_publication"
       },
       {
@@ -2818,7 +2841,7 @@
             "shadcn_ui.transport_neutral_phoenix_package",
             "shadcn_ui.scoped_theme_token_contract",
             "shadcn_ui.progressive_enhancement_baseline",
-            "shadcn_ui.gallery_static_publication",
+            "shadcn_ui.fly_gallery_publication",
             "shadcn_ui.deterministic_form_accessibility",
             "shadcn_ui.enhanced_select_boundary",
             "shadcn_ui.native_disclosure_grouping",
@@ -2833,7 +2856,7 @@
           "id": "shadcn_ui.gallery",
           "kind": "application",
           "status": "active",
-          "summary": "Separate controller-rendered Phoenix consumer with deterministic static online publication.",
+          "summary": "Separate controller-rendered Phoenix consumer with deterministic assets, portable static evidence, and a stateless Fly.io publication.",
           "surface": [
             "demo/**",
             "scripts/**",
@@ -2857,9 +2880,8 @@
         "meta": {
           "decisions": [
             "shadcn_ui.pinned_gallery_presentation_parity",
-            "shadcn_ui.gallery_static_publication",
+            "shadcn_ui.fly_gallery_publication",
             "shadcn_ui.catalogue_driven_documentation",
-            "shadcn_ui.versioned_gallery_publication",
             "shadcn_ui.upstream_provenance"
           ],
           "id": "shadcn_ui.gallery_presentation",
@@ -3133,7 +3155,7 @@
           "id": "shadcn_ui.package",
           "kind": "package",
           "status": "active",
-          "summary": "Independently buildable transport-neutral Phoenix function-component package.",
+          "summary": "Independently buildable transport-neutral Phoenix function-component package whose metadata links to the separately deployed Fly.io gallery.",
           "surface": [
             "mix.exs",
             "mix.lock",
@@ -3144,6 +3166,7 @@
             "priv/static/shadcn_ui.css",
             "priv/compatibility/*.json",
             "README.md",
+            "LICENSE",
             "CHANGELOG.md",
             "THIRD_PARTY_NOTICES.md",
             "test/shadcn_ui/package_test.exs",
@@ -3198,7 +3221,7 @@
           "summary": "Auditable pinned provenance for substantially adapted unscripted/ui material.",
           "surface": [
             "THIRD_PARTY_NOTICES.md",
-            "priv/provenance/unscripted_ui.json",
+            "priv/provenance/**",
             "README.md",
             "test/shadcn_ui/provenance_test.exs",
             "test/shadcn_ui/milestone_c_acceptance_test.exs"
@@ -3212,6 +3235,7 @@
         "id": "shadcn_ui.public_documentation",
         "meta": {
           "decisions": [
+            "shadcn_ui.fly_gallery_publication",
             "shadcn_ui.transport_neutral_phoenix_package",
             "shadcn_ui.catalogue_driven_documentation",
             "shadcn_ui.consumer_neutral_compatibility",
@@ -3251,30 +3275,37 @@
         "id": "shadcn_ui.release_publication",
         "meta": {
           "decisions": [
-            "shadcn_ui.versioned_gallery_publication",
+            "shadcn_ui.fly_gallery_publication",
             "shadcn_ui.internal_release_candidate",
             "shadcn_ui.upstream_provenance"
           ],
           "id": "shadcn_ui.release_publication",
           "kind": "application",
           "status": "active",
-          "summary": "Reproducible internal candidate, clean consumer trial, immutable static publication metadata, deployment operations, and truthful release gates.",
+          "summary": "Reproducible internal candidate, clean consumer trial, immutable gallery identity, stateless Fly.io deployment operations, and truthful release gates.",
           "surface": [
             "mix.exs",
             "mix.lock",
             "package-lock.json",
             "README.md",
             "CHANGELOG.md",
+            "LICENSE",
             "RELEASE.md",
             "THIRD_PARTY_NOTICES.md",
             "docs/release-candidate.md",
             "docs/gallery-operations.md",
             "demo/lib/shadcn_ui_demo/build_identity.ex",
             "demo/test/build_identity_test.exs",
+            "demo/Dockerfile",
+            "demo/fly.toml",
+            "demo/rel/**",
+            "demo/test/fly_deployment_test.exs",
             "scripts/**",
             ".github/workflows/**",
             "test/shadcn_ui/milestone_f_release_test.exs",
-            "test/shadcn_ui/milestone_f_phase1_acceptance_test.exs"
+            "test/shadcn_ui/milestone_f_phase1_acceptance_test.exs",
+            "test/shadcn_ui/milestone_f_phase6_acceptance_test.exs",
+            "test/shadcn_ui/milestone_f_publication_operations_test.exs"
           ],
           "verification_minimum_strength": null
         },
@@ -4126,13 +4157,24 @@
           "shadcn_ui.gallery.controller_rendered",
           "shadcn_ui.gallery.no_application_frameworks",
           "shadcn_ui.gallery.demo_only_script",
-          "shadcn_ui.gallery.deterministic_assets",
-          "shadcn_ui.gallery.excluded_from_package"
+          "shadcn_ui.gallery.deterministic_assets"
         ],
         "file": ".spec/specs/gallery.spec.md",
         "kind": "test_file",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/gallery_boundary_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.separate_application",
+          "shadcn_ui.gallery.deterministic_assets",
+          "shadcn_ui.gallery.online_publication",
+          "shadcn_ui.gallery.excluded_from_package"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/fly_deployment_test.exs"
       },
       {
         "covers": [
@@ -4185,14 +4227,22 @@
       },
       {
         "covers": [
-          "shadcn_ui.gallery.static_export",
-          "shadcn_ui.gallery.online_publication"
+          "shadcn_ui.gallery.static_export"
         ],
         "execute": true,
         "file": ".spec/specs/gallery.spec.md",
         "kind": "command",
         "subject_id": "shadcn_ui.gallery",
         "target": "npm run gallery:smoke"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery.online_publication"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "command",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "npm --prefix demo run smoke:fly"
       },
       {
         "covers": [
@@ -5149,6 +5199,7 @@
           "shadcn_ui.package.transport_neutral",
           "shadcn_ui.package.public_import_surface",
           "shadcn_ui.package.explicit_release_files",
+          "shadcn_ui.package.mit_license",
           "shadcn_ui.package.no_consumer_asset_toolchain"
         ],
         "execute": true,
@@ -5164,6 +5215,7 @@
           "shadcn_ui.package.transport_neutral",
           "shadcn_ui.package.public_import_surface",
           "shadcn_ui.package.explicit_release_files",
+          "shadcn_ui.package.mit_license",
           "shadcn_ui.package.no_consumer_asset_toolchain"
         ],
         "file": ".spec/specs/package.spec.md",
@@ -5399,13 +5451,25 @@
       },
       {
         "covers": [
+          "shadcn_ui.release_publication.version_identity",
+          "shadcn_ui.release_publication.health_manifest",
+          "shadcn_ui.release_publication.deployment_workflow",
+          "shadcn_ui.release_publication.post_deploy_and_rollback"
+        ],
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/fly_deployment_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.release_publication.deployment_workflow",
           "shadcn_ui.release_publication.post_deploy_and_rollback"
         ],
         "file": ".spec/specs/release_publication.spec.md",
         "kind": "command",
         "subject_id": "shadcn_ui.release_publication",
-        "target": "npm run gallery:smoke"
+        "target": "npm --prefix demo run smoke:fly"
       },
       {
         "covers": [
@@ -5634,13 +5698,13 @@
   "specification_version": "1.0",
   "summary": {
     "decision_parse_errors": 0,
-    "decisions": 29,
+    "decisions": 30,
     "exceptions": 0,
     "findings": 0,
-    "requirements": 266,
+    "requirements": 267,
     "scenarios": 0,
     "subjects": 27,
-    "verifications": 176
+    "verifications": 179
   },
   "verification": {
     "claims": [
@@ -9066,17 +9130,6 @@
         "verification_index": 0
       },
       {
-        "cover_id": "shadcn_ui.gallery.excluded_from_package",
-        "file": ".spec/specs/gallery.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery",
-        "target": "demo/test/gallery_boundary_test.exs",
-        "verification_index": 0
-      },
-      {
         "cover_id": "shadcn_ui.gallery.no_application_frameworks",
         "file": ".spec/specs/gallery.spec.md",
         "kind": "test_file",
@@ -9099,6 +9152,50 @@
         "verification_index": 0
       },
       {
+        "cover_id": "shadcn_ui.gallery.deterministic_assets",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/fly_deployment_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.excluded_from_package",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/fly_deployment_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.online_publication",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/fly_deployment_test.exs",
+        "verification_index": 1
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.separate_application",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/fly_deployment_test.exs",
+        "verification_index": 1
+      },
+      {
         "cover_id": "shadcn_ui.gallery.closed_catalog",
         "file": ".spec/specs/gallery.spec.md",
         "kind": "test_file",
@@ -9107,7 +9204,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/catalogue_test.exs",
-        "verification_index": 1
+        "verification_index": 2
       },
       {
         "cover_id": "shadcn_ui.gallery.safe_resolution",
@@ -9118,7 +9215,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/catalogue_test.exs",
-        "verification_index": 1
+        "verification_index": 2
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9129,7 +9226,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/catalogue_test.exs",
-        "verification_index": 1
+        "verification_index": 2
       },
       {
         "cover_id": "shadcn_ui.gallery.component_guidance",
@@ -9140,7 +9237,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
-        "verification_index": 2
+        "verification_index": 3
       },
       {
         "cover_id": "shadcn_ui.gallery.safe_resolution",
@@ -9151,7 +9248,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
-        "verification_index": 2
+        "verification_index": 3
       },
       {
         "cover_id": "shadcn_ui.gallery.semantic_shell",
@@ -9162,7 +9259,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
-        "verification_index": 2
+        "verification_index": 3
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9173,7 +9270,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
-        "verification_index": 2
+        "verification_index": 3
       },
       {
         "cover_id": "shadcn_ui.gallery.theme_matrix",
@@ -9184,7 +9281,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/shadcn_ui_demo_web/controllers/gallery_controller_test.exs",
-        "verification_index": 2
+        "verification_index": 3
       },
       {
         "cover_id": "shadcn_ui.gallery.closed_catalog",
@@ -9195,7 +9292,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/static_export_test.exs",
-        "verification_index": 3
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.gallery.deterministic_assets",
@@ -9206,7 +9303,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/static_export_test.exs",
-        "verification_index": 3
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.gallery.excluded_from_package",
@@ -9217,7 +9314,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/static_export_test.exs",
-        "verification_index": 3
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.gallery.static_export",
@@ -9228,7 +9325,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/static_export_test.exs",
-        "verification_index": 3
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.gallery.component_guidance",
@@ -9239,7 +9336,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/browser/gallery.spec.mjs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.gallery.demo_only_script",
@@ -9250,7 +9347,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/browser/gallery.spec.mjs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.gallery.semantic_shell",
@@ -9261,7 +9358,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/browser/gallery.spec.mjs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9272,7 +9369,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/browser/gallery.spec.mjs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.gallery.theme_matrix",
@@ -9283,17 +9380,6 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "demo/test/browser/gallery.spec.mjs",
-        "verification_index": 4
-      },
-      {
-        "cover_id": "shadcn_ui.gallery.online_publication",
-        "file": ".spec/specs/gallery.spec.md",
-        "kind": "command",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "executed",
-        "subject_id": "shadcn_ui.gallery",
-        "target": "npm run gallery:smoke",
         "verification_index": 5
       },
       {
@@ -9305,7 +9391,18 @@
         "strength": "executed",
         "subject_id": "shadcn_ui.gallery",
         "target": "npm run gallery:smoke",
-        "verification_index": 5
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.online_publication",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "claimed",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "npm --prefix demo run smoke:fly",
+        "verification_index": 7
       },
       {
         "cover_id": "shadcn_ui.gallery.closed_catalog",
@@ -9316,7 +9413,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.component_guidance",
@@ -9327,7 +9424,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.controller_rendered",
@@ -9338,7 +9435,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.demo_only_script",
@@ -9349,7 +9446,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.deterministic_assets",
@@ -9360,7 +9457,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.excluded_from_package",
@@ -9371,7 +9468,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.no_application_frameworks",
@@ -9382,7 +9479,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.online_publication",
@@ -9393,7 +9490,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.safe_resolution",
@@ -9404,7 +9501,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.semantic_shell",
@@ -9415,7 +9512,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.separate_application",
@@ -9426,7 +9523,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9437,7 +9534,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.static_export",
@@ -9448,7 +9545,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.theme_matrix",
@@ -9459,7 +9556,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 6
+        "verification_index": 8
       },
       {
         "cover_id": "shadcn_ui.gallery.closed_catalog",
@@ -9470,7 +9567,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.component_guidance",
@@ -9481,7 +9578,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.deterministic_assets",
@@ -9492,7 +9589,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.excluded_from_package",
@@ -9503,7 +9600,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.safe_resolution",
@@ -9514,7 +9611,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.semantic_shell",
@@ -9525,7 +9622,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9536,7 +9633,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.static_export",
@@ -9547,7 +9644,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.theme_matrix",
@@ -9558,7 +9655,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_b_acceptance_test.exs",
-        "verification_index": 7
+        "verification_index": 9
       },
       {
         "cover_id": "shadcn_ui.gallery.component_guidance",
@@ -9569,7 +9666,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/browser/milestone-c-content-navigation.spec.mjs",
-        "verification_index": 8
+        "verification_index": 10
       },
       {
         "cover_id": "shadcn_ui.gallery.semantic_shell",
@@ -9580,7 +9677,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/browser/milestone-c-content-navigation.spec.mjs",
-        "verification_index": 8
+        "verification_index": 10
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9591,7 +9688,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/browser/milestone-c-content-navigation.spec.mjs",
-        "verification_index": 8
+        "verification_index": 10
       },
       {
         "cover_id": "shadcn_ui.gallery.theme_matrix",
@@ -9602,7 +9699,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/browser/milestone-c-content-navigation.spec.mjs",
-        "verification_index": 8
+        "verification_index": 10
       },
       {
         "cover_id": "shadcn_ui.gallery.closed_catalog",
@@ -9613,7 +9710,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.component_guidance",
@@ -9624,7 +9721,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.controller_rendered",
@@ -9635,7 +9732,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.demo_only_script",
@@ -9646,7 +9743,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.deterministic_assets",
@@ -9657,7 +9754,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.excluded_from_package",
@@ -9668,7 +9765,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.no_application_frameworks",
@@ -9679,7 +9776,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.online_publication",
@@ -9690,7 +9787,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.safe_resolution",
@@ -9701,7 +9798,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.semantic_shell",
@@ -9712,7 +9809,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.separate_application",
@@ -9723,7 +9820,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9734,7 +9831,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.static_export",
@@ -9745,7 +9842,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.theme_matrix",
@@ -9756,7 +9853,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_c_acceptance_test.exs",
-        "verification_index": 9
+        "verification_index": 11
       },
       {
         "cover_id": "shadcn_ui.gallery.component_guidance",
@@ -9767,7 +9864,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/browser/milestone-d-gallery.spec.mjs",
-        "verification_index": 10
+        "verification_index": 12
       },
       {
         "cover_id": "shadcn_ui.gallery.semantic_shell",
@@ -9778,7 +9875,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/browser/milestone-d-gallery.spec.mjs",
-        "verification_index": 10
+        "verification_index": 12
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9789,7 +9886,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/browser/milestone-d-gallery.spec.mjs",
-        "verification_index": 10
+        "verification_index": 12
       },
       {
         "cover_id": "shadcn_ui.gallery.theme_matrix",
@@ -9800,7 +9897,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/browser/milestone-d-gallery.spec.mjs",
-        "verification_index": 10
+        "verification_index": 12
       },
       {
         "cover_id": "shadcn_ui.gallery.closed_catalog",
@@ -9811,7 +9908,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.component_guidance",
@@ -9822,7 +9919,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.controller_rendered",
@@ -9833,7 +9930,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.demo_only_script",
@@ -9844,7 +9941,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.deterministic_assets",
@@ -9855,7 +9952,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.excluded_from_package",
@@ -9866,7 +9963,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.no_application_frameworks",
@@ -9877,7 +9974,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.online_publication",
@@ -9888,7 +9985,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.safe_resolution",
@@ -9899,7 +9996,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.semantic_shell",
@@ -9910,7 +10007,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.separate_application",
@@ -9921,7 +10018,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.stable_routes",
@@ -9932,7 +10029,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.static_export",
@@ -9943,7 +10040,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery.theme_matrix",
@@ -9954,7 +10051,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.local_assets",
@@ -12993,6 +13090,17 @@
         "verification_index": 1
       },
       {
+        "cover_id": "shadcn_ui.package.mit_license",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "command",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "executed",
+        "subject_id": "shadcn_ui.package",
+        "target": "mix precommit",
+        "verification_index": 1
+      },
+      {
         "cover_id": "shadcn_ui.package.no_consumer_asset_toolchain",
         "file": ".spec/specs/package.spec.md",
         "kind": "command",
@@ -13049,6 +13157,17 @@
       },
       {
         "cover_id": "shadcn_ui.package.independent_mix_project",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/package_test.exs",
+        "verification_index": 2
+      },
+      {
+        "cover_id": "shadcn_ui.package.mit_license",
         "file": ".spec/specs/package.spec.md",
         "kind": "test_file",
         "meets_minimum": true,
@@ -13996,13 +14115,57 @@
       {
         "cover_id": "shadcn_ui.release_publication.deployment_workflow",
         "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/fly_deployment_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.health_manifest",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/fly_deployment_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.post_deploy_and_rollback",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/fly_deployment_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.version_identity",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/fly_deployment_test.exs",
+        "verification_index": 3
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.deployment_workflow",
+        "file": ".spec/specs/release_publication.spec.md",
         "kind": "command",
         "meets_minimum": true,
         "required_strength": "claimed",
         "strength": "claimed",
         "subject_id": "shadcn_ui.release_publication",
-        "target": "npm run gallery:smoke",
-        "verification_index": 3
+        "target": "npm --prefix demo run smoke:fly",
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.release_publication.post_deploy_and_rollback",
@@ -14012,8 +14175,8 @@
         "required_strength": "claimed",
         "strength": "claimed",
         "subject_id": "shadcn_ui.release_publication",
-        "target": "npm run gallery:smoke",
-        "verification_index": 3
+        "target": "npm --prefix demo run smoke:fly",
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.stylesheet.canonical_asset",
@@ -15042,14 +15205,14 @@
     "cli_minimum_strength": null,
     "default_minimum_strength": "claimed",
     "strength_summary": {
-      "claimed": 4,
+      "claimed": 5,
       "executed": 38,
-      "linked": 812
+      "linked": 820
     },
     "threshold_failures": 0
   },
   "workspace": {
-    "decision_count": 29,
+    "decision_count": 30,
     "spec_count": 27
   }
 }

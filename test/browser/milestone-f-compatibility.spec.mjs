@@ -2,7 +2,7 @@ import {expect, test} from "../../demo/node_modules/@playwright/test/index.mjs";
 import {serveMotionMediaExport} from "./support/static-motion-media.mjs";
 import {fileURLToPath} from "node:url";
 
-const canonical = "https://leco-industries-inc.github.io/shadcn_ui";
+const canonical = "https://pcharbon70-shadcn-ui-demo.fly.dev";
 const axePath = fileURLToPath(new URL("../../demo/node_modules/axe-core/axe.min.js", import.meta.url));
 const overlayRoutes = new Set([
   "/components/overlays/dialog", "/components/overlays/alert-dialog",

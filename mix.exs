@@ -1,8 +1,8 @@
 defmodule ShadcnUI.MixProject do
   use Mix.Project
 
-  @source_url "https://github.com/Leco-Industries-Inc/shadcn_ui"
-  @gallery_url "https://leco-industries-inc.github.io/shadcn_ui/"
+  @source_url "https://github.com/pcharbon70/shadcn_ui"
+  @gallery_url "https://pcharbon70-shadcn-ui-demo.fly.dev/"
   @version "0.1.0"
 
   def project do
@@ -62,7 +62,7 @@ defmodule ShadcnUI.MixProject do
 
   defp package do
     [
-      licenses: ["LicenseRef-LECO-Proprietary"],
+      licenses: ["MIT"],
       links: %{"Gallery" => @gallery_url, "GitHub" => @source_url},
       files: [
         "lib",
@@ -71,6 +71,7 @@ defmodule ShadcnUI.MixProject do
         "priv/provenance",
         "mix.exs",
         "README.md",
+        "LICENSE",
         "CHANGELOG.md",
         "THIRD_PARTY_NOTICES.md"
       ]
@@ -96,6 +97,7 @@ defmodule ShadcnUI.MixProject do
         "docs/gallery-operations.md",
         "docs/provenance.md",
         "CHANGELOG.md",
+        "LICENSE",
         "THIRD_PARTY_NOTICES.md",
         "RELEASE.md",
         "docs/motion-media-guide.md",

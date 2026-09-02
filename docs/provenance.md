@@ -11,9 +11,9 @@ asset participates in a build or rendered page. Every component gallery page
 shows its manifest identity and the same pin.
 
 `THIRD_PARTY_NOTICES.md` retains the complete upstream MIT notice. The ShadcnUI
-package itself is internal proprietary software as declared in `mix.exs`; the
+package is also distributed under the MIT License declared in `mix.exs`; the
 retained upstream notice does not imply official affiliation or change the
-package's own identity.
+package's independent identity.
 
 To review a later upstream revision, compare the full commit range and license,
 review every mapped path, preserve the local semantic/accessibility/fallback

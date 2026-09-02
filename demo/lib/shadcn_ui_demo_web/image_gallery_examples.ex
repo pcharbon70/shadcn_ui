@@ -138,7 +138,7 @@ defmodule ShadcnUIDemoWeb.ImageGalleryExamples do
         Only manifest-listed local SVG fixtures are used. The same three images are repeated with distinct keys to demonstrate a larger collection;
         no upstream artwork or remote media service is loaded. The long grove caption remains complete inside the scrolling lightbox.
       </p>
-      <p>These original fixtures retain their LicenseRef-LECO-Proprietary rights notice.
+      <p>These original fixtures are available under the MIT License.
         Your application owns image rights, privacy, CSP, alt text, responsive candidates and destinations.
         Native loading/decoding are hints, not guaranteed deferred fetching. Replacing this subtree closes its dialogs;
         restoration and reinvocation belong to the application.</p>

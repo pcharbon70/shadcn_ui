@@ -38,17 +38,15 @@ defmodule ShadcnUIDemo.MilestoneGPhase8PublicationTest do
     assert evidence["recovery"]["firstPublicationPolicy"] =~ "never invent"
   end
 
-  test "reviewed workflow deploys only verified main and runs the complete canonical smoke" do
+  test "repository workflow verifies only and Fly operations own deployment and smoke" do
     workflow = File.read!("../.github/workflows/gallery.yml")
     operations = File.read!("../docs/gallery-operations.md")
 
-    assert workflow =~ "github.event_name == 'push'"
-    assert workflow =~ "github.ref == 'refs/heads/main'"
-    assert workflow =~ "needs: verify"
-    assert workflow =~ "Deploy exact verified artifact"
-    assert workflow =~ "Smoke test canonical gallery"
-    assert workflow =~ "SHADCN_UI_EXPECTED_REVISION"
-    assert operations =~ "first reviewed publication"
-    assert operations =~ "never nominate an older failed"
+    assert workflow =~ "branches: [main]"
+    refute workflow =~ "actions/deploy-pages"
+    refute workflow =~ "pages: write"
+    assert operations =~ "first reviewed Fly publication"
+    assert operations =~ "SHADCN_UI_EXPECTED_REVISION"
+    assert operations =~ "no previously smoke-verified Fly release"
   end
 end

@@ -24,6 +24,7 @@ defmodule ShadcnUI.MilestoneFPhase1AcceptanceTest do
              "priv/provenance",
              "mix.exs",
              "README.md",
+             "LICENSE",
              "CHANGELOG.md",
              "THIRD_PARTY_NOTICES.md"
            ]

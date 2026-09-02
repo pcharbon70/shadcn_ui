@@ -7,9 +7,8 @@ status: active
 summary: Pinned Unscripted-style documentation presentation, closed authored metadata, deterministic local visual evidence, and complete gallery migration without changing package semantics.
 decisions:
   - shadcn_ui.pinned_gallery_presentation_parity
-  - shadcn_ui.gallery_static_publication
+  - shadcn_ui.fly_gallery_publication
   - shadcn_ui.catalogue_driven_documentation
-  - shadcn_ui.versioned_gallery_publication
   - shadcn_ui.upstream_provenance
 surface:
   - demo/**
@@ -29,7 +28,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery_presentation.shell
-  statement: The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation and secondary immutable build metadata using the accepted reference geometry and documented exceptions.
+  statement: The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation and a footer exposing only the package version using the accepted reference geometry and documented exceptions; build, catalogue and upstream revisions remain in non-visual release evidence.
   priority: must
   stability: evolving
 

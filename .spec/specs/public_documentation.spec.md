@@ -6,6 +6,7 @@ kind: policy
 status: active
 summary: Complete plain-language component, installation, transport-neutral integration, upgrade, and provenance documentation.
 decisions:
+  - shadcn_ui.fly_gallery_publication
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.catalogue_driven_documentation
   - shadcn_ui.consumer_neutral_compatibility
@@ -31,6 +32,13 @@ surface:
   - test/shadcn_ui/milestone_f_installation_compatibility_test.exs
   - test/shadcn_ui/milestone_f_integration_guidance_test.exs
 ```
+
+## Project identity boundary
+
+ShadcnUI is a personal MIT-licensed project. Repository ownership, package
+scope, schema identifiers, and the canonical Fly hostname are publication
+identity only; they do not alter this subject's requirements, semantics,
+runtime boundary, package contents, or existing verification.
 
 ## Requirements
 

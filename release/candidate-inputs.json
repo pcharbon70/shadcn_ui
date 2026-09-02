@@ -15,8 +15,8 @@
   },
   "locks": {
     "mix.lock": "ad8e13e7418692f0f768980a7a2d16e3961046953d66c350ba0d3fe5c09ad8bf",
-    "package-lock.json": "c36719dd4beaf35aea4f1ea8494b27c12e76b6aee28ddb6f1a3975ead1288b1a",
-    "demo/package-lock.json": "bc47482d4502896f6dedf9d4e2ff002bd1595e91c1540041cb19f90b0fcbef8a"
+    "package-lock.json": "4ff68b1944888d58d19af90070078bb14213e944287faafefb1b7b43f9282e2d",
+    "demo/package-lock.json": "e6f6f7f71709250b96c135fecc664c8905b276dbf73e673ee034862a8ad345d1"
   },
   "rebar3": {
     "selection": "MIX_REBAR3",

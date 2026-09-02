@@ -4,7 +4,7 @@
 id: shadcn_ui.package
 kind: package
 status: active
-summary: Independently buildable transport-neutral Phoenix function-component package.
+summary: Independently buildable transport-neutral Phoenix function-component package whose metadata links to the separately deployed Fly.io gallery.
 decisions:
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.isolated_compiled_css
@@ -19,6 +19,7 @@ surface:
   - priv/static/shadcn_ui.css
   - priv/compatibility/*.json
   - README.md
+  - LICENSE
   - CHANGELOG.md
   - THIRD_PARTY_NOTICES.md
   - test/shadcn_ui/package_test.exs
@@ -53,6 +54,11 @@ surface:
 
 - id: shadcn_ui.package.explicit_release_files
   statement: The package shall use an explicit release-file allowlist containing runtime modules, the compiled stylesheet, required notices, README, changelog, and Mix metadata while excluding demo, tests, build tools, dependencies, generated documentation, and mutable output.
+  priority: must
+  stability: stable
+
+- id: shadcn_ui.package.mit_license
+  statement: ShadcnUI shall declare the standard SPDX MIT license identifier and include the complete root MIT license text in its release archive.
   priority: must
   stability: stable
 
@@ -109,6 +115,7 @@ presentation adds no package JS, runtime dependency or consumer toolchain.
     - shadcn_ui.package.transport_neutral
     - shadcn_ui.package.public_import_surface
     - shadcn_ui.package.explicit_release_files
+    - shadcn_ui.package.mit_license
     - shadcn_ui.package.no_consumer_asset_toolchain
 
 - kind: test_file
@@ -119,6 +126,7 @@ presentation adds no package JS, runtime dependency or consumer toolchain.
     - shadcn_ui.package.transport_neutral
     - shadcn_ui.package.public_import_surface
     - shadcn_ui.package.explicit_release_files
+    - shadcn_ui.package.mit_license
     - shadcn_ui.package.no_consumer_asset_toolchain
 
 - kind: test_file

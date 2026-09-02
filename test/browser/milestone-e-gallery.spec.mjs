@@ -5,7 +5,7 @@ const leaves=["media/carousel","media/cover-flow","media/image-gallery","motion/
 const routes=[...leaves.map(leaf=>`/components/${leaf}`),...["media-browser","image-gallery","motion-preferences","motion-media-capabilities"].map(slug=>`/examples/${slug}`)];
 const axe=readFileSync(new URL("../../demo/node_modules/axe-core/axe.min.js",import.meta.url),"utf8");
 const evidence=JSON.parse(readFileSync(new URL("../../demo/priv/compatibility/motion_media_evidence.json",import.meta.url),"utf8"));
-const canonical="https://leco-industries-inc.github.io/shadcn_ui";
+const canonical="https://pcharbon70-shadcn-ui-demo.fly.dev";
 test.setTimeout(120_000);
 
 // covers: shadcn_ui.motion_media_gallery.references shadcn_ui.motion_media_gallery.compositions

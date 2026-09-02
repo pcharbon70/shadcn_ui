@@ -25,7 +25,7 @@ defmodule ShadcnUIDemo.ScrollMediaGalleryTest do
       assert html =~ ~s(data-shadcn-motion="#{motion}")
 
       assert html =~
-               ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui#{path}")
+               ~s(rel="canonical" href="https://pcharbon70-shadcn-ui-demo.fly.dev#{path}")
 
       ids = Regex.scan(~r/\sid="([^"]+)"/, html, capture: :all_but_first) |> List.flatten()
       assert Enum.uniq(ids) == ids

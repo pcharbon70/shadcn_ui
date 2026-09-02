@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://leco-industries.invalid/shadcn-ui/milestone-g-presentation-reference.schema.json",
+  "$id": "https://shadcn-ui.invalid/milestone-g-presentation-reference.schema.json",
   "title": "Milestone G pinned presentation reference",
   "type": "object",
   "additionalProperties": false,

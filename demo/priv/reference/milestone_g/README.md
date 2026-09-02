@@ -8,6 +8,14 @@ geometry and the light/dark viewport/open-state matrix derived from the pinned
 revision. `presentation-reference.schema.json` validates that closed evidence.
 `phase-05-accordion-evidence.json` records the approved local Accordion pilot
 goldens, explicit upstream differences and the reusable migration template.
+`remediation-r1-baseline.json` records the reviewed live defects, exact pinned
+Accordion input identity, pre-fix geometry, package-versus-gallery ownership and
+the accepted remediation outcomes without promoting the moving public site to a
+verification input.
+`remediation-r1-section-3-evidence.json` records the focused inherited gates,
+five confirmed expected-failure regressions, progressive fallback pass and
+SpecLed reconciliation that close the baseline phase without claiming the R2
+or R3 fixes already exist.
 The source-derived states are authoritative Phase 1 inputs because a moving
 deployment cannot be deterministic. Later phases add reviewed local ShadcnUI
 raster goldens without changing these upstream identities silently.

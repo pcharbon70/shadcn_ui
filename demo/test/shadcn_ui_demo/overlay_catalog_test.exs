@@ -31,7 +31,7 @@ defmodule ShadcnUIDemo.OverlayCatalogTest do
           assert html =~ ~s(href="#{entry.path}" aria-current="page")
 
           assert html =~
-                   ~s(rel="canonical" href="https://leco-industries-inc.github.io/shadcn_ui#{entry.path}")
+                   ~s(rel="canonical" href="https://pcharbon70-shadcn-ui-demo.fly.dev#{entry.path}")
 
           assert html =~ ~s(id="ordinary-alternative")
           assert html =~ "HEEX source"

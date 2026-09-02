@@ -12,7 +12,7 @@ defmodule ShadcnUIDemo.BuildIdentity do
   @revision_pattern ~r/^[0-9a-f]{40}$/
   @version_pattern ~r/^(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)\.(?:0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?$/
   @schema_pattern ~r/^[1-9]\d*$/
-  @canonical_url "https://leco-industries-inc.github.io/shadcn_ui/"
+  @canonical_url "https://pcharbon70-shadcn-ui-demo.fly.dev/"
 
   @type t :: %{
           package_version: String.t(),
@@ -88,6 +88,13 @@ defmodule ShadcnUIDemo.BuildIdentity do
     }
   end
 
+  @spec canonical_url(t(), String.t()) :: String.t()
+  def canonical_url(identity, path) when is_binary(path) do
+    String.trim_trailing(identity.canonical_url, "/") <>
+      "/" <>
+      String.trim_leading(path, "/")
+  end
+
   @spec health_metadata(t()) :: map()
   def health_metadata(identity) do
     %{
@@ -106,8 +113,8 @@ defmodule ShadcnUIDemo.BuildIdentity do
   defp validate_canonical_url(errors, value) when is_binary(value) do
     uri = URI.parse(value)
 
-    if uri.scheme == "https" and uri.host == "leco-industries-inc.github.io" and
-         uri.path == "/shadcn_ui/" and is_nil(uri.userinfo) and is_nil(uri.query) and
+    if uri.scheme == "https" and is_binary(uri.host) and uri.host != "" and
+         valid_canonical_path?(uri.path) and is_nil(uri.userinfo) and is_nil(uri.query) and
          is_nil(uri.fragment) do
       errors
     else
@@ -116,6 +123,13 @@ defmodule ShadcnUIDemo.BuildIdentity do
   end
 
   defp validate_canonical_url(errors, _value), do: ["invalid canonical_url" | errors]
+
+  defp valid_canonical_path?(path) when is_binary(path) do
+    String.starts_with?(path, "/") and String.ends_with?(path, "/") and
+      not String.contains?(path, ["//", "/./", "/../"])
+  end
+
+  defp valid_canonical_path?(_path), do: false
 
   defp upstream_revision do
     :shadcn_ui

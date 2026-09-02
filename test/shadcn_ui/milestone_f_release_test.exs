@@ -90,6 +90,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
           "priv/compatibility",
           "priv/provenance",
           "README.md",
+          "LICENSE",
           "CHANGELOG.md"
         ] do
       assert mixfile =~ ~s("#{required}")

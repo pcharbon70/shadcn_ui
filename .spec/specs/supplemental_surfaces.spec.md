@@ -23,6 +23,13 @@ surface:
   - README.md
 ```
 
+## Project identity boundary
+
+ShadcnUI is a personal MIT-licensed project. Repository ownership, package
+scope, schema identifiers, and the canonical Fly hostname are publication
+identity only; they do not alter this subject's requirements, semantics,
+runtime boundary, package contents, or existing verification.
+
 ## Requirements
 
 ```spec-requirements

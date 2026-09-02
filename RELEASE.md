@@ -247,7 +247,7 @@ JavaScript remain absent.
 This candidate adds internal media/motion contracts, normative capability data,
 scoped suppression, original demo fixtures and the actual capability reference.
 It does not export the six planned public components. The
-[phase execution record](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/.spec/planning/milestone-e-motion-media-and-advanced-css/phase-01-capability-media-and-motion-foundations.md#execution-record)
+[phase execution record](https://github.com/pcharbon70/shadcn_ui/blob/main/.spec/planning/milestone-e-motion-media-and-advanced-css/phase-01-capability-media-and-motion-foundations.md#execution-record)
 contains the full commands, observations and outstanding checks.
 
 Local verification on 2026-08-26 passed package precommit (330 tests), demo
@@ -288,4 +288,4 @@ excluded from the package.
 SpecLed still has four known nested-command toolchain failures (153 warnings);
 direct checks pass. Windows symlink assertions require Linux CI. No publication,
 manual assistive-technology acceptance or physical touch-swipe result is claimed.
-See the [Phase 2 execution record](https://github.com/Leco-Industries-Inc/shadcn_ui/blob/main/.spec/planning/milestone-e-motion-media-and-advanced-css/phase-02-native-carousel-and-reference-page.md#execution-record).
+See the [Phase 2 execution record](https://github.com/pcharbon70/shadcn_ui/blob/main/.spec/planning/milestone-e-motion-media-and-advanced-css/phase-02-native-carousel-and-reference-page.md#execution-record).
