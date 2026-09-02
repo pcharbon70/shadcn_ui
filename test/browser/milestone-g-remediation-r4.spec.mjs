@@ -100,3 +100,35 @@ test("R4.2 narrow layouts keep search in the closed disclosure and bound discove
 
   expect(failures).toEqual([]);
 });
+
+test("R4.3 visible exceptions keep local identity and native semantics", async ({page}) => {
+  await page.setViewportSize({width: 1440, height: 1000});
+  await page.goto(`${route}?theme=light&motion=reduce`);
+
+  await expect(page.locator(".gallery-wordmark")).toHaveText("ShadcnUI/gallery");
+  await expect(page.getByText(/script bytes shipped/i)).toHaveCount(0);
+  await expect(page.locator('[data-gallery-capability-policy="authored"]')).not.toHaveCount(0);
+  await expect(page.locator('[data-gallery-source-language="heex"]')).toHaveCount(2);
+  await expect(page.locator('[role="tablist"], [role="tab"], [role="tabpanel"]')).toHaveCount(0);
+  await expect(page.locator('.gallery-specimen__views input[type="radio"]')).toHaveCount(4);
+  await expect(page.locator("#faq-sections details[open]")).toHaveCount(2);
+
+  const specimen = page.locator('[data-gallery-specimen="accordion-primary"]');
+  await specimen.locator('label[for="accordion-primary-view-code"]').click();
+  const sourceStyle = await specimen.locator("[data-gallery-specimen-source]").evaluate(element => ({
+    backgroundColor: getComputedStyle(element).backgroundColor,
+    color: getComputedStyle(element).color,
+    language: element.dataset.gallerySourceLanguage
+  }));
+  expect(sourceStyle).toEqual({
+    backgroundColor: "rgb(36, 41, 46)",
+    color: "rgb(246, 248, 250)",
+    language: "heex"
+  });
+
+  await page.setViewportSize({width: 390, height: 844});
+  const mobile = page.locator("[data-gallery-mobile-navigation]");
+  await expect(mobile).toBeVisible();
+  expect(await mobile.evaluate(element => element.tagName)).toBe("DETAILS");
+  await expect(mobile.locator(":scope > summary")).toHaveText("Navigation");
+});

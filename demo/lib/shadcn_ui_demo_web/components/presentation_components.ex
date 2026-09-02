@@ -70,6 +70,7 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
           aria-label={"#{@label} HEEx source"}
           tabindex="-1"
           data-gallery-specimen-source
+          data-gallery-source-language="heex"
         >
           <h3 class="gallery-visually-hidden">HEEX source</h3>
           <div class="gallery-specimen__code-actions">
@@ -101,6 +102,7 @@ defmodule ShadcnUIDemoWeb.PresentationComponents do
     <span
       class="gallery-capability-badge"
       data-gallery-capability={@identity}
+      data-gallery-capability-policy="authored"
       aria-describedby={"#{@id}-description"}
     >
       <span aria-hidden="true" class="gallery-capability-badge__mark"></span>

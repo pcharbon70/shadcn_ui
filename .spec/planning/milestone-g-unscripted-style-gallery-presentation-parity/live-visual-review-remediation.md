@@ -308,18 +308,18 @@ category route and is not an Accordion comparison target.
       - [x] R4.2.2.3 Subtask - Set pinned bounds for title and first-item vertical positions and verify them in both themes.
       - [x] R4.2.2.4 Subtask - Ensure the current component is discoverable in desktop and mobile catalogue navigation without adding a client router.
 
-  - [ ] R4.3 Section - Review visible exceptions.
+  - [x] R4.3 Section - Review visible exceptions.
 
     Presentation may align closely while policy and component semantics remain
     truthfully local.
 
-    - [ ] R4.3.1 Task - Preserve and document intentional differences.
+    - [x] R4.3.1 Task - Preserve and document intentional differences.
 
       Do not erase local identity to improve a screenshot score.
 
-      - [ ] R4.3.1.1 Subtask - Retain ShadcnUI branding, HEEx source, native mobile disclosure, native radio semantics and authored capability policy.
-      - [ ] R4.3.1.2 Subtask - Style capability and source surfaces consistently without copying live visitor support claims or upstream zero-JavaScript branding.
-      - [ ] R4.3.1.3 Subtask - Update the exception ledger only for reviewed differences with a semantic, content, accessibility or branding reason.
+      - [x] R4.3.1.1 Subtask - Retain ShadcnUI branding, HEEx source, native mobile disclosure, native radio semantics and authored capability policy.
+      - [x] R4.3.1.2 Subtask - Style capability and source surfaces consistently without copying live visitor support claims or upstream zero-JavaScript branding.
+      - [x] R4.3.1.3 Subtask - Update the exception ledger only for reviewed differences with a semantic, content, accessibility or branding reason.
 
   - [ ] R4.4 Section - R4 Integration Tests.
 

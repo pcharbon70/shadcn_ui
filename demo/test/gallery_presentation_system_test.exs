@@ -74,12 +74,14 @@ defmodule ShadcnUIDemo.GalleryPresentationSystemTest do
 
     assert component =~ "@capability_identities"
     assert component =~ ~s(data-gallery-capability={@identity})
+    assert component =~ ~s(data-gallery-capability-policy="authored")
     assert component =~ ~s(data-gallery-support-table)
     assert component =~ "Locked-engine evidence"
     assert component =~ "When missing"
     assert component =~ ~s(scope="col")
     assert component =~ ~s(scope="row")
-    assert css =~ "@supports (color: color-mix"
+    assert css =~ ~s|[data-gallery-capability="progressive-enhancement"]|
+    refute css =~ ~r/@supports[^\{]*\{\s*\.gallery-capability-badge/s
     assert css =~ "@media (forced-colors: active)"
     refute component =~ ~r/(navigator|userAgent|CSS\.supports)/
   end
