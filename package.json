@@ -18,6 +18,7 @@
     "browser:milestone-g-phase5-acceptance": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-phase5-acceptance.config.mjs",
     "browser:milestone-g-phase7": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-phase7.config.mjs",
     "browser:milestone-g-phase8": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-phase8.config.mjs",
+    "browser:milestone-g-remediation-r1": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-remediation-r1.config.mjs",
     "browser:milestone-e-phase6": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase6.config.mjs",
     "browser:milestone-e-phase5": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase5.config.mjs",
     "browser:milestone-e-phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-e-phase4.config.mjs",

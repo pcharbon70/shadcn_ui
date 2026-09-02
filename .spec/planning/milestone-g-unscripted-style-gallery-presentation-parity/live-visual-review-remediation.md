@@ -91,28 +91,28 @@ category route and is not an Accordion comparison target.
       - [x] R1.1.2.3 Subtask - Decide whether flat divided rows are the package default or a primary-specimen presentation modifier, and record the reason.
       - [x] R1.1.2.4 Subtask - Align the primary FAQ copy with the pinned component-focused example unless an explicit local content exception is accepted.
 
-  - [ ] R1.2 Section - Add defect-first regression coverage.
+  - [x] R1.2 Section - Add defect-first regression coverage.
 
     New assertions must fail for the reviewed reason before implementation and
     must use stable semantic or `data-*` hooks rather than cosmetic classes.
 
-    - [ ] R1.2.1 Task - Add geometry and reachability regressions.
+    - [x] R1.2.1 Task - Add geometry and reachability regressions.
 
       Lock the user-visible failures without prematurely blessing replacement
       screenshots.
 
-      - [ ] R1.2.1.1 Subtask - Assert each summary border box and scroll width remain within its details item at 320px, 390px, desktop and 200 percent zoom.
-      - [ ] R1.2.1.2 Subtask - Assert the mobile panel's final ordinary destination can be scrolled fully into the visual viewport and remains visible when keyboard-focused.
-      - [ ] R1.2.1.3 Subtask - Assert focus outlines are not clipped by the details item, specimen or mobile panel.
+      - [x] R1.2.1.1 Subtask - Assert each summary border box and scroll width remain within its details item at 320px, 390px, desktop and 200 percent zoom.
+      - [x] R1.2.1.2 Subtask - Assert the mobile panel's final ordinary destination can be scrolled fully into the visual viewport and remains visible when keyboard-focused.
+      - [x] R1.2.1.3 Subtask - Assert focus outlines are not clipped by the details item, specimen or mobile panel.
 
-    - [ ] R1.2.2 Task - Add state and preference regressions.
+    - [x] R1.2.2 Task - Add state and preference regressions.
 
       Direct addressing and inspection preferences need explicit outcomes in
       addition to screenshot coverage.
 
-      - [ ] R1.2.2.1 Subtask - Assert direct Preview and Code fragments never expose a contradictory selected radio state when demo scripting is available.
-      - [ ] R1.2.2.2 Subtask - Assert fragment destinations and both authored regions remain reachable with JavaScript and presentation CSS disabled.
-      - [ ] R1.2.2.3 Subtask - Assert OS reduced motion and the explicit `data-shadcn-motion="reduce"` inspection state suppress Accordion transitions while preserving open state and content.
+      - [x] R1.2.2.1 Subtask - Assert direct Preview and Code fragments never expose a contradictory selected radio state when demo scripting is available.
+      - [x] R1.2.2.2 Subtask - Assert fragment destinations and both authored regions remain reachable with JavaScript and presentation CSS disabled.
+      - [x] R1.2.2.3 Subtask - Assert OS reduced motion and the explicit `data-shadcn-motion="reduce"` inspection state suppress Accordion transitions while preserving open state and content.
 
   - [ ] R1.3 Section - R1 Integration Tests.
 
