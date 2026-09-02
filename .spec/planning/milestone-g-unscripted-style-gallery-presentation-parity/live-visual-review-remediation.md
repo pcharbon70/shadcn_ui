@@ -201,7 +201,7 @@ category route and is not an Accordion comparison target.
 
 ## R3 - Gallery Navigation And Specimen State
 
-- [ ] R3 Phase - Correct gallery-only responsive navigation and view state.
+- [x] R3 Phase - Correct gallery-only responsive navigation and view state.
 
   Keep native disclosure and radio semantics while removing clipped content and
   contradictory presentation state.
@@ -249,19 +249,19 @@ category route and is not an Accordion comparison target.
       - [x] R3.3.1.2 Subtask - Verify returning to system motion restores only capability-gated presentation and never changes open state.
       - [x] R3.3.1.3 Subtask - Add exact computed-style assertions instead of relying only on screenshots.
 
-  - [ ] R3.4 Section - R3 Integration Tests.
+  - [x] R3.4 Section - R3 Integration Tests.
 
     Exercise responsive navigation and specimen state across progressive
     enhancement boundaries.
 
-    - [ ] R3.4.1 Task - Run shell and gallery interaction acceptance.
+    - [x] R3.4.1 Task - Run shell and gallery interaction acceptance.
 
       Component semantics must remain independent of gallery helpers.
 
-      - [ ] R3.4.1.1 Subtask - Run mobile navigation, keyboard, focus, zoom, axe, theme, search, direct-fragment and source-view browser suites.
-      - [ ] R3.4.1.2 Subtask - Run JavaScript-disabled, CSS-disabled, print and unknown-fragment states.
-      - [ ] R3.4.1.3 Subtask - Verify demo helpers remain excluded from the package archive and deterministic static export.
-      - [ ] R3.4.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
+      - [x] R3.4.1.1 Subtask - Run mobile navigation, keyboard, focus, zoom, axe, theme, search, direct-fragment and source-view browser suites.
+      - [x] R3.4.1.2 Subtask - Run JavaScript-disabled, CSS-disabled, print and unknown-fragment states.
+      - [x] R3.4.1.3 Subtask - Verify demo helpers remain excluded from the package archive and deterministic static export.
+      - [x] R3.4.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
 
 ## R4 - Pinned Presentation Alignment
 
