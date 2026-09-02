@@ -270,20 +270,20 @@ category route and is not an Accordion comparison target.
   Resolve the remaining visual drift after correctness fixes, using the pinned
   source rather than measurements from a later public-site revision.
 
-  - [ ] R4.1 Section - Align the primary Accordion specimen.
+  - [x] R4.1 Section - Align the primary Accordion specimen.
 
     The exclusive example should resemble the accepted reference while the
     independent example continues to document the additional local contract.
 
-    - [ ] R4.1.1 Task - Tune rows, content and specimen treatment.
+    - [x] R4.1.1 Task - Tune rows, content and specimen treatment.
 
       Use the R1 ownership decision to avoid leaking article-only styling into
       unrelated consumers.
 
-      - [ ] R4.1.1.1 Subtask - Match accepted row grouping, separators, radii, gaps, padding, summary weight, muted answers, hover treatment and open-state color.
-      - [ ] R4.1.1.2 Subtask - Match accepted specimen measure, preview padding, toolbar treatment and source surface while retaining HEEx and native radios.
-      - [ ] R4.1.1.3 Subtask - Replace the undocumented primary FAQ copy with pinned component-focused questions or record an approved content exception.
-      - [ ] R4.1.1.4 Subtask - Keep the independent multi-open specimen clearly secondary and semantically unchanged.
+      - [x] R4.1.1.1 Subtask - Match accepted row grouping, separators, radii, gaps, padding, summary weight, muted answers, hover treatment and open-state color.
+      - [x] R4.1.1.2 Subtask - Match accepted specimen measure, preview padding, toolbar treatment and source surface while retaining HEEx and native radios.
+      - [x] R4.1.1.3 Subtask - Replace the undocumented primary FAQ copy with pinned component-focused questions or record an approved content exception.
+      - [x] R4.1.1.4 Subtask - Keep the independent multi-open specimen clearly secondary and semantically unchanged.
 
   - [ ] R4.2 Section - Align typography and first-viewport density.
 

@@ -52,8 +52,8 @@ test("native disclosure, links, fragments, scrolling, and radio keys remain brow
   await independent.locator("summary").click();
   await expect(independent).toHaveAttribute("open", "");
 
-  const exclusiveOne = page.locator("#faq-item-billing");
-  const exclusiveTwo = page.locator("#faq-item-security");
+  const exclusiveOne = page.locator("#faq-item-accessibility");
+  const exclusiveTwo = page.locator("#faq-item-animation");
   await exclusiveTwo.locator("summary").click();
   await expect(exclusiveTwo).toHaveAttribute("open", "");
   if (await page.evaluate(() => "name" in document.createElement("details"))) {

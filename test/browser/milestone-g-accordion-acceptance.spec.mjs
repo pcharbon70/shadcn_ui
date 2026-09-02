@@ -35,8 +35,8 @@ test("article exposes both exact specimens, guidance, ownership, and provenance"
 
 test("native activation preserves exclusive and independent grouping contracts", async ({page}) => {
   await page.goto(`${route}?theme=light&motion=reduce`);
-  const billing = page.locator("#faq-item-billing");
-  const security = page.locator("#faq-item-security");
+  const billing = page.locator("#faq-item-accessibility");
+  const security = page.locator("#faq-item-animation");
   const summary = security.locator("summary");
   const supportsExclusive = await page.evaluate(() => "name" in document.createElement("details"));
 
@@ -64,9 +64,9 @@ test("reduced motion, forced colors, zoom, CSS-disabled, and no-script states re
   const page = await context.newPage();
   await page.goto(`${route}?theme=dark&motion=reduce`);
   await page.locator("html").evaluate(node => { node.style.zoom = "2"; });
-  await expect(page.locator("#faq-item-billing summary")).toBeVisible();
+  await expect(page.locator("#faq-item-accessibility summary")).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
-  const duration = await page.locator("#faq-item-billing").evaluate(details =>
+  const duration = await page.locator("#faq-item-accessibility").evaluate(details =>
     getComputedStyle(details, "::details-content").transitionDuration
   );
   expect(["0s", "0.00001s"]).toContain(duration);
@@ -74,8 +74,8 @@ test("reduced motion, forced colors, zoom, CSS-disabled, and no-script states re
   await page.evaluate(() => {
     for (const sheet of document.styleSheets) sheet.disabled = true;
   });
-  await page.locator("#faq-item-security summary").click();
-  await expect(page.locator("#faq-item-security")).toHaveAttribute("open", "");
+  await page.locator("#faq-item-animation summary").click();
+  await expect(page.locator("#faq-item-animation")).toHaveAttribute("open", "");
   await context.close();
 
   const noScriptContext = await browser.newContext({
@@ -86,7 +86,7 @@ test("reduced motion, forced colors, zoom, CSS-disabled, and no-script states re
   await noScriptPage.goto(`${route}#accordion-primary-source`);
   await expect(noScriptPage.locator("#accordion-primary-source")).toBeVisible();
   await noScriptPage.goto(`${route}#accordion-primary`);
-  await noScriptPage.locator("#faq-item-security summary").click();
-  await expect(noScriptPage.locator("#faq-item-security")).toHaveAttribute("open", "");
+  await noScriptPage.locator("#faq-item-animation summary").click();
+  await expect(noScriptPage.locator("#faq-item-animation")).toHaveAttribute("open", "");
   await noScriptContext.close();
 });

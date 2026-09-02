@@ -43,7 +43,7 @@ for (const theme of ["light", "dark"]) {
     await openAccordion(page, {width: 390, height: 844, theme});
     const specimen = page.locator('[data-gallery-specimen="accordion-primary"]');
     await specimen.scrollIntoViewIfNeeded();
-    await specimen.locator("#faq-item-security summary").click();
+    await specimen.locator("#faq-item-animation summary").click();
     await expect.soft(specimen).toHaveScreenshot(`accordion-390-panel-${theme}.png`, tolerance);
 
     const navigation = page.locator("[data-gallery-mobile-navigation]");
