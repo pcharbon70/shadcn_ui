@@ -3,6 +3,9 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
 
   @workflow File.read!(".github/workflows/gallery.yml")
   @operations File.read!("docs/gallery-operations.md")
+  @deployment File.read!("release/fly-deployment-evidence.json") |> Jason.decode!()
+  @status File.read!("release/candidate-status.json") |> Jason.decode!()
+  @provenance File.read!("priv/provenance/unscripted_ui.json") |> Jason.decode!()
 
   test "workflow pins reviewed inputs and PRs cannot publish" do
     for sha <- [
@@ -34,7 +37,7 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
           "post-deployment",
           "/healthz",
           "non-reflecting 404",
-          "smoke-verified Fly release",
+          "reviewed-and-smoke-verified",
           "immutable image identity",
           "revision mismatch"
         ] do
@@ -44,5 +47,59 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
     assert @operations =~ "healthy Machine does not imply the canonical smoke passed"
     assert @operations =~ "Never edit"
     assert @operations =~ "deployed artifact in place"
+    assert @operations =~ "unreviewed operational deployment"
+  end
+
+  test "deployment evidence binds Fly release, image, health, smoke, and open review gates" do
+    assert @deployment["release"]["status"] == "passed"
+
+    assert @deployment["release"]["sourceRevision"] ==
+             "bb422d815683d2b6e1cd81e887b67791ac1cb92a"
+
+    assert @deployment["release"]["flyReleaseId"] == "rel_mr7g2md4103r2wj0"
+    assert @deployment["release"]["imageDigest"] =~ ~r/^sha256:[0-9a-f]{64}$/
+    assert @deployment["health"]["status"] == "passed"
+    assert @deployment["canonicalSmoke"]["status"] == "passed"
+
+    release_revision = @deployment["release"]["sourceRevision"]
+    assert @deployment["health"]["reportedSourceRevision"] == release_revision
+    assert @deployment["canonicalSmoke"]["expectedRevision"] == release_revision
+    assert @status["evidence"]["deployedRevision"] == release_revision
+    assert @deployment["health"]["reportedPackageVersion"] == Mix.Project.config()[:version]
+    assert @deployment["health"]["reportedCatalogueSchema"] == "1"
+
+    assert @deployment["health"]["reportedUpstreamRevision"] ==
+             @provenance["upstream"]["commit"]
+
+    verifier = @deployment["canonicalSmoke"]["verifier"]
+    assert verifier["sourceRevision"] == nil
+    assert verifier["workingTreeBaseRevision"] == release_revision
+
+    actual_verifier_sha =
+      verifier["path"]
+      |> File.read!()
+      |> then(&:crypto.hash(:sha256, &1))
+      |> Base.encode16(case: :lower)
+
+    assert verifier["sha256"] == actual_verifier_sha
+    assert @deployment["externalGates"]["pullRequest"] == "absent"
+    assert @deployment["externalGates"]["sourceReview"] == "pending"
+    assert @deployment["externalGates"]["finalRevisionCi"] == "pending"
+    assert @deployment["externalGates"]["merge"] == "pending"
+    assert @deployment["rollback"]["priorReviewedSmokeVerifiedFlyRelease"] == nil
+    assert @deployment["rollback"]["status"] == "no-reviewed-rollback-candidate"
+
+    for snapshot <- @deployment["staticEvidenceBoundary"]["historicalSnapshots"] do
+      historical = snapshot["path"] |> File.read!() |> Jason.decode!()
+
+      assert get_in(historical, ["qualification", "sourceRevision"]) ==
+               snapshot["sourceRevision"] or
+               get_in(historical, ["candidate", "testedSourceRevision"]) ==
+                 snapshot["sourceRevision"]
+
+      assert get_in(historical, ["qualification", "canonicalUrl"]) ==
+               snapshot["canonicalUrl"] or
+               get_in(historical, ["candidate", "canonicalUrl"]) == snapshot["canonicalUrl"]
+    end
   end
 end

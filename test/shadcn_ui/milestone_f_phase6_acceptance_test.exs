@@ -107,19 +107,24 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
     refute File.read!("mix.exs") =~ ~r/{:(dstar|ash|electron),/
   end
 
-  test "publication verification covers main and the final revision is not pre-claimed" do
+  test "publication verification records deployed evidence without pre-claiming CI or merge" do
     workflow = File.read!(".github/workflows/gallery.yml")
     status = Jason.decode!(File.read!("release/candidate-status.json"))
+    deployment = Jason.decode!(File.read!("release/fly-deployment-evidence.json"))
 
     assert workflow =~ "push:"
     assert workflow =~ "branches: [main]"
     refute workflow =~ "actions/deploy-pages"
     assert status["evidence"]["finalPhase5Revision"] == nil
+    assert status["evidence"]["deployedRevision"] == deployment["release"]["sourceRevision"]
+    assert deployment["release"]["status"] == "passed"
+    assert deployment["canonicalSmoke"]["status"] == "passed"
 
-    assert status["gates"]
-           |> Enum.filter(
-             &(&1["id"] in ~w(ci-final-revision gallery-deployment post-deploy-smoke))
-           )
-           |> Enum.all?(&(&1["status"] == "pending"))
+    gates = Map.new(status["gates"], &{&1["id"], &1["status"]})
+    assert gates["ci-final-revision"] == "pending"
+    assert gates["deployment-source-review"] == "pending"
+    assert gates["merge"] == "pending"
+    assert gates["gallery-deployment"] == "passed"
+    assert gates["post-deploy-smoke"] == "passed"
   end
 end

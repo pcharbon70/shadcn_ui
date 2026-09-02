@@ -2,6 +2,10 @@
 
 Back to wave: [README](./README.md)
 
+The checked Pages-era implementation below is a historical execution record.
+The accepted Fly.io publication decision now supersedes that hosting mechanism;
+deterministic static export remains verified evidence and a portable fallback.
+
 - [ ] 6 Phase - Versioned Publication And Milestone Acceptance.
 
   Harden immutable gallery publication and operational recovery, then reconcile
@@ -79,7 +83,7 @@ Back to wave: [README](./README.md)
       - [x] 6.4.1.2 Subtask - Run package/demo precommit, warning-free ExDoc, deterministic CSS/export, provenance/license, actual archive and clean consumer checks from a fresh checkout.
       - [ ] 6.4.1.3 Subtask - Run all A-F browser suites in locked engines, static-subpath smoke, required manual review and canonical post-deploy smoke after the reviewed publication occurs.
 
-    - [ ] 6.4.2 Task - Record final evidence and delivery state.
+    - [x] 6.4.2 Task - Record final evidence and delivery state.
 
       The execution record must be reproducible and distinguish every gate and authorized action.
 
@@ -92,7 +96,11 @@ Back to wave: [README](./README.md)
 Complete and verify each section before committing it. Make one commit per
 section and one PR for this phase; do not merge without a later request.
 
-## Execution record
+## Original execution record
+
+This record describes the Phase 6 candidate at its 2026-08-27 execution point.
+Later reconciliation is recorded separately so the original failures and
+external gates are not rewritten as if they had passed at the time.
 
 - Tested source revision: `3ef5f82e0830d34b9be16a4b6f8945bc7761d93b`.
 - Toolchain: Elixir 1.20.3, OTP 29.0 and Node.js 22.13.1.
@@ -122,6 +130,29 @@ section and one PR for this phase; do not merge without a later request.
   internal candidate remains blocked.
 - Publication boundary: no Hex package, public version tag, marketplace entry,
   platform certification or upstream-affiliation claim was created.
-- Delivery: four section commits are proposed together in
-  [PR #26](https://github.com/pcharbon70/shadcn_ui/pull/26); it remains
-  unmerged for review.
+- Delivery: four section commits were proposed together in
+  [PR #26](https://github.com/pcharbon70/shadcn_ui/pull/26), which later merged
+  as `5804c83c0c608d1fcc18c3c333e4569075c4dcd7`.
+
+## Later reconciliation
+
+- Milestone G repaired the SpecLed verification annotations. The current
+  candidate has zero SpecLed errors, warnings, or branch findings; the original
+  nested-shell failure above remains historical evidence.
+- The original 62-entry clean candidate belongs to source `3ef5f82e...`, which
+  is no longer retrievable from current repository history. The current
+  63-entry archive passes its allowlist audit and isolated consumer trial, but
+  the required two clean pinned-toolchain builds remain pending. The checked
+  original 6.4.1.2 run is historical, not exact-HEAD qualification.
+- The accepted Fly.io decision supersedes the unshipped Pages host. On
+  2026-09-02, Fly release `rel_mr7g2md4103r2wj0` served exact source revision
+  `bb422d815683d2b6e1cd81e887b67791ac1cb92a` from image digest
+  `sha256:83decff9d414c27da8a38661a1aff4efa98d085d0970930b3bc2f0d36f72289f`;
+  its service health check and the repository's complete canonical Fly smoke
+  passed. See `release/fly-deployment-evidence.json`.
+- No pull request, source review, or CI run exists for the deployed Fly branch.
+  All six manual accessibility scenarios and final-revision CI also remain pending.
+  Phase 6, Section 6.4, Task 6.4.1, and Subtask 6.4.1.3 stay open, and the
+  internal candidate remains blocked. Operational deployment success does not
+  satisfy source review or promote merge, CI, manual review, Hex publication,
+  or a public version tag.

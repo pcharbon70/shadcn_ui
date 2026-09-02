@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [ ] 1 Phase - Parity Contract And Reference Baseline.
+- [x] 1 Phase - Parity Contract And Reference Baseline.
 
   Pin the presentation target, accept durable visual and semantic boundaries and
   create deterministic local reference evidence before changing shared markup.

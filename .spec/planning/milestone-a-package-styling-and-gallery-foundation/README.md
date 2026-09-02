@@ -5,6 +5,15 @@ independently consumable HEEX component package with isolated compiled CSS, six
 foundation components, pinned upstream provenance, and a controller-rendered
 gallery published as a deterministic static site.
 
+## Historical checklist status
+
+The open Phase 2-5 browser and publication boxes preserve what was not executed
+in those original phase-local runs. Later Milestones F and G provide broad
+cross-engine, deterministic-export, SpecLed, and gallery evidence, but they do
+not retroactively prove every exact Foundation scenario or turn the original
+static-host deployment into the current Fly.io publication. The boxes therefore
+remain open as historical evidence rather than current implementation tasks.
+
 ## Request alignment
 
 - Milestone A implements Button, Badge, Alert, Card, Avatar, and Skeleton.

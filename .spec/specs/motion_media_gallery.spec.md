@@ -97,10 +97,10 @@ across this release. No new CSS-origin or command runtime is distributed.
 Copyable source is compile-tested; export checks
 every new canonical and preference variant. All six component references now
 exist; Phase 6 adds cross-milestone package, real-gallery and bounded-work
-acceptance. Local verification does not establish Pages publication.
-Milestone D's recorded local SpecLed runner issue remains an explicit environment
-limitation, not an excuse to weaken the gate. The final release record must
-distinguish direct tests, CI, manual checks and actual Pages publication.
+acceptance. Local verification does not establish Fly publication.
+The historical Milestone D SpecLed runner issue was later repaired and remains
+recorded at its execution point. The final release record must distinguish
+direct tests, CI, manual checks, Fly deployment, and canonical smoke.
 
 ## Project identity boundary
 

@@ -29,8 +29,11 @@ surface:
   - demo/test/milestone_f_public_documentation_test.exs
   - scripts/check-documentation.exs
   - test/shadcn_ui/milestone_f_documentation_test.exs
+  - test/shadcn_ui/milestone_f_final_documentation_test.exs
   - test/shadcn_ui/milestone_f_installation_compatibility_test.exs
   - test/shadcn_ui/milestone_f_integration_guidance_test.exs
+  - release/candidate-status.json
+  - release/fly-deployment-evidence.json
 ```
 
 ## Project identity boundary
@@ -93,6 +96,10 @@ runtime boundary, package contents, or existing verification.
 
 Phase 8 publication runbook review is current proof for the documented gallery
 recovery boundary; it does not change the public documentation contract.
+Current documentation preserves dated Pages-era and phase-local snapshots,
+while the candidate ledger separately records the operational Fly pass,
+unreviewed deployed source, ineligible rollback state, and remaining clean,
+manual, review, CI, and merge gates.
 
 ```spec-verification
 - kind: test_file

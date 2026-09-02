@@ -1,8 +1,9 @@
 # Milestone F Requirement Coverage Map
 
-This planning map assigns requirements to delivery and intended proof. It is not
-implementation evidence; planned targets remain absent or incomplete until their
-phase lands.
+This planning map assigns requirements to delivery and intended proof. The
+targets have landed, but the map is not execution evidence: exact-revision clean
+candidate, manual-accessibility, CI, review, merge, deployment, and smoke states
+remain authoritative only in their dedicated evidence records.
 
 | Requirement group | Phase | Primary planned proof |
 | --- | --- | --- |

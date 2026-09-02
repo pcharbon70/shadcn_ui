@@ -1,17 +1,22 @@
 # Milestone F acceptance ledger
 
 This is the current evidence ledger for the internal ShadcnUI `0.1.0`
-candidate. Requirement implementation is complete, but candidate qualification
-is **blocked**: the six mandatory manual accessibility scenarios, final-revision
-CI, reviewed deployment, canonical post-deploy smoke, and a passing SpecLed gate
-are not complete. A checked planning item or local run never substitutes for
-one of those states.
+candidate. All requirements have explicit implementation/evidence entries, but
+candidate qualification is **blocked**: the current 63-entry archive still
+needs two clean reproducible builds, all six mandatory manual accessibility
+scenarios remain pending, the deployed source has not passed pull-request
+review, and final-revision CI has not run. The current isolated consumer and
+SpecLed checks pass locally; the exact deployed Fly revision passes service
+health and canonical smoke. A checked planning item or historical run never
+substitutes for a current gate.
 
 Statuses below mean:
 
-- `PASSED` — implemented and supported by current local automated evidence.
-- `IMPLEMENTED; GATE PENDING` — the reviewed mechanism exists, but its CI,
-  deployment, or canonical outcome cannot occur on this unmerged revision.
+- `PASSED` — implemented and supported by the cited or recorded automated evidence.
+- `IMPLEMENTED; GATE PENDING` — the mechanism exists, but its current
+  clean-build, consumer, CI, or human outcome is not yet passing.
+- `IMPLEMENTED; REVIEW GATE PENDING` — the mechanism and operational evidence
+  exist, but the deployed source has not passed the required review gate.
 - `PENDING` — mandatory evidence has not been executed successfully.
 
 ## Documentation catalogue (10)
@@ -64,11 +69,11 @@ Statuses below mean:
 | `shadcn_ui.release_publication.version_identity` | PASSED | validated release manifest identity |
 | `shadcn_ui.release_publication.deterministic_export` | PASSED | two byte-identical versioned exports |
 | `shadcn_ui.release_publication.health_manifest` | PASSED | hashed `health.json` and `release.json` |
-| `shadcn_ui.release_publication.deployment_workflow` | IMPLEMENTED; GATE PENDING | pinned main-only Pages workflow; Phase 6 CI/deploy pending |
-| `shadcn_ui.release_publication.post_deploy_and_rollback` | IMPLEMENTED; GATE PENDING | canonical smoke and rollback runbook; deployed result pending |
-| `shadcn_ui.release_publication.clean_checkout` | PASSED | reproducible candidate builds and current local gates |
-| `shadcn_ui.release_publication.clean_consumer_trial` | PASSED | installed archive consumer and browser trial |
-| `shadcn_ui.release_publication.explicit_archive` | PASSED | 62-entry allowlisted candidate archive |
+| `shadcn_ui.release_publication.deployment_workflow` | IMPLEMENTED; REVIEW GATE PENDING | Fly release `rel_mr7g2md4103r2wj0` serves exact recorded source and image identity, but that source has no PR or review |
+| `shadcn_ui.release_publication.post_deploy_and_rollback` | PASSED | service health, strengthened canonical smoke, first-release rollback policy, and `release/fly-deployment-evidence.json` |
+| `shadcn_ui.release_publication.clean_checkout` | IMPLEMENTED; GATE PENDING | historical two-build evidence passed; current 63-entry exact-revision comparison pending |
+| `shadcn_ui.release_publication.clean_consumer_trial` | PASSED | current 63-entry archive compiled, passed three tests and browser acceptance outside the source tree |
+| `shadcn_ui.release_publication.explicit_archive` | PASSED | current 63-entry archive passes the explicit allowlist audit, including `LICENSE` |
 | `shadcn_ui.release_publication.internal_candidate_only` | PASSED | no Hex publish, public tag, marketplace, or certification |
 | `shadcn_ui.release_publication.truthful_gates` | PASSED | structured candidate status and this ledger |
 
@@ -93,7 +98,9 @@ by this candidate, gallery, workflow, or PR.
 
 ## Final qualification decision
 
-The internal candidate remains blocked. After this revision is merged, record
-final CI, Pages deployment and canonical smoke independently. Manual review and
-SpecLed must also pass before `qualified` can become true. Until every mandatory
-gate passes, do not publish Hex or create a public tag.
+The internal candidate remains blocked. Run two clean builds against the exact
+final revision, complete all six manual scenarios, pass source review, and
+record final-revision CI independently. The current isolated consumer, deployed
+Fly revision, and canonical smoke already pass operationally; review and merge
+remain separate pending states.
+Until every mandatory gate passes, do not publish Hex or create a public tag.

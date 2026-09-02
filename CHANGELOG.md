@@ -4,10 +4,13 @@
 
 - Add deterministic release and health manifests with canonical identity,
   hashed local assets, complete static health targets, and secret rejection.
-- Pin the main-only Pages workflow and toolchains, expand canonical smoke, and
-  document retained-artifact rollback and recovery operations.
+- Keep pull-request CI verification non-publishing, deploy the stateless
+  controller-rendered gallery as an immutable Fly.io release, strengthen
+  canonical smoke, and document image-identified rollback and recovery.
 - Reconcile all 38 Milestone F requirements while keeping qualification blocked
-  on manual accessibility, final CI, deployment smoke, and SpecLed.
+  on exact-revision clean reproducibility, manual accessibility,
+  deployed-source review, and final CI; SpecLed, Fly health, and canonical
+  deployment smoke pass independently.
 
 ## Milestone F Phase 5 — unreleased
 

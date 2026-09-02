@@ -27,6 +27,7 @@ surface:
   - test/shadcn_ui/milestone_a_acceptance_test.exs
   - test/shadcn_ui/milestone_d_acceptance_test.exs
   - scripts/check-release-archive.exs
+  - release/consumer-trial-evidence.json
 ```
 
 ## Requirements
@@ -99,6 +100,11 @@ Phase 4 directly imports Motion.ScrollIndicator and Media.CoverFlow and requires
 both in the actual archive audit. Its separate component-outcome record, local
 images and actual-HEEx/browser harness remain excluded. The native timeline
 presentation adds no package JS, runtime dependency or consumer toolchain.
+
+The current archive audit and isolated-consumer record are working-tree
+evidence for the explicit release boundary. They do not supply a committed
+source identity or the release subject's required two-clean-build
+qualification, which remains a separately recorded pending gate.
 
 ```spec-verification
 - kind: test_file

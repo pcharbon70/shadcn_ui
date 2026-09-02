@@ -1,3 +1,5 @@
+import {readFile} from "node:fs/promises";
+
 const base = process.env.SHADCN_UI_GALLERY_URL;
 if (!base?.startsWith("https://")) throw new Error("SHADCN_UI_GALLERY_URL must be an HTTPS URL");
 
@@ -5,6 +7,11 @@ const expectedRevision = process.env.SHADCN_UI_EXPECTED_REVISION;
 if (!/^[0-9a-f]{40}$/.test(expectedRevision ?? "")) {
   throw new Error("SHADCN_UI_EXPECTED_REVISION must be a full revision");
 }
+
+const demoPackage = JSON.parse(await readFile(new URL("../package.json", import.meta.url), "utf8"));
+const catalogue = JSON.parse(await readFile(new URL("../../priv/compatibility/catalogue.json", import.meta.url), "utf8"));
+const provenance = JSON.parse(await readFile(new URL("../../priv/provenance/unscripted_ui.json", import.meta.url), "utf8"));
+const expectedComponentCount = Object.keys(catalogue.components).length;
 
 const get = async (path, type) => {
   const response = await fetch(new URL(path, base), {redirect: "error", cache: "no-store"});
@@ -19,8 +26,12 @@ const health = await (await get("healthz", "application/json")).json();
 if (health.status !== "ok") throw new Error("health status is not ok");
 if (health.identity.buildRevision !== expectedRevision) throw new Error("deployed revision drift");
 if (health.identity.canonicalUrl !== base) throw new Error("canonical origin drift");
+if (health.identity.packageVersion !== demoPackage.version) throw new Error("package version drift");
+if (health.identity.catalogueSchema !== String(catalogue.schemaVersion)) throw new Error("catalogue schema drift");
+if (health.identity.upstreamRevision !== provenance.upstream.commit) throw new Error("upstream revision drift");
 
 const assets = new Set();
+let home = "";
 
 for (const path of [
   "",
@@ -34,6 +45,7 @@ for (const path of [
 ]) {
   const response = await get(path, "text/html");
   const html = await response.text();
+  if (path === "") home = html;
   const canonical = new URL(path, base).href;
   if (!html.includes('aria-label="ShadcnUI home"')) {
     throw new Error(`invalid gallery response: ${path}`);
@@ -44,6 +56,14 @@ for (const path of [
   for (const match of html.matchAll(/(?:href|src)="(\/assets\/[^"]+)"/g)) {
     assets.add(match[1]);
   }
+}
+
+if (!home.includes("data-gallery-search")) throw new Error("missing server-rendered search");
+const searchRoutes = new Set(
+  [...home.matchAll(/data-gallery-search-route="([^"]+)"/g)].map(match => match[1]),
+);
+if (searchRoutes.size !== expectedComponentCount) {
+  throw new Error(`invalid server-rendered search inventory: ${searchRoutes.size}`);
 }
 
 if (assets.size !== 4) throw new Error(`invalid local asset inventory: ${assets.size}`);

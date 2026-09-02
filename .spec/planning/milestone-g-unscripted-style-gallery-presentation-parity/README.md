@@ -2,15 +2,16 @@
 
 ## Status and purpose
 
-This proposed plan sequences the high-fidelity gallery presentation work
-described by the [Milestone G roadmap](../../milestones/milestone-g-unscripted-style-gallery-presentation-parity.md).
-It changes the separate demo and its evidence, not the transport-neutral
-component model. All implementation checkboxes remain open until their code and
-evidence land.
+This implementation record sequences the high-fidelity gallery presentation
+work described by the [Milestone G roadmap](../../milestones/milestone-g-unscripted-style-gallery-presentation-parity.md).
+All eight phase implementations and local automated evidence have landed. Phase
+8 remains open because the deployed Fly branch has no pull request, final CI, or
+merge, and six manual accessibility scenarios remain pending. The work changes
+the separate demo and its evidence, not the transport-neutral component model.
 
-Phase 1 must accept the additional durable decision and current-truth
-requirements before later implementation phases proceed. Existing Milestones
-A-F decisions, specifications and completed history remain authoritative.
+Phase 1 accepted the additional durable decision and current-truth requirements
+before later implementation phases proceeded. Existing Milestones A-F
+decisions, specifications, and completed history remain authoritative.
 
 ## Existing architecture and contracts
 
@@ -19,9 +20,8 @@ The plan preserves these accepted decisions:
 1. [Compile isolated CSS as a package-owned build artifact](../../decisions/isolated-compiled-css.md)
 2. [Scope semantic tokens and theme selection](../../decisions/scoped-theme-token-contract.md)
 3. [Track upstream provenance without automatic synchronization](../../decisions/upstream-provenance.md)
-4. [Keep the gallery separate and publish a static export](../../decisions/gallery-static-publication.md)
-5. [Drive documentation from a closed catalogue and keep demo tooling progressive](../../decisions/catalogue-driven-documentation-and-progressive-demo-tooling.md)
-6. [Publish immutable gallery evidence with explicit operations](../../decisions/versioned-gallery-publication-and-operations.md)
+4. [Drive documentation from a closed catalogue and keep demo tooling progressive](../../decisions/catalogue-driven-documentation-and-progressive-demo-tooling.md)
+5. [Publish the stateless gallery application on Fly.io](../../decisions/fly-gallery-application-publication.md)
 
 The existing [gallery](../../specs/gallery.spec.md),
 [documentation catalogue](../../specs/documentation_catalogue.spec.md),
@@ -30,7 +30,7 @@ The existing [gallery](../../specs/gallery.spec.md),
 [stylesheet](../../specs/stylesheet.spec.md),
 [provenance](../../specs/provenance.spec.md) and
 [release publication](../../specs/release_publication.spec.md) specifications
-continue to apply. Phase 1 owns any additive decision, specification and
+continue to apply. Phase 1 supplied the additive decision, specification, and
 coverage-map work required for Milestone G.
 
 ## Ordered phases
@@ -45,6 +45,14 @@ coverage-map work required for Milestone G.
 | [6 - Closed Catalogue Presentation Metadata](./phase-06-closed-catalogue-presentation-metadata.md) | Add safe authored capability, support, specimen, explanation and exception metadata with deterministic completeness proof. | Phase 5 |
 | [7 - Complete Gallery Migration](./phase-07-complete-gallery-migration.md) | Migrate all component families, compositions, category pages, landing and documentation routes in ordered waves. | Phase 6 |
 | [8 - Visual Acceptance And Versioned Publication](./phase-08-visual-acceptance-and-versioned-publication.md) | Run the complete visual, semantic, accessibility, export, provenance and publication matrix and reconcile milestone truthfully. | Phase 7 |
+
+## Supplemental remediation
+
+The [live visual review remediation plan](./live-visual-review-remediation.md)
+tracks the correctness, pinned-parity, evidence and accessibility work found
+during the 2026-09-02 review. It supplements rather than rewrites the
+eight-phase implementation record. R1 through R3 are complete; R4 through R6
+remain open until their implementation and proof exist.
 
 Each phase uses sections, tasks and subtasks with a phase-ending integration-test
 section. Delivery uses one commit per completed section and one PR per phase.

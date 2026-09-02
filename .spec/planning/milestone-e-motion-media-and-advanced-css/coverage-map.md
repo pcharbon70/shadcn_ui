@@ -7,7 +7,8 @@ The listed targets now exist. Phase 6 reruns the complete suite, including
 earlier requirements, and adds the compiled public guide, full catalogue audit
 and fixed 1/8/24-item browser budget proof. Existence is not a passing result:
 see the phase execution and candidate records for commands, outcomes and open
-manual, runner, CI and publication gates.
+manual, CI and publication gates. The historical SpecLed runner failure was
+repaired during Milestone G.
 
 ## Shared motion, media, and capability contract
 

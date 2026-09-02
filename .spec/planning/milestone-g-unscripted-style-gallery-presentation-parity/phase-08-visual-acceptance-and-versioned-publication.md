@@ -2,7 +2,7 @@
 
 Back to wave: [README](./README.md)
 
-- [x] 8 Phase - Visual Acceptance And Versioned Publication.
+- [ ] 8 Phase - Visual Acceptance And Versioned Publication.
 
   Execute the complete locked visual, semantic, accessibility, export,
   provenance and publication matrix, then reconcile Milestone G truthfully.
@@ -47,7 +47,7 @@ Back to wave: [README](./README.md)
       - [x] 8.2.2.2 Subtask - Audit actual package contents for absence of gallery CSS, fonts, icons, captures, metadata, scripts and deployment files.
       - [x] 8.2.2.3 Subtask - Run deterministic package CSS and clean-consumer acceptance if any reusable component style changed.
 
-  - [x] 8.3 Section - Publish and verify the redesigned static gallery.
+  - [ ] 8.3 Section - Publish and verify the redesigned gallery.
 
     Publication remains an explicit reviewed state after local and CI acceptance.
 
@@ -59,13 +59,13 @@ Back to wave: [README](./README.md)
       - [x] 8.3.1.2 Subtask - Verify repository-subpath URLs, canonical identities, direct entry, content types, unknown routes and stale-file rejection.
       - [x] 8.3.1.3 Subtask - Confirm release metadata identifies the package, build, catalogue, upstream component revision and presentation reference revision truthfully.
 
-    - [x] 8.3.2 Task - Execute reviewed deployment and recovery checks.
+    - [ ] 8.3.2 Task - Execute reviewed deployment and recovery checks.
 
       Merge, deployment and post-deploy success remain separate recorded states.
 
-      - [x] 8.3.2.1 Subtask - Publish only through the reviewed workflow after authorized merge and retain the immutable artifact selected for rollback.
-      - [x] 8.3.2.2 Subtask - Run canonical home, representative routes/fragments, assets, search, sitemap, health, version and error smoke checks.
-      - [x] 8.3.2.3 Subtask - Exercise or review rollback to a previously verified artifact and run the documented recovery smoke sequence.
+      - [ ] 8.3.2.1 Subtask - Publish only through the reviewed workflow after authorized merge and retain the immutable artifact selected for rollback.
+      - [x] 8.3.2.2 Subtask - Run canonical home, representative routes, assets, server-rendered search, health, version and error smoke checks while retaining sitemap and manifest checks as deterministic static-export evidence.
+      - [x] 8.3.2.3 Subtask - Review the first-publication rollback policy and documented recovery smoke sequence; require exercise after a prior reviewed-and-smoke-verified Fly release exists.
 
   - [x] 8.4 Section - Milestone G Integration And Acceptance.
 

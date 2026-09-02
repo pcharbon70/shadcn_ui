@@ -14,9 +14,9 @@ does not imply an image exists. An image does not imply rollout or health. A
 healthy Machine does not imply the canonical smoke passed. Record each state,
 revision, image identity and deployment identifier separately.
 
-The first deployment is explicit from a reviewed source revision. From the
-repository root, validate the config, set the secret without printing it, and
-deploy the immutable revision:
+The first qualifying deployment must be explicit from a reviewed source
+revision. From the repository root, validate the config, set the secret without
+printing it, and deploy the immutable revision:
 
 ```text
 flyctl config validate --strict -c demo/fly.toml
@@ -31,7 +31,7 @@ portable fallback; they are not the canonical Fly runtime.
 
 ## Post-deployment smoke
 
-Run from the deployed revision with both variables set:
+Prefer running the verifier from the deployed revision with both variables set:
 
 ```text
 SHADCN_UI_GALLERY_URL=https://pcharbon70-shadcn-ui-demo.fly.dev/
@@ -39,10 +39,17 @@ SHADCN_UI_EXPECTED_REVISION=<40-character deployed revision>
 npm --prefix demo run smoke:fly
 ```
 
-The smoke verifies `/healthz`, immutable version/revision identity, the canonical
-home, representative component and composition routes, canonical links, local
-assets and a non-reflecting 404. Record the Fly deployment and output; do not
-infer this result from Machine health alone.
+The smoke verifies `/healthz`; package, source, catalogue, and upstream identity;
+the canonical home; representative component and composition routes;
+server-rendered search inventory; canonical links; local assets; and a
+non-reflecting 404. Sitemap, search-data, release/health-manifest, route-manifest,
+and repository-subpath checks remain deterministic static-export evidence rather
+than Fly runtime routes. Record the Fly deployment and output; do not infer this
+result from Machine health alone. If the verifier is strengthened after the
+deployment, record its exact content SHA-256, path, working-tree base, and null
+source revision separately. That binds the later verifier without implying it
+was part of the deployed commit; a future reviewed release should carry and run
+the verifier from its own source revision.
 
 ## Failure triage and rollback
 
@@ -52,8 +59,9 @@ infer this result from Machine health alone.
 2. Determine whether verification, image build, Machine rollout, service health,
    Fly proxy/certificate, or canonical smoke failed. Treat a revision mismatch
    as a stale deployment, not as an acceptable cache delay.
-3. Select the most recent Fly release whose immutable image identity and
-   post-deploy smoke both passed. Use `flyctl releases` to identify it and
+3. Select the most recent authorized Fly release whose source passed review and
+   whose immutable image identity and post-deploy smoke both passed. Use
+   `flyctl releases` to identify it and
    `flyctl releases rollback <version> -a pcharbon70-shadcn-ui-demo` to restore it. Do
    not rebuild an unrecorded working tree.
 4. Confirm Fly reports the rollback Machine healthy. Run the complete canonical
@@ -63,9 +71,10 @@ infer this result from Machine health alone.
    incident open until `/healthz`, direct routes/assets, canonical links and 404
    behavior describe the same recovered revision.
 
-For the first reviewed Fly publication, no previously smoke-verified Fly release
-exists. Record that absence explicitly and stop or destroy the failed Machine;
-never nominate the failed GitHub Pages artifact or a merely built Fly image as a
-rollback candidate. The first Fly deployment whose canonical smoke passes
+Until the first reviewed Fly publication, no prior reviewed-and-smoke-verified
+Fly release exists. Record that absence explicitly and stop or destroy the
+failed Machine; never nominate the failed GitHub Pages artifact, a merely built
+Fly image, or an unreviewed operational deployment as a rollback candidate. The
+first source-reviewed and authorized Fly release whose canonical smoke passes
 becomes the earliest eligible release. Package rollback and public Hex
 publication remain separate and are not authorized by this runbook.
