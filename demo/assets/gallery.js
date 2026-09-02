@@ -27,33 +27,35 @@ const normalizeSearch = (value) => value
   .replace(/[^\p{Letter}\p{Number}]+/gu, " ")
   .trim();
 
-const searchInput = document.querySelector("[data-gallery-search-input]");
-const searchStatus = document.querySelector("[data-gallery-search-status]");
-const searchItems = [...document.querySelectorAll("[data-gallery-search-item]")];
+for (const scope of document.querySelectorAll("[data-gallery-search-scope]")) {
+  const searchInput = scope.querySelector("[data-gallery-search-input]");
+  const searchStatus = scope.querySelector("[data-gallery-search-status]");
+  const searchItems = [...scope.querySelectorAll("[data-gallery-search-item]")];
 
-const filterCatalogue = () => {
-  const query = normalizeSearch(searchInput?.value || "");
-  const visibleRoutes = new Set();
-  for (const item of searchItems) {
-    const visible = !query || item.dataset.gallerySearchText.includes(query);
-    item.hidden = !visible;
-    if (visible) visibleRoutes.add(item.dataset.gallerySearchRoute);
-  }
-  if (searchStatus) {
-    const count = visibleRoutes.size;
-    searchStatus.textContent = query
-      ? `${count} ${count === 1 ? "component" : "components"} found`
-      : `${count} components available`;
-  }
-};
+  const filterCatalogue = () => {
+    const query = normalizeSearch(searchInput?.value || "");
+    const visibleRoutes = new Set();
+    for (const item of searchItems) {
+      const visible = !query || item.dataset.gallerySearchText.includes(query);
+      item.hidden = !visible;
+      if (visible) visibleRoutes.add(item.dataset.gallerySearchRoute);
+    }
+    if (searchStatus) {
+      const count = visibleRoutes.size;
+      searchStatus.textContent = query
+        ? `${count} ${count === 1 ? "component" : "components"} found`
+        : `${count} components available`;
+    }
+  };
 
-searchInput?.addEventListener("input", filterCatalogue);
-document.querySelector("[data-gallery-search-reset]")?.addEventListener("click", () => {
-  searchInput.value = "";
+  searchInput?.addEventListener("input", filterCatalogue);
+  scope.querySelector("[data-gallery-search-reset]")?.addEventListener("click", () => {
+    searchInput.value = "";
+    filterCatalogue();
+    searchInput.focus();
+  });
   filterCatalogue();
-  searchInput.focus();
-});
-filterCatalogue();
+}
 
 const mobileNavigation = document.querySelector("[data-gallery-mobile-navigation]");
 const mobileNavigationPanel = document.querySelector("[data-gallery-mobile-navigation-panel]");
@@ -74,7 +76,10 @@ const fitMobileNavigation = () => {
   );
 };
 
-const queueMobileNavigationFit = () => requestAnimationFrame(fitMobileNavigation);
+const queueMobileNavigationFit = () => {
+  fitMobileNavigation();
+  requestAnimationFrame(fitMobileNavigation);
+};
 
 mobileNavigation?.addEventListener("toggle", queueMobileNavigationFit);
 window.addEventListener("resize", queueMobileNavigationFit);

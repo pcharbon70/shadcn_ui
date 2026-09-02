@@ -27,6 +27,7 @@ surface:
   - test/browser/milestone-b-forms.spec.mjs
   - test/browser/milestone-c-content-navigation.spec.mjs
   - test/browser/milestone-d-*.spec.mjs
+  - test/browser/milestone-g-remediation-r4.spec.mjs
   - test/shadcn_ui/milestone_a_acceptance_test.exs
   - test/shadcn_ui/milestone_b_acceptance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
@@ -129,6 +130,10 @@ preview/source specimen, explanation, accessibility and support, ownership,
 related documentation, and provenance. Existing routes, headings, landmarks,
 ordinary destinations, themes, no-script content, and controller rendering
 remain authoritative while visible subsection labels evolve.
+
+Milestone G remediation R4 locks the responsive shell and scoped article
+presentation while retaining native navigation, controller-rendered HEEx and
+demo-only enhancement boundaries.
 
 Milestone E Phase 6 consolidates all Media/Motion references and compositions
 with A–D route audits, current composition navigation and complete breadcrumbs.
@@ -304,4 +309,13 @@ and escaping symlinks are rejected. All A–D component routes remain unchanged.
     - shadcn_ui.gallery.static_export
     - shadcn_ui.gallery.online_publication
     - shadcn_ui.gallery.excluded_from_package
+
+- kind: test_file
+  target: test/browser/milestone-g-remediation-r4.spec.mjs
+  covers:
+    - shadcn_ui.gallery.controller_rendered
+    - shadcn_ui.gallery.semantic_shell
+    - shadcn_ui.gallery.component_guidance
+    - shadcn_ui.gallery.theme_matrix
+    - shadcn_ui.gallery.demo_only_script
 ```

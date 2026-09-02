@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "milestone-g-remediation-r4-visible-exception-ledger",
+  "reviewedOn": "2026-09-02",
+  "upstreamCommit": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+  "baseline": "demo/priv/reference/milestone_g/remediation-r1-baseline.json",
+  "movingPublicSiteAuthoritative": false,
+  "exceptions": [
+    {
+      "id": "branding",
+      "status": "retained",
+      "reason": "branding",
+      "upstreamDifference": "The shell identifies ShadcnUI/gallery and does not copy unscripted/ui identity or zero-JavaScript marketing.",
+      "localEvidence": [
+        "[data-gallery-product-header] .gallery-wordmark",
+        "demo/lib/shadcn_ui_demo_web/components/layouts.ex"
+      ]
+    },
+    {
+      "id": "source-language",
+      "status": "retained",
+      "reason": "api-language",
+      "upstreamDifference": "Examples are compile-checked Phoenix HEEx rather than raw upstream HTML utilities.",
+      "localEvidence": [
+        "[data-gallery-source-language=heex]",
+        "demo/lib/shadcn_ui_demo/reference.ex"
+      ]
+    },
+    {
+      "id": "mobile-navigation",
+      "status": "retained",
+      "reason": "accessibility",
+      "upstreamDifference": "The mobile catalogue remains a native details disclosure followed by ordinary named navigation landmarks, without dialog, menu, focus-trap or invoker claims.",
+      "localEvidence": [
+        "[data-gallery-mobile-navigation]",
+        "[data-gallery-mobile-navigation-panel]"
+      ]
+    },
+    {
+      "id": "view-selection",
+      "status": "retained",
+      "reason": "semantic-contract",
+      "upstreamDifference": "Preview and Code remain an ordinary labelled native radio group with no tab roles; both regions stay in source order for fallback access.",
+      "localEvidence": [
+        ".gallery-specimen__views",
+        "[data-gallery-specimen-preview]",
+        "[data-gallery-specimen-source]"
+      ]
+    },
+    {
+      "id": "independent-mode",
+      "status": "retained",
+      "reason": "content-contract",
+      "upstreamDifference": "A clearly secondary independent multi-open Accordion specimen documents ShadcnUI's additional public mode.",
+      "localEvidence": [
+        "[data-gallery-specimen=accordion-independent]",
+        "reference:accordion:independent"
+      ]
+    },
+    {
+      "id": "capability-policy",
+      "status": "retained",
+      "reason": "semantic-contract",
+      "upstreamDifference": "Capability labels are authored from the closed catalogue and locked evidence; styling never becomes a visitor-specific browser support claim.",
+      "localEvidence": [
+        "[data-gallery-capability-policy=authored]",
+        "demo/lib/shadcn_ui_demo/presentation_catalogue.ex"
+      ]
+    }
+  ],
+  "surfaceTreatment": {
+    "source": {
+      "language": "heex",
+      "background": "#24292e",
+      "remoteTokenizer": false,
+      "browserEvaluator": false
+    },
+    "capabilities": {
+      "policy": "authored",
+      "visitorDetection": false,
+      "liveSupportPromise": false
+    }
+  },
+  "status": "accepted-r4-visible-exceptions"
+}

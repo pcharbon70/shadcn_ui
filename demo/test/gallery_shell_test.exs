@@ -96,10 +96,13 @@ defmodule ShadcnUIDemo.GalleryShellTest do
 
     assert layout =~ ~s(<summary>Navigation</summary>)
     assert layout =~ ~s(aria-label="Mobile primary navigation")
-    assert layout =~ ~s(<search class="gallery-search" data-gallery-search>)
+    assert layout =~ ~s(data-gallery-search-scope="mobile")
+    assert layout =~ ~s(data-gallery-search-scope="desktop")
+    assert layout =~ ~s(<.component_search id="gallery-mobile-component-search")
+    assert layout =~ ~s(<.component_search id="gallery-component-search")
 
     assert layout =~
-             ~r/data-gallery-catalogue.*data-gallery-search.*data-gallery-desktop-catalogue/s
+             ~r/data-gallery-catalogue.*component_search.*data-gallery-desktop-catalogue/s
 
     assert layout =~ ~r/data-gallery-main.*<footer[^>]*data-gallery-metadata/s
     refute layout =~ "data-gallery-secondary-tools"
@@ -111,9 +114,15 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert css =~ "env(safe-area-inset-right)"
     assert css =~ "overscroll-behavior: contain"
     assert css =~ "min-block-size: 2.75rem"
+    assert css =~ ".gallery-catalogue { display: none; }"
     assert javascript =~ "data-gallery-mobile-navigation-panel"
+    assert javascript =~ ~s|document.querySelectorAll("[data-gallery-search-scope]")|
     assert javascript =~ "visualViewport"
     assert javascript =~ "ResizeObserver"
+
+    assert javascript =~
+             ~r/queueMobileNavigationFit.*fitMobileNavigation\(\).*requestAnimationFrame/s
+
     assert javascript =~ "specimenViews = new Map()"
     assert javascript =~ ~s(window.addEventListener("hashchange")
     assert javascript =~ "history.replaceState"
@@ -137,7 +146,9 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     layout = File.read!("lib/shadcn_ui_demo_web/components/layouts.ex")
     javascript = File.read!("assets/gallery.js")
 
-    assert layout =~ ~s(label for="gallery-component-search")
+    assert layout =~ ~s(<label for={@id}>Search components</label>)
+    assert layout =~ ~s(id="gallery-mobile-component-search")
+    assert layout =~ ~s(id="gallery-component-search")
     assert layout =~ ~s(maxlength="200")
     assert layout =~ "data-gallery-search-item"
     assert layout =~ "DocumentationCatalogue.search_texts()"
@@ -145,6 +156,7 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert javascript =~ "item.hidden = !visible"
     assert javascript =~ "searchStatus.textContent"
     assert javascript =~ "new Set()"
+    assert javascript =~ ~s|scope.querySelector("[data-gallery-search-reset]")|
     refute javascript =~ ~r/(fetch\(|XMLHttpRequest|pushState|innerHTML)/
   end
 end

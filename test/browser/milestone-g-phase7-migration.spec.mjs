@@ -94,9 +94,7 @@ for (const state of [
     }
   });
 
-  test(`${state.id} disclosure specimen retains its locked golden until R4 review`, async ({page}) => {
-    test.fail(true, "R4 will review the adjusted Accordion presentation before refreshing this migration golden.");
-
+  test(`${state.id} disclosure specimen matches the R4-reviewed migration golden`, async ({page}) => {
     await page.setViewportSize({width: state.width, height: state.height});
     await page.goto(`/components/disclosure/accordion?theme=${state.theme}&motion=reduce`);
     await page.evaluate(() => document.fonts.ready);

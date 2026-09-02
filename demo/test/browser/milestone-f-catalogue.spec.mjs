@@ -56,7 +56,7 @@ test("mobile disclosure exposes the same complete touch-sized destinations", asy
 test("progressive search announces, normalizes, resets, and never changes history", async ({ page }) => {
   await page.goto(componentRoute);
   const input = page.getByRole("searchbox", { name: "Search components" });
-  const status = page.locator("[data-gallery-search-status]");
+  const status = page.locator("[data-gallery-catalogue] [data-gallery-search-status]");
   const historyBefore = await page.evaluate(() => history.length);
 
   await input.fill("navigatión");

@@ -17,6 +17,7 @@ surface:
   - docs/accessibility-review.md
   - test/browser/milestone-f-compatibility.spec.mjs
   - test/browser/milestone-g-accordion-acceptance.spec.mjs
+  - test/browser/milestone-g-remediation-r4.spec.mjs
   - test/shadcn_ui/milestone_f_capability_policy_test.exs
   - test/shadcn_ui/milestone_f_acceptance_test.exs
 ```
@@ -86,6 +87,8 @@ the gallery's own Preview/Code radios do not change component evidence.
 Phase 5 adds exact-engine real-page Accordion evidence for native grouping,
 keyboard focus and missing-presentation fallbacks without making the observed
 engine versions normative.
+Remediation R4 keeps narrow search inside the native mobile navigation
+disclosure and locks useful 320px and 390px layouts in both themes.
 
 ```spec-verification
 - kind: test_file
@@ -119,4 +122,10 @@ engine versions normative.
     - shadcn_ui.compatibility_accessibility.responsive_and_preferences
     - shadcn_ui.compatibility_accessibility.keyboard_and_semantics
     - shadcn_ui.compatibility_accessibility.evidence_separation
+
+- kind: test_file
+  target: test/browser/milestone-g-remediation-r4.spec.mjs
+  covers:
+    - shadcn_ui.compatibility_accessibility.responsive_and_preferences
+    - shadcn_ui.compatibility_accessibility.keyboard_and_semantics
 ```

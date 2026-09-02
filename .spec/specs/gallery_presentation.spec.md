@@ -104,6 +104,10 @@ The immutable Phase 8 static snapshots retain their original Pages-era source
 and canonical identity. Later Fly deployment and content-hashed smoke evidence
 are separate operational records and do not close reviewed publication, CI,
 manual acceptance, or rollback eligibility.
+Remediation R4 adds an exception ledger plus reviewed hashes for every changed
+presentation, Accordion and migration golden. Its focused browser proof pins
+desktop geometry, narrow discovery bounds, native semantics and HEEx source
+identity without treating the moving public site as a runtime input.
 
 ```spec-verification
 - kind: test_file
@@ -177,6 +181,30 @@ manual acceptance, or rollback eligibility.
     - shadcn_ui.gallery_presentation.stable_identity
     - shadcn_ui.gallery_presentation.accessibility_matrix
     - shadcn_ui.gallery_presentation.semantic_exceptions
+
+- kind: test_file
+  target: demo/test/milestone_g_remediation_r4_test.exs
+  covers:
+    - shadcn_ui.gallery_presentation.pinned_reference
+    - shadcn_ui.gallery_presentation.shell
+    - shadcn_ui.gallery_presentation.progressive_navigation
+    - shadcn_ui.gallery_presentation.presentation_system
+    - shadcn_ui.gallery_presentation.article_hierarchy
+    - shadcn_ui.gallery_presentation.catalogue_metadata
+    - shadcn_ui.gallery_presentation.visual_evidence
+    - shadcn_ui.gallery_presentation.semantic_exceptions
+    - shadcn_ui.gallery_presentation.accessibility_matrix
+    - shadcn_ui.gallery_presentation.deterministic_distribution
+
+- kind: test_file
+  target: test/browser/milestone-g-remediation-r4.spec.mjs
+  covers:
+    - shadcn_ui.gallery_presentation.shell
+    - shadcn_ui.gallery_presentation.progressive_navigation
+    - shadcn_ui.gallery_presentation.presentation_system
+    - shadcn_ui.gallery_presentation.visual_evidence
+    - shadcn_ui.gallery_presentation.semantic_exceptions
+    - shadcn_ui.gallery_presentation.accessibility_matrix
 
 - kind: test_file
   target: demo/test/milestone_g_catalogue_test.exs

@@ -23,8 +23,6 @@ for (const state of [
 ]) {
   for (const theme of ["light", "dark"]) {
     test(`${state.id} ${theme} article matches the approved pilot`, async ({page}) => {
-      test.fail(true, "R4 will review the adjusted article presentation before refreshing its visual golden.");
-
       await openAccordion(page, {...state, theme});
       await expect.soft(page).toHaveScreenshot(`accordion-${state.id}-${theme}.png`, tolerance);
       if (state.id === "desktop") {
@@ -38,12 +36,10 @@ for (const state of [
 
 for (const theme of ["light", "dark"]) {
   test(`390px ${theme} open-panel and navigation states match the approved pilot`, async ({page}) => {
-    test.fail(true, "R4 will review the adjusted responsive presentation before refreshing its visual golden.");
-
     await openAccordion(page, {width: 390, height: 844, theme});
     const specimen = page.locator('[data-gallery-specimen="accordion-primary"]');
     await specimen.scrollIntoViewIfNeeded();
-    await specimen.locator("#faq-item-security summary").click();
+    await specimen.locator("#faq-item-animation summary").click();
     await expect.soft(specimen).toHaveScreenshot(`accordion-390-panel-${theme}.png`, tolerance);
 
     const navigation = page.locator("[data-gallery-mobile-navigation]");

@@ -265,75 +265,75 @@ category route and is not an Accordion comparison target.
 
 ## R4 - Pinned Presentation Alignment
 
-- [ ] R4 Phase - Align the Accordion article and shell with pinned presentation.
+- [x] R4 Phase - Align the Accordion article and shell with pinned presentation.
 
   Resolve the remaining visual drift after correctness fixes, using the pinned
   source rather than measurements from a later public-site revision.
 
-  - [ ] R4.1 Section - Align the primary Accordion specimen.
+  - [x] R4.1 Section - Align the primary Accordion specimen.
 
     The exclusive example should resemble the accepted reference while the
     independent example continues to document the additional local contract.
 
-    - [ ] R4.1.1 Task - Tune rows, content and specimen treatment.
+    - [x] R4.1.1 Task - Tune rows, content and specimen treatment.
 
       Use the R1 ownership decision to avoid leaking article-only styling into
       unrelated consumers.
 
-      - [ ] R4.1.1.1 Subtask - Match accepted row grouping, separators, radii, gaps, padding, summary weight, muted answers, hover treatment and open-state color.
-      - [ ] R4.1.1.2 Subtask - Match accepted specimen measure, preview padding, toolbar treatment and source surface while retaining HEEx and native radios.
-      - [ ] R4.1.1.3 Subtask - Replace the undocumented primary FAQ copy with pinned component-focused questions or record an approved content exception.
-      - [ ] R4.1.1.4 Subtask - Keep the independent multi-open specimen clearly secondary and semantically unchanged.
+      - [x] R4.1.1.1 Subtask - Match accepted row grouping, separators, radii, gaps, padding, summary weight, muted answers, hover treatment and open-state color.
+      - [x] R4.1.1.2 Subtask - Match accepted specimen measure, preview padding, toolbar treatment and source surface while retaining HEEx and native radios.
+      - [x] R4.1.1.3 Subtask - Replace the undocumented primary FAQ copy with pinned component-focused questions or record an approved content exception.
+      - [x] R4.1.1.4 Subtask - Keep the independent multi-open specimen clearly secondary and semantically unchanged.
 
-  - [ ] R4.2 Section - Align typography and first-viewport density.
+  - [x] R4.2 Section - Align typography and first-viewport density.
 
     Compact presentation must not remove required content, ordinary links or
     capability truth.
 
-    - [ ] R4.2.1 Task - Restore pinned article metrics.
+    - [x] R4.2.1 Task - Restore pinned article metrics.
 
       Lock exact wrapping in the deterministic reference environment.
 
-      - [ ] R4.2.1.1 Subtask - Apply the 60ch component-description measure and reconcile title, lead, body, heading and code typography with pinned metrics.
-      - [ ] R4.2.1.2 Subtask - Reconcile article, specimen and sidebar widths, gaps and padding at desktop and tablet breakpoints.
-      - [ ] R4.2.1.3 Subtask - Retain local support, ownership and provenance content below the primary experience without treating the longer article as a component defect.
+      - [x] R4.2.1.1 Subtask - Apply the 60ch component-description measure and reconcile title, lead, body, heading and code typography with pinned metrics.
+      - [x] R4.2.1.2 Subtask - Reconcile article, specimen and sidebar widths, gaps and padding at desktop and tablet breakpoints.
+      - [x] R4.2.1.3 Subtask - Retain local support, ownership and provenance content below the primary experience without treating the longer article as a component defect.
 
-    - [ ] R4.2.2 Task - Reduce narrow-width discovery delay.
+    - [x] R4.2.2 Task - Reduce narrow-width discovery delay.
 
       The title and primary specimen should appear promptly without deleting
       search, breadcrumb, capability or navigation access.
 
-      - [ ] R4.2.2.1 Subtask - Move or collapse mobile search into the native catalogue disclosure so a closed menu does not consume the article's first viewport.
-      - [ ] R4.2.2.2 Subtask - Compact wrapped header controls, breadcrumb and introductory capability presentation at 320px and 390px.
-      - [ ] R4.2.2.3 Subtask - Set pinned bounds for title and first-item vertical positions and verify them in both themes.
-      - [ ] R4.2.2.4 Subtask - Ensure the current component is discoverable in desktop and mobile catalogue navigation without adding a client router.
+      - [x] R4.2.2.1 Subtask - Move or collapse mobile search into the native catalogue disclosure so a closed menu does not consume the article's first viewport.
+      - [x] R4.2.2.2 Subtask - Compact wrapped header controls, breadcrumb and introductory capability presentation at 320px and 390px.
+      - [x] R4.2.2.3 Subtask - Set pinned bounds for title and first-item vertical positions and verify them in both themes.
+      - [x] R4.2.2.4 Subtask - Ensure the current component is discoverable in desktop and mobile catalogue navigation without adding a client router.
 
-  - [ ] R4.3 Section - Review visible exceptions.
+  - [x] R4.3 Section - Review visible exceptions.
 
     Presentation may align closely while policy and component semantics remain
     truthfully local.
 
-    - [ ] R4.3.1 Task - Preserve and document intentional differences.
+    - [x] R4.3.1 Task - Preserve and document intentional differences.
 
       Do not erase local identity to improve a screenshot score.
 
-      - [ ] R4.3.1.1 Subtask - Retain ShadcnUI branding, HEEx source, native mobile disclosure, native radio semantics and authored capability policy.
-      - [ ] R4.3.1.2 Subtask - Style capability and source surfaces consistently without copying live visitor support claims or upstream zero-JavaScript branding.
-      - [ ] R4.3.1.3 Subtask - Update the exception ledger only for reviewed differences with a semantic, content, accessibility or branding reason.
+      - [x] R4.3.1.1 Subtask - Retain ShadcnUI branding, HEEx source, native mobile disclosure, native radio semantics and authored capability policy.
+      - [x] R4.3.1.2 Subtask - Style capability and source surfaces consistently without copying live visitor support claims or upstream zero-JavaScript branding.
+      - [x] R4.3.1.3 Subtask - Update the exception ledger only for reviewed differences with a semantic, content, accessibility or branding reason.
 
-  - [ ] R4.4 Section - R4 Integration Tests.
+  - [x] R4.4 Section - R4 Integration Tests.
 
     Lock the adjusted presentation without conflating moving-site similarity
     with accepted pinned parity.
 
-    - [ ] R4.4.1 Task - Run article and responsive acceptance.
+    - [x] R4.4.1 Task - Run article and responsive acceptance.
 
       Stable geometry and wrapping assertions precede golden refreshes.
 
-      - [ ] R4.4.1.1 Subtask - Run Accordion article, specimen, catalogue, shell and complete-migration tests.
-      - [ ] R4.4.1.2 Subtask - Run light/dark desktop, tablet, 390px and 320px geometry assertions with motion suppressed.
-      - [ ] R4.4.1.3 Subtask - Run keyboard, axe, zoom, forced-colors, print, CSS-disabled and no-script checks before reviewing visual diffs.
-      - [ ] R4.4.1.4 Subtask - Run deterministic export, `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
+      - [x] R4.4.1.1 Subtask - Run Accordion article, specimen, catalogue, shell and complete-migration tests.
+      - [x] R4.4.1.2 Subtask - Run light/dark desktop, tablet, 390px and 320px geometry assertions with motion suppressed.
+      - [x] R4.4.1.3 Subtask - Run keyboard, axe, zoom, forced-colors, print, CSS-disabled and no-script checks before reviewing visual diffs.
+      - [x] R4.4.1.4 Subtask - Run deterministic export, `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
 
 ## R5 - Deterministic Visual Evidence
 

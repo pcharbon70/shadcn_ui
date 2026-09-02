@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r4",
+  "evidenceType": "pinned-presentation-alignment-integration",
+  "recordedOn": "2026-09-02",
+  "baseRevision": "9a4dd2eccc19a5c70c5711000a79c9ebbc1665e9",
+  "upstreamCommit": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+  "reference": "demo/priv/reference/milestone_g/presentation-reference.json",
+  "exceptions": "demo/priv/reference/milestone_g/remediation-r4-exceptions.json",
+  "movingPublicSiteAuthoritative": false,
+  "geometry": {
+    "desktop": {
+      "headerPixels": 56,
+      "shellMaxPixels": 1152,
+      "cataloguePixels": 220,
+      "gridGapPixels": 40,
+      "titleFontPixels": 30,
+      "descriptionMeasure": "60ch"
+    },
+    "mobile": {
+      "widths": [320, 390],
+      "themes": ["light", "dark"],
+      "maximumTitleTopPixels": 110,
+      "maximumFirstItemTopPixels": 500,
+      "searchLocation": "native navigation disclosure"
+    }
+  },
+  "goldenGroups": [
+    {
+      "id": "presentation-system",
+      "glob": "test/browser/milestone-g-presentation.spec.mjs-snapshots/*.png",
+      "files": 4,
+      "reviewedChanges": 4,
+      "sha256sumLinesDigest": "01051d924a03ac246686e2c20641108e3aaba108a928bdcc1d195ec6cc1fc6a5"
+    },
+    {
+      "id": "accordion-pilot",
+      "glob": "test/browser/milestone-g-accordion-visual.spec.mjs-snapshots/*.png",
+      "files": 12,
+      "reviewedChanges": 12,
+      "sha256sumLinesDigest": "c81c2e5324f36c5270fee1480e95c7ea545333517ea1133142ff9d5c38f1deb0"
+    },
+    {
+      "id": "complete-migration",
+      "glob": "test/browser/milestone-g-phase7-migration.spec.mjs-snapshots/*.png",
+      "files": 36,
+      "reviewedChanges": 22,
+      "unchanged": 14,
+      "sha256sumLinesDigest": "55ddf921944a9f3f0c3899565c341dac379e594dbb595511bf14b474822608df"
+    }
+  ],
+  "reviewedGoldenChanges": 38,
+  "expectedFailuresRemaining": 0,
+  "verification": {
+    "packageTests": {"tests": 419, "failures": 0, "status": "passed"},
+    "demoTests": {"tests": 160, "failures": 0, "status": "passed"},
+    "shellBrowser": {"tests": 5, "failures": 0, "status": "passed"},
+    "articleBrowser": {"tests": 3, "failures": 0, "status": "passed"},
+    "presentationBrowser": {"tests": 5, "goldens": 4, "failures": 0, "status": "passed"},
+    "accordionAcceptance": {"tests": 9, "engines": ["chromium", "firefox", "webkit"], "failures": 0, "status": "passed"},
+    "accordionVisual": {"tests": 8, "goldens": 12, "failures": 0, "status": "passed"},
+    "inheritedRemediation": {"tests": 7, "failures": 0, "status": "passed"},
+    "r4Browser": {"tests": 3, "failures": 0, "status": "passed"},
+    "completeMigration": {"tests": 10, "goldens": 36, "failures": 0, "status": "passed"},
+    "crossEngineFunctional": {"tests": 9, "engines": ["chromium", "firefox", "webkit"], "failures": 0, "status": "passed"},
+    "assets": "passed",
+    "exportCheck": "passed",
+    "deterministicExport": "passed"
+  },
+  "fallbackStates": [
+    "keyboard",
+    "axe",
+    "200-percent-zoom",
+    "forced-colors",
+    "print",
+    "css-disabled",
+    "javascript-disabled",
+    "reduced-motion",
+    "direct-fragments",
+    "unknown-fragments"
+  ],
+  "specLed": {
+    "prime": "passed",
+    "next": "ready-for-check",
+    "check": "passed",
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffReview": {
+    "movingSiteRuntimeInputs": [],
+    "remoteAssetsAdded": [],
+    "componentSemanticsChanged": [],
+    "goldenTolerancesChanged": false
+  },
+  "status": "passed-remediation-r4-complete"
+}

@@ -16,6 +16,12 @@ verification input.
 five confirmed expected-failure regressions, progressive fallback pass and
 SpecLed reconciliation that close the baseline phase without claiming the R2
 or R3 fixes already exist.
+`remediation-r4-exceptions.json` records the reviewed branding, HEEx API,
+native-navigation, native-radio, independent-mode and authored-capability
+differences retained while the Accordion presentation aligns to the pin.
+`remediation-r4-integration-evidence.json` records the accepted R4 geometry,
+reviewed golden groups, semantic and fallback suites, cross-engine results,
+deterministic export and SpecLed closure.
 The source-derived states are authoritative Phase 1 inputs because a moving
 deployment cannot be deterministic. Later phases add reviewed local ShadcnUI
 raster goldens without changing these upstream identities silently.

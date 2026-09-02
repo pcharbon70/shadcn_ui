@@ -224,7 +224,7 @@ test("VR-06 every reduced-motion scope suppresses reveal and chevron transitions
         element.dataset.shadcnUiMotion = value;
       }, state.packageMotion);
     }
-    const details = page.locator("#faq-item-billing");
+    const details = page.locator("#faq-item-accessibility");
     const durations = await details.evaluate(element => ({
       reveal: getComputedStyle(element, "::details-content").transitionDuration
         .split(",")
@@ -248,7 +248,7 @@ test("returning to system motion restores presentation without changing native o
   await page.emulateMedia({reducedMotion: "no-preference"});
   await page.goto(`${route}?theme=light&motion=reduce`);
   const root = page.locator("html");
-  const details = page.locator("#faq-item-billing");
+  const details = page.locator("#faq-item-accessibility");
   const summary = details.locator("summary");
 
   await expect(details).toHaveAttribute("open", "");
