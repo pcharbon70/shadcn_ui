@@ -101,6 +101,10 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
                        |> Path.join("priv/provenance/unscripted_ui.json")
                        |> File.read!()
                        |> Jason.decode!()
+  @upstream Map.fetch!(@provenance_manifest, "upstream")
+  @upstream_repository Map.fetch!(@upstream, "repository")
+  @upstream_revision Map.fetch!(@upstream, "commit")
+  @adaptations Map.fetch!(@provenance_manifest, "adaptations")
   @available_visual_evidence [
                                @accordion_evidence,
                                @phase_7_1_evidence,
@@ -212,9 +216,7 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
   @doc "Returns pinned upstream counterpart records keyed by provenance identity."
   @spec counterparts() :: %{String.t() => map()}
   def counterparts do
-    upstream = Map.fetch!(@provenance_manifest, "upstream")
-
-    Map.new(Map.fetch!(@provenance_manifest, "adaptations"), fn adaptation ->
+    Map.new(@adaptations, fn adaptation ->
       identity = Map.fetch!(adaptation, "id")
 
       {identity,
@@ -225,8 +227,8 @@ defmodule ShadcnUIDemo.PresentationCatalogue do
              do: "semantic-exception",
              else: "upstream-counterpart"
            ),
-         repository: Map.fetch!(upstream, "repository"),
-         revision: Map.fetch!(upstream, "commit"),
+         repository: @upstream_repository,
+         revision: @upstream_revision,
          upstream_paths: Map.fetch!(adaptation, "upstreamPaths"),
          local_changes: Map.fetch!(adaptation, "localChanges")
        }}
