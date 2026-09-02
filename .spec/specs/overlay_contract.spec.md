@@ -101,6 +101,11 @@ specimen and nearby support evidence. Its gallery-only view controls add no
 overlay invocation, state, focus, dismissal, nesting, or application behavior;
 the native overlay contract and locked engine evidence remain unchanged.
 
+The generated Drawer fixture may contain non-overlay package components as
+ordinary caller content. A deterministic refresh of that nested markup does not
+expand the supported overlay nesting boundary or change native invocation,
+focus, dismissal, replacement, or ownership behavior.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/components/overlays/overlay_contract_test.exs
