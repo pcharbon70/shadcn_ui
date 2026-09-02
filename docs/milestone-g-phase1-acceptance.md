@@ -49,3 +49,12 @@ later local ShadcnUI raster goldens are still required by their owning phases.
 CI, merge, deployment, post-deployment smoke and manual accessibility review are
 not inferred from local Phase 1 results. This phase publishes no gallery, Hex
 package, tag or marketplace artifact.
+
+## Later reconciliation
+
+The table above remains the contemporaneous Phase 1 delivery snapshot rather
+than backdating unrecorded results. All nested Phase 1 items were later closed
+by `23d2a0c`; this reconciliation closes the omitted phase header. PR #29 merged
+the nested delivery as `78d3dfe`. Current repository-wide gates, including
+SpecLed, deployment, CI, and manual review, remain recorded in their own
+candidate evidence rather than being inferred from that merge.

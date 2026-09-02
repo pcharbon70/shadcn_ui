@@ -2,17 +2,20 @@
 
 ## Status and purpose
 
-This accepted plan sequences the documentation, compatibility and internal
-release work described by the [Milestone F roadmap](../../milestones/milestone-f-online-gallery-documentation-and-release-acceptance.md).
-It adds no component family, package JavaScript runtime, application framework,
-operating-system target or embedded-renderer support claim. All implementation
-checkboxes remain open until their code and evidence land.
+This implementation record sequences the documentation, compatibility and
+internal release work described by the [Milestone F roadmap](../../milestones/milestone-f-online-gallery-documentation-and-release-acceptance.md).
+Phases 1-5 and Phase 6 Sections 6.1-6.3 have landed. Final qualification remains
+open for an exact-revision clean candidate, six manual accessibility scenarios,
+source review, and final-revision CI. The canonical Fly release and post-deploy
+smoke pass operationally, but review and merge remain separate states. The work adds no component family,
+package JavaScript runtime, application framework, operating-system target, or
+embedded-renderer support claim.
 
 ## Accepted architecture and contracts
 
 1. [Catalogue-driven documentation and progressive demo tooling](../../decisions/catalogue-driven-documentation-and-progressive-demo-tooling.md)
 2. [Consumer-neutral compatibility and integration guidance](../../decisions/consumer-neutral-compatibility-and-integration-guidance.md)
-3. [Versioned gallery publication and operations](../../decisions/versioned-gallery-publication-and-operations.md)
+3. [Fly gallery application publication](../../decisions/fly-gallery-application-publication.md)
 4. [Internal release candidate and clean consumer trial](../../decisions/internal-release-candidate-and-clean-consumer-trial.md)
 
 The normative specifications are:
@@ -35,7 +38,7 @@ provenance and Milestones A-E contracts continue to apply.
 | [3 - Public Documentation And Integration Guidance](./phase-03-public-documentation-and-integration-guidance.md) | Complete component, installation, ExDoc, controller, Dstar, LiveView, upgrade and provenance guidance. | Phase 2 |
 | [4 - Compatibility And Accessibility Acceptance](./phase-04-compatibility-and-accessibility-acceptance.md) | Execute the capability-based browser, fallback, responsive, semantic, automated and bounded manual review matrix. | Phase 3 |
 | [5 - Reproducible Candidate And Clean Consumer Trial](./phase-05-reproducible-candidate-and-clean-consumer-trial.md) | Build the internal 0.1.0 candidate reproducibly and consume it from an isolated Phoenix fixture. | Phase 4 |
-| [6 - Versioned Publication And Milestone Acceptance](./phase-06-versioned-publication-and-milestone-acceptance.md) | Harden immutable Pages publication, post-deploy and rollback operations, then reconcile every final gate truthfully. | Phase 5 |
+| [6 - Versioned Publication And Milestone Acceptance](./phase-06-versioned-publication-and-milestone-acceptance.md) | Preserve deterministic static evidence, operate the immutable Fly release, and reconcile every final gate truthfully. | Phase 5 |
 
 Each phase contains four sections, eight tasks and twenty-four subtasks. Every
 phase, section and task starts with a description; Section 4 is always the
@@ -71,5 +74,6 @@ and one PR per phase.
 Milestone F exits only after all 38 requirements have real evidence, the public
 inventory and documentation are complete, exact-engine and fallback acceptance
 passes, required manual and deployed gates are executed, the actual archive is
-audited, and an isolated consumer successfully exercises the internal candidate.
+audited, an isolated consumer successfully exercises the internal candidate,
+and the deployed source passes review.
 Public Hex publication remains outside this milestone.

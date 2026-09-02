@@ -1,8 +1,9 @@
 # Milestone G Requirement Coverage Map
 
 This map assigns every additive presentation requirement to implementation and
-concrete proof. Planned later targets do not claim that implementation, CI,
-manual review or publication has occurred.
+concrete proof. All planned targets exist and final local evidence reports no
+planning-only target, but the map does not promote local proof to CI, manual
+review, reviewed merge, deployment, or post-deployment evidence.
 
 | Requirement | Owning phase | Primary planned proof |
 | --- | --- | --- |

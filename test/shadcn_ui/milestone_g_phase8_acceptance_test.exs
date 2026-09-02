@@ -2,6 +2,8 @@ defmodule ShadcnUI.MilestoneGPhase8AcceptanceTest do
   use ExUnit.Case, async: true
 
   @evidence "demo/priv/reference/milestone_g/phase-08-section-4-acceptance-evidence.json"
+  @deployment "release/fly-deployment-evidence.json"
+  @plan ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/phase-08-visual-acceptance-and-versioned-publication.md"
 
   # covers: shadcn_ui.gallery_presentation.pinned_reference
   # covers: shadcn_ui.gallery_presentation.shell
@@ -62,5 +64,18 @@ defmodule ShadcnUI.MilestoneGPhase8AcceptanceTest do
     assert evidence["specLed"]["branchFindings"] == 0
     assert evidence["specLed"]["baselineMainBeforeRepair"] =~ "144-warnings"
     assert evidence["specLed"]["mainAfterMerge"] == "pending"
+  end
+
+  test "later Fly success does not close the reviewed publication phase" do
+    deployment = @deployment |> File.read!() |> Jason.decode!()
+    plan = File.read!(@plan)
+
+    assert deployment["release"]["status"] == "passed"
+    assert deployment["canonicalSmoke"]["status"] == "passed"
+    assert deployment["externalGates"]["pullRequest"] == "absent"
+    assert deployment["externalGates"]["finalRevisionCi"] == "pending"
+    assert deployment["externalGates"]["merge"] == "pending"
+    assert plan =~ "- [ ] 8 Phase - Visual Acceptance And Versioned Publication."
+    assert plan =~ "- [ ] 8.3.2.1 Subtask - Publish only through the reviewed workflow"
   end
 end

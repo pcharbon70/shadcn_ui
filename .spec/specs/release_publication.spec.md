@@ -18,6 +18,10 @@ surface:
   - LICENSE
   - RELEASE.md
   - THIRD_PARTY_NOTICES.md
+  - release/candidate-inputs.json
+  - release/candidate-status.json
+  - release/consumer-trial-evidence.json
+  - release/fly-deployment-evidence.json
   - docs/release-candidate.md
   - docs/gallery-operations.md
   - demo/lib/shadcn_ui_demo/build_identity.ex
@@ -29,6 +33,7 @@ surface:
   - scripts/**
   - .github/workflows/**
   - test/shadcn_ui/milestone_f_release_test.exs
+  - test/shadcn_ui/milestone_f_final_documentation_test.exs
   - test/shadcn_ui/milestone_f_phase1_acceptance_test.exs
   - test/shadcn_ui/milestone_f_phase6_acceptance_test.exs
   - test/shadcn_ui/milestone_f_publication_operations_test.exs
@@ -117,6 +122,15 @@ label rather than requiring route-specific titles or secondary metadata text.
     - shadcn_ui.release_publication.clean_consumer_trial
     - shadcn_ui.release_publication.explicit_archive
     - shadcn_ui.release_publication.internal_candidate_only
+    - shadcn_ui.release_publication.truthful_gates
+
+- kind: test_file
+  target: test/shadcn_ui/milestone_f_final_documentation_test.exs
+  covers:
+    - shadcn_ui.release_publication.deployment_workflow
+    - shadcn_ui.release_publication.post_deploy_and_rollback
+    - shadcn_ui.release_publication.clean_checkout
+    - shadcn_ui.release_publication.clean_consumer_trial
     - shadcn_ui.release_publication.truthful_gates
 
 - kind: test_file

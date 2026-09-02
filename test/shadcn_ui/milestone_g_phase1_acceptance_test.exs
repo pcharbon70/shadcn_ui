@@ -6,6 +6,10 @@ defmodule ShadcnUI.MilestoneGPhase1AcceptanceTest do
   @coverage File.read!(
               ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/coverage-map.md"
             )
+  @plan File.read!(
+          ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/phase-01-parity-contract-and-reference-baseline.md"
+        )
+  @acceptance File.read!("docs/milestone-g-phase1-acceptance.md")
   @verification @presentation_spec
                 |> String.split("```spec-verification", parts: 2)
                 |> List.last()
@@ -84,5 +88,15 @@ defmodule ShadcnUI.MilestoneGPhase1AcceptanceTest do
         ] do
       assert @decision =~ phrase
     end
+  end
+
+  test "Phase 1 preserves its dated ledger while recording later checklist closure" do
+    assert @plan =~ "- [x] 1 Phase - Parity Contract And Reference Baseline."
+    refute @plan =~ ~r/^\s*- \[ \]/m
+    assert @acceptance =~ "PENDING final Section 1.3 run"
+    assert @acceptance =~ "contemporaneous Phase 1 delivery snapshot"
+    assert @acceptance =~ "All nested Phase 1 items were later closed"
+    assert @acceptance =~ "PR #29 merged"
+    assert @acceptance =~ "`78d3dfe`"
   end
 end

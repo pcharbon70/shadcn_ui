@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-09-02",
+  "application": {
+    "name": "pcharbon70-shadcn-ui-demo",
+    "canonicalUrl": "https://pcharbon70-shadcn-ui-demo.fly.dev/",
+    "region": "yyz",
+    "machineId": "844150bdd09448"
+  },
+  "release": {
+    "status": "passed",
+    "sourceRevision": "bb422d815683d2b6e1cd81e887b67791ac1cb92a",
+    "flyReleaseId": "rel_mr7g2md4103r2wj0",
+    "flyReleaseVersion": 2,
+    "imageDigest": "sha256:83decff9d414c27da8a38661a1aff4efa98d085d0970930b3bc2f0d36f72289f"
+  },
+  "health": {
+    "status": "passed",
+    "serviceCheck": "servicecheck-00-http-8080",
+    "path": "/healthz",
+    "reportedSourceRevision": "bb422d815683d2b6e1cd81e887b67791ac1cb92a",
+    "reportedPackageVersion": "0.1.0",
+    "reportedCatalogueSchema": "1",
+    "reportedUpstreamRevision": "bd8f403030c8d1f46804da6eda733fde7e908e63"
+  },
+  "canonicalSmoke": {
+    "status": "passed",
+    "command": "npm --prefix demo run smoke:fly",
+    "expectedRevision": "bb422d815683d2b6e1cd81e887b67791ac1cb92a",
+    "verifier": {
+      "path": "demo/scripts/smoke-fly-gallery.mjs",
+      "sourceRevision": null,
+      "workingTreeBaseRevision": "bb422d815683d2b6e1cd81e887b67791ac1cb92a",
+      "sha256": "4bace666fe7b42e5cf34efcc9baaf50ff256f91972f8320d7729ffa2db40763d",
+      "relationship": "The verifier was strengthened after deployment and is identified by content hash; it is not attributed to the deployed commit."
+    },
+    "checks": [
+      "immutable health identity",
+      "package version",
+      "catalogue schema",
+      "upstream revision",
+      "canonical home",
+      "representative component and composition routes",
+      "server-rendered search inventory",
+      "four local assets",
+      "non-reflecting 404"
+    ]
+  },
+  "staticEvidenceBoundary": {
+    "status": "passed-separately",
+    "historicalSnapshots": [
+      {
+        "path": "demo/priv/reference/milestone_g/phase-08-section-3-publication-evidence.json",
+        "sourceRevision": "b9b261740001cb1905e28b5a2be405b4dd7704f5",
+        "canonicalUrl": "https://leco-industries-inc.github.io/shadcn_ui/"
+      },
+      {
+        "path": "demo/priv/reference/milestone_g/phase-08-section-4-acceptance-evidence.json",
+        "sourceRevision": "99cbf30895897b98609b802c47cbc44539e059b6",
+        "canonicalUrl": "https://leco-industries-inc.github.io/shadcn_ui/"
+      }
+    ],
+    "checks": [
+      "search data",
+      "sitemap",
+      "release manifest",
+      "health manifest",
+      "route manifest",
+      "repository-subpath export"
+    ],
+    "note": "The cited immutable snapshots retain their original Pages-era source revisions and canonical URL. Their deterministic checks are historical static evidence, not Fly runtime routes or Fly deployment evidence."
+  },
+  "externalGates": {
+    "pullRequest": "absent",
+    "sourceReview": "pending",
+    "finalRevisionCi": "pending",
+    "merge": "pending",
+    "manualAccessibility": "pending-six-scenarios"
+  },
+  "rollback": {
+    "priorReviewedSmokeVerifiedFlyRelease": null,
+    "status": "no-reviewed-rollback-candidate",
+    "policy": "A future rollback may select only an authorized Fly release whose source passed review and whose recorded immutable identity and canonical smoke passed."
+  },
+  "publicationBoundary": {
+    "hexPackage": "not-authorized",
+    "publicVersionTag": "not-authorized",
+    "marketplace": "not-authorized",
+    "consumerPlatformCertification": "not-claimed"
+  }
+}

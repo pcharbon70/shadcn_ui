@@ -4,40 +4,56 @@
 
 Status: **BLOCKED — not qualified**.
 
-Local evidence proves that committed inputs can build an audited archive and
-that a separate Phoenix project can install that archive from a signed local
-Hex repository. It does not satisfy the remaining mandatory human, CI,
-integration, and SpecLed gates. `release/candidate-status.json` is the
+The implementation, recorded local automated acceptance, SpecLed checks, Fly
+deployment, and canonical smoke pass. Qualification is still blocked because
+the exact current revision needs two clean reproducible candidate builds, all
+six human accessibility scenarios remain pending, the deployed source has not
+passed pull-request review, and final-revision CI has not run. The current
+isolated archive-consumer trial passes. `release/candidate-status.json` is the
 machine-readable source for this decision; pending or failed mandatory gates
 always override narrative success language.
 
 ## Recorded evidence
 
-- Clean build source: `a0a95ee93119d97820b4246d70ac2b6207de2817`.
-- Candidate archive SHA-256:
-  `b5c434e0b1959cd31aab3d75684a7c65aab3b19c394ee36d8c634549448766a7`.
+- The reconciled working tree is based on merged main revision
+  `380f861985e05ea7de6bee1e7f261621ef968223`; it has no committed exact source
+  identity yet.
+- Its local archive build has SHA-256
+  `e9a757388369dfba10171629d8e1f3d5bcbd2413b6c176fe7ed38c4bebc80e73`
+  and 63 allowlisted entries, including the complete `LICENSE`. This is an
+  audited local build, not the required two-build reproducibility result.
 - Compiled CSS SHA-256:
-  `d2128dd4b653375bab27d6bc070e1ef2c0ca11dd39a183ce6ab9e63eaf8047d8`.
-- Actual archive allowlist: 62 entries; gallery export smoke: 634 routes and
-  three local assets; consumer trial: 3 tests passed outside the source tree.
-- Locked three-engine compatibility and automated accessibility evidence passed
-  in Phase 4. Those results do not complete human accessibility review.
+  `ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41`.
+- Historical Phase 6 evidence recorded a 62-entry archive and a passing
+  three-test isolated consumer at source `3ef5f82e...`; that revision is no
+  longer retrievable from current repository history and cannot qualify HEAD.
+- The current 63-entry archive compiles in an isolated Phoenix consumer, passes
+  three tests and browser acceptance, serves its packaged stylesheet, and
+  requires neither a path dependency nor package JavaScript. See
+  `release/consumer-trial-evidence.json`.
+- Locked three-engine compatibility, automated accessibility, and current
+  SpecLed evidence pass. Those results do not complete human review or final CI.
+- Fly release `rel_mr7g2md4103r2wj0` serves exact recorded base revision from image
+  digest `sha256:83decff9d414c27da8a38661a1aff4efa98d085d0970930b3bc2f0d36f72289f`.
+  Service health and the strengthened canonical smoke pass; see
+  `release/fly-deployment-evidence.json`.
 
-The hashes above identify the Section 5.1/5.2 rehearsal archive. Section 5.4
-must rebuild the final Phase 5 revision twice and supersede these values before
-qualification can be reconsidered.
+The current archive hash is provisional until two clean pinned-toolchain builds
+produce equivalent evidence.
 
 ## Blocking and separate gates
 
-- Phase 5 two-build reproducibility and complete release integration: pending,
-  mandatory.
+- Exact-current-revision two-build reproducibility: pending, mandatory. The
+  archive-consumer trial passes independently.
 - Human accessibility scenarios: six pending, mandatory before qualification;
   no WCAG or assistive-technology certification is claimed.
 - CI on the final revision: pending, mandatory.
-- SpecLed main/HEAD runner: known nested-login-shell failures remain unresolved;
-  direct equivalent checks do not mark that runner passed.
-- Merge, gallery deployment, and canonical post-deploy smoke: pending later
-  publication gates and recorded separately from local package acceptance.
+- Reviewed deployment source: pending, mandatory; the operational Fly run does
+  not satisfy the reviewed-source publication requirement.
+- SpecLed: passing locally with zero errors, warnings, or branch findings;
+  final-revision CI remains independent.
+- Fly deployment and canonical post-deploy smoke: passed for exact recorded
+  source. Pull request, review, CI, and merge remain separate pending states.
 - Hex publication, a public version tag, marketplace listing, consumer-platform
   certification, and official Unscripted affiliation: not applicable and not
   authorized for this internal candidate.

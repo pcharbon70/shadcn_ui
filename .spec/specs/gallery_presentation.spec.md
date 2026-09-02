@@ -15,8 +15,11 @@ surface:
   - .spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/**
   - playwright.milestone-g-*.config.mjs
   - test/shadcn_ui/milestone_g_phase1_acceptance_test.exs
+  - test/shadcn_ui/milestone_g_phase8_acceptance_test.exs
   - test/browser/milestone-g-*.spec.mjs
   - test/browser/milestone-g-*.spec.mjs-snapshots/**
+  - docs/milestone-g-phase1-acceptance.md
+  - release/fly-deployment-evidence.json
 ```
 
 ## Requirements
@@ -97,6 +100,10 @@ surface:
 
 Targets are assigned by the Milestone G coverage map. A listed later-phase
 target is planned proof, not evidence that the migration or publication exists.
+The immutable Phase 8 static snapshots retain their original Pages-era source
+and canonical identity. Later Fly deployment and content-hashed smoke evidence
+are separate operational records and do not close reviewed publication, CI,
+manual acceptance, or rollback eligibility.
 
 ```spec-verification
 - kind: test_file

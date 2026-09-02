@@ -24,12 +24,13 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Mandatory manual accessibility and final-revision CI gates are not all passing.",
+               "Mandatory exact-revision clean candidate, manual accessibility, deployment source review, and final-revision CI gates are not all passing.",
              "status" => "blocked"
            }
 
     assert Enum.any?(mandatory, &(&1["status"] in ["failed", "pending"]))
     refute Enum.all?(mandatory, &(&1["status"] == "passed"))
+    assert Enum.find(mandatory, &(&1["id"] == "deployment-source-review"))["status"] == "pending"
 
     assert Enum.all?(
              status["gates"],
@@ -61,6 +62,22 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert runner =~ "hex.registry"
     assert runner =~ "hex_metadata.config"
     assert runner =~ "browserPassed: true"
+  end
+
+  test "current archive consumer evidence matches the audited candidate" do
+    status = @status |> File.read!() |> Jason.decode!()
+    evidence = "release/consumer-trial-evidence.json" |> File.read!() |> Jason.decode!()
+    gates = Map.new(status["gates"], &{&1["id"], &1["status"]})
+
+    assert evidence["candidate"]["sha256"] == status["evidence"]["currentArchiveSha256"]
+    assert evidence["candidate"]["entries"] == status["evidence"]["currentArchiveEntries"]
+    assert evidence["consumer"]["outsideSourceTree"]
+    assert evidence["consumer"]["compiled"]
+    assert evidence["consumer"]["testsPassed"]
+    assert evidence["consumer"]["browserPassed"]
+    refute evidence["install"]["pathDependency"]
+    assert gates["actual-archive-consumer"] == "passed"
+    assert gates["clean-candidate"] == "pending"
   end
 
   test "candidate remains internal and excludes public or platform claims" do

@@ -40,7 +40,7 @@ Record manual assistive-technology checks separately from automation; axe and CS
 
 ## Consequences
 
-The demo becomes the integration surface as work lands. Media additions require deliberate exporter allowlist changes, but no app server, image service or package runtime dependency. Publication remains a separate successful Pages deployment after merge.
+The demo becomes the integration surface as work lands. Media additions require deliberate exporter allowlist changes, but no image service or package runtime dependency. The original Pages-hosting clause is superseded by `shadcn_ui.fly_gallery_publication`; deterministic static export remains evidence and a portable fallback, while Fly deployment and canonical smoke remain separate recorded states.
 
 ## Verification and delivery
 

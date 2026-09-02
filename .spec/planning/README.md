@@ -7,7 +7,12 @@ section, and task and an integration-test section at the end of every phase.
 
 Plans are non-normative and must not rewrite completed milestone history.
 
-## Active plans
+## Plan records
+
+Milestones B-E are delivered implementation records. Milestone A retains
+historical phase-local gaps that later broad evidence does not retroactively
+rewrite. Milestones F and G retain open qualification/publication work even
+though their implementation surfaces have landed.
 
 1. [Milestone A - Package, Styling, and Gallery Foundation](./milestone-a-package-styling-and-gallery-foundation/README.md)
 2. [Milestone B - Native Forms and Validation](./milestone-b-native-forms-and-validation/README.md)

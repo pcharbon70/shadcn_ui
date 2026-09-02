@@ -1,6 +1,12 @@
 defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.release_publication.clean_checkout
+  # covers: shadcn_ui.release_publication.clean_consumer_trial
+  # covers: shadcn_ui.release_publication.deployment_workflow
+  # covers: shadcn_ui.release_publication.post_deploy_and_rollback
+  # covers: shadcn_ui.release_publication.truthful_gates
+
   @specs ~w(
     .spec/specs/documentation_catalogue.spec.md
     .spec/specs/public_documentation.spec.md
@@ -32,11 +38,14 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
     assert status["evidence"]["milestoneFRequirementsImplemented"] == 38
     assert status["evidence"]["milestoneFManualRequirementsPending"] == 1
     refute status["qualification"]["qualified"]
-    assert gates["phase-6-integration"] == "passed"
+    assert gates["phase-6-local-integration"] == "passed"
+    assert gates["clean-candidate"] == "pending"
+    assert gates["actual-archive-consumer"] == "passed"
     assert gates["manual-accessibility"] == "pending"
     assert gates["ci-final-revision"] == "pending"
-    assert gates["gallery-deployment"] == "pending"
-    assert gates["post-deploy-smoke"] == "pending"
+    assert gates["deployment-source-review"] == "pending"
+    assert gates["gallery-deployment"] == "passed"
+    assert gates["post-deploy-smoke"] == "passed"
   end
 
   test "release-facing documents agree on boundaries and deferred work" do

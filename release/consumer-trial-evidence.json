@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "recordedOn": "2026-09-02",
+  "workingTreeBaseRevision": "380f861985e05ea7de6bee1e7f261621ef968223",
+  "sourceRevision": null,
+  "candidate": {
+    "archive": "shadcn_ui-0.1.0.tar",
+    "sha256": "e9a757388369dfba10171629d8e1f3d5bcbd2413b6c176fe7ed38c4bebc80e73",
+    "entries": 63
+  },
+  "toolchain": {
+    "elixir": "1.18.4",
+    "otp": "27"
+  },
+  "install": {
+    "kind": "hex-repository-archive",
+    "repository": "candidate",
+    "pathDependency": false
+  },
+  "consumer": {
+    "outsideSourceTree": true,
+    "compiled": true,
+    "testsPassed": true,
+    "testCount": 3,
+    "browserPassed": true,
+    "packagedStylesheet": true,
+    "packageJavaScriptRequired": false,
+    "sourceModulesVisible": false
+  }
+}

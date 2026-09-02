@@ -4,49 +4,54 @@
 
 All 38 Milestone F requirements now have an explicit implementation/evidence
 entry in `docs/milestone-f-acceptance.md`. Immutable gallery manifests and the
-reviewed publication/rollback mechanisms are implemented. The internal `0.1.0`
-candidate is still blocked: manual accessibility, final-revision CI, actual
-Pages deployment, canonical post-deploy smoke, and SpecLed are independent
-mandatory gates that have not all passed. No Hex publication or public tag is
-authorized.
+documented publication/rollback mechanisms are implemented. Fly release
+`rel_mr7g2md4103r2wj0` serves exact source
+`bb422d815683d2b6e1cd81e887b67791ac1cb92a`; service health and strengthened
+canonical smoke pass. SpecLed also passes. The internal `0.1.0` candidate is
+still blocked by exact-current-revision two-build qualification, all six manual
+accessibility scenarios, source review, and final-revision CI. The current
+isolated consumer passes. Pull request, review, and merge remain separate
+pending states; the operational Fly pass does not satisfy the reviewed-source
+publication gate. No Hex publication or public tag is authorized.
 
-## Milestone F Phase 5 candidate status
+## Historical Milestone F Phase 5 candidate status
 
-The repository still describes internal `0.1.0`. Clean committed-input build
-and actual-archive consumer trials pass locally; their commands and evidence
-contracts are documented in `docs/reproducible-candidate.md` and
-`docs/clean-consumer-trial.md`. The structured status is
-`release/candidate-status.json` and the readable interpretation is
+The Phase 5 record proved its then-current committed-input build and archive
+consumer. Its 62-entry archive and now-unretrievable source revision do not
+qualify the current 63-entry archive. Current machine-readable status lives in
+`release/candidate-status.json`; the readable interpretation is
 `docs/release-candidate.md`.
 
-The candidate is **blocked**, not qualified: Phase 5 integration has not yet
-completed, all six bounded human accessibility scenarios remain pending, CI
-has not run for this revision, and the known SpecLed nested-command failures
-have not been resolved. Gallery deployment and post-deploy smoke belong to the
-later publication phase and remain pending independently. No Hex publication,
-public tag, marketplace listing, platform certification, or official upstream
-affiliation is authorized or implied.
+The candidate remains **blocked**, not qualified. Historical passing evidence
+is retained below, but the current blockers in the Phase 6 status above take
+precedence. No Hex publication, public tag, marketplace listing, platform
+certification, or official upstream affiliation is authorized or implied.
 
 ## Milestone F Phase 3 documentation candidate
 
-The repository still describes an internal `0.1.0` candidate. This phase makes
-the component, installation, compatibility, controller, Dstar, LiveView,
+The repository describes an internal `0.1.0` candidate. This historical phase
+made the component, installation, compatibility, controller, Dstar, LiveView,
 migration, rollback, and provenance contracts reviewable; it does not prove the
-later CI, Pages deployment, manual-review, public-tag, or Hex publication gates.
+later CI, deployment, manual-review, public-tag, or Hex publication gates.
 See `docs/integrations.md`, `docs/upgrading.md`, and `docs/provenance.md`.
-Phases 4 and Sections 5.1–5.3 now supersede that historical status; Phase 5
-integration and Milestone F Phase 6 remain pending.
+At that execution point, Phase 4, Phase 5 integration, and Milestone F Phase 6
+remained pending; the current Phase 6 status above supersedes that snapshot.
 
 ## Milestone E Phase 6 candidate
 
 Phase 6 consolidates all six Media/Motion APIs and ExDoc groups, complete gallery
 references, bounded-work fixtures and release audits. See
 `docs/motion-media-guide.md` and `docs/milestone-e-acceptance.md` for current
-evidence and outstanding manual, CI, SpecLed runner and publication checks.
+evidence and outstanding manual, CI, and current-candidate checks. The SpecLed
+runner problem recorded during E was repaired in Milestone G.
 Historical phase results below do not substitute for final candidate gates.
 Milestone F remains separate. No Hex publication is authorized.
 
 ## Earlier candidate records and common release procedure
+
+The remaining Pages and phase-local gate statements below are dated execution
+records. The accepted Fly.io decision and the current Phase 6 status above
+supersede their hosting and current-blocker language without rewriting history.
 
 Milestones A through D produce an internal `0.1.0` candidate containing
 Foundation, native Forms, Disclosure, Navigation, Content Surfaces, Overlays,

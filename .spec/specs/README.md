@@ -35,10 +35,13 @@ These accepted specifications now describe the implemented Milestone E surface.
 - [Marquee, Stagger, and Scroll Indicator](./motion_components.spec.md)
 - [Incremental motion/media gallery and acceptance](./motion_media_gallery.spec.md)
 
-## Milestone F planned contracts
+## Milestone F contracts
 
-These accepted specifications define the next implementation wave. Planned
-verification targets are assignments, not claims that evidence already exists.
+These active specifications describe the implemented documentation and release
+surfaces. Final candidate qualification remains blocked on exact-revision clean
+reproducibility, manual accessibility, deployed-source review, and
+final-revision CI; a verification target or checked implementation item is
+never evidence that a gate passed.
 
 - [Documentation catalogue, search, and information architecture](./documentation_catalogue.spec.md)
 - [Public documentation and integration guidance](./public_documentation.spec.md)

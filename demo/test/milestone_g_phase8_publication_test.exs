@@ -47,6 +47,6 @@ defmodule ShadcnUIDemo.MilestoneGPhase8PublicationTest do
     refute workflow =~ "pages: write"
     assert operations =~ "first reviewed Fly publication"
     assert operations =~ "SHADCN_UI_EXPECTED_REVISION"
-    assert operations =~ "no previously smoke-verified Fly release"
+    assert operations =~ "no prior reviewed-and-smoke-verified"
   end
 end

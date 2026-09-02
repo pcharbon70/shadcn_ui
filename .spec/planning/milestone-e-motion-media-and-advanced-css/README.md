@@ -7,10 +7,11 @@ bounded Stagger, source-local Scroll Indicator, image-only Cover Flow and native
 Image Gallery with their real references and three media/motion compositions.
 Phase 6 implements the final gallery, documentation and candidate acceptance:
 all A–E routes, ExDoc, measured 1/8/24-item budgets and cross-engine integration.
-There is no further implementation phase in Milestone E. The known SpecLed
-login-shell issue, manual assistive-technology/physical-device review, CI and
-post-merge publication remain separate outstanding gates. Optional origin CSS
-and generated controls remain deliberately deferred; native lightboxes ship.
+There is no further implementation phase in Milestone E. The SpecLed login-shell
+issue recorded during this wave was repaired in Milestone G; manual
+assistive-technology/physical-device review, final-revision CI, and reviewed
+publication remain separate evidence states. Optional origin CSS and generated
+controls remain deliberately deferred; native lightboxes ship.
 Milestones A–D history is unchanged. See the
 [Phase 6 execution record](./phase-06-gallery-documentation-and-milestone-acceptance.md#execution-record)
 and [candidate evidence](../../../docs/milestone-e-acceptance.md).

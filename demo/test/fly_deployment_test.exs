@@ -56,5 +56,10 @@ defmodule ShadcnUIDemo.FlyDeploymentTest do
     assert operations =~ "separate states"
     assert smoke =~ "assets.size !== 4"
     assert smoke =~ ~s(aria-label=\"ShadcnUI home\")
+    assert smoke =~ "package version drift"
+    assert smoke =~ "catalogue schema drift"
+    assert smoke =~ "upstream revision drift"
+    assert smoke =~ "missing server-rendered search"
+    assert smoke =~ "invalid server-rendered search inventory"
   end
 end
