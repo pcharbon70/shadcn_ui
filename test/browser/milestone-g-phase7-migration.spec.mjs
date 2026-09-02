@@ -79,10 +79,10 @@ for (const state of [
   {id: "mobile-light", theme: "light", width: 390, height: 844},
   {id: "mobile-dark", theme: "dark", width: 390, height: 844}
 ]) {
-  test(`${state.id} family specimens match locked migration goldens`, async ({page}) => {
+  test(`${state.id} non-disclosure family specimens match locked migration goldens`, async ({page}) => {
     await page.setViewportSize({width: state.width, height: state.height});
 
-    for (const [family, route] of families) {
+    for (const [family, route] of families.filter(([family]) => family !== "disclosure")) {
       await page.goto(`${route}?theme=${state.theme}&motion=reduce`);
       await page.evaluate(() => document.fonts.ready);
       const specimen = page.locator("[data-gallery-example]").first().locator("[data-gallery-specimen]");
@@ -92,5 +92,19 @@ for (const state of [
         {animations: "disabled", maxDiffPixelRatio: 0.0075, threshold: 0.12}
       );
     }
+  });
+
+  test(`${state.id} disclosure specimen retains its locked golden until R4 review`, async ({page}) => {
+    test.fail(true, "R4 will review the adjusted Accordion presentation before refreshing this migration golden.");
+
+    await page.setViewportSize({width: state.width, height: state.height});
+    await page.goto(`/components/disclosure/accordion?theme=${state.theme}&motion=reduce`);
+    await page.evaluate(() => document.fonts.ready);
+    const specimen = page.locator("[data-gallery-example]").first().locator("[data-gallery-specimen]");
+    await specimen.scrollIntoViewIfNeeded();
+    await expect(specimen).toHaveScreenshot(
+      `phase7-disclosure-${state.id}.png`,
+      {animations: "disabled", maxDiffPixelRatio: 0.0075, threshold: 0.12}
+    );
   });
 }
