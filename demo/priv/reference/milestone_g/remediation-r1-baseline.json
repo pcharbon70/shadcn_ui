@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "milestone-g-live-visual-remediation-baseline",
+  "reviewedOn": "2026-09-02",
+  "plan": ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/live-visual-review-remediation.md",
+  "target": {
+    "decision": "shadcn_ui.pinned_gallery_presentation_parity",
+    "upstreamCommit": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+    "movingPublicSiteAuthoritative": false,
+    "routes": {
+      "categoryDiagnostic": "/components/foundation",
+      "localAccordion": "/components/disclosure/accordion",
+      "publicUpstreamDiagnostic": "https://unscripted.janci.dev/components/accordion"
+    },
+    "verifiedPinnedInputs": [
+      {
+        "path": "src/content/components/accordion.mdx",
+        "sha256": "7787586b7f985e23dfcbe88dea9ebdf72454f60fbd8205bd51b45e5c76880802",
+        "bytes": 1335,
+        "normalization": "CRLF bytes recorded by the accepted Phase 1 manifest"
+      },
+      {
+        "path": "src/demos/accordion/basic.html",
+        "sha256": "2898290163303fb58008586274a91862d46db2605d62636b9bb31c628abf6943",
+        "bytes": 3274,
+        "normalization": "CRLF bytes recorded by the accepted Phase 1 manifest"
+      }
+    ]
+  },
+  "acceptedMatrix": {
+    "manifest": "demo/priv/reference/milestone_g/presentation-reference.json",
+    "scale": 1,
+    "motion": "reduced",
+    "states": [
+      "desktop-light",
+      "desktop-dark",
+      "tablet-light",
+      "tablet-dark",
+      "mobile-390-light-closed",
+      "mobile-390-light-open",
+      "mobile-390-dark-closed",
+      "mobile-390-dark-open",
+      "mobile-320-light-closed",
+      "mobile-320-light-open",
+      "mobile-320-dark-closed",
+      "mobile-320-dark-open"
+    ],
+    "viewports": [
+      {"width": 1440, "height": 1200},
+      {"width": 1024, "height": 1366},
+      {"width": 390, "height": 844},
+      {"width": 320, "height": 568}
+    ]
+  },
+  "preFixGeometry": {
+    "accordion": {
+      "desktop": {
+        "detailsWidthPixels": 448,
+        "summaryWidthPixels": 478,
+        "summaryOverflowPixels": 30
+      },
+      "mobile320": {
+        "detailsLeftPixels": 53,
+        "detailsRightPixels": 254,
+        "summaryLeftPixels": 54,
+        "summaryRightPixels": 285,
+        "summaryOverflowPixels": 31
+      },
+      "mobile390": {
+        "summaryOverflowPixels": 31
+      }
+    },
+    "mobileNavigation": {
+      "mobile320": {
+        "viewportHeightPixels": 568,
+        "headerHeightPixels": 115,
+        "panelTopPixels": 114,
+        "panelBottomPixels": 644,
+        "finalLinkTopAtMaximumScrollPixels": 573,
+        "finalLinkBottomAtMaximumScrollPixels": 627
+      },
+      "mobile390": {
+        "viewportHeightPixels": 844,
+        "finalLinkTopAtMaximumScrollPixels": 805,
+        "finalLinkBottomAtMaximumScrollPixels": 849
+      }
+    },
+    "firstItemPosition": {
+      "mobile320": {"localTopPixels": 952, "publicDiagnosticTopPixels": 352},
+      "mobile390": {"localTopPixels": 805, "publicDiagnosticTopPixels": 323}
+    }
+  },
+  "ownershipDecisions": {
+    "package": [
+      "VR-03 summary border-box sizing and focus containment",
+      "VR-04 decorative native-open-state chevron",
+      "VR-06 Accordion explicit and operating-system reduced-motion suppression",
+      "VR-07 contiguous bottom dividers, summary spacing, muted content, hover treatment and component timing"
+    ],
+    "gallery": [
+      "VR-01 category-versus-component comparison identity",
+      "VR-02 mobile navigation viewport containment and focus visibility",
+      "VR-05 direct-fragment and Preview/Code radio consistency",
+      "VR-08 mobile search placement and first-viewport density",
+      "VR-09 article typography, description measure, specimen treatment and primary example copy",
+      "VR-10 pinned-reference rendering and category/component visual coverage"
+    ],
+    "intentionalExceptions": [
+      "ShadcnUI branding and compile-checked HEEx source",
+      "native details and summary with deterministic Phoenix IDs",
+      "native details mobile navigation without dialog or menu claims",
+      "native radio Preview and Code semantics without tab roles",
+      "independent multi-open Accordion specimen",
+      "authored capability evidence without visitor-specific support claims"
+    ],
+    "rowPresentation": {
+      "decision": "package-default",
+      "reason": "The exact pinned basic Accordion owns contiguous border-bottom items, unpadded inline edges, muted content, hover underline, chevron and 250ms ease-out reveal; the current package owns the conflicting rounded bordered row defaults."
+    },
+    "primaryFaqCopy": {
+      "decision": "align-with-pinned-source",
+      "questions": [
+        "Is it accessible?",
+        "Can it animate height: auto?",
+        "Only one open at a time?"
+      ],
+      "reason": "The primary specimen is the pinned-reference-style exclusive FAQ; the independent specimen remains the local extension."
+    }
+  },
+  "expectedOutcomes": {
+    "summaryContainment": "Every summary border box, scroll width and focus outline remains within its details item.",
+    "mobileReachability": "Every ordinary mobile destination can be fully scrolled into the visual viewport and remains visible when focused.",
+    "fragmentState": "A direct Preview or Code fragment never coexists with a contradictory announced radio selection.",
+    "motion": "Operating-system reduce, explicit gallery reduce and package motion none remove Accordion transitions without changing native open state.",
+    "comparison": "Automated visual evidence uses the pinned local reference and the local Accordion route; the moving public site remains diagnostic only."
+  },
+  "status": "accepted-remediation-baseline"
+}
