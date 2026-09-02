@@ -285,28 +285,28 @@ category route and is not an Accordion comparison target.
       - [x] R4.1.1.3 Subtask - Replace the undocumented primary FAQ copy with pinned component-focused questions or record an approved content exception.
       - [x] R4.1.1.4 Subtask - Keep the independent multi-open specimen clearly secondary and semantically unchanged.
 
-  - [ ] R4.2 Section - Align typography and first-viewport density.
+  - [x] R4.2 Section - Align typography and first-viewport density.
 
     Compact presentation must not remove required content, ordinary links or
     capability truth.
 
-    - [ ] R4.2.1 Task - Restore pinned article metrics.
+    - [x] R4.2.1 Task - Restore pinned article metrics.
 
       Lock exact wrapping in the deterministic reference environment.
 
-      - [ ] R4.2.1.1 Subtask - Apply the 60ch component-description measure and reconcile title, lead, body, heading and code typography with pinned metrics.
-      - [ ] R4.2.1.2 Subtask - Reconcile article, specimen and sidebar widths, gaps and padding at desktop and tablet breakpoints.
-      - [ ] R4.2.1.3 Subtask - Retain local support, ownership and provenance content below the primary experience without treating the longer article as a component defect.
+      - [x] R4.2.1.1 Subtask - Apply the 60ch component-description measure and reconcile title, lead, body, heading and code typography with pinned metrics.
+      - [x] R4.2.1.2 Subtask - Reconcile article, specimen and sidebar widths, gaps and padding at desktop and tablet breakpoints.
+      - [x] R4.2.1.3 Subtask - Retain local support, ownership and provenance content below the primary experience without treating the longer article as a component defect.
 
-    - [ ] R4.2.2 Task - Reduce narrow-width discovery delay.
+    - [x] R4.2.2 Task - Reduce narrow-width discovery delay.
 
       The title and primary specimen should appear promptly without deleting
       search, breadcrumb, capability or navigation access.
 
-      - [ ] R4.2.2.1 Subtask - Move or collapse mobile search into the native catalogue disclosure so a closed menu does not consume the article's first viewport.
-      - [ ] R4.2.2.2 Subtask - Compact wrapped header controls, breadcrumb and introductory capability presentation at 320px and 390px.
-      - [ ] R4.2.2.3 Subtask - Set pinned bounds for title and first-item vertical positions and verify them in both themes.
-      - [ ] R4.2.2.4 Subtask - Ensure the current component is discoverable in desktop and mobile catalogue navigation without adding a client router.
+      - [x] R4.2.2.1 Subtask - Move or collapse mobile search into the native catalogue disclosure so a closed menu does not consume the article's first viewport.
+      - [x] R4.2.2.2 Subtask - Compact wrapped header controls, breadcrumb and introductory capability presentation at 320px and 390px.
+      - [x] R4.2.2.3 Subtask - Set pinned bounds for title and first-item vertical positions and verify them in both themes.
+      - [x] R4.2.2.4 Subtask - Ensure the current component is discoverable in desktop and mobile catalogue navigation without adding a client router.
 
   - [ ] R4.3 Section - Review visible exceptions.
 

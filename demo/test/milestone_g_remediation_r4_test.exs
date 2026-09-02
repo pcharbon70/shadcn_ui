@@ -37,4 +37,29 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR4Test do
     assert css =~ "background: #24292e"
     refute css =~ ~s([data-gallery-specimen="accordion-independent"])
   end
+
+  test "R4.2 pins article metrics and moves narrow search into the native disclosure" do
+    layout = File.read!("lib/shadcn_ui_demo_web/components/layouts.ex")
+    css = File.read!("assets/gallery.css")
+    javascript = File.read!("assets/gallery.js")
+
+    assert layout =~ ~s(data-gallery-search-scope="mobile")
+    assert layout =~ ~s(data-gallery-search-scope="desktop")
+    assert layout =~ ~s(id="gallery-mobile-component-search")
+    assert layout =~ ~s(id="gallery-component-search")
+    assert layout =~ ~s(aria-label="Mobile component navigation")
+    assert layout =~ ~s(aria-current={@page.path == component.path && "page"})
+
+    assert css =~ "--gallery-text-2xl: 1.875rem"
+    assert css =~ "--gallery-text-xl: 1.375rem"
+    assert css =~ "--gallery-leading-copy: 1.5"
+    assert css =~ "max-inline-size: 60ch !important"
+    assert css =~ ".gallery-catalogue { display: none; }"
+    assert css =~ ".gallery-layout main { padding-block: 1rem 3rem; }"
+
+    assert javascript =~ ~s|document.querySelectorAll("[data-gallery-search-scope]")|
+    assert javascript =~ ~s|scope.querySelector("[data-gallery-search-input]")|
+    assert javascript =~ ~s|scope.querySelectorAll("[data-gallery-search-item]")|
+    refute javascript =~ ~r/(fetch\(|XMLHttpRequest|pushState)/
+  end
 end

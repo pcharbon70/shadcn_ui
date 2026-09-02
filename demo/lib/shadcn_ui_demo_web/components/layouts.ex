@@ -40,14 +40,17 @@ defmodule ShadcnUIDemoWeb.Layouts do
                 aria-label="ShadcnUI repository"
               >Repository</a>
             </nav>
-            <nav aria-label="Mobile component navigation">
-              <.navigation_sections
-                page={@page}
-                categories={@categories}
-                components={@components}
-                search_texts={@search_texts}
-              />
-            </nav>
+            <div class="gallery-mobile-catalogue" data-gallery-search-scope="mobile">
+              <.component_search id="gallery-mobile-component-search" count={length(@components)} />
+              <nav aria-label="Mobile component navigation">
+                <.navigation_sections
+                  page={@page}
+                  categories={@categories}
+                  components={@components}
+                  search_texts={@search_texts}
+                />
+              </nav>
+            </div>
           </div>
         </details>
         <div class="gallery-theme-control" role="group" aria-label="Theme">
@@ -62,24 +65,8 @@ defmodule ShadcnUIDemoWeb.Layouts do
     </header>
 
     <div class="gallery-layout" data-gallery-documentation-grid>
-      <div class="gallery-catalogue" data-gallery-catalogue>
-        <search class="gallery-search" data-gallery-search>
-          <label for="gallery-component-search">Search components</label>
-          <div>
-            <input
-              id="gallery-component-search"
-              type="search"
-              maxlength="200"
-              autocomplete="off"
-              aria-describedby="gallery-search-status"
-              data-gallery-search-input
-            />
-            <button type="button" data-gallery-search-reset>Clear</button>
-          </div>
-          <p id="gallery-search-status" aria-live="polite" data-gallery-search-status>
-            {length(@components)} components available
-          </p>
-        </search>
+      <div class="gallery-catalogue" data-gallery-catalogue data-gallery-search-scope="desktop">
+        <.component_search id="gallery-component-search" count={length(@components)} />
         <nav
           class="gallery-navigation"
           aria-label="Component navigation"
@@ -177,6 +164,33 @@ defmodule ShadcnUIDemoWeb.Layouts do
         </li>
       </ul>
     </section>
+    """
+  end
+
+  attr :id, :string, required: true
+  attr :count, :integer, required: true
+
+  defp component_search(assigns) do
+    assigns = assign(assigns, :status_id, "#{assigns.id}-status")
+
+    ~H"""
+    <search class="gallery-search" data-gallery-search>
+      <label for={@id}>Search components</label>
+      <div>
+        <input
+          id={@id}
+          type="search"
+          maxlength="200"
+          autocomplete="off"
+          aria-describedby={@status_id}
+          data-gallery-search-input
+        />
+        <button type="button" data-gallery-search-reset>Clear</button>
+      </div>
+      <p id={@status_id} aria-live="polite" data-gallery-search-status>
+        {@count} components available
+      </p>
+    </search>
     """
   end
 

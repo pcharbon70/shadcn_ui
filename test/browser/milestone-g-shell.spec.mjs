@@ -80,17 +80,18 @@ test("desktop catalogue remains sticky, independently scrollable, current, and s
   expect(Math.abs(after.y - before.y)).toBeLessThanOrEqual(1);
 
   const input = page.getByRole("searchbox", {name: "Search components"});
+  const status = catalogue.locator("[data-gallery-search-status]");
   await input.fill("navigatión");
-  await expect(page.locator("[data-gallery-search-status]")).toContainText(/components? found/);
+  await expect(status).toContainText(/components? found/);
   await expect(navigation.getByRole("link", {name: "Navigation Menu", exact: true})).toBeVisible();
 
   await input.fill("<script>alert(1)</script>");
-  await expect(page.locator("[data-gallery-search-status]")).toHaveText("0 components found");
+  await expect(status).toHaveText("0 components found");
   expect((await page.locator("script").allTextContents()).join(" ")).not.toContain("alert(1)");
 
   await page.getByRole("button", {name: "Clear"}).click();
   await expect(input).toBeFocused();
-  await expect(page.locator("[data-gallery-search-status]")).toHaveText("41 components available");
+  await expect(status).toHaveText("41 components available");
 });
 
 test("mobile disclosure is touch-sized, complete, and resilient at 320px and zoom", async ({browser}) => {
@@ -108,6 +109,7 @@ test("mobile disclosure is touch-sized, complete, and resilient at 320px and zoo
   await disclosure.locator("summary").tap();
 
   const mobile = page.getByRole("navigation", {name: "Mobile component navigation"});
+  await expect(page.getByRole("searchbox", {name: "Search components"})).toBeVisible();
   await expect(mobile.locator("[data-gallery-search-item]")).toHaveCount(41);
   await expect(mobile.locator('[aria-current="page"]')).toHaveText("Error Summary");
 
@@ -157,8 +159,12 @@ test("theme, mobile destinations, and source identity remain progressive without
   const page = await context.newPage();
   await page.goto(`${componentRoute}#button-primary-source`);
   await expectCoreShell(page);
-  await expect(page.getByRole("searchbox", {name: "Search components"})).toBeVisible();
+  const mobileSearch = page.locator(
+    '[data-gallery-search-scope="mobile"] [data-gallery-search-input]'
+  );
+  await expect(mobileSearch).toBeHidden();
   await page.locator("[data-gallery-mobile-navigation] summary").click();
+  await expect(mobileSearch).toBeVisible();
   const mobile = page.getByRole("navigation", {name: "Mobile component navigation"});
   await expect(mobile.locator("[data-gallery-search-item]")).toHaveCount(41);
   await mobile.getByRole("link", {name: "Accordion", exact: true}).click();

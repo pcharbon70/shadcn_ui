@@ -424,13 +424,15 @@ defmodule ShadcnUIDemoWeb.ReferenceComponents do
     <div class="gallery-examples">
       <.accordion id="faq" mode={:exclusive}>
         <:item key="accessibility" summary="Is it accessible?" open>
-          Yes — <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code> ship with keyboard support and
+          Yes — <code>&lt;details&gt;</code>/<code>&lt;summary&gt;</code>
+          ship with keyboard support and
           correct semantics, and the content stays in the DOM for crawlers and find-in-page.
         </:item>
         <:item key="animation" summary="Can it animate height: auto?">
-          Yes. <code>interpolate-size: allow-keywords</code> on the wrapper lets
-          <code>::details-content</code> transition from <code>height: 0</code> to
-          <code>height: auto</code>. No measuring, no JavaScript.
+          Yes. <code>interpolate-size: allow-keywords</code>
+          on the wrapper lets <code>::details-content</code>
+          transition from <code>height: 0</code>
+          to <code>height: auto</code>. No measuring, no JavaScript.
         </:item>
         <:item key="grouping" summary="Only one open at a time?">
           The <code>name</code> attribute makes the group exclusive — the browser closes the

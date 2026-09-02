@@ -33,7 +33,9 @@ test("ordinary navigation, search, theme, source, and copy behavior remain compl
 
   const search = page.getByRole("searchbox", {name: "Search components"});
   await search.fill("navigatión");
-  await expect(page.locator("[data-gallery-search-status]")).toContainText(/components? found/);
+  await expect(
+    page.locator("[data-gallery-catalogue] [data-gallery-search-status]"),
+  ).toContainText(/components? found/);
   await expect(
     page.getByRole("navigation", {name: "Component navigation"})
       .getByRole("link", {name: "Navigation Menu", exact: true}),

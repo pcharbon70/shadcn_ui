@@ -46,9 +46,10 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
     end
   end
 
-  test "responsive shell renders one search identity, native navigation, and package footer", %{
-    conn: conn
-  } do
+  test "responsive shell renders scoped search identities, native navigation, and package footer",
+       %{
+         conn: conn
+       } do
     html = conn |> get("/components/foundation/button") |> html_response(200)
 
     assert html =~ ~s(<summary>Navigation</summary>)
@@ -57,7 +58,10 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
     assert html =~ ~s(data-gallery-metadata)
     assert html =~ ~s(data-gallery-package-version>Package 0.1.0</p>)
     assert length(Regex.scan(~r/id="gallery-component-search"/, html)) == 1
-    assert length(Regex.scan(~r/id="gallery-search-status"/, html)) == 1
+    assert length(Regex.scan(~r/id="gallery-component-search-status"/, html)) == 1
+    assert length(Regex.scan(~r/id="gallery-mobile-component-search"/, html)) == 1
+    assert length(Regex.scan(~r/id="gallery-mobile-component-search-status"/, html)) == 1
+    assert length(Regex.scan(~r/data-gallery-search-scope=/, html)) == 2
     refute html =~ ~r/(aria-modal="true"|role="menu"|role="dialog")/
   end
 
