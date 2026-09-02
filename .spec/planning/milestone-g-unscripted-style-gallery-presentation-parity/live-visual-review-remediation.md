@@ -62,7 +62,7 @@ category route and is not an Accordion comparison target.
 
 ## R1 - Baseline And Ownership
 
-- [ ] R1 Phase - Reconcile the live review with accepted pinned truth.
+- [x] R1 Phase - Reconcile the live review with accepted pinned truth.
 
   Convert observations into reproducible local defects and explicit decisions
   before changing shared package or gallery presentation.
@@ -114,19 +114,19 @@ category route and is not an Accordion comparison target.
       - [x] R1.2.2.2 Subtask - Assert fragment destinations and both authored regions remain reachable with JavaScript and presentation CSS disabled.
       - [x] R1.2.2.3 Subtask - Assert OS reduced motion and the explicit `data-shadcn-motion="reduce"` inspection state suppress Accordion transitions while preserving open state and content.
 
-  - [ ] R1.3 Section - R1 Integration Tests.
+  - [x] R1.3 Section - R1 Integration Tests.
 
     Confirm the baseline is reproducible and that no normative contract was
     changed by planning or test scaffolding.
 
-    - [ ] R1.3.1 Task - Review the failing proof and SpecLed impact.
+    - [x] R1.3.1 Task - Review the failing proof and SpecLed impact.
 
       Baseline tests should fail narrowly and all unrelated suites should stay
       green.
 
-      - [ ] R1.3.1.1 Subtask - Run the focused Accordion, shell, specimen and narrow-width browser tests and retain the expected pre-fix failures.
-      - [ ] R1.3.1.2 Subtask - Run `mix spec.next` and update a decision or current-truth subject only if the ownership audit reveals a real contract change.
-      - [ ] R1.3.1.3 Subtask - Review the diff for accidental golden replacement, moving-site dependence or changes to completed milestone checkboxes.
+      - [x] R1.3.1.1 Subtask - Run the focused Accordion, shell, specimen and narrow-width browser tests and retain the expected pre-fix failures.
+      - [x] R1.3.1.2 Subtask - Run `mix spec.next` and update a decision or current-truth subject only if the ownership audit reveals a real contract change.
+      - [x] R1.3.1.3 Subtask - Review the diff for accidental golden replacement, moving-site dependence or changes to completed milestone checkboxes.
 
 ## R2 - Accordion Package Correctness
 

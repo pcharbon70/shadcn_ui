@@ -3,8 +3,10 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR1Test do
 
   @baseline_path "priv/reference/milestone_g/remediation-r1-baseline.json"
   @reference_path "priv/reference/milestone_g/presentation-reference.json"
+  @integration_path "priv/reference/milestone_g/remediation-r1-section-3-evidence.json"
   @baseline @baseline_path |> File.read!() |> Jason.decode!()
   @reference @reference_path |> File.read!() |> Jason.decode!()
+  @integration @integration_path |> File.read!() |> Jason.decode!()
 
   # covers: shadcn_ui.gallery_presentation.pinned_reference
   # covers: shadcn_ui.gallery_presentation.visual_evidence
@@ -55,5 +57,36 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR1Test do
     assert ownership["primaryFaqCopy"]["decision"] == "align-with-pinned-source"
     assert length(ownership["intentionalExceptions"]) == 6
     assert map_size(@baseline["expectedOutcomes"]) == 5
+  end
+
+  test "integration evidence distinguishes expected defects from inherited regressions" do
+    results = @integration["results"]
+
+    assert @integration["status"] == "passed-remediation-r1-complete"
+    assert results["packageAccordion"]["status"] == "passed"
+    assert results["demoReference"]["status"] == "passed"
+    assert results["shellBrowser"]["status"] == "passed"
+    assert results["presentationBrowser"]["status"] == "passed"
+    assert results["accordionAcceptance"]["engines"] == ~w(chromium firefox webkit)
+    assert results["remediationBrowser"]["expectedFailures"] == 5
+    assert results["remediationBrowser"]["ordinaryPasses"] == 1
+    assert results["remediationBrowser"]["unexpectedFailures"] == 0
+    assert results["remediationBrowser"]["unexpectedPasses"] == 0
+
+    assert @integration["specLed"] == %{
+             "next" => "ready-for-check",
+             "check" => "passed",
+             "errors" => 0,
+             "warnings" => 0,
+             "branchFindings" => 0
+           }
+
+    assert @integration["diffReview"]["gitDiffCheck"] == "passed"
+    assert @integration["diffReview"]["goldenFilesChanged"] == []
+    assert @integration["diffReview"]["movingSiteRuntimeInputs"] == []
+    assert @integration["diffReview"]["completedMilestoneCheckboxesChanged"] == []
+    assert @integration["reconciliation"]["decisionChangeRequired"] == false
+    assert @integration["reconciliation"]["currentTruthChangeRequired"] == false
+    assert @integration["reconciliation"]["goldensChanged"] == []
   end
 end

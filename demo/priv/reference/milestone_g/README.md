@@ -12,6 +12,10 @@ goldens, explicit upstream differences and the reusable migration template.
 Accordion input identity, pre-fix geometry, package-versus-gallery ownership and
 the accepted remediation outcomes without promoting the moving public site to a
 verification input.
+`remediation-r1-section-3-evidence.json` records the focused inherited gates,
+five confirmed expected-failure regressions, progressive fallback pass and
+SpecLed reconciliation that close the baseline phase without claiming the R2
+or R3 fixes already exist.
 The source-derived states are authoritative Phase 1 inputs because a moving
 deployment cannot be deterministic. Later phases add reviewed local ShadcnUI
 raster goldens without changing these upstream identities silently.
