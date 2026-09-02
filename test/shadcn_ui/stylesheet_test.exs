@@ -173,8 +173,18 @@ defmodule ShadcnUI.StylesheetTest do
     assert source =~ "@supports selector(details::details-content)"
     assert source =~ "interpolate-size: allow-keywords"
     assert source =~ "[data-shadcn-ui-accordion-item]::details-content"
+    assert source =~ "[data-shadcn-ui-accordion-summary] {"
+    assert source =~ "box-sizing: border-box"
+    assert source =~ "inline-size: 100%"
+    assert source =~ "overflow-wrap: anywhere"
+    assert source =~ "[data-shadcn-ui-accordion-summary]::after"
+    assert source =~ "border-inline-end: 2px solid currentColor"
+    assert source =~ "transform: rotate(225deg)"
+    assert source =~ "var(--shadcn-ui-motion-slow) ease-out"
+    assert source =~ ~s([data-shadcn-motion="reduce"])
+    assert source =~ ~s([data-shadcn-ui-motion="none"])
     assert source =~ "transition: none !important"
-    assert source =~ "[data-shadcn-ui-accordion-summary]::marker"
+    assert source =~ "[data-shadcn-ui-accordion-summary]::-webkit-details-marker"
     assert source =~ "border-color: CanvasText"
 
     assert css =~ "data-shadcn-ui-accordion-item"

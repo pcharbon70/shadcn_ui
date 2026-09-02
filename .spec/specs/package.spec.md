@@ -63,7 +63,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.package.no_consumer_asset_toolchain
-  statement: A package consumer shall use the distributed stylesheet without installing Node.js, Tailwind CSS, or a ShadcnUI JavaScript runtime.
+  statement: A package consumer shall receive component-scoped Accordion geometry, decorative affordance, row presentation, and reduced-motion behavior in the distributed stylesheet and use that stylesheet without installing Node.js, Tailwind CSS, or a ShadcnUI JavaScript runtime.
   priority: must
   stability: stable
 ```

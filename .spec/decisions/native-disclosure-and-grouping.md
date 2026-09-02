@@ -7,6 +7,9 @@ affects:
   - shadcn_ui.disclosure_components
   - shadcn_ui.stylesheet
   - shadcn_ui.content_navigation_gallery
+  - shadcn_ui.package
+  - shadcn_ui.public_documentation
+  - shadcn_ui.gallery_presentation
 ---
 
 # Use Native Details For Disclosure And Grouping
@@ -39,6 +42,11 @@ Accordion is a composition of native `details` and `summary` elements.
 - Optional marker, height, and open-state animation is presentation only. All
   content remains reachable when CSS, exclusive grouping, or animation support
   is absent, and reduced motion removes nonessential animation.
+- The package owns a reset-independent default with contained summaries,
+  contiguous bottom-divider rows, a decorative native-state chevron, and
+  component-scoped reveal motion. Caller classes and theme tokens remain
+  effective, and the gallery verifies this package presentation without
+  replacing native disclosure or adding a gallery-only component override.
 - Applications own authorization, lazy loading, analytics, URL synchronization,
   validation, and any persisted disclosure state.
 

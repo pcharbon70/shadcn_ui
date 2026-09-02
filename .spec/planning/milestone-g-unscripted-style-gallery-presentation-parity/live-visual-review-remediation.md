@@ -130,74 +130,74 @@ category route and is not an Accordion comparison target.
 
 ## R2 - Accordion Package Correctness
 
-- [ ] R2 Phase - Correct reusable Accordion geometry and visual affordance.
+- [x] R2 Phase - Correct reusable Accordion geometry and visual affordance.
 
   Fix the package-level defects using scoped styles and native disclosure state,
   without adding a second interaction model.
 
-  - [ ] R2.1 Section - Contain summary and focus geometry.
+  - [x] R2.1 Section - Contain summary and focus geometry.
 
     Width utilities and padding must resolve inside the item border even when
     no consumer reset supplies global `border-box` sizing.
 
-    - [ ] R2.1.1 Task - Apply component-scoped border-box sizing.
+    - [x] R2.1.1 Task - Apply component-scoped border-box sizing.
 
       Preserve the no-global-reset and BulmaUI coexistence contract.
 
-      - [ ] R2.1.1.1 Subtask - Add a prefixed utility or exact Accordion selector so summary width includes its inline padding and border.
-      - [ ] R2.1.1.2 Subtask - Verify long summaries wrap without inline overflow in LTR and RTL.
-      - [ ] R2.1.1.3 Subtask - Verify focus outlines remain fully visible at narrow width, 200 percent zoom and forced colors.
+      - [x] R2.1.1.1 Subtask - Add a prefixed utility or exact Accordion selector so summary width includes its inline padding and border.
+      - [x] R2.1.1.2 Subtask - Verify long summaries wrap without inline overflow in LTR and RTL.
+      - [x] R2.1.1.3 Subtask - Verify focus outlines remain fully visible at narrow width, 200 percent zoom and forced colors.
 
-  - [ ] R2.2 Section - Restore the disclosure affordance and accepted motion.
+  - [x] R2.2 Section - Restore the disclosure affordance and accepted motion.
 
     The visual indicator is decorative; native expanded state and activation
     remain authoritative.
 
-    - [ ] R2.2.1 Task - Add an open-state chevron.
+    - [x] R2.2.1 Task - Add an open-state chevron.
 
       Match the pinned shape, position and rotation without adding hidden text,
       duplicate controls or scripted state.
 
-      - [ ] R2.2.1.1 Subtask - Render a CSS-generated logical-end chevron with sufficient contrast in light, dark and forced-colors modes.
-      - [ ] R2.2.1.2 Subtask - Rotate it from closed to open using the native `[open]` state and keep it out of the accessibility tree.
-      - [ ] R2.2.1.3 Subtask - Remove or retain native marker styling only where it has a visible fallback purpose; do not produce duplicate indicators.
+      - [x] R2.2.1.1 Subtask - Render a CSS-generated logical-end chevron with sufficient contrast in light, dark and forced-colors modes.
+      - [x] R2.2.1.2 Subtask - Rotate it from closed to open using the native `[open]` state and keep it out of the accessibility tree.
+      - [x] R2.2.1.3 Subtask - Remove or retain native marker styling only where it has a visible fallback purpose; do not produce duplicate indicators.
 
-    - [ ] R2.2.2 Task - Reconcile component transition behavior.
+    - [x] R2.2.2 Task - Reconcile component transition behavior.
 
       Pinned timing may be adapted through component-scoped values, but reduced
       motion must always win.
 
-      - [ ] R2.2.2.1 Subtask - Align reveal, opacity and chevron timing/easing with the R1 pinned measurement or record the token-based exception.
-      - [ ] R2.2.2.2 Subtask - Make the Accordion a recognized motion root or add an exact ancestor suppression rule for explicit none/reduce states.
-      - [ ] R2.2.2.3 Subtask - Preserve instant native disclosure when animation capabilities are missing.
+      - [x] R2.2.2.1 Subtask - Align reveal, opacity and chevron timing/easing with the R1 pinned measurement or record the token-based exception.
+      - [x] R2.2.2.2 Subtask - Make the Accordion a recognized motion root or add an exact ancestor suppression rule for explicit none/reduce states.
+      - [x] R2.2.2.3 Subtask - Preserve instant native disclosure when animation capabilities are missing.
 
-  - [ ] R2.3 Section - Align reusable row presentation where approved.
+  - [x] R2.3 Section - Align reusable row presentation where approved.
 
     Apply only the R1 package-owned portion of borders, spacing, hover and text
     treatment; leave article-specific composition in R4.
 
-    - [ ] R2.3.1 Task - Implement the accepted default or modifier contract.
+    - [x] R2.3.1 Task - Implement the accepted default or modifier contract.
 
       Avoid a gallery override that accidentally changes every consumer, and
       avoid retaining unexplained drift in the primary example.
 
-      - [ ] R2.3.1.1 Subtask - Implement the accepted contiguous dividers or preserve rounded items behind an explicit documented presentation choice.
-      - [ ] R2.3.1.2 Subtask - Align summary padding, minimum target size, answer foreground and hover underline without relying on color alone.
-      - [ ] R2.3.1.3 Subtask - Verify caller classes, themes and consumer token overrides remain effective.
+      - [x] R2.3.1.1 Subtask - Implement the accepted contiguous dividers or preserve rounded items behind an explicit documented presentation choice.
+      - [x] R2.3.1.2 Subtask - Align summary padding, minimum target size, answer foreground and hover underline without relying on color alone.
+      - [x] R2.3.1.3 Subtask - Verify caller classes, themes and consumer token overrides remain effective.
 
-  - [ ] R2.4 Section - R2 Integration Tests.
+  - [x] R2.4 Section - R2 Integration Tests.
 
     Prove the component fix through package fixtures, compiled CSS and real
     gallery rendering.
 
-    - [ ] R2.4.1 Task - Run package and browser acceptance.
+    - [x] R2.4.1 Task - Run package and browser acceptance.
 
       The generated asset and semantic contract must remain deterministic.
 
-      - [ ] R2.4.1.1 Subtask - Run Accordion rendering tests, stylesheet tests, the native fixture suite and Milestone C acceptance.
-      - [ ] R2.4.1.2 Subtask - Run narrow, zoom, RTL, forced-colors, reduced-motion, CSS-disabled and no-script Accordion browser states in both themes.
-      - [ ] R2.4.1.3 Subtask - Run the locked asset build/check, package archive audit and BulmaUI coexistence coverage.
-      - [ ] R2.4.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check` before section delivery.
+      - [x] R2.4.1.1 Subtask - Run Accordion rendering tests, stylesheet tests, the native fixture suite and Milestone C acceptance.
+      - [x] R2.4.1.2 Subtask - Run narrow, zoom, RTL, forced-colors, reduced-motion, CSS-disabled and no-script Accordion browser states in both themes.
+      - [x] R2.4.1.3 Subtask - Run the locked asset build/check, package archive audit and BulmaUI coexistence coverage.
+      - [x] R2.4.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check` before section delivery.
 
 ## R3 - Gallery Navigation And Specimen State
 

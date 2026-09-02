@@ -59,7 +59,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.public_documentation.compatibility_and_fallback
-  statement: Documentation shall identify native baselines, optional capability-gated enhancements, exact fallbacks, reduced-motion behavior, and how current browser evidence differs from normative policy.
+  statement: Documentation shall identify native baselines, optional capability-gated enhancements, exact fallbacks, reduced-motion behavior, and how current browser evidence differs from normative policy, including that Accordion row, chevron, and reveal presentation is CSS-only while native details state and access remain authoritative.
   priority: must
   stability: stable
 

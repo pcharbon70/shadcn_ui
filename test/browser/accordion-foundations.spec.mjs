@@ -58,6 +58,44 @@ test("exclusive name uses native grouping where supported and remains independen
   }
 });
 
+test("decorative chevron follows native open state and every motion suppression scope", async ({ page }) => {
+  await loadFixture(page);
+  const root = page.locator("#independent");
+  const details = page.locator("#independent-item-security");
+  const summary = details.locator("summary");
+
+  const readIndicator = () => summary.evaluate((element) => {
+    const style = getComputedStyle(element, "::after");
+    return {
+      content: style.content,
+      width: style.width,
+      height: style.height,
+      color: style.color,
+      transform: style.transform,
+      transitionDuration: style.transitionDuration,
+      transitionTimingFunction: style.transitionTimingFunction
+    };
+  });
+
+  const closed = await readIndicator();
+  await summary.click();
+  await expect.poll(async () => (await readIndicator()).transform).not.toBe(closed.transform);
+  const open = await readIndicator();
+
+  expect(["\"\"", "''"]).toContain(closed.content);
+  expect(closed.width).toBe("10px");
+  expect(closed.height).toBe("10px");
+  expect(closed.transform).not.toBe(open.transform);
+  expect(closed.transitionDuration).toBe("0.25s");
+  expect(closed.transitionTimingFunction).toBe("ease-out");
+
+  await root.evaluate(element => { element.dataset.shadcnUiMotion = "none"; });
+  expect((await readIndicator()).transitionDuration).toBe("0s");
+  await root.evaluate(element => { delete element.dataset.shadcnUiMotion; });
+  await page.locator("html").evaluate(element => { element.dataset.shadcnMotion = "reduce"; });
+  expect((await readIndicator()).transitionDuration).toBe("0s");
+});
+
 test("no-CSS and no-script mode retains summaries, content, and native activation", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
@@ -83,6 +121,30 @@ test("themes, narrow zoom, reduced motion, and forced colors preserve state and 
   await expect(page.locator('[data-shadcn-theme="dark"]')).toBeVisible();
   await expect(page.getByText("First exclusive content.", { exact: true })).toBeVisible();
   await expect(page.locator("#independent-item-billing")).toHaveCSS("border-top-style", "solid");
+
+  for (const direction of ["ltr", "rtl"]) {
+    await page.locator("#independent").evaluate((element, value) => { element.dir = value; }, direction);
+    const summary = page.locator("#independent-item-billing-summary");
+    await summary.focus();
+    const geometry = await summary.evaluate((element) => {
+      const item = element.closest("details");
+      const summaryRect = element.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      return {
+        summaryLeft: summaryRect.left,
+        summaryRight: summaryRect.right,
+        itemLeft: itemRect.left,
+        itemRight: itemRect.right,
+        summaryScrollWidth: element.scrollWidth,
+        itemClientWidth: item.clientWidth
+      };
+    });
+
+    expect(geometry.summaryLeft).toBeGreaterThanOrEqual(geometry.itemLeft - 1);
+    expect(geometry.summaryRight).toBeLessThanOrEqual(geometry.itemRight + 1);
+    expect(geometry.summaryScrollWidth).toBeLessThanOrEqual(geometry.itemClientWidth + 2);
+    await expect(summary).toBeFocused();
+  }
 
   const transitionDuration = await page.locator("#independent-item-billing").evaluate((details) =>
     getComputedStyle(details, "::details-content").transitionDuration

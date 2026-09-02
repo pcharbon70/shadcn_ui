@@ -94,7 +94,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.stylesheet.reduced_motion
-  statement: The stylesheet shall preserve state and meaning while disabling or shortening nonessential component animation under prefers-reduced-motion.
+  statement: The stylesheet shall preserve state and meaning while disabling or shortening nonessential component animation under prefers-reduced-motion and documented explicit ancestor suppression scopes, including Accordion reveal and decorative indicator transitions.
   priority: must
   stability: stable
 
@@ -124,7 +124,7 @@ runtime boundary, package contents, or existing verification.
   stability: evolving
 
 - id: shadcn_ui.stylesheet.content_resilience
-  statement: Disclosure, navigation, headings, separators, overflow content, current location, selected radio state, focus, and fragment targets shall remain perceivable and operable at narrow and wide widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, and without color or decoration as the only cue.
+  statement: Disclosure summaries shall use component-scoped sizing that contains their padding, wrapping, and focus paint without a global border-box reset, and the default Accordion shall expose contiguous bottom-divider rows, zero inline summary padding, a minimum target, hover underline, and muted answer text while preserving caller and theme overrides; disclosure, navigation, headings, separators, overflow content, current location, selected radio state, focus, and fragment targets shall remain perceivable and operable in LTR and RTL at narrow and wide widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, and without color or decoration as the only cue.
   priority: must
   stability: evolving
 

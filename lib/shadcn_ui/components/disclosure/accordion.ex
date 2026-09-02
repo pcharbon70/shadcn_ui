@@ -51,7 +51,7 @@ defmodule ShadcnUI.Components.Disclosure.Accordion do
       )
       |> assign(
         :classes,
-        class_names(["sui:grid sui:w-full sui:max-w-full sui:gap-2", assigns.class])
+        class_names(["sui:grid sui:w-full sui:max-w-full sui:gap-0", assigns.class])
       )
 
     ~H"""
@@ -152,20 +152,21 @@ defmodule ShadcnUI.Components.Disclosure.Accordion do
         |> protect_globals([:id, :aria_labelledby, :data_shadcn_ui_accordion_content]),
       classes:
         class_names([
-          "sui:group sui:w-full sui:rounded-md sui:border sui:border-border",
+          "sui:group sui:w-full sui:border-0 sui:border-b sui:border-border",
           "sui:bg-background sui:text-foreground",
           Map.get(item, :class)
         ]),
       summary_classes:
         class_names([
           "sui:flex sui:w-full sui:max-w-full sui:cursor-pointer sui:items-center sui:gap-2",
-          "sui:rounded-md sui:px-4 sui:py-3 sui:text-left sui:text-sm sui:font-medium",
+          "sui:min-h-11 sui:px-0 sui:py-4 sui:text-left sui:text-sm sui:font-medium",
+          "sui:underline-offset-4 sui:hover:underline",
           classes_for(:focus, :default),
           Map.get(item, :summary_class)
         ]),
       content_classes:
         class_names([
-          "sui:min-w-0 sui:max-w-full sui:px-4 sui:pb-4 sui:text-sm sui:text-foreground",
+          "sui:min-w-0 sui:max-w-full sui:px-0 sui:pb-4 sui:text-sm sui:text-muted-foreground",
           Map.get(item, :content_class)
         ])
     }

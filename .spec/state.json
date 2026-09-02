@@ -190,7 +190,10 @@
           "shadcn_ui.component_contract",
           "shadcn_ui.disclosure_components",
           "shadcn_ui.stylesheet",
-          "shadcn_ui.content_navigation_gallery"
+          "shadcn_ui.content_navigation_gallery",
+          "shadcn_ui.package",
+          "shadcn_ui.public_documentation",
+          "shadcn_ui.gallery_presentation"
         ],
         "date": "2026-08-25",
         "file": ".spec/decisions/native-disclosure-and-grouping.md",
@@ -461,7 +464,7 @@
         "id": "shadcn_ui.component.classes_and_globals",
         "priority": "must",
         "stability": "stable",
-        "statement": "Components shall preserve required prefixed classes while accepting caller classes and documented native, aria-*, data-*, phx-*, and data-on-* global attributes that do not contradict protected semantics.",
+        "statement": "Components shall preserve required prefixed classes while accepting caller classes and documented native, aria-*, data-*, phx-*, and data-on-* global attributes that do not contradict protected semantics; deterministic package presentation defaults shall retain caller and theme overrides, with caller classes appended after package defaults.",
         "subject_id": "shadcn_ui.component_contract"
       },
       {
@@ -781,7 +784,7 @@
         "id": "shadcn_ui.disclosure.fallback",
         "priority": "must",
         "stability": "stable",
-        "statement": "Unsupported exclusive grouping shall degrade to independently operable details, and absent CSS or animation support shall retain every summary and content region in native document order with reduced motion preserving state and access.",
+        "statement": "Unsupported exclusive grouping shall degrade to independently operable details, and absent CSS or animation support shall retain every summary and content region in native document order; the decorative logical-end chevron shall follow native open state, while operating-system reduction and explicit ancestor motion suppression remove its and the content reveal's transitions without changing state or access.",
         "subject_id": "shadcn_ui.disclosure_components"
       },
       {
@@ -813,7 +816,7 @@
         "id": "shadcn_ui.disclosure.shared_contract",
         "priority": "must",
         "stability": "stable",
-        "statement": "Accordion shall follow the shared closed-value, slot, escaping, caller-global, protected-semantics, deterministic-identity, presentation-snapshot, theme, and progressive-floor requirements.",
+        "statement": "Accordion shall follow the shared closed-value, slot, escaping, caller-global, protected-semantics, deterministic-identity, presentation-snapshot, theme, and progressive-floor requirements, with component-scoped summary sizing that contains inline padding, wrapping, and visible focus without relying on a consumer reset; its default presentation shall use contiguous bottom-divider rows, zero inline summary padding, a minimum target, hover underline, and muted answer text while leaving caller and theme overrides effective.",
         "subject_id": "shadcn_ui.disclosure_components"
       },
       {
@@ -1357,7 +1360,7 @@
         "id": "shadcn_ui.gallery_presentation.accessibility_matrix",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Presentation acceptance shall retain keyboard, visible-focus, pinned axe, 200 percent zoom, narrow width, forced-colors, reduced-motion, CSS-disabled and no-script coverage in both themes while keeping source order and landmarks independent of cosmetic classes.",
+        "statement": "Presentation acceptance shall retain keyboard, visible-focus, pinned axe, 200 percent zoom, narrow width, forced-colors, reduced-motion, CSS-disabled and no-script coverage in both themes, including LTR and RTL Accordion containment plus package-owned row, chevron, and motion outcomes, while keeping source order and landmarks independent of cosmetic classes.",
         "subject_id": "shadcn_ui.gallery_presentation"
       },
       {
@@ -2037,7 +2040,7 @@
         "id": "shadcn_ui.package.no_consumer_asset_toolchain",
         "priority": "must",
         "stability": "stable",
-        "statement": "A package consumer shall use the distributed stylesheet without installing Node.js, Tailwind CSS, or a ShadcnUI JavaScript runtime.",
+        "statement": "A package consumer shall receive component-scoped Accordion geometry, decorative affordance, row presentation, and reduced-motion behavior in the distributed stylesheet and use that stylesheet without installing Node.js, Tailwind CSS, or a ShadcnUI JavaScript runtime.",
         "subject_id": "shadcn_ui.package"
       },
       {
@@ -2181,7 +2184,7 @@
         "id": "shadcn_ui.public_documentation.compatibility_and_fallback",
         "priority": "must",
         "stability": "stable",
-        "statement": "Documentation shall identify native baselines, optional capability-gated enhancements, exact fallbacks, reduced-motion behavior, and how current browser evidence differs from normative policy.",
+        "statement": "Documentation shall identify native baselines, optional capability-gated enhancements, exact fallbacks, reduced-motion behavior, and how current browser evidence differs from normative policy, including that Accordion row, chevron, and reveal presentation is CSS-only while native details state and access remain authoritative.",
         "subject_id": "shadcn_ui.public_documentation"
       },
       {
@@ -2357,7 +2360,7 @@
         "id": "shadcn_ui.stylesheet.content_resilience",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Disclosure, navigation, headings, separators, overflow content, current location, selected radio state, focus, and fragment targets shall remain perceivable and operable at narrow and wide widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, and without color or decoration as the only cue.",
+        "statement": "Disclosure summaries shall use component-scoped sizing that contains their padding, wrapping, and focus paint without a global border-box reset, and the default Accordion shall expose contiguous bottom-divider rows, zero inline summary padding, a minimum target, hover underline, and muted answer text while preserving caller and theme overrides; disclosure, navigation, headings, separators, overflow content, current location, selected radio state, focus, and fragment targets shall remain perceivable and operable in LTR and RTL at narrow and wide widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, and without color or decoration as the only cue.",
         "subject_id": "shadcn_ui.stylesheet"
       },
       {
@@ -2429,7 +2432,7 @@
         "id": "shadcn_ui.stylesheet.reduced_motion",
         "priority": "must",
         "stability": "stable",
-        "statement": "The stylesheet shall preserve state and meaning while disabling or shortening nonessential component animation under prefers-reduced-motion.",
+        "statement": "The stylesheet shall preserve state and meaning while disabling or shortening nonessential component animation under prefers-reduced-motion and documented explicit ancestor suppression scopes, including Accordion reveal and decorative indicator transitions.",
         "subject_id": "shadcn_ui.stylesheet"
       },
       {

@@ -95,6 +95,11 @@ selects `start`, `end`, or `bottom`, and `size` selects `small`, `default`, or
 and stable gutters progressively enhance native overflow; unsupported engines
 retain native scrolling rather than acquiring a package scroll runtime.
 
+The generated Drawer browser fixture includes an Accordion as ordinary trusted
+caller content. Regenerating that nested component after package presentation
+changes does not alter Drawer modality, focus, dismissal, scrolling, or layout
+contracts; the locked three-engine Dialog suite remains the behavioral proof.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/components/overlays/dialog_test.exs
