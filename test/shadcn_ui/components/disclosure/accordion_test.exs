@@ -126,6 +126,22 @@ defmodule ShadcnUI.Components.Disclosure.AccordionTest do
     refute html =~ ~s(aria-labelledby="override")
   end
 
+  test "renders the contiguous divider default while preserving caller presentation classes" do
+    html = render_accordion()
+
+    assert html =~ "sui:gap-0 consumer-accordion"
+
+    assert html =~
+             "sui:border-0 sui:border-b sui:border-border sui:bg-background sui:text-foreground consumer-item"
+
+    assert html =~
+             "sui:min-h-11 sui:px-0 sui:py-4 sui:text-left sui:text-sm sui:font-medium sui:underline-offset-4 sui:hover:underline"
+
+    assert html =~ "sui:text-muted-foreground consumer-content"
+    refute html =~ "sui:rounded-md"
+    refute html =~ "sui:px-4"
+  end
+
   test "rejects blank or unsafe identities, duplicate keys, malformed summaries, and invalid snapshots" do
     for id <- [nil, "", "  ", "1-start", "has space", "unsafe/segment"] do
       assert_raise ArgumentError, fn -> render_accordion(id: id) end

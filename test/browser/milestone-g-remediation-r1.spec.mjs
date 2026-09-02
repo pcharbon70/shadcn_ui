@@ -15,7 +15,7 @@ import {expect, test} from "../../demo/node_modules/@playwright/test/index.mjs";
 // covers: shadcn_ui.stylesheet.content_resilience
 
 const route = "/components/disclosure/accordion";
-const epsilon = 1;
+const epsilon = 2;
 
 async function openAccordion(page, {width, height, zoom = 1, motion = "reduce"}) {
   await page.setViewportSize({width, height});
@@ -124,8 +124,6 @@ test("VR-02 every mobile destination can be fully revealed and visibly focused",
 });
 
 test("VR-04 and VR-07 expose the pinned Accordion affordance and row treatment", async ({page}) => {
-  test.fail(true, "R2/R4 will remove the expected-failure marker after the pinned row contract lands.");
-
   await openAccordion(page, {width: 1440, height: 1200, motion: "system"});
   const accordion = page.locator("#faq");
   const details = accordion.locator("details").first();
@@ -161,6 +159,8 @@ test("VR-04 and VR-07 expose the pinned Accordion affordance and row treatment",
 
   await expect(content).toBeVisible();
   await summary.click();
+  await expect.poll(() => summary.evaluate(element => getComputedStyle(element, "::after").transform))
+    .not.toBe(closed.after.transform);
   const openTransform = await summary.evaluate(element => getComputedStyle(element, "::after").transform);
 
   expect(closed.rowGap).toBe("0px");

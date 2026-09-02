@@ -46,7 +46,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.component.classes_and_globals
-  statement: Components shall preserve required prefixed classes while accepting caller classes and documented native, aria-*, data-*, phx-*, and data-on-* global attributes that do not contradict protected semantics.
+  statement: Components shall preserve required prefixed classes while accepting caller classes and documented native, aria-*, data-*, phx-*, and data-on-* global attributes that do not contradict protected semantics; deterministic package presentation defaults shall retain caller and theme overrides, with caller classes appended after package defaults.
   priority: must
   stability: stable
 

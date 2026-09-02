@@ -171,19 +171,19 @@ category route and is not an Accordion comparison target.
       - [x] R2.2.2.2 Subtask - Make the Accordion a recognized motion root or add an exact ancestor suppression rule for explicit none/reduce states.
       - [x] R2.2.2.3 Subtask - Preserve instant native disclosure when animation capabilities are missing.
 
-  - [ ] R2.3 Section - Align reusable row presentation where approved.
+  - [x] R2.3 Section - Align reusable row presentation where approved.
 
     Apply only the R1 package-owned portion of borders, spacing, hover and text
     treatment; leave article-specific composition in R4.
 
-    - [ ] R2.3.1 Task - Implement the accepted default or modifier contract.
+    - [x] R2.3.1 Task - Implement the accepted default or modifier contract.
 
       Avoid a gallery override that accidentally changes every consumer, and
       avoid retaining unexplained drift in the primary example.
 
-      - [ ] R2.3.1.1 Subtask - Implement the accepted contiguous dividers or preserve rounded items behind an explicit documented presentation choice.
-      - [ ] R2.3.1.2 Subtask - Align summary padding, minimum target size, answer foreground and hover underline without relying on color alone.
-      - [ ] R2.3.1.3 Subtask - Verify caller classes, themes and consumer token overrides remain effective.
+      - [x] R2.3.1.1 Subtask - Implement the accepted contiguous dividers or preserve rounded items behind an explicit documented presentation choice.
+      - [x] R2.3.1.2 Subtask - Align summary padding, minimum target size, answer foreground and hover underline without relying on color alone.
+      - [x] R2.3.1.3 Subtask - Verify caller classes, themes and consumer token overrides remain effective.
 
   - [ ] R2.4 Section - R2 Integration Tests.
 
