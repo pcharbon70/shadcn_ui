@@ -68,7 +68,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.disclosure.shared_contract
-  statement: Accordion shall follow the shared closed-value, slot, escaping, caller-global, protected-semantics, deterministic-identity, presentation-snapshot, theme, and progressive-floor requirements.
+  statement: Accordion shall follow the shared closed-value, slot, escaping, caller-global, protected-semantics, deterministic-identity, presentation-snapshot, theme, and progressive-floor requirements, with component-scoped summary sizing that contains inline padding, wrapping, and visible focus without relying on a consumer reset.
   priority: must
   stability: stable
 ```

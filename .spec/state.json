@@ -813,7 +813,7 @@
         "id": "shadcn_ui.disclosure.shared_contract",
         "priority": "must",
         "stability": "stable",
-        "statement": "Accordion shall follow the shared closed-value, slot, escaping, caller-global, protected-semantics, deterministic-identity, presentation-snapshot, theme, and progressive-floor requirements.",
+        "statement": "Accordion shall follow the shared closed-value, slot, escaping, caller-global, protected-semantics, deterministic-identity, presentation-snapshot, theme, and progressive-floor requirements, with component-scoped summary sizing that contains inline padding, wrapping, and visible focus without relying on a consumer reset.",
         "subject_id": "shadcn_ui.disclosure_components"
       },
       {
@@ -2357,7 +2357,7 @@
         "id": "shadcn_ui.stylesheet.content_resilience",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Disclosure, navigation, headings, separators, overflow content, current location, selected radio state, focus, and fragment targets shall remain perceivable and operable at narrow and wide widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, and without color or decoration as the only cue.",
+        "statement": "Disclosure summaries shall use component-scoped sizing that contains their padding, wrapping, and focus paint without a global border-box reset, and disclosure, navigation, headings, separators, overflow content, current location, selected radio state, focus, and fragment targets shall remain perceivable and operable in LTR and RTL at narrow and wide widths, 200 percent zoom, forced colors, reduced motion, light and dark themes, and without color or decoration as the only cue.",
         "subject_id": "shadcn_ui.stylesheet"
       },
       {

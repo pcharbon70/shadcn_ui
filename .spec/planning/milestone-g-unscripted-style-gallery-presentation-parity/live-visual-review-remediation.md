@@ -135,18 +135,18 @@ category route and is not an Accordion comparison target.
   Fix the package-level defects using scoped styles and native disclosure state,
   without adding a second interaction model.
 
-  - [ ] R2.1 Section - Contain summary and focus geometry.
+  - [x] R2.1 Section - Contain summary and focus geometry.
 
     Width utilities and padding must resolve inside the item border even when
     no consumer reset supplies global `border-box` sizing.
 
-    - [ ] R2.1.1 Task - Apply component-scoped border-box sizing.
+    - [x] R2.1.1 Task - Apply component-scoped border-box sizing.
 
       Preserve the no-global-reset and BulmaUI coexistence contract.
 
-      - [ ] R2.1.1.1 Subtask - Add a prefixed utility or exact Accordion selector so summary width includes its inline padding and border.
-      - [ ] R2.1.1.2 Subtask - Verify long summaries wrap without inline overflow in LTR and RTL.
-      - [ ] R2.1.1.3 Subtask - Verify focus outlines remain fully visible at narrow width, 200 percent zoom and forced colors.
+      - [x] R2.1.1.1 Subtask - Add a prefixed utility or exact Accordion selector so summary width includes its inline padding and border.
+      - [x] R2.1.1.2 Subtask - Verify long summaries wrap without inline overflow in LTR and RTL.
+      - [x] R2.1.1.3 Subtask - Verify focus outlines remain fully visible at narrow width, 200 percent zoom and forced colors.
 
   - [ ] R2.2 Section - Restore the disclosure affordance and accepted motion.
 

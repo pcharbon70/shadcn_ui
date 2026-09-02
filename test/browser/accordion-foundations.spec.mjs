@@ -84,6 +84,30 @@ test("themes, narrow zoom, reduced motion, and forced colors preserve state and 
   await expect(page.getByText("First exclusive content.", { exact: true })).toBeVisible();
   await expect(page.locator("#independent-item-billing")).toHaveCSS("border-top-style", "solid");
 
+  for (const direction of ["ltr", "rtl"]) {
+    await page.locator("#independent").evaluate((element, value) => { element.dir = value; }, direction);
+    const summary = page.locator("#independent-item-billing-summary");
+    await summary.focus();
+    const geometry = await summary.evaluate((element) => {
+      const item = element.closest("details");
+      const summaryRect = element.getBoundingClientRect();
+      const itemRect = item.getBoundingClientRect();
+      return {
+        summaryLeft: summaryRect.left,
+        summaryRight: summaryRect.right,
+        itemLeft: itemRect.left,
+        itemRight: itemRect.right,
+        summaryScrollWidth: element.scrollWidth,
+        itemClientWidth: item.clientWidth
+      };
+    });
+
+    expect(geometry.summaryLeft).toBeGreaterThanOrEqual(geometry.itemLeft - 1);
+    expect(geometry.summaryRight).toBeLessThanOrEqual(geometry.itemRight + 1);
+    expect(geometry.summaryScrollWidth).toBeLessThanOrEqual(geometry.itemClientWidth + 1);
+    await expect(summary).toBeFocused();
+  }
+
   const transitionDuration = await page.locator("#independent-item-billing").evaluate((details) =>
     getComputedStyle(details, "::details-content").transitionDuration
   );

@@ -33,8 +33,6 @@ function seconds(value) {
 }
 
 test("VR-03 summaries and focus paint stay inside their details and specimen", async ({page}) => {
-  test.fail(true, "R2 will remove the expected-failure marker after scoped border-box sizing lands.");
-
   const violations = [];
   for (const state of [
     {id: "desktop", width: 1440, height: 1200},
@@ -47,31 +45,35 @@ test("VR-03 summaries and focus paint stay inside their details and specimen", a
     await specimen.scrollIntoViewIfNeeded();
     const summaries = specimen.locator("[data-shadcn-ui-accordion-summary]");
 
-    for (let index = 0; index < await summaries.count(); index += 1) {
-      const summary = summaries.nth(index);
-      await summary.focus();
-      const geometry = await summary.evaluate((element) => {
-        const details = element.closest("details");
-        const preview = element.closest("[data-gallery-specimen-preview]");
-        const summaryRect = element.getBoundingClientRect();
-        const detailsRect = details.getBoundingClientRect();
-        const previewRect = preview.getBoundingClientRect();
-        return {
-          summary: {left: summaryRect.left, right: summaryRect.right},
-          details: {left: detailsRect.left, right: detailsRect.right, clientWidth: details.clientWidth},
-          preview: {left: previewRect.left, right: previewRect.right},
-          summaryScrollWidth: element.scrollWidth,
-          active: document.activeElement === element
-        };
-      });
+    for (const direction of ["ltr", "rtl"]) {
+      await specimen.evaluate((element, value) => { element.dir = value; }, direction);
 
-      if (geometry.summary.left < geometry.details.left - epsilon ||
-          geometry.summary.right > geometry.details.right + epsilon ||
-          geometry.summaryScrollWidth > geometry.details.clientWidth + epsilon ||
-          geometry.summary.left - 4 < geometry.preview.left - epsilon ||
-          geometry.summary.right + 4 > geometry.preview.right + epsilon ||
-          !geometry.active) {
-        violations.push({state: state.id, index, geometry});
+      for (let index = 0; index < await summaries.count(); index += 1) {
+        const summary = summaries.nth(index);
+        await summary.focus();
+        const geometry = await summary.evaluate((element) => {
+          const details = element.closest("details");
+          const preview = element.closest("[data-gallery-specimen-preview]");
+          const summaryRect = element.getBoundingClientRect();
+          const detailsRect = details.getBoundingClientRect();
+          const previewRect = preview.getBoundingClientRect();
+          return {
+            summary: {left: summaryRect.left, right: summaryRect.right},
+            details: {left: detailsRect.left, right: detailsRect.right, clientWidth: details.clientWidth},
+            preview: {left: previewRect.left, right: previewRect.right},
+            summaryScrollWidth: element.scrollWidth,
+            active: document.activeElement === element
+          };
+        });
+
+        if (geometry.summary.left < geometry.details.left - epsilon ||
+            geometry.summary.right > geometry.details.right + epsilon ||
+            geometry.summaryScrollWidth > geometry.details.clientWidth + epsilon ||
+            geometry.summary.left - 4 < geometry.preview.left - epsilon ||
+            geometry.summary.right + 4 > geometry.preview.right + epsilon ||
+            !geometry.active) {
+          violations.push({state: state.id, direction, index, geometry});
+        }
       }
     }
   }

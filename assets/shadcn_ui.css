@@ -436,6 +436,18 @@
 }
 
 /* Native details/summary remains the Accordion interaction and fallback. */
+[data-shadcn-ui-accordion-summary] {
+  box-sizing: border-box;
+  min-inline-size: 0;
+  inline-size: 100%;
+  max-inline-size: 100%;
+}
+
+[data-shadcn-ui-accordion-summary] > span {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
 [data-shadcn-ui-accordion-summary]::marker {
   color: var(--shadcn-ui-muted-foreground);
 }
