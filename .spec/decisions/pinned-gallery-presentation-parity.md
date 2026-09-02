@@ -112,6 +112,13 @@ API. Cross-milestone acceptance therefore targets stable article/specimen hooks
 and scopes component-control assertions to the rendered preview; visible section
 labels may evolve without weakening the underlying guidance or native contract.
 
+The server-rendered motion inspection choice remains a declarative
+`data-shadcn-motion` ancestor. Explicit Reduce, a component's package motion-none
+scope and the operating-system preference all suppress Accordion reveal and
+chevron transitions without changing native `open` state. System removes only
+the explicit suppression and never promises or forces animation when the
+platform capability or operating-system permission is absent.
+
 Deterministic syntax highlighting, if used, runs only over closed authored HEEx
 at the demo build or server-render boundary and emits escaped static markup.
 There is no browser tokenizer, remote asset, dynamic evaluator or package

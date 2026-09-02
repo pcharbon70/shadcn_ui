@@ -236,18 +236,18 @@ category route and is not an Accordion comparison target.
       - [x] R3.2.1.3 Subtask - Keep unknown fragments inert and restrict lookup to closed authored specimen identities.
       - [x] R3.2.1.4 Subtask - Verify no-script direct fragments expose the addressed content and never depend on JavaScript for reachability.
 
-  - [ ] R3.3 Section - Connect the explicit motion inspection state.
+  - [x] R3.3 Section - Connect the explicit motion inspection state.
 
     The demo's Reduce control must exercise the same component outcome promised
     by OS reduced motion.
 
-    - [ ] R3.3.1 Task - Apply the authored motion preference to Accordion.
+    - [x] R3.3.1 Task - Apply the authored motion preference to Accordion.
 
       Keep the preference declarative and ancestor-scoped.
 
-      - [ ] R3.3.1.1 Subtask - Verify `data-shadcn-motion="reduce"`, package motion-none and `prefers-reduced-motion` all remove Accordion reveal and chevron transitions.
-      - [ ] R3.3.1.2 Subtask - Verify returning to system motion restores only capability-gated presentation and never changes open state.
-      - [ ] R3.3.1.3 Subtask - Add exact computed-style assertions instead of relying only on screenshots.
+      - [x] R3.3.1.1 Subtask - Verify `data-shadcn-motion="reduce"`, package motion-none and `prefers-reduced-motion` all remove Accordion reveal and chevron transitions.
+      - [x] R3.3.1.2 Subtask - Verify returning to system motion restores only capability-gated presentation and never changes open state.
+      - [x] R3.3.1.3 Subtask - Add exact computed-style assertions instead of relying only on screenshots.
 
   - [ ] R3.4 Section - R3 Integration Tests.
 

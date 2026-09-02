@@ -54,6 +54,20 @@ defmodule ShadcnUIDemo.GalleryPresentationSystemTest do
     assert css =~ ".gallery-specimen__panel:target"
   end
 
+  test "motion inspection is declarative and ancestor scoped" do
+    root = File.read!("lib/shadcn_ui_demo_web/components/layouts/root.html.heex")
+    css = File.read!("../assets/shadcn_ui.css")
+
+    assert root =~ ~s(data-shadcn-motion={assigns[:motion] || "system"})
+
+    assert css =~
+             ~s|:is([data-shadcn-motion="reduce"], [data-shadcn-ui-motion="none"])|
+
+    assert css =~ "[data-shadcn-ui-accordion-summary]::after"
+    assert css =~ "[data-shadcn-ui-accordion-item]::details-content"
+    assert css =~ "transition: none !important"
+  end
+
   test "capability badges and support tables keep authored policy distinct" do
     component = File.read!("lib/shadcn_ui_demo_web/components/presentation_components.ex")
     css = File.read!("assets/gallery.css")

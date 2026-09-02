@@ -206,11 +206,12 @@ test("VR-05 direct source fragments agree with the native radio selection", asyn
   await expect(page.locator("#accordion-primary-view-code")).not.toBeChecked();
 });
 
-test("VR-06 explicit and operating-system reduced motion both suppress Accordion transitions", async ({browser}) => {
+test("VR-06 every reduced-motion scope suppresses reveal and chevron transitions", async ({browser}) => {
   const violations = [];
   for (const state of [
     {id: "operating-system", reducedMotion: "reduce", query: "system"},
-    {id: "explicit-gallery", reducedMotion: "no-preference", query: "reduce"}
+    {id: "explicit-gallery", reducedMotion: "no-preference", query: "reduce"},
+    {id: "package-motion-none", reducedMotion: "no-preference", query: "system", packageMotion: "none"}
   ]) {
     const context = await browser.newContext({
       reducedMotion: state.reducedMotion,
@@ -218,21 +219,59 @@ test("VR-06 explicit and operating-system reduced motion both suppress Accordion
     });
     const page = await context.newPage();
     await page.goto(`${route}?theme=light&motion=${state.query}`);
+    if (state.packageMotion) {
+      await page.locator("#faq").evaluate((element, value) => {
+        element.dataset.shadcnUiMotion = value;
+      }, state.packageMotion);
+    }
     const details = page.locator("#faq-item-billing");
-    const durations = await details.evaluate(element =>
-      getComputedStyle(element, "::details-content").transitionDuration
+    const durations = await details.evaluate(element => ({
+      reveal: getComputedStyle(element, "::details-content").transitionDuration
+        .split(",")
+        .map(value => value.trim()),
+      chevron: getComputedStyle(element.querySelector("summary"), "::after").transitionDuration
         .split(",")
         .map(value => value.trim())
-    );
+    }));
     await details.locator("summary").click();
     await expect(details).not.toHaveAttribute("open", "");
-    if (!durations.every(value => seconds(value) <= 0.00001)) {
+    if (![...durations.reveal, ...durations.chevron].every(value => seconds(value) <= 0.00001)) {
       violations.push({state: state.id, durations});
     }
     await context.close();
   }
 
   expect(violations).toEqual([]);
+});
+
+test("returning to system motion restores presentation without changing native open state", async ({page}) => {
+  await page.emulateMedia({reducedMotion: "no-preference"});
+  await page.goto(`${route}?theme=light&motion=reduce`);
+  const root = page.locator("html");
+  const details = page.locator("#faq-item-billing");
+  const summary = details.locator("summary");
+
+  await expect(details).toHaveAttribute("open", "");
+  await root.evaluate(element => { element.dataset.shadcnMotion = "system"; });
+  await expect(details).toHaveAttribute("open", "");
+
+  const restored = await details.evaluate(element => ({
+    reveal: getComputedStyle(element, "::details-content").transitionDuration
+      .split(",")
+      .map(value => value.trim()),
+    chevron: getComputedStyle(element.querySelector("summary"), "::after").transitionDuration
+      .split(",")
+      .map(value => value.trim())
+  }));
+
+  expect(restored.reveal.map(seconds)).toContain(0.25);
+  expect(restored.chevron.map(seconds)).toContain(0.25);
+
+  await summary.click();
+  await expect(details).not.toHaveAttribute("open", "");
+  await root.evaluate(element => { element.dataset.shadcnMotion = "reduce"; });
+  await root.evaluate(element => { element.dataset.shadcnMotion = "system"; });
+  await expect(details).not.toHaveAttribute("open", "");
 });
 
 test("direct fragments and authored regions remain reachable without script or CSS", async ({browser}) => {
