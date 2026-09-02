@@ -221,20 +221,20 @@ category route and is not an Accordion comparison target.
       - [x] R3.1.1.3 Subtask - Verify every destination, including the final composition link, can be completely revealed by pointer, touch and keyboard navigation.
       - [x] R3.1.1.4 Subtask - Retain non-modal native disclosure semantics and document the intentional accessibility-tree difference from upstream's dialog.
 
-  - [ ] R3.2 Section - Make direct specimen fragments and radios agree.
+  - [x] R3.2 Section - Make direct specimen fragments and radios agree.
 
     A URL-addressed panel must not coexist with a contradictory announced
     selection, while no-script and CSS-disabled access remain complete.
 
-    - [ ] R3.2.1 Task - Implement one authoritative gallery view-state bridge.
+    - [x] R3.2.1 Task - Implement one authoritative gallery view-state bridge.
 
       Use only demo presentation behavior and do not turn it into component
       state or a client router.
 
-      - [ ] R3.2.1.1 Subtask - On initial load and `hashchange`, synchronize a recognized specimen Preview/Code fragment with its native radio or suppress the contradictory selector while the target is authoritative.
-      - [ ] R3.2.1.2 Subtask - Define how radio changes clear or replace an incompatible fragment without breaking history, focus or direct links.
-      - [ ] R3.2.1.3 Subtask - Keep unknown fragments inert and restrict lookup to closed authored specimen identities.
-      - [ ] R3.2.1.4 Subtask - Verify no-script direct fragments expose the addressed content and never depend on JavaScript for reachability.
+      - [x] R3.2.1.1 Subtask - On initial load and `hashchange`, synchronize a recognized specimen Preview/Code fragment with its native radio or suppress the contradictory selector while the target is authoritative.
+      - [x] R3.2.1.2 Subtask - Define how radio changes clear or replace an incompatible fragment without breaking history, focus or direct links.
+      - [x] R3.2.1.3 Subtask - Keep unknown fragments inert and restrict lookup to closed authored specimen identities.
+      - [x] R3.2.1.4 Subtask - Verify no-script direct fragments expose the addressed content and never depend on JavaScript for reachability.
 
   - [ ] R3.3 Section - Connect the explicit motion inspection state.
 

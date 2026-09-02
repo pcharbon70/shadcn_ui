@@ -179,12 +179,26 @@ test("VR-04 and VR-07 expose the pinned Accordion affordance and row treatment",
 });
 
 test("VR-05 direct source fragments agree with the native radio selection", async ({page}) => {
-  test.fail(true, "R3 will remove the expected-failure marker after fragment/radio synchronization lands.");
-
   await page.goto(`${route}?theme=light&motion=reduce#accordion-primary-source`);
   await expect(page.locator("#accordion-primary-source")).toBeVisible();
   await expect(page.locator("#accordion-primary-view-code")).toBeChecked();
   await expect(page.locator("#accordion-primary-view-preview")).not.toBeChecked();
+
+  const historyLength = await page.evaluate(() => history.length);
+  await page.locator('label[for="accordion-primary-view-preview"]').click();
+  await expect(page.locator("#accordion-primary-view-preview")).toBeChecked();
+  await expect(page.locator("#accordion-primary-view-preview")).toBeFocused();
+  await expect(page).toHaveURL(/#accordion-primary-preview$/);
+  expect(await page.evaluate(() => history.length)).toBe(historyLength);
+
+  await page.evaluate(() => { location.hash = "#accordion-primary-source"; });
+  await expect(page.locator("#accordion-primary-view-code")).toBeChecked();
+  await expect(page.locator("#accordion-primary-view-preview")).not.toBeChecked();
+
+  await page.evaluate(() => { location.hash = "#unknown-specimen-source"; });
+  await page.locator('label[for="accordion-primary-view-preview"]').click();
+  await expect(page.locator("#accordion-primary-view-preview")).toBeChecked();
+  await expect(page).toHaveURL(/#unknown-specimen-source$/);
 
   await page.goto(`${route}?theme=light&motion=reduce#accordion-primary-preview`);
   await expect(page.locator("#accordion-primary-preview")).toBeVisible();

@@ -102,6 +102,11 @@ Preview and Code use a labelled native radio group as presentation selection,
 with no tablist, tab or tabpanel roles. Both addressable regions remain in source
 order and become visible when the enhancement CSS is absent. Direct fragments,
 printing and no-script access cannot depend on the selected radio snapshot.
+A demo-only view-state bridge maps only the server-authored specimen region
+identities: recognized Preview or Code fragments synchronize the corresponding
+native radio without moving focus, and a conflicting radio change replaces only
+that specimen's fragment in the current history entry. Unknown fragments remain
+inert. This narrow reconciliation is neither package state nor a client router.
 Documentation headings and view controls are gallery presentation, not component
 API. Cross-milestone acceptance therefore targets stable article/specimen hooks
 and scopes component-control assertions to the rendered preview; visible section
