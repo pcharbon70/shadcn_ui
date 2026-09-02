@@ -92,17 +92,32 @@ Differences are documented rather than concealed to improve screenshots.
 
 The mobile catalogue uses a native `details` disclosure with an honest
 "Navigation" name and complete ordinary links. CSS may present it as a bounded
-panel, but no dialog, menu, focus trap or invoker-command claim is made. The
+panel whose available block size follows the actual wrapped header and dynamic
+viewport, but no dialog, menu, focus trap or invoker-command claim is made. The
 open disclosure remains in document order and operable without demo JavaScript.
+Unlike the upstream dialog presentation, its accessibility tree intentionally
+remains a native disclosure followed by ordinary named navigation landmarks.
 
 Preview and Code use a labelled native radio group as presentation selection,
 with no tablist, tab or tabpanel roles. Both addressable regions remain in source
 order and become visible when the enhancement CSS is absent. Direct fragments,
 printing and no-script access cannot depend on the selected radio snapshot.
+A demo-only view-state bridge maps only the server-authored specimen region
+identities: recognized Preview or Code fragments synchronize the corresponding
+native radio without moving focus, and a conflicting radio change replaces only
+that specimen's fragment in the current history entry. Unknown fragments remain
+inert. This narrow reconciliation is neither package state nor a client router.
 Documentation headings and view controls are gallery presentation, not component
 API. Cross-milestone acceptance therefore targets stable article/specimen hooks
 and scopes component-control assertions to the rendered preview; visible section
 labels may evolve without weakening the underlying guidance or native contract.
+
+The server-rendered motion inspection choice remains a declarative
+`data-shadcn-motion` ancestor. Explicit Reduce, a component's package motion-none
+scope and the operating-system preference all suppress Accordion reveal and
+chevron transitions without changing native `open` state. System removes only
+the explicit suppression and never promises or forces animation when the
+platform capability or operating-system permission is absent.
 
 Deterministic syntax highlighting, if used, runs only over closed authored HEEx
 at the demo build or server-render boundary and emits escaped static markup.

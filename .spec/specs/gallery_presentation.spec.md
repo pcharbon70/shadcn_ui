@@ -28,7 +28,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery_presentation.shell
-  statement: The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation and a footer exposing only the package version using the accepted reference geometry and documented exceptions; build, catalogue and upstream revisions remain in non-visual release evidence.
+  statement: The gallery shall provide a compact sticky ShadcnUI header, constrained desktop documentation grid, sticky independently scrolling catalogue, min-width-safe article, complete native mobile navigation bounded by the actual wrapped header and dynamic viewport, and a footer exposing only the package version using the accepted reference geometry and documented exceptions; build, catalogue and upstream revisions remain in non-visual release evidence.
   priority: must
   stability: evolving
 
@@ -48,7 +48,7 @@ surface:
   stability: evolving
 
 - id: shadcn_ui.gallery_presentation.specimen_semantics
-  statement: Preview and Code selection shall use the accepted labelled native radio contract without tab roles, keep both addressable regions in source order and preserve direct-fragment, print, CSS-disabled and no-script access; optional copy feedback remains demo-only.
+  statement: Preview and Code selection shall use the accepted labelled native radio contract without tab roles, keep both addressable regions in source order, synchronize only recognized authored fragments with the corresponding radio, leave unknown fragments inert, and preserve direct-fragment, print, CSS-disabled and no-script access; optional copy feedback remains demo-only.
   priority: must
   stability: stable
 

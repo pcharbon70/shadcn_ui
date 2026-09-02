@@ -104,14 +104,22 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert layout =~ ~r/data-gallery-main.*<footer[^>]*data-gallery-metadata/s
     refute layout =~ "data-gallery-secondary-tools"
 
-    assert css =~ "max-block-size: calc(100dvh - 4.5rem)"
+    assert css =~ "calc(100dvh - 100%)"
+    assert css =~ "--gallery-mobile-navigation-available"
+    assert css =~ "box-sizing: border-box"
     assert css =~ "env(safe-area-inset-left)"
     assert css =~ "env(safe-area-inset-right)"
     assert css =~ "overscroll-behavior: contain"
     assert css =~ "min-block-size: 2.75rem"
+    assert javascript =~ "data-gallery-mobile-navigation-panel"
+    assert javascript =~ "visualViewport"
+    assert javascript =~ "ResizeObserver"
+    assert javascript =~ "specimenViews = new Map()"
+    assert javascript =~ ~s(window.addEventListener("hashchange")
+    assert javascript =~ "history.replaceState"
 
     refute layout =~ ~r/(role="(?:dialog|menu)"|aria-modal|popovertarget|commandfor)/
-    refute javascript =~ ~r/(fetch\(|XMLHttpRequest|pushState|replaceState|location\s*=)/
+    refute javascript =~ ~r/(fetch\(|XMLHttpRequest|pushState|location\s*=)/
   end
 
   test "shell footer renders only the package version without deployment identifiers" do
@@ -137,6 +145,6 @@ defmodule ShadcnUIDemo.GalleryShellTest do
     assert javascript =~ "item.hidden = !visible"
     assert javascript =~ "searchStatus.textContent"
     assert javascript =~ "new Set()"
-    refute javascript =~ ~r/(fetch\(|XMLHttpRequest|pushState|replaceState|innerHTML)/
+    refute javascript =~ ~r/(fetch\(|XMLHttpRequest|pushState|innerHTML)/
   end
 end

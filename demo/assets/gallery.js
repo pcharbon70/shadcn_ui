@@ -55,6 +55,81 @@ document.querySelector("[data-gallery-search-reset]")?.addEventListener("click",
 });
 filterCatalogue();
 
+const mobileNavigation = document.querySelector("[data-gallery-mobile-navigation]");
+const mobileNavigationPanel = document.querySelector("[data-gallery-mobile-navigation-panel]");
+const productHeader = document.querySelector("[data-gallery-product-header]");
+
+const fitMobileNavigation = () => {
+  if (!mobileNavigation?.open || !mobileNavigationPanel) return;
+
+  const authoredZoom = Number.parseFloat(getComputedStyle(document.documentElement).zoom);
+  const zoom = Number.isFinite(authoredZoom) && authoredZoom > 0 ? authoredZoom : 1;
+  const viewportHeight = window.visualViewport?.height || window.innerHeight;
+  const panelTop = mobileNavigationPanel.getBoundingClientRect().top;
+  const availableBlockSize = Math.max(0, (viewportHeight - panelTop) / zoom);
+
+  mobileNavigationPanel.style.setProperty(
+    "--gallery-mobile-navigation-available",
+    `${availableBlockSize}px`
+  );
+};
+
+const queueMobileNavigationFit = () => requestAnimationFrame(fitMobileNavigation);
+
+mobileNavigation?.addEventListener("toggle", queueMobileNavigationFit);
+window.addEventListener("resize", queueMobileNavigationFit);
+window.visualViewport?.addEventListener("resize", queueMobileNavigationFit);
+if (productHeader && "ResizeObserver" in window) {
+  new ResizeObserver(queueMobileNavigationFit).observe(productHeader);
+}
+
+const specimenViews = new Map();
+for (const specimen of document.querySelectorAll("[data-gallery-specimen]")) {
+  const preview = specimen.querySelector("[data-gallery-specimen-preview]");
+  const source = specimen.querySelector("[data-gallery-specimen-source]");
+  const previewRadio = specimen.querySelector('input[type="radio"][value="preview"]');
+  const codeRadio = specimen.querySelector('input[type="radio"][value="code"]');
+
+  if (preview?.id && previewRadio) {
+    specimenViews.set(preview.id, {panel: preview, radio: previewRadio, specimen});
+  }
+  if (source?.id && codeRadio) {
+    specimenViews.set(source.id, {panel: source, radio: codeRadio, specimen});
+  }
+}
+
+const fragmentIdentity = () => {
+  if (!location.hash) return "";
+  try {
+    return decodeURIComponent(location.hash.slice(1));
+  } catch (_error) {
+    return "";
+  }
+};
+
+const synchronizeSpecimenFragment = () => {
+  const view = specimenViews.get(fragmentIdentity());
+  if (view) view.radio.checked = true;
+};
+
+window.addEventListener("hashchange", synchronizeSpecimenFragment);
+synchronizeSpecimenFragment();
+
+document.addEventListener("change", (event) => {
+  const radio = event.target.closest?.('[data-gallery-specimen] input[type="radio"]');
+  if (!radio?.checked) return;
+
+  const currentView = specimenViews.get(fragmentIdentity());
+  if (!currentView || currentView.specimen !== radio.closest("[data-gallery-specimen]")) return;
+
+  const selectedView = [...specimenViews.values()].find(view => view.radio === radio);
+  if (!selectedView || selectedView === currentView) return;
+
+  const url = new URL(location.href);
+  url.hash = selectedView.panel.id;
+  history.replaceState(history.state, "", url);
+});
+
 document.addEventListener("click", async (event) => {
   const theme = event.target.closest("[data-gallery-theme]")?.dataset.galleryTheme;
   if (theme) {

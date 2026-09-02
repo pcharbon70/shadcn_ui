@@ -82,12 +82,11 @@ test("VR-03 summaries and focus paint stay inside their details and specimen", a
 });
 
 test("VR-02 every mobile destination can be fully revealed and visibly focused", async ({page}) => {
-  test.fail(true, "R3 will remove the expected-failure marker after viewport containment lands.");
-
   const violations = [];
   for (const state of [
     {id: "mobile-320", width: 320, height: 568},
-    {id: "mobile-390", width: 390, height: 844}
+    {id: "mobile-390", width: 390, height: 844},
+    {id: "zoom-200", width: 800, height: 600, zoom: 2}
   ]) {
     await openAccordion(page, state);
     const disclosure = page.locator("[data-gallery-mobile-navigation]");
@@ -106,6 +105,7 @@ test("VR-02 every mobile destination can be fully revealed and visibly focused",
         viewportHeight: innerHeight,
         link: {top: linkRect.top, bottom: linkRect.bottom},
         panel: {top: panelRect.top, bottom: panelRect.bottom},
+        overscrollBehavior: getComputedStyle(panel).overscrollBehavior,
         active: document.activeElement === element,
         atMaximumScroll: Math.abs(panel.scrollTop + panel.clientHeight - panel.scrollHeight) <= 1
       };
@@ -114,6 +114,7 @@ test("VR-02 every mobile destination can be fully revealed and visibly focused",
     if (geometry.link.top < -epsilon ||
         geometry.link.bottom + 4 > geometry.viewportHeight + epsilon ||
         geometry.panel.bottom > geometry.viewportHeight + epsilon ||
+        geometry.overscrollBehavior !== "contain" ||
         !geometry.active ||
         !geometry.atMaximumScroll) {
       violations.push({state: state.id, geometry});
@@ -178,12 +179,26 @@ test("VR-04 and VR-07 expose the pinned Accordion affordance and row treatment",
 });
 
 test("VR-05 direct source fragments agree with the native radio selection", async ({page}) => {
-  test.fail(true, "R3 will remove the expected-failure marker after fragment/radio synchronization lands.");
-
   await page.goto(`${route}?theme=light&motion=reduce#accordion-primary-source`);
   await expect(page.locator("#accordion-primary-source")).toBeVisible();
   await expect(page.locator("#accordion-primary-view-code")).toBeChecked();
   await expect(page.locator("#accordion-primary-view-preview")).not.toBeChecked();
+
+  const historyLength = await page.evaluate(() => history.length);
+  await page.locator('label[for="accordion-primary-view-preview"]').click();
+  await expect(page.locator("#accordion-primary-view-preview")).toBeChecked();
+  await expect(page.locator("#accordion-primary-view-preview")).toBeFocused();
+  await expect(page).toHaveURL(/#accordion-primary-preview$/);
+  expect(await page.evaluate(() => history.length)).toBe(historyLength);
+
+  await page.evaluate(() => { location.hash = "#accordion-primary-source"; });
+  await expect(page.locator("#accordion-primary-view-code")).toBeChecked();
+  await expect(page.locator("#accordion-primary-view-preview")).not.toBeChecked();
+
+  await page.evaluate(() => { location.hash = "#unknown-specimen-source"; });
+  await page.locator('label[for="accordion-primary-view-preview"]').click();
+  await expect(page.locator("#accordion-primary-view-preview")).toBeChecked();
+  await expect(page).toHaveURL(/#unknown-specimen-source$/);
 
   await page.goto(`${route}?theme=light&motion=reduce#accordion-primary-preview`);
   await expect(page.locator("#accordion-primary-preview")).toBeVisible();
@@ -191,11 +206,12 @@ test("VR-05 direct source fragments agree with the native radio selection", asyn
   await expect(page.locator("#accordion-primary-view-code")).not.toBeChecked();
 });
 
-test("VR-06 explicit and operating-system reduced motion both suppress Accordion transitions", async ({browser}) => {
+test("VR-06 every reduced-motion scope suppresses reveal and chevron transitions", async ({browser}) => {
   const violations = [];
   for (const state of [
     {id: "operating-system", reducedMotion: "reduce", query: "system"},
-    {id: "explicit-gallery", reducedMotion: "no-preference", query: "reduce"}
+    {id: "explicit-gallery", reducedMotion: "no-preference", query: "reduce"},
+    {id: "package-motion-none", reducedMotion: "no-preference", query: "system", packageMotion: "none"}
   ]) {
     const context = await browser.newContext({
       reducedMotion: state.reducedMotion,
@@ -203,21 +219,59 @@ test("VR-06 explicit and operating-system reduced motion both suppress Accordion
     });
     const page = await context.newPage();
     await page.goto(`${route}?theme=light&motion=${state.query}`);
+    if (state.packageMotion) {
+      await page.locator("#faq").evaluate((element, value) => {
+        element.dataset.shadcnUiMotion = value;
+      }, state.packageMotion);
+    }
     const details = page.locator("#faq-item-billing");
-    const durations = await details.evaluate(element =>
-      getComputedStyle(element, "::details-content").transitionDuration
+    const durations = await details.evaluate(element => ({
+      reveal: getComputedStyle(element, "::details-content").transitionDuration
+        .split(",")
+        .map(value => value.trim()),
+      chevron: getComputedStyle(element.querySelector("summary"), "::after").transitionDuration
         .split(",")
         .map(value => value.trim())
-    );
+    }));
     await details.locator("summary").click();
     await expect(details).not.toHaveAttribute("open", "");
-    if (!durations.every(value => seconds(value) <= 0.00001)) {
+    if (![...durations.reveal, ...durations.chevron].every(value => seconds(value) <= 0.00001)) {
       violations.push({state: state.id, durations});
     }
     await context.close();
   }
 
   expect(violations).toEqual([]);
+});
+
+test("returning to system motion restores presentation without changing native open state", async ({page}) => {
+  await page.emulateMedia({reducedMotion: "no-preference"});
+  await page.goto(`${route}?theme=light&motion=reduce`);
+  const root = page.locator("html");
+  const details = page.locator("#faq-item-billing");
+  const summary = details.locator("summary");
+
+  await expect(details).toHaveAttribute("open", "");
+  await root.evaluate(element => { element.dataset.shadcnMotion = "system"; });
+  await expect(details).toHaveAttribute("open", "");
+
+  const restored = await details.evaluate(element => ({
+    reveal: getComputedStyle(element, "::details-content").transitionDuration
+      .split(",")
+      .map(value => value.trim()),
+    chevron: getComputedStyle(element.querySelector("summary"), "::after").transitionDuration
+      .split(",")
+      .map(value => value.trim())
+  }));
+
+  expect(restored.reveal.map(seconds)).toContain(0.25);
+  expect(restored.chevron.map(seconds)).toContain(0.25);
+
+  await summary.click();
+  await expect(details).not.toHaveAttribute("open", "");
+  await root.evaluate(element => { element.dataset.shadcnMotion = "reduce"; });
+  await root.evaluate(element => { element.dataset.shadcnMotion = "system"; });
+  await expect(details).not.toHaveAttribute("open", "");
 });
 
 test("direct fragments and authored regions remain reachable without script or CSS", async ({browser}) => {

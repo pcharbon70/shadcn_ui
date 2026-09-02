@@ -201,67 +201,67 @@ category route and is not an Accordion comparison target.
 
 ## R3 - Gallery Navigation And Specimen State
 
-- [ ] R3 Phase - Correct gallery-only responsive navigation and view state.
+- [x] R3 Phase - Correct gallery-only responsive navigation and view state.
 
   Keep native disclosure and radio semantics while removing clipped content and
   contradictory presentation state.
 
-  - [ ] R3.1 Section - Make mobile navigation fully reachable.
+  - [x] R3.1 Section - Make mobile navigation fully reachable.
 
     The panel must use the actual wrapped header and dynamic viewport rather
     than a fixed assumed header height.
 
-    - [ ] R3.1.1 Task - Bound the panel to remaining viewport space.
+    - [x] R3.1.1 Task - Bound the panel to remaining viewport space.
 
       Safe-area padding, browser chrome changes and zoom must not conceal the
       final destination.
 
-      - [ ] R3.1.1.1 Subtask - Replace the fixed 4.5rem viewport reservation with layout derived from the header's actual block size or an equivalent robust containment strategy.
-      - [ ] R3.1.1.2 Subtask - Preserve internal scrolling, overscroll containment and visible focus at 320px, 390px, 200 percent zoom and wrapped-theme-control states.
-      - [ ] R3.1.1.3 Subtask - Verify every destination, including the final composition link, can be completely revealed by pointer, touch and keyboard navigation.
-      - [ ] R3.1.1.4 Subtask - Retain non-modal native disclosure semantics and document the intentional accessibility-tree difference from upstream's dialog.
+      - [x] R3.1.1.1 Subtask - Replace the fixed 4.5rem viewport reservation with layout derived from the header's actual block size or an equivalent robust containment strategy.
+      - [x] R3.1.1.2 Subtask - Preserve internal scrolling, overscroll containment and visible focus at 320px, 390px, 200 percent zoom and wrapped-theme-control states.
+      - [x] R3.1.1.3 Subtask - Verify every destination, including the final composition link, can be completely revealed by pointer, touch and keyboard navigation.
+      - [x] R3.1.1.4 Subtask - Retain non-modal native disclosure semantics and document the intentional accessibility-tree difference from upstream's dialog.
 
-  - [ ] R3.2 Section - Make direct specimen fragments and radios agree.
+  - [x] R3.2 Section - Make direct specimen fragments and radios agree.
 
     A URL-addressed panel must not coexist with a contradictory announced
     selection, while no-script and CSS-disabled access remain complete.
 
-    - [ ] R3.2.1 Task - Implement one authoritative gallery view-state bridge.
+    - [x] R3.2.1 Task - Implement one authoritative gallery view-state bridge.
 
       Use only demo presentation behavior and do not turn it into component
       state or a client router.
 
-      - [ ] R3.2.1.1 Subtask - On initial load and `hashchange`, synchronize a recognized specimen Preview/Code fragment with its native radio or suppress the contradictory selector while the target is authoritative.
-      - [ ] R3.2.1.2 Subtask - Define how radio changes clear or replace an incompatible fragment without breaking history, focus or direct links.
-      - [ ] R3.2.1.3 Subtask - Keep unknown fragments inert and restrict lookup to closed authored specimen identities.
-      - [ ] R3.2.1.4 Subtask - Verify no-script direct fragments expose the addressed content and never depend on JavaScript for reachability.
+      - [x] R3.2.1.1 Subtask - On initial load and `hashchange`, synchronize a recognized specimen Preview/Code fragment with its native radio or suppress the contradictory selector while the target is authoritative.
+      - [x] R3.2.1.2 Subtask - Define how radio changes clear or replace an incompatible fragment without breaking history, focus or direct links.
+      - [x] R3.2.1.3 Subtask - Keep unknown fragments inert and restrict lookup to closed authored specimen identities.
+      - [x] R3.2.1.4 Subtask - Verify no-script direct fragments expose the addressed content and never depend on JavaScript for reachability.
 
-  - [ ] R3.3 Section - Connect the explicit motion inspection state.
+  - [x] R3.3 Section - Connect the explicit motion inspection state.
 
     The demo's Reduce control must exercise the same component outcome promised
     by OS reduced motion.
 
-    - [ ] R3.3.1 Task - Apply the authored motion preference to Accordion.
+    - [x] R3.3.1 Task - Apply the authored motion preference to Accordion.
 
       Keep the preference declarative and ancestor-scoped.
 
-      - [ ] R3.3.1.1 Subtask - Verify `data-shadcn-motion="reduce"`, package motion-none and `prefers-reduced-motion` all remove Accordion reveal and chevron transitions.
-      - [ ] R3.3.1.2 Subtask - Verify returning to system motion restores only capability-gated presentation and never changes open state.
-      - [ ] R3.3.1.3 Subtask - Add exact computed-style assertions instead of relying only on screenshots.
+      - [x] R3.3.1.1 Subtask - Verify `data-shadcn-motion="reduce"`, package motion-none and `prefers-reduced-motion` all remove Accordion reveal and chevron transitions.
+      - [x] R3.3.1.2 Subtask - Verify returning to system motion restores only capability-gated presentation and never changes open state.
+      - [x] R3.3.1.3 Subtask - Add exact computed-style assertions instead of relying only on screenshots.
 
-  - [ ] R3.4 Section - R3 Integration Tests.
+  - [x] R3.4 Section - R3 Integration Tests.
 
     Exercise responsive navigation and specimen state across progressive
     enhancement boundaries.
 
-    - [ ] R3.4.1 Task - Run shell and gallery interaction acceptance.
+    - [x] R3.4.1 Task - Run shell and gallery interaction acceptance.
 
       Component semantics must remain independent of gallery helpers.
 
-      - [ ] R3.4.1.1 Subtask - Run mobile navigation, keyboard, focus, zoom, axe, theme, search, direct-fragment and source-view browser suites.
-      - [ ] R3.4.1.2 Subtask - Run JavaScript-disabled, CSS-disabled, print and unknown-fragment states.
-      - [ ] R3.4.1.3 Subtask - Verify demo helpers remain excluded from the package archive and deterministic static export.
-      - [ ] R3.4.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
+      - [x] R3.4.1.1 Subtask - Run mobile navigation, keyboard, focus, zoom, axe, theme, search, direct-fragment and source-view browser suites.
+      - [x] R3.4.1.2 Subtask - Run JavaScript-disabled, CSS-disabled, print and unknown-fragment states.
+      - [x] R3.4.1.3 Subtask - Verify demo helpers remain excluded from the package archive and deterministic static export.
+      - [x] R3.4.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
 
 ## R4 - Pinned Presentation Alignment
 
