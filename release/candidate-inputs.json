@@ -16,7 +16,7 @@
   "locks": {
     "mix.lock": "ad8e13e7418692f0f768980a7a2d16e3961046953d66c350ba0d3fe5c09ad8bf",
     "package-lock.json": "e155db35ac11512f0d10b88131b20e22abd2aa8ae92ba6e077ccd4be6bd74075",
-    "demo/package-lock.json": "e6f6f7f71709250b96c135fecc664c8905b276dbf73e673ee034862a8ad345d1"
+    "demo/package-lock.json": "21cdcd5cfb88432e8cae2e93572e41e64245b31bb7a74def5d6e3656356c5021"
   },
   "rebar3": {
     "selection": "MIX_REBAR3",
