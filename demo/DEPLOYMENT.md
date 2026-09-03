@@ -13,7 +13,7 @@ build in `demo/fly.toml`. `SECRET_KEY_BASE` is a Fly secret, never a source valu
 or Docker build argument.
 
 From the repository root, follow
-[`docs/gallery-operations.md`](../docs/gallery-operations.md) for config
+[`demo/operations/gallery-publication.md`](operations/gallery-publication.md) for config
 validation, secret setup, immutable revision injection, `/healthz` checks,
 canonical smoke, and Rollback. A local export, successful image build, healthy
 Machine, and passing public smoke are separate states and must be recorded as

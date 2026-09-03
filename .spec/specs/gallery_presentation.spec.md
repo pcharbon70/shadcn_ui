@@ -13,12 +13,12 @@ decisions:
 surface:
   - demo/**
   - .spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/**
-  - playwright.milestone-g-*.config.mjs
+  - test/browser/configs/playwright.milestone-g-*.config.mjs
   - test/shadcn_ui/milestone_g_phase1_acceptance_test.exs
   - test/shadcn_ui/milestone_g_phase8_acceptance_test.exs
   - test/browser/milestone-g-*.spec.mjs
   - test/browser/milestone-g-*.spec.mjs-snapshots/**
-  - docs/milestone-g-phase1-acceptance.md
+  - release/records/milestone-g-phase1-acceptance.md
   - release/fly-deployment-evidence.json
 ```
 

@@ -1,4 +1,4 @@
-/* E-06: native image-only depth; see docs/motion-media-css-exceptions.md. */
+/* E-06: native image-only depth; see assets/engineering/motion-media-css-exceptions.md. */
 [data-shadcn-ui-cover-flow] {
   min-inline-size: 0;
   max-inline-size: 100%;

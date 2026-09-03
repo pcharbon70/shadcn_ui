@@ -22,8 +22,8 @@ surface:
   - release/candidate-status.json
   - release/consumer-trial-evidence.json
   - release/fly-deployment-evidence.json
-  - docs/release-candidate.md
-  - docs/gallery-operations.md
+  - release/records/**
+  - demo/operations/gallery-publication.md
   - demo/lib/shadcn_ui_demo/build_identity.ex
   - demo/test/build_identity_test.exs
   - demo/Dockerfile
@@ -102,6 +102,9 @@ The category-oriented user guides extend generated ExDoc navigation only. They
 do not change the candidate version, archive allowlist, deployment inputs,
 qualification gates or the distinction between generated documentation and
 release-archive documentation.
+Release and acceptance Markdown records live under `release/records/`, while
+the gallery publication runbook remains with the demo under `demo/operations/`;
+neither location is part of the HexDocs extras inventory.
 
 Canonical smoke identifies every route through the stable ShadcnUI home link
 label rather than requiring route-specific titles or secondary metadata text.

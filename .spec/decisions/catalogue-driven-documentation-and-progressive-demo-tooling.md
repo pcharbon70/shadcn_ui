@@ -32,6 +32,16 @@ the documentation inventory.
   same sidebar order. Each guide introduces the category and covers every
   mapped control's function, supported options and a compile-checked HEEX
   example without becoming package runtime content.
+- The top-level README is the concise consumer entry point expected for a Hex
+  package: status, installation, imports, stylesheet delivery, themes, the
+  component inventory, runtime boundaries, documentation links, development,
+  license and provenance. Detailed component contracts remain in the category
+  guides and generated API documentation instead of being duplicated there.
+- The root `docs/` tree and ExDoc extras are reserved for consumer-facing
+  documentation. Release and acceptance records live under `release/records/`,
+  package CSS engineering records under `assets/engineering/`, and gallery
+  operations under `demo/operations/`; none of those internal records are
+  published as HexDocs extras.
 - Catalogue validation resolves only closed strings to explicit identities.
   Request or search text never creates atoms, modules, functions, templates,
   callbacks, asset paths or executable code.
@@ -52,6 +62,8 @@ the documentation inventory.
 
 One checked inventory can drive navigation, search, documentation parity,
 static export, category-oriented ExDoc guidance and release acceptance without
-expanding ShadcnUI's runtime API or release archive. Adding or removing a public
-component requires an explicit catalogue and proof change. The gallery remains
-complete and navigable when optional demo tooling is unavailable.
+expanding ShadcnUI's runtime API or release archive. The filesystem boundary
+keeps consumer guidance distinct from internal evidence and operations. Adding
+or removing a public component requires an explicit catalogue and proof change.
+The gallery remains complete and navigable when optional demo tooling is
+unavailable.

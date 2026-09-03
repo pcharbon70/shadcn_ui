@@ -96,6 +96,9 @@ runtime boundary, package contents, or existing verification.
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's overlay contract.
 
+The internal-record reorganization changes documentation paths only. Native
+overlay behavior, ownership boundaries and executable proof are unchanged.
+
 Milestone G Phase 4 only regroups overlay documentation around the rendered
 specimen and nearby support evidence. Its gallery-only view controls add no
 overlay invocation, state, focus, dismissal, nesting, or application behavior;

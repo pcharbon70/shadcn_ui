@@ -19,7 +19,7 @@ defmodule ShadcnUI.MotionIntegrationTest do
       css = File.read!("assets/#{name}.css")
       assert compiled =~ "data-shadcn-ui-#{name}"
       assert css =~ "@keyframes shadcn-ui-#{name}"
-      assert File.read!("docs/motion-media-css-exceptions.md") =~ ledger
+      assert File.read!("assets/engineering/motion-media-css-exceptions.md") =~ ledger
       refute css =~ ~r/(infinite|opacity:\s*0[;} ]|animation-fill-mode:\s*(both|forwards)|url\()/
 
       refute source =~

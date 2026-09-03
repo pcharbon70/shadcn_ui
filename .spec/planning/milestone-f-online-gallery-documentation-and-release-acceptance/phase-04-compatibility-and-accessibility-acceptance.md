@@ -109,7 +109,7 @@ Back to wave: [README](./README.md)
   is 4 errors and 140 existing warnings; all findings remain reported rather
   than waived.
 - All six human manual-review scenarios remain `PENDING` in
-  `docs/accessibility-review.md`. Automated acceptance passes, but manual
+  `release/records/accessibility-review.md`. Automated acceptance passes, but manual
   accessibility acceptance and WCAG certification are not claimed.
 
 ## Section delivery rule

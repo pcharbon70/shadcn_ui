@@ -52,15 +52,16 @@ defmodule ShadcnUI.ReleaseReadinessTest do
   end
 
   test "consumer documentation covers every foundation module" do
+    guide = File.read!("docs/guides/foundation.md")
     readme = File.read!("README.md")
 
     for name <- ~w(Button Badge Alert Card Avatar Skeleton) do
-      assert readme =~ "### #{name}"
+      assert guide =~ "## #{name}"
     end
 
-    normalized = String.downcase(readme)
+    normalized = String.downcase(guide <> readme)
 
-    for ownership <- ["application owns", "applications own", "caller labels"] do
+    for ownership <- ["application owns", "caller-owned", "caller"] do
       assert normalized =~ ownership
     end
   end

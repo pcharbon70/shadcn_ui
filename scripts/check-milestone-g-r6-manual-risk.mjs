@@ -7,7 +7,7 @@ const evidence = readJson(
   "demo/priv/reference/milestone_g/remediation-r6-manual-risk-evidence.json",
 );
 const candidate = readJson("release/candidate-status.json");
-const ledger = readFileSync(join(root, "docs/accessibility-review.md"), "utf8");
+const ledger = readFileSync(join(root, "release/records/accessibility-review.md"), "utf8");
 
 function readJson(path) {
   return JSON.parse(readFileSync(join(root, path), "utf8"));

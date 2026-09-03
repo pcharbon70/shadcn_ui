@@ -28,6 +28,7 @@ surface:
   - test/browser/milestone-c-content-navigation.spec.mjs
   - test/browser/milestone-d-*.spec.mjs
   - test/browser/milestone-g-remediation-r4.spec.mjs
+  - test/browser/configs/playwright*.config.mjs
   - test/shadcn_ui/milestone_a_acceptance_test.exs
   - test/shadcn_ui/milestone_b_acceptance_test.exs
   - test/shadcn_ui/milestone_c_acceptance_test.exs
@@ -120,6 +121,10 @@ runtime boundary, package contents, or existing verification.
 
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's gallery contract.
+
+The publication runbook now lives with the demo under `demo/operations/` and
+acceptance records under `release/records/`. Gallery behavior, deployment
+semantics and executable proof are unchanged.
 
 Deployment and static-publication smoke identify the shared shell through its
 stable ShadcnUI home link label, independent of route-specific page titles and

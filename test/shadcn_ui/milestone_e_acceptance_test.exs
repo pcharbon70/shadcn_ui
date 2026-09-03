@@ -38,7 +38,7 @@ defmodule ShadcnUI.MilestoneEAcceptanceTest do
   end
 
   test "authored CSS ledger accounts for each family without a package runtime" do
-    ledger = File.read!("docs/motion-media-css-exceptions.md")
+    ledger = File.read!("assets/engineering/motion-media-css-exceptions.md")
 
     for name <- ~w(motion-media carousel marquee stagger scroll-indicator cover-flow) do
       assert ledger =~ "assets/#{name}.css"
@@ -96,6 +96,6 @@ defmodule ShadcnUI.MilestoneEAcceptanceTest do
 
     assert budget["compiledCssBytes"] == byte_size(File.read!("priv/static/shadcn_ui.css"))
     assert budget["marqueeMaxMs"] <= 5000
-    assert File.read!("docs/milestone-e-acceptance.md") =~ "pending, not performed"
+    assert File.read!("release/records/milestone-e-acceptance.md") =~ "pending, not performed"
   end
 end

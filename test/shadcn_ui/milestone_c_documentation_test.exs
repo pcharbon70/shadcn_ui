@@ -6,29 +6,27 @@ defmodule ShadcnUI.MilestoneCDocumentationTest do
   # covers: shadcn_ui.provenance.component_mapping shadcn_ui.provenance.pinned_revision
 
   test "public guidance documents every Milestone C API and ownership boundary" do
+    navigation = File.read!("docs/guides/navigation.md")
+    disclosure = File.read!("docs/guides/disclosure.md")
+    content = File.read!("docs/guides/content-surfaces.md")
+    compatibility = File.read!("docs/compatibility.md")
     readme = File.read!("README.md")
 
-    for heading <- [
-          "Navigation Menu",
-          "Header and Section Header",
-          "Accordion",
-          "Separator",
-          "Scroll Area",
-          "Radio Panels",
-          "Choosing navigation and interaction semantics"
-        ],
-        do: assert(readme =~ "### #{heading}")
+    for heading <- ["Navigation Menu", "Header", "Section Header"],
+        do: assert(navigation =~ "## #{heading}")
 
-    for boundary <- [
-          "normal document flow",
-          "Panels panel is visible",
-          "no package JavaScript",
-          "True tabs",
-          "Menus and menubars",
-          "forced colors",
-          "Reduced motion"
-        ],
-        do: assert(readme =~ boundary)
+    assert disclosure =~ "## Accordion"
+
+    for heading <- ["Separator", "Scroll Area", "Radio Panels"],
+        do: assert(content =~ "## #{heading}")
+
+    assert navigation =~ "not an ARIA command menu"
+    assert disclosure =~ "instead of requiring package state or a script runtime"
+    assert content =~ "all panel content remains available"
+    assert content =~ "do not use it as a substitute for ARIA tabs"
+    assert compatibility =~ "Ordinary document flow"
+    assert compatibility =~ "forced colors"
+    assert readme =~ "reduced-motion"
   end
 
   test "every Milestone C adaptation is pinned and mapped to released source" do

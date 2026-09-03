@@ -92,7 +92,7 @@ const evidence = {
     artifactRetentionDays: 30,
   },
   recovery: {
-    runbook: "docs/gallery-operations.md",
+    runbook: "demo/operations/gallery-publication.md",
     status: "reviewed",
     priorVerifiedArtifact: null,
     firstPublicationPolicy: "stop-and-reviewed-revert; never invent an unverified rollback artifact",

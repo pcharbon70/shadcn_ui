@@ -95,7 +95,7 @@ gallery, API documentation, measured budgets and candidate integration tests.
 All six E implementation phases are delivered; final release acceptance still
 requires the recorded SpecLed runner gate, manual review, CI and successful
 post-merge gallery publication. The phase execution record and
-[candidate evidence](../../docs/milestone-e-acceptance.md) distinguish these
+[candidate evidence](../../release/records/milestone-e-acceptance.md) distinguish these
 outcomes. There is no additional E implementation phase; Milestone F is separate.
 
 The wave resolves the broad roadmap as follows:

@@ -14,7 +14,7 @@ publication remain separate evidence states. Optional origin CSS and generated
 controls remain deliberately deferred; native lightboxes ship.
 Milestones A–D history is unchanged. See the
 [Phase 6 execution record](./phase-06-gallery-documentation-and-milestone-acceptance.md#execution-record)
-and [candidate evidence](../../../docs/milestone-e-acceptance.md).
+and [candidate evidence](../../../release/records/milestone-e-acceptance.md).
 Milestone F remains separate; this candidate does not certify publication.
 
 This wave implements the [Milestone E roadmap](../../milestones/milestone-e-motion-media-and-advanced-css.md)
@@ -139,7 +139,7 @@ fixtures must exercise static fallbacks even on a browser that supports an
 enhancement. There is no user-agent or engine-name branch in package code.
 
 The platform references and six pinned upstream component patterns were reviewed
-on 2026-08-26. The [foundation notes](../../../docs/motion-media-foundations.md)
+on 2026-08-26. The [foundation notes](../../../assets/engineering/motion-media-foundations.md)
 record source paths, adaptation choices and separate executed browser evidence.
 These are foundation probes, not acceptance of future components or a comparison
 with an unpinned live gallery. Update the review and evidence when admitting an effect.

@@ -51,7 +51,7 @@ defmodule ShadcnUI.MilestoneFAcceptanceTest do
 
   # covers: shadcn_ui.compatibility_accessibility.manual_review
   test "manual ledger is structured, pending, and cannot imply certification" do
-    ledger = File.read!("docs/accessibility-review.md")
+    ledger = File.read!("release/records/accessibility-review.md")
 
     for id <- 1..6 do
       assert ledger =~ "### MAN-0#{id}"
@@ -86,7 +86,7 @@ defmodule ShadcnUI.MilestoneFAcceptanceTest do
     browser = File.read!("test/browser/milestone-f-compatibility.spec.mjs")
 
     assert mix =~ ~s("docs/compatibility.md")
-    assert mix =~ ~s("docs/accessibility-review.md")
+    refute mix =~ ~s("release/records/accessibility-review.md")
     assert browser =~ ~s|expect(result.version).toBe("4.13.0")|
     assert browser =~ "javaScriptEnabled: false"
     assert browser =~ "forcedColors: \"active\""

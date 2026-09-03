@@ -2210,7 +2210,7 @@
         "id": "shadcn_ui.public_documentation.exdoc_inventory",
         "priority": "must",
         "stability": "stable",
-        "statement": "ExDoc shall group every public defining component, expose accurate source-linked API documentation, and group one user guide for each closed gallery sidebar category with an introduction plus functionality, supported options, and at least one compile-checked HEEX example for every control, while excluding internal helpers and demo-only modules from the public inventory.",
+        "statement": "ExDoc shall group every public defining component, expose accurate source-linked API documentation, and group one user guide for each closed gallery sidebar category with an introduction plus functionality, supported options, and at least one compile-checked HEEX example for every control, while excluding internal helpers, demo-only modules, release evidence, acceptance ledgers, engineering records, and operations runbooks from the public inventory.",
         "subject_id": "shadcn_ui.public_documentation"
       },
       {
@@ -2546,7 +2546,7 @@
             "priv/compatibility/*.json",
             "priv/compatibility/catalogue.json",
             "docs/compatibility.md",
-            "docs/accessibility-review.md",
+            "release/records/accessibility-review.md",
             "test/browser/milestone-f-compatibility.spec.mjs",
             "test/browser/milestone-g-accordion-acceptance.spec.mjs",
             "test/browser/milestone-g-remediation-r4.spec.mjs",
@@ -2679,7 +2679,7 @@
             "test/browser/milestone-d-drawers.spec.mjs",
             "test/fixtures/milestone_d_drawers.html",
             "scripts/render-drawer-fixture.exs",
-            "playwright.milestone-d-phase3.config.mjs",
+            "test/browser/configs/playwright.milestone-d-phase3.config.mjs",
             "README.md"
           ],
           "verification_minimum_strength": null
@@ -2872,6 +2872,7 @@
             "test/browser/milestone-c-content-navigation.spec.mjs",
             "test/browser/milestone-d-*.spec.mjs",
             "test/browser/milestone-g-remediation-r4.spec.mjs",
+            "test/browser/configs/playwright*.config.mjs",
             "test/shadcn_ui/milestone_a_acceptance_test.exs",
             "test/shadcn_ui/milestone_b_acceptance_test.exs",
             "test/shadcn_ui/milestone_c_acceptance_test.exs",
@@ -2899,12 +2900,12 @@
           "surface": [
             "demo/**",
             ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/**",
-            "playwright.milestone-g-*.config.mjs",
+            "test/browser/configs/playwright.milestone-g-*.config.mjs",
             "test/shadcn_ui/milestone_g_phase1_acceptance_test.exs",
             "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
             "test/browser/milestone-g-*.spec.mjs",
             "test/browser/milestone-g-*.spec.mjs-snapshots/**",
-            "docs/milestone-g-phase1-acceptance.md",
+            "release/records/milestone-g-phase1-acceptance.md",
             "release/fly-deployment-evidence.json"
           ],
           "verification_minimum_strength": null
@@ -2930,7 +2931,7 @@
             "docs/image-gallery.md",
             "scripts/render-image-gallery-fixture.exs",
             "scripts/record-gallery-origin.mjs",
-            "playwright.milestone-e-phase5.config.mjs",
+            "test/browser/configs/playwright.milestone-e-phase5.config.mjs",
             "test/fixtures/milestone_e_image_gallery.html",
             "test/browser/support/gallery-origin-probe.mjs",
             "test/shadcn_ui/image_gallery_integration_test.exs",
@@ -2939,7 +2940,7 @@
             "test/shadcn_ui/scroll_media_integration_test.exs",
             "scripts/render-scroll-media-fixture.exs",
             "test/fixtures/milestone_e_scroll_media.html",
-            "playwright.milestone-e-phase4.config.mjs",
+            "test/browser/configs/playwright.milestone-e-phase4.config.mjs",
             "lib/shadcn_ui/components/media/carousel.ex",
             "test/shadcn_ui/components/media/carousel_test.exs",
             "test/fixtures/milestone_e_carousel.html",
@@ -2950,7 +2951,7 @@
             "test/browser/milestone-e-image-gallery.spec.mjs",
             "test/shadcn_ui/carousel_integration_test.exs",
             "scripts/render-carousel-fixture.exs",
-            "playwright.milestone-e-phase2.config.mjs"
+            "test/browser/configs/playwright.milestone-e-phase2.config.mjs"
           ],
           "verification_minimum_strength": null
         },
@@ -2975,7 +2976,7 @@
             "test/shadcn_ui/scroll_media_integration_test.exs",
             "scripts/render-scroll-media-fixture.exs",
             "test/fixtures/milestone_e_scroll_media.html",
-            "playwright.milestone-e-phase4.config.mjs",
+            "test/browser/configs/playwright.milestone-e-phase4.config.mjs",
             "test/fixtures/milestone_e_motion.html",
             "test/shadcn_ui/motion_integration_test.exs",
             "lib/shadcn_ui/components/motion/marquee.ex",
@@ -2983,7 +2984,7 @@
             "assets/marquee.css",
             "assets/stagger.css",
             "scripts/render-motion-fixture.exs",
-            "playwright.milestone-e-phase3.config.mjs",
+            "test/browser/configs/playwright.milestone-e-phase3.config.mjs",
             "lib/shadcn_ui/components/motion/**/*.ex",
             "test/shadcn_ui/components/motion/**/*.exs",
             "test/browser/milestone-e-motion.spec.mjs",
@@ -3015,13 +3016,13 @@
             "test/shadcn_ui/scroll_media_integration_test.exs",
             "priv/compatibility/motion_media.json",
             "priv/compatibility/motion_media.schema.json",
-            "docs/motion-media-foundations.md",
-            "docs/motion-media-css-exceptions.md",
+            "assets/engineering/motion-media-foundations.md",
+            "assets/engineering/motion-media-css-exceptions.md",
             "test/browser/support/motion-media-probe.mjs",
             "test/browser/support/static-motion-media.mjs",
             "test/shadcn_ui/motion_media_manifest_test.exs",
             "test/shadcn_ui/motion_media_foundations_integration_test.exs",
-            "playwright.milestone-e-phase1.config.mjs",
+            "test/browser/configs/playwright.milestone-e-phase1.config.mjs",
             "lib/shadcn_ui/components/media/media_contract.ex",
             "lib/shadcn_ui/components/motion/motion_contract.ex",
             "assets/shadcn_ui.css",
@@ -3049,9 +3050,9 @@
           "surface": [
             "scripts/render-motion-media-budgets.exs",
             "test/fixtures/milestone_e_budgets.json",
-            "playwright.milestone-e-phase6.config.mjs",
+            "test/browser/configs/playwright.milestone-e-phase6.config.mjs",
             "docs/motion-media-guide.md",
-            "docs/milestone-e-acceptance.md",
+            "release/records/milestone-e-acceptance.md",
             "test/shadcn_ui/motion_media_docs_test.exs",
             "demo/**",
             "test/browser/milestone-e-*.spec.mjs",
@@ -3213,7 +3214,7 @@
             "test/browser/milestone-d-popovers.spec.mjs",
             "test/fixtures/milestone_d_popovers.html",
             "scripts/render-popover-fixture.exs",
-            "playwright.milestone-d-phase4.config.mjs",
+            "test/browser/configs/playwright.milestone-d-phase4.config.mjs",
             "README.md"
           ],
           "verification_minimum_strength": null
@@ -3311,8 +3312,8 @@
             "release/candidate-status.json",
             "release/consumer-trial-evidence.json",
             "release/fly-deployment-evidence.json",
-            "docs/release-candidate.md",
-            "docs/gallery-operations.md",
+            "release/records/**",
+            "demo/operations/gallery-publication.md",
             "demo/lib/shadcn_ui_demo/build_identity.ex",
             "demo/test/build_identity_test.exs",
             "demo/Dockerfile",
@@ -3404,7 +3405,7 @@
             "test/browser/milestone-d-supplemental-surfaces.spec.mjs",
             "test/fixtures/milestone_d_supplemental_surfaces.html",
             "scripts/render-supplemental-fixture.exs",
-            "playwright.milestone-d-phase5.config.mjs",
+            "test/browser/configs/playwright.milestone-d-phase5.config.mjs",
             "README.md"
           ],
           "verification_minimum_strength": null

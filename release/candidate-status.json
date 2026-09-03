@@ -28,7 +28,7 @@
     "milestoneFRequirements": 38,
     "milestoneFRequirementsImplemented": 38,
     "milestoneFManualRequirementsPending": 1,
-    "requirementLedger": "docs/milestone-f-acceptance.md",
+    "requirementLedger": "release/records/milestone-f-acceptance.md",
     "consumerTrialEvidence": "release/consumer-trial-evidence.json",
     "flyDeploymentEvidence": "release/fly-deployment-evidence.json",
     "r6ManualAccessibilityRiskEvidence": "demo/priv/reference/milestone_g/remediation-r6-manual-risk-evidence.json",
@@ -63,7 +63,7 @@
   "diagnostics": {
     "phase6LocalIntegration": "The current package and demo precommit suites and focused Phase 6 acceptance pass locally. This gate excludes the separately recorded clean-candidate, manual-accessibility, source-review, final-revision CI, merge, and deployment states.",
     "cleanCandidate": "The current 63-entry archive passes a local allowlist audit and isolated consumer trial, but the R6 host has Node 24.3.0 while the candidate manifest pins Node 22.13.1, so the exact-revision two-build comparison remains pending; historical 62-entry evidence does not qualify HEAD.",
-    "manualAccessibility": "All six bounded scenarios in docs/accessibility-review.md remain PENDING. The release owner accepted that risk for R6 remediation progression only; the waiver is not a pass, conformance claim, deployment authorization, or candidate qualification.",
+    "manualAccessibility": "All six bounded scenarios in release/records/accessibility-review.md remain PENDING. The release owner accepted that risk for R6 remediation progression only; the waiver is not a pass, conformance claim, deployment authorization, or candidate qualification.",
     "specled": "R6.4 records 0 errors, 0 warnings, and 0 branch findings after reconciling every declared verification target with explicit requirement annotations. The result remains subject to CI on the final PR revision.",
     "browser": "R6.2 passed 552 distinct A-G and remediation Playwright invocations with zero failures across the applicable locked Chromium, Firefox, and WebKit matrix. Initial PR CI passed at the deployed revision, and the deployed Chromium smoke passed two additional checks; CI on the later evidence-only PR head remains pending.",
     "r6LocalRegression": "Package and demo precommit, ExDoc, deterministic CSS, archive audit, isolated clean consumer, two current-identity exports, route/fragment/subpath smoke, pinned axe, visual, provenance, license, release-evidence, formatting, and SpecLed gates passed before deployment. Manual accessibility and exact clean-candidate evidence remain separate.",

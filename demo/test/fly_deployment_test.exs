@@ -46,7 +46,7 @@ defmodule ShadcnUIDemo.FlyDeploymentTest do
   end
 
   test "operations keep verification, deployment, smoke, secrets, and rollback separate" do
-    operations = File.read!("../docs/gallery-operations.md")
+    operations = File.read!("operations/gallery-publication.md")
     smoke = File.read!("scripts/smoke-fly-gallery.mjs")
 
     assert operations =~ "Fly.io"

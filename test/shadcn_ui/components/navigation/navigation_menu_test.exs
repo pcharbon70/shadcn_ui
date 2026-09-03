@@ -138,7 +138,7 @@ defmodule ShadcnUI.Components.Navigation.NavigationMenuTest do
     css = File.read!(ShadcnUI.stylesheet_path())
     provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
     adaptation = Enum.find(provenance["adaptations"], &(&1["id"] == "navigation.navigation_menu"))
-    readme = File.read!("README.md")
+    guide = File.read!("docs/guides/navigation.md")
 
     assert source =~ "[data-shadcn-ui-navigation-link][aria-current]"
     assert source =~ "text-decoration-line: underline"
@@ -150,8 +150,8 @@ defmodule ShadcnUI.Components.Navigation.NavigationMenuTest do
              "src/demos/nav-menu/basic.html"
            ]
 
-    assert readme =~ "This component is not a popup menu"
-    assert readme =~ ~r/Applications\s+own route generation/
+    assert guide =~ "real destination links, not an ARIA command menu"
+    assert guide =~ "Callers provide real links, the current-location decision"
   end
 
   defp render_menu(overrides \\ []) do

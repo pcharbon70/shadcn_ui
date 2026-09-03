@@ -13,7 +13,7 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
     .spec/specs/compatibility_accessibility.spec.md
     .spec/specs/release_publication.spec.md
   )
-  @ledger File.read!("docs/milestone-f-acceptance.md")
+  @ledger File.read!("release/records/milestone-f-acceptance.md")
 
   test "acceptance ledger names every one of the 38 Milestone F requirements once" do
     ids =
@@ -51,7 +51,7 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
   test "release-facing documents agree on boundaries and deferred work" do
     corpus =
       ~w(README.md RELEASE.md CHANGELOG.md docs/installation.md docs/integrations.md
-         docs/compatibility.md docs/upgrading.md docs/gallery-operations.md)
+         docs/compatibility.md docs/upgrading.md demo/operations/gallery-publication.md)
       |> Enum.map_join("\n", &File.read!/1)
 
     for term <- ["Dstar", "LiveView", "controller", "0.1.0", "Hex", "rollback"] do

@@ -14,9 +14,9 @@ decisions:
 surface:
   - scripts/render-motion-media-budgets.exs
   - test/fixtures/milestone_e_budgets.json
-  - playwright.milestone-e-phase6.config.mjs
+  - test/browser/configs/playwright.milestone-e-phase6.config.mjs
   - docs/motion-media-guide.md
-  - docs/milestone-e-acceptance.md
+  - release/records/milestone-e-acceptance.md
   - test/shadcn_ui/motion_media_docs_test.exs
   - demo/**
   - test/browser/milestone-e-*.spec.mjs

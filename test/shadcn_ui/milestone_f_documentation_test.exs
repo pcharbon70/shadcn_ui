@@ -24,6 +24,30 @@ defmodule ShadcnUI.MilestoneFDocumentationTest do
     "docs/guides/motion.md"
   ]
 
+  @public_root_docs ~w(
+    docs/compatibility.md
+    docs/components.md
+    docs/image-gallery.md
+    docs/installation.md
+    docs/integrations.md
+    docs/motion-media-guide.md
+    docs/provenance.md
+    docs/upgrading.md
+  )
+
+  @internal_records ~w(
+    assets/engineering/motion-media-css-exceptions.md
+    assets/engineering/motion-media-foundations.md
+    demo/operations/gallery-publication.md
+    release/records/accessibility-review.md
+    release/records/clean-consumer-trial.md
+    release/records/milestone-e-acceptance.md
+    release/records/milestone-f-acceptance.md
+    release/records/milestone-g-phase1-acceptance.md
+    release/records/release-candidate.md
+    release/records/reproducible-candidate.md
+  )
+
   @category_guides %{
     "docs/guides/foundation.md" => ~w(Button Badge Alert Card Avatar Skeleton),
     "docs/guides/forms.md" => [
@@ -159,24 +183,18 @@ defmodule ShadcnUI.MilestoneFDocumentationTest do
   test "public guidance, migration, legal, and release channels remain connected" do
     extras = Mix.Project.config()[:docs][:extras]
 
-    for path <- [
-          "README.md",
-          "CHANGELOG.md",
-          "LICENSE",
-          "THIRD_PARTY_NOTICES.md",
-          "RELEASE.md",
-          "docs/components.md",
-          "docs/installation.md",
-          "docs/compatibility.md",
-          "docs/integrations.md",
-          "docs/upgrading.md",
-          "docs/reproducible-candidate.md",
-          "docs/clean-consumer-trial.md",
-          "docs/release-candidate.md",
-          "docs/provenance.md"
-        ] do
+    for path <-
+          ["README.md", "CHANGELOG.md", "LICENSE", "THIRD_PARTY_NOTICES.md", "RELEASE.md"] ++
+            @public_root_docs do
       assert path in extras
       assert File.regular?(path)
+    end
+
+    assert Enum.sort(Path.wildcard("docs/*.md")) == Enum.sort(@public_root_docs)
+
+    for path <- @internal_records do
+      assert File.regular?(path)
+      refute path in extras
     end
 
     assert File.read!("CHANGELOG.md") =~ "Milestone F Phase 3"

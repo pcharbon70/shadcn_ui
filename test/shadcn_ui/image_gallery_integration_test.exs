@@ -27,7 +27,7 @@ defmodule ShadcnUI.ImageGalleryIntegrationTest do
 
     assert mapping["localChanges"] =~ "Defer optional"
 
-    assert File.read!("docs/motion-media-css-exceptions.md") =~
+    assert File.read!("assets/engineering/motion-media-css-exceptions.md") =~
              "Phase 5 — no additional CSS exception"
   end
 

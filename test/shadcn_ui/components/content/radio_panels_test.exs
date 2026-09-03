@@ -170,14 +170,14 @@ defmodule ShadcnUI.Components.Content.RadioPanelsTest do
   test "capability-gated CSS hides only unselected panels and fallback keeps all content" do
     source = File.read!("assets/shadcn_ui.css")
     css = File.read!(ShadcnUI.stylesheet_path())
-    readme = File.read!("README.md")
+    guide = File.read!("docs/guides/content-surfaces.md")
 
     assert source =~ "@supports selector(:has(*))"
     assert source =~ "[data-shadcn-ui-radio-panel-option]:has(> div > input:checked)"
     assert source =~ "display: none"
     assert css =~ "data-shadcn-ui-radio-panel"
-    assert readme =~ "every panel remains visible"
-    assert readme =~ "not a Tab Group"
+    assert guide =~ "all panel content remains available"
+    assert guide =~ "do not use it as a substitute for ARIA tabs"
   end
 
   test "renders no tab widget, client state, navigation, or script contract" do

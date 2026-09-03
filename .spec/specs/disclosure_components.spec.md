@@ -78,6 +78,9 @@ runtime boundary, package contents, or existing verification.
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's component contract.
 
+The internal-record reorganization changes documentation paths only. Accordion
+semantics, presentation, fallbacks and executable proof are unchanged.
+
 ```spec-verification
 - kind: test_file
   target: test/shadcn_ui/components/disclosure/accordion_test.exs

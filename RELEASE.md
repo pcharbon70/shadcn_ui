@@ -3,7 +3,7 @@
 ## Milestone F Phase 6 status
 
 All 38 Milestone F requirements now have an explicit implementation/evidence
-entry in `docs/milestone-f-acceptance.md`. Immutable gallery manifests and the
+entry in `release/records/milestone-f-acceptance.md`. Immutable gallery manifests and the
 documented publication/rollback mechanisms are implemented. Fly release
 `rel_mr7g2md4103r2wj0` serves exact source
 `bb422d815683d2b6e1cd81e887b67791ac1cb92a`; service health and strengthened
@@ -20,7 +20,7 @@ The Phase 5 record proved its then-current committed-input build and archive
 consumer. Its 62-entry archive and now-unretrievable source revision do not
 qualify the current 63-entry archive. Current machine-readable status lives in
 `release/candidate-status.json`; the readable interpretation is
-`docs/release-candidate.md`.
+`release/records/release-candidate.md`.
 
 The candidate remains **blocked**, not qualified. Historical passing evidence
 is retained below, but the current blockers in the Phase 6 status above take
@@ -41,7 +41,7 @@ remained pending; the current Phase 6 status above supersedes that snapshot.
 
 Phase 6 consolidates all six Media/Motion APIs and ExDoc groups, complete gallery
 references, bounded-work fixtures and release audits. See
-`docs/motion-media-guide.md` and `docs/milestone-e-acceptance.md` for current
+`docs/motion-media-guide.md` and `release/records/milestone-e-acceptance.md` for current
 evidence and outstanding manual, CI, and current-candidate checks. The SpecLed
 runner problem recorded during E was repaired in Milestone G.
 Historical phase results below do not substitute for final candidate gates.

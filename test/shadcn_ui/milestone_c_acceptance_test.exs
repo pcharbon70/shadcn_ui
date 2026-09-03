@@ -69,18 +69,28 @@ defmodule ShadcnUI.MilestoneCAcceptanceTest do
 
   test "public guidance states semantics, ownership, fallback, and deferred-widget boundaries" do
     reference = File.read!("demo/lib/shadcn_ui_demo/reference.ex")
-    readme = File.read!("README.md")
+
+    guidance =
+      [
+        "docs/guides/navigation.md",
+        "docs/guides/disclosure.md",
+        "docs/guides/content-surfaces.md",
+        "docs/compatibility.md",
+        "README.md"
+      ]
+      |> Enum.map_join("\n", &File.read!/1)
+
     release = File.read!("RELEASE.md")
 
-    for heading <- [
-          "Choosing navigation and interaction semantics",
-          "Milestone C requires no package JavaScript",
-          "With no CSS",
-          "Reduced motion removes nonessential transitions",
+    for boundary <- [
+          "not an ARIA command menu",
+          "instead of requiring package state or a script runtime",
+          "Without enhancement CSS all panel content remains available",
+          "reduced-motion",
           "forced colors",
-          "explicit boundaries"
+          "Callers provide real links"
         ],
-        do: assert(readme =~ heading)
+        do: assert(guidance =~ boundary)
 
     assert reference =~ "Radio Panels"
     assert reference =~ "tab widget"

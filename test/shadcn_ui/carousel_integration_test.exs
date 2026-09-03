@@ -15,7 +15,7 @@ defmodule ShadcnUI.CarouselIntegrationTest do
     assert compiled =~ "data-shadcn-ui-carousel-scroll"
     assert css =~ "scroll-padding-inline"
     assert css =~ "forced-colors"
-    assert File.read!("docs/motion-media-css-exceptions.md") =~ "E-02"
+    assert File.read!("assets/engineering/motion-media-css-exceptions.md") =~ "E-02"
 
     refute css =~
              ~r/(scrollbar-width|overscroll-behavior|::scroll-button|::scroll-marker|@keyframes|url\()/

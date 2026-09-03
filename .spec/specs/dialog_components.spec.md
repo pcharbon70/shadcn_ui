@@ -22,7 +22,7 @@ surface:
   - test/browser/milestone-d-drawers.spec.mjs
   - test/fixtures/milestone_d_drawers.html
   - scripts/render-drawer-fixture.exs
-  - playwright.milestone-d-phase3.config.mjs
+  - test/browser/configs/playwright.milestone-d-phase3.config.mjs
   - README.md
 ```
 
@@ -86,6 +86,9 @@ runtime boundary, package contents, or existing verification.
 
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's component contract.
+
+The internal-record reorganization changes documentation paths only. Dialog
+APIs, native behavior, dismissal and executable proof are unchanged.
 
 Drawer renders one named body region with `tabindex="0"`. Its title and explicit
 exit precede the body, and the optional footer follows it outside the overflow

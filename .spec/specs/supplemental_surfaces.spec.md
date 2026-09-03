@@ -19,7 +19,7 @@ surface:
   - test/browser/milestone-d-supplemental-surfaces.spec.mjs
   - test/fixtures/milestone_d_supplemental_surfaces.html
   - scripts/render-supplemental-fixture.exs
-  - playwright.milestone-d-phase5.config.mjs
+  - test/browser/configs/playwright.milestone-d-phase5.config.mjs
   - README.md
 ```
 
@@ -78,6 +78,9 @@ runtime boundary, package contents, or existing verification.
 
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's component contract.
+
+The internal-record reorganization changes documentation paths only. Tooltip
+and Hover Card semantics, fallbacks and executable proof are unchanged.
 
 Tooltip uses a single self-closing structured trigger slot (`label`, native
 button/link attributes, class and unrelated globals), not caller-supplied nested

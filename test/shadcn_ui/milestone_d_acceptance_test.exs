@@ -34,7 +34,7 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
 
   test "Phase 1 joins authored capability evidence to a three-engine harness" do
     manifest = Jason.decode!(File.read!("priv/compatibility/native_overlays.json"))
-    config = File.read!("playwright.milestone-d-phase1.config.mjs")
+    config = File.read!("test/browser/configs/playwright.milestone-d-phase1.config.mjs")
     capability_test = File.read!("test/browser/milestone-d-capabilities.spec.mjs")
 
     assert Map.keys(manifest["verificationEvidence"]["engines"]) |> Enum.sort() ==
@@ -56,7 +56,11 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
     fixture = File.read!("test/fixtures/milestone_d_overlay_contract.html")
     browser = File.read!("test/browser/milestone-d-overlay-contract.spec.mjs")
     css = File.read!("assets/shadcn_ui.css")
-    readme = File.read!("README.md")
+
+    guidance =
+      File.read!("docs/guides/overlays.md") <>
+        File.read!("docs/integrations.md") <>
+        File.read!("lib/shadcn_ui/components/overlays/drawer.ex")
 
     for relationship <- ~w(invoker surface title description close initial-focus),
         do: assert(source =~ relationship)
@@ -69,8 +73,8 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
     assert css =~ "position-try-fallbacks"
     assert css =~ "transition-behavior: allow-discrete"
     assert css =~ "forced-colors: active"
-    assert readme =~ "browser-local"
-    assert readme =~ "Nested modals"
+    assert guidance =~ "browser-local"
+    assert guidance =~ "nested modals"
   end
 
   test "release keeps normative manifest but excludes runtime and verification machinery" do
@@ -84,7 +88,7 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
           "test",
           "scripts",
           "test-results",
-          "playwright.milestone-d-phase1.config.mjs"
+          "test/browser/configs/playwright.milestone-d-phase1.config.mjs"
         ] do
       refute excluded in files
     end
@@ -113,9 +117,13 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
   end
 
   test "Phase 2 locks three-engine behavior and application ownership evidence" do
-    config = File.read!("playwright.milestone-d-phase2.config.mjs")
+    config = File.read!("test/browser/configs/playwright.milestone-d-phase2.config.mjs")
     browser = File.read!("test/browser/milestone-d-dialogs.spec.mjs")
-    readme = File.read!("README.md")
+
+    guidance =
+      File.read!("docs/guides/overlays.md") <>
+        File.read!("lib/shadcn_ui/components/overlays/dialog.ex") <>
+        File.read!("lib/shadcn_ui/components/overlays/alert_dialog.ex")
 
     for engine <- ~w(chromium firefox webkit) do
       assert config =~ ~s(name: "#{engine}")
@@ -135,15 +143,15 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
         ],
         do: assert(browser =~ evidence)
 
-    assert readme =~ "The browser owns Tab containment"
-    assert readme =~ "The component never"
-    assert readme =~ ~r/Browser\s+`confirm\(\)`/
+    assert guidance =~ "The browser owns modality, focus containment"
+    assert guidance =~ "ShadcnUI does not wrap, activate"
+    assert guidance =~ "action remains caller-owned and is not authorized or executed"
   end
 
   test "Phase 3 exposes Drawer and exercises actual generated HEEx across three engines" do
     assert File.read!("lib/shadcn_ui.ex") =~ "ShadcnUI.Components.Overlays.Drawer"
     assert File.read!("mix.exs") =~ "ShadcnUI.Components.Overlays.Drawer"
-    config = File.read!("playwright.milestone-d-phase3.config.mjs")
+    config = File.read!("test/browser/configs/playwright.milestone-d-phase3.config.mjs")
 
     for engine <- ~w(chromium firefox webkit) do
       assert config =~ ~s(browserName: "#{engine}")
@@ -206,7 +214,12 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
     assert "src/demos/drawer/basic.html" in adaptation["upstreamPaths"]
     files = Mix.Project.config()[:package][:files]
 
-    for path <- ["scripts", "test", "demo", "playwright.milestone-d-phase3.config.mjs"],
+    for path <- [
+          "scripts",
+          "test",
+          "demo",
+          "test/browser/configs/playwright.milestone-d-phase3.config.mjs"
+        ],
         do: refute(path in files)
   end
 
@@ -234,7 +247,7 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
   end
 
   test "Phase 4 joins deterministic fixtures, optional positioning and three-engine CI" do
-    config = File.read!("playwright.milestone-d-phase4.config.mjs")
+    config = File.read!("test/browser/configs/playwright.milestone-d-phase4.config.mjs")
     for engine <- ~w(chromium firefox webkit), do: assert(config =~ ~s(browserName: "#{engine}"))
     ci = File.read!(".github/workflows/gallery.yml")
     assert ci =~ "mix run scripts/render-popover-fixture.exs --check"
@@ -276,13 +289,21 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
 
     files = Mix.Project.config()[:package][:files]
 
-    for excluded <- ["demo", "test", "scripts", "playwright.milestone-d-phase4.config.mjs"],
+    for excluded <- [
+          "demo",
+          "test",
+          "scripts",
+          "test/browser/configs/playwright.milestone-d-phase4.config.mjs"
+        ],
         do: refute(excluded in files)
 
-    readme = File.read!("README.md")
-    assert readme =~ "not an ARIA menu"
-    assert readme =~ "no roving tabindex"
-    assert readme =~ "always-visible ordinary fallback"
+    guidance =
+      File.read!("docs/guides/overlays.md") <>
+        File.read!("lib/shadcn_ui/components/overlays/dropdown_actions.ex")
+
+    assert guidance =~ "not an ARIA menu"
+    assert guidance =~ "No roving focus"
+    assert guidance =~ "fallback content"
   end
 
   # covers: shadcn_ui.supplemental.tooltip shadcn_ui.supplemental.tooltip_fallback
@@ -301,7 +322,7 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
     assert fixture =~ ~s(id="card-invoker" href="#destination")
     assert fixture =~ "All required task information is available here."
     refute fixture =~ ~r/(interestfor|popover=|<script|tabindex=|role="(?:menu|dialog)")/
-    config = File.read!("playwright.milestone-d-phase5.config.mjs")
+    config = File.read!("test/browser/configs/playwright.milestone-d-phase5.config.mjs")
     for engine <- ~w(chromium firefox webkit), do: assert(config =~ ~s(browserName: "#{engine}"))
     ci = File.read!(".github/workflows/gallery.yml")
     assert ci =~ "mix run scripts/render-supplemental-fixture.exs --check"
@@ -338,21 +359,29 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
                ~r/(addEventListener|setTimeout|interestfor=|popover=|<script|String\.to_atom|System\.unique_integer|fetch\()/
     end
 
-    readme = File.read!("README.md")
+    guidance =
+      File.read!("docs/guides/interactive-surfaces.md") <>
+        File.read!("lib/shadcn_ui/components/overlays/tooltip.ex") <>
+        File.read!("lib/shadcn_ui/components/overlays/hover_card.ex")
 
     for boundary <- [
-          "not a sanitizer",
-          "privacy boundary",
-          "No required",
-          "normal flow",
-          "No script",
-          "Phase 6"
+          "not an untrusted-HTML sanitizer",
+          "Applications own privacy",
+          "must remain supplemental",
+          "no script",
+          "not an interest invoker",
+          "unique information unavailable at the destination"
         ],
-        do: assert(readme =~ boundary)
+        do: assert(guidance =~ boundary)
 
     assert Path.wildcard("lib/**/*.{js,mjs,ts}") == []
 
-    for excluded <- ["demo", "test", "scripts", "playwright.milestone-d-phase5.config.mjs"],
+    for excluded <- [
+          "demo",
+          "test",
+          "scripts",
+          "test/browser/configs/playwright.milestone-d-phase5.config.mjs"
+        ],
         do: refute(excluded in Mix.Project.config()[:package][:files])
   end
 
@@ -451,7 +480,9 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
   test "milestone acceptance gates include real gallery, fallback, accessibility and archive checks" do
     workflow = File.read!(".github/workflows/gallery.yml")
     browser = File.read!("test/browser/milestone-d-gallery.spec.mjs")
-    readme = File.read!("README.md")
+    overlays = File.read!("docs/guides/overlays.md")
+    supplemental = File.read!("docs/guides/interactive-surfaces.md")
+    compatibility = File.read!("docs/compatibility.md")
     for phase <- 1..5, do: assert(workflow =~ "browser:milestone-d-phase#{phase}")
 
     for gate <- [
@@ -473,13 +504,13 @@ defmodule ShadcnUI.MilestoneDAcceptanceTest do
         ],
         do: assert(browser =~ boundary)
 
-    for guidance <- [
-          "Choosing a surface",
-          "API and identity reference",
-          "Capability and fallback reference",
-          "DOM replacement",
-          "Interest invokers"
-        ],
-        do: assert(readme =~ guidance)
+    for heading <- ["Dialog", "Alert Dialog", "Drawer", "Popover", "Dropdown Actions"],
+        do: assert(overlays =~ "## #{heading}")
+
+    for heading <- ["Tooltip", "Hover Card"],
+        do: assert(supplemental =~ "## #{heading}")
+
+    assert compatibility =~ "Compatibility and fallback policy"
+    assert overlays =~ "applications own authorization"
   end
 end

@@ -114,7 +114,7 @@ paths and local changes. Native composition, finite budgets and guards are local
 adaptations, not a claim of identical upstream behavior. There is no automatic
 upstream synchronization or runtime dependency.
 
-The [CSS exception ledger](motion-media-css-exceptions.md) covers five component
+The [CSS exception ledger](https://github.com/pcharbon70/shadcn_ui/blob/main/assets/engineering/motion-media-css-exceptions.md) covers five component
 CSS files and shared suppression. Image Gallery reuses Dialog and static
 utilities. The demo's three original SVGs have licenses, dimensions, bytes and
 hashes in `demo/priv/media/fixtures.json`; they are not upstream artwork and are
@@ -123,5 +123,5 @@ excluded from the archive. No new CSS exception is added in Phase 6.
 Exact-engine probes, HEEx fixtures, deterministic export and archive audits are
 separate from manual screen-reader/physical-device review, CI and publication.
 Versions record observations, not a brand-based support policy. See the repository
-`docs/milestone-e-acceptance.md` for candidate evidence. Milestone F remains
+`release/records/milestone-e-acceptance.md` for candidate evidence. Milestone F remains
 separate; this work does not authorize Hex publication.

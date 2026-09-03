@@ -103,7 +103,9 @@ defmodule ShadcnUI.Components.Content.SeparatorTest do
     assert coexistence =~ "data-shadcn-ui-separator"
     assert "lib/shadcn_ui/components/content/separator.ex" in adaptation["localPaths"]
     assert adaptation["upstreamPaths"] == ["src/styles/global.css"]
-    assert File.read!("README.md") =~ "Applications own that semantic choice"
+    guide = File.read!("docs/guides/content-surfaces.md")
+    assert guide =~ "`mode={:semantic}` renders meaningful separation"
+    assert guide =~ "`mode={:decorative}` hides the boundary from the accessibility tree"
   end
 
   test "source owns no component runtime, application behavior, or raw HTML" do
