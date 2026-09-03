@@ -22,6 +22,10 @@ differences retained while the Accordion presentation aligns to the pin.
 `remediation-r4-integration-evidence.json` records the accepted R4 geometry,
 reviewed golden groups, semantic and fallback suites, cross-engine results,
 deterministic export and SpecLed closure.
+`remediation-r5-comparison-evidence.json` pairs eight rendered pinned-reference
+and local Accordion states, locks a separate Foundation category matrix and
+records the measured region bounds plus every retained semantic, identity,
+capability, independent-mode and narrow-padding exception.
 The source-derived states remain the authoritative Phase 1 inputs because a
 moving deployment cannot be deterministic. R5 adds the checked
 `pinned-reference/` rendering subset from the same source identities and exact

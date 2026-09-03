@@ -4,6 +4,10 @@
   "evidenceType": "local-automated-pilot-acceptance",
   "recordedOn": "2026-08-31",
   "reference": "demo/priv/reference/milestone_g/presentation-reference.json",
+  "comparisonRoutes": {
+    "reference": "/components/accordion/",
+    "local": "/components/disclosure/accordion"
+  },
   "runner": {
     "playwright": "1.62.1",
     "engine": "chromium",

@@ -357,27 +357,27 @@ category route and is not an Accordion comparison target.
       - [x] R5.1.1.3 Subtask - Hash source identity, assets, tool versions, fonts, viewport, theme, motion, open state and scroll position in the reference manifest.
       - [x] R5.1.1.4 Subtask - Keep reference-only code, fonts and captures outside the package archive.
 
-  - [ ] R5.2 Section - Capture and compare the accepted matrix.
+  - [x] R5.2 Section - Capture and compare the accepted matrix.
 
     Remote public pages may be inspected manually but never become automated
     test inputs.
 
-    - [ ] R5.2.1 Task - Generate reference and local visual evidence.
+    - [x] R5.2.1 Task - Generate reference and local visual evidence.
 
       Geometry and focus invariants complement bounded pixel comparison.
 
-      - [ ] R5.2.1.1 Subtask - Capture reference and local states at 1440x1200, 1024x1366, 390x844 and 320x568 in light and dark with motion suppressed.
-      - [ ] R5.2.1.2 Subtask - Compare shell, current navigation, title, description, specimen frame, Accordion rows, chevrons, focus, code and responsive reflow within accepted tolerances.
-      - [ ] R5.2.1.3 Subtask - Review every over-tolerance diff and either fix it or attach a specific accepted exception; reject unexplained bulk golden replacement.
+      - [x] R5.2.1.1 Subtask - Capture reference and local states at 1440x1200, 1024x1366, 390x844 and 320x568 in light and dark with motion suppressed.
+      - [x] R5.2.1.2 Subtask - Compare shell, current navigation, title, description, specimen frame, Accordion rows, chevrons, focus, code and responsive reflow within accepted tolerances.
+      - [x] R5.2.1.3 Subtask - Review every over-tolerance diff and either fix it or attach a specific accepted exception; reject unexplained bulk golden replacement.
 
-    - [ ] R5.2.2 Task - Close route and coverage gaps.
+    - [x] R5.2.2 Task - Close route and coverage gaps.
 
       Visual evidence must identify category pages and component pages
       separately.
 
-      - [ ] R5.2.2.1 Subtask - Add a dedicated Foundation category state instead of treating its representative Button page as category coverage.
-      - [ ] R5.2.2.2 Subtask - Assert the Accordion comparison and pilot evidence always use `/components/disclosure/accordion`.
-      - [ ] R5.2.2.3 Subtask - Add direct find-in-page coverage for open and closed Accordion content without introducing scripted disclosure ownership.
+      - [x] R5.2.2.1 Subtask - Add a dedicated Foundation category state instead of treating its representative Button page as category coverage.
+      - [x] R5.2.2.2 Subtask - Assert the Accordion comparison and pilot evidence always use `/components/disclosure/accordion`.
+      - [x] R5.2.2.3 Subtask - Add direct find-in-page coverage for open and closed Accordion content without introducing scripted disclosure ownership.
 
   - [ ] R5.3 Section - R5 Integration Tests.
 

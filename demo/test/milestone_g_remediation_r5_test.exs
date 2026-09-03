@@ -3,6 +3,9 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR5Test do
 
   @reference_root "priv/reference/milestone_g/pinned-reference"
   @manifest File.read!(Path.join(@reference_root, "manifest.json")) |> Jason.decode!()
+  @comparison File.read!("priv/reference/milestone_g/remediation-r5-comparison-evidence.json")
+              |> Jason.decode!()
+  @repo_root Path.expand("../..", __DIR__)
 
   # covers: shadcn_ui.gallery_presentation.pinned_reference
   # covers: shadcn_ui.gallery_presentation.visual_evidence
@@ -67,5 +70,44 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR5Test do
 
     assert File.read!("priv/reference/milestone_g/licenses/bricolage-grotesque-OFL.txt") =~
              "SIL OPEN FONT LICENSE Version 1.1"
+  end
+
+  test "R5.2 locks eight paired states and a dedicated Foundation category matrix" do
+    assert @comparison["status"] == "passed-reviewed-r5.2"
+    assert @comparison["upstreamCommit"] == @manifest["upstream"]["commit"]
+    assert @comparison["networkRequiredForVerification"] == false
+    assert @comparison["movingPublicSiteAuthoritative"] == false
+    assert @comparison["routes"]["reference"] == "/components/accordion/"
+    assert @comparison["routes"]["local"] == "/components/disclosure/accordion"
+    assert @comparison["routes"]["foundationCategory"] == "/components/foundation"
+    assert length(@comparison["states"]) == 8
+    assert length(@comparison["foundationCategoryCaptures"]) == 4
+    assert length(@comparison["reviewedExceptions"]) == 5
+
+    assert MapSet.new(@comparison["states"], &{&1["viewport"]["width"], &1["theme"]}) ==
+             MapSet.new(
+               for width <- [1440, 1024, 390, 320], theme <- ~w(light dark), do: {width, theme}
+             )
+
+    captures =
+      Enum.flat_map(@comparison["states"], &[&1["reference"], &1["local"]]) ++
+        @comparison["foundationCategoryCaptures"]
+
+    assert length(captures) == 20
+
+    for capture <- captures do
+      bytes = File.read!(Path.join(@repo_root, capture["file"]))
+      assert Base.encode16(:crypto.hash(:sha256, bytes), case: :lower) == capture["sha256"]
+    end
+
+    assert Enum.all?(@comparison["states"], fn state ->
+             state["accordionRegion"]["reviewedDifferenceRatio"] <=
+               state["accordionRegion"]["maximumDifferenceRatio"]
+           end)
+
+    assert @comparison["coverage"]["findInPage"] == %{
+             "openAnswer" => "passed-without-state-change",
+             "closedAnswer" => "passed-without-state-change"
+           }
   end
 end
