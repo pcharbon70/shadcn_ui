@@ -8,6 +8,8 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR6Test do
               |> Jason.decode!()
   @deployment File.read!("priv/reference/milestone_g/remediation-r6-deployment-evidence.json")
               |> Jason.decode!()
+  @acceptance File.read!("priv/reference/milestone_g/remediation-r6-acceptance-evidence.json")
+              |> Jason.decode!()
   @fly_release File.read!(Path.join(@repo_root, "release/fly-deployment-evidence.json"))
                |> Jason.decode!()
   @candidate File.read!(Path.join(@repo_root, "release/candidate-status.json")) |> Jason.decode!()
@@ -118,6 +120,7 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR6Test do
     assert @deployment["rollback"]["priorReviewedSmokeVerifiedFlyRelease"] == nil
 
     assert @fly_release["release"]["sourceRevision"] == revision
+
     assert @fly_release["release"]["flyReleaseId"] ==
              @deployment["release"]["flyMachineReleaseId"]
 
@@ -128,5 +131,34 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR6Test do
              "pending-risk-accepted-for-r6-progression"
 
     assert @deployment["separateGates"]["candidateQualification"] == "blocked"
+  end
+
+  test "R6.4 closes remediation evidence without promoting candidate gates" do
+    assert @acceptance["status"] ==
+             "r6-remediation-delivery-evidence-complete-candidate-blocked"
+
+    assert @acceptance["exactSourceRevision"] == nil
+    assert map_size(@acceptance["sections"]) == 4
+    assert map_size(@acceptance["reviewIssues"]) == 11
+    assert @acceptance["reviewIssues"]["VR-11"] == "manual-risk-accepted-pending"
+    assert @acceptance["workflow"]["passingRun"]["status"] == "passed"
+
+    assert @acceptance["workflow"]["finalEvidenceRevisionCi"] ==
+             "pending-after-containing-commit"
+
+    assert @acceptance["deployment"]["canonicalSmoke"] == "passed"
+    assert @acceptance["deployment"]["deployedBrowser"]["failures"] == 0
+    assert @acceptance["manualAccessibility"]["pending"] == 6
+    assert @acceptance["manualAccessibility"]["passed"] == 0
+
+    assert @acceptance["visualAndFunctionalResult"][
+             "unresolvedReachabilityFocusSemanticReducedMotionOrPinnedParityFailures"
+           ] == []
+
+    assert @acceptance["planReconciliation"]["milestoneG"] == "open"
+    assert @acceptance["planReconciliation"]["candidateQualification"] == "blocked"
+    assert length(@acceptance["remainingMandatoryCandidateBlockers"]) == 4
+    assert @candidate["qualification"]["status"] == "blocked"
+    refute @candidate["qualification"]["qualified"]
   end
 end

@@ -15,6 +15,7 @@
     "manual-risk:milestone-g:check": "node scripts/check-milestone-g-r6-manual-risk.mjs",
     "regression:milestone-g:check": "node scripts/check-milestone-g-r6-regression.mjs",
     "deployment:milestone-g:check": "node scripts/check-milestone-g-r6-deployment.mjs",
+    "acceptance:milestone-g:check": "node scripts/check-milestone-g-r6-acceptance.mjs",
     "consumer:clean": "node scripts/run-clean-consumer.mjs",
     "browser:milestone-f-phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-f-phase4.config.mjs",
     "browser:milestone-g-phase2": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-phase2.config.mjs",

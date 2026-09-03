@@ -52,6 +52,13 @@ OTP release on Fly.io.
   checks and canonical smoke remain separate states. Rollback selects an
   already deployed, smoke-verified Fly release; an image build alone is not a
   successful publication.
+- For bounded remediation evidence, the release owner may explicitly authorize
+  deployment of an exact pull-request revision whose CI is green. That
+  operational authorization does not supply independent source approval,
+  final-evidence-revision CI, merge, manual accessibility acceptance, or
+  candidate qualification; each remains separately recorded. A retained Fly
+  release is eligible for rollback claims only when its reviewed source and
+  successful smoke were recorded.
 
 ## Consequences
 

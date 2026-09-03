@@ -91,7 +91,9 @@ Remediation R4 keeps narrow search inside the native mobile navigation
 disclosure and locks useful 320px and 390px layouts in both themes.
 Remediation R6 records the owner's scoped acceptance of the risk from deferring
 manual review without promoting any pending scenario, qualifying the candidate,
-claiming conformance or authorizing deployment.
+or claiming conformance. The later, separately recorded deployment
+authorization and successful Fly smoke do not promote that waiver into a pass
+or change the six pending manual scenarios.
 Its R6.2 regression restores the locked three-engine Milestone F suite to CI
 using the current scoped search contract and records pinned axe separately from
 the still-pending human scenarios.

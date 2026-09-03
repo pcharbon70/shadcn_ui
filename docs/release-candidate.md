@@ -4,12 +4,13 @@
 
 Status: **BLOCKED — not qualified**.
 
-The implementation, recorded local automated acceptance, SpecLed checks, Fly
-deployment, and canonical smoke pass. Qualification is still blocked because
-the exact current revision needs two clean reproducible candidate builds, all
-six human accessibility scenarios remain pending, the deployed source has not
-passed pull-request review, and final-revision CI has not run. The current
-isolated archive-consumer trial passes. `release/candidate-status.json` is the
+The implementation, recorded local automated acceptance, SpecLed checks,
+owner-authorized Fly deployment, canonical smoke, and deployed Chromium smoke
+pass. Qualification is still blocked because the exact current revision needs
+two clean reproducible candidate builds, all six human accessibility scenarios
+remain pending, no independent source approval is recorded, and CI has not yet
+run on the final evidence-only PR revision. The current isolated
+archive-consumer trial passes. `release/candidate-status.json` is the
 machine-readable source for this decision; pending or failed mandatory gates
 always override narrative success language.
 
@@ -33,9 +34,11 @@ always override narrative success language.
   `release/consumer-trial-evidence.json`.
 - Locked three-engine compatibility, automated accessibility, and current
   SpecLed evidence pass. Those results do not complete human review or final CI.
-- Fly release `rel_mr7g2md4103r2wj0` serves exact recorded base revision from image
-  digest `sha256:83decff9d414c27da8a38661a1aff4efa98d085d0970930b3bc2f0d36f72289f`.
-  Service health and the strengthened canonical smoke pass; see
+- Fly release `rel_krm823exwop9zxw4` serves exact reviewed-workflow revision
+  `c08761f69429f88858a891584bc3962bd3109fe5` from image digest
+  `sha256:a7b6e6753075234c6760309f99c926be53f4aafee6e270088a0a95df6fc5e4cb`.
+  Initial PR CI, service health, canonical smoke, the two-test deployed
+  Chromium check, and seven response hashes pass; see
   `release/fly-deployment-evidence.json`.
 
 The current archive hash is provisional until two clean pinned-toolchain builds
@@ -47,13 +50,17 @@ produce equivalent evidence.
   archive-consumer trial passes independently.
 - Human accessibility scenarios: six pending, mandatory before qualification;
   no WCAG or assistive-technology certification is claimed.
-- CI on the final revision: pending, mandatory.
-- Reviewed deployment source: pending, mandatory; the operational Fly run does
-  not satisfy the reviewed-source publication requirement.
+- CI on the final revision: pending, mandatory. Initial PR CI passed at the
+  exact deployed revision before the evidence-only commits.
+- Independent deployment source approval: pending, mandatory. PR #43 was open,
+  owner-authorized, and green before deployment, but no independent approval is
+  recorded.
 - SpecLed: passing locally with zero errors, warnings, or branch findings;
   final-revision CI remains independent.
-- Fly deployment and canonical post-deploy smoke: passed for exact recorded
-  source. Pull request, review, CI, and merge remain separate pending states.
+- Fly deployment, canonical post-deploy smoke, deployed 320px geometry, direct
+  fragments, category route, themes, and response hashes: passed for exact
+  recorded source. Final-revision CI, independent approval, and merge remain
+  separate pending states.
 - Hex publication, a public version tag, marketplace listing, consumer-platform
   certification, and official Unscripted affiliation: not applicable and not
   authorized for this internal candidate.

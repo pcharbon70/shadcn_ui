@@ -54,9 +54,9 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
     assert @deployment["release"]["status"] == "passed"
 
     assert @deployment["release"]["sourceRevision"] ==
-             "bb422d815683d2b6e1cd81e887b67791ac1cb92a"
+             "c08761f69429f88858a891584bc3962bd3109fe5"
 
-    assert @deployment["release"]["flyReleaseId"] == "rel_mr7g2md4103r2wj0"
+    assert @deployment["release"]["flyReleaseId"] == "rel_krm823exwop9zxw4"
     assert @deployment["release"]["imageDigest"] =~ ~r/^sha256:[0-9a-f]{64}$/
     assert @deployment["health"]["status"] == "passed"
     assert @deployment["canonicalSmoke"]["status"] == "passed"
@@ -72,8 +72,7 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
              @provenance["upstream"]["commit"]
 
     verifier = @deployment["canonicalSmoke"]["verifier"]
-    assert verifier["sourceRevision"] == nil
-    assert verifier["workingTreeBaseRevision"] == release_revision
+    assert verifier["sourceRevision"] == release_revision
 
     actual_verifier_sha =
       verifier["path"]
@@ -82,24 +81,15 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
       |> Base.encode16(case: :lower)
 
     assert verifier["sha256"] == actual_verifier_sha
-    assert @deployment["externalGates"]["pullRequest"] == "absent"
-    assert @deployment["externalGates"]["sourceReview"] == "pending"
+    assert @deployment["externalGates"]["pullRequest"] == "open"
+    assert @deployment["externalGates"]["sourceReview"] == "pending-independent-approval"
+    assert @deployment["externalGates"]["initialRevisionCi"] == "passed"
     assert @deployment["externalGates"]["finalRevisionCi"] == "pending"
-    assert @deployment["externalGates"]["merge"] == "pending"
+    assert @deployment["externalGates"]["merge"] == "authorized-pending"
     assert @deployment["rollback"]["priorReviewedSmokeVerifiedFlyRelease"] == nil
-    assert @deployment["rollback"]["status"] == "no-reviewed-rollback-candidate"
+    assert @deployment["rollback"]["status"] == "no-prior-reviewed-rollback-candidate"
 
-    for snapshot <- @deployment["staticEvidenceBoundary"]["historicalSnapshots"] do
-      historical = snapshot["path"] |> File.read!() |> Jason.decode!()
-
-      assert get_in(historical, ["qualification", "sourceRevision"]) ==
-               snapshot["sourceRevision"] or
-               get_in(historical, ["candidate", "testedSourceRevision"]) ==
-                 snapshot["sourceRevision"]
-
-      assert get_in(historical, ["qualification", "canonicalUrl"]) ==
-               snapshot["canonicalUrl"] or
-               get_in(historical, ["candidate", "canonicalUrl"]) == snapshot["canonicalUrl"]
-    end
+    assert @deployment["staticEvidenceBoundary"]["status"] == "passed-separately"
+    assert File.exists?(@deployment["staticEvidenceBoundary"]["currentEvidence"])
   end
 end

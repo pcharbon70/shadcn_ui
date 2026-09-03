@@ -50,6 +50,11 @@ Back to wave: [README](./README.md)
   - [ ] 8.3 Section - Publish and verify the redesigned gallery.
 
     Publication remains an explicit reviewed state after local and CI acceptance.
+    R6 release `rel_krm823exwop9zxw4` now passes owner-authorized PR CI,
+    canonical smoke and deployed 320px/browser checks at exact revision
+    `c08761f69429f88858a891584bc3962bd3109fe5`. This section remains open
+    because 8.3.2.1 requires the after-merge publication order; evidence is not
+    rewritten to imply that sequence occurred.
 
     - [x] 8.3.1 Task - Qualify the immutable export.
 

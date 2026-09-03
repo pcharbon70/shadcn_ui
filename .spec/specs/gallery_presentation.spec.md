@@ -118,7 +118,12 @@ Milestone G browser, catalogue, provenance, license, asset, archive, ExDoc and
 deterministic-export gates while keeping local evidence distinct from deployment.
 Remediation R6 extends that proof through the complete A-G regression, repaired
 historical browser assertions, isolated consumer trial and current Fly-identity
-export while retaining manual, CI, merge and deployment as separate states.
+export. Its deployed Chromium checks supplement the locked local evidence with
+critical 320px navigation destination visibility and focus, Accordion geometry
+and overflow, Foundation category rendering, theme selection, direct source and
+preview fragments, and exact health revision checks. Deployment remains distinct
+from manual accessibility, final-evidence CI, independent review, merge and
+candidate qualification.
 
 ```spec-verification
 - kind: test_file
