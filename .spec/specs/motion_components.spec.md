@@ -15,7 +15,7 @@ surface:
   - test/shadcn_ui/scroll_media_integration_test.exs
   - scripts/render-scroll-media-fixture.exs
   - test/fixtures/milestone_e_scroll_media.html
-  - playwright.milestone-e-phase4.config.mjs
+  - test/browser/configs/playwright.milestone-e-phase4.config.mjs
   - test/fixtures/milestone_e_motion.html
   - test/shadcn_ui/motion_integration_test.exs
   - lib/shadcn_ui/components/motion/marquee.ex
@@ -23,7 +23,7 @@ surface:
   - assets/marquee.css
   - assets/stagger.css
   - scripts/render-motion-fixture.exs
-  - playwright.milestone-e-phase3.config.mjs
+  - test/browser/configs/playwright.milestone-e-phase3.config.mjs
   - lib/shadcn_ui/components/motion/**/*.ex
   - test/shadcn_ui/components/motion/**/*.exs
   - test/browser/milestone-e-motion.spec.mjs
@@ -142,6 +142,10 @@ keyboard focus must never depend on animated color or opacity.
 ```
 
 ## Verification
+
+The internal-record reorganization moves CSS engineering notes under
+`assets/engineering/` and updates path-sensitive tests only. Motion APIs,
+suppression, budgets and executable proof are unchanged.
 
 The Phase 8 browser-harness stability refinement preserves the existing motion
 behavior and keeps this subject's declared verification current.

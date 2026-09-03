@@ -1,4 +1,4 @@
-/* E-02: native logical list layout; see docs/motion-media-css-exceptions.md. */
+/* E-02: native logical list layout; see assets/engineering/motion-media-css-exceptions.md. */
 [data-shadcn-ui-carousel] { min-inline-size: 0; max-inline-size: 100%; }
 [data-shadcn-ui-carousel] > [data-shadcn-ui-carousel-scroll] {
   box-sizing: border-box; inline-size: 100%; max-inline-size: 100%;

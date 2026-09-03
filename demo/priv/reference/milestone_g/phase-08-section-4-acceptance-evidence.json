@@ -62,7 +62,7 @@
     "manualScenarios": {
       "status": "pending",
       "count": 6,
-      "ledger": "docs/accessibility-review.md",
+      "ledger": "release/records/accessibility-review.md",
       "claim": "No manual accessibility acceptance or WCAG certification is claimed."
     }
   },

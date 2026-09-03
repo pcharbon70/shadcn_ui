@@ -177,13 +177,14 @@ defmodule ShadcnUI.Components.Navigation.HeadersTest do
 
   test "documentation, fallback CSS, and provenance describe ownership honestly" do
     source = File.read!("assets/shadcn_ui.css")
-    readme = File.read!("README.md")
+    guide = File.read!("docs/guides/navigation.md")
+    compatibility = File.read!("docs/compatibility.md")
     provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
 
     assert source =~ "[data-shadcn-ui-section-header][data-presentation=\"sticky\"]"
     assert source =~ "[data-shadcn-ui-section-header][data-anchor-effect=\"accent\"]:target"
-    assert readme =~ "Header does not create a page heading"
-    assert readme =~ "normal document flow"
+    assert guide =~ "It never chooses the heading level"
+    assert compatibility =~ "Ordinary document flow"
 
     assert Enum.any?(provenance["adaptations"], &(&1["id"] == "navigation.header"))
     assert Enum.any?(provenance["adaptations"], &(&1["id"] == "navigation.section_header"))

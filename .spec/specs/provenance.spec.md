@@ -60,6 +60,9 @@ semantics, runtime boundary, package contents, or existing verification.
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's provenance contract.
 
+README links now point to internal records in their dedicated release and asset
+locations. Pinned provenance, retained notices and executable proof are unchanged.
+
 Phase 6 audits all six existing E component mappings against the same exact pin,
 without changing copied material or adding site assets. Final candidate tests
 and the actual archive audit preserve normative manifests and full MIT notice

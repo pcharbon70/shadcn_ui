@@ -78,6 +78,8 @@ The category-oriented user guides are ExDoc inputs only. They compile against
 the public imports during documentation verification and remain outside the
 explicit release-file allowlist, so they add no runtime module, dependency,
 asset toolchain or generated documentation to the package archive.
+Internal evidence, engineering records and gallery operations are not ExDoc
+inputs and remain outside the package archive as well.
 
 Milestone E Phase 6 groups all six defining Media/Motion APIs in ExDoc and
 compiles the guide composition against the public imports and Phoenix metadata.

@@ -7,25 +7,41 @@ defmodule ShadcnUI.MilestoneBDocumentationTest do
   # covers: shadcn_ui.package.explicit_release_files
 
   test "public guidance documents shared ownership, fallback, and server trust boundaries" do
-    readme = File.read!("README.md") |> String.replace(~r/\s+/, " ")
+    forms = File.read!("docs/guides/forms.md") |> String.replace(~r/\s+/, " ")
+    readme = File.read!("README.md")
 
     for phrase <- [
-          "Explicit `id`, `name`, `value`, and `errors` take precedence",
-          "Error visibility is selected",
-          "`pending` is presentation only",
-          "Ordinary browser form submission",
-          "fixed native minimum height",
-          "same visible, focusable classic select",
-          "Every server operation must parse, validate",
-          "authorize",
-          "--shadcn-ui-*"
+          "Phoenix `field={@form[:name]}` or explicit `id`, `name`, `value`, and `errors`",
+          "`error_mode` is `used_input`, `always`, or `hidden`",
+          "`pending`",
+          "browser-owned keyboard, reset, and form submission",
+          "`small`, `default`, or `large`",
+          "unsupported browsers retain the native select",
+          "application still owns changesets, validation timing, translation, submission, and persistence"
         ] do
-      assert readme =~ phrase
+      assert forms =~ phrase
     end
 
-    for component <-
-          ~w(Field Label Help Error Summary Input Textarea Checkbox Radio Group Switch Native Select Enhanced Select Slider Progress Meter) do
-      assert readme =~ component
+    assert readme =~ "--shadcn-ui-*"
+
+    for component <- [
+          "Field",
+          "Label",
+          "Help",
+          "Field Errors",
+          "Error Summary",
+          "Input",
+          "Textarea",
+          "Checkbox",
+          "Radio Group",
+          "Switch",
+          "Native Select",
+          "Enhanced Select",
+          "Slider",
+          "Progress",
+          "Meter"
+        ] do
+      assert forms =~ "## #{component}"
     end
   end
 

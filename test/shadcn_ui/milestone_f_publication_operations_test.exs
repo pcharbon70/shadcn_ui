@@ -2,7 +2,7 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
   use ExUnit.Case, async: true
 
   @workflow File.read!(".github/workflows/gallery.yml")
-  @operations File.read!("docs/gallery-operations.md")
+  @operations File.read!("demo/operations/gallery-publication.md")
   @deployment File.read!("release/fly-deployment-evidence.json") |> Jason.decode!()
   @status File.read!("release/candidate-status.json") |> Jason.decode!()
   @provenance File.read!("priv/provenance/unscripted_ui.json") |> Jason.decode!()

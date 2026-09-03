@@ -77,6 +77,9 @@ runtime boundary, package contents, or existing verification.
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's gallery contract.
 
+The internal-record reorganization changes documentation paths only. Content,
+navigation, gallery behavior and executable proof are unchanged.
+
 Milestone G Phase 4 adds native Preview/Code radios around component examples.
 Milestone C browser evidence therefore scopes its Radio Panels count to the
 rendered component while retaining CSS-disabled access to both documentation

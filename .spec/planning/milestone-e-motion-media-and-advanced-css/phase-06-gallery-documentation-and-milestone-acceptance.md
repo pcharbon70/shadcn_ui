@@ -134,7 +134,7 @@ Both required SpecLed bases report four existing nested-login-shell/rebar
 dependency-compilation failures and 136 warnings (22 subjects / 214 requirements).
 Direct equivalent commands pass; no gate was weakened. Broad shared-file
 reconciliation does not warrant changing unrelated component contracts.
-See [candidate evidence](../../../docs/milestone-e-acceptance.md) for commands,
+See [candidate evidence](../../../release/records/milestone-e-acceptance.md) for commands,
 measurements and explicit pending NVDA/VoiceOver, physical touch, browser-UI zoom,
 Linux symlink, CI and post-merge Pages checks. No Hex publication, deployed
 success or accessibility certification is claimed. All E implementation phases

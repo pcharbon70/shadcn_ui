@@ -15,7 +15,7 @@ surface:
   - docs/image-gallery.md
   - scripts/render-image-gallery-fixture.exs
   - scripts/record-gallery-origin.mjs
-  - playwright.milestone-e-phase5.config.mjs
+  - test/browser/configs/playwright.milestone-e-phase5.config.mjs
   - test/fixtures/milestone_e_image_gallery.html
   - test/browser/support/gallery-origin-probe.mjs
   - test/shadcn_ui/image_gallery_integration_test.exs
@@ -24,7 +24,7 @@ surface:
   - test/shadcn_ui/scroll_media_integration_test.exs
   - scripts/render-scroll-media-fixture.exs
   - test/fixtures/milestone_e_scroll_media.html
-  - playwright.milestone-e-phase4.config.mjs
+  - test/browser/configs/playwright.milestone-e-phase4.config.mjs
   - lib/shadcn_ui/components/media/carousel.ex
   - test/shadcn_ui/components/media/carousel_test.exs
   - test/fixtures/milestone_e_carousel.html
@@ -35,7 +35,7 @@ surface:
   - test/browser/milestone-e-image-gallery.spec.mjs
   - test/shadcn_ui/carousel_integration_test.exs
   - scripts/render-carousel-fixture.exs
-  - playwright.milestone-e-phase2.config.mjs
+  - test/browser/configs/playwright.milestone-e-phase2.config.mjs
 ```
 
 ## API contract
@@ -182,6 +182,10 @@ the inert page. No alternate focus system is introduced.
 ```
 
 ## Verification
+
+The internal-record reorganization moves CSS engineering notes under
+`assets/engineering/` and updates path-sensitive tests only. Media APIs,
+fallbacks, rendering and executable proof are unchanged.
 
 Carousel unit, generated-HEEx browser and integration targets are implemented.
 Cover Flow rendering and actual-HEEx browser targets are implemented in Phase 4.

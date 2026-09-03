@@ -1,0 +1,16 @@
+import { defineConfig, devices } from "../../../demo/node_modules/@playwright/test/index.mjs";
+
+export default defineConfig({
+  testDir: "..",
+  testMatch: "milestone-d-dialogs.spec.mjs",
+  outputDir: "../../../test-results/milestone-d-phase2",
+  fullyParallel: false,
+  workers: 1,
+  reporter: "line",
+  projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"], browserName: "chromium" } },
+    { name: "firefox", use: { ...devices["Desktop Firefox"], browserName: "firefox" } },
+    { name: "webkit", use: { ...devices["Desktop Safari"], browserName: "webkit" } }
+  ],
+  use: { headless: true }
+});

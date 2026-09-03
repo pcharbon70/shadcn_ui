@@ -194,7 +194,7 @@ defmodule ShadcnUI.Components.Disclosure.AccordionTest do
     css = File.read!(ShadcnUI.stylesheet_path())
     provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
     adaptation = Enum.find(provenance["adaptations"], &(&1["id"] == "disclosure.accordion"))
-    readme = File.read!("README.md")
+    guide = File.read!("docs/guides/disclosure.md")
 
     assert source =~ "[data-shadcn-ui-accordion-summary]::marker"
     assert source =~ "@supports selector(details::details-content)"
@@ -208,8 +208,8 @@ defmodule ShadcnUI.Components.Disclosure.AccordionTest do
              "src/demos/accordion/basic.html"
            ]
 
-    assert readme =~ ~r/Browsers without exclusive\s+details grouping/
-    assert readme =~ ~r/Applications own persistence across server\s+replacement/
+    assert guide =~ "shared native name so supporting browsers keep one open at a time"
+    assert guide =~ "operation, focus, and keyboard behavior browser-owned"
   end
 
   test "source contains no disclosure emulation, persistence, application behavior, or JavaScript" do

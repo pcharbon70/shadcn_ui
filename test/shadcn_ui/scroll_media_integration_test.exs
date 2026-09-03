@@ -24,7 +24,7 @@ defmodule ShadcnUI.ScrollMediaIntegrationTest do
       assert css =~ "prefers-reduced-motion: no-preference"
       refute css =~ ~r/(^|\n)\s*(?:\*|html|body|img|figure|a)\s*[{,]/
       refute css =~ ~r/(infinite|url\(|z-index|animation-duration:\s*\d)/
-      assert File.read!("docs/motion-media-css-exceptions.md") =~ ledger
+      assert File.read!("assets/engineering/motion-media-css-exceptions.md") =~ ledger
       mapping = Enum.find(mappings, &(&1["id"] == "#{kind}.#{name}"))
       assert "assets/#{name}.css" in mapping["localPaths"]
       assert "src/demos/#{name}/basic.html" in mapping["upstreamPaths"]

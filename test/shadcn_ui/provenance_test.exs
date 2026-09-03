@@ -219,11 +219,11 @@ defmodule ShadcnUI.ProvenanceTest do
   end
 
   test "documents independent identity and explicit update review" do
-    readme = File.read!("README.md")
+    provenance = File.read!("docs/provenance.md")
 
-    assert readme =~ "independent Phoenix adaptation"
-    assert readme =~ "Reviewing a later upstream revision"
-    assert readme =~ "does not automatically synchronize"
+    assert provenance =~ "independent Phoenix/HEEX adaptation"
+    assert provenance =~ "To review a later upstream revision"
+    assert provenance =~ "no mutable branch or remote runtime"
   end
 
   defp manifest, do: Jason.decode!(File.read!(@manifest_path))

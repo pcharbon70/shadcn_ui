@@ -26,7 +26,7 @@ defmodule ShadcnUI.MotionMediaFoundationsIntegrationTest do
 
   test "compiled scoped suppression has an auditable independent exception" do
     source = File.read!("assets/motion-media.css")
-    ledger = File.read!("docs/motion-media-css-exceptions.md")
+    ledger = File.read!("assets/engineering/motion-media-css-exceptions.md")
     artifact = File.read!(ShadcnUI.stylesheet_path())
     assert ledger =~ "E-01"
     assert source =~ "data-shadcn-ui-motion"

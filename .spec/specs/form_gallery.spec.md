@@ -79,6 +79,9 @@ runtime boundary, package contents, or existing verification.
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's gallery contract.
 
+The internal-record reorganization changes documentation paths only. Form
+gallery behavior, fixtures and executable proof are unchanged.
+
 Milestone G Phase 4 changes only the shared documentation hierarchy. Forms
 coverage locates compile-checked source through the stable specimen surface and
 continues to exercise form inputs inside the rendered preview, distinct from

@@ -18,13 +18,13 @@ surface:
   - test/shadcn_ui/scroll_media_integration_test.exs
   - priv/compatibility/motion_media.json
   - priv/compatibility/motion_media.schema.json
-  - docs/motion-media-foundations.md
-  - docs/motion-media-css-exceptions.md
+  - assets/engineering/motion-media-foundations.md
+  - assets/engineering/motion-media-css-exceptions.md
   - test/browser/support/motion-media-probe.mjs
   - test/browser/support/static-motion-media.mjs
   - test/shadcn_ui/motion_media_manifest_test.exs
   - test/shadcn_ui/motion_media_foundations_integration_test.exs
-  - playwright.milestone-e-phase1.config.mjs
+  - test/browser/configs/playwright.milestone-e-phase1.config.mjs
   - lib/shadcn_ui/components/media/media_contract.ex
   - lib/shadcn_ui/components/motion/motion_contract.ex
   - assets/shadcn_ui.css

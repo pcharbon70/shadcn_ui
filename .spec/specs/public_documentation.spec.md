@@ -77,7 +77,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.public_documentation.exdoc_inventory
-  statement: ExDoc shall group every public defining component, expose accurate source-linked API documentation, and group one user guide for each closed gallery sidebar category with an introduction plus functionality, supported options, and at least one compile-checked HEEX example for every control, while excluding internal helpers and demo-only modules from the public inventory.
+  statement: ExDoc shall group every public defining component, expose accurate source-linked API documentation, and group one user guide for each closed gallery sidebar category with an introduction plus functionality, supported options, and at least one compile-checked HEEX example for every control, while excluding internal helpers, demo-only modules, release evidence, acceptance ledgers, engineering records, and operations runbooks from the public inventory.
   priority: must
   stability: stable
 
@@ -93,6 +93,12 @@ runtime boundary, package contents, or existing verification.
 ```
 
 ## Verification
+
+The top-level README is the consumer-oriented package overview. Detailed
+functionality, supported options, fallbacks and per-control HEEX examples live
+in the category guides and generated API documentation; documentation tests
+verify those owning surfaces rather than requiring the README to duplicate the
+complete component manual.
 
 Phase 8 publication runbook review is current proof for the documented gallery
 recovery boundary; it does not change the public documentation contract.

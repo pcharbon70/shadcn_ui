@@ -14,7 +14,7 @@ surface:
   - priv/compatibility/*.json
   - priv/compatibility/catalogue.json
   - docs/compatibility.md
-  - docs/accessibility-review.md
+  - release/records/accessibility-review.md
   - test/browser/milestone-f-compatibility.spec.mjs
   - test/browser/milestone-g-accordion-acceptance.spec.mjs
   - test/browser/milestone-g-remediation-r4.spec.mjs

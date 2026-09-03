@@ -40,7 +40,7 @@ defmodule ShadcnUIDemo.MilestoneGPhase8PublicationTest do
 
   test "repository workflow verifies only and Fly operations own deployment and smoke" do
     workflow = File.read!("../.github/workflows/gallery.yml")
-    operations = File.read!("../docs/gallery-operations.md")
+    operations = File.read!("operations/gallery-publication.md")
 
     assert workflow =~ "branches: [main]"
     refute workflow =~ "actions/deploy-pages"

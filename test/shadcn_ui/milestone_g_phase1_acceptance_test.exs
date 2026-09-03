@@ -9,7 +9,7 @@ defmodule ShadcnUI.MilestoneGPhase1AcceptanceTest do
   @plan File.read!(
           ".spec/planning/milestone-g-unscripted-style-gallery-presentation-parity/phase-01-parity-contract-and-reference-baseline.md"
         )
-  @acceptance File.read!("docs/milestone-g-phase1-acceptance.md")
+  @acceptance File.read!("release/records/milestone-g-phase1-acceptance.md")
   @verification @presentation_spec
                 |> String.split("```spec-verification", parts: 2)
                 |> List.last()

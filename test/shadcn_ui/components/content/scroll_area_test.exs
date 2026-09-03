@@ -148,7 +148,7 @@ defmodule ShadcnUI.Components.Content.ScrollAreaTest do
     css = File.read!(ShadcnUI.stylesheet_path())
     provenance = Jason.decode!(File.read!("priv/provenance/unscripted_ui.json"))
     adaptation = Enum.find(provenance["adaptations"], &(&1["id"] == "content.scroll_area"))
-    readme = File.read!("README.md")
+    guide = File.read!("docs/guides/content-surfaces.md")
 
     assert source =~ "@supports (mask-image: linear-gradient"
 
@@ -164,8 +164,8 @@ defmodule ShadcnUI.Components.Content.ScrollAreaTest do
            ]
 
     assert "lib/shadcn_ui/components/content/scroll_area.ex" in adaptation["localPaths"]
-    assert readme =~ "Applications own dimensions beyond the closed presets"
-    assert readme =~ "content remains available"
+    assert guide =~ "wraps content in one native overflow container"
+    assert guide =~ "not remote loading, virtualization, or application selection state"
   end
 
   test "source owns no scroll runtime, custom controls, application behavior, or package JavaScript" do

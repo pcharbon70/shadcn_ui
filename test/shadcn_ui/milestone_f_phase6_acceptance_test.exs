@@ -87,7 +87,10 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
 
     assert map_size(catalogue["components"]) == 41
     assert length(modules) == 48
-    assert File.read!("docs/milestone-f-acceptance.md") =~ "all 41 component-page audits"
+
+    assert File.read!("release/records/milestone-f-acceptance.md") =~
+             "all 41 component-page audits"
+
     assert Mix.Project.config()[:version] == "0.1.0"
   end
 

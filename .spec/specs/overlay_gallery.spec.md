@@ -79,6 +79,9 @@ runtime boundary, package contents, or existing verification.
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's gallery contract.
 
+The internal-record reorganization changes documentation paths only. Overlay
+gallery behavior, capability evidence and executable proof are unchanged.
+
 Milestone G Phase 4 groups accessibility, authored capability policy, exact
 fallback, ownership, related controls, ordinary alternatives, and provenance
 under stable requirement-level surfaces. Overlay browser checks no longer

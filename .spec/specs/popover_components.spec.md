@@ -18,7 +18,7 @@ surface:
   - test/browser/milestone-d-popovers.spec.mjs
   - test/fixtures/milestone_d_popovers.html
   - scripts/render-popover-fixture.exs
-  - playwright.milestone-d-phase4.config.mjs
+  - test/browser/configs/playwright.milestone-d-phase4.config.mjs
   - README.md
 ```
 
@@ -77,6 +77,9 @@ runtime boundary, package contents, or existing verification.
 
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's component contract.
+
+The internal-record reorganization changes documentation paths only. Popover
+APIs, native behavior and executable proof are unchanged.
 
 Popover accepts one title slot, accessible label or external labelledby naming
 source. Manual mode persists until native hide/toggle; no autofocus or static

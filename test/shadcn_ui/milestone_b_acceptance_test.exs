@@ -323,7 +323,7 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
     forms = File.read!("demo/lib/shadcn_ui_demo_web/form_components.ex")
     controller = File.read!("demo/lib/shadcn_ui_demo_web/controllers/form_controller.ex")
     browser = File.read!("test/browser/milestone-b-forms.spec.mjs")
-    readme = File.read!("README.md")
+    forms_guide = File.read!("docs/guides/forms.md")
     package_files = Mix.Project.config()[:package][:files]
 
     for slug <-
@@ -342,7 +342,10 @@ defmodule ShadcnUI.MilestoneBAcceptanceTest do
     assert controller =~ "Enum.sort_by"
     assert browser =~ "forcedColors"
     assert browser =~ "javaScriptEnabled: false"
-    assert readme =~ "Every server operation must parse, validate"
+
+    assert forms_guide =~
+             "application still owns changesets, validation timing, translation, submission, and persistence"
+
     refute Enum.any?(package_files, &(&1 in ["demo", "test", ".spec", "scripts", ".github"]))
 
     refute controller =~ ~r/(Repo\.|Ecto|Ash\.|System\.cmd|GenServer|Task\.|String\.to_atom)/
