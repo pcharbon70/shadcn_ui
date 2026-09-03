@@ -98,6 +98,11 @@ surface:
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's release contract.
 
+The category-oriented user guides extend generated ExDoc navigation only. They
+do not change the candidate version, archive allowlist, deployment inputs,
+qualification gates or the distinction between generated documentation and
+release-archive documentation.
+
 Canonical smoke identifies every route through the stable ShadcnUI home link
 label rather than requiring route-specific titles or secondary metadata text.
 Milestone G remediation R5 adds the local rendered-reference integrity check,

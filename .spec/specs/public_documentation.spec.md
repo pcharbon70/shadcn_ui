@@ -77,7 +77,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.public_documentation.exdoc_inventory
-  statement: ExDoc shall group every public defining component and expose accurate source-linked API documentation while excluding internal helpers and demo-only modules from the public inventory.
+  statement: ExDoc shall group every public defining component, expose accurate source-linked API documentation, and group one user guide for each closed gallery sidebar category with an introduction plus functionality, supported options, and at least one compile-checked HEEX example for every control, while excluding internal helpers and demo-only modules from the public inventory.
   priority: must
   stability: stable
 

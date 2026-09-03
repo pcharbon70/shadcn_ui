@@ -74,6 +74,11 @@ surface:
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's package contract.
 
+The category-oriented user guides are ExDoc inputs only. They compile against
+the public imports during documentation verification and remain outside the
+explicit release-file allowlist, so they add no runtime module, dependency,
+asset toolchain or generated documentation to the package archive.
+
 Milestone E Phase 6 groups all six defining Media/Motion APIs in ExDoc and
 compiles the guide composition against the public imports and Phoenix metadata.
 Documentation and test harnesses do not expand the actual release allowlist.
