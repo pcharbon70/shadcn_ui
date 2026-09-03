@@ -6,6 +6,10 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR6Test do
                  |> Jason.decode!()
   @regression File.read!("priv/reference/milestone_g/remediation-r6-regression-evidence.json")
               |> Jason.decode!()
+  @deployment File.read!("priv/reference/milestone_g/remediation-r6-deployment-evidence.json")
+              |> Jason.decode!()
+  @fly_release File.read!(Path.join(@repo_root, "release/fly-deployment-evidence.json"))
+               |> Jason.decode!()
   @candidate File.read!(Path.join(@repo_root, "release/candidate-status.json")) |> Jason.decode!()
 
   # covers: shadcn_ui.compatibility_accessibility.manual_review
@@ -89,5 +93,40 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR6Test do
 
     assert @regression["externalGates"]["flyDeploymentAuthorization"] == "pending"
     assert @regression["externalGates"]["candidateQualification"] == "blocked"
+  end
+
+  test "R6.3 binds the reviewed workflow, Fly release, and deployed smoke" do
+    revision = @deployment["source"]["deployedRevision"]
+
+    assert @deployment["status"] == "passed-reviewed-workflow-deployment-and-smoke"
+    assert revision =~ ~r/^[0-9a-f]{40}$/
+    assert @deployment["source"]["cleanDetachedWorktree"]
+    assert @deployment["source"]["pullRequest"]["number"] == 43
+    assert @deployment["source"]["pullRequest"]["headRevision"] == revision
+    assert @deployment["source"]["ci"]["status"] == "passed"
+    assert @deployment["release"]["status"] == "complete"
+    assert @deployment["release"]["version"] == 3
+    assert @deployment["release"]["serviceChecks"] == "1-passing"
+    assert @deployment["canonicalSmoke"]["status"] == "passed"
+    assert @deployment["canonicalSmoke"]["expectedRevision"] == revision
+    assert @deployment["deployedBrowser"]["tests"] == 2
+    assert @deployment["deployedBrowser"]["failures"] == 0
+    assert length(@deployment["responseHashes"]) == 7
+
+    assert @deployment["priorRelease"]["retainedInFlyReleaseHistory"]
+    refute @deployment["priorRelease"]["eligibleRollbackCandidate"]
+    assert @deployment["rollback"]["priorReviewedSmokeVerifiedFlyRelease"] == nil
+
+    assert @fly_release["release"]["sourceRevision"] == revision
+    assert @fly_release["release"]["flyReleaseId"] ==
+             @deployment["release"]["flyMachineReleaseId"]
+
+    assert @fly_release["release"]["imageDigest"] ==
+             @deployment["release"]["imageDigest"]
+
+    assert @deployment["separateGates"]["manualAccessibility"] ==
+             "pending-risk-accepted-for-r6-progression"
+
+    assert @deployment["separateGates"]["candidateQualification"] == "blocked"
   end
 end

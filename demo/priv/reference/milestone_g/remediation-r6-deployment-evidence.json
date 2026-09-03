@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r6.3",
+  "evidenceType": "reviewed-fly-deployment-and-smoke",
+  "recordedOn": "2026-09-03",
+  "status": "passed-reviewed-workflow-deployment-and-smoke",
+  "authorization": {
+    "deployment": "explicit-owner-authorization-recorded-2026-09-03",
+    "merge": "explicit-owner-authorization-recorded-before-deployment",
+    "manualAccessibilityWaiverIsNotDeploymentAuthorization": true
+  },
+  "source": {
+    "deployedRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+    "cleanDetachedWorktree": true,
+    "pullRequest": {
+      "number": 43,
+      "url": "https://github.com/pcharbon70/shadcn_ui/pull/43",
+      "stateAtDeployment": "open",
+      "headRevision": "c08761f69429f88858a891584bc3962bd3109fe5"
+    },
+    "review": {
+      "workflow": "pull-request-open-owner-authorized-green-ci",
+      "independentApproval": "not-recorded",
+      "candidateSourceReviewGate": "pending-independent-approval"
+    },
+    "ci": {
+      "status": "passed",
+      "runId": 33751442399,
+      "jobId": 100635674325,
+      "url": "https://github.com/pcharbon70/shadcn_ui/actions/runs/33751442399",
+      "duration": "17m36s"
+    }
+  },
+  "application": {
+    "name": "pcharbon70-shadcn-ui-demo",
+    "canonicalUrl": "https://pcharbon70-shadcn-ui-demo.fly.dev/",
+    "region": "yyz",
+    "machineId": "844150bdd09448"
+  },
+  "release": {
+    "status": "complete",
+    "flyMachineReleaseId": "rel_krm823exwop9zxw4",
+    "flyApiReleaseId": "mVmJ51Aww6Om7H9pekANpOY8A",
+    "version": 3,
+    "imageRef": "registry.fly.io/pcharbon70-shadcn-ui-demo:deployment-01M1KJGPC4Y34QM7HQR5XBZZV0",
+    "imageDigest": "sha256:a7b6e6753075234c6760309f99c926be53f4aafee6e270088a0a95df6fc5e4cb",
+    "machineStateAfterSmoke": "started",
+    "serviceChecks": "1-passing"
+  },
+  "priorRelease": {
+    "retainedInFlyReleaseHistory": true,
+    "sourceRevision": "bb422d815683d2b6e1cd81e887b67791ac1cb92a",
+    "flyMachineReleaseId": "rel_mr7g2md4103r2wj0",
+    "flyApiReleaseId": "2wL4Q5033yzLKTxoKVAJQbMJn",
+    "version": 2,
+    "imageRef": "registry.fly.io/pcharbon70-shadcn-ui-demo:deployment-01M1F23EYWV93N3BSD6J650XE4",
+    "imageDigest": "sha256:83decff9d414c27da8a38661a1aff4efa98d085d0970930b3bc2f0d36f72289f",
+    "sourceReview": "not-recorded",
+    "eligibleRollbackCandidate": false
+  },
+  "rollback": {
+    "priorReviewedSmokeVerifiedFlyRelease": null,
+    "status": "no-prior-reviewed-rollback-candidate",
+    "currentReleaseEligibility": "eligible-only-after-authorized-merge-and-recorded-source-review",
+    "policyApplied": "The previous operational release was retained but not promoted to a reviewed rollback candidate."
+  },
+  "canonicalSmoke": {
+    "status": "passed",
+    "command": "npm --prefix demo run smoke:fly",
+    "expectedRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+    "verifier": {
+      "path": "demo/scripts/smoke-fly-gallery.mjs",
+      "sourceRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+      "sha256": "4bace666fe7b42e5cf34efcc9baaf50ff256f91972f8320d7729ffa2db40763d"
+    },
+    "checks": [
+      "immutable health identity",
+      "package version",
+      "catalogue schema",
+      "upstream revision",
+      "canonical home",
+      "representative component and composition routes",
+      "server-rendered search inventory",
+      "four local assets",
+      "non-reflecting 404"
+    ]
+  },
+  "deployedBrowser": {
+    "status": "passed",
+    "command": "npm run browser:milestone-g-remediation-r6-deployed",
+    "browser": "chromium-151.0.7922.34",
+    "tests": 2,
+    "failures": 0,
+    "config": {
+      "path": "playwright.milestone-g-remediation-r6-deployed.config.mjs",
+      "sourceRevision": null,
+      "workingTreeBaseRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+      "sha256": "5f282226f86ea0ff000dae50788ddf1af84a759178bdab64dac901aee72248fe"
+    },
+    "test": {
+      "path": "test/browser/milestone-g-remediation-r6-deployed.spec.mjs",
+      "sourceRevision": null,
+      "workingTreeBaseRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+      "sha256": "c6b15cded27d9cf5af1e2b978c6fe4df65008e454ed59a2f089a6e498ab2ff8e"
+    },
+    "checks": [
+      "320px mobile catalogue final destination visible and focused",
+      "320px Accordion summary, focus and document geometry bounded",
+      "Foundation category route",
+      "explicit light and dark themes",
+      "direct Preview and Code fragments",
+      "deployed health revision"
+    ],
+    "verifierCorrections": [
+      "Direct source and preview fragments were verified as separate addressable states instead of requiring target-panel restyling before navigation completed.",
+      "An explicit theme query remains authoritative on reload; light and dark addressability were verified independently."
+    ]
+  },
+  "responseHashes": [
+    {"path": "healthz", "status": 200, "bytes": 276, "sha256": "c2f948c2faecfecbe993d67bdcb97a00f0c295dee87b393b347b6945899302ef"},
+    {"path": "components/foundation?theme=dark&motion=reduce", "status": 200, "bytes": 42646, "sha256": "9d9e1a1ef70320de7dbff2f017a4ccdb666119c1e40a647bd290b8cc217d649d"},
+    {"path": "components/disclosure/accordion?theme=light&motion=reduce", "status": 200, "bytes": 62994, "sha256": "887a466ab3ecbf120c2f05c017a4d63356a8e20010ba29d0f80e7c026ffbf1a9"},
+    {"path": "/assets/bricolage-grotesque-wght-a97804dc9fbe5fc9.woff2", "status": 200, "bytes": 41344, "sha256": "a97804dc9fbe5fc972a08018c5eda4dab7ef2346f64c57e61419d05e6de4ea1c"},
+    {"path": "/assets/gallery-2a87e54e0aec38de.js", "status": 200, "bytes": 5942, "sha256": "2a87e54e0aec38ded63c7e29d35b90fa40e38adb479718eb3ff46f0d80f7da3c"},
+    {"path": "/assets/gallery-75a188bacfdb01eb.css", "status": 200, "bytes": 27879, "sha256": "75a188bacfdb01eb69e02f2b3b4838bd0cd097502dea0dd9176a7753674a7b8e"},
+    {"path": "/assets/shadcn-ed0768e9582e980f.css", "status": 200, "bytes": 54389, "sha256": "ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41"}
+  ],
+  "separateGates": {
+    "manualAccessibility": "pending-risk-accepted-for-r6-progression",
+    "cleanCandidateExactRevision": "pending",
+    "independentSourceReview": "pending",
+    "finalRevisionCi": "pending-after-r6.3-and-r6.4-commits",
+    "merge": "authorized-pending",
+    "candidateQualification": "blocked"
+  }
+}
