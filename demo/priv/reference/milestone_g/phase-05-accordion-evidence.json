@@ -56,7 +56,7 @@
   },
   "states": {
     "localAutomated": "passed",
-    "upstreamRenderedComparison": "unavailable-recorded-phase-01",
+    "upstreamRenderedComparison": "passed-reviewed-r5.2-eight-state-pinned-comparison",
     "manualAccessibility": "not-run",
     "deployment": "not-run"
   }

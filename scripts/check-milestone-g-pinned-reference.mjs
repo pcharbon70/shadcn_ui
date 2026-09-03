@@ -26,6 +26,8 @@ function assert(condition, message) {
 }
 
 assert(manifest.schemaVersion === 1, "unexpected pinned-reference schema");
+assert(manifest.status === "passed-rendered-and-reviewed-r5.2", "pinned-reference review is not closed");
+assert(manifest.comparisonStatus === "passed-reviewed-r5.2", "pinned comparison is not accepted");
 assert(
   manifest.upstream.commit === presentation.upstream.commit,
   "pinned-reference commit differs from presentation reference",

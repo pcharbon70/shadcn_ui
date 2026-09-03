@@ -26,6 +26,10 @@ deterministic export and SpecLed closure.
 and local Accordion states, locks a separate Foundation category matrix and
 records the measured region bounds plus every retained semantic, identity,
 capability, independent-mode and narrow-padding exception.
+`remediation-r5-integration-evidence.json` records two byte-identical capture
+runs, the complete Milestone G browser matrix, package and demo suites, local
+asset/reference/license checks, deterministic export, ExDoc, actual archive
+audit and SpecLed closure without promoting those local results to deployment.
 The source-derived states remain the authoritative Phase 1 inputs because a
 moving deployment cannot be deterministic. R5 adds the checked
 `pinned-reference/` rendering subset from the same source identities and exact

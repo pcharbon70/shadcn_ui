@@ -4546,6 +4546,33 @@
       },
       {
         "covers": [
+          "shadcn_ui.gallery_presentation.pinned_reference",
+          "shadcn_ui.gallery_presentation.visual_evidence",
+          "shadcn_ui.gallery_presentation.local_assets",
+          "shadcn_ui.gallery_presentation.deterministic_distribution"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_remediation_r5_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.pinned_reference",
+          "shadcn_ui.gallery_presentation.shell",
+          "shadcn_ui.gallery_presentation.presentation_system",
+          "shadcn_ui.gallery_presentation.article_hierarchy",
+          "shadcn_ui.gallery_presentation.stable_identity",
+          "shadcn_ui.gallery_presentation.visual_evidence",
+          "shadcn_ui.gallery_presentation.accessibility_matrix"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs"
+      },
+      {
+        "covers": [
           "shadcn_ui.gallery_presentation.article_hierarchy",
           "shadcn_ui.gallery_presentation.catalogue_metadata",
           "shadcn_ui.gallery_presentation.stable_identity",
@@ -5802,7 +5829,7 @@
     "requirements": 267,
     "scenarios": 0,
     "subjects": 27,
-    "verifications": 185
+    "verifications": 187
   },
   "verification": {
     "claims": [
@@ -10823,6 +10850,127 @@
         "verification_index": 10
       },
       {
+        "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_remediation_r5_test.exs",
+        "verification_index": 11
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.local_assets",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_remediation_r5_test.exs",
+        "verification_index": 11
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.pinned_reference",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_remediation_r5_test.exs",
+        "verification_index": 11
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_remediation_r5_test.exs",
+        "verification_index": 11
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.pinned_reference",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.presentation_system",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.shell",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "verification_index": 12
+      },
+      {
         "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
         "file": ".spec/specs/gallery_presentation.spec.md",
         "kind": "test_file",
@@ -10831,7 +10979,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.catalogue_metadata",
@@ -10842,7 +10990,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -10853,7 +11001,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
@@ -10864,7 +11012,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 11
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -10875,7 +11023,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 12
+        "verification_index": 14
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -10886,7 +11034,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 12
+        "verification_index": 14
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.semantic_exceptions",
@@ -10897,7 +11045,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 12
+        "verification_index": 14
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -10908,7 +11056,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_visual_test.exs",
-        "verification_index": 13
+        "verification_index": 15
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.local_assets",
@@ -10919,7 +11067,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_visual_test.exs",
-        "verification_index": 13
+        "verification_index": 15
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
@@ -10930,7 +11078,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_visual_test.exs",
-        "verification_index": 13
+        "verification_index": 15
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
@@ -10941,7 +11089,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_phase8_functional_test.exs",
-        "verification_index": 14
+        "verification_index": 16
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -10952,7 +11100,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_phase8_functional_test.exs",
-        "verification_index": 14
+        "verification_index": 16
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -10963,61 +11111,6 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_phase8_functional_test.exs",
-        "verification_index": 14
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
-        "verification_index": 15
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
-        "verification_index": 15
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.specimen_semantics",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
-        "verification_index": 15
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
-        "verification_index": 15
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "demo/test/milestone_g_phase8_publication_test.exs",
         "verification_index": 16
       },
       {
@@ -11028,29 +11121,7 @@
         "required_strength": "claimed",
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.catalogue_metadata",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
         "verification_index": 17
       },
       {
@@ -11061,84 +11132,7 @@
         "required_strength": "claimed",
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.local_assets",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.pinned_reference",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.presentation_system",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.progressive_navigation",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.semantic_exceptions",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
-      },
-      {
-        "cover_id": "shadcn_ui.gallery_presentation.shell",
-        "file": ".spec/specs/gallery_presentation.spec.md",
-        "kind": "test_file",
-        "meets_minimum": true,
-        "required_strength": "claimed",
-        "strength": "linked",
-        "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
         "verification_index": 17
       },
       {
@@ -11149,7 +11143,7 @@
         "required_strength": "claimed",
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
         "verification_index": 17
       },
       {
@@ -11160,8 +11154,162 @@
         "required_strength": "claimed",
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
         "verification_index": 17
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_phase8_publication_test.exs",
+        "verification_index": 18
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.catalogue_metadata",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.local_assets",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.pinned_reference",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.presentation_system",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.progressive_navigation",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.semantic_exceptions",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.shell",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.specimen_semantics",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
+        "verification_index": 19
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
@@ -11172,7 +11320,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 17
+        "verification_index": 19
       },
       {
         "cover_id": "shadcn_ui.media_components.carousel_controls",
@@ -15635,7 +15783,7 @@
     "strength_summary": {
       "claimed": 5,
       "executed": 38,
-      "linked": 850
+      "linked": 861
     },
     "threshold_failures": 0
   },

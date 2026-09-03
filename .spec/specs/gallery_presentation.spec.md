@@ -113,6 +113,9 @@ hash-closed and licensed harness. Its reviewed eight-state Accordion comparison
 and dedicated Foundation captures verify the accepted presentation tolerances,
 stable routes, direct find-in-page access and documented semantic exceptions
 without adding the reference harness or screenshots to package contents.
+Its integration record binds two byte-identical capture runs to the complete
+Milestone G browser, catalogue, provenance, license, asset, archive, ExDoc and
+deterministic-export gates while keeping local evidence distinct from deployment.
 
 ```spec-verification
 - kind: test_file

@@ -337,7 +337,7 @@ category route and is not an Accordion comparison target.
 
 ## R5 - Deterministic Visual Evidence
 
-- [ ] R5 Phase - Replace self-referential confidence with pinned comparison evidence.
+- [x] R5 Phase - Replace self-referential confidence with pinned comparison evidence.
 
   Keep local goldens for regression, but add a reproducible representation of
   the accepted upstream state so local drift cannot approve itself.
@@ -379,19 +379,19 @@ category route and is not an Accordion comparison target.
       - [x] R5.2.2.2 Subtask - Assert the Accordion comparison and pilot evidence always use `/components/disclosure/accordion`.
       - [x] R5.2.2.3 Subtask - Add direct find-in-page coverage for open and closed Accordion content without introducing scripted disclosure ownership.
 
-  - [ ] R5.3 Section - R5 Integration Tests.
+  - [x] R5.3 Section - R5 Integration Tests.
 
     Prove the evidence itself is deterministic, licensed and reviewable.
 
-    - [ ] R5.3.1 Task - Re-run visual and distribution gates.
+    - [x] R5.3.1 Task - Re-run visual and distribution gates.
 
       Two identical inputs must produce identical reference metadata, local
       assets and export output.
 
-      - [ ] R5.3.1.1 Subtask - Regenerate representative captures twice and verify stable hashes or documented platform-bounded raster variance.
-      - [ ] R5.3.1.2 Subtask - Run full Milestone G visual, functional, catalogue, provenance, asset-license, archive and deterministic-export suites.
-      - [ ] R5.3.1.3 Subtask - Update evidence state from unavailable only after the rendered pinned comparison exists and has been reviewed.
-      - [ ] R5.3.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
+      - [x] R5.3.1.1 Subtask - Regenerate representative captures twice and verify stable hashes or documented platform-bounded raster variance.
+      - [x] R5.3.1.2 Subtask - Run full Milestone G visual, functional, catalogue, provenance, asset-license, archive and deterministic-export suites.
+      - [x] R5.3.1.3 Subtask - Update evidence state from unavailable only after the rendered pinned comparison exists and has been reviewed.
+      - [x] R5.3.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
 
 ## R6 - Accessibility And Fly Requalification
 

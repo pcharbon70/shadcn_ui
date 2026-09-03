@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "phase": "milestone-g-remediation-r5.1",
   "evidenceType": "renderable-pinned-upstream-reference",
-  "status": "renderable-awaiting-r5.2-comparison",
+  "status": "passed-rendered-and-reviewed-r5.2",
   "decision": "shadcn_ui.pinned_gallery_presentation_parity",
   "upstream": {
     "repository": "https://github.com/timoransky/unscripted-ui",
@@ -64,7 +64,7 @@
   },
   "captureContract": {
     "manifest": "demo/priv/reference/milestone_g/presentation-reference.json",
-    "manifestSha256": "f8a103d2c1c7c4a60d8b13ee8d4f704d207e57a7ee461b2d400b39228aa76c57",
+    "manifestSha256": "c14079de6a22d64d361bd3806f565aa2439aa4f51723e5d6fbc50db43937bc22",
     "states": 12,
     "viewports": ["1440x1200", "1024x1366", "390x844", "320x568"],
     "themes": ["light", "dark"],
@@ -78,5 +78,5 @@
     "upstream": "demo/priv/reference/milestone_g/pinned-reference/LICENSE.unscripted-ui.txt",
     "font": "demo/priv/reference/milestone_g/licenses/bricolage-grotesque-OFL.txt"
   },
-  "comparisonStatus": "pending-r5.2"
+  "comparisonStatus": "passed-reviewed-r5.2"
 }

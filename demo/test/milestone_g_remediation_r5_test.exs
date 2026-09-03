@@ -5,6 +5,8 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR5Test do
   @manifest File.read!(Path.join(@reference_root, "manifest.json")) |> Jason.decode!()
   @comparison File.read!("priv/reference/milestone_g/remediation-r5-comparison-evidence.json")
               |> Jason.decode!()
+  @integration File.read!("priv/reference/milestone_g/remediation-r5-integration-evidence.json")
+               |> Jason.decode!()
   @repo_root Path.expand("../..", __DIR__)
 
   # covers: shadcn_ui.gallery_presentation.pinned_reference
@@ -15,7 +17,7 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR5Test do
   test "R5.1 closes the old host failure with two identical pinned builds" do
     reproduction = @manifest["buildReproduction"]
 
-    assert @manifest["status"] == "renderable-awaiting-r5.2-comparison"
+    assert @manifest["status"] == "passed-rendered-and-reviewed-r5.2"
     assert @manifest["upstream"]["commit"] == "bd8f403030c8d1f46804da6eda733fde7e908e63"
     assert @manifest["upstream"]["route"] == "/components/accordion/"
     assert reproduction["toolchain"]["npm"] == "10.9.2"
@@ -38,6 +40,7 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR5Test do
     assert @manifest["captureContract"]["themes"] == ~w(light dark)
     assert @manifest["captureContract"]["motion"] == "reduced"
     assert @manifest["captureContract"]["mobileNavigation"] == ~w(closed open)
+    assert @manifest["comparisonStatus"] == "passed-reviewed-r5.2"
   end
 
   test "R5.1 reference inventory is closed, hashed, local and licensed" do
@@ -109,5 +112,34 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR5Test do
              "openAnswer" => "passed-without-state-change",
              "closedAnswer" => "passed-without-state-change"
            }
+  end
+
+  test "R5.3 closes deterministic visual and distribution integration" do
+    assert @integration["status"] == "passed-remediation-r5-complete"
+    assert @integration["baseRevision"] == "6c461681163fbdf8b227edc3085f2470711f3eed"
+    assert @integration["upstreamCommit"] == @manifest["upstream"]["commit"]
+    assert @integration["determinism"]["captureRuns"] == 2
+    assert @integration["determinism"]["snapshotCount"] == 20
+
+    assert @integration["determinism"]["snapshotSetSha256"] ==
+             "5efd76fb51c2579540e2001bb29006f4e2a856a8d8d186f589c27a181ed5bba7"
+
+    assert @integration["verification"]["packageTests"] == %{
+             "failures" => 0,
+             "status" => "passed",
+             "tests" => 419
+           }
+
+    assert @integration["verification"]["demoTests"] == %{
+             "failures" => 0,
+             "status" => "passed",
+             "tests" => 164
+           }
+
+    assert @integration["distribution"]["archiveEntries"] == 63
+    assert @integration["distribution"]["exportRoutes"] == 634
+    assert @integration["distribution"]["exportAssets"] == 4
+    assert @integration["specLed"]["errors"] == 0
+    assert @integration["specLed"]["warnings"] == 0
   end
 end

@@ -81,6 +81,12 @@ jobs:
       - run: npm run browser:milestone-g-phase5-acceptance
       - run: npm run browser:milestone-g-phase7
       - run: npm run browser:milestone-g-phase8
+      - name: Verify the rendered R5 pinned comparison
+        run: |
+          npm run reference:milestone-g:check
+          npm run browser:milestone-g-remediation-r5
+          npm run comparison:milestone-g:check
+          npm run integration:milestone-g:check
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo

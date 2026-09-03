@@ -100,6 +100,10 @@ bidirectionally traceable without changing this subject's release contract.
 
 Canonical smoke identifies every route through the stable ShadcnUI home link
 label rather than requiring route-specific titles or secondary metadata text.
+Milestone G remediation R5 adds the local rendered-reference integrity check,
+locked pinned/local browser matrix, reviewed comparison hashes and deterministic
+integration record to pull-request verification without publishing or using the
+moving upstream site as a CI input.
 
 ```spec-verification
 - kind: test_file
