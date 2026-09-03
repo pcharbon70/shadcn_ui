@@ -60,6 +60,13 @@ candidate qualification remains blocked, and defects that only a human review
 could expose remain unassessed. The machine-readable record is
 `demo/priv/reference/milestone_g/remediation-r6-manual-risk-evidence.json`.
 
+The release owner later supplied separate explicit authorization for the R6
+Fly deployment. Release `rel_krm823exwop9zxw4` serves revision
+`c08761f69429f88858a891584bc3962bd3109fe5` and passed automated canonical and
+deployed-browser smoke. That operational result does not change any manual
+scenario below, does not establish assistive-technology behavior, and does not
+qualify the candidate.
+
 ## Manual scenario ledger
 
 ### MAN-01 — Keyboard traversal and visible focus

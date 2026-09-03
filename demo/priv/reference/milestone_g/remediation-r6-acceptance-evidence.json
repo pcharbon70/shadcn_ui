@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r6.4",
+  "evidenceType": "remediation-integration-and-acceptance",
+  "recordedOn": "2026-09-03",
+  "workingTreeBaseRevision": "479f5607bab4640437f250235844e85c85dd686c",
+  "exactSourceRevision": null,
+  "status": "r6-remediation-delivery-evidence-complete-candidate-blocked",
+  "sections": {
+    "R6.1": {
+      "status": "complete",
+      "commit": "119ba0eaf71a9c656b85a34fe674a9bcd7f37c82",
+      "result": "manual-risk-accepted-evidence-remains-pending"
+    },
+    "R6.2": {
+      "status": "complete",
+      "commit": "c08761f69429f88858a891584bc3962bd3109fe5",
+      "result": "complete-local-regression-and-green-initial-pr-ci"
+    },
+    "R6.3": {
+      "status": "complete",
+      "commit": "479f5607bab4640437f250235844e85c85dd686c",
+      "result": "owner-authorized-fly-deployment-and-smoke-passed"
+    },
+    "R6.4": {
+      "status": "recorded-in-containing-commit",
+      "commit": null,
+      "result": "truth-reconciled-with-external-gates-separate"
+    }
+  },
+  "reviewIssues": {
+    "VR-01": "fixed",
+    "VR-02": "fixed",
+    "VR-03": "fixed",
+    "VR-04": "fixed",
+    "VR-05": "fixed",
+    "VR-06": "fixed",
+    "VR-07": "fixed-with-reviewed-exceptions",
+    "VR-08": "fixed",
+    "VR-09": "fixed-with-reviewed-exceptions",
+    "VR-10": "fixed",
+    "VR-11": "manual-risk-accepted-pending"
+  },
+  "acceptedExceptions": [
+    "ShadcnUI branding, Phoenix HEEx source, native semantics, deterministic IDs, and the independent Accordion example remain intentional local identity.",
+    "The scoped manual accessibility waiver permits R6 delivery but does not pass the six scenarios, establish conformance, or qualify the candidate.",
+    "The prior Fly release is retained operationally but is not called a reviewed rollback candidate because source approval was not recorded."
+  ],
+  "commands": {
+    "localRegression": [
+      "mix precommit",
+      "mix docs",
+      "mix hex.build",
+      "mix run scripts/check-release-archive.exs",
+      "npm run browser:milestone-g-remediation-r1",
+      "npm run browser:milestone-g-remediation-r4",
+      "npm run browser:milestone-g-remediation-r5",
+      "npm run regression:milestone-g:check",
+      "npm --prefix demo run export:determinism",
+      "node scripts/run-clean-consumer.mjs"
+    ],
+    "deployment": "flyctl deploy . -c demo/fly.toml --ha=false --remote-only --build-arg SHADCN_UI_BUILD_REVISION=c08761f69429f88858a891584bc3962bd3109fe5",
+    "canonicalSmoke": "npm --prefix demo run smoke:fly",
+    "deployedBrowser": "npm run browser:milestone-g-remediation-r6-deployed",
+    "specLed": [
+      "mix spec.next",
+      "mix spec.check --base HEAD"
+    ]
+  },
+  "workflow": {
+    "pullRequest": "https://github.com/pcharbon70/shadcn_ui/pull/43",
+    "failedRun": {
+      "id": 33749858634,
+      "status": "failed",
+      "finding": "The local provisional archive hash was incorrectly treated as portable across the CI Beam toolchain.",
+      "resolution": "Keep the independent archive allowlist audit in CI and compare the provisional byte hash only at its recorded local build identity."
+    },
+    "passingRun": {
+      "id": 33751442399,
+      "url": "https://github.com/pcharbon70/shadcn_ui/actions/runs/33751442399",
+      "headRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+      "status": "passed",
+      "duration": "17m36s"
+    },
+    "finalEvidenceRevisionCi": "pending-after-containing-commit",
+    "merge": "owner-authorized-pending-final-ci"
+  },
+  "deployment": {
+    "evidence": "demo/priv/reference/milestone_g/remediation-r6-deployment-evidence.json",
+    "sourceRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+    "flyReleaseId": "rel_krm823exwop9zxw4",
+    "imageDigest": "sha256:a7b6e6753075234c6760309f99c926be53f4aafee6e270088a0a95df6fc5e4cb",
+    "canonicalSmoke": "passed",
+    "deployedBrowser": {"tests": 2, "failures": 0, "status": "passed"},
+    "responseHashes": 7
+  },
+  "manualAccessibility": {
+    "scenarios": 6,
+    "passed": 0,
+    "pending": 6,
+    "disposition": "risk-accepted-not-run",
+    "candidateEffect": "blocking",
+    "conformanceClaim": "none"
+  },
+  "visualAndFunctionalResult": {
+    "lockedLocalRegression": "passed",
+    "pinnedComparison": "passed-with-reviewed-exceptions",
+    "deployed320NavigationAndAccordionGeometry": "passed",
+    "deployedFragmentsThemesCategoryAndHealth": "passed",
+    "unresolvedReachabilityFocusSemanticReducedMotionOrPinnedParityFailures": []
+  },
+  "planReconciliation": {
+    "remediationR6": "implementation-and-evidence-complete",
+    "originalPhase8Publication": "open-after-merge-publication-order-not-replayed",
+    "milestoneG": "open",
+    "candidateQualification": "blocked"
+  },
+  "remainingMandatoryCandidateBlockers": [
+    "exact-revision two-build clean candidate on the pinned toolchain",
+    "six bounded manual accessibility scenarios",
+    "independent deployment source approval",
+    "CI on the final evidence revision"
+  ],
+  "publicationBoundary": {
+    "hexPackage": "not-authorized",
+    "publicVersionTag": "not-authorized",
+    "marketplace": "not-authorized",
+    "consumerPlatformCertification": "not-claimed",
+    "officialUpstreamAffiliation": "not-claimed"
+  }
+}

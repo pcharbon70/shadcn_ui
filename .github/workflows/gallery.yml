@@ -97,6 +97,8 @@ jobs:
           npm run integration:milestone-g:check
           npm run manual-risk:milestone-g:check
           npm run regression:milestone-g:check
+          npm run deployment:milestone-g:check
+          npm run acceptance:milestone-g:check
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo

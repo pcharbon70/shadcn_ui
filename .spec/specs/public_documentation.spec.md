@@ -106,6 +106,11 @@ conformance, qualification or deployment claim.
 The R6 local-regression record updates the candidate ledger with current
 package, consumer, browser and export proof while retaining exact-revision CI,
 manual accessibility and external delivery as pending states.
+The R6 deployment and acceptance records name the exact deployed revision, Fly
+release and image digest, canonical smoke and deployed-browser results, and
+response hashes. Candidate-facing documentation keeps the exact clean build,
+six manual scenarios, independent source approval, final evidence CI and merge
+states distinct instead of inferring qualification from a healthy deployment.
 
 ```spec-verification
 - kind: test_file

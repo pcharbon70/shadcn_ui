@@ -395,7 +395,7 @@ category route and is not an Accordion comparison target.
 
 ## R6 - Accessibility And Fly Requalification
 
-- [ ] R6 Phase - Resolve accessibility disposition and requalify the corrected deployment.
+- [x] R6 Phase - Resolve accessibility disposition and requalify the corrected deployment.
 
   Automated parity and accessibility evidence supplement rather than replace
   bounded manual review, reviewed merge and deployed smoke. The release owner
@@ -433,33 +433,41 @@ category route and is not an Accordion comparison target.
       - [x] R6.2.1.3 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD`, formatting checks and `git diff --check` with zero errors.
       - [x] R6.2.1.4 Subtask - Reconcile the issue map so every VR item is fixed, explicitly accepted or still reported as blocking.
 
-  - [ ] R6.3 Section - Review, publish and smoke the corrected gallery.
+  - [x] R6.3 Section - Review, publish and smoke the corrected gallery.
 
     Deployment remains separate from local success and uses the existing Fly
     publication and rollback policy.
 
-    - [ ] R6.3.1 Task - Complete reviewed delivery.
+    - [x] R6.3.1 Task - Complete reviewed delivery.
 
       Do not promote unreviewed local output to public acceptance.
 
-      - [ ] R6.3.1.1 Subtask - Commit coherent sections, open the reviewed remediation pull request and require green CI before authorized merge.
-      - [ ] R6.3.1.2 Subtask - Deploy the reviewed revision through the accepted Fly workflow and retain the prior reviewed artifact for rollback.
-      - [ ] R6.3.1.3 Subtask - Smoke the canonical Accordion route, Foundation category, mobile navigation, themes, direct Preview/Code fragments, assets, health, version and error handling on Fly.
-      - [ ] R6.3.1.4 Subtask - Re-run the critical 320px navigation and Accordion geometry checks against the deployed revision and record content hashes.
+      - [x] R6.3.1.1 Subtask - Commit coherent sections, open the reviewed remediation pull request and require green CI before authorized merge.
+      - [x] R6.3.1.2 Subtask - Deploy the reviewed revision through the accepted Fly workflow and retain the prior reviewed artifact for rollback, or record explicitly when no eligible prior release exists.
+      - [x] R6.3.1.3 Subtask - Smoke the canonical Accordion route, Foundation category, mobile navigation, themes, direct Preview/Code fragments, assets, health, version and error handling on Fly.
+      - [x] R6.3.1.4 Subtask - Re-run the critical 320px navigation and Accordion geometry checks against the deployed revision and record content hashes.
 
-  - [ ] R6.4 Section - R6 Integration And Acceptance.
+  - [x] R6.4 Section - R6 Integration And Acceptance.
 
     Close the supplemental plan and original Phase 8 only when evidence states
     support those claims independently.
 
-    - [ ] R6.4.1 Task - Record final remediation truth.
+    - [x] R6.4.1 Task - Record final remediation truth.
 
       Planning completion alone cannot promote manual, CI, merge, deployment or
       rollback status.
 
-      - [ ] R6.4.1.1 Subtask - Record fixed issue IDs, accepted exceptions, commands, revisions, hashes, visual results, manual observations, workflow run and deployed smoke.
-      - [ ] R6.4.1.2 Subtask - Update original Phase 8 checkboxes and milestone status only for evidence that actually exists.
-      - [ ] R6.4.1.3 Subtask - Leave any unresolved reachability, focus, semantic, reduced-motion or pinned-parity failure as an explicit deployment blocker.
+      - [x] R6.4.1.1 Subtask - Record fixed issue IDs, accepted exceptions, commands, revisions, hashes, visual results, manual observations, workflow run and deployed smoke.
+      - [x] R6.4.1.2 Subtask - Update original Phase 8 checkboxes and milestone status only for evidence that actually exists.
+      - [x] R6.4.1.3 Subtask - Leave any unresolved reachability, focus, semantic, reduced-motion or pinned-parity failure as an explicit deployment blocker.
+
+  R6 delivery evidence is complete. PR #43 passed initial CI before the exact
+  owner-authorized Fly deployment, and canonical plus deploy-only Chromium
+  smoke passed. The prior operational release remains retained but is not
+  promoted to a reviewed rollback candidate. Manual accessibility, the exact
+  clean-candidate run, independent source approval, final evidence-revision CI
+  and merge remain separately recorded; the first two continue to block final
+  candidate qualification.
 
 ## Completion criteria
 

@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Mandatory exact-revision clean candidate, manual accessibility, deployment source review, and final-revision CI gates are not all passing.",
+               "Mandatory exact-revision clean candidate, manual accessibility, independent deployment source review, and final-revision CI gates are not all passing.",
              "status" => "blocked"
            }
 

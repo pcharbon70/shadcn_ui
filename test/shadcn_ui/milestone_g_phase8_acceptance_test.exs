@@ -72,9 +72,10 @@ defmodule ShadcnUI.MilestoneGPhase8AcceptanceTest do
 
     assert deployment["release"]["status"] == "passed"
     assert deployment["canonicalSmoke"]["status"] == "passed"
-    assert deployment["externalGates"]["pullRequest"] == "absent"
+    assert deployment["externalGates"]["pullRequest"] == "open"
+    assert deployment["externalGates"]["initialRevisionCi"] == "passed"
     assert deployment["externalGates"]["finalRevisionCi"] == "pending"
-    assert deployment["externalGates"]["merge"] == "pending"
+    assert deployment["externalGates"]["merge"] == "authorized-pending"
     assert plan =~ "- [ ] 8 Phase - Visual Acceptance And Versioned Publication."
     assert plan =~ "- [ ] 8.3.2.1 Subtask - Publish only through the reviewed workflow"
   end

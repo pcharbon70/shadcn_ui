@@ -4,12 +4,15 @@
 
 This implementation record sequences the high-fidelity gallery presentation
 work described by the [Milestone G roadmap](../../milestones/milestone-g-unscripted-style-gallery-presentation-parity.md).
-All eight phase implementations and local automated evidence have landed. Phase
-8 remains open because the deployed Fly branch has no pull request, final CI, or
-merge, and six manual accessibility scenarios remain pending. The release owner
-accepted that manual-review risk for R6 progression on 2026-09-03 without
-promoting it to a pass or final qualification. The work changes the separate
-demo and its evidence, not the transport-neutral component model.
+All eight phase implementations and the six-phase remediation implementation
+are complete. Phase 8 and Milestone G remain open because the corrected Fly
+revision was deployed from an owner-authorized green PR before merge, the
+original after-merge publication order has not been replayed, independent
+source approval and final evidence-revision CI remain external, and six manual
+accessibility scenarios plus the exact clean-candidate run remain pending. The
+release owner accepted the manual-review risk for R6 progression on 2026-09-03
+without promoting it to a pass or final qualification. The work changes the
+separate demo and its evidence, not the transport-neutral component model.
 
 Phase 1 accepted the additional durable decision and current-truth requirements
 before later implementation phases proceeded. Existing Milestones A-F
@@ -53,9 +56,9 @@ coverage-map work required for Milestone G.
 The [live visual review remediation plan](./live-visual-review-remediation.md)
 tracks the correctness, pinned-parity, evidence and accessibility work found
 during the 2026-09-02 review. It supplements rather than rewrites the
-eight-phase implementation record. R1 through R5 and R6.1 through R6.2 are
-complete; R6.3 through R6.4 remain open until their implementation and proof
-exist.
+eight-phase implementation record. R1 through R6 are complete as remediation
+delivery evidence; candidate and Milestone G exit gates retain their separately
+recorded status.
 
 Each phase uses sections, tasks and subtasks with a phase-ending integration-test
 section. Delivery uses one commit per completed section and one PR per phase.

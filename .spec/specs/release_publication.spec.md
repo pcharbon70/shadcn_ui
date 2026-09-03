@@ -111,11 +111,17 @@ integration record to pull-request verification without publishing or using the
 moving upstream site as a CI input.
 Remediation R6 keeps the manual-accessibility gate pending and final candidate
 qualification blocked when the release owner accepts that risk for remediation
-progression; the waiver neither claims conformance nor authorizes deployment.
+progression; the waiver neither claims conformance nor itself authorizes
+deployment.
 Its complete local regression separately proves deterministic CSS and export,
 the actual archive, isolated clean-consumer installation, all A-G browser
-suites and current Fly-identity manifests while leaving exact-revision CI and
-external delivery pending.
+suites and current Fly-identity manifests. The later owner-authorized deployment
+binds the exact green pull-request revision to an immutable Fly release, image
+digest, health identity, canonical smoke, deployed-browser checks and response
+hashes. Independent source approval, CI on the final evidence revision, merge,
+the exact-revision two-build clean candidate and manual accessibility remain
+separate gates, and an older operational release without recorded source review
+is not represented as an eligible rollback candidate.
 
 ```spec-verification
 - kind: test_file
