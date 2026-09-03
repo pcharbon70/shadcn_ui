@@ -46,6 +46,20 @@ defect keeps the scenario `FAILED` until its recorded retest passes. An
 unavailable platform or device stays `PENDING`; it is never inferred from a
 different engine or automated run.
 
+## R6 remediation risk acceptance
+
+On 2026-09-03 the release owner explicitly accepted the risk of deferring this
+manual matrix so Milestone G remediation R6 may continue through local
+regression, review, and merge work. This is a scoped delivery waiver, not a
+manual pass, accessibility conformance result, or WCAG certification. It does
+not authorize a Fly deployment.
+
+No human screen-reader or representative mobile-assistive-technology workflow
+was executed for this waiver. Every scenario below remains `PENDING`, mandatory
+candidate qualification remains blocked, and defects that only a human review
+could expose remain unassessed. The machine-readable record is
+`demo/priv/reference/milestone_g/remediation-r6-manual-risk-evidence.json`.
+
 ## Manual scenario ledger
 
 ### MAN-01 — Keyboard traversal and visible focus

@@ -100,6 +100,9 @@ Current documentation preserves dated Pages-era and phase-local snapshots,
 while the candidate ledger separately records the operational Fly pass,
 unreviewed deployed source, ineligible rollback state, and remaining clean,
 manual, review, CI, and merge gates.
+The R6 accessibility record adds a scoped owner-approved delivery waiver while
+keeping every unexecuted manual scenario pending and explicitly refusing a
+conformance, qualification or deployment claim.
 
 ```spec-verification
 - kind: test_file
@@ -141,4 +144,9 @@ manual, review, CI, and merge gates.
   covers:
     - shadcn_ui.public_documentation.api_contract
     - shadcn_ui.public_documentation.exdoc_inventory
+
+- kind: test_file
+  target: demo/test/milestone_g_remediation_r6_test.exs
+  covers:
+    - shadcn_ui.public_documentation.compatibility_and_fallback
 ```

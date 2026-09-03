@@ -31,6 +31,7 @@
     "requirementLedger": "docs/milestone-f-acceptance.md",
     "consumerTrialEvidence": "release/consumer-trial-evidence.json",
     "flyDeploymentEvidence": "release/fly-deployment-evidence.json",
+    "r6ManualAccessibilityRiskEvidence": "demo/priv/reference/milestone_g/remediation-r6-manual-risk-evidence.json",
     "deployedRevision": "bb422d815683d2b6e1cd81e887b67791ac1cb92a",
     "finalPhase5Revision": null
   },
@@ -59,7 +60,7 @@
   "diagnostics": {
     "phase6LocalIntegration": "The current package and demo precommit suites and focused Phase 6 acceptance pass locally. This gate excludes the separately recorded clean-candidate, manual-accessibility, source-review, final-revision CI, merge, and deployment states.",
     "cleanCandidate": "The current 63-entry archive passes a local allowlist audit and isolated consumer trial, but exact-revision two-build comparison has not run; historical 62-entry evidence does not qualify HEAD.",
-    "manualAccessibility": "All six bounded scenarios in docs/accessibility-review.md remain PENDING.",
+    "manualAccessibility": "All six bounded scenarios in docs/accessibility-review.md remain PENDING. The release owner accepted that risk for R6 remediation progression only; the waiver is not a pass, conformance claim, deployment authorization, or candidate qualification.",
     "specled": "The Phase 8 candidate reports 0 errors, 0 warnings, and 0 branch findings after reconciling every declared verification target with explicit requirement annotations. The result remains subject to final-revision CI after merge.",
     "browser": "All 417 A-F Playwright tests passed in the locked Chromium, Firefox, and WebKit engines without a retry at the historical Phase 6 candidate; exact-current-revision CI remains pending.",
     "deployment": "Fly release rel_mr7g2md4103r2wj0 serves exact revision bb422d815683d2b6e1cd81e887b67791ac1cb92a, passes service health, and passes the strengthened canonical smoke. This is operational evidence only: pull request, source review, final-revision CI, and merge remain pending.",

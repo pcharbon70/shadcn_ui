@@ -104,6 +104,9 @@ Milestone G remediation R5 adds the local rendered-reference integrity check,
 locked pinned/local browser matrix, reviewed comparison hashes and deterministic
 integration record to pull-request verification without publishing or using the
 moving upstream site as a CI input.
+Remediation R6 keeps the manual-accessibility gate pending and final candidate
+qualification blocked when the release owner accepts that risk for remediation
+progression; the waiver neither claims conformance nor authorizes deployment.
 
 ```spec-verification
 - kind: test_file
@@ -150,4 +153,9 @@ moving upstream site as a CI input.
   covers:
     - shadcn_ui.release_publication.deployment_workflow
     - shadcn_ui.release_publication.post_deploy_and_rollback
+
+- kind: test_file
+  target: demo/test/milestone_g_remediation_r6_test.exs
+  covers:
+    - shadcn_ui.release_publication.truthful_gates
 ```

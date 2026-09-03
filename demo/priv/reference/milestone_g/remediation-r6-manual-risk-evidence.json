@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r6.1",
+  "evidenceType": "manual-accessibility-risk-acceptance",
+  "recordedOn": "2026-09-03",
+  "authorization": {
+    "status": "accepted-by-release-owner",
+    "scope": "Allow R6 remediation, regression, review, and merge work to proceed while the manual accessibility matrix remains unexecuted.",
+    "doesNotAuthorizeDeployment": true,
+    "doesNotQualifyCandidate": true,
+    "doesNotClaimConformance": true
+  },
+  "environmentObservation": {
+    "desktopScreenReader": "Orca 46.1 executable detected; no interactive human screen-reader session was run.",
+    "mobileAssistiveTechnology": "No representative mobile assistive-technology environment was available or exercised.",
+    "automationBoundary": "Existing browser, keyboard, axe, zoom, forced-colors, reduced-motion, no-script, and CSS-disabled automation is separate evidence and is not promoted to manual review."
+  },
+  "scenarios": [
+    {
+      "id": "R6-MAN-01",
+      "scope": "Accordion keyboard and desktop screen-reader workflow",
+      "mappedLedgerScenarios": ["MAN-01", "MAN-06"],
+      "status": "PENDING",
+      "disposition": "risk-accepted-not-run"
+    },
+    {
+      "id": "R6-MAN-02",
+      "scope": "Mobile navigation at 320px and 390px with representative mobile assistive technology",
+      "mappedLedgerScenarios": ["MAN-05", "MAN-06"],
+      "status": "PENDING",
+      "disposition": "risk-accepted-not-run"
+    },
+    {
+      "id": "R6-MAN-03",
+      "scope": "Preview and Code controls, direct fragments, copy feedback, and heading announcements",
+      "mappedLedgerScenarios": ["MAN-01", "MAN-06"],
+      "status": "PENDING",
+      "disposition": "risk-accepted-not-run"
+    },
+    {
+      "id": "R6-MAN-04",
+      "scope": "200 percent zoom, forced colors, reduced motion, no-script, and CSS-disabled fallbacks in both themes",
+      "mappedLedgerScenarios": ["MAN-03", "MAN-04"],
+      "status": "PENDING",
+      "disposition": "risk-accepted-not-run"
+    }
+  ],
+  "gateEffect": {
+    "r6Progression": "allowed-by-explicit-risk-acceptance",
+    "manualAccessibility": "pending",
+    "candidateQualification": "blocked",
+    "wcagCertification": "not-claimed",
+    "unresolvedAccessibilityDefects": "not-assessed-manually"
+  },
+  "status": "risk-accepted-manual-review-pending"
+}
