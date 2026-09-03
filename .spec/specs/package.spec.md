@@ -4,11 +4,12 @@
 id: shadcn_ui.package
 kind: package
 status: active
-summary: Independently buildable transport-neutral Phoenix function-component package whose metadata links to the separately deployed Fly.io gallery.
+summary: Independently buildable transport-neutral Phoenix function-component package targeting version 1.0.0 for its first public Hex release and linking to the separately deployed Fly.io gallery.
 decisions:
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.isolated_compiled_css
   - shadcn_ui.upstream_provenance
+  - shadcn_ui.public_hex_1_0_release
 surface:
   - mix.exs
   - mix.lock
@@ -67,9 +68,18 @@ surface:
   statement: A package consumer shall receive component-scoped Accordion geometry, decorative affordance, row presentation, and reduced-motion behavior in the distributed stylesheet and use that stylesheet without installing Node.js, Tailwind CSS, or a ShadcnUI JavaScript runtime.
   priority: must
   stability: stable
+
+- id: shadcn_ui.package.public_version_target
+  statement: Package metadata shall identify version 1.0.0 as the first public Hex release target without representing that version as published before the release-publication gates complete.
+  priority: must
+  stability: stable
 ```
 
 ## Verification
+
+The `1.0.0` metadata target is a package-identity change governed by the public
+release decision. It does not alter the component runtime, dependencies,
+archive boundary, stylesheet delivery, or consumer toolchain contract.
 
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's package contract.
@@ -141,6 +151,11 @@ qualification, which remains a separately recorded pending gate.
     - shadcn_ui.package.explicit_release_files
     - shadcn_ui.package.mit_license
     - shadcn_ui.package.no_consumer_asset_toolchain
+
+- kind: test_file
+  target: test/shadcn_ui/release_readiness_test.exs
+  covers:
+    - shadcn_ui.package.public_version_target
 
 - kind: test_file
   target: test/shadcn_ui/milestone_d_acceptance_test.exs

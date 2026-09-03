@@ -98,6 +98,9 @@ surface:
 
 ## Verification
 
+The shell assertion now expects package identity `1.0.0`; this version-only
+change does not alter the gallery presentation or responsive behavior.
+
 Targets are assigned by the Milestone G coverage map. A listed later-phase
 target is planned proof, not evidence that the migration or publication exists.
 The immutable Phase 8 static snapshots retain their original Pages-era source

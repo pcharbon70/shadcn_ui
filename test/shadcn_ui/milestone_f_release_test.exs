@@ -10,7 +10,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
   # covers: shadcn_ui.release_publication.deterministic_export
   # covers: shadcn_ui.release_publication.explicit_archive
   # covers: shadcn_ui.release_publication.health_manifest
-  # covers: shadcn_ui.release_publication.internal_candidate_only
+  # covers: shadcn_ui.release_publication.public_release_target
   # covers: shadcn_ui.release_publication.truthful_gates
   # covers: shadcn_ui.release_publication.version_identity
 
@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Mandatory exact-revision clean candidate, manual accessibility, independent deployment source review, and final-revision CI gates are not all passing.",
+               "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, manual accessibility, review, CI, merge, gallery-identity, Hex publication, and public-tag gates are not all passing.",
              "status" => "blocked"
            }
 
@@ -57,36 +57,41 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     mixfile = File.read!(Path.join(@root, "integration/clean_consumer/mix.exs"))
     runner = File.read!(Path.join(@root, "scripts/run-clean-consumer.mjs"))
 
-    assert mixfile =~ ~s({:shadcn_ui, "== 0.1.0", repo: "candidate"})
+    assert mixfile =~ ~s({:shadcn_ui, "== 1.0.0", repo: "candidate"})
     refute mixfile =~ "path:"
     assert runner =~ "hex.registry"
     assert runner =~ "hex_metadata.config"
     assert runner =~ "browserPassed: true"
   end
 
-  test "current archive consumer evidence matches the audited candidate" do
+  test "historical archive evidence is not reused for the 1.0.0 target" do
     status = @status |> File.read!() |> Jason.decode!()
     evidence = "release/consumer-trial-evidence.json" |> File.read!() |> Jason.decode!()
     gates = Map.new(status["gates"], &{&1["id"], &1["status"]})
 
-    assert evidence["candidate"]["sha256"] == status["evidence"]["currentArchiveSha256"]
-    assert evidence["candidate"]["entries"] == status["evidence"]["currentArchiveEntries"]
+    assert evidence["candidate"]["archive"] == "shadcn_ui-0.1.0.tar"
+    assert status["candidateVersion"] == "1.0.0"
+    assert status["evidence"]["currentArchiveSha256"] == nil
+    assert status["evidence"]["currentArchiveEntries"] == nil
     assert evidence["consumer"]["outsideSourceTree"]
     assert evidence["consumer"]["compiled"]
     assert evidence["consumer"]["testsPassed"]
     assert evidence["consumer"]["browserPassed"]
     refute evidence["install"]["pathDependency"]
-    assert gates["actual-archive-consumer"] == "passed"
+    assert gates["actual-archive-consumer"] == "pending"
     assert gates["clean-candidate"] == "pending"
   end
 
-  test "candidate remains internal and excludes public or platform claims" do
+  test "public release gates remain pending without adding unrelated claims" do
     status = @status |> File.read!() |> Jason.decode!()
     gates = Map.new(status["gates"], &{&1["id"], &1})
 
+    for id <- ["hex-publication", "public-version-tag"] do
+      assert gates[id]["status"] == "pending"
+      assert gates[id]["mandatory"]
+    end
+
     for id <- [
-          "hex-publication",
-          "public-version-tag",
           "marketplace-listing",
           "consumer-platform-certification",
           "official-upstream-affiliation"

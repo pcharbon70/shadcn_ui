@@ -8,7 +8,7 @@ defmodule ShadcnUIDemoWeb.HealthControllerTest do
     response = conn |> get("/healthz") |> json_response(200)
 
     assert response["status"] == "ok"
-    assert response["identity"]["packageVersion"] == "0.1.0"
+    assert response["identity"]["packageVersion"] == "1.0.0"
     assert response["identity"]["buildRevision"] =~ ~r/^[0-9a-f]{40}$/
     assert response["identity"]["canonicalUrl"] =~ ~r/^https:\/\//
     refute inspect(response) =~ ~r/(secret|token|credential)/i

@@ -141,6 +141,9 @@ runtime boundary, package contents, or existing verification.
 
 ## Verification
 
+Selecting `1.0.0` as the first public package version changes release identity
+only; it does not change the stylesheet contract or compiled asset.
+
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's stylesheet contract.
 

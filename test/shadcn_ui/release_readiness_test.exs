@@ -1,12 +1,14 @@
 defmodule ShadcnUI.ReleaseReadinessTest do
   use ExUnit.Case, async: true
 
+  # covers: shadcn_ui.package.public_version_target
+
   @gallery_url "https://pcharbon70-shadcn-ui-demo.fly.dev/"
 
-  test "documents the internal candidate and canonical gallery" do
+  test "documents the first public release target and canonical gallery" do
     project = Mix.Project.config()
 
-    assert project[:version] == "0.1.0"
+    assert project[:version] == "1.0.0"
     assert project[:homepage_url] == @gallery_url
     assert project[:docs][:main] == "readme"
     assert "RELEASE.md" in project[:docs][:extras]
@@ -16,8 +18,8 @@ defmodule ShadcnUI.ReleaseReadinessTest do
 
     assert readme =~ @gallery_url
     assert readme =~ "mix hex.build"
-    assert release =~ "internal `0.1.0` candidate"
-    assert release =~ ~r/does not authorize or perform\r?\npublication to Hex/
+    assert release =~ "Version `1.0.0` is the first public Hex release target"
+    assert release =~ "Hex publication remains pending"
   end
 
   test "release allowlist excludes repository and gallery tooling" do

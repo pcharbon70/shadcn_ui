@@ -7,7 +7,7 @@ status: active
 summary: Reproducible internal candidate, clean consumer trial, immutable gallery identity, stateless Fly.io deployment operations, and truthful release gates.
 decisions:
   - shadcn_ui.fly_gallery_publication
-  - shadcn_ui.internal_release_candidate
+  - shadcn_ui.public_hex_1_0_release
   - shadcn_ui.upstream_provenance
 surface:
   - mix.exs
@@ -82,8 +82,8 @@ surface:
   priority: must
   stability: stable
 
-- id: shadcn_ui.release_publication.internal_candidate_only
-  statement: Milestone F shall qualify an internal 0.1.0 candidate without publishing Hex, creating a marketplace listing, or claiming a public release or consumer-platform certification.
+- id: shadcn_ui.release_publication.public_release_target
+  statement: The first public Hex release shall use version 1.0.0, adopt Semantic Versioning for later releases, and remain unpublished and untagged until its own archive, consumer, review, CI, merge, gallery-identity, publication, and truthful-gate evidence is complete; this release does not imply a marketplace listing, consumer-platform certification, or official upstream affiliation.
   priority: must
   stability: stable
 
@@ -146,7 +146,7 @@ is not represented as an eligible rollback candidate.
     - shadcn_ui.release_publication.clean_checkout
     - shadcn_ui.release_publication.clean_consumer_trial
     - shadcn_ui.release_publication.explicit_archive
-    - shadcn_ui.release_publication.internal_candidate_only
+    - shadcn_ui.release_publication.public_release_target
     - shadcn_ui.release_publication.truthful_gates
 
 - kind: test_file

@@ -2,17 +2,19 @@
 
 ## Milestone F Phase 6 status
 
-All 38 Milestone F requirements now have an explicit implementation/evidence
-entry in `release/records/milestone-f-acceptance.md`. Immutable gallery manifests and the
-documented publication/rollback mechanisms are implemented. Fly release
-`rel_mr7g2md4103r2wj0` serves exact source
-`bb422d815683d2b6e1cd81e887b67791ac1cb92a`; service health and strengthened
-canonical smoke pass. SpecLed also passes. The internal `0.1.0` candidate is
-still blocked by exact-current-revision two-build qualification, all six manual
-accessibility scenarios, source review, and final-revision CI. The current
-isolated consumer passes. Pull request, review, and merge remain separate
-pending states; the operational Fly pass does not satisfy the reviewed-source
-publication gate. No Hex publication or public tag is authorized.
+Version `1.0.0` is the first public Hex release target and establishes the
+initial stable API. Selecting the version does not reuse or upgrade the earlier
+`0.1.0` candidate evidence: the `1.0.0` archive, isolated consumer, exact-source
+reproducibility, review, final-revision CI, merge, matching Fly gallery identity,
+Hex publication, and public tag must be recorded independently. Manual
+accessibility remains pending under the existing bounded waiver and is not a
+conformance claim. Hex publication remains pending until the mandatory release
+gates pass.
+
+All 38 Milestone F requirements have an implementation/evidence entry in
+`release/records/milestone-f-acceptance.md`. The deployed Fly release and
+historical records below describe the earlier `0.1.0` package identity and do
+not qualify or publish `1.0.0`.
 
 ## Historical Milestone F Phase 5 candidate status
 

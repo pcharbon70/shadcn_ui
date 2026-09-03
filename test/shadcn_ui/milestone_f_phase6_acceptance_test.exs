@@ -37,7 +37,7 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
   # covers: shadcn_ui.release_publication.clean_checkout
   # covers: shadcn_ui.release_publication.clean_consumer_trial
   # covers: shadcn_ui.release_publication.explicit_archive
-  # covers: shadcn_ui.release_publication.internal_candidate_only
+  # covers: shadcn_ui.release_publication.public_release_target
   # covers: shadcn_ui.release_publication.truthful_gates
 
   @specs ~w(
@@ -91,7 +91,7 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
     assert File.read!("release/records/milestone-f-acceptance.md") =~
              "all 41 component-page audits"
 
-    assert Mix.Project.config()[:version] == "0.1.0"
+    assert Mix.Project.config()[:version] == "1.0.0"
   end
 
   test "truthful gates block qualification without adding a runtime or consumer target" do
@@ -127,7 +127,7 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
     assert gates["ci-final-revision"] == "pending"
     assert gates["deployment-source-review"] == "pending"
     assert gates["merge"] == "pending"
-    assert gates["gallery-deployment"] == "passed"
-    assert gates["post-deploy-smoke"] == "passed"
+    assert gates["gallery-deployment"] == "pending"
+    assert gates["post-deploy-smoke"] == "pending"
   end
 end

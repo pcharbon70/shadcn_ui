@@ -44,7 +44,7 @@ defmodule ShadcnUI.MilestoneFIntegrationGuidanceTest do
   end
 
   @integration File.read!("docs/integrations.md")
-  @upgrading File.read!("docs/upgrading.md")
+  @upgrading File.read!("docs/upgrading.md") |> String.replace(~r/\s+/, " ")
   @provenance File.read!("docs/provenance.md")
 
   # covers: shadcn_ui.public_documentation.controller_example
@@ -75,9 +75,9 @@ defmodule ShadcnUI.MilestoneFIntegrationGuidanceTest do
 
   test "upgrade guidance separates candidate, public, deployment, manual, and rollback states" do
     for text <- [
-          "internal `0.1.0` candidate",
-          "publicly available on Hex",
-          "local tests is not proof of CI",
+          "preparing `1.0.0` as its first public Hex release",
+          "has no public release tag",
+          "Passing local tests is not proof",
           "manual review",
           "Deprecation policy",
           "accepted ADR",

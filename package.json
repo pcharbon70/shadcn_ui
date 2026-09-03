@@ -1,6 +1,6 @@
 {
   "name": "@pcharbon70/shadcn-ui-assets",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Pinned build tooling for the ShadcnUI compiled stylesheet.",
   "scripts": {

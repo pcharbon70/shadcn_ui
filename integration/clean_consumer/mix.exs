@@ -17,7 +17,7 @@ defmodule CandidateConsumer.MixProject do
 
   defp deps do
     [
-      {:shadcn_ui, "== 0.1.0", repo: "candidate"},
+      {:shadcn_ui, "== 1.0.0", repo: "candidate"},
       {:phoenix, "~> 1.8.11"},
       {:bandit, "~> 1.12"}
     ]

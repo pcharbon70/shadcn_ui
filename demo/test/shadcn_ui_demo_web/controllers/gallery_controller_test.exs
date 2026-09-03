@@ -56,7 +56,7 @@ defmodule ShadcnUIDemoWeb.GalleryControllerTest do
     assert html =~ ~s(aria-label="Mobile primary navigation")
     assert html =~ ~s(aria-label="Mobile component navigation")
     assert html =~ ~s(data-gallery-metadata)
-    assert html =~ ~s(data-gallery-package-version>Package 0.1.0</p>)
+    assert html =~ ~s(data-gallery-package-version>Package 1.0.0</p>)
     assert length(Regex.scan(~r/id="gallery-component-search"/, html)) == 1
     assert length(Regex.scan(~r/id="gallery-component-search-status"/, html)) == 1
     assert length(Regex.scan(~r/id="gallery-mobile-component-search"/, html)) == 1

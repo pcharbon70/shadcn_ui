@@ -1,10 +1,9 @@
 # Versioning, deprecation, migration, and rollback
 
-ShadcnUI is currently qualifying an internal `0.1.0` candidate. It is not
-publicly available on Hex, has no authorized public tag, and remains subject to
-internal `0.x` change. Passing local tests is not proof of CI, clean-consumer
-qualification, gallery deployment, post-deploy smoke, manual review, or public
-availability.
+ShadcnUI is preparing `1.0.0` as its first public Hex release. It is not
+published yet and has no public release tag. Passing local tests is not proof of
+CI, clean-consumer qualification, gallery deployment, post-deploy smoke, manual
+review, or public availability.
 
 ## Version and compatibility floors
 
@@ -15,8 +14,8 @@ availability.
 - The package supports Elixir `~> 1.17` and the dependency ranges in `mix.exs`;
   an actual consumer must verify its locked Elixir, OTP, Phoenix, and renderer.
 
-Until a stable public policy is accepted, every reviewed revision is pinned by
-commit SHA. Do not depend on a mutable branch.
+Until `1.0.0` is published, every reviewed revision should be pinned by commit
+SHA. Do not depend on a mutable branch.
 
 ## Deprecation policy
 
@@ -46,26 +45,27 @@ an accepted ADR and specification change.
 6. Promote only the exact verified revision and retain the previous lock and
    artifact for rollback.
 
-There is no migration from an earlier public ShadcnUI release yet. The current
-candidate consolidates Milestones A–E under the same `0.1.0` internal scope.
+There is no migration from an earlier public ShadcnUI release. Version `1.0.0`
+establishes the initial stable public API from the component work completed in
+Milestones A–E.
 
 ## Version decisions for future changes
 
-After `0.1.0` is internally qualified, removing or incompatibly changing a
-public component, attr, slot, closed value, semantic/fallback contract, token,
-CSS selector contract, capability floor, runtime boundary, or archive path
-requires a new internal minor candidate such as `0.2.0`, a migration record,
-and explicit rollback evidence. A compatible public addition also requires an
-internal minor decision; a compatible correction may use a patch decision.
-Before qualification, `0.1.0` may be rebuilt only when every prior candidate
-record is explicitly superseded and no consumer is told that the bytes are the
-same. Exact commit and archive hashes remain authoritative.
+After `1.0.0` is published, removing or incompatibly changing a public
+component, attr, slot, closed value, semantic/fallback contract, token, CSS
+selector contract, capability floor, runtime boundary, or archive path requires
+a new major version, migration guidance, and explicit rollback evidence. A
+backward-compatible public addition increments the minor version; a
+backward-compatible correction increments the patch version. Before
+publication, the `1.0.0` target may be rebuilt only when prior candidate
+evidence is explicitly superseded and no consumer is told that different bytes
+share the same published identity. Exact commit and archive hashes remain
+authoritative.
 
 Documentation-only wording does not by itself change the package version, but
 documentation that changes a promised contract is not documentation-only.
-Once a stable public-version policy exists, normal Semantic Versioning rules
-supersede this internal `0.x` convention. No breaking change may be hidden under
-an already-qualified archive identity.
+Version `1.0.0` adopts normal Semantic Versioning rules. No breaking change may
+be hidden under an already-published archive identity.
 
 ## Rollback
 

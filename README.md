@@ -18,9 +18,9 @@ runtime.
 
 > **Release status**
 >
-> Version `0.1.0` is currently an internal candidate and is not published on
-> Hex. Install a reviewed Git revision until a Hex release is explicitly
-> announced.
+> Version `1.0.0` is being prepared as the first public Hex release and is not
+> published yet. Install a reviewed Git revision until publication is
+> explicitly announced.
 
 ## Features
 

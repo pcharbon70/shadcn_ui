@@ -74,6 +74,9 @@ runtime boundary, package contents, or existing verification.
 
 ## Verification
 
+Selecting `1.0.0` as the first public package version changes release identity
+only; it does not change this subject's gallery inventory or proof.
+
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's gallery contract.
 

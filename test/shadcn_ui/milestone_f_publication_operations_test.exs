@@ -65,7 +65,9 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
     assert @deployment["health"]["reportedSourceRevision"] == release_revision
     assert @deployment["canonicalSmoke"]["expectedRevision"] == release_revision
     assert @status["evidence"]["deployedRevision"] == release_revision
-    assert @deployment["health"]["reportedPackageVersion"] == Mix.Project.config()[:version]
+    assert @deployment["health"]["reportedPackageVersion"] == "0.1.0"
+    assert @deployment["health"]["reportedPackageVersion"] != Mix.Project.config()[:version]
+    assert @status["evidence"]["deployedPackageVersion"] == "0.1.0"
     assert @deployment["health"]["reportedCatalogueSchema"] == "1"
 
     assert @deployment["health"]["reportedUpstreamRevision"] ==

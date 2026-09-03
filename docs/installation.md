@@ -1,8 +1,9 @@
 # Installation, assets, themes, and CSP
 
-ShadcnUI is a transport-neutral Phoenix function-component package. Internal
-consumers should pin a reviewed Git commit; sibling development may use a path.
-The internal `0.1.0` candidate is not publicly available on Hex.
+ShadcnUI is a transport-neutral Phoenix function-component package. Version
+`1.0.0` is the first public Hex release target but is not published yet.
+Consumers should pin a reviewed Git commit until publication; sibling
+development may use a path.
 
 ```elixir
 # Reviewed internal revision

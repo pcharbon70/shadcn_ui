@@ -1,7 +1,8 @@
 ---
 id: shadcn_ui.internal_release_candidate
-status: accepted
+status: superseded
 date: 2026-08-27
+superseded_by: shadcn_ui.public_hex_1_0_release
 affects:
   - shadcn_ui.release_publication
   - shadcn_ui.public_documentation

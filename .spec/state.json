@@ -148,7 +148,8 @@
         "date": "2026-08-27",
         "file": ".spec/decisions/internal-release-candidate-and-clean-consumer-trial.md",
         "id": "shadcn_ui.internal_release_candidate",
-        "status": "accepted",
+        "status": "superseded",
+        "superseded_by": "shadcn_ui.public_hex_1_0_release",
         "title": "Qualify An Internal Release Candidate Through A Clean Consumer Trial"
       },
       {
@@ -284,6 +285,18 @@
         "id": "shadcn_ui.progressive_enhancement_baseline",
         "status": "accepted",
         "title": "Adopt Progressive Enhancement With Explicit Fallback Evidence"
+      },
+      {
+        "affects": [
+          "shadcn_ui.release_publication",
+          "shadcn_ui.public_documentation",
+          "shadcn_ui.package"
+        ],
+        "date": "2026-09-03",
+        "file": ".spec/decisions/public-hex-1-0-release.md",
+        "id": "shadcn_ui.public_hex_1_0_release",
+        "status": "accepted",
+        "title": "Promote The First Public Hex Release To 1.0.0"
       },
       {
         "affects": [
@@ -2055,6 +2068,14 @@
       },
       {
         "file": ".spec/specs/package.spec.md",
+        "id": "shadcn_ui.package.public_version_target",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "Package metadata shall identify version 1.0.0 as the first public Hex release target without representing that version as published before the release-publication gates complete.",
+        "subject_id": "shadcn_ui.package"
+      },
+      {
+        "file": ".spec/specs/package.spec.md",
         "id": "shadcn_ui.package.transport_neutral",
         "priority": "must",
         "stability": "stable",
@@ -2242,7 +2263,7 @@
         "id": "shadcn_ui.public_documentation.upgrade_and_migration",
         "priority": "must",
         "stability": "evolving",
-        "statement": "Versioned changelog, migration, compatibility-floor, deprecation, and rollback guidance shall distinguish internal candidate qualification from public release availability.",
+        "statement": "Versioned changelog, migration, compatibility-floor, deprecation, and rollback guidance shall identify 1.0.0 as the first public release target, apply Semantic Versioning after publication, and distinguish historical internal-candidate evidence from current public release availability.",
         "subject_id": "shadcn_ui.public_documentation"
       },
       {
@@ -2295,18 +2316,18 @@
       },
       {
         "file": ".spec/specs/release_publication.spec.md",
-        "id": "shadcn_ui.release_publication.internal_candidate_only",
-        "priority": "must",
-        "stability": "stable",
-        "statement": "Milestone F shall qualify an internal 0.1.0 candidate without publishing Hex, creating a marketplace listing, or claiming a public release or consumer-platform certification.",
-        "subject_id": "shadcn_ui.release_publication"
-      },
-      {
-        "file": ".spec/specs/release_publication.spec.md",
         "id": "shadcn_ui.release_publication.post_deploy_and_rollback",
         "priority": "must",
         "stability": "evolving",
         "statement": "Operations guidance shall define canonical direct-route, asset, search, health, error, and version smoke checks plus rollback to a previously verified artifact and recovery verification.",
+        "subject_id": "shadcn_ui.release_publication"
+      },
+      {
+        "file": ".spec/specs/release_publication.spec.md",
+        "id": "shadcn_ui.release_publication.public_release_target",
+        "priority": "must",
+        "stability": "stable",
+        "statement": "The first public Hex release shall use version 1.0.0, adopt Semantic Versioning for later releases, and remain unpublished and untagged until its own archive, consumer, review, CI, merge, gallery-identity, publication, and truthful-gate evidence is complete; this release does not imply a marketplace listing, consumer-platform certification, or official upstream affiliation.",
         "subject_id": "shadcn_ui.release_publication"
       },
       {
@@ -3162,12 +3183,13 @@
           "decisions": [
             "shadcn_ui.transport_neutral_phoenix_package",
             "shadcn_ui.isolated_compiled_css",
-            "shadcn_ui.upstream_provenance"
+            "shadcn_ui.upstream_provenance",
+            "shadcn_ui.public_hex_1_0_release"
           ],
           "id": "shadcn_ui.package",
           "kind": "package",
           "status": "active",
-          "summary": "Independently buildable transport-neutral Phoenix function-component package whose metadata links to the separately deployed Fly.io gallery.",
+          "summary": "Independently buildable transport-neutral Phoenix function-component package targeting version 1.0.0 for its first public Hex release and linking to the separately deployed Fly.io gallery.",
           "surface": [
             "mix.exs",
             "mix.lock",
@@ -3252,7 +3274,7 @@
             "shadcn_ui.transport_neutral_phoenix_package",
             "shadcn_ui.catalogue_driven_documentation",
             "shadcn_ui.consumer_neutral_compatibility",
-            "shadcn_ui.internal_release_candidate"
+            "shadcn_ui.public_hex_1_0_release"
           ],
           "id": "shadcn_ui.public_documentation",
           "kind": "policy",
@@ -3292,7 +3314,7 @@
         "meta": {
           "decisions": [
             "shadcn_ui.fly_gallery_publication",
-            "shadcn_ui.internal_release_candidate",
+            "shadcn_ui.public_hex_1_0_release",
             "shadcn_ui.upstream_provenance"
           ],
           "id": "shadcn_ui.release_publication",
@@ -5373,6 +5395,15 @@
       },
       {
         "covers": [
+          "shadcn_ui.package.public_version_target"
+        ],
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/release_readiness_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.package.explicit_release_files",
           "shadcn_ui.package.public_import_surface"
         ],
@@ -5599,7 +5630,7 @@
           "shadcn_ui.release_publication.clean_checkout",
           "shadcn_ui.release_publication.clean_consumer_trial",
           "shadcn_ui.release_publication.explicit_archive",
-          "shadcn_ui.release_publication.internal_candidate_only",
+          "shadcn_ui.release_publication.public_release_target",
           "shadcn_ui.release_publication.truthful_gates"
         ],
         "file": ".spec/specs/release_publication.spec.md",
@@ -5882,13 +5913,13 @@
   "specification_version": "1.0",
   "summary": {
     "decision_parse_errors": 0,
-    "decisions": 30,
+    "decisions": 31,
     "exceptions": 0,
     "findings": 0,
-    "requirements": 267,
+    "requirements": 268,
     "scenarios": 0,
     "subjects": 27,
-    "verifications": 192
+    "verifications": 193
   },
   "verification": {
     "claims": [
@@ -13912,6 +13943,17 @@
         "verification_index": 2
       },
       {
+        "cover_id": "shadcn_ui.package.public_version_target",
+        "file": ".spec/specs/package.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.package",
+        "target": "test/shadcn_ui/release_readiness_test.exs",
+        "verification_index": 3
+      },
+      {
         "cover_id": "shadcn_ui.package.explicit_release_files",
         "file": ".spec/specs/package.spec.md",
         "kind": "test_file",
@@ -13920,7 +13962,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 3
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.package.public_import_surface",
@@ -13931,7 +13973,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_d_acceptance_test.exs",
-        "verification_index": 3
+        "verification_index": 4
       },
       {
         "cover_id": "shadcn_ui.package.explicit_release_files",
@@ -13942,7 +13984,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.package.heex_infrastructure_only",
@@ -13953,7 +13995,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.package.independent_mix_project",
@@ -13964,7 +14006,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.package.no_consumer_asset_toolchain",
@@ -13975,7 +14017,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.package.public_import_surface",
@@ -13986,7 +14028,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.package.transport_neutral",
@@ -13997,7 +14039,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.package",
         "target": "test/shadcn_ui/milestone_a_acceptance_test.exs",
-        "verification_index": 4
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.popover.modes",
@@ -14803,7 +14845,7 @@
         "verification_index": 2
       },
       {
-        "cover_id": "shadcn_ui.release_publication.internal_candidate_only",
+        "cover_id": "shadcn_ui.release_publication.public_release_target",
         "file": ".spec/specs/release_publication.spec.md",
         "kind": "test_file",
         "meets_minimum": true,
@@ -16040,12 +16082,12 @@
     "strength_summary": {
       "claimed": 5,
       "executed": 38,
-      "linked": 879
+      "linked": 880
     },
     "threshold_failures": 0
   },
   "workspace": {
-    "decision_count": 30,
+    "decision_count": 31,
     "spec_count": 27
   }
 }

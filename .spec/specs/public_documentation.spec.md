@@ -10,7 +10,7 @@ decisions:
   - shadcn_ui.transport_neutral_phoenix_package
   - shadcn_ui.catalogue_driven_documentation
   - shadcn_ui.consumer_neutral_compatibility
-  - shadcn_ui.internal_release_candidate
+  - shadcn_ui.public_hex_1_0_release
 surface:
   - README.md
   - CHANGELOG.md
@@ -82,7 +82,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.public_documentation.upgrade_and_migration
-  statement: Versioned changelog, migration, compatibility-floor, deprecation, and rollback guidance shall distinguish internal candidate qualification from public release availability.
+  statement: Versioned changelog, migration, compatibility-floor, deprecation, and rollback guidance shall identify 1.0.0 as the first public release target, apply Semantic Versioning after publication, and distinguish historical internal-candidate evidence from current public release availability.
   priority: must
   stability: evolving
 
@@ -93,6 +93,11 @@ runtime boundary, package contents, or existing verification.
 ```
 
 ## Verification
+
+Public documentation now names `1.0.0` as the first Hex release target while
+stating that it is not yet published. Historical `0.1.0` candidate and Fly
+evidence remains explicitly historical and cannot establish current release
+availability.
 
 The top-level README is the consumer-oriented package overview. Detailed
 functionality, supported options, fallbacks and per-control HEEX examples live
