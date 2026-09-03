@@ -92,6 +92,9 @@ disclosure and locks useful 320px and 390px layouts in both themes.
 Remediation R6 records the owner's scoped acceptance of the risk from deferring
 manual review without promoting any pending scenario, qualifying the candidate,
 claiming conformance or authorizing deployment.
+Its R6.2 regression restores the locked three-engine Milestone F suite to CI
+using the current scoped search contract and records pinned axe separately from
+the still-pending human scenarios.
 
 ```spec-verification
 - kind: test_file
@@ -135,6 +138,8 @@ claiming conformance or authorizing deployment.
 - kind: test_file
   target: demo/test/milestone_g_remediation_r6_test.exs
   covers:
+    - shadcn_ui.compatibility_accessibility.exact_engine_evidence
+    - shadcn_ui.compatibility_accessibility.automated_accessibility
     - shadcn_ui.compatibility_accessibility.manual_review
     - shadcn_ui.compatibility_accessibility.evidence_separation
 ```

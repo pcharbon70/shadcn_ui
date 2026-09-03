@@ -103,6 +103,9 @@ manual, review, CI, and merge gates.
 The R6 accessibility record adds a scoped owner-approved delivery waiver while
 keeping every unexecuted manual scenario pending and explicitly refusing a
 conformance, qualification or deployment claim.
+The R6 local-regression record updates the candidate ledger with current
+package, consumer, browser and export proof while retaining exact-revision CI,
+manual accessibility and external delivery as pending states.
 
 ```spec-verification
 - kind: test_file
@@ -149,4 +152,5 @@ conformance, qualification or deployment claim.
   target: demo/test/milestone_g_remediation_r6_test.exs
   covers:
     - shadcn_ui.public_documentation.compatibility_and_fallback
+    - shadcn_ui.public_documentation.upgrade_and_migration
 ```

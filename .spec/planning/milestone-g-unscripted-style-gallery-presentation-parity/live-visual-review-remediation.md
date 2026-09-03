@@ -35,19 +35,19 @@ category route and is not an Accordion comparison target.
 
 ## Review issue map
 
-| ID | Review finding | Planned owner |
-| --- | --- | --- |
-| VR-01 | Foundation category was used as the Accordion comparison route | R1, R5 |
-| VR-02 | Mobile navigation clips its final destination and can focus it offscreen | R3 |
-| VR-03 | Accordion summaries overflow their item boxes by about 31px | R2 |
-| VR-04 | Accordion has no visible closed/open chevron | R2 |
-| VR-05 | A direct Code fragment can leave Preview announced as selected | R3 |
-| VR-06 | The explicit demo reduced-motion mode does not suppress Accordion motion | R2, R3 |
-| VR-07 | Row borders, gaps, padding, answer color, hover treatment and timing differ from the pinned target | R1, R2, R4 |
-| VR-08 | Mobile shell density delays the primary specimen by several viewports | R4 |
-| VR-09 | Heading, description measure, specimen treatment and primary FAQ copy contain undocumented drift | R1, R4 |
-| VR-10 | Local goldens do not provide a rendered pinned-upstream comparison | R5 |
-| VR-11 | Manual accessibility remains pending under a scoped risk acceptance; reviewed deployment evidence remains open | R6 |
+| ID | Review finding | Planned owner | R6 disposition |
+| --- | --- | --- | --- |
+| VR-01 | Foundation category was used as the Accordion comparison route | R1, R5 | Fixed |
+| VR-02 | Mobile navigation clips its final destination and can focus it offscreen | R3 | Fixed |
+| VR-03 | Accordion summaries overflow their item boxes by about 31px | R2 | Fixed |
+| VR-04 | Accordion has no visible closed/open chevron | R2 | Fixed |
+| VR-05 | A direct Code fragment can leave Preview announced as selected | R3 | Fixed |
+| VR-06 | The explicit demo reduced-motion mode does not suppress Accordion motion | R2, R3 | Fixed |
+| VR-07 | Row borders, gaps, padding, answer color, hover treatment and timing differ from the pinned target | R1, R2, R4 | Fixed with reviewed exceptions |
+| VR-08 | Mobile shell density delays the primary specimen by several viewports | R4 | Fixed |
+| VR-09 | Heading, description measure, specimen treatment and primary FAQ copy contain undocumented drift | R1, R4 | Fixed with reviewed exceptions |
+| VR-10 | Local goldens do not provide a rendered pinned-upstream comparison | R5 | Fixed |
+| VR-11 | Manual accessibility remains pending under a scoped risk acceptance; reviewed deployment evidence remains open | R6 | Manual risk accepted for R6 progression; reviewed deployment blocking |
 
 ## Ordered remediation phases
 
@@ -418,20 +418,20 @@ category route and is not an Accordion comparison target.
       - [x] R6.1.1.3 Subtask - Record that announced-state review for Preview/Code controls, direct fragments, copy feedback and headings was not executed and remains pending.
       - [x] R6.1.1.4 Subtask - Record that human review of 200 percent zoom, forced colors, reduced motion, no-script and CSS-disabled fallbacks in both themes was not executed and remains pending.
 
-  - [ ] R6.2 Section - Run complete release regression.
+  - [x] R6.2 Section - Run complete release regression.
 
     A presentation repair must not weaken package, consumer, catalogue,
     provenance or publication contracts.
 
-    - [ ] R6.2.1 Task - Execute all local qualification gates.
+    - [x] R6.2.1 Task - Execute all local qualification gates.
 
       Retain complete diagnostics and resolve failures rather than updating
       evidence around them.
 
-      - [ ] R6.2.1.1 Subtask - Run package and demo precommit suites, all A-G tests, locked browser engines, visual comparisons and pinned axe.
-      - [ ] R6.2.1.2 Subtask - Run deterministic CSS, package archive, clean-consumer, two-export, route, fragment, sitemap and release-evidence checks.
-      - [ ] R6.2.1.3 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD`, formatting checks and `git diff --check` with zero errors.
-      - [ ] R6.2.1.4 Subtask - Reconcile the issue map so every VR item is fixed, explicitly accepted or still reported as blocking.
+      - [x] R6.2.1.1 Subtask - Run package and demo precommit suites, all A-G tests, locked browser engines, visual comparisons and pinned axe.
+      - [x] R6.2.1.2 Subtask - Run deterministic CSS, package archive, clean-consumer, two-export, route, fragment, sitemap and release-evidence checks.
+      - [x] R6.2.1.3 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD`, formatting checks and `git diff --check` with zero errors.
+      - [x] R6.2.1.4 Subtask - Reconcile the issue map so every VR item is fixed, explicitly accepted or still reported as blocking.
 
   - [ ] R6.3 Section - Review, publish and smoke the corrected gallery.
 

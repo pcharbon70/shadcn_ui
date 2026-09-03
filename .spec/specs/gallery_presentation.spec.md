@@ -116,6 +116,9 @@ without adding the reference harness or screenshots to package contents.
 Its integration record binds two byte-identical capture runs to the complete
 Milestone G browser, catalogue, provenance, license, asset, archive, ExDoc and
 deterministic-export gates while keeping local evidence distinct from deployment.
+Remediation R6 extends that proof through the complete A-G regression, repaired
+historical browser assertions, isolated consumer trial and current Fly-identity
+export while retaining manual, CI, merge and deployment as separate states.
 
 ```spec-verification
 - kind: test_file
@@ -221,6 +224,13 @@ deterministic-export gates while keeping local evidence distinct from deployment
     - shadcn_ui.gallery_presentation.visual_evidence
     - shadcn_ui.gallery_presentation.local_assets
     - shadcn_ui.gallery_presentation.deterministic_distribution
+
+- kind: test_file
+  target: demo/test/milestone_g_remediation_r6_test.exs
+  covers:
+    - shadcn_ui.gallery_presentation.accessibility_matrix
+    - shadcn_ui.gallery_presentation.deterministic_distribution
+    - shadcn_ui.gallery_presentation.complete_migration
 
 - kind: test_file
   target: test/browser/milestone-g-remediation-r5.spec.mjs

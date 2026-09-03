@@ -53,8 +53,9 @@ coverage-map work required for Milestone G.
 The [live visual review remediation plan](./live-visual-review-remediation.md)
 tracks the correctness, pinned-parity, evidence and accessibility work found
 during the 2026-09-02 review. It supplements rather than rewrites the
-eight-phase implementation record. R1 through R5 and R6.1 are complete; R6.2
-through R6.4 remain open until their implementation and proof exist.
+eight-phase implementation record. R1 through R5 and R6.1 through R6.2 are
+complete; R6.3 through R6.4 remain open until their implementation and proof
+exist.
 
 Each phase uses sections, tasks and subtasks with a phase-ending integration-test
 section. Delivery uses one commit per completed section and one PR per phase.

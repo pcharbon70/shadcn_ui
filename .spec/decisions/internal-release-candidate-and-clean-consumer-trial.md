@@ -29,9 +29,18 @@ checkout and an isolated consumer fixture.
 - Locked Mix and npm inputs rebuild CSS, ExDoc, deterministic gallery output and
   the actual package archive without network-fetched runtime assets or a
   consumer Node/Tailwind toolchain.
+- Qualification retains every applicable historical package and gallery
+  regression in pull-request CI. Presentation migrations update those tests to
+  stable semantic hooks and current accepted workflows rather than dropping a
+  stale gate.
 - A disposable clean Phoenix consumer installs the candidate through a local
   archive or immutable repository reference, imports public components, serves
   the packaged stylesheet and compiles representative controller HEEX.
+- A disposable clean consumer outside a version manager's directory scope may
+  copy the nearest already-active tool-selection file into that temporary
+  consumer. The copy is never candidate content, does not select a new version,
+  and is removed with the consumer; the separately pinned clean-candidate
+  toolchain and CI environments with direct toolchains remain unchanged.
 - Dstar and LiveView guidance is checked for transport-neutral accuracy without
   installing either as a ShadcnUI dependency or making the clean trial an
   application framework certification.

@@ -135,6 +135,10 @@ Milestone G remediation R4 locks the responsive shell and scoped article
 presentation while retaining native navigation, controller-rendered HEEx and
 demo-only enhancement boundaries.
 
+Remediation R6 restores historical shell regressions to CI, proves the complete
+A-G browser matrix, and records a byte-identical current Fly-identity export
+without promoting local evidence to deployment.
+
 Milestone E Phase 6 consolidates all Media/Motion references and compositions
 with A–D route audits, current composition navigation and complete breadcrumbs.
 The publication smoke inventory includes every E route and local media. Real
@@ -318,4 +322,12 @@ and escaping symlinks are rejected. All A–D component routes remain unchanged.
     - shadcn_ui.gallery.component_guidance
     - shadcn_ui.gallery.theme_matrix
     - shadcn_ui.gallery.demo_only_script
+
+- kind: test_file
+  target: demo/test/milestone_g_remediation_r6_test.exs
+  covers:
+    - shadcn_ui.gallery.semantic_shell
+    - shadcn_ui.gallery.theme_matrix
+    - shadcn_ui.gallery.deterministic_assets
+    - shadcn_ui.gallery.static_export
 ```

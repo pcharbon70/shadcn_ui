@@ -1,9 +1,10 @@
 import {createHash} from "node:crypto";
 import {spawn, spawnSync} from "node:child_process";
+import {existsSync} from "node:fs";
 import {createServer} from "node:http";
 import {cp, copyFile, mkdir, mkdtemp, readFile, rm, stat, writeFile} from "node:fs/promises";
 import {tmpdir} from "node:os";
-import {basename, extname, join, normalize, resolve, sep} from "node:path";
+import {basename, dirname, extname, join, normalize, resolve, sep} from "node:path";
 import {fileURLToPath, pathToFileURL} from "node:url";
 
 const root = fileURLToPath(new URL("../", import.meta.url));
@@ -20,6 +21,17 @@ const registry = join(tempRoot, "registry");
 const publicDir = join(registry, "public");
 const key = join(registry, "private_key.pem");
 const hexHome = join(tempRoot, "hex");
+const findToolVersions = start => {
+  let directory = resolve(start);
+  while (true) {
+    const candidate = join(directory, ".tool-versions");
+    if (existsSync(candidate)) return candidate;
+    const parent = dirname(directory);
+    if (parent === directory) return undefined;
+    directory = parent;
+  }
+};
+const toolVersions = findToolVersions(root);
 const commandName = name => process.platform === "win32" && name === "mix" ? "mix.bat" : name;
 const mixPath = path => process.platform === "win32" ? path.replaceAll("\\", "/") : path;
 const run = (name, args, cwd, env = process.env) => {
@@ -69,6 +81,7 @@ const waitFor = async url => {
 await mkdir(join(publicDir, "tarballs"), {recursive: true});
 await mkdir(output, {recursive: true});
 await cp(fixture, consumer, {recursive: true});
+if (toolVersions) await copyFile(toolVersions, join(consumer, ".tool-versions"));
 await copyFile(archive, join(publicDir, "tarballs", basename(archive)));
 run("elixir", [join(root, "scripts", "generate-registry-key.exs"), key], root);
 run("mix", ["hex.registry", "build", mixPath(publicDir), "--name=candidate", `--private-key=${mixPath(key)}`], root);
