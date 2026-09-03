@@ -193,7 +193,9 @@ test("pinned axe supplements explicit assertions across representative preferenc
     await axeAudit(page);
     await page.keyboard.press("Escape");
     await expect(invoker).toBeFocused();
-    const galleryStatus = page.locator("#gallery-search-status");
+    const galleryStatus = page.locator(
+      '[data-gallery-search-scope="mobile"] [data-gallery-search-status]'
+    );
     await expect(galleryStatus).toHaveAttribute("aria-live", "polite");
     await expect(galleryStatus).toHaveText("41 components available");
   } finally {

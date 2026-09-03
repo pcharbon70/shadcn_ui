@@ -93,7 +93,13 @@ test("no-script, themes, long content, narrow zoom, reduced motion, and forced c
   await expect(mobileNavigation).toBeVisible();
   await expect(page.getByText("Account email", { exact: true })).toBeVisible();
   await expect(page.locator("input").first()).toBeVisible();
-  await mobileNavigation.getByRole("link", { name: "Help", exact: true }).click();
+  const helpLink = mobileNavigation.getByRole("link", { name: "Help", exact: true });
+  await page.locator("[data-gallery-mobile-navigation-panel]").evaluate((panel) => {
+    panel.scrollTop = panel.scrollHeight;
+  });
+  await helpLink.focus();
+  await expect(helpLink).toBeFocused();
+  await page.keyboard.press("Enter");
   await expect(page.getByText("Guía extensa", { exact: false })).toBeVisible();
   await context.close();
 });
@@ -101,8 +107,10 @@ test("no-script, themes, long content, narrow zoom, reduced motion, and forced c
 test("explicit accessibility audit finds native names and complete references", async ({ page }) => {
   await page.goto("/forms/sign-in");
   await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: "Back to Forms" })).toBeFocused();
-  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: "Skip to main content" })).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#main-content")).toBeFocused();
+  await page.locator("#demo_email").focus();
   await expect(page.locator("#demo_email")).toBeFocused();
 
   await page.goto("/forms/profile");

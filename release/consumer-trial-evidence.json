@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "recordedOn": "2026-09-02",
-  "workingTreeBaseRevision": "380f861985e05ea7de6bee1e7f261621ef968223",
+  "recordedOn": "2026-09-03",
+  "workingTreeBaseRevision": "119ba0eaf71a9c656b85a34fe674a9bcd7f37c82",
   "sourceRevision": null,
   "candidate": {
     "archive": "shadcn_ui-0.1.0.tar",

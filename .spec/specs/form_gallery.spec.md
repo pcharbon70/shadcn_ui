@@ -83,6 +83,9 @@ Milestone G Phase 4 changes only the shared documentation hierarchy. Forms
 coverage locates compile-checked source through the stable specimen surface and
 continues to exercise form inputs inside the rendered preview, distinct from
 the gallery's native Preview/Code controls.
+Remediation R6 restores the Milestone B browser suite to CI and updates its
+narrow navigation and focus assertions to the accepted bounded mobile panel and
+skip-link contracts without changing form semantics.
 
 ```spec-verification
 - kind: test_file

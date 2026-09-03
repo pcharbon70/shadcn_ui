@@ -52,6 +52,11 @@ jobs:
           fc-cache -f
           fc-match Inter | grep -F "NotoSans-Regular.ttf"
         working-directory: demo
+      - run: npm run browser:accordion
+      - run: npm run browser:navigation
+      - run: npm run browser:phase4
+      - run: npm run browser:milestone-b
+        working-directory: demo
       - run: npm run browser:milestone-d-phase1
       - run: npm run browser:milestone-d-phase2
       - run: mix run scripts/render-drawer-fixture.exs --check
@@ -74,6 +79,7 @@ jobs:
       - run: npm run browser:milestone-e-phase5
       - run: mix run scripts/render-motion-media-budgets.exs --check
       - run: npm run browser:milestone-e-phase6
+      - run: npm run browser:milestone-f-phase4
       - run: npm run browser:milestone-g-phase2
       - run: npm run browser:milestone-g-phase3
       - run: npm run browser:milestone-g-phase4
@@ -81,12 +87,16 @@ jobs:
       - run: npm run browser:milestone-g-phase5-acceptance
       - run: npm run browser:milestone-g-phase7
       - run: npm run browser:milestone-g-phase8
+      - run: npm run browser:milestone-g-remediation-r1
+      - run: npm run browser:milestone-g-remediation-r4
       - name: Verify the rendered R5 pinned comparison
         run: |
           npm run reference:milestone-g:check
           npm run browser:milestone-g-remediation-r5
           npm run comparison:milestone-g:check
           npm run integration:milestone-g:check
+          npm run manual-risk:milestone-g:check
+          npm run regression:milestone-g:check
       - run: npm run browser:milestone-d-gallery
       - run: npm run browser:test
         working-directory: demo

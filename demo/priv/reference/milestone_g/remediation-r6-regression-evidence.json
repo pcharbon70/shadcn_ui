@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r6.2",
+  "evidenceType": "complete-local-release-regression",
+  "recordedOn": "2026-09-03",
+  "workingTreeBaseRevision": "119ba0eaf71a9c656b85a34fe674a9bcd7f37c82",
+  "exactSourceRevision": null,
+  "toolchain": {
+    "elixir": "1.18.4",
+    "otp": "27.3",
+    "node": "24.3.0",
+    "npm": "11.4.2",
+    "browsers": {
+      "chromium": "151.0.7922.34",
+      "firefox": "153.0",
+      "webkit": "26.5"
+    }
+  },
+  "unitAndDocumentation": {
+    "packagePrecommit": {"tests": 419, "failures": 0, "status": "passed"},
+    "demoPrecommit": {"tests": 166, "failures": 0, "status": "passed"},
+    "exDoc": {"warnings": 0, "status": "passed"}
+  },
+  "browser": {
+    "testInvocations": 552,
+    "failures": 0,
+    "engines": ["chromium", "firefox", "webkit"],
+    "suites": {
+      "foundations": 16,
+      "demoBase": 16,
+      "milestoneB": 5,
+      "milestoneC": 5,
+      "milestoneD": 177,
+      "milestoneE": 249,
+      "milestoneF": 15,
+      "milestoneGAndRemediation": 69
+    },
+    "pinnedAxe": "passed-in-milestones-d-e-f-g",
+    "lockedVisualSnapshots": 72,
+    "r5ComparisonSnapshots": 20,
+    "status": "passed"
+  },
+  "distribution": {
+    "compiledCssSha256": "ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41",
+    "archive": {
+      "file": "shadcn_ui-0.1.0.tar",
+      "sha256": "e9a757388369dfba10171629d8e1f3d5bcbd2413b6c176fe7ed38c4bebc80e73",
+      "entries": 63,
+      "allowlist": "passed"
+    },
+    "cleanConsumer": {
+      "evidence": "release/consumer-trial-evidence.json",
+      "tests": 3,
+      "pathDependency": false,
+      "browser": "passed",
+      "status": "passed"
+    },
+    "currentExport": {
+      "buildRevision": "119ba0eaf71a9c656b85a34fe674a9bcd7f37c82",
+      "canonicalUrl": "https://pcharbon70-shadcn-ui-demo.fly.dev/",
+      "runs": 2,
+      "files": 646,
+      "routes": 634,
+      "assets": 4,
+      "searchRecords": 41,
+      "treeSha256": "a9e168a331ca76f075f688247888b6765e48db17a31ce4e2430e908aac9d3c90",
+      "routeManifestSha256": "52dfd74858e39fa70d126004c3f07b5d64540a9cec6f5e3849f4a26edc7db093",
+      "releaseManifestSha256": "7a2d02530a6683178adf2a5e4175b00d49e41a0a062dba99c4349e6b125f5c42",
+      "healthManifestSha256": "8e29e0706d900bf3c43aa15c1c6d60ea27c0b1a97397e5a876668c6f043134ae",
+      "sitemapSha256": "c0a0c781fcd691523dcb9ed10f5a9e9db1d48629a599fef8f1fce395de7be9da",
+      "determinism": "passed-byte-identical",
+      "routeFragmentAndSubpathSmoke": "passed"
+    },
+    "historicalPhase8PublicationEvidence": {
+      "status": "retained-immutable",
+      "sourceRevision": "b9b261740001cb1905e28b5a2be405b4dd7704f5",
+      "note": "The original Pages-era evidence is not regenerated from the current redesigned source; R6 current-source qualification is recorded separately above."
+    }
+  },
+  "repairsDiscoveredByRegression": [
+    {
+      "id": "R6-REG-01",
+      "finding": "The temporary clean-consumer directory lost the active ASDF tool-version scope.",
+      "resolution": "Copy the nearest active .tool-versions file into the disposable consumer when present; direct CI toolchains and the separately pinned clean-candidate gate remain unchanged."
+    },
+    {
+      "id": "R6-REG-02",
+      "finding": "Milestone F compatibility still addressed the removed pre-redesign search status ID.",
+      "resolution": "Use the stable mobile search-scope and search-status hooks and run the suite in CI."
+    },
+    {
+      "id": "R6-REG-03",
+      "finding": "Milestone B retained pre-redesign navigation and focus assumptions.",
+      "resolution": "Exercise the bounded mobile panel and current skip-link contract and run the suite in CI."
+    }
+  ],
+  "reviewIssues": {
+    "VR-01": "fixed",
+    "VR-02": "fixed",
+    "VR-03": "fixed",
+    "VR-04": "fixed",
+    "VR-05": "fixed",
+    "VR-06": "fixed",
+    "VR-07": "fixed-with-reviewed-exceptions",
+    "VR-08": "fixed",
+    "VR-09": "fixed-with-reviewed-exceptions",
+    "VR-10": "fixed",
+    "VR-11": "manual-risk-accepted-pending-and-reviewed-deployment-blocking"
+  },
+  "specLed": {
+    "next": "ready-for-check",
+    "check": "passed",
+    "errors": 0,
+    "warnings": 0,
+    "branchFindings": 0
+  },
+  "externalGates": {
+    "cleanCandidateExactRevision": "pending-host-node-24.3.0-versus-pinned-22.13.1",
+    "manualAccessibility": "pending-risk-accepted-for-r6-progression",
+    "pullRequest": "pending",
+    "finalRevisionCi": "pending",
+    "merge": "pending",
+    "flyDeploymentAuthorization": "pending",
+    "postDeploySmoke": "pending",
+    "candidateQualification": "blocked"
+  },
+  "status": "passed-local-regression-with-external-gates-pending"
+}

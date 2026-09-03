@@ -35,19 +35,19 @@ category route and is not an Accordion comparison target.
 
 ## Review issue map
 
-| ID | Review finding | Planned owner |
-| --- | --- | --- |
-| VR-01 | Foundation category was used as the Accordion comparison route | R1, R5 |
-| VR-02 | Mobile navigation clips its final destination and can focus it offscreen | R3 |
-| VR-03 | Accordion summaries overflow their item boxes by about 31px | R2 |
-| VR-04 | Accordion has no visible closed/open chevron | R2 |
-| VR-05 | A direct Code fragment can leave Preview announced as selected | R3 |
-| VR-06 | The explicit demo reduced-motion mode does not suppress Accordion motion | R2, R3 |
-| VR-07 | Row borders, gaps, padding, answer color, hover treatment and timing differ from the pinned target | R1, R2, R4 |
-| VR-08 | Mobile shell density delays the primary specimen by several viewports | R4 |
-| VR-09 | Heading, description measure, specimen treatment and primary FAQ copy contain undocumented drift | R1, R4 |
-| VR-10 | Local goldens do not provide a rendered pinned-upstream comparison | R5 |
-| VR-11 | Manual accessibility and reviewed deployment evidence remain open | R6 |
+| ID | Review finding | Planned owner | R6 disposition |
+| --- | --- | --- | --- |
+| VR-01 | Foundation category was used as the Accordion comparison route | R1, R5 | Fixed |
+| VR-02 | Mobile navigation clips its final destination and can focus it offscreen | R3 | Fixed |
+| VR-03 | Accordion summaries overflow their item boxes by about 31px | R2 | Fixed |
+| VR-04 | Accordion has no visible closed/open chevron | R2 | Fixed |
+| VR-05 | A direct Code fragment can leave Preview announced as selected | R3 | Fixed |
+| VR-06 | The explicit demo reduced-motion mode does not suppress Accordion motion | R2, R3 | Fixed |
+| VR-07 | Row borders, gaps, padding, answer color, hover treatment and timing differ from the pinned target | R1, R2, R4 | Fixed with reviewed exceptions |
+| VR-08 | Mobile shell density delays the primary specimen by several viewports | R4 | Fixed |
+| VR-09 | Heading, description measure, specimen treatment and primary FAQ copy contain undocumented drift | R1, R4 | Fixed with reviewed exceptions |
+| VR-10 | Local goldens do not provide a rendered pinned-upstream comparison | R5 | Fixed |
+| VR-11 | Manual accessibility remains pending under a scoped risk acceptance; reviewed deployment evidence remains open | R6 | Manual risk accepted for R6 progression; reviewed deployment blocking |
 
 ## Ordered remediation phases
 
@@ -395,40 +395,43 @@ category route and is not an Accordion comparison target.
 
 ## R6 - Accessibility And Fly Requalification
 
-- [ ] R6 Phase - Complete human review and requalify the corrected deployment.
+- [ ] R6 Phase - Resolve accessibility disposition and requalify the corrected deployment.
 
   Automated parity and accessibility evidence supplement rather than replace
-  bounded manual review, reviewed merge and deployed smoke.
+  bounded manual review, reviewed merge and deployed smoke. The release owner
+  accepted the risk of deferring manual review for R6 progression on 2026-09-03;
+  the waiver does not complete that gate or qualify the candidate.
 
-  - [ ] R6.1 Section - Execute the manual accessibility matrix.
+  - [x] R6.1 Section - Record the scoped manual-accessibility risk acceptance.
 
-    Record environment, assistive technology, reviewer, date, observation and
-    unresolved status for every scenario.
+    Preserve the unexecuted status of every scenario and the separate final
+    qualification gate while allowing the owner-authorized remediation work to
+    continue.
 
-    - [ ] R6.1.1 Task - Review component, navigation and specimen use.
+    - [x] R6.1.1 Task - Document the bypass without promoting evidence.
 
-      Exercise the corrected failures as user workflows rather than isolated
-      selectors.
+      Record the missing human environments, affected workflows, scope of the
+      accepted risk and the claims that remain blocked.
 
-      - [ ] R6.1.1.1 Subtask - Review Accordion summaries, expanded state, content order, chevron independence, exclusive grouping and focus with keyboard and a desktop screen reader.
-      - [ ] R6.1.1.2 Subtask - Review mobile navigation opening, internal scrolling, final-link visibility and return to article content at 320px and 390px with representative mobile assistive technology.
-      - [ ] R6.1.1.3 Subtask - Review Preview/Code controls, direct fragments, source copy feedback and headings for announced-state consistency.
-      - [ ] R6.1.1.4 Subtask - Review 200 percent zoom, forced colors, reduced motion, no-script and CSS-disabled fallbacks in both themes.
+      - [x] R6.1.1.1 Subtask - Record that Accordion keyboard and desktop screen-reader review was not executed and remains pending.
+      - [x] R6.1.1.2 Subtask - Record that 320px and 390px mobile navigation review with representative mobile assistive technology was not executed and remains pending.
+      - [x] R6.1.1.3 Subtask - Record that announced-state review for Preview/Code controls, direct fragments, copy feedback and headings was not executed and remains pending.
+      - [x] R6.1.1.4 Subtask - Record that human review of 200 percent zoom, forced colors, reduced motion, no-script and CSS-disabled fallbacks in both themes was not executed and remains pending.
 
-  - [ ] R6.2 Section - Run complete release regression.
+  - [x] R6.2 Section - Run complete release regression.
 
     A presentation repair must not weaken package, consumer, catalogue,
     provenance or publication contracts.
 
-    - [ ] R6.2.1 Task - Execute all local qualification gates.
+    - [x] R6.2.1 Task - Execute all local qualification gates.
 
       Retain complete diagnostics and resolve failures rather than updating
       evidence around them.
 
-      - [ ] R6.2.1.1 Subtask - Run package and demo precommit suites, all A-G tests, locked browser engines, visual comparisons and pinned axe.
-      - [ ] R6.2.1.2 Subtask - Run deterministic CSS, package archive, clean-consumer, two-export, route, fragment, sitemap and release-evidence checks.
-      - [ ] R6.2.1.3 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD`, formatting checks and `git diff --check` with zero errors.
-      - [ ] R6.2.1.4 Subtask - Reconcile the issue map so every VR item is fixed, explicitly accepted or still reported as blocking.
+      - [x] R6.2.1.1 Subtask - Run package and demo precommit suites, all A-G tests, locked browser engines, visual comparisons and pinned axe.
+      - [x] R6.2.1.2 Subtask - Run deterministic CSS, package archive, clean-consumer, two-export, route, fragment, sitemap and release-evidence checks.
+      - [x] R6.2.1.3 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD`, formatting checks and `git diff --check` with zero errors.
+      - [x] R6.2.1.4 Subtask - Reconcile the issue map so every VR item is fixed, explicitly accepted or still reported as blocking.
 
   - [ ] R6.3 Section - Review, publish and smoke the corrected gallery.
 
@@ -475,7 +478,9 @@ This remediation plan is complete only when:
 7. Package, browser, accessibility, deterministic-export, provenance and
    archive gates pass.
 8. Manual accessibility, reviewed merge, Fly deployment and post-deploy smoke
-   are recorded as separate completed evidence states.
+   are recorded as separate evidence states. A scoped owner-approved waiver may
+   allow remediation delivery to proceed, but it does not satisfy manual
+   accessibility or final candidate qualification.
 
 ## Delivery rule
 

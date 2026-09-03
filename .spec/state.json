@@ -3473,6 +3473,18 @@
       },
       {
         "covers": [
+          "shadcn_ui.compatibility_accessibility.exact_engine_evidence",
+          "shadcn_ui.compatibility_accessibility.automated_accessibility",
+          "shadcn_ui.compatibility_accessibility.manual_review",
+          "shadcn_ui.compatibility_accessibility.evidence_separation"
+        ],
+        "file": ".spec/specs/compatibility_accessibility.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.compatibility_accessibility",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.component.stateless_heex",
           "shadcn_ui.component.closed_values",
           "shadcn_ui.component.classes_and_globals",
@@ -4406,6 +4418,18 @@
       },
       {
         "covers": [
+          "shadcn_ui.gallery.semantic_shell",
+          "shadcn_ui.gallery.theme_matrix",
+          "shadcn_ui.gallery.deterministic_assets",
+          "shadcn_ui.gallery.static_export"
+        ],
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.gallery_presentation.pinned_reference",
           "shadcn_ui.gallery_presentation.visual_evidence",
           "shadcn_ui.gallery_presentation.local_assets",
@@ -4555,6 +4579,17 @@
         "kind": "test_file",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_remediation_r5_test.exs"
+      },
+      {
+        "covers": [
+          "shadcn_ui.gallery_presentation.accessibility_matrix",
+          "shadcn_ui.gallery_presentation.deterministic_distribution",
+          "shadcn_ui.gallery_presentation.complete_migration"
+        ],
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs"
       },
       {
         "covers": [
@@ -5529,6 +5564,16 @@
       },
       {
         "covers": [
+          "shadcn_ui.public_documentation.compatibility_and_fallback",
+          "shadcn_ui.public_documentation.upgrade_and_migration"
+        ],
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.release_publication.version_identity"
         ],
         "file": ".spec/specs/release_publication.spec.md",
@@ -5595,6 +5640,19 @@
         "kind": "command",
         "subject_id": "shadcn_ui.release_publication",
         "target": "npm --prefix demo run smoke:fly"
+      },
+      {
+        "covers": [
+          "shadcn_ui.release_publication.deterministic_export",
+          "shadcn_ui.release_publication.clean_checkout",
+          "shadcn_ui.release_publication.clean_consumer_trial",
+          "shadcn_ui.release_publication.explicit_archive",
+          "shadcn_ui.release_publication.truthful_gates"
+        ],
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs"
       },
       {
         "covers": [
@@ -5829,7 +5887,7 @@
     "requirements": 267,
     "scenarios": 0,
     "subjects": 27,
-    "verifications": 187
+    "verifications": 192
   },
   "verification": {
     "claims": [
@@ -6030,6 +6088,50 @@
         "subject_id": "shadcn_ui.compatibility_accessibility",
         "target": "test/browser/milestone-g-remediation-r4.spec.mjs",
         "verification_index": 4
+      },
+      {
+        "cover_id": "shadcn_ui.compatibility_accessibility.automated_accessibility",
+        "file": ".spec/specs/compatibility_accessibility.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.compatibility_accessibility",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.compatibility_accessibility.evidence_separation",
+        "file": ".spec/specs/compatibility_accessibility.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.compatibility_accessibility",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.compatibility_accessibility.exact_engine_evidence",
+        "file": ".spec/specs/compatibility_accessibility.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.compatibility_accessibility",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.compatibility_accessibility.manual_review",
+        "file": ".spec/specs/compatibility_accessibility.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.compatibility_accessibility",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 5
       },
       {
         "cover_id": "shadcn_ui.component.classes_and_globals",
@@ -10278,6 +10380,50 @@
         "verification_index": 14
       },
       {
+        "cover_id": "shadcn_ui.gallery.deterministic_assets",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 15
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.semantic_shell",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 15
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.static_export",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 15
+      },
+      {
+        "cover_id": "shadcn_ui.gallery.theme_matrix",
+        "file": ".spec/specs/gallery.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 15
+      },
+      {
         "cover_id": "shadcn_ui.gallery_presentation.local_assets",
         "file": ".spec/specs/gallery_presentation.spec.md",
         "kind": "test_file",
@@ -10901,8 +11047,41 @@
         "required_strength": "claimed",
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
-        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
         "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 12
+      },
+      {
+        "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
+        "file": ".spec/specs/gallery_presentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.gallery_presentation",
+        "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
@@ -10913,7 +11092,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
-        "verification_index": 12
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.pinned_reference",
@@ -10924,7 +11103,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
-        "verification_index": 12
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.presentation_system",
@@ -10935,7 +11114,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
-        "verification_index": 12
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.shell",
@@ -10946,7 +11125,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
-        "verification_index": 12
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
@@ -10957,7 +11136,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
-        "verification_index": 12
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
@@ -10968,7 +11147,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-remediation-r5.spec.mjs",
-        "verification_index": 12
+        "verification_index": 13
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
@@ -10979,7 +11158,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 13
+        "verification_index": 14
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.catalogue_metadata",
@@ -10990,7 +11169,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 13
+        "verification_index": 14
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -11001,7 +11180,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 13
+        "verification_index": 14
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
@@ -11012,7 +11191,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_catalogue_test.exs",
-        "verification_index": 13
+        "verification_index": 14
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -11023,7 +11202,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 14
+        "verification_index": 15
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -11034,7 +11213,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 14
+        "verification_index": 15
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.semantic_exceptions",
@@ -11045,7 +11224,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_acceptance_test.exs",
-        "verification_index": 14
+        "verification_index": 15
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -11056,7 +11235,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_visual_test.exs",
-        "verification_index": 15
+        "verification_index": 16
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.local_assets",
@@ -11067,7 +11246,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_visual_test.exs",
-        "verification_index": 15
+        "verification_index": 16
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
@@ -11078,7 +11257,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_visual_test.exs",
-        "verification_index": 15
+        "verification_index": 16
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
@@ -11089,7 +11268,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_phase8_functional_test.exs",
-        "verification_index": 16
+        "verification_index": 17
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -11100,7 +11279,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_phase8_functional_test.exs",
-        "verification_index": 16
+        "verification_index": 17
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -11111,7 +11290,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_phase8_functional_test.exs",
-        "verification_index": 16
+        "verification_index": 17
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
@@ -11122,7 +11301,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
-        "verification_index": 17
+        "verification_index": 18
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -11133,7 +11312,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
-        "verification_index": 17
+        "verification_index": 18
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.specimen_semantics",
@@ -11144,7 +11323,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
-        "verification_index": 17
+        "verification_index": 18
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
@@ -11155,7 +11334,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/browser/milestone-g-phase8-functional.spec.mjs",
-        "verification_index": 17
+        "verification_index": 18
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -11166,7 +11345,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "demo/test/milestone_g_phase8_publication_test.exs",
-        "verification_index": 18
+        "verification_index": 19
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.accessibility_matrix",
@@ -11177,7 +11356,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.article_hierarchy",
@@ -11188,7 +11367,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.catalogue_metadata",
@@ -11199,7 +11378,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.complete_migration",
@@ -11210,7 +11389,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.deterministic_distribution",
@@ -11221,7 +11400,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.local_assets",
@@ -11232,7 +11411,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.pinned_reference",
@@ -11243,7 +11422,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.presentation_system",
@@ -11254,7 +11433,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.progressive_navigation",
@@ -11265,7 +11444,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.semantic_exceptions",
@@ -11276,7 +11455,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.shell",
@@ -11287,7 +11466,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.specimen_semantics",
@@ -11298,7 +11477,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.stable_identity",
@@ -11309,7 +11488,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.gallery_presentation.visual_evidence",
@@ -11320,7 +11499,7 @@
         "strength": "linked",
         "subject_id": "shadcn_ui.gallery_presentation",
         "target": "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs",
-        "verification_index": 19
+        "verification_index": 20
       },
       {
         "cover_id": "shadcn_ui.media_components.carousel_controls",
@@ -14524,6 +14703,28 @@
         "verification_index": 4
       },
       {
+        "cover_id": "shadcn_ui.public_documentation.compatibility_and_fallback",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.public_documentation.upgrade_and_migration",
+        "file": ".spec/specs/public_documentation.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.public_documentation",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 5
+      },
+      {
         "cover_id": "shadcn_ui.release_publication.version_identity",
         "file": ".spec/specs/release_publication.spec.md",
         "kind": "test_file",
@@ -14753,6 +14954,61 @@
         "subject_id": "shadcn_ui.release_publication",
         "target": "npm --prefix demo run smoke:fly",
         "verification_index": 5
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.clean_checkout",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.clean_consumer_trial",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.deterministic_export",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.explicit_archive",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 6
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.truthful_gates",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "demo/test/milestone_g_remediation_r6_test.exs",
+        "verification_index": 6
       },
       {
         "cover_id": "shadcn_ui.stylesheet.canonical_asset",
@@ -15783,7 +16039,7 @@
     "strength_summary": {
       "claimed": 5,
       "executed": 38,
-      "linked": 861
+      "linked": 879
     },
     "threshold_failures": 0
   },
