@@ -1458,7 +1458,7 @@
         "id": "shadcn_ui.gallery_presentation.stable_identity",
         "priority": "must",
         "stability": "stable",
-        "statement": "Existing category and component routes, canonical identities, breadcrumbs and example fragments shall remain stable while visible ordering, labels and presentation migrate.",
+        "statement": "Existing category and component routes, canonical identities, breadcrumbs and example fragments shall remain stable while visible ordering, labels and presentation migrate, and ExDoc category guides shall preserve the closed sidebar category names and order.",
         "subject_id": "shadcn_ui.gallery_presentation"
       },
       {
@@ -2210,7 +2210,7 @@
         "id": "shadcn_ui.public_documentation.exdoc_inventory",
         "priority": "must",
         "stability": "stable",
-        "statement": "ExDoc shall group every public defining component and expose accurate source-linked API documentation while excluding internal helpers and demo-only modules from the public inventory.",
+        "statement": "ExDoc shall group every public defining component, expose accurate source-linked API documentation, and group one user guide for each closed gallery sidebar category with an introduction plus functionality, supported options, and at least one compile-checked HEEX example for every control, while excluding internal helpers and demo-only modules from the public inventory.",
         "subject_id": "shadcn_ui.public_documentation"
       },
       {

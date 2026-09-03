@@ -4,6 +4,17 @@ defmodule ShadcnUI.MixProject do
   @source_url "https://github.com/pcharbon70/shadcn_ui"
   @gallery_url "https://pcharbon70-shadcn-ui-demo.fly.dev/"
   @version "0.1.0"
+  @component_guides [
+    "docs/guides/foundation.md",
+    "docs/guides/forms.md",
+    "docs/guides/disclosure.md",
+    "docs/guides/navigation.md",
+    "docs/guides/content-surfaces.md",
+    "docs/guides/overlays.md",
+    "docs/guides/interactive-surfaces.md",
+    "docs/guides/media.md",
+    "docs/guides/motion.md"
+  ]
 
   def project do
     [
@@ -82,29 +93,31 @@ defmodule ShadcnUI.MixProject do
     [
       main: "readme",
       source_ref: "main",
-      extras: [
-        "README.md",
-        "docs/components.md",
-        "docs/installation.md",
-        "docs/compatibility.md",
-        "docs/accessibility-review.md",
-        "docs/integrations.md",
-        "docs/upgrading.md",
-        "docs/reproducible-candidate.md",
-        "docs/clean-consumer-trial.md",
-        "docs/release-candidate.md",
-        "docs/milestone-f-acceptance.md",
-        "docs/gallery-operations.md",
-        "docs/provenance.md",
-        "CHANGELOG.md",
-        "LICENSE",
-        "THIRD_PARTY_NOTICES.md",
-        "RELEASE.md",
-        "docs/motion-media-guide.md",
-        "docs/motion-media-foundations.md",
-        "docs/image-gallery.md",
-        "docs/motion-media-css-exceptions.md"
-      ],
+      extras:
+        [
+          "README.md",
+          "docs/components.md",
+          "docs/installation.md",
+          "docs/compatibility.md",
+          "docs/accessibility-review.md",
+          "docs/integrations.md",
+          "docs/upgrading.md",
+          "docs/reproducible-candidate.md",
+          "docs/clean-consumer-trial.md",
+          "docs/release-candidate.md",
+          "docs/milestone-f-acceptance.md",
+          "docs/gallery-operations.md",
+          "docs/provenance.md",
+          "CHANGELOG.md",
+          "LICENSE",
+          "THIRD_PARTY_NOTICES.md",
+          "RELEASE.md",
+          "docs/motion-media-guide.md",
+          "docs/motion-media-foundations.md",
+          "docs/image-gallery.md",
+          "docs/motion-media-css-exceptions.md"
+        ] ++ @component_guides,
+      groups_for_extras: ["Component guides": @component_guides],
       groups_for_modules: [
         "Media components": [
           ShadcnUI.Components.Media.Carousel,

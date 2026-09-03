@@ -12,7 +12,53 @@ defmodule ShadcnUI.MilestoneFDocumentationTest do
 
   def check_icon(assigns), do: ~H|<span aria-hidden="true">✓</span>|
 
-  @docs ["README.md" | Path.wildcard("docs/*.md")]
+  @category_guide_paths [
+    "docs/guides/foundation.md",
+    "docs/guides/forms.md",
+    "docs/guides/disclosure.md",
+    "docs/guides/navigation.md",
+    "docs/guides/content-surfaces.md",
+    "docs/guides/overlays.md",
+    "docs/guides/interactive-surfaces.md",
+    "docs/guides/media.md",
+    "docs/guides/motion.md"
+  ]
+
+  @category_guides %{
+    "docs/guides/foundation.md" => ~w(Button Badge Alert Card Avatar Skeleton),
+    "docs/guides/forms.md" => [
+      "Field",
+      "Label",
+      "Help",
+      "Field Errors",
+      "Error Summary",
+      "Input",
+      "Textarea",
+      "Checkbox",
+      "Radio Group",
+      "Switch",
+      "Native Select",
+      "Enhanced Select",
+      "Slider",
+      "Progress",
+      "Meter"
+    ],
+    "docs/guides/disclosure.md" => ["Accordion"],
+    "docs/guides/navigation.md" => ["Navigation Menu", "Header", "Section Header"],
+    "docs/guides/content-surfaces.md" => ["Scroll Area", "Separator", "Radio Panels"],
+    "docs/guides/overlays.md" => [
+      "Dialog",
+      "Alert Dialog",
+      "Drawer",
+      "Popover",
+      "Dropdown Actions"
+    ],
+    "docs/guides/interactive-surfaces.md" => ["Tooltip", "Hover Card"],
+    "docs/guides/media.md" => ["Carousel", "Cover Flow", "Image Gallery"],
+    "docs/guides/motion.md" => ["Marquee", "Stagger", "Scroll Indicator"]
+  }
+
+  @docs ["README.md" | Path.wildcard("docs/**/*.md")]
 
   @heex_examples for path <- @docs,
                      [source] <-
@@ -89,6 +135,25 @@ defmodule ShadcnUI.MilestoneFDocumentationTest do
   test "every README and guide HEEX fence compiles through public imports" do
     assert length(@heex_examples) >= 30
     assert function_exported?(__MODULE__, :compile_checked_heex, 2)
+  end
+
+  test "component guides cover every gallery category and control" do
+    docs = Mix.Project.config()[:docs]
+    guide_paths = Map.keys(@category_guides)
+
+    assert docs[:groups_for_extras][:"Component guides"] == @category_guide_paths
+    assert Enum.sort(guide_paths) == Enum.sort(@category_guide_paths)
+
+    for {path, controls} <- @category_guides do
+      assert path in docs[:extras]
+      source = File.read!(path)
+
+      for control <- controls do
+        assert source =~ "## #{control}"
+      end
+
+      assert length(Regex.scan(~r/```heex\r?\n.*?```/s, source)) >= length(controls)
+    end
   end
 
   test "public guidance, migration, legal, and release channels remain connected" do

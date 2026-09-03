@@ -61,7 +61,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.gallery_presentation.stable_identity
-  statement: Existing category and component routes, canonical identities, breadcrumbs and example fragments shall remain stable while visible ordering, labels and presentation migrate.
+  statement: Existing category and component routes, canonical identities, breadcrumbs and example fragments shall remain stable while visible ordering, labels and presentation migrate, and ExDoc category guides shall preserve the closed sidebar category names and order.
   priority: must
   stability: stable
 
