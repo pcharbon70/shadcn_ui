@@ -9,6 +9,7 @@
     "candidate:clean": "node scripts/run-clean-candidate.mjs",
     "candidate:compare": "node scripts/compare-candidate-builds.mjs",
     "visual:milestone-g": "node scripts/check-milestone-g-visual-evidence.mjs --check",
+    "reference:milestone-g:check": "node scripts/check-milestone-g-pinned-reference.mjs",
     "consumer:clean": "node scripts/run-clean-consumer.mjs",
     "browser:milestone-f-phase4": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-f-phase4.config.mjs",
     "browser:milestone-g-phase2": "node ./demo/node_modules/@playwright/test/cli.js test --config ./playwright.milestone-g-phase2.config.mjs",

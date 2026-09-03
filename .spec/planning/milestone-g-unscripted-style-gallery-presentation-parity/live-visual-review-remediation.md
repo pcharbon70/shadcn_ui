@@ -342,20 +342,20 @@ category route and is not an Accordion comparison target.
   Keep local goldens for regression, but add a reproducible representation of
   the accepted upstream state so local drift cannot approve itself.
 
-  - [ ] R5.1 Section - Establish a renderable pinned reference.
+  - [x] R5.1 Section - Establish a renderable pinned reference.
 
     Resolve the previously blocked upstream build without making verification
     depend on network access or a moving deployment.
 
-    - [ ] R5.1.1 Task - Produce the smallest licensed deterministic reference harness.
+    - [x] R5.1.1 Task - Produce the smallest licensed deterministic reference harness.
 
       Prefer the pinned upstream build when reproducible; otherwise render the
       reviewed shell and Accordion fixture from checked pinned inputs.
 
-      - [ ] R5.1.1.1 Subtask - Reproduce and diagnose the recorded npm exit-handler failure using the pinned toolchain and immutable dependency inputs.
-      - [ ] R5.1.1.2 Subtask - If the full build remains unavailable, create a checked reference-only fixture from the reviewed pinned files with preserved MIT/OFL notices and no runtime dependency.
-      - [ ] R5.1.1.3 Subtask - Hash source identity, assets, tool versions, fonts, viewport, theme, motion, open state and scroll position in the reference manifest.
-      - [ ] R5.1.1.4 Subtask - Keep reference-only code, fonts and captures outside the package archive.
+      - [x] R5.1.1.1 Subtask - Reproduce and diagnose the recorded npm exit-handler failure using the pinned toolchain and immutable dependency inputs.
+      - [x] R5.1.1.2 Subtask - If the full build remains unavailable, create a checked reference-only fixture from the reviewed pinned files with preserved MIT/OFL notices and no runtime dependency.
+      - [x] R5.1.1.3 Subtask - Hash source identity, assets, tool versions, fonts, viewport, theme, motion, open state and scroll position in the reference manifest.
+      - [x] R5.1.1.4 Subtask - Keep reference-only code, fonts and captures outside the package archive.
 
   - [ ] R5.2 Section - Capture and compare the accepted matrix.
 

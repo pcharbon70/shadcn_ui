@@ -22,17 +22,19 @@ differences retained while the Accordion presentation aligns to the pin.
 `remediation-r4-integration-evidence.json` records the accepted R4 geometry,
 reviewed golden groups, semantic and fallback suites, cross-engine results,
 deterministic export and SpecLed closure.
-The source-derived states are authoritative Phase 1 inputs because a moving
-deployment cannot be deterministic. Later phases add reviewed local ShadcnUI
-raster goldens without changing these upstream identities silently.
+The source-derived states remain the authoritative Phase 1 inputs because a
+moving deployment cannot be deterministic. R5 adds the checked
+`pinned-reference/` rendering subset from the same source identities and exact
+commit without making upstream network access part of verification.
 
-The pinned upstream build could not be rendered on the Phase 1 Windows host
-because npm 10.9.2 terminated twice with `exit_handler_never_called`. That
-environment limitation is recorded as a build status, not converted into a
-passing visual claim. Exact source review and hashing completed independently.
+The Phase 1 Windows host recorded two npm 10.9.2
+`exit_handler_never_called` failures. R5 did not reproduce that failure on
+Linux using the same npm version and immutable lockfile: two builds produced
+the identical 53-file tree hash, and npm 11.4.2 produced the same output as a
+cross-check. The old result remains recorded as a host-process limitation, not
+rewritten as a source failure.
 
-The reviewed upstream font binary is not copied here. Its identity is retained
-in the manifest, and the source project's OFL 1.1 notice is retained under
-`licenses/`. Phase 3 may add a local font only after it reproduces or explicitly
-maps the selected binary to that license and updates demo notices; otherwise it
-must use the accepted system fallback.
+The reviewed font is now present in both the demo asset pipeline and the
+renderable reference subset with the exact accepted binary hash. Both copies
+map to the retained source-project OFL 1.1 notice under `licenses/`; neither can
+enter the package archive.

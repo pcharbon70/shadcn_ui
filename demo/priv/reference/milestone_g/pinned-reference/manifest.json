@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r5.1",
+  "evidenceType": "renderable-pinned-upstream-reference",
+  "status": "renderable-awaiting-r5.2-comparison",
+  "decision": "shadcn_ui.pinned_gallery_presentation_parity",
+  "upstream": {
+    "repository": "https://github.com/timoransky/unscripted-ui",
+    "commit": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+    "route": "/components/accordion/",
+    "sourceIdentitySha256": "1cb90551ae31984effe66e1f05d2812956323a775f551e750bac0d33d001a248",
+    "sourcePageSha256": "933017bab527f252beff1069cccd2ef62185d761ad6ba8a68c01cceb6e056763"
+  },
+  "buildReproduction": {
+    "priorLimitation": {
+      "environment": "phase-1-windows-npm-10.9.2",
+      "result": "exit_handler_never_called",
+      "reproduction": "not-reproduced-on-linux-with-the-same-npm-version",
+      "diagnosis": "phase-1-host-process-exit-limitation-not-pinned-source-or-lockfile"
+    },
+    "reviewEnvironment": "linux-x64",
+    "toolchain": {
+      "node": "24.3.0",
+      "npm": "10.9.2",
+      "astro": "7.0.6",
+      "astroMdx": "7.0.2",
+      "tailwindcss": "4.3.2",
+      "tailwindVite": "4.3.2"
+    },
+    "installCommand": "npm ci",
+    "buildCommand": "npm run build",
+    "lockfileVersion": 3,
+    "cleanBuilds": 2,
+    "fullBuildFiles": 53,
+    "fullBuildTreeAlgorithm": "sha256(sorted(relative-path + NUL + file-sha256 + LF))",
+    "fullBuildTreeSha256": "3cffbc675fa0300d145b5972161e6e22bfffa6a9e660f7946568019a0ebb6c88",
+    "crossCheckNpm": "11.4.2",
+    "result": "passed-identical-builds-and-current-npm-cross-check"
+  },
+  "harness": {
+    "root": "demo/priv/reference/milestone_g/pinned-reference/site",
+    "entry": "components/accordion/index.html",
+    "networkRequiredForVerification": false,
+    "movingPublicSiteAuthoritative": false,
+    "transformation": "remove-exact-cloudflare-analytics-comment-and-script",
+    "removedRuntimeHosts": ["static.cloudflareinsights.com"],
+    "files": [
+      {"path": "LICENSE.unscripted-ui.txt", "bytes": 1073, "sha256": "a9ed6c0946d544d9f74091c06904b775cc1e06628b0837cc4351629f41f74ba6"},
+      {"path": "README.md", "bytes": 1216, "sha256": "4d6167be2c8c91cfb7b000341b8a311595f9a031f715640390d28b93df3f4c21"},
+      {"path": "build-inputs/package-lock.json", "bytes": 274250, "sha256": "e781bee28344fcff67ea70b71163ba08cc7898245f7336b7c5d051a87c0e847c"},
+      {"path": "build-inputs/package.json", "bytes": 579, "sha256": "b08fe1aaab84e4b316fb9b87f17ee879d2079019279e444e4b0cc05b0ba62790"},
+      {"path": "site/_astro/_astro_content.C2KQ5fLA.css", "bytes": 88133, "sha256": "4e80e3d5cdfc88734dd668d392b0a19fdf7260a6a03b425314b95a995d30cfde"},
+      {"path": "site/baseline/baseline-limited-icon-dark.svg", "bytes": 474, "sha256": "7d0557c17824bca1047623a9e54076947e920835ae32146157da4d3cc72fa451"},
+      {"path": "site/baseline/baseline-limited-icon.svg", "bytes": 474, "sha256": "37c77edf00ae5420e63a1116a2a97148cf5b5bda4efb1936eef34b10557ea688"},
+      {"path": "site/baseline/baseline-newly-icon-dark.svg", "bytes": 731, "sha256": "da4248ea9fd7b3e777a8ee131fa0fa4c4868587fa3caae84c806faccde124dd3"},
+      {"path": "site/baseline/baseline-newly-icon.svg", "bytes": 731, "sha256": "a62ebcb321a197f22a1b386d4fe9df5bd82dde6403b5e36f35bd2083021f0b44"},
+      {"path": "site/baseline/baseline-widely-icon-dark.svg", "bytes": 365, "sha256": "bcd890541fc225853c1d35de468033fa03df172b7db10554ce0dcdc1864d8de2"},
+      {"path": "site/baseline/baseline-widely-icon.svg", "bytes": 365, "sha256": "2b6ca4b4e064f8f825de4d511b7bb1643d4397ec04b39a02df7d48c37cc7a155"},
+      {"path": "site/claude-fu.gif", "bytes": 11877, "sha256": "4b66223ba1bdcfec4fcaa11a603d8aac5828d15bb470d407d2d4844d80e80e91"},
+      {"path": "site/components/accordion/index.html", "bytes": 65333, "sha256": "c5d6dae93cdeb49bc351f282949269209ab58d134c7c328dce397960e0b08faf"},
+      {"path": "site/favicon.svg", "bytes": 216, "sha256": "db6c3138105218234d8a6f1a9969e246a6d7b90210686cf9011826cda1134081"},
+      {"path": "site/fonts/bricolage-grotesque-wght.woff2", "bytes": 41344, "sha256": "a97804dc9fbe5fc972a08018c5eda4dab7ef2346f64c57e61419d05e6de4ea1c"}
+    ]
+  },
+  "captureContract": {
+    "manifest": "demo/priv/reference/milestone_g/presentation-reference.json",
+    "manifestSha256": "f8a103d2c1c7c4a60d8b13ee8d4f704d207e57a7ee461b2d400b39228aa76c57",
+    "states": 12,
+    "viewports": ["1440x1200", "1024x1366", "390x844", "320x568"],
+    "themes": ["light", "dark"],
+    "motion": "reduced",
+    "scale": 1,
+    "scroll": {"x": 0, "y": 0},
+    "accordion": {"mode": "exclusive", "openItem": 0},
+    "mobileNavigation": ["closed", "open"]
+  },
+  "licenses": {
+    "upstream": "demo/priv/reference/milestone_g/pinned-reference/LICENSE.unscripted-ui.txt",
+    "font": "demo/priv/reference/milestone_g/licenses/bricolage-grotesque-OFL.txt"
+  },
+  "comparisonStatus": "pending-r5.2"
+}
