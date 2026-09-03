@@ -337,61 +337,61 @@ category route and is not an Accordion comparison target.
 
 ## R5 - Deterministic Visual Evidence
 
-- [ ] R5 Phase - Replace self-referential confidence with pinned comparison evidence.
+- [x] R5 Phase - Replace self-referential confidence with pinned comparison evidence.
 
   Keep local goldens for regression, but add a reproducible representation of
   the accepted upstream state so local drift cannot approve itself.
 
-  - [ ] R5.1 Section - Establish a renderable pinned reference.
+  - [x] R5.1 Section - Establish a renderable pinned reference.
 
     Resolve the previously blocked upstream build without making verification
     depend on network access or a moving deployment.
 
-    - [ ] R5.1.1 Task - Produce the smallest licensed deterministic reference harness.
+    - [x] R5.1.1 Task - Produce the smallest licensed deterministic reference harness.
 
       Prefer the pinned upstream build when reproducible; otherwise render the
       reviewed shell and Accordion fixture from checked pinned inputs.
 
-      - [ ] R5.1.1.1 Subtask - Reproduce and diagnose the recorded npm exit-handler failure using the pinned toolchain and immutable dependency inputs.
-      - [ ] R5.1.1.2 Subtask - If the full build remains unavailable, create a checked reference-only fixture from the reviewed pinned files with preserved MIT/OFL notices and no runtime dependency.
-      - [ ] R5.1.1.3 Subtask - Hash source identity, assets, tool versions, fonts, viewport, theme, motion, open state and scroll position in the reference manifest.
-      - [ ] R5.1.1.4 Subtask - Keep reference-only code, fonts and captures outside the package archive.
+      - [x] R5.1.1.1 Subtask - Reproduce and diagnose the recorded npm exit-handler failure using the pinned toolchain and immutable dependency inputs.
+      - [x] R5.1.1.2 Subtask - If the full build remains unavailable, create a checked reference-only fixture from the reviewed pinned files with preserved MIT/OFL notices and no runtime dependency.
+      - [x] R5.1.1.3 Subtask - Hash source identity, assets, tool versions, fonts, viewport, theme, motion, open state and scroll position in the reference manifest.
+      - [x] R5.1.1.4 Subtask - Keep reference-only code, fonts and captures outside the package archive.
 
-  - [ ] R5.2 Section - Capture and compare the accepted matrix.
+  - [x] R5.2 Section - Capture and compare the accepted matrix.
 
     Remote public pages may be inspected manually but never become automated
     test inputs.
 
-    - [ ] R5.2.1 Task - Generate reference and local visual evidence.
+    - [x] R5.2.1 Task - Generate reference and local visual evidence.
 
       Geometry and focus invariants complement bounded pixel comparison.
 
-      - [ ] R5.2.1.1 Subtask - Capture reference and local states at 1440x1200, 1024x1366, 390x844 and 320x568 in light and dark with motion suppressed.
-      - [ ] R5.2.1.2 Subtask - Compare shell, current navigation, title, description, specimen frame, Accordion rows, chevrons, focus, code and responsive reflow within accepted tolerances.
-      - [ ] R5.2.1.3 Subtask - Review every over-tolerance diff and either fix it or attach a specific accepted exception; reject unexplained bulk golden replacement.
+      - [x] R5.2.1.1 Subtask - Capture reference and local states at 1440x1200, 1024x1366, 390x844 and 320x568 in light and dark with motion suppressed.
+      - [x] R5.2.1.2 Subtask - Compare shell, current navigation, title, description, specimen frame, Accordion rows, chevrons, focus, code and responsive reflow within accepted tolerances.
+      - [x] R5.2.1.3 Subtask - Review every over-tolerance diff and either fix it or attach a specific accepted exception; reject unexplained bulk golden replacement.
 
-    - [ ] R5.2.2 Task - Close route and coverage gaps.
+    - [x] R5.2.2 Task - Close route and coverage gaps.
 
       Visual evidence must identify category pages and component pages
       separately.
 
-      - [ ] R5.2.2.1 Subtask - Add a dedicated Foundation category state instead of treating its representative Button page as category coverage.
-      - [ ] R5.2.2.2 Subtask - Assert the Accordion comparison and pilot evidence always use `/components/disclosure/accordion`.
-      - [ ] R5.2.2.3 Subtask - Add direct find-in-page coverage for open and closed Accordion content without introducing scripted disclosure ownership.
+      - [x] R5.2.2.1 Subtask - Add a dedicated Foundation category state instead of treating its representative Button page as category coverage.
+      - [x] R5.2.2.2 Subtask - Assert the Accordion comparison and pilot evidence always use `/components/disclosure/accordion`.
+      - [x] R5.2.2.3 Subtask - Add direct find-in-page coverage for open and closed Accordion content without introducing scripted disclosure ownership.
 
-  - [ ] R5.3 Section - R5 Integration Tests.
+  - [x] R5.3 Section - R5 Integration Tests.
 
     Prove the evidence itself is deterministic, licensed and reviewable.
 
-    - [ ] R5.3.1 Task - Re-run visual and distribution gates.
+    - [x] R5.3.1 Task - Re-run visual and distribution gates.
 
       Two identical inputs must produce identical reference metadata, local
       assets and export output.
 
-      - [ ] R5.3.1.1 Subtask - Regenerate representative captures twice and verify stable hashes or documented platform-bounded raster variance.
-      - [ ] R5.3.1.2 Subtask - Run full Milestone G visual, functional, catalogue, provenance, asset-license, archive and deterministic-export suites.
-      - [ ] R5.3.1.3 Subtask - Update evidence state from unavailable only after the rendered pinned comparison exists and has been reviewed.
-      - [ ] R5.3.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
+      - [x] R5.3.1.1 Subtask - Regenerate representative captures twice and verify stable hashes or documented platform-bounded raster variance.
+      - [x] R5.3.1.2 Subtask - Run full Milestone G visual, functional, catalogue, provenance, asset-license, archive and deterministic-export suites.
+      - [x] R5.3.1.3 Subtask - Update evidence state from unavailable only after the rendered pinned comparison exists and has been reviewed.
+      - [x] R5.3.1.4 Subtask - Run `mix spec.next`, `mix spec.check --base HEAD` and `git diff --check`.
 
 ## R6 - Accessibility And Fly Requalification
 

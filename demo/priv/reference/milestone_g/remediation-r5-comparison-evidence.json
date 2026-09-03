@@ -1,0 +1,100 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r5.2",
+  "evidenceType": "rendered-pinned-reference-comparison",
+  "recordedOn": "2026-09-03",
+  "status": "passed-reviewed-r5.2",
+  "upstreamCommit": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+  "referenceManifest": "demo/priv/reference/milestone_g/pinned-reference/manifest.json",
+  "movingPublicSiteAuthoritative": false,
+  "networkRequiredForVerification": false,
+  "routes": {
+    "reference": "/components/accordion/",
+    "local": "/components/disclosure/accordion",
+    "foundationCategory": "/components/foundation"
+  },
+  "runner": {
+    "playwright": "1.62.1",
+    "engine": "chromium",
+    "engineVersion": "151.0.7922.34",
+    "platform": "linux",
+    "deviceScaleFactor": 1,
+    "motion": "reduce"
+  },
+  "tolerances": {
+    "criticalGeometryPixels": 2,
+    "repeatedMetricPixels": 4,
+    "perChannelThreshold": 0.12,
+    "completeCaptureRegressionRatio": 0.0075,
+    "regionRatioIsStateBounded": true
+  },
+  "states": [
+    {
+      "id": "1440-light", "theme": "light", "viewport": {"width": 1440, "height": 1200},
+      "reference": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-reference-1440-light-chromium-linux.png", "sha256": "0557bd9d0510bb6cfb28056f9688968ef075bad1bc4eaf0dafabf500d84dda35"},
+      "local": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-local-1440-light-chromium-linux.png", "sha256": "32947853d363682d8b7c43a8749e6cdead9d171f3d12230fbbdcea7d4452dd1c"},
+      "accordionRegion": {"referencePixels": [449, 236], "localPixels": [448, 238], "comparedPixels": [448, 236], "reviewedDifferenceRatio": 0.078125, "maximumDifferenceRatio": 0.08}
+    },
+    {
+      "id": "1440-dark", "theme": "dark", "viewport": {"width": 1440, "height": 1200},
+      "reference": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-reference-1440-dark-chromium-linux.png", "sha256": "fa978e9d42bbfd7e89ec460a92fa7b02a7c749914b6ec3ed9ec715ba11b60571"},
+      "local": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-local-1440-dark-chromium-linux.png", "sha256": "8b629bc7d18a89e86d6c23d9bcafda555b6a1b4de53a1972a559991401617860"},
+      "accordionRegion": {"referencePixels": [449, 236], "localPixels": [448, 238], "comparedPixels": [448, 236], "reviewedDifferenceRatio": 0.10959253934624698, "maximumDifferenceRatio": 0.11}
+    },
+    {
+      "id": "1024-light", "theme": "light", "viewport": {"width": 1024, "height": 1366},
+      "reference": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-reference-1024-light-chromium-linux.png", "sha256": "27c7edbf733d829f89efc5cddd6787c429a9cab37d2af106aafc0cd8b7268536"},
+      "local": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-local-1024-light-chromium-linux.png", "sha256": "e2b0c0204604ef29fd50c39ebbf4c4f442dfce4921ba9fbadd0a73fbf924b829"},
+      "accordionRegion": {"referencePixels": [449, 236], "localPixels": [448, 238], "comparedPixels": [448, 236], "reviewedDifferenceRatio": 0.078125, "maximumDifferenceRatio": 0.08}
+    },
+    {
+      "id": "1024-dark", "theme": "dark", "viewport": {"width": 1024, "height": 1366},
+      "reference": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-reference-1024-dark-chromium-linux.png", "sha256": "f2b5c214fe42e66069b77a52a442a07111034fdc087afd65706cf48405097cbe"},
+      "local": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-local-1024-dark-chromium-linux.png", "sha256": "c834c5b2bc6229272d33e40e496d3163fe002efd8b882b4bd8211cada9e35581"},
+      "accordionRegion": {"referencePixels": [449, 236], "localPixels": [448, 238], "comparedPixels": [448, 236], "reviewedDifferenceRatio": 0.10959253934624698, "maximumDifferenceRatio": 0.11}
+    },
+    {
+      "id": "390-light", "theme": "light", "viewport": {"width": 390, "height": 844},
+      "reference": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-reference-390-light-chromium-linux.png", "sha256": "0f3626e387055f25f09c955a63e4d1e86aa5ef8f09cae285dbda701179cc5370"},
+      "local": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-local-390-light-chromium-linux.png", "sha256": "1fcb3f0c315dce1395e2cc6b595f2be4fc89e094a1470210046c6292d8b3c2c1"},
+      "accordionRegion": {"referencePixels": [284, 256], "localPixels": [318, 258], "comparedPixels": [284, 256], "reviewedDifferenceRatio": 0.1388094190140845, "maximumDifferenceRatio": 0.14}
+    },
+    {
+      "id": "390-dark", "theme": "dark", "viewport": {"width": 390, "height": 844},
+      "reference": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-reference-390-dark-chromium-linux.png", "sha256": "cdbddc2a978ce121477e920d7d13b5954000917f42d2d26fbaa6de0357beedb9"},
+      "local": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-local-390-dark-chromium-linux.png", "sha256": "2b0c92c07d314f4f0a7010750a02d148a837e40400d21b158ed7e363d82ce94c"},
+      "accordionRegion": {"referencePixels": [284, 256], "localPixels": [318, 258], "comparedPixels": [284, 256], "reviewedDifferenceRatio": 0.17030699823943662, "maximumDifferenceRatio": 0.18}
+    },
+    {
+      "id": "320-light", "theme": "light", "viewport": {"width": 320, "height": 568},
+      "reference": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-reference-320-light-chromium-linux.png", "sha256": "53249e9744860d7b35396eac171d80deb102e45ebdaeb9776665c8be7bd9df06"},
+      "local": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-local-320-light-chromium-linux.png", "sha256": "e338f7a1dbea917bbf50136e56a86421e14645aed297049b814f760799cde3a1"},
+      "accordionRegion": {"referencePixels": [214, 276], "localPixels": [248, 278], "comparedPixels": [214, 276], "reviewedDifferenceRatio": 0.17088243261546796, "maximumDifferenceRatio": 0.18}
+    },
+    {
+      "id": "320-dark", "theme": "dark", "viewport": {"width": 320, "height": 568},
+      "reference": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-reference-320-dark-chromium-linux.png", "sha256": "670f338be6a61429e27e526d91388a32ee3bdcb1c2c0e8f16be6963f806834a0"},
+      "local": {"file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-local-320-dark-chromium-linux.png", "sha256": "0c747cd8580d844eabd253ccb2c8cef0912d004db12aaece063f60df66727ac9"},
+      "accordionRegion": {"referencePixels": [214, 276], "localPixels": [248, 278], "comparedPixels": [214, 276], "reviewedDifferenceRatio": 0.20269538128132195, "maximumDifferenceRatio": 0.21}
+    }
+  ],
+  "foundationCategoryCaptures": [
+    {"id": "1440-light", "viewport": {"width": 1440, "height": 1200}, "theme": "light", "file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-foundation-category-1440-light-chromium-linux.png", "sha256": "e392360abfcd335ce3761f2b749f99c5c5e51b31991c3dc0432a915461fae193"},
+    {"id": "1440-dark", "viewport": {"width": 1440, "height": 1200}, "theme": "dark", "file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-foundation-category-1440-dark-chromium-linux.png", "sha256": "0efbfb9612bebbef05faa2d1bfa2ea6649018fadc5cccb5d064662a43e0be443"},
+    {"id": "390-light", "viewport": {"width": 390, "height": 844}, "theme": "light", "file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-foundation-category-390-light-chromium-linux.png", "sha256": "c84752558722e79e417ff7f1b8cc8d961f2a41166f7d470b23d3f5cf262ddb4f"},
+    {"id": "390-dark", "viewport": {"width": 390, "height": 844}, "theme": "dark", "file": "test/browser/milestone-g-remediation-r5.spec.mjs-snapshots/r5-foundation-category-390-dark-chromium-linux.png", "sha256": "5e5436cee7c24889fbf6c95ff25d754b4911400c085f2d121a48955e85f9de13"}
+  ],
+  "reviewedExceptions": [
+    {"id": "identity-and-navigation", "scope": "complete captures", "reason": "ShadcnUI branding, repository destinations, closed catalogue and native mobile disclosure remain authoritative."},
+    {"id": "phoenix-and-native-semantics", "scope": "specimen and source", "reason": "HEEx source, deterministic Phoenix IDs, native details grouping and package-owned chevrons replace upstream site markup without claiming richer widget behavior."},
+    {"id": "authored-capability-policy", "scope": "article header and support", "reason": "Local capability badges and support text remain authored evidence rather than visitor detection or upstream zero-script branding."},
+    {"id": "independent-mode", "scope": "content below primary specimen", "reason": "The local independent Accordion specimen documents the additional public mode."},
+    {"id": "narrow-specimen-padding", "scope": "390px and 320px Accordion region", "reason": "The reviewed local zoom and narrow-width exception uses 15px specimen padding instead of the pin's 32px, preserving 34px more usable content width."}
+  ],
+  "coverage": {
+    "findInPage": {"openAnswer": "passed-without-state-change", "closedAnswer": "passed-without-state-change"},
+    "codeSurface": "passed-equal-background",
+    "visibleFocus": "passed-within-1px",
+    "foundationCategory": "passed-dedicated-route-and-four-captures"
+  }
+}

@@ -5,7 +5,7 @@
   "acceptedPhase7Revision": "b080488cc0c64d246b20cb26633932623698fb36",
   "reference": {
     "file": "demo/priv/reference/milestone_g/presentation-reference.json",
-    "sha256": "f8a103d2c1c7c4a60d8b13ee8d4f704d207e57a7ee461b2d400b39228aa76c57",
+    "sha256": "c14079de6a22d64d361bd3806f565aa2439aa4f51723e5d6fbc50db43937bc22",
     "upstreamCommit": "bd8f403030c8d1f46804da6eda733fde7e908e63"
   },
   "capture": {

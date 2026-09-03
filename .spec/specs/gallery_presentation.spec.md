@@ -108,6 +108,14 @@ Remediation R4 adds an exception ledger plus reviewed hashes for every changed
 presentation, Accordion and migration golden. Its focused browser proof pins
 desktop geometry, narrow discovery bounds, native semantics and HEEx source
 identity without treating the moving public site as a runtime input.
+Remediation R5 renders the accepted exact upstream revision through a local,
+hash-closed and licensed harness. Its reviewed eight-state Accordion comparison
+and dedicated Foundation captures verify the accepted presentation tolerances,
+stable routes, direct find-in-page access and documented semantic exceptions
+without adding the reference harness or screenshots to package contents.
+Its integration record binds two byte-identical capture runs to the complete
+Milestone G browser, catalogue, provenance, license, asset, archive, ExDoc and
+deterministic-export gates while keeping local evidence distinct from deployment.
 
 ```spec-verification
 - kind: test_file
@@ -204,6 +212,25 @@ identity without treating the moving public site as a runtime input.
     - shadcn_ui.gallery_presentation.presentation_system
     - shadcn_ui.gallery_presentation.visual_evidence
     - shadcn_ui.gallery_presentation.semantic_exceptions
+    - shadcn_ui.gallery_presentation.accessibility_matrix
+
+- kind: test_file
+  target: demo/test/milestone_g_remediation_r5_test.exs
+  covers:
+    - shadcn_ui.gallery_presentation.pinned_reference
+    - shadcn_ui.gallery_presentation.visual_evidence
+    - shadcn_ui.gallery_presentation.local_assets
+    - shadcn_ui.gallery_presentation.deterministic_distribution
+
+- kind: test_file
+  target: test/browser/milestone-g-remediation-r5.spec.mjs
+  covers:
+    - shadcn_ui.gallery_presentation.pinned_reference
+    - shadcn_ui.gallery_presentation.shell
+    - shadcn_ui.gallery_presentation.presentation_system
+    - shadcn_ui.gallery_presentation.article_hierarchy
+    - shadcn_ui.gallery_presentation.stable_identity
+    - shadcn_ui.gallery_presentation.visual_evidence
     - shadcn_ui.gallery_presentation.accessibility_matrix
 
 - kind: test_file

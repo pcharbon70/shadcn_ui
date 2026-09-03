@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "phase": "milestone-g-remediation-r5.3",
+  "evidenceType": "deterministic-pinned-comparison-integration",
+  "recordedOn": "2026-09-03",
+  "baseRevision": "6c461681163fbdf8b227edc3085f2470711f3eed",
+  "upstreamCommit": "bd8f403030c8d1f46804da6eda733fde7e908e63",
+  "referenceManifest": "demo/priv/reference/milestone_g/pinned-reference/manifest.json",
+  "comparisonEvidence": "demo/priv/reference/milestone_g/remediation-r5-comparison-evidence.json",
+  "movingPublicSiteAuthoritative": false,
+  "networkRequiredForVerification": false,
+  "determinism": {
+    "referenceBuilds": 2,
+    "referenceBuildTreeSha256": "3cffbc675fa0300d145b5972161e6e22bfffa6a9e660f7946568019a0ebb6c88",
+    "captureRuns": 2,
+    "snapshotCount": 20,
+    "snapshotSetSha256": "5efd76fb51c2579540e2001bb29006f4e2a856a8d8d186f589c27a181ed5bba7",
+    "rasterVariance": "none-on-locked-linux-chromium-151.0.7922.34",
+    "exportRuns": 2,
+    "exportResult": "passed-identical-file-inventories-and-hashes"
+  },
+  "verification": {
+    "packageTests": {"tests": 419, "failures": 0, "status": "passed"},
+    "demoTests": {"tests": 164, "failures": 0, "status": "passed"},
+    "shellBrowser": {"tests": 5, "failures": 0, "status": "passed"},
+    "presentationBrowser": {"tests": 5, "failures": 0, "status": "passed"},
+    "articleBrowser": {"tests": 3, "failures": 0, "status": "passed"},
+    "accordionVisual": {"tests": 8, "goldens": 12, "failures": 0, "status": "passed"},
+    "accordionAcceptance": {"tests": 9, "engines": ["chromium", "firefox", "webkit"], "failures": 0, "status": "passed"},
+    "completeMigration": {"tests": 10, "goldens": 36, "failures": 0, "status": "passed"},
+    "crossEngineFunctional": {"tests": 9, "engines": ["chromium", "firefox", "webkit"], "failures": 0, "status": "passed"},
+    "remediationR1": {"tests": 7, "failures": 0, "status": "passed"},
+    "remediationR4": {"tests": 3, "failures": 0, "status": "passed"},
+    "remediationR5": {"testsPerRun": 10, "runs": 2, "failures": 0, "status": "passed"},
+    "lockedVisualGoldens": {"files": 52, "status": "passed"},
+    "renderedReferenceFiles": {"files": 15, "status": "passed"},
+    "reviewedComparisonCaptures": {"files": 20, "status": "passed"},
+    "assets": "passed",
+    "provenanceAndLicenses": "passed-by-complete-package-and-demo-suites"
+  },
+  "distribution": {
+    "exDocWarnings": 0,
+    "archiveEntries": 63,
+    "archiveAudit": "passed-explicit-allowlist",
+    "excludedEvidenceRoots": ["demo/", "test/", ".spec/", "scripts/"],
+    "exportRuns": 2,
+    "exportRoutes": 634,
+    "exportAssets": 4,
+    "exportCheck": "passed",
+    "exportSubpathSmoke": "passed"
+  },
+  "evidencePromotion": {
+    "presentationReference": "passed-rendered-and-reviewed-r5",
+    "accordionComparison": "passed-reviewed-r5.2-eight-state-pinned-comparison",
+    "priorUnavailableStateRetainedAsHistory": true
+  },
+  "specLed": {
+    "prime": "passed",
+    "next": "ready-for-check",
+    "check": "passed",
+    "errors": 0,
+    "warnings": 0
+  },
+  "diffReview": {
+    "remoteRuntimeInputs": [],
+    "movingSiteInputs": [],
+    "packageFilesAdded": [],
+    "componentSemanticsChanged": [],
+    "goldenTolerancesChanged": false
+  },
+  "status": "passed-remediation-r5-complete"
+}

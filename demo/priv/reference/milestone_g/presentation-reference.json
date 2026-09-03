@@ -29,7 +29,10 @@
     "networkRequiredForVerification": false,
     "movingPublicSiteAuthoritative": false,
     "rasterGoldensOwnedBy": "later local ShadcnUI phase evidence",
-    "pinnedBuildStatus": "blocked-by-npm-exit-handler-never-called",
+    "pinnedBuildStatus": "passed-rendered-and-reviewed-r5",
+    "renderedReference": "demo/priv/reference/milestone_g/pinned-reference/manifest.json",
+    "comparisonEvidence": "demo/priv/reference/milestone_g/remediation-r5-comparison-evidence.json",
+    "priorBuildLimitation": "phase-1-windows-npm-10.9.2-exit-handler-never-called",
     "tolerances": {"criticalGeometryPixels": 2, "repeatedMetricPixels": 2, "pixelDifferenceRatio": 0.0075, "perChannelThreshold": 0.12, "lockedTextWrap": "exact"}
   },
   "authoredMetrics": {
