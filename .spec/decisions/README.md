@@ -62,6 +62,10 @@ add no component family, package runtime, transport or consumer-platform target.
 3. [Publish immutable gallery evidence with explicit operations](./versioned-gallery-publication-and-operations.md)
 4. [Qualify an internal release candidate through a clean consumer trial](./internal-release-candidate-and-clean-consumer-trial.md)
 
+## Public release decisions
+
+1. [Promote the first public Hex release to 1.0.0](./public-hex-1-0-release.md)
+
 ## Milestone G decisions
 
 This decision governs presentation work in the separate gallery. It does not

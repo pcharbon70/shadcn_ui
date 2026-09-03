@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "candidateVersion": "0.1.0",
+  "candidateVersion": "1.0.0",
   "toolchain": {
     "elixir": "1.20.3",
     "otp": "29",
@@ -15,7 +15,7 @@
   },
   "locks": {
     "mix.lock": "ad8e13e7418692f0f768980a7a2d16e3961046953d66c350ba0d3fe5c09ad8bf",
-    "package-lock.json": "4ff68b1944888d58d19af90070078bb14213e944287faafefb1b7b43f9282e2d",
+    "package-lock.json": "e155db35ac11512f0d10b88131b20e22abd2aa8ae92ba6e077ccd4be6bd74075",
     "demo/package-lock.json": "e6f6f7f71709250b96c135fecc664c8905b276dbf73e673ee034862a8ad345d1"
   },
   "rebar3": {

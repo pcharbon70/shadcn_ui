@@ -12,7 +12,7 @@ const value = flag => {
   const index = process.argv.indexOf(flag);
   return index >= 0 ? process.argv[index + 1] : undefined;
 };
-const archive = resolve(value("--archive") || join(root, "shadcn_ui-0.1.0.tar"));
+const archive = resolve(value("--archive") || join(root, "shadcn_ui-1.0.0.tar"));
 const output = resolve(value("--output") || join(root, "release", "consumer-trial"));
 const fixture = resolve(root, "integration", "clean_consumer");
 const tempRoot = await mkdtemp(join(tmpdir(), "shadcn-ui-consumer-"));

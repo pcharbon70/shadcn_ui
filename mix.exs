@@ -3,7 +3,7 @@ defmodule ShadcnUI.MixProject do
 
   @source_url "https://github.com/pcharbon70/shadcn_ui"
   @gallery_url "https://pcharbon70-shadcn-ui-demo.fly.dev/"
-  @version "0.1.0"
+  @version "1.0.0"
   @component_guides [
     "docs/guides/foundation.md",
     "docs/guides/forms.md",

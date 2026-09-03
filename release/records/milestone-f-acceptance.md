@@ -1,14 +1,14 @@
 # Milestone F acceptance ledger
 
-This is the current evidence ledger for the internal ShadcnUI `0.1.0`
-candidate. All requirements have explicit implementation/evidence entries, but
-candidate qualification is **blocked**: the current 63-entry archive still
-needs two clean reproducible builds, all six mandatory manual accessibility
-scenarios remain pending, the deployed source has not passed pull-request
-review, and final-revision CI has not run. The current isolated consumer and
-SpecLed checks pass locally; the exact deployed Fly revision passes service
-health and canonical smoke. A checked planning item or historical run never
-substitutes for a current gate.
+This is the current evidence ledger for the ShadcnUI `1.0.0` public release
+target. All requirements have explicit implementation/evidence entries, but
+release qualification is **blocked**: the version-specific archive, isolated
+consumer, exact-source reproducibility, review, final-revision CI, merge,
+matching gallery deployment, Hex publication, and public tag remain pending.
+All six mandatory manual accessibility scenarios also remain pending under the
+existing bounded waiver. The recorded `0.1.0` archive and Fly deployment are
+historical evidence and do not satisfy a `1.0.0` gate. A checked planning item
+or historical run never substitutes for a current gate.
 
 Statuses below mean:
 
@@ -71,10 +71,10 @@ Statuses below mean:
 | `shadcn_ui.release_publication.health_manifest` | PASSED | hashed `health.json` and `release.json` |
 | `shadcn_ui.release_publication.deployment_workflow` | IMPLEMENTED; REVIEW GATE PENDING | Fly release `rel_mr7g2md4103r2wj0` serves exact recorded source and image identity, but that source has no PR or review |
 | `shadcn_ui.release_publication.post_deploy_and_rollback` | PASSED | service health, strengthened canonical smoke, first-release rollback policy, and `release/fly-deployment-evidence.json` |
-| `shadcn_ui.release_publication.clean_checkout` | IMPLEMENTED; GATE PENDING | historical two-build evidence passed; current 63-entry exact-revision comparison pending |
-| `shadcn_ui.release_publication.clean_consumer_trial` | PASSED | current 63-entry archive compiled, passed three tests and browser acceptance outside the source tree |
-| `shadcn_ui.release_publication.explicit_archive` | PASSED | current 63-entry archive passes the explicit allowlist audit, including `LICENSE` |
-| `shadcn_ui.release_publication.internal_candidate_only` | PASSED | no Hex publish, public tag, marketplace, or certification |
+| `shadcn_ui.release_publication.clean_checkout` | IMPLEMENTED; GATE PENDING | historical two-build evidence passed; `1.0.0` exact-revision comparison pending |
+| `shadcn_ui.release_publication.clean_consumer_trial` | IMPLEMENTED; GATE PENDING | harness passed for `0.1.0`; `1.0.0` archive trial pending |
+| `shadcn_ui.release_publication.explicit_archive` | IMPLEMENTED; GATE PENDING | allowlist is enforced; the actual `1.0.0` archive audit is pending |
+| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected; version-specific archive, consumer, review, CI, gallery identity, Hex publication, and tag evidence pending |
 | `shadcn_ui.release_publication.truthful_gates` | PASSED | structured candidate status and this ledger |
 
 ## Documentation and regression reconciliation
@@ -88,19 +88,19 @@ certified consumer target. All Milestones A–E component routes, examples,
 native semantics, stylesheet contracts, package boundaries and browser suites
 remain regression requirements.
 
-## Deliberately deferred
+## Publication target and deliberately deferred work
 
-Public Hex publication, a public version tag, marketplace or CLI distribution,
-multiple branded theme catalogues, automated upstream synchronization, new
-component families, Electron/embedded-consumer certification, and official
-shadcn/ui or unscripted/ui affiliation are outside Milestone F. None is implied
-by this candidate, gallery, workflow, or PR.
+Hex publication and a public `v1.0.0` tag are now explicit release gates, not
+completed outcomes. A marketplace or CLI distribution, multiple branded theme
+catalogues, automated upstream synchronization, new component families,
+Electron/embedded-consumer certification, and official shadcn/ui or
+unscripted/ui affiliation remain outside the release. None is implied by the
+package, gallery, workflow, or PR.
 
 ## Final qualification decision
 
-The internal candidate remains blocked. Run two clean builds against the exact
-final revision, complete all six manual scenarios, pass source review, and
-record final-revision CI independently. The current isolated consumer, deployed
-Fly revision, and canonical smoke already pass operationally; review and merge
-remain separate pending states.
-Until every mandatory gate passes, do not publish Hex or create a public tag.
+The `1.0.0` release remains blocked. Build and audit its actual archive, run the
+isolated consumer, complete two clean builds against the exact final revision,
+complete all six manual scenarios, pass source review and final-revision CI,
+merge the reviewed source, and deploy and smoke a matching gallery identity.
+Only then publish Hex and create the public tag as separately recorded gates.

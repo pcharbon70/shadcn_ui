@@ -11,7 +11,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
   test "accepts explicit immutable identity and derives matching metadata" do
     assert {:ok, identity} =
              BuildIdentity.new(%{
-               package_version: "0.1.0",
+               package_version: "1.0.0",
                build_revision: @revision,
                catalogue_schema: "1",
                upstream_revision: @upstream,
@@ -21,7 +21,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
     refute identity.development
 
     assert BuildIdentity.release_metadata(identity) == %{
-             "packageVersion" => "0.1.0",
+             "packageVersion" => "1.0.0",
              "buildRevision" => @revision,
              "catalogueSchema" => "1",
              "upstreamRevision" => @upstream,
@@ -37,7 +37,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
     assert {:ok, identity} = BuildIdentity.current()
     configured_revision = Application.fetch_env!(:shadcn_ui_demo, :build_revision)
 
-    assert identity.package_version == "0.1.0"
+    assert identity.package_version == "1.0.0"
     assert identity.catalogue_schema == "1"
     assert identity.build_revision == configured_revision
     assert identity.development == (configured_revision == BuildIdentity.development_revision())
@@ -47,7 +47,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
   test "accepts an explicit Fly HTTPS origin and joins canonical paths" do
     assert {:ok, identity} =
              BuildIdentity.new(%{
-               package_version: "0.1.0",
+               package_version: "1.0.0",
                build_revision: @revision,
                catalogue_schema: "1",
                upstream_revision: @upstream,
@@ -60,7 +60,7 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
 
   test "rejects partial, symbolic, secret-like, mutable, and malformed values" do
     valid = %{
-      package_version: "0.1.0",
+      package_version: "1.0.0",
       build_revision: @revision,
       catalogue_schema: "1",
       upstream_revision: @upstream

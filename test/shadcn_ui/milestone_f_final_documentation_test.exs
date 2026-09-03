@@ -40,12 +40,12 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
     refute status["qualification"]["qualified"]
     assert gates["phase-6-local-integration"] == "passed"
     assert gates["clean-candidate"] == "pending"
-    assert gates["actual-archive-consumer"] == "passed"
+    assert gates["actual-archive-consumer"] == "pending"
     assert gates["manual-accessibility"] == "pending"
     assert gates["ci-final-revision"] == "pending"
     assert gates["deployment-source-review"] == "pending"
-    assert gates["gallery-deployment"] == "passed"
-    assert gates["post-deploy-smoke"] == "passed"
+    assert gates["gallery-deployment"] == "pending"
+    assert gates["post-deploy-smoke"] == "pending"
   end
 
   test "release-facing documents agree on boundaries and deferred work" do
@@ -54,7 +54,7 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
          docs/compatibility.md docs/upgrading.md demo/operations/gallery-publication.md)
       |> Enum.map_join("\n", &File.read!/1)
 
-    for term <- ["Dstar", "LiveView", "controller", "0.1.0", "Hex", "rollback"] do
+    for term <- ["Dstar", "LiveView", "controller", "1.0.0", "Hex", "rollback"] do
       assert corpus =~ term
     end
 
@@ -62,7 +62,7 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
       assert @ledger =~ deferred
     end
 
-    assert @ledger =~ "The internal candidate remains blocked"
+    assert @ledger =~ "The `1.0.0` release remains blocked"
     refute @ledger =~ ~r/internal candidate (?:is|has been) qualified/i
   end
 end

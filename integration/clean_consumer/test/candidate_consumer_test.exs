@@ -45,6 +45,6 @@ defmodule CandidateConsumerTest do
     assert dstar =~ "Server action"
     assert live =~ "Socket action"
     refute Code.ensure_loaded?(Dstar)
-    assert Application.spec(:shadcn_ui, :vsn) |> to_string() == "0.1.0"
+    assert Application.spec(:shadcn_ui, :vsn) |> to_string() == "1.0.0"
   end
 end

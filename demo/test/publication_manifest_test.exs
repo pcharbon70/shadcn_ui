@@ -13,7 +13,7 @@ defmodule ShadcnUIDemo.PublicationManifestTest do
     routes = Jason.decode!(File.read!("export/route-manifest.json"))
 
     assert release["schemaVersion"] == 1
-    assert release["identity"]["packageVersion"] == "0.1.0"
+    assert release["identity"]["packageVersion"] == "1.0.0"
     assert release["identity"]["catalogueSchema"] == "1"
 
     assert release["identity"]["canonicalUrl"] ==
