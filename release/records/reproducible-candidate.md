@@ -1,6 +1,6 @@
-# Reproducible internal candidate
+# Reproducible public release candidate
 
-The internal `0.1.0` candidate is built only from a committed Git revision and
+The public `1.0.0` candidate is built only from a committed Git revision and
 the reviewed inputs in `release/candidate-inputs.json`. The manifest pins the
 Elixir/OTP, Mix, Hex, rebar3, Node, npm, Tailwind, Playwright and axe identities
 plus every dependency lockfile hash. Exact Playwright browser revisions remain

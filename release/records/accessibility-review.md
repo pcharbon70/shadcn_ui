@@ -67,6 +67,13 @@ deployed-browser smoke. That operational result does not change any manual
 scenario below, does not establish assistive-technology behavior, and does not
 qualify the candidate.
 
+The owner separately authorized the `1.0.0` gallery deployment on 2026-09-03.
+Release `rel_76njzd0doog3yko3` serves revision
+`8654f6a4500ce210682d7cae7453553d878a714c` and passed service health,
+canonical smoke, and deployed Chromium checks. This later operational result
+also leaves every manual scenario pending and makes no accessibility
+conformance claim.
+
 ## Manual scenario ledger
 
 ### MAN-01 — Keyboard traversal and visible focus

@@ -5,10 +5,10 @@
   "qualification": {
     "status": "blocked",
     "qualified": false,
-    "reason": "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, manual accessibility, review, CI, merge, gallery-identity, Hex publication, and public-tag gates are not all passing."
+    "reason": "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, manual accessibility, review, CI, merge, Hex publication, and public-tag gates are not all passing."
   },
   "evidence": {
-    "workingTreeBaseRevision": "d4ad8af6ee2e26594c97b0cecdbb3c42780db536",
+    "workingTreeBaseRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
     "currentSourceRevision": null,
     "currentArchiveSha256": null,
     "currentArchiveEntries": null,
@@ -35,8 +35,8 @@
     "r6LocalRegressionEvidence": "demo/priv/reference/milestone_g/remediation-r6-regression-evidence.json",
     "r6DeploymentEvidence": "demo/priv/reference/milestone_g/remediation-r6-deployment-evidence.json",
     "r6AcceptanceEvidence": "demo/priv/reference/milestone_g/remediation-r6-acceptance-evidence.json",
-    "deployedRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
-    "deployedPackageVersion": "0.1.0",
+    "deployedRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
+    "deployedPackageVersion": "1.0.0",
     "finalPhase5Revision": null
   },
   "gates": [
@@ -53,8 +53,8 @@
     {"id": "ci-final-revision", "kind": "ci", "mandatory": true, "status": "pending"},
     {"id": "deployment-source-review", "kind": "review", "mandatory": true, "status": "pending"},
     {"id": "merge", "kind": "publication", "mandatory": true, "status": "pending"},
-    {"id": "gallery-deployment", "kind": "deployment", "mandatory": true, "status": "pending"},
-    {"id": "post-deploy-smoke", "kind": "deployment", "mandatory": true, "status": "pending"},
+    {"id": "gallery-deployment", "kind": "deployment", "mandatory": true, "status": "passed"},
+    {"id": "post-deploy-smoke", "kind": "deployment", "mandatory": true, "status": "passed"},
     {"id": "hex-publication", "kind": "publication", "mandatory": true, "status": "pending"},
     {"id": "public-version-tag", "kind": "publication", "mandatory": true, "status": "pending"},
     {"id": "marketplace-listing", "kind": "publication", "mandatory": false, "status": "not-applicable"},
@@ -62,13 +62,13 @@
     {"id": "official-upstream-affiliation", "kind": "affiliation", "mandatory": false, "status": "not-applicable"}
   ],
   "diagnostics": {
-    "phase6LocalIntegration": "The component implementation and earlier local regression remain historical inputs. The 1.0.0 release change must rerun package, demo, documentation, archive, consumer, browser, and specification checks.",
+    "phase6LocalIntegration": "Package precommit passed 420 tests, demo precommit passed 168 tests, the R5 rendered comparison passed 10 browser checks, and SpecLed passed locally for the deployed 1.0.0 source. Archive, consumer, exact-toolchain, review, CI, merge, and manual gates remain separate.",
     "cleanCandidate": "No 1.0.0 archive or isolated-consumer record exists yet. Historical 0.1.0 archive and consumer evidence cannot qualify the new release target.",
     "manualAccessibility": "All six bounded scenarios in release/records/accessibility-review.md remain PENDING. The release owner accepted that risk for R6 remediation progression only; the waiver is not a pass, conformance claim, deployment authorization, or candidate qualification.",
-    "specled": "The prior R6 result is historical. The 1.0.0 release branch and final merged revision require their own passing SpecLed results.",
-    "browser": "R6.2 passed 552 distinct A-G and remediation Playwright invocations with zero failures across the applicable locked Chromium, Firefox, and WebKit matrix. Initial PR CI passed at the deployed revision, and the deployed Chromium smoke passed two additional checks; CI on the later evidence-only PR head remains pending.",
+    "specled": "The 1.0.0 deployment source passed local SpecLed validation with 0 errors, 0 warnings, and 0 branch findings. The final merged evidence revision still requires its own result and CI.",
+    "browser": "The deployed 1.0.0 gallery passed canonical smoke and two Chromium deployment checks for revision 8654f6a4500ce210682d7cae7453553d878a714c. The broader historical engine matrix remains separate, and CI on the current revision is pending.",
     "r6LocalRegression": "Package and demo precommit, ExDoc, deterministic CSS, archive audit, isolated clean consumer, two current-identity exports, route/fragment/subpath smoke, pinned axe, visual, provenance, license, release-evidence, formatting, and SpecLed gates passed before deployment. Manual accessibility and exact clean-candidate evidence remain separate.",
-    "deployment": "The recorded Fly release serves package 0.1.0 and remains historical deployment evidence. A matching 1.0.0 gallery deployment and post-deploy smoke are pending.",
+    "deployment": "Fly release rel_76njzd0doog3yko3 serves exact revision 8654f6a4500ce210682d7cae7453553d878a714c with package and demo identity 1.0.0 from image digest sha256:0f1005b6a445b9585ad7eb0b3dc71458b625f1ef6547254cbcdab8147d0fc23d. Service health, canonical smoke, and two deployed Chromium checks pass; review, CI, and merge remain pending.",
     "publication": "Version 1.0.0 is authorized as the first public release target. Hex publication and the public tag remain pending gates; no marketplace listing, platform certification, or upstream affiliation is implied."
   }
 }

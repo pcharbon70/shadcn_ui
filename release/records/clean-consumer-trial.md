@@ -2,7 +2,7 @@
 
 `integration/clean_consumer` is a checked recipe copied into a disposable
 directory outside this repository. `scripts/run-clean-consumer.mjs` places the
-actual `shadcn_ui-0.1.0.tar` in a temporary signed Hex repository, configures an
+actual `shadcn_ui-1.0.0.tar` in a temporary signed Hex repository, configures an
 isolated Hex home, and installs `shadcn_ui` by version and repository name. The
 trial rejects a path dependency and requires Hex metadata in the installed
 dependency, so repository source, demo modules, and developer build output
@@ -19,7 +19,7 @@ claim framework/platform certification.
 Run the trial after building the archive:
 
 ```console
-node scripts/run-clean-consumer.mjs --archive /absolute/shadcn_ui-0.1.0.tar --output /absolute/evidence
+node scripts/run-clean-consumer.mjs --archive /absolute/shadcn_ui-1.0.0.tar --output /absolute/evidence
 ```
 
 No Node, npm, Tailwind, remote stylesheet, hook, or package JavaScript setup is

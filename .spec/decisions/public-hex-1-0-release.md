@@ -27,6 +27,11 @@ The first public Hex release target is `1.0.0`.
 - `mix.exs` is the authoritative version. Current consumer documentation,
   package metadata, gallery build identity, the clean-consumer fixture, and
   release-target status must agree with it.
+- A public gallery deployed for that release target must use the same version
+  in its Phoenix release metadata and repository-owned npm metadata, and must
+  report that version through health and rendered identity. Canonical smoke
+  treats any mismatch as a failed deployment that must be superseded before
+  Hex publication.
 - `1.0.0` establishes the initial stable public component, stylesheet,
   fallback, runtime-boundary, and package contracts. Later releases follow
   Semantic Versioning.

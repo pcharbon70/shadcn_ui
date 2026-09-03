@@ -8,6 +8,14 @@ defmodule ShadcnUIDemo.BuildIdentityTest do
   @revision "0123456789abcdef0123456789abcdef01234567"
   @upstream "abcdef0123456789abcdef0123456789abcdef01"
 
+  test "demo release metadata matches the ShadcnUI package version" do
+    package_version = Application.spec(:shadcn_ui, :vsn) |> to_string()
+    npm_version = "package.json" |> File.read!() |> Jason.decode!() |> Map.fetch!("version")
+
+    assert Mix.Project.config()[:version] == package_version
+    assert npm_version == package_version
+  end
+
   test "accepts explicit immutable identity and derives matching metadata" do
     assert {:ok, identity} =
              BuildIdentity.new(%{

@@ -1,69 +1,65 @@
-# Internal `0.1.0` candidate record
+# Public `1.0.0` release candidate record
 
 ## Decision
 
 Status: **BLOCKED — not qualified**.
 
-The implementation, recorded local automated acceptance, SpecLed checks,
-owner-authorized Fly deployment, canonical smoke, and deployed Chromium smoke
-pass. Qualification is still blocked because the exact current revision needs
-two clean reproducible candidate builds, all six human accessibility scenarios
-remain pending, no independent source approval is recorded, and CI has not yet
-run on the final evidence-only PR revision. The current isolated
-archive-consumer trial passes. `release/candidate-status.json` is the
-machine-readable source for this decision; pending or failed mandatory gates
-always override narrative success language.
+The implementation, current local package and demo acceptance, SpecLed checks,
+owner-authorized `1.0.0` Fly deployment, canonical smoke, and deployed Chromium
+smoke pass. Qualification is still blocked because the actual `1.0.0` archive,
+isolated consumer, two exact-toolchain reproducible builds, all six human
+accessibility scenarios, independent source approval, final-revision CI, merge,
+Hex publication, and public tag remain pending. `release/candidate-status.json`
+is the machine-readable source for this decision; pending or failed mandatory
+gates always override narrative success language.
 
 ## Recorded evidence
 
-- The reconciled working tree is based on merged main revision
-  `380f861985e05ea7de6bee1e7f261621ef968223`; it has no committed exact source
-  identity yet.
-- Its local archive build has SHA-256
-  `e9a757388369dfba10171629d8e1f3d5bcbd2413b6c176fe7ed38c4bebc80e73`
-  and 63 allowlisted entries, including the complete `LICENSE`. This is an
-  audited local build, not the required two-build reproducibility result.
+- The current evidence working tree is based on committed deployment source
+  `8654f6a4500ce210682d7cae7453553d878a714c`; later evidence changes do not
+  relabel that immutable deployed source.
+- No actual `1.0.0` archive or isolated-consumer evidence is recorded yet. The
+  earlier 63-entry local archive and consumer trial belong to `0.1.0` and do
+  not qualify the public target.
 - Compiled CSS SHA-256:
   `ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41`.
 - Historical Phase 6 evidence recorded a 62-entry archive and a passing
   three-test isolated consumer at source `3ef5f82e...`; that revision is no
   longer retrievable from current repository history and cannot qualify HEAD.
-- The current 63-entry archive compiles in an isolated Phoenix consumer, passes
-  three tests and browser acceptance, serves its packaged stylesheet, and
-  requires neither a path dependency nor package JavaScript. See
-  `release/consumer-trial-evidence.json`.
-- Locked three-engine compatibility, automated accessibility, and current
-  SpecLed evidence pass. Those results do not complete human review or final CI.
-- Fly release `rel_krm823exwop9zxw4` serves exact reviewed-workflow revision
-  `c08761f69429f88858a891584bc3962bd3109fe5` from image digest
-  `sha256:a7b6e6753075234c6760309f99c926be53f4aafee6e270088a0a95df6fc5e4cb`.
-  Initial PR CI, service health, canonical smoke, the two-test deployed
-  Chromium check, and seven response hashes pass; see
-  `release/fly-deployment-evidence.json`.
+- Locked three-engine compatibility and automated accessibility remain passing
+  implementation evidence. Current local SpecLed validation passed with zero
+  findings; those results do not complete human review or final CI.
+- Fly release `rel_76njzd0doog3yko3` serves exact revision
+  `8654f6a4500ce210682d7cae7453553d878a714c` with package and demo identity
+  `1.0.0` from image digest
+  `sha256:0f1005b6a445b9585ad7eb0b3dc71458b625f1ef6547254cbcdab8147d0fc23d`.
+  Service health, canonical smoke, and the two-test deployed Chromium check
+  pass; see `release/fly-deployment-evidence.json`.
 
-The current archive hash is provisional until two clean pinned-toolchain builds
-produce equivalent evidence.
+No current archive hash is authoritative until two clean pinned-toolchain
+builds produce equivalent `1.0.0` evidence.
 
 ## Blocking and separate gates
 
-- Exact-current-revision two-build reproducibility: pending, mandatory. The
-  archive-consumer trial passes independently.
+- Exact-current-revision two-build reproducibility, actual archive audit, and
+  isolated consumer trial: pending, mandatory.
 - Human accessibility scenarios: six pending, mandatory before qualification;
   no WCAG or assistive-technology certification is claimed.
-- CI on the final revision: pending, mandatory. Initial PR CI passed at the
-  exact deployed revision before the evidence-only commits.
-- Independent deployment source approval: pending, mandatory. PR #43 was open,
-  owner-authorized, and green before deployment, but no independent approval is
-  recorded.
-- SpecLed: passing locally with zero errors, warnings, or branch findings;
-  final-revision CI remains independent.
+- CI on the final revision: pending, mandatory. The earlier version PR failed
+  its rendered R5 comparison; the same R5 checks pass locally, but no CI result
+  exists for the deployed correction.
+- Independent deployment source approval: pending, mandatory. The owner
+  explicitly authorized deployment, but no current PR or independent approval
+  is recorded.
+- SpecLed: passing locally with zero errors, warnings, or branch findings for
+  the deployment source; final merged-source CI remains independent.
 - Fly deployment, canonical post-deploy smoke, deployed 320px geometry, direct
   fragments, category route, themes, and response hashes: passed for exact
   recorded source. Final-revision CI, independent approval, and merge remain
   separate pending states.
-- Hex publication, a public version tag, marketplace listing, consumer-platform
-  certification, and official Unscripted affiliation: not applicable and not
-  authorized for this internal candidate.
+- Hex publication and a public version tag: pending mandatory gates.
+  Marketplace listing, consumer-platform certification, and official
+  Unscripted affiliation remain not applicable and are not implied.
 
 ## Rollback and identity
 

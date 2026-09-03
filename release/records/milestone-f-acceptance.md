@@ -4,10 +4,11 @@ This is the current evidence ledger for the ShadcnUI `1.0.0` public release
 target. All requirements have explicit implementation/evidence entries, but
 release qualification is **blocked**: the version-specific archive, isolated
 consumer, exact-source reproducibility, review, final-revision CI, merge,
-matching gallery deployment, Hex publication, and public tag remain pending.
+Hex publication, and public tag remain pending. The matching `1.0.0` Fly
+deployment and post-deploy smoke now pass for the exact recorded source.
 All six mandatory manual accessibility scenarios also remain pending under the
-existing bounded waiver. The recorded `0.1.0` archive and Fly deployment are
-historical evidence and do not satisfy a `1.0.0` gate. A checked planning item
+existing bounded waiver. The recorded `0.1.0` archive evidence remains
+historical and does not satisfy a `1.0.0` gate. A checked planning item
 or historical run never substitutes for a current gate.
 
 Statuses below mean:
@@ -69,12 +70,12 @@ Statuses below mean:
 | `shadcn_ui.release_publication.version_identity` | PASSED | validated release manifest identity |
 | `shadcn_ui.release_publication.deterministic_export` | PASSED | two byte-identical versioned exports |
 | `shadcn_ui.release_publication.health_manifest` | PASSED | hashed `health.json` and `release.json` |
-| `shadcn_ui.release_publication.deployment_workflow` | IMPLEMENTED; REVIEW GATE PENDING | Fly release `rel_mr7g2md4103r2wj0` serves exact recorded source and image identity, but that source has no PR or review |
-| `shadcn_ui.release_publication.post_deploy_and_rollback` | PASSED | service health, strengthened canonical smoke, first-release rollback policy, and `release/fly-deployment-evidence.json` |
+| `shadcn_ui.release_publication.deployment_workflow` | IMPLEMENTED; REVIEW GATE PENDING | Fly release `rel_76njzd0doog3yko3` serves exact `1.0.0` source and image identity, but that source has no PR or independent review yet |
+| `shadcn_ui.release_publication.post_deploy_and_rollback` | PASSED | current service health, canonical smoke, deployed Chromium checks, failed-interim-release record, rollback policy, and `release/fly-deployment-evidence.json` |
 | `shadcn_ui.release_publication.clean_checkout` | IMPLEMENTED; GATE PENDING | historical two-build evidence passed; `1.0.0` exact-revision comparison pending |
 | `shadcn_ui.release_publication.clean_consumer_trial` | IMPLEMENTED; GATE PENDING | harness passed for `0.1.0`; `1.0.0` archive trial pending |
 | `shadcn_ui.release_publication.explicit_archive` | IMPLEMENTED; GATE PENDING | allowlist is enforced; the actual `1.0.0` archive audit is pending |
-| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected; version-specific archive, consumer, review, CI, gallery identity, Hex publication, and tag evidence pending |
+| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected and gallery identity verified; version-specific archive, consumer, review, CI, merge, Hex publication, and tag evidence pending |
 | `shadcn_ui.release_publication.truthful_gates` | PASSED | structured candidate status and this ledger |
 
 ## Documentation and regression reconciliation
@@ -102,5 +103,6 @@ package, gallery, workflow, or PR.
 The `1.0.0` release remains blocked. Build and audit its actual archive, run the
 isolated consumer, complete two clean builds against the exact final revision,
 complete all six manual scenarios, pass source review and final-revision CI,
-merge the reviewed source, and deploy and smoke a matching gallery identity.
-Only then publish Hex and create the public tag as separately recorded gates.
+and merge the reviewed source. The matching Fly deployment and smoke already
+pass. Only after the remaining gates pass may Hex publication and the public tag
+be recorded as completed.

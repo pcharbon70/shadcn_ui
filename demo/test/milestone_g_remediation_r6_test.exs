@@ -119,12 +119,13 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR6Test do
     refute @deployment["priorRelease"]["eligibleRollbackCandidate"]
     assert @deployment["rollback"]["priorReviewedSmokeVerifiedFlyRelease"] == nil
 
-    assert @fly_release["release"]["sourceRevision"] == revision
+    assert @fly_release["release"]["sourceRevision"] != revision
+    assert @fly_release["health"]["reportedPackageVersion"] == "1.0.0"
 
-    assert @fly_release["release"]["flyReleaseId"] ==
+    assert @fly_release["rollback"]["retainedPriorOperationalRelease"]["flyReleaseId"] ==
              @deployment["release"]["flyMachineReleaseId"]
 
-    assert @fly_release["release"]["imageDigest"] ==
+    assert @fly_release["rollback"]["retainedPriorOperationalRelease"]["imageDigest"] ==
              @deployment["release"]["imageDigest"]
 
     assert @deployment["separateGates"]["manualAccessibility"] ==

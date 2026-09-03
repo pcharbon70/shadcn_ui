@@ -127,7 +127,7 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
     assert gates["ci-final-revision"] == "pending"
     assert gates["deployment-source-review"] == "pending"
     assert gates["merge"] == "pending"
-    assert gates["gallery-deployment"] == "pending"
-    assert gates["post-deploy-smoke"] == "pending"
+    assert gates["gallery-deployment"] == "passed"
+    assert gates["post-deploy-smoke"] == "passed"
   end
 end
