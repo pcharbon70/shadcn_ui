@@ -127,6 +127,51 @@
     "candidateInputCheck": "passed"
   },
   "ledgerReconciliation": {
-    "status": "pending-section-1.3"
+    "status": "passed",
+    "recordedIn": [
+      "release/candidate-status.json",
+      "release/records/public-1.0.0-release-preflight.md",
+      "release/records/release-candidate.md",
+      "release/records/milestone-f-acceptance.md",
+      "RELEASE.md"
+    ],
+    "qualification": "blocked",
+    "manualAccessibility": {
+      "scenarios": 6,
+      "evidence": "pending",
+      "mandatory": false,
+      "status": "waived",
+      "conformanceClaim": "none"
+    },
+    "passedMandatoryGate": "public-release-phase-1-preflight",
+    "verification": {
+      "candidateInputCheck": "passed",
+      "focusedReleaseTests": {
+        "tests": 20,
+        "failures": 0,
+        "status": "passed"
+      },
+      "pinnedGalleryDeterminism": "passed",
+      "specLed": {
+        "base": "origin/main",
+        "errors": 0,
+        "warnings": 0,
+        "branchFindings": 0,
+        "status": "passed"
+      },
+      "diffCheck": "passed",
+      "toolchainNote": "An initial SpecLed attempt inherited unpinned Node 24.3.0 and failed gallery determinism. The same gallery check and the strict SpecLed check passed after selecting every manifest-pinned runtime; the unpinned attempt is not qualifying evidence."
+    },
+    "pendingMandatoryGates": [
+      "clean-candidate",
+      "actual-archive-consumer",
+      "specled-main-head",
+      "ci-final-revision",
+      "deployment-source-review",
+      "merge",
+      "hex-publication",
+      "public-version-tag"
+    ],
+    "section3Commit": "recorded-in-containing-commit"
   }
 }

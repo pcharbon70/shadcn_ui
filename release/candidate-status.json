@@ -12,7 +12,7 @@
     "currentSourceRevision": null,
     "currentArchiveSha256": null,
     "currentArchiveEntries": null,
-    "currentArchiveStatus": "1.0.0 selected; version-specific archive audit and isolated consumer evidence pending",
+    "currentArchiveStatus": "1.0.0 Phase 1 preflight passed; version-specific archive audit and isolated consumer evidence remain pending for Phase 2",
     "compiledCssSha256": "ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41",
     "historicalPhase6Candidate": {
       "sourceRevision": "3ef5f82e0830d34b9be16a4b6f8945bc7761d93b",
@@ -36,11 +36,24 @@
     "r6DeploymentEvidence": "demo/priv/reference/milestone_g/remediation-r6-deployment-evidence.json",
     "r6AcceptanceEvidence": "demo/priv/reference/milestone_g/remediation-r6-acceptance-evidence.json",
     "manualAccessibilityWaiverDecision": ".spec/decisions/waive-manual-accessibility-for-1-0-0.md",
+    "publicReleasePreflight": {
+      "path": "release/public-release-preflight.json",
+      "status": "passed-phase-1",
+      "branchBaseRevision": "42227ebb2892f0b98d0204786c616d0641497c3f",
+      "section1Commit": "7ba93b6ee329e1b358ca1d3821bc2e3d0379ddec",
+      "section2Commit": "20ff997ad653f5f3812927f26c516f793aa127f3",
+      "metadataAndToolchain": "passed",
+      "hexIdentity": "pcharbon70",
+      "hexPackageAvailability": "absent-at-recorded-preflight-query",
+      "replacementFlyDeploymentRequired": false
+    },
+    "browserEvidenceInput": "release/browser-evidence-inputs.json",
     "deployedRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
     "deployedPackageVersion": "1.0.0",
     "finalPhase5Revision": null
   },
   "gates": [
+    {"id": "public-release-phase-1-preflight", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "clean-candidate", "kind": "local", "mandatory": true, "status": "pending"},
     {"id": "actual-archive-consumer", "kind": "local", "mandatory": true, "status": "pending"},
     {"id": "phase-5-integration", "kind": "local", "mandatory": true, "status": "passed"},
@@ -63,6 +76,7 @@
     {"id": "official-upstream-affiliation", "kind": "affiliation", "mandatory": false, "status": "not-applicable"}
   ],
   "diagnostics": {
+    "publicReleasePreflight": "Phase 1 passed from synchronized main: the source boundary requires no replacement Fly deployment; package metadata, the release-scoped waiver, authenticated Hex identity pcharbon70, public package-name absence, and the pinned toolchain and locks agree. This preflight does not satisfy the still-pending archive, consumer, review, final-revision CI, merge, Hex, or tag gates.",
     "phase6LocalIntegration": "Package precommit passed 420 tests, demo precommit passed 168 tests, the R5 rendered comparison passed 10 browser checks, and SpecLed passed locally for the deployed 1.0.0 source. Archive, consumer, exact-toolchain, review, CI, and merge gates remain separate; manual evidence remains pending under a non-mandatory 1.0.0 waiver.",
     "cleanCandidate": "No 1.0.0 archive or isolated-consumer record exists yet. Historical 0.1.0 archive and consumer evidence cannot qualify the new release target.",
     "manualAccessibility": "All six bounded scenarios in release/records/accessibility-review.md remain PENDING and unassessed. On 2026-09-04 the release owner waived their execution for 1.0.0, so this gate is non-mandatory and does not block this release; the waiver is not a pass, WCAG conformance claim, accessibility certification, or assistive-technology support claim.",

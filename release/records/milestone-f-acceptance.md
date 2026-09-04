@@ -10,6 +10,9 @@ All six manual accessibility scenarios remain pending and unassessed, but are
 explicitly waived and non-mandatory for `1.0.0`. The recorded `0.1.0` archive
 evidence remains historical and does not satisfy a `1.0.0` gate. A checked
 planning item or historical run never substitutes for a current gate.
+The public-release Phase 1 source-boundary, metadata, authenticated Hex
+identity, package-name availability, and pinned-input preflight pass; every
+later qualification and publication gate retains its separate status.
 
 Statuses below mean:
 
@@ -77,7 +80,7 @@ Statuses below mean:
 | `shadcn_ui.release_publication.clean_checkout` | IMPLEMENTED; GATE PENDING | historical two-build evidence passed; `1.0.0` exact-revision comparison pending |
 | `shadcn_ui.release_publication.clean_consumer_trial` | IMPLEMENTED; GATE PENDING | harness passed for `0.1.0`; `1.0.0` archive trial pending |
 | `shadcn_ui.release_publication.explicit_archive` | IMPLEMENTED; GATE PENDING | allowlist is enforced; the actual `1.0.0` archive audit is pending |
-| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected and gallery identity verified; version-specific archive, consumer, review, CI, merge, Hex publication, and tag evidence pending |
+| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected; Phase 1 boundary, metadata, Hex identity/name, and pinned-input preflight pass; version-specific archive, consumer, review, CI, merge, Hex publication, and tag evidence remain pending |
 | `shadcn_ui.release_publication.truthful_gates` | PASSED | structured candidate status and this ledger |
 
 ## Documentation and regression reconciliation
@@ -107,4 +110,6 @@ isolated consumer, complete two clean builds against the exact final revision,
 pass source review and final-revision CI, and merge the reviewed source. The six
 human scenarios remain pending under their non-blocking `1.0.0` waiver. The
 matching Fly deployment and smoke already pass. Only after the remaining gates
-pass may Hex publication and the public tag be recorded as completed.
+pass may Hex publication and the public tag be recorded as completed. The
+completed Phase 1 preflight is recorded in
+`release/public-release-preflight.json`; it does not promote any later gate.

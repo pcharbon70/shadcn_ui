@@ -4,6 +4,7 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
   @root Path.expand("../..", __DIR__)
   @preflight_path Path.join(@root, "release/public-release-preflight.json")
   @preflight @preflight_path |> File.read!() |> Jason.decode!()
+  @candidate Path.join(@root, "release/candidate-status.json") |> File.read!() |> Jason.decode!()
 
   # covers: shadcn_ui.release_publication.deployment_workflow
   # covers: shadcn_ui.release_publication.public_release_target
@@ -146,5 +147,59 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     refute browser["lockRelationship"]["browserDependencyGraphChanged"]
     refute browser["lockRelationship"]["runtimeOrGalleryBehaviorChanged"]
     assert browser["qualificationBoundary"]["finalBrowserAcceptance"] == "pending-phase-2"
+  end
+
+  test "section 1.3 reconciles Phase 1 while every later mandatory gate stays separate" do
+    reconciliation = @preflight["ledgerReconciliation"]
+    gates = Map.new(@candidate["gates"], &{&1["id"], &1})
+
+    assert reconciliation["status"] == "passed"
+    assert reconciliation["qualification"] == "blocked"
+
+    assert reconciliation["verification"]["focusedReleaseTests"] == %{
+             "failures" => 0,
+             "status" => "passed",
+             "tests" => 20
+           }
+
+    assert reconciliation["verification"]["specLed"] == %{
+             "base" => "origin/main",
+             "branchFindings" => 0,
+             "errors" => 0,
+             "status" => "passed",
+             "warnings" => 0
+           }
+
+    assert gates["public-release-phase-1-preflight"]["status"] == "passed"
+    assert gates["public-release-phase-1-preflight"]["mandatory"]
+
+    for id <- reconciliation["pendingMandatoryGates"] do
+      assert gates[id]["status"] == "pending"
+      assert gates[id]["mandatory"]
+    end
+
+    manual = reconciliation["manualAccessibility"]
+    assert manual["evidence"] == "pending"
+    refute manual["mandatory"]
+    assert manual["status"] == "waived"
+    assert gates["manual-accessibility"]["status"] == "waived"
+    refute gates["manual-accessibility"]["mandatory"]
+    refute @candidate["qualification"]["qualified"]
+    assert @candidate["qualification"]["status"] == "blocked"
+  end
+
+  test "section 1.3 keeps Phase 1 evidence discoverable and publication absent" do
+    preflight = @candidate["evidence"]["publicReleasePreflight"]
+    plan = File.read!(Path.join(@root, ".spec/planning/public-hex-1-0-0-release/README.md"))
+
+    assert preflight["path"] == "release/public-release-preflight.json"
+    assert preflight["status"] == "passed-phase-1"
+    refute preflight["replacementFlyDeploymentRequired"]
+    assert plan =~ "- [x] 1 Phase - Establish release authority and freeze inputs."
+    assert plan =~ "- [x] 1.3 Section - Reconcile the pre-publication ledger."
+    assert plan =~ "- [ ] 2.1 Section - Produce preliminary clean candidate evidence."
+
+    assert Map.new(@candidate["gates"], &{&1["id"], &1["status"]})["hex-publication"] ==
+             "pending"
   end
 end

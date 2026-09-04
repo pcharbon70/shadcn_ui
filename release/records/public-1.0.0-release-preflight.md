@@ -62,3 +62,35 @@ availability before any irreversible command.
 
 No Hex API key or other credential value was printed into or stored by this
 record. Section 1.3 and every later release gate remain pending.
+
+## Section 1.3 - Pre-publication ledger reconciliation
+
+Phase 1 is complete and the `public-release-phase-1-preflight` mandatory gate
+is `passed`. The source boundary is recorded in Section 1.1 commit
+`7ba93b6ee329e1b358ca1d3821bc2e3d0379ddec`; metadata, registry authority, and
+candidate inputs are recorded in Section 1.2 commit
+`20ff997ad653f5f3812927f26c516f793aa127f3`. This section is recorded in its
+containing commit because a commit cannot truthfully contain its own ID.
+
+Candidate qualification remains **blocked**. The exact `1.0.0` clean candidate,
+actual archive consumer, exact-final-main SpecLed/CI, independent source
+approval, qualification merge, Hex publication, and `v1.0.0` tag gates remain
+pending and mandatory. Phase 1 creates no archive, publishes nothing, and does
+not select `RELEASE_SHA`.
+
+All six human accessibility scenarios remain `PENDING` and unassessed. Their
+gate remains `mandatory: false` and `waived` for `1.0.0`, with no WCAG,
+certification, physical-device, or assistive-technology support claim.
+
+The current Fly deployment and canonical smoke remain separate passing
+evidence. The Phase 1 inventory requires no replacement deployment; Phase 4
+must still recheck public identity and smoke before publication.
+
+The exact candidate-input check, 20 focused release tests, pinned gallery
+determinism, `mix spec.next`, strict `mix spec.check --base origin/main`, and
+`git diff --check` pass. SpecLed reports zero errors, warnings, or branch
+findings. An initial SpecLed attempt inherited unpinned Node `24.3.0` and failed
+gallery determinism; the same gallery check and strict SpecLed run passed after
+all manifest-pinned runtimes were selected. The unpinned attempt is retained as
+a diagnostic, not qualifying evidence. These phase-ending results apply only
+to this branch and do not satisfy the final merged-source or CI gates.
