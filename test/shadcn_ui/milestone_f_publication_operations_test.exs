@@ -54,9 +54,9 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
     assert @deployment["release"]["status"] == "passed"
 
     assert @deployment["release"]["sourceRevision"] ==
-             "c08761f69429f88858a891584bc3962bd3109fe5"
+             "8654f6a4500ce210682d7cae7453553d878a714c"
 
-    assert @deployment["release"]["flyReleaseId"] == "rel_krm823exwop9zxw4"
+    assert @deployment["release"]["flyReleaseId"] == "rel_76njzd0doog3yko3"
     assert @deployment["release"]["imageDigest"] =~ ~r/^sha256:[0-9a-f]{64}$/
     assert @deployment["health"]["status"] == "passed"
     assert @deployment["canonicalSmoke"]["status"] == "passed"
@@ -65,9 +65,8 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
     assert @deployment["health"]["reportedSourceRevision"] == release_revision
     assert @deployment["canonicalSmoke"]["expectedRevision"] == release_revision
     assert @status["evidence"]["deployedRevision"] == release_revision
-    assert @deployment["health"]["reportedPackageVersion"] == "0.1.0"
-    assert @deployment["health"]["reportedPackageVersion"] != Mix.Project.config()[:version]
-    assert @status["evidence"]["deployedPackageVersion"] == "0.1.0"
+    assert @deployment["health"]["reportedPackageVersion"] == Mix.Project.config()[:version]
+    assert @status["evidence"]["deployedPackageVersion"] == "1.0.0"
     assert @deployment["health"]["reportedCatalogueSchema"] == "1"
 
     assert @deployment["health"]["reportedUpstreamRevision"] ==
@@ -83,11 +82,11 @@ defmodule ShadcnUI.MilestoneFPublicationOperationsTest do
       |> Base.encode16(case: :lower)
 
     assert verifier["sha256"] == actual_verifier_sha
-    assert @deployment["externalGates"]["pullRequest"] == "open"
+    assert @deployment["externalGates"]["pullRequest"] == "not-opened-current-revision"
     assert @deployment["externalGates"]["sourceReview"] == "pending-independent-approval"
-    assert @deployment["externalGates"]["initialRevisionCi"] == "passed"
+    assert @deployment["externalGates"]["initialRevisionCi"] == "not-run-current-revision"
     assert @deployment["externalGates"]["finalRevisionCi"] == "pending"
-    assert @deployment["externalGates"]["merge"] == "authorized-pending"
+    assert @deployment["externalGates"]["merge"] == "pending"
     assert @deployment["rollback"]["priorReviewedSmokeVerifiedFlyRelease"] == nil
     assert @deployment["rollback"]["status"] == "no-prior-reviewed-rollback-candidate"
 

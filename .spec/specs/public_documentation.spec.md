@@ -98,6 +98,9 @@ Public documentation now names `1.0.0` as the first Hex release target while
 stating that it is not yet published. Historical `0.1.0` candidate and Fly
 evidence remains explicitly historical and cannot establish current release
 availability.
+The canonical Fly gallery now reports package and demo identity `1.0.0` for its
+exact recorded source. Public documentation still describes Hex availability
+as pending and does not infer release qualification from the operational demo.
 
 The top-level README is the consumer-oriented package overview. Detailed
 functionality, supported options, fallbacks and per-control HEEX examples live
@@ -122,6 +125,9 @@ release and image digest, canonical smoke and deployed-browser results, and
 response hashes. Candidate-facing documentation keeps the exact clean build,
 six manual scenarios, independent source approval, final evidence CI and merge
 states distinct instead of inferring qualification from a healthy deployment.
+The current deployment record supersedes the gallery version identity only;
+the phase-specific R6 evidence remains historical and the same release gates
+stay independent.
 
 ```spec-verification
 - kind: test_file

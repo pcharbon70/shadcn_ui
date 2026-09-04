@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, manual accessibility, review, CI, merge, gallery-identity, Hex publication, and public-tag gates are not all passing.",
+               "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, manual accessibility, review, CI, merge, Hex publication, and public-tag gates are not all passing.",
              "status" => "blocked"
            }
 

@@ -9,35 +9,35 @@
   },
   "release": {
     "status": "passed",
-    "sourceRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
-    "flyReleaseId": "rel_krm823exwop9zxw4",
-    "flyApiReleaseId": "mVmJ51Aww6Om7H9pekANpOY8A",
-    "flyReleaseVersion": 3,
-    "imageRef": "registry.fly.io/pcharbon70-shadcn-ui-demo:deployment-01M1KJGPC4Y34QM7HQR5XBZZV0",
-    "imageDigest": "sha256:a7b6e6753075234c6760309f99c926be53f4aafee6e270088a0a95df6fc5e4cb"
+    "sourceRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
+    "flyReleaseId": "rel_76njzd0doog3yko3",
+    "flyApiReleaseId": "l8w0PB4QQoOwMTV4ml1xywk2",
+    "flyReleaseVersion": 5,
+    "imageRef": "registry.fly.io/pcharbon70-shadcn-ui-demo:deployment-01M1M3FVRWQ9J47BE6QP5C5GF6",
+    "imageDigest": "sha256:0f1005b6a445b9585ad7eb0b3dc71458b625f1ef6547254cbcdab8147d0fc23d"
   },
   "reviewedWorkflow": {
-    "status": "passed-owner-authorized-pr-and-green-ci",
-    "pullRequest": "https://github.com/pcharbon70/shadcn_ui/pull/43",
-    "workflowRun": "https://github.com/pcharbon70/shadcn_ui/actions/runs/33751442399",
+    "status": "passed-owner-authorized-local-verification-review-pending",
+    "pullRequest": null,
+    "workflowRun": null,
     "independentApproval": "not-recorded"
   },
   "health": {
     "status": "passed",
     "serviceCheck": "1-passing",
     "path": "/healthz",
-    "reportedSourceRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
-    "reportedPackageVersion": "0.1.0",
+    "reportedSourceRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
+    "reportedPackageVersion": "1.0.0",
     "reportedCatalogueSchema": "1",
     "reportedUpstreamRevision": "bd8f403030c8d1f46804da6eda733fde7e908e63"
   },
   "canonicalSmoke": {
     "status": "passed",
     "command": "npm --prefix demo run smoke:fly",
-    "expectedRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+    "expectedRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
     "verifier": {
       "path": "demo/scripts/smoke-fly-gallery.mjs",
-      "sourceRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+      "sourceRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
       "sha256": "4bace666fe7b42e5cf34efcc9baaf50ff256f91972f8320d7729ffa2db40763d"
     },
     "checks": [
@@ -54,10 +54,12 @@
   },
   "deployedBrowserSmoke": {
     "status": "passed",
+    "command": "npm run browser:milestone-g-remediation-r6-deployed",
+    "expectedRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
     "tests": 2,
     "failures": 0,
     "browser": "chromium-151.0.7922.34",
-    "evidence": "demo/priv/reference/milestone_g/remediation-r6-deployment-evidence.json"
+    "evidence": "release/fly-deployment-evidence.json"
   },
   "staticEvidenceBoundary": {
     "status": "passed-separately",
@@ -73,21 +75,30 @@
     "note": "Deterministic static-export evidence remains separate from Fly runtime evidence."
   },
   "externalGates": {
-    "pullRequest": "open",
+    "pullRequest": "not-opened-current-revision",
     "sourceReview": "pending-independent-approval",
-    "initialRevisionCi": "passed",
+    "initialRevisionCi": "not-run-current-revision",
     "finalRevisionCi": "pending",
-    "merge": "authorized-pending",
+    "merge": "pending",
     "manualAccessibility": "pending-risk-accepted"
   },
   "rollback": {
     "priorReviewedSmokeVerifiedFlyRelease": null,
     "status": "no-prior-reviewed-rollback-candidate",
+    "supersededFailedSmokeRelease": {
+      "sourceRevision": "fe40eae63504adc4375aead4f0e741f158a4d86e",
+      "flyReleaseId": null,
+      "flyApiReleaseId": "vOjyazkKK28j5u2Geoaa7409",
+      "flyReleaseVersion": 4,
+      "imageDigest": "sha256:cc65d194221ea19e227b60fa972926f025653ba340bb91ebe4cbf752f4fea57c",
+      "failure": "canonical smoke rejected demo metadata 0.1.0 against deployed package identity 1.0.0",
+      "eligible": false
+    },
     "retainedPriorOperationalRelease": {
-      "sourceRevision": "bb422d815683d2b6e1cd81e887b67791ac1cb92a",
-      "flyReleaseId": "rel_mr7g2md4103r2wj0",
-      "flyReleaseVersion": 2,
-      "imageDigest": "sha256:83decff9d414c27da8a38661a1aff4efa98d085d0970930b3bc2f0d36f72289f",
+      "sourceRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
+      "flyReleaseId": "rel_krm823exwop9zxw4",
+      "flyReleaseVersion": 3,
+      "imageDigest": "sha256:a7b6e6753075234c6760309f99c926be53f4aafee6e270088a0a95df6fc5e4cb",
       "eligible": false
     },
     "policy": "Select only an authorized release whose source review, immutable identity, and canonical smoke are all recorded."

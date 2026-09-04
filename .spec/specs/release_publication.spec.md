@@ -98,6 +98,13 @@ surface:
 Verification files carry explicit `covers` annotations so declared proof remains
 bidirectionally traceable without changing this subject's release contract.
 
+The current owner-authorized Fly release binds package and demo version `1.0.0`
+to exact source revision `8654f6a4500ce210682d7cae7453553d878a714c`, Fly
+release `rel_76njzd0doog3yko3`, immutable image digest, passing service health,
+canonical smoke, and two deployed Chromium checks. Its source review, CI, and
+merge remain pending, so the successful deployment does not qualify or publish
+the Hex candidate.
+
 The category-oriented user guides extend generated ExDoc navigation only. They
 do not change the candidate version, archive allowlist, deployment inputs,
 qualification gates or the distinction between generated documentation and

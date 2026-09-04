@@ -66,16 +66,16 @@ defmodule ShadcnUI.MilestoneGPhase8AcceptanceTest do
     assert evidence["specLed"]["mainAfterMerge"] == "pending"
   end
 
-  test "later Fly success does not close the reviewed publication phase" do
+  test "current Fly success does not close the reviewed publication phase" do
     deployment = @deployment |> File.read!() |> Jason.decode!()
     plan = File.read!(@plan)
 
     assert deployment["release"]["status"] == "passed"
     assert deployment["canonicalSmoke"]["status"] == "passed"
-    assert deployment["externalGates"]["pullRequest"] == "open"
-    assert deployment["externalGates"]["initialRevisionCi"] == "passed"
+    assert deployment["externalGates"]["pullRequest"] == "not-opened-current-revision"
+    assert deployment["externalGates"]["initialRevisionCi"] == "not-run-current-revision"
     assert deployment["externalGates"]["finalRevisionCi"] == "pending"
-    assert deployment["externalGates"]["merge"] == "authorized-pending"
+    assert deployment["externalGates"]["merge"] == "pending"
     assert plan =~ "- [ ] 8 Phase - Visual Acceptance And Versioned Publication."
     assert plan =~ "- [ ] 8.3.2.1 Subtask - Publish only through the reviewed workflow"
   end

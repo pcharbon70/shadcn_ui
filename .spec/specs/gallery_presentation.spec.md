@@ -98,8 +98,10 @@ surface:
 
 ## Verification
 
-The shell assertion now expects package identity `1.0.0`; this version-only
-change does not alter the gallery presentation or responsive behavior.
+The gallery shell, demo application metadata, and public health identity now
+agree on version `1.0.0`. The aligned version does not alter the presentation
+or responsive behavior; the current Fly release separately proves the existing
+320px navigation and Accordion geometry against its exact source revision.
 
 Targets are assigned by the Milestone G coverage map. A listed later-phase
 target is planned proof, not evidence that the migration or publication exists.
@@ -127,6 +129,10 @@ and overflow, Foundation category rendering, theme selection, direct source and
 preview fragments, and exact health revision checks. Deployment remains distinct
 from manual accessibility, final-evidence CI, independent review, merge and
 candidate qualification.
+The later `1.0.0` Fly release preserves the same separation while recording a
+new exact source, image digest, canonical smoke, and two passing deployed
+Chromium checks. Its successful presentation does not promote pending review,
+CI, merge, manual-accessibility, archive, consumer, Hex, or tag gates.
 
 ```spec-verification
 - kind: test_file

@@ -44,8 +44,8 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
     assert gates["manual-accessibility"] == "pending"
     assert gates["ci-final-revision"] == "pending"
     assert gates["deployment-source-review"] == "pending"
-    assert gates["gallery-deployment"] == "pending"
-    assert gates["post-deploy-smoke"] == "pending"
+    assert gates["gallery-deployment"] == "passed"
+    assert gates["post-deploy-smoke"] == "passed"
   end
 
   test "release-facing documents agree on boundaries and deferred work" do
