@@ -78,17 +78,17 @@ avoids changing the commit merely to record proof about that commit.
 
 ## Phase 1 - Establish release authority and freeze inputs
 
-- [ ] 1.1 Section - Synchronize and define the candidate boundary.
+- [x] 1.1 Section - Synchronize and define the candidate boundary.
 
-  - [ ] Start from a clean, synchronized `main` and create one `codex/`
+  - [x] Start from a clean, synchronized `main` and create one `codex/`
     qualification branch.
-  - [ ] Record the branch base, intended review method, publication owner, Hex
+  - [x] Record the branch base, intended review method, publication owner, Hex
     account or organization, package name `shadcn_ui`, and target `1.0.0`.
-  - [ ] Inventory all changes since the deployed gallery revision. If a change
+  - [x] Inventory all changes since the deployed gallery revision. If a change
     affects package runtime, public CSS, gallery output, or version identity,
     require a replacement Fly deployment and canonical smoke. Documentation-
     or evidence-only changes do not by themselves require redeployment.
-  - [ ] Keep the working tree free of generated archives, docs, build output,
+  - [x] Keep the working tree free of generated archives, docs, build output,
     credentials, and evidence secrets.
 
 - [ ] 1.2 Section - Verify release metadata and authority.

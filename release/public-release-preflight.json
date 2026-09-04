@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "release": {
+    "package": "shadcn_ui",
+    "version": "1.0.0",
+    "qualificationBranch": "codex/public-1-0-0-release-phase-1",
+    "branchBaseRevision": "42227ebb2892f0b98d0204786c616d0641497c3f"
+  },
+  "authority": {
+    "releaseOwner": "pcharbon70",
+    "intendedHexAccount": "pcharbon70",
+    "hexOrganization": null,
+    "reviewMethod": "approving GitHub review",
+    "independentReviewerRequired": true,
+    "hexIdentityVerification": "pending-section-1.2",
+    "hexPackageAvailability": "pending-section-1.2"
+  },
+  "sourceBoundary": {
+    "deployedRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
+    "comparedThroughRevision": "42227ebb2892f0b98d0204786c616d0641497c3f",
+    "commitCount": 7,
+    "changedFileCount": 34,
+    "changedFilesSha256": "9a7de94adecb93f4db0c2c776920a769f67a5006d25367f4cb12b05246e5f1ec",
+    "changedFiles": [
+      ".spec/decisions/README.md",
+      ".spec/decisions/public-hex-1-0-release.md",
+      ".spec/decisions/waive-manual-accessibility-for-1-0-0.md",
+      ".spec/planning/milestone-f-online-gallery-documentation-and-release-acceptance/README.md",
+      ".spec/planning/milestone-f-online-gallery-documentation-and-release-acceptance/coverage-map.md",
+      ".spec/planning/milestone-f-online-gallery-documentation-and-release-acceptance/phase-06-versioned-publication-and-milestone-acceptance.md",
+      ".spec/planning/public-hex-1-0-0-release/README.md",
+      ".spec/specs/README.md",
+      ".spec/specs/compatibility_accessibility.spec.md",
+      ".spec/specs/gallery_presentation.spec.md",
+      ".spec/specs/public_documentation.spec.md",
+      ".spec/specs/release_publication.spec.md",
+      ".spec/state.json",
+      "RELEASE.md",
+      "demo/priv/reference/milestone_g/remediation-r6-deployment-evidence.json",
+      "demo/test/build_identity_test.exs",
+      "demo/test/milestone_g_remediation_r6_test.exs",
+      "release/candidate-status.json",
+      "release/fly-deployment-evidence.json",
+      "release/records/accessibility-review.md",
+      "release/records/clean-consumer-trial.md",
+      "release/records/milestone-f-acceptance.md",
+      "release/records/release-candidate.md",
+      "release/records/reproducible-candidate.md",
+      "scripts/check-milestone-g-r6-acceptance.mjs",
+      "scripts/check-milestone-g-r6-deployment.mjs",
+      "scripts/check-milestone-g-r6-manual-risk.mjs",
+      "scripts/check-milestone-g-r6-regression.mjs",
+      "test/shadcn_ui/milestone_f_acceptance_test.exs",
+      "test/shadcn_ui/milestone_f_final_documentation_test.exs",
+      "test/shadcn_ui/milestone_f_phase6_acceptance_test.exs",
+      "test/shadcn_ui/milestone_f_publication_operations_test.exs",
+      "test/shadcn_ui/milestone_f_release_test.exs",
+      "test/shadcn_ui/milestone_g_phase8_acceptance_test.exs"
+    ],
+    "classifications": [
+      "specification-and-planning",
+      "release-and-deployment-evidence",
+      "verification-scripts",
+      "tests"
+    ],
+    "materialGalleryOrPackageChange": false,
+    "replacementFlyDeploymentRequired": false,
+    "rationale": "No package module, compiled package CSS, gallery runtime/template/asset, version metadata, dependency manifest, or dependency lock changed after the deployed revision."
+  },
+  "workingTree": {
+    "cleanAtSectionStart": true,
+    "generatedArchivesTracked": false,
+    "generatedDocsTracked": false,
+    "credentialsTracked": false,
+    "evidenceSecretsTracked": false
+  },
+  "metadataAndToolchain": {
+    "status": "pending-section-1.2"
+  },
+  "ledgerReconciliation": {
+    "status": "pending-section-1.3"
+  }
+}
