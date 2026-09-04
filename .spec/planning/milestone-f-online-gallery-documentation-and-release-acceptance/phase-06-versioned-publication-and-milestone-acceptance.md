@@ -81,7 +81,7 @@ deterministic static export remains verified evidence and a portable fallback.
 
       - [x] 6.4.1.1 Subtask - Add milestone_f_acceptance and release tests covering every specification ID, catalogue relationship, evidence state and absent runtime/consumer target.
       - [x] 6.4.1.2 Subtask - Run package/demo precommit, warning-free ExDoc, deterministic CSS/export, provenance/license, actual archive and clean consumer checks from a fresh checkout.
-      - [ ] 6.4.1.3 Subtask - Run all A-F browser suites in locked engines, static-subpath smoke, required manual review and canonical post-deploy smoke after the reviewed publication occurs.
+      - [ ] 6.4.1.3 Subtask - Run all A-F browser suites in locked engines, static-subpath smoke, record the release-specific manual-review disposition, and run canonical post-deploy smoke after the reviewed publication occurs.
 
     - [x] 6.4.2 Task - Record final evidence and delivery state.
 
@@ -156,3 +156,8 @@ external gates are not rewritten as if they had passed at the time.
   internal candidate remains blocked. Operational deployment success does not
   satisfy source review or promote merge, CI, manual review, Hex publication,
   or a public version tag.
+- On 2026-09-04 the release owner waived execution of the six human scenarios
+  for `1.0.0` only. They remain pending and unassessed, but are non-mandatory and
+  no longer block this public release. This does not change the automated
+  accessibility, isolated consumer, archive, reproducibility, review, CI,
+  merge, Hex, or tag gates.

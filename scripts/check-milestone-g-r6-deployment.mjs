@@ -55,7 +55,13 @@ assert(evidence.deployedBrowser.status === "passed", "deployed browser smoke fai
 assert(evidence.deployedBrowser.tests === 2, "deployed browser test count drifted");
 assert(evidence.deployedBrowser.failures === 0, "deployed browser failures were recorded");
 assert(
-  sha256(evidence.deployedBrowser.config.path) === evidence.deployedBrowser.config.sha256,
+  evidence.deployedBrowser.config.relocation.revision ===
+    "23598d7072a507264c0d032375b5f42165c70ddf",
+  "deployed browser config relocation revision drifted",
+);
+assert(
+  sha256(evidence.deployedBrowser.config.path) ===
+    evidence.deployedBrowser.config.relocation.sha256,
   "deployed browser config drifted",
 );
 assert(
@@ -70,10 +76,20 @@ assert(
   "a deployed response is not a hashed success",
 );
 
-assert(release.release.sourceRevision === revision, "release record revision drifted");
-assert(release.release.flyReleaseId === evidence.release.flyMachineReleaseId, "Fly release IDs disagree");
-assert(release.release.imageDigest === evidence.release.imageDigest, "Fly image digests disagree");
-assert(release.health.reportedSourceRevision === revision, "health revision drifted");
+const retainedR6Release = release.rollback.retainedPriorOperationalRelease;
+assert(retainedR6Release.sourceRevision === revision, "retained R6 release revision drifted");
+assert(
+  retainedR6Release.flyReleaseId === evidence.release.flyMachineReleaseId,
+  "retained R6 Fly release IDs disagree",
+);
+assert(
+  retainedR6Release.imageDigest === evidence.release.imageDigest,
+  "retained R6 Fly image digests disagree",
+);
+assert(
+  release.health.reportedSourceRevision === release.release.sourceRevision,
+  "current health revision drifted",
+);
 assert(release.canonicalSmoke.status === "passed", "release canonical smoke failed");
 assert(release.deployedBrowserSmoke.status === "passed", "release browser smoke failed");
 assert(release.rollback.priorReviewedSmokeVerifiedFlyRelease === null, "release record invents rollback");

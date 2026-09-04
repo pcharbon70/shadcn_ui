@@ -32,20 +32,21 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
 
   test "candidate status blocks qualification and agrees with the ledger" do
     status = Jason.decode!(File.read!("release/candidate-status.json"))
-    gates = Map.new(status["gates"], &{&1["id"], &1["status"]})
+    gates = Map.new(status["gates"], &{&1["id"], &1})
 
     assert status["evidence"]["milestoneFRequirements"] == 38
     assert status["evidence"]["milestoneFRequirementsImplemented"] == 38
     assert status["evidence"]["milestoneFManualRequirementsPending"] == 1
     refute status["qualification"]["qualified"]
-    assert gates["phase-6-local-integration"] == "passed"
-    assert gates["clean-candidate"] == "pending"
-    assert gates["actual-archive-consumer"] == "pending"
-    assert gates["manual-accessibility"] == "pending"
-    assert gates["ci-final-revision"] == "pending"
-    assert gates["deployment-source-review"] == "pending"
-    assert gates["gallery-deployment"] == "passed"
-    assert gates["post-deploy-smoke"] == "passed"
+    assert gates["phase-6-local-integration"]["status"] == "passed"
+    assert gates["clean-candidate"]["status"] == "pending"
+    assert gates["actual-archive-consumer"]["status"] == "pending"
+    assert gates["manual-accessibility"]["status"] == "waived"
+    refute gates["manual-accessibility"]["mandatory"]
+    assert gates["ci-final-revision"]["status"] == "pending"
+    assert gates["deployment-source-review"]["status"] == "pending"
+    assert gates["gallery-deployment"]["status"] == "passed"
+    assert gates["post-deploy-smoke"]["status"] == "passed"
   end
 
   test "release-facing documents agree on boundaries and deferred work" do

@@ -7,11 +7,13 @@ Status: **BLOCKED — not qualified**.
 The implementation, current local package and demo acceptance, SpecLed checks,
 owner-authorized `1.0.0` Fly deployment, canonical smoke, and deployed Chromium
 smoke pass. Qualification is still blocked because the actual `1.0.0` archive,
-isolated consumer, two exact-toolchain reproducible builds, all six human
-accessibility scenarios, independent source approval, final-revision CI, merge,
-Hex publication, and public tag remain pending. `release/candidate-status.json`
-is the machine-readable source for this decision; pending or failed mandatory
-gates always override narrative success language.
+isolated consumer, two exact-toolchain reproducible builds, independent source
+approval, final-revision CI, merge, Hex publication, and public tag remain
+pending. All six human accessibility scenarios also remain unexecuted, but are
+explicitly waived and non-mandatory for `1.0.0`.
+`release/candidate-status.json` is the machine-readable source for this
+decision; pending or failed mandatory gates always override narrative success
+language.
 
 ## Recorded evidence
 
@@ -43,8 +45,9 @@ builds produce equivalent `1.0.0` evidence.
 
 - Exact-current-revision two-build reproducibility, actual archive audit, and
   isolated consumer trial: pending, mandatory.
-- Human accessibility scenarios: six pending, mandatory before qualification;
-  no WCAG or assistive-technology certification is claimed.
+- Human accessibility scenarios: six pending and unassessed, but explicitly
+  waived and non-mandatory for `1.0.0`; no WCAG, accessibility-certification,
+  physical-device, or assistive-technology support claim is made.
 - CI on the final revision: pending, mandatory. The earlier version PR failed
   its rendered R5 comparison; the same R5 checks pass locally, but no CI result
   exists for the deployed correction.

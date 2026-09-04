@@ -58,8 +58,8 @@ defmodule ShadcnUIDemo.MilestoneGRemediationR6Test do
     manual_gate =
       Enum.find(@candidate["gates"], fn gate -> gate["id"] == "manual-accessibility" end)
 
-    assert manual_gate["mandatory"]
-    assert manual_gate["status"] == "pending"
+    refute manual_gate["mandatory"]
+    assert manual_gate["status"] == "waived"
   end
 
   test "R6.2 records the complete local regression without promoting external gates" do

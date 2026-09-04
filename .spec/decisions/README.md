@@ -65,6 +65,7 @@ add no component family, package runtime, transport or consumer-platform target.
 ## Public release decisions
 
 1. [Promote the first public Hex release to 1.0.0](./public-hex-1-0-release.md)
+2. [Waive manual accessibility execution for the 1.0.0 release](./waive-manual-accessibility-for-1-0-0.md)
 
 ## Milestone G decisions
 

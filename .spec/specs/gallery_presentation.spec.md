@@ -132,7 +132,10 @@ candidate qualification.
 The later `1.0.0` Fly release preserves the same separation while recording a
 new exact source, image digest, canonical smoke, and two passing deployed
 Chromium checks. Its successful presentation does not promote pending review,
-CI, merge, manual-accessibility, archive, consumer, Hex, or tag gates.
+CI, merge, manual-accessibility evidence, archive, consumer, Hex, or tag gates.
+The release-scoped manual waiver makes the unexecuted human scenarios
+non-blocking for `1.0.0`; it does not promote that presentation evidence or
+claim conformance.
 
 ```spec-verification
 - kind: test_file

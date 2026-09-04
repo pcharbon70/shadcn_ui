@@ -74,6 +74,21 @@ canonical smoke, and deployed Chromium checks. This later operational result
 also leaves every manual scenario pending and makes no accessibility
 conformance claim.
 
+## 1.0.0 public release waiver
+
+On 2026-09-04 the release owner explicitly decided not to execute any of the
+six human scenarios for `1.0.0`. Their release gate is therefore `WAIVED` and
+non-mandatory for this release only. Qualification and Hex publication may
+proceed when every other mandatory gate passes.
+
+Every scenario below remains `PENDING`: no human observation, defect
+assessment, or passing retest is inferred. The waiver makes no WCAG
+conformance, accessibility certification, physical-device, native
+high-contrast, or assistive-technology support claim. Automated accessibility
+and explicit browser checks remain mandatory, as does the unrelated isolated
+Phoenix archive-consumer trial. A later release must record its own manual
+accessibility disposition.
+
 ## Manual scenario ledger
 
 ### MAN-01 — Keyboard traversal and visible focus
@@ -163,10 +178,9 @@ conformance claim.
 ## Qualification gate
 
 The automated Milestone F accessibility gate currently passes. Human manual
-review remains open because every `MAN-*` scenario is `PENDING`. A release or
-publication record may describe the automated evidence, but it must not state
-that manual accessibility acceptance or WCAG certification is complete. Before
-qualification, the release owner must define which manual scenarios are
-mandatory for that candidate, assign reviewers and devices, resolve mandatory
-defects, and record passing retests. Unexecuted platforms remain pending rather
-than being represented as failures or successes.
+review remains open because every `MAN-*` scenario is `PENDING`. For `1.0.0`
+only, the explicit owner waiver above makes this gate non-mandatory, so it does
+not block qualification. A release or publication record must not state
+that manual accessibility acceptance or WCAG certification is complete.
+Unexecuted platforms remain pending rather than being represented as failures
+or successes.

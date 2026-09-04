@@ -93,9 +93,15 @@
     "failures": 0,
     "config": {
       "path": "test/browser/configs/playwright.milestone-g-remediation-r6-deployed.config.mjs",
+      "originalPath": "playwright.milestone-g-remediation-r6-deployed.config.mjs",
       "sourceRevision": null,
       "workingTreeBaseRevision": "c08761f69429f88858a891584bc3962bd3109fe5",
-      "sha256": "5f282226f86ea0ff000dae50788ddf1af84a759178bdab64dac901aee72248fe"
+      "sha256": "5f282226f86ea0ff000dae50788ddf1af84a759178bdab64dac901aee72248fe",
+      "relocation": {
+        "revision": "23598d7072a507264c0d032375b5f42165c70ddf",
+        "sha256": "42a261245ced80ee35d7d79887ad06105053b8eca33b6b48231c28115a8e68a3",
+        "scope": "repository path relocation and relative locator updates only"
+      }
     },
     "test": {
       "path": "test/browser/milestone-g-remediation-r6-deployed.spec.mjs",

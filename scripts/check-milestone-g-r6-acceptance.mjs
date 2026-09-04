@@ -10,6 +10,7 @@ const deployment = readJson(
   "demo/priv/reference/milestone_g/remediation-r6-deployment-evidence.json",
 );
 const candidate = readJson("release/candidate-status.json");
+const currentDeployment = readJson("release/fly-deployment-evidence.json");
 const plan = readFileSync(
   join(
     root,
@@ -53,10 +54,14 @@ assert(acceptance.remainingMandatoryCandidateBlockers.length === 4, "candidate b
 
 assert(candidate.qualification.status === "blocked", "candidate qualification is not blocked");
 assert(candidate.qualification.qualified === false, "candidate was qualified");
-assert(candidate.evidence.deployedRevision === acceptance.deployment.sourceRevision, "candidate deployment revision drifted");
 assert(
-  candidate.gates.find((gate) => gate.id === "manual-accessibility")?.status === "pending",
-  "candidate manual gate was promoted",
+  candidate.evidence.deployedRevision === currentDeployment.release.sourceRevision,
+  "current candidate deployment revision drifted",
+);
+const currentManualGate = candidate.gates.find((gate) => gate.id === "manual-accessibility");
+assert(
+  currentManualGate?.status === "waived" && currentManualGate.mandatory === false,
+  "the later 1.0.0 manual waiver is not recorded",
 );
 assert(
   candidate.gates.find((gate) => gate.id === "ci-final-revision")?.status === "pending",
