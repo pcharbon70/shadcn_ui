@@ -44,3 +44,42 @@ in the external evidence directory, bound by record SHA-256
 The final clean-consumer gate now passes. Hex publication and the public tag
 remain pending, and Section 4.3 must still assemble and verify the go/no-go
 packet before publication authorization can be requested.
+
+## Section 4.3 - Final go/no-go packet
+
+At `2026-09-04T16:49:27Z`, the canonical Fly smoke passed again for public
+gallery version `1.0.0` and recorded deployed revision
+`8654f6a4500ce210682d7cae7453553d878a714c`. Phase 1 found no later package,
+compiled-CSS, gallery-runtime, asset, dependency, or version-identity change,
+so no replacement Fly deployment is required. A fresh official Hex client
+query returned `No package with name shadcn_ui`.
+
+`release/public-release-phase-4.json` is the immutable go/no-go packet. It
+checksum-links the Phase 1 preflight, the unperformed independent-review
+waiver, exact-`RELEASE_SHA` CI, both final build records, byte-identical archive
+comparison, both archive inventories, final isolated-consumer record, Fly
+deployment record, and manual-accessibility waiver. Its exact identities are:
+
+- `RELEASE_SHA`:
+  `aa6a2d35474a51ea63248131631ace2b113b99a4`
+- approved archive SHA-256:
+  `547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da`
+- main CI run/job: `33881762954` / `101051845295`
+- build-record SHA-256, both builds:
+  `38191c0d7e2a64b73a73065e0e354585ab588e2b8cd68a4157d036224e9d4aa2`
+- build-comparison SHA-256:
+  `8877133464c00f29e4e32ab661779ed2ec36cd46c6f06c82a67118e6412eb2fa`
+- archive-inventory SHA-256, both builds:
+  `cb37a252e3948973e6dcc9cb3a07cb45614c9a7bd35632e6c0ccd1515d536a8d`
+- consumer-record SHA-256:
+  `fd8851bc239c2a40ee996eeed0fca52f63935a6bad99d393e6a1fb79bd3dabb6`
+
+All 15 mandatory gates before publication and tagging pass. The packet found no
+stale, missing, contradictory, or SHA-mismatched evidence. Independent review
+is `waived`, non-mandatory, and not an approval; manual accessibility is also
+`waived`, non-mandatory, and unassessed.
+
+The decision is **go to the Phase 5 dry run and explicit publication-
+authorization request**. It is not authorization to run `mix hex.publish`, and
+it does not mark Hex publication or the public tag complete. Both gates remain
+pending and the release remains unpublished.

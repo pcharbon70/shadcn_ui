@@ -135,6 +135,6 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
     assert plan =~ "- [x] 3 Phase - Resolve review, merge, and select the immutable source."
     assert plan =~ "- [x] 4.1 Section - Build `RELEASE_SHA` twice from clean checkouts."
     assert plan =~ "- [x] 4.2 Section - Consume the final archive in isolation."
-    assert plan =~ "- [ ] 4.3 Section - Make the final go/no-go packet."
+    assert plan =~ "- [x] 4.3 Section - Make the final go/no-go packet."
   end
 end

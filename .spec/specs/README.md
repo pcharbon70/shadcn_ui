@@ -39,11 +39,12 @@ These accepted specifications now describe the implemented Milestone E surface.
 
 These active specifications describe the implemented documentation and release
 surfaces. Exact-revision clean reproducibility, the final isolated archive
-consumer, the qualification merge, and exact-main CI now pass; final candidate
-qualification remains blocked until its go/no-go packet and later Hex/tag
-operations are resolved. Independent source review remains unperformed under
-the explicit `1.0.0` waiver. The six manual scenarios remain pending but are
-explicitly waived and non-mandatory for `1.0.0`; a verification target or
+consumer, the qualification merge, exact-main CI, and the Phase 4 go/no-go
+packet now pass. All 15 prepublication mandatory gates are green; final
+candidate qualification remains blocked only by the still-pending Hex
+publication and public tag gates. Independent source review remains unperformed
+under the explicit `1.0.0` waiver. The six manual scenarios remain pending but
+are explicitly waived and non-mandatory for `1.0.0`; a verification target or
 checked implementation item is never evidence that a gate passed.
 
 - [Documentation catalogue, search, and information architecture](./documentation_catalogue.spec.md)

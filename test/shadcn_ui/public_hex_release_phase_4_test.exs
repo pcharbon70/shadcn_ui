@@ -85,11 +85,91 @@ defmodule ShadcnUI.PublicHexReleasePhase4Test do
     refute @candidate["qualification"]["qualified"]
   end
 
-  test "the plan marks Phase 4 sections 4.1 and 4.2 complete" do
+  test "section 4.3 links immutable evidence without claiming waived review as approval" do
+    packet = @evidence["section4_3"]["evidencePacket"]
+    review = packet["independentSourceReview"]
+
+    assert packet["status"] == "complete"
+    assert review["status"] == "waived"
+    refute review["mandatory"]
+    refute review["performed"]
+    refute review["approvalRecorded"]
+    assert review["acceptedRisk"]
+
+    for {entry, path_key, hash_key} <- [
+          {packet["preflight"], "path", "sha256"},
+          {review, "phase3Evidence", "phase3EvidenceSha256"},
+          {review, "decision", "decisionSha256"},
+          {packet["gallery"], "deploymentEvidence", "deploymentEvidenceSha256"},
+          {packet["manualAccessibility"], "decision", "decisionSha256"}
+        ] do
+      actual =
+        @root
+        |> Path.join(entry[path_key])
+        |> File.read!()
+        |> then(&:crypto.hash(:sha256, &1))
+        |> Base.encode16(case: :lower)
+
+      assert actual == entry[hash_key]
+    end
+
+    assert packet["releaseShaCi"]["sourceRevision"] == @evidence["releaseSha"]
+    assert packet["releaseShaCi"]["status"] == "passed"
+
+    assert Enum.all?(
+             packet["buildRecords"],
+             &(&1["sourceRevision"] == @evidence["releaseSha"])
+           )
+
+    assert packet["buildComparison"]["archiveSha256"] ==
+             packet["archiveAudit"]["archiveSha256"]
+
+    assert packet["archiveAudit"]["archiveSha256"] ==
+             packet["finalConsumer"]["archiveSha256"]
+  end
+
+  test "section 4.3 passes every prepublication mandatory gate and preserves publication boundaries" do
+    section = @evidence["section4_3"]
+    evaluation = section["mandatoryGateEvaluation"]
+    gallery = section["evidencePacket"]["gallery"]
+    hex = section["evidencePacket"]["publicHexAbsence"]
+    excluded = evaluation["excludedPendingPublicationGates"]
+
+    mandatory = Enum.filter(@candidate["gates"], & &1["mandatory"])
+    prepublication = Enum.reject(mandatory, &(&1["id"] in excluded))
+
+    assert @evidence["release"]["status"] == "passed"
+    assert section["status"] == "passed"
+    assert section["decision"] == "go-to-phase-5-dry-run-and-publication-authorization"
+    assert evaluation["status"] == "passed"
+    assert evaluation["mandatoryGates"] == length(mandatory)
+    assert evaluation["prepublicationMandatoryGates"] == length(prepublication)
+    assert Enum.all?(prepublication, &(&1["status"] == "passed"))
+    assert evaluation["staleEvidence"] == []
+    assert evaluation["missingEvidence"] == []
+    assert evaluation["contradictions"] == []
+    assert evaluation["shaMismatches"] == []
+
+    assert gallery["status"] == "passed"
+    assert gallery["canonicalSmoke"] == "passed"
+    assert gallery["packageVersion"] == "1.0.0"
+    refute gallery["replacementDeploymentRequired"]
+    assert hex["status"] == "absent"
+    assert hex["result"] == "No package with name shadcn_ui"
+
+    assert section["publicationBoundary"]["phase5DryRunAllowed"]
+    refute section["publicationBoundary"]["hexPublishAuthorized"]
+    refute @evidence["boundaries"]["publicationAuthorized"]
+    refute @evidence["boundaries"]["publishedToHex"]
+    refute @evidence["boundaries"]["tagCreated"]
+    refute @candidate["qualification"]["qualified"]
+  end
+
+  test "the plan marks all Phase 4 sections complete" do
     plan = File.read!(Path.join(@root, ".spec/planning/public-hex-1-0-0-release/README.md"))
 
     assert plan =~ "- [x] 4.1 Section - Build `RELEASE_SHA` twice from clean checkouts."
     assert plan =~ "- [x] 4.2 Section - Consume the final archive in isolation."
-    assert plan =~ "- [ ] 4.3 Section - Make the final go/no-go packet."
+    assert plan =~ "- [x] 4.3 Section - Make the final go/no-go packet."
   end
 end

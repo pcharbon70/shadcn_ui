@@ -175,6 +175,14 @@ passed compilation, three consumer tests, browser interaction, packaged-
 stylesheet, package-metadata, and runtime-boundary checks. Its recorded archive
 checksum matches the two-build result exactly; the disposable consumer and
 temporary worktrees were removed while the signed result remains external.
+The final Phase 4 packet checksum-links the review disposition, exact-main CI,
+both clean-build records, comparison, both archive inventories, isolated
+consumer, Fly deployment record, and release-scoped waivers, and records a
+fresh canonical Fly smoke plus public-Hex absence query. Every one of the 15
+mandatory gates before publication and tagging passes with no stale, missing,
+contradictory, or SHA-mismatched evidence. The resulting go decision allows
+only the Phase 5 dry run and explicit publication-authorization request;
+`mix hex.publish` and the public tag remain pending mandatory gates.
 
 ```spec-verification
 - kind: test_file

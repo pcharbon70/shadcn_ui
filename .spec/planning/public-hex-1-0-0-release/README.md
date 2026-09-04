@@ -7,7 +7,7 @@ does not imply that a later gate passed.
 
 ## Status
 
-**Ready to execute; publication remains blocked.**
+**Phase 4 complete; publication remains blocked pending Phase 5 authorization.**
 
 The following prerequisites are already accepted or operationally proven:
 
@@ -30,8 +30,9 @@ Fly deployment do not satisfy them.
 One immutable commit, called `RELEASE_SHA` below, is the source of the public
 archive and the `v1.0.0` tag. Its content is reviewed before merge, and its
 exact merged revision passes CI, two clean builds, archive comparison, and the
-isolated consumer trial. No tracked file may change between selecting
-`RELEASE_SHA` and publishing from its detached clean checkout.
+isolated consumer trial. No tracked file in that detached source may change
+before publication. Later evidence-only commits do not replace `RELEASE_SHA`
+and are never inputs to the archive published from its clean checkout.
 
 Build and consumer evidence is retained outside that checkout, for example in
 a restricted release-evidence directory and as immutable CI artifacts. This
@@ -234,14 +235,15 @@ avoids changing the commit merely to record proof about that commit.
   - [x] Remove disposable consumers and worktrees while retaining only the
     required evidence outputs in their approved location.
 
-- [ ] 4.3 Section - Make the final go/no-go packet.
+- [x] 4.3 Section - Make the final go/no-go packet.
 
-  - [ ] Recheck the Fly gallery's public `1.0.0` identity and canonical smoke;
+  - [x] Recheck the Fly gallery's public `1.0.0` identity and canonical smoke;
     redeploy only if Phase 1 identified a material gallery/package mismatch.
-  - [ ] Assemble one immutable packet linking independent approval,
+  - [x] Assemble one immutable packet linking the independent-review
+    disposition,
     `RELEASE_SHA` CI, both build records, comparison, archive audit, consumer
     record, gallery smoke, waiver, and public-Hex absence check.
-  - [ ] Require every mandatory gate except Hex publication and the public tag
+  - [x] Require every mandatory gate except Hex publication and the public tag
     to be passing. Any stale, missing, contradictory, or SHA-mismatched item is
     a no-go.
 

@@ -50,6 +50,9 @@ The first public Hex release target is `1.0.0`.
 - Final consumer evidence shall install the approved archive by its recorded
   checksum in an isolated project. A passing trial for a different archive,
   path dependency, or source checkout does not satisfy the public-release gate.
+- A complete prepublication go/no-go packet may authorize only the final dry
+  run and the request for irreversible-action approval. It does not authorize
+  `mix hex.publish`, create a public version tag, or mark either gate passed.
 - Hex publication does not create a marketplace listing, certify a consumer
   platform, or imply official shadcn/ui or unscripted/ui affiliation.
 
