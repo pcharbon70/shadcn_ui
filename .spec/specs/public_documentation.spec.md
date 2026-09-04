@@ -143,6 +143,17 @@ The release ledger now also records qualification PR #52's merge and the
 successful main-branch workflow for its exact selected `RELEASE_SHA`. Public
 documentation remains truthful that final exact-source reproduction, archive
 consumption, Hex publication, and the public tag are still pending.
+The selected `RELEASE_SHA` now has two equivalent clean builds, matching actual
+archives, and a passing final isolated archive consumer. Release-facing
+documentation records those exact-source gates as passed while keeping Hex
+publication and the public tag pending.
+The Phase 4 go/no-go packet also binds those results to exact-main CI, the
+unperformed-review and unassessed-manual-accessibility waivers, a current
+canonical Fly smoke, and a fresh public-Hex absence result. All 15
+prepublication mandatory gates pass without a stale, missing, contradictory,
+or SHA-mismatched item. That decision permits the Phase 5 dry run and
+publication-authorization request only; it does not claim publication or a
+public tag.
 
 ```spec-verification
 - kind: test_file

@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, Hex publication, and public-tag gates are not all passing.",
+               "All prepublication mandatory gates pass; Hex publication and the public tag remain pending.",
              "status" => "blocked"
            }
 
@@ -83,15 +83,18 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
 
     assert evidence["candidate"]["archive"] == "shadcn_ui-0.1.0.tar"
     assert status["candidateVersion"] == "1.0.0"
-    assert status["evidence"]["currentArchiveSha256"] == nil
-    assert status["evidence"]["currentArchiveEntries"] == nil
+
+    assert status["evidence"]["currentArchiveSha256"] ==
+             "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da"
+
+    assert status["evidence"]["currentArchiveEntries"] == 63
     assert evidence["consumer"]["outsideSourceTree"]
     assert evidence["consumer"]["compiled"]
     assert evidence["consumer"]["testsPassed"]
     assert evidence["consumer"]["browserPassed"]
     refute evidence["install"]["pathDependency"]
-    assert gates["actual-archive-consumer"] == "pending"
-    assert gates["clean-candidate"] == "pending"
+    assert gates["actual-archive-consumer"] == "passed"
+    assert gates["clean-candidate"] == "passed"
   end
 
   test "public release gates remain pending without adding unrelated claims" do

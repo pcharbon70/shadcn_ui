@@ -1,19 +1,21 @@
 # Milestone F acceptance ledger
 
 This is the current evidence ledger for the ShadcnUI `1.0.0` public release
-target. All requirements have explicit implementation/evidence entries, but
-release qualification is **blocked**: the version-specific archive, isolated
-consumer, exact-source reproducibility, Hex publication, and public tag remain
-pending. The qualification merge and exact-main CI pass for the selected
-`RELEASE_SHA`; independent source review remains unperformed under the explicit
-`1.0.0` owner waiver. The matching `1.0.0` Fly deployment and post-deploy smoke
-pass for the exact recorded deployed source.
+target. All requirements have explicit implementation/evidence entries, and
+all 15 mandatory prepublication gates pass. Release qualification is still
+**blocked** only because Hex publication and the public tag remain pending. The
+qualification merge, exact-main CI, two exact-`RELEASE_SHA` builds, archive
+audit, and isolated consumer pass; independent source review remains
+unperformed under the explicit `1.0.0` owner waiver. The matching `1.0.0` Fly
+deployment and freshly rechecked canonical smoke pass for the exact recorded
+deployed source.
 All six manual accessibility scenarios remain pending and unassessed, but are
 explicitly waived and non-mandatory for `1.0.0`. The recorded `0.1.0` archive
 evidence remains historical and does not satisfy a `1.0.0` gate. A checked
 planning item or historical run never substitutes for a current gate.
-Public-release Phases 1-3 now pass their mandatory gates; every later exact-
-source qualification and publication gate retains its separate status.
+Public-release Phases 1-4 now pass their applicable mandatory gates. The Phase
+4 go/no-go decision permits only the Phase 5 dry run and request for explicit
+publication authorization; it does not authorize Hex publication or tagging.
 
 Statuses below mean:
 
@@ -76,10 +78,10 @@ Statuses below mean:
 | `shadcn_ui.release_publication.health_manifest` | PASSED | hashed `health.json` and `release.json` |
 | `shadcn_ui.release_publication.deployment_workflow` | PASSED | Fly release `rel_76njzd0doog3yko3` serves exact `1.0.0` source and image identity; review remains separately unperformed under the bounded owner waiver |
 | `shadcn_ui.release_publication.post_deploy_and_rollback` | PASSED | current service health, canonical smoke, deployed Chromium checks, failed-interim-release record, rollback policy, and `release/fly-deployment-evidence.json` |
-| `shadcn_ui.release_publication.clean_checkout` | IMPLEMENTED; GATE PENDING | Phase 2 preliminary two-build evidence passed; final `RELEASE_SHA` comparison remains pending for Phase 4 |
-| `shadcn_ui.release_publication.clean_consumer_trial` | IMPLEMENTED; GATE PENDING | Phase 2 preliminary `1.0.0` archive trial passed; final `RELEASE_SHA` archive trial remains pending for Phase 4 |
-| `shadcn_ui.release_publication.explicit_archive` | IMPLEMENTED; GATE PENDING | Phase 2 actual archives passed the allowlist; final `RELEASE_SHA` archive audit remains pending for Phase 4 |
-| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected; Phases 1-3 pass with review explicitly waived, qualification merged, and exact-main CI green; final archive, consumer, reproducibility, Hex publication, and tag evidence remain pending |
+| `shadcn_ui.release_publication.clean_checkout` | PASSED | two detached builds of exact `RELEASE_SHA` produced equivalent complete records and byte-identical archives |
+| `shadcn_ui.release_publication.clean_consumer_trial` | PASSED | final selected archive passed the isolated signed-Hex-repository consumer trial |
+| `shadcn_ui.release_publication.explicit_archive` | PASSED | both final 63-entry archives passed the explicit allowlist and share the approved checksum |
+| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected and all 15 prepublication mandatory gates pass; Hex publication and the public tag remain pending and unauthorized |
 | `shadcn_ui.release_publication.truthful_gates` | PASSED | structured candidate status and this ledger |
 
 ## Documentation and regression reconciliation
@@ -104,14 +106,20 @@ package, gallery, workflow, or PR.
 
 ## Final qualification decision
 
-The `1.0.0` release remains blocked. Build and audit its actual archive, run the
-isolated consumer, complete two clean builds against the exact final revision,
-and require those Phase 4 results to bind to the selected `RELEASE_SHA`. The
-qualification merge and exact-main CI already pass; independent source review
-and all six human scenarios remain unexecuted under their separate,
-non-blocking `1.0.0` waivers. The matching Fly deployment and smoke also pass.
-Only after the remaining exact-source gates pass may Hex publication and the
-public tag be recorded as completed. Phase evidence is recorded in
-`release/public-release-preflight.json`, `release/preliminary-candidate-evidence.json`,
-and `release/public-release-phase-3.json`; no earlier phase promotes a later
-gate.
+The Phase 4 decision is **go to the Phase 5 dry run and explicit publication-
+authorization request**. Both clean builds, both archive audits, the selected-
+archive consumer, exact-main CI, and the freshly rechecked Fly identity and
+canonical smoke pass. The public Hex query still reports no package named
+`shadcn_ui`. Independent source review and all six human scenarios remain
+unexecuted under their separate, non-blocking `1.0.0` waivers; neither is
+represented as a pass or approval.
+
+The `1.0.0` release remains blocked and unpublished. This go decision
+does not authorize `mix hex.publish` or a public tag. Phase 5 must still perform
+the detached dry run and obtain explicit irreversible-action authorization;
+only then may Hex publication proceed, and Phase 6 must independently verify
+the public package before creating the exact tag. Phase evidence is recorded
+in `release/public-release-preflight.json`,
+`release/preliminary-candidate-evidence.json`,
+`release/public-release-phase-3.json`, and
+`release/public-release-phase-4.json`; no earlier phase promotes a later gate.

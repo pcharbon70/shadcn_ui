@@ -5,14 +5,14 @@
   "qualification": {
     "status": "blocked",
     "qualified": false,
-    "reason": "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, Hex publication, and public-tag gates are not all passing."
+    "reason": "All prepublication mandatory gates pass; Hex publication and the public tag remain pending."
   },
   "evidence": {
     "workingTreeBaseRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
     "currentSourceRevision": "aa6a2d35474a51ea63248131631ace2b113b99a4",
-    "currentArchiveSha256": null,
-    "currentArchiveEntries": null,
-    "currentArchiveStatus": "Preliminary 1.0.0 candidate and isolated consumer passed in Phase 2; final RELEASE_SHA archive and consumer gates remain pending for Phase 4",
+    "currentArchiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+    "currentArchiveEntries": 63,
+    "currentArchiveStatus": "Two final RELEASE_SHA builds and their actual archives are equivalent and audited; final isolated archive consumption passes",
     "compiledCssSha256": "ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41",
     "historicalPhase6Candidate": {
       "sourceRevision": "3ef5f82e0830d34b9be16a4b6f8945bc7761d93b",
@@ -71,6 +71,16 @@
       "mainCiJobId": 101051845295,
       "mainCiRunUrl": "https://github.com/pcharbon70/shadcn_ui/actions/runs/33881762954"
     },
+    "publicReleasePhase4": {
+      "path": "release/public-release-phase-4.json",
+      "status": "passed",
+      "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+      "cleanBuildComparison": "passed",
+      "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+      "isolatedConsumer": "passed",
+      "goNoGoPacket": "passed",
+      "decision": "go-to-phase-5-dry-run-and-publication-authorization"
+    },
     "browserEvidenceInput": "release/browser-evidence-inputs.json",
     "deployedRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
     "deployedPackageVersion": "1.0.0",
@@ -79,8 +89,8 @@
   "gates": [
     {"id": "public-release-phase-1-preflight", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "public-release-phase-2-premerge", "kind": "local", "mandatory": true, "status": "passed"},
-    {"id": "clean-candidate", "kind": "local", "mandatory": true, "status": "pending"},
-    {"id": "actual-archive-consumer", "kind": "local", "mandatory": true, "status": "pending"},
+    {"id": "clean-candidate", "kind": "local", "mandatory": true, "status": "passed"},
+    {"id": "actual-archive-consumer", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "phase-5-integration", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "phase-6-publication-artifact", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "phase-6-operations", "kind": "local", "mandatory": true, "status": "passed"},
@@ -102,8 +112,9 @@
   ],
   "diagnostics": {
     "publicReleasePreflight": "Phase 1 passed from synchronized main: the source boundary requires no replacement Fly deployment; package metadata, the release-scoped waiver, authenticated Hex identity pcharbon70, public package-name absence, and the pinned toolchain and locks agree. At that snapshot the later archive, consumer, review-disposition, final-revision CI, merge, Hex, and tag gates remained separate.",
-    "phase6LocalIntegration": "Package precommit passed 420 tests, demo precommit passed 168 tests, the R5 rendered comparison passed 10 browser checks, and SpecLed passed locally for the deployed 1.0.0 source. Final exact-source archive, consumer, and reproducibility gates remain separate; manual evidence and independent review remain unexecuted under non-mandatory 1.0.0 waivers.",
-    "cleanCandidate": "Two preliminary 1.0.0 builds at revision 71d0edba92755f9d273765db79e1176255a4b365 were equivalent, both actual archives passed the 63-entry allowlist, and an isolated Hex-repository consumer passed compile, 3 tests, packaged-style, and browser checks. These pre-merge results do not satisfy the final RELEASE_SHA clean-candidate or archive-consumer gates.",
+    "phase6LocalIntegration": "Package precommit passed 420 tests, demo precommit passed 168 tests, the R5 rendered comparison passed 10 browser checks, and SpecLed passed locally for the deployed 1.0.0 source. Later exact-source archive, consumer, and reproducibility gates pass; manual evidence and independent review remain unexecuted under non-mandatory 1.0.0 waivers.",
+    "cleanCandidate": "Two separate detached builds of RELEASE_SHA aa6a2d35474a51ea63248131631ace2b113b99a4 produced equivalent complete records and byte-identical 63-entry archives at SHA-256 547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da. Inputs, provenance, compiled CSS, 147 documentation files, and 646 gallery files match.",
+    "cleanConsumer": "The final selected archive was installed through a disposable signed Hex repository outside the source tree. Compilation, 3 tests, browser interaction, packaged stylesheet delivery, package metadata, and no-path/no-package-JavaScript boundaries passed; the recorded checksum exactly matches both final builds.",
     "publicReleasePhase2": "The pre-merge qualification passed 435 package tests, 169 demo tests, warning-free ExDoc, current archive audit, deterministic export and smoke, 552 browser checks across Chromium, Firefox, and WebKit, automated accessibility, release-evidence integrity, formatting, SpecLed, and diff checks. The generated archives and full outputs remain outside Git. Subsequent Phase 3 evidence records the review waiver, merge, and exact-main CI; final RELEASE_SHA reproduction and consumption, Hex publication, and the public tag remain pending.",
     "independentReview": "Qualification PR #52 received zero reviews. The release owner explicitly waived independent source review for 1.0.0 only in signed GitHub comment 5541919512 and accepted the resulting risk. The gate is non-mandatory and waived, not passed or approved; every technical and publication gate remains unchanged.",
     "releaseSha": "Qualification PR #52 passed its required verify check, then merged through GitHub at 2026-09-04T14:05:50Z as aa6a2d35474a51ea63248131631ace2b113b99a4. Its tree 6dc1d3f056196d13be1ec7529fbe2f9d4e59e4e7 exactly matches the PR head tree, and synchronized local main was clean at that revision.",
@@ -111,7 +122,8 @@
     "specled": "The selected RELEASE_SHA passed the exact-main ShadcnUI gallery workflow, including its strict SpecLed step. GitHub Actions run 33881762954 and verify job 101051845295 completed successfully for aa6a2d35474a51ea63248131631ace2b113b99a4.",
     "browser": "The deployed 1.0.0 gallery passed canonical smoke and two Chromium deployment checks for revision 8654f6a4500ce210682d7cae7453553d878a714c. The selected RELEASE_SHA separately passed the locked Chromium, Firefox, and WebKit suites in exact-main CI run 33881762954.",
     "r6LocalRegression": "Package and demo precommit, ExDoc, deterministic CSS, archive audit, isolated clean consumer, two current-identity exports, route/fragment/subpath smoke, pinned axe, visual, provenance, license, release-evidence, formatting, and SpecLed gates passed before deployment. Manual accessibility evidence and exact clean-candidate evidence remain separate; the later 1.0.0 waiver changes only the manual gate's blocking effect.",
-    "deployment": "Fly release rel_76njzd0doog3yko3 serves exact revision 8654f6a4500ce210682d7cae7453553d878a714c with package and demo identity 1.0.0 from image digest sha256:0f1005b6a445b9585ad7eb0b3dc71458b625f1ef6547254cbcdab8147d0fc23d. Service health, canonical smoke, and two deployed Chromium checks pass. The qualification source-review disposition, merge, and exact-main CI are now separately resolved; Phase 4 still must reproduce and consume RELEASE_SHA.",
-    "publication": "Version 1.0.0 is authorized as the first public release target. Hex publication and the public tag remain pending gates; no marketplace listing, platform certification, or upstream affiliation is implied."
+    "deployment": "Fly release rel_76njzd0doog3yko3 serves exact revision 8654f6a4500ce210682d7cae7453553d878a714c with package and demo identity 1.0.0 from image digest sha256:0f1005b6a445b9585ad7eb0b3dc71458b625f1ef6547254cbcdab8147d0fc23d. Service health and canonical smoke were rechecked for the Phase 4 go/no-go packet and pass. Phase 1 established that later evidence-only changes do not require a replacement deployment.",
+    "goNoGo": "The immutable Phase 4 packet links the review and accessibility waivers, exact RELEASE_SHA CI, two final build records, byte-identical archive comparison, both archive audits, exact-archive consumer, current Fly smoke, and a fresh public-Hex absence query. All 15 prepublication mandatory gates pass with no stale, missing, contradictory, or SHA-mismatched item. Phase 5 dry-run preparation may proceed, but mix hex.publish is not yet authorized.",
+    "publication": "Version 1.0.0 is authorized as the first public release target. The Phase 4 go/no-go decision permits only the Phase 5 dry run and publication-authorization request; Hex publication and the public tag remain pending gates. No marketplace listing, platform certification, or upstream affiliation is implied."
   }
 }

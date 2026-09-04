@@ -91,8 +91,8 @@ defmodule ShadcnUI.PublicHexReleasePhase2Test do
     refute boundaries["finalArchiveConsumerGateSatisfied"]
     refute boundaries["publishedToHex"]
     refute boundaries["tagCreated"]
-    assert gates["clean-candidate"] == "pending"
-    assert gates["actual-archive-consumer"] == "pending"
+    assert gates["clean-candidate"] == "passed"
+    assert gates["actual-archive-consumer"] == "passed"
     assert gates["public-release-phase-2-premerge"] == "passed"
     assert gates["hex-publication"] == "pending"
     assert gates["public-version-tag"] == "pending"
@@ -150,6 +150,8 @@ defmodule ShadcnUI.PublicHexReleasePhase2Test do
     assert plan =~ "- [x] 3.1 Section - Resolve independent source-review disposition."
     assert plan =~ "- [x] 3.2 Section - Merge and identify `RELEASE_SHA`."
     assert plan =~ "- [x] 3.3 Section - Require CI on the exact merged revision."
-    assert plan =~ "- [ ] 4.1 Section - Build `RELEASE_SHA` twice from clean checkouts."
+    assert plan =~ "- [x] 4.1 Section - Build `RELEASE_SHA` twice from clean checkouts."
+    assert plan =~ "- [x] 4.2 Section - Consume the final archive in isolation."
+    assert plan =~ "- [x] 4.3 Section - Make the final go/no-go packet."
   end
 end
