@@ -81,3 +81,11 @@ passes, required manual and deployed gates are executed, the actual archive is
 audited, an isolated consumer successfully exercises the internal candidate,
 and the deployed source passes review.
 Public Hex publication remains outside this milestone.
+
+## Public `1.0.0` follow-on
+
+The accepted public-release decision is executed separately through the
+[Public `1.0.0` Hex Release Execution Plan](../public-hex-1-0-0-release/README.md).
+That plan preserves this milestone's historical candidate evidence while
+defining the exact-source, review, publication, tag, verification, and
+post-publication reconciliation gates for the first public package.
