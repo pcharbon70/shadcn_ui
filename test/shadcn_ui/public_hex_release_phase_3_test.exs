@@ -41,7 +41,6 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
           "actual-archive-consumer",
           "specled-main-head",
           "ci-final-revision",
-          "merge",
           "hex-publication",
           "public-version-tag"
         ] do
@@ -49,7 +48,44 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
       assert gates[id]["mandatory"]
     end
 
+    assert gates["merge"]["status"] == "passed"
+    assert gates["merge"]["mandatory"]
+
     refute @candidate["qualification"]["qualified"]
+  end
+
+  test "section 3.2 selects the exact merge whose tree matches the qualification head" do
+    merge = @evidence["section3_2"]
+    pr = merge["qualificationPullRequest"]
+    result = merge["merge"]
+
+    assert merge["status"] == "passed"
+    assert pr["requiredCheck"]["conclusion"] == "success"
+    assert pr["requiredCheck"]["runId"] == 33_879_936_369
+    assert pr["requiredCheck"]["jobId"] == 101_045_836_895
+    assert result["releaseSha"] == "aa6a2d35474a51ea63248131631ace2b113b99a4"
+    assert result["releaseTree"] == pr["headTree"]
+    assert result["treeMatchesQualificationHead"]
+    assert result["changedFilesAgainstQualificationHead"] == 0
+
+    {head_tree, 0} =
+      System.cmd("git", ["rev-parse", "#{pr["headRevision"]}^{tree}"], cd: @root)
+
+    {release_tree, 0} =
+      System.cmd("git", ["rev-parse", "#{result["releaseSha"]}^{tree}"], cd: @root)
+
+    {changed_files, 0} =
+      System.cmd("git", ["diff", "--name-only", pr["headRevision"], result["releaseSha"]],
+        cd: @root
+      )
+
+    assert String.trim(head_tree) == pr["headTree"]
+    assert String.trim(release_tree) == result["releaseTree"]
+    assert changed_files == ""
+    assert merge["localMain"]["revision"] == result["releaseSha"]
+    assert merge["localMain"]["synchronizedWithOrigin"]
+    assert merge["localMain"]["workingTreeClean"]
+    assert @candidate["evidence"]["currentSourceRevision"] == result["releaseSha"]
   end
 
   test "the decision and plan expose the unreviewed state" do
@@ -61,7 +97,7 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
     assert decision =~ "waived and non-mandatory for `1.0.0`"
     assert decision =~ "No independent review was performed"
     assert plan =~ "- [x] 3.1 Section - Resolve independent source-review disposition."
-    assert plan =~ "- [ ] 3.2 Section - Merge and identify `RELEASE_SHA`."
+    assert plan =~ "- [x] 3.2 Section - Merge and identify `RELEASE_SHA`."
     assert plan =~ "- [ ] 3.3 Section - Require CI on the exact merged revision."
   end
 end

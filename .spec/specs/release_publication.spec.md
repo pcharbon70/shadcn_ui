@@ -151,6 +151,11 @@ For `1.0.0`, independent source review was not performed. The release owner's
 accepted waiver binds that unreviewed state to qualification PR #52's exact
 head and changes only the gate's mandatory effect; it does not convert the
 missing review into an approval or weaken any technical release gate.
+Qualification PR #52 passed its required pre-merge workflow and merged as
+`aa6a2d35474a51ea63248131631ace2b113b99a4`. The merge commit and PR head share
+the exact tree `6dc1d3f056196d13be1ec7529fbe2f9d4e59e4e7`, so that merge is the selected
+`RELEASE_SHA`. Later governance/evidence reconciliation does not replace the
+selected package source; Phase 4 operates on that detached immutable revision.
 
 ```spec-verification
 - kind: test_file

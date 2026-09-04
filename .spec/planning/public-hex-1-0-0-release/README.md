@@ -43,7 +43,7 @@ avoids changing the commit merely to record proof about that commit.
 | --- | --- | --- |
 | [1 - Establish release authority and freeze inputs](#phase-1--establish-release-authority-and-freeze-inputs) | One reviewable release scope and an identified publication owner | Version, metadata, credentials, inputs, and remaining ledger state agree |
 | [2 - Prove the candidate before merge](#phase-2--prove-the-candidate-before-merge) | Reviewable preliminary build, archive, consumer, and verification evidence | Qualification PR is complete and internally green |
-| [3 - Review, merge, and select the immutable source](#phase-3--review-merge-and-select-the-immutable-source) | Independent approval and one exact merged `RELEASE_SHA` | Required review, merge, and CI on `RELEASE_SHA` pass |
+| [3 - Resolve review, merge, and select the immutable source](#phase-3--resolve-review-merge-and-select-the-immutable-source) | Explicit review disposition and one exact merged `RELEASE_SHA` | Review is approved or explicitly waived, and merge plus CI on `RELEASE_SHA` pass |
 | [4 - Reproduce and consume the exact release](#phase-4--reproduce-and-consume-the-exact-release) | Two equivalent builds and one isolated consumer result for `RELEASE_SHA` | All local mandatory gates pass with retained evidence |
 | [5 - Authorize and publish](#phase-5--authorize-and-publish) | The exact candidate is published once to Hex | Explicit final authorization and successful Hex publication |
 | [6 - Verify, tag, and reconcile](#phase-6--verify-tag-and-reconcile) | Public install/docs proof, exact tag, and truthful final ledgers | Public release is independently usable and all records agree |
@@ -188,15 +188,16 @@ avoids changing the commit merely to record proof about that commit.
   - [x] Keep the gate `waived` and non-mandatory rather than claiming approval;
     record that no blocking findings exist because no review was performed.
 
-- [ ] 3.2 Section - Merge and identify `RELEASE_SHA`.
+- [x] 3.2 Section - Merge and identify `RELEASE_SHA`.
 
-  - [ ] Require all qualification-PR checks to pass, then merge through the
+  - [x] Require all qualification-PR checks to pass, then merge through the
     repository's normal protected-main path.
-  - [ ] Synchronize local `main`, require a clean tree, and record the full
+  - [x] Synchronize local `main`, require a clean tree, and record the full
     merged commit as `RELEASE_SHA`.
-  - [ ] Verify the merged tree content is the reviewed candidate content. The
-    waiver PR's merge and prior Fly merge do not substitute for this release
-    qualification merge.
+  - [x] Verify the merged tree content is identical to the qualification PR
+    head. The manual-accessibility waiver PR's merge and prior Fly merge do not
+    substitute for this release qualification merge; independent review is
+    separately recorded as waived for `1.0.0`.
 
 - [ ] 3.3 Section - Require CI on the exact merged revision.
 

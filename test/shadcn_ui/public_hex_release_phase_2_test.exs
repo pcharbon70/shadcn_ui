@@ -148,6 +148,7 @@ defmodule ShadcnUI.PublicHexReleasePhase2Test do
     assert plan =~ "- [x] 2.2 Section - Prove preliminary isolated consumption."
     assert plan =~ "- [x] 2.3 Section - Complete the qualification PR."
     assert plan =~ "- [x] 3.1 Section - Resolve independent source-review disposition."
-    assert plan =~ "- [ ] 3.2 Section - Merge and identify `RELEASE_SHA`."
+    assert plan =~ "- [x] 3.2 Section - Merge and identify `RELEASE_SHA`."
+    assert plan =~ "- [ ] 3.3 Section - Require CI on the exact merged revision."
   end
 end

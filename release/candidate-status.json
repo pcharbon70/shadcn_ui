@@ -5,11 +5,11 @@
   "qualification": {
     "status": "blocked",
     "qualified": false,
-    "reason": "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, CI, merge, Hex publication, and public-tag gates are not all passing."
+    "reason": "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, exact-main CI, Hex publication, and public-tag gates are not all passing."
   },
   "evidence": {
     "workingTreeBaseRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
-    "currentSourceRevision": null,
+    "currentSourceRevision": "aa6a2d35474a51ea63248131631ace2b113b99a4",
     "currentArchiveSha256": null,
     "currentArchiveEntries": null,
     "currentArchiveStatus": "Preliminary 1.0.0 candidate and isolated consumer passed in Phase 2; final RELEASE_SHA archive and consumer gates remain pending for Phase 4",
@@ -61,11 +61,11 @@
     },
     "publicReleasePhase3": {
       "path": "release/public-release-phase-3.json",
-      "status": "section-3.1-waived",
+      "status": "sections-3.1-and-3.2-complete",
       "independentReviewPerformed": false,
       "reviewGate": "waived",
       "reviewMandatory": false,
-      "releaseSha": null,
+      "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
       "exactMainCi": "pending-recording"
     },
     "browserEvidenceInput": "release/browser-evidence-inputs.json",
@@ -88,7 +88,7 @@
     {"id": "specled-main-head", "kind": "specification", "mandatory": true, "status": "pending"},
     {"id": "ci-final-revision", "kind": "ci", "mandatory": true, "status": "pending"},
     {"id": "deployment-source-review", "kind": "review", "mandatory": false, "status": "waived"},
-    {"id": "merge", "kind": "publication", "mandatory": true, "status": "pending"},
+    {"id": "merge", "kind": "publication", "mandatory": true, "status": "passed"},
     {"id": "gallery-deployment", "kind": "deployment", "mandatory": true, "status": "passed"},
     {"id": "post-deploy-smoke", "kind": "deployment", "mandatory": true, "status": "passed"},
     {"id": "hex-publication", "kind": "publication", "mandatory": true, "status": "pending"},
@@ -103,6 +103,7 @@
     "cleanCandidate": "Two preliminary 1.0.0 builds at revision 71d0edba92755f9d273765db79e1176255a4b365 were equivalent, both actual archives passed the 63-entry allowlist, and an isolated Hex-repository consumer passed compile, 3 tests, packaged-style, and browser checks. These pre-merge results do not satisfy the final RELEASE_SHA clean-candidate or archive-consumer gates.",
     "publicReleasePhase2": "The pre-merge qualification passed 435 package tests, 169 demo tests, warning-free ExDoc, current archive audit, deterministic export and smoke, 552 browser checks across Chromium, Firefox, and WebKit, automated accessibility, release-evidence integrity, formatting, SpecLed, and diff checks. The generated archives and full outputs remain outside Git. Review, merged-revision CI, final RELEASE_SHA reproduction and consumption, Hex publication, and the public tag remain pending.",
     "independentReview": "Qualification PR #52 received zero reviews. The release owner explicitly waived independent source review for 1.0.0 only in signed GitHub comment 5541919512 and accepted the resulting risk. The gate is non-mandatory and waived, not passed or approved; every technical and publication gate remains unchanged.",
+    "releaseSha": "Qualification PR #52 passed its required verify check, then merged through GitHub at 2026-09-04T14:05:50Z as aa6a2d35474a51ea63248131631ace2b113b99a4. Its tree 6dc1d3f056196d13be1ec7529fbe2f9d4e59e4e7 exactly matches the PR head tree, and synchronized local main was clean at that revision. Exact-main CI remains separately pending until Section 3.3 records it.",
     "manualAccessibility": "All six bounded scenarios in release/records/accessibility-review.md remain PENDING and unassessed. On 2026-09-04 the release owner waived their execution for 1.0.0, so this gate is non-mandatory and does not block this release; the waiver is not a pass, WCAG conformance claim, accessibility certification, or assistive-technology support claim.",
     "specled": "The 1.0.0 deployment source passed local SpecLed validation with 0 errors, 0 warnings, and 0 branch findings. The final merged evidence revision still requires its own result and CI.",
     "browser": "The deployed 1.0.0 gallery passed canonical smoke and two Chromium deployment checks for revision 8654f6a4500ce210682d7cae7453553d878a714c. The broader historical engine matrix remains separate, and CI on the current revision is pending.",
