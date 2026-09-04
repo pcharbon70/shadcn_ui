@@ -6,10 +6,10 @@ release qualification is **blocked**: the version-specific archive, isolated
 consumer, exact-source reproducibility, review, final-revision CI, merge,
 Hex publication, and public tag remain pending. The matching `1.0.0` Fly
 deployment and post-deploy smoke now pass for the exact recorded source.
-All six mandatory manual accessibility scenarios also remain pending under the
-existing bounded waiver. The recorded `0.1.0` archive evidence remains
-historical and does not satisfy a `1.0.0` gate. A checked planning item
-or historical run never substitutes for a current gate.
+All six manual accessibility scenarios remain pending and unassessed, but are
+explicitly waived and non-mandatory for `1.0.0`. The recorded `0.1.0` archive
+evidence remains historical and does not satisfy a `1.0.0` gate. A checked
+planning item or historical run never substitutes for a current gate.
 
 Statuses below mean:
 
@@ -19,6 +19,8 @@ Statuses below mean:
 - `IMPLEMENTED; REVIEW GATE PENDING` — the mechanism and operational evidence
   exist, but the deployed source has not passed the required review gate.
 - `PENDING` — mandatory evidence has not been executed successfully.
+- `WAIVED; NON-BLOCKING` — evidence remains unexecuted under an explicit,
+  release-scoped owner decision and is not represented as a pass.
 
 ## Documentation catalogue (10)
 
@@ -60,7 +62,7 @@ Statuses below mean:
 | `shadcn_ui.compatibility_accessibility.responsive_and_preferences` | PASSED | narrow/zoom/RTL/theme/motion tests |
 | `shadcn_ui.compatibility_accessibility.keyboard_and_semantics` | PASSED | native keyboard/focus/semantics assertions |
 | `shadcn_ui.compatibility_accessibility.automated_accessibility` | PASSED | pinned axe plus explicit assertions |
-| `shadcn_ui.compatibility_accessibility.manual_review` | PENDING | all six scenarios in `release/records/accessibility-review.md` |
+| `shadcn_ui.compatibility_accessibility.manual_review` | WAIVED; NON-BLOCKING | all six scenarios remain `PENDING`; owner waiver applies to `1.0.0` only and makes no conformance claim |
 | `shadcn_ui.compatibility_accessibility.evidence_separation` | PASSED | normative capabilities and observed engines remain separate |
 
 ## Release and publication (10)
@@ -102,7 +104,7 @@ package, gallery, workflow, or PR.
 
 The `1.0.0` release remains blocked. Build and audit its actual archive, run the
 isolated consumer, complete two clean builds against the exact final revision,
-complete all six manual scenarios, pass source review and final-revision CI,
-and merge the reviewed source. The matching Fly deployment and smoke already
-pass. Only after the remaining gates pass may Hex publication and the public tag
-be recorded as completed.
+pass source review and final-revision CI, and merge the reviewed source. The six
+human scenarios remain pending under their non-blocking `1.0.0` waiver. The
+matching Fly deployment and smoke already pass. Only after the remaining gates
+pass may Hex publication and the public tag be recorded as completed.

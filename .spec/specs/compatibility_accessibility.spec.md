@@ -10,6 +10,7 @@ decisions:
   - shadcn_ui.consumer_neutral_compatibility
   - shadcn_ui.native_overlay_platform_runtime
   - shadcn_ui.motion_media_capability_css
+  - shadcn_ui.waive_manual_accessibility_1_0_release
 surface:
   - priv/compatibility/*.json
   - priv/compatibility/catalogue.json
@@ -68,7 +69,7 @@ runtime boundary, package contents, or existing verification.
   stability: stable
 
 - id: shadcn_ui.compatibility_accessibility.manual_review
-  statement: A bounded manual review record shall identify environment, assistive technology or device, scenarios, observations, defects, reviewer, date, and unresolved status without presenting unexecuted checks as certification.
+  statement: A bounded manual review record shall identify environment, assistive technology or device, scenarios, observations, defects, reviewer, date, unresolved status, and any explicit release-scoped waiver without presenting unexecuted checks as passes or certification.
   priority: must
   stability: evolving
 
@@ -97,6 +98,10 @@ or change the six pending manual scenarios.
 Its R6.2 regression restores the locked three-engine Milestone F suite to CI
 using the current scoped search contract and records pinned axe separately from
 the still-pending human scenarios.
+For `1.0.0`, the release owner subsequently waived execution of all six human
+scenarios. They remain pending and unassessed, but their release gate is
+non-mandatory; automated accessibility stays mandatory and no conformance or
+assistive-technology claim is made.
 
 ```spec-verification
 - kind: test_file

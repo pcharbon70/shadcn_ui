@@ -9,6 +9,7 @@ decisions:
   - shadcn_ui.fly_gallery_publication
   - shadcn_ui.public_hex_1_0_release
   - shadcn_ui.upstream_provenance
+  - shadcn_ui.waive_manual_accessibility_1_0_release
 surface:
   - mix.exs
   - mix.lock
@@ -88,7 +89,7 @@ surface:
   stability: stable
 
 - id: shadcn_ui.release_publication.truthful_gates
-  statement: Local, CI, merge, deployment, post-deployment, consumer-trial, and manual-accessibility states shall be recorded separately, and incomplete mandatory states shall block final qualification.
+  statement: Local, CI, merge, deployment, post-deployment, consumer-trial, and manual-accessibility states shall be recorded separately; incomplete mandatory states shall block final qualification, while an explicit release-scoped waiver shall remain non-mandatory, visibly unexecuted, and bounded to its recorded release.
   priority: must
   stability: stable
 ```
@@ -132,6 +133,10 @@ hashes. Independent source approval, CI on the final evidence revision, merge,
 the exact-revision two-build clean candidate and manual accessibility remain
 separate gates, and an older operational release without recorded source review
 is not represented as an eligible rollback candidate.
+The later `1.0.0` decision changes only the current release-gate effect of those
+six human scenarios: they remain pending evidence but are waived and
+non-mandatory for `1.0.0`. The isolated archive-consumer trial and every other
+mandatory gate remain unchanged.
 
 ```spec-verification
 - kind: test_file

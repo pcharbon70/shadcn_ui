@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, manual accessibility, review, CI, merge, Hex publication, and public-tag gates are not all passing.",
+               "Mandatory 1.0.0 archive, clean-consumer, exact-revision reproducibility, review, CI, merge, Hex publication, and public-tag gates are not all passing.",
              "status" => "blocked"
            }
 
@@ -32,9 +32,13 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     refute Enum.all?(mandatory, &(&1["status"] == "passed"))
     assert Enum.find(mandatory, &(&1["id"] == "deployment-source-review"))["status"] == "pending"
 
+    manual_gate = Enum.find(status["gates"], &(&1["id"] == "manual-accessibility"))
+    refute manual_gate["mandatory"]
+    assert manual_gate["status"] == "waived"
+
     assert Enum.all?(
              status["gates"],
-             &(&1["status"] in ["passed", "failed", "pending", "not-applicable"])
+             &(&1["status"] in ["passed", "failed", "pending", "waived", "not-applicable"])
            )
   end
 

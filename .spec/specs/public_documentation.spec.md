@@ -11,6 +11,7 @@ decisions:
   - shadcn_ui.catalogue_driven_documentation
   - shadcn_ui.consumer_neutral_compatibility
   - shadcn_ui.public_hex_1_0_release
+  - shadcn_ui.waive_manual_accessibility_1_0_release
 surface:
   - README.md
   - CHANGELOG.md
@@ -128,6 +129,10 @@ states distinct instead of inferring qualification from a healthy deployment.
 The current deployment record supersedes the gallery version identity only;
 the phase-specific R6 evidence remains historical and the same release gates
 stay independent.
+For `1.0.0`, release-facing documentation records all six human scenarios as
+unexecuted and the manual gate as explicitly waived and non-mandatory. It does
+not turn the scenarios into passes, make a WCAG or assistive-technology claim,
+or waive the automated accessibility and isolated-consumer gates.
 
 ```spec-verification
 - kind: test_file

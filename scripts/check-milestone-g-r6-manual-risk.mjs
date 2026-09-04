@@ -36,9 +36,10 @@ assert(evidence.gateEffect.candidateQualification === "blocked", "candidate is n
 assert(evidence.gateEffect.wcagCertification === "not-claimed", "WCAG certification is claimed");
 assert(candidate.qualification.qualified === false, "candidate was incorrectly qualified");
 assert(candidate.qualification.status === "blocked", "candidate qualification is not blocked");
+const currentManualGate = candidate.gates.find((gate) => gate.id === "manual-accessibility");
 assert(
-  candidate.gates.find((gate) => gate.id === "manual-accessibility")?.status === "pending",
-  "candidate manual-accessibility gate was promoted",
+  currentManualGate?.status === "waived" && currentManualGate.mandatory === false,
+  "the later 1.0.0 manual waiver is not recorded",
 );
 
 for (let scenario = 1; scenario <= 6; scenario += 1) {

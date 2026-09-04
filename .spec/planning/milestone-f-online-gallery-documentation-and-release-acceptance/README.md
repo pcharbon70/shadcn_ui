@@ -5,11 +5,13 @@
 This implementation record sequences the documentation, compatibility and
 internal release work described by the [Milestone F roadmap](../../milestones/milestone-f-online-gallery-documentation-and-release-acceptance.md).
 Phases 1-5 and Phase 6 Sections 6.1-6.3 have landed. Final qualification remains
-open for an exact-revision clean candidate, six manual accessibility scenarios,
-source review, and final-revision CI. The canonical Fly release and post-deploy
-smoke pass operationally, but review and merge remain separate states. The work adds no component family,
-package JavaScript runtime, application framework, operating-system target, or
-embedded-renderer support claim.
+open for an exact-revision clean candidate and archive consumer, source review,
+and final-revision CI. The six manual accessibility scenarios remain pending
+but are waived and non-mandatory for `1.0.0`. The canonical Fly release and
+post-deploy smoke pass operationally, but review and merge remain separate
+states. The work adds no component family, package JavaScript runtime,
+application framework, operating-system target, or embedded-renderer support
+claim.
 
 ## Accepted architecture and contracts
 
@@ -17,6 +19,8 @@ embedded-renderer support claim.
 2. [Consumer-neutral compatibility and integration guidance](../../decisions/consumer-neutral-compatibility-and-integration-guidance.md)
 3. [Fly gallery application publication](../../decisions/fly-gallery-application-publication.md)
 4. [Internal release candidate and clean consumer trial](../../decisions/internal-release-candidate-and-clean-consumer-trial.md)
+5. [Public Hex 1.0.0 release](../../decisions/public-hex-1-0-release.md)
+6. [1.0.0 manual-accessibility waiver](../../decisions/waive-manual-accessibility-for-1-0-0.md)
 
 The normative specifications are:
 

@@ -75,7 +75,7 @@ defmodule ShadcnUI.MilestoneFAcceptanceTest do
     assert length(Regex.scan(~r/^\- Status: PENDING$/m, ledger)) == 6
 
     assert ledger =~
-             ~r/must not state\s+that manual accessibility acceptance or WCAG certification is complete/
+             ~r/must not state\s+that\s+manual accessibility acceptance or WCAG certification is complete/
 
     assert ledger =~ "Automated evidence"
     assert ledger =~ "axe-core 4.13.0"

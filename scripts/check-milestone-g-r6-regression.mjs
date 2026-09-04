@@ -93,9 +93,10 @@ assert(
   "VR-11 is not explicitly blocking",
 );
 assert(candidate.qualification.qualified === false, "candidate was incorrectly qualified");
+const currentManualGate = candidate.gates.find((gate) => gate.id === "manual-accessibility");
 assert(
-  candidate.gates.find((gate) => gate.id === "manual-accessibility")?.status === "pending",
-  "manual accessibility was incorrectly promoted",
+  currentManualGate?.status === "waived" && currentManualGate.mandatory === false,
+  "the later 1.0.0 manual waiver is not recorded",
 );
 
 const workflow = readFileSync(join(root, ".github/workflows/gallery.yml"), "utf8");

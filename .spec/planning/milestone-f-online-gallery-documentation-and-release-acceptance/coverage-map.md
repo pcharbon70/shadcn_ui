@@ -2,8 +2,10 @@
 
 This planning map assigns requirements to delivery and intended proof. The
 targets have landed, but the map is not execution evidence: exact-revision clean
-candidate, manual-accessibility, CI, review, merge, deployment, and smoke states
-remain authoritative only in their dedicated evidence records.
+candidate, manual-accessibility disposition, CI, review, merge, deployment, and
+smoke states remain authoritative only in their dedicated evidence records. The
+six manual scenarios remain unexecuted but their gate is waived and
+non-mandatory for `1.0.0` only.
 
 | Requirement group | Phase | Primary planned proof |
 | --- | --- | --- |

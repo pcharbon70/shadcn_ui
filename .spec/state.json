@@ -395,6 +395,18 @@
         "status": "superseded",
         "superseded_by": "shadcn_ui.fly_gallery_publication",
         "title": "Publish Immutable Gallery Evidence With Explicit Operations"
+      },
+      {
+        "affects": [
+          "shadcn_ui.compatibility_accessibility",
+          "shadcn_ui.public_documentation",
+          "shadcn_ui.release_publication"
+        ],
+        "date": "2026-09-04",
+        "file": ".spec/decisions/waive-manual-accessibility-for-1-0-0.md",
+        "id": "shadcn_ui.waive_manual_accessibility_1_0_release",
+        "status": "accepted",
+        "title": "Waive Manual Accessibility Execution For The 1.0.0 Release"
       }
     ]
   },
@@ -463,7 +475,7 @@
         "id": "shadcn_ui.compatibility_accessibility.manual_review",
         "priority": "must",
         "stability": "evolving",
-        "statement": "A bounded manual review record shall identify environment, assistive technology or device, scenarios, observations, defects, reviewer, date, and unresolved status without presenting unexecuted checks as certification.",
+        "statement": "A bounded manual review record shall identify environment, assistive technology or device, scenarios, observations, defects, reviewer, date, unresolved status, and any explicit release-scoped waiver without presenting unexecuted checks as passes or certification.",
         "subject_id": "shadcn_ui.compatibility_accessibility"
       },
       {
@@ -2335,7 +2347,7 @@
         "id": "shadcn_ui.release_publication.truthful_gates",
         "priority": "must",
         "stability": "stable",
-        "statement": "Local, CI, merge, deployment, post-deployment, consumer-trial, and manual-accessibility states shall be recorded separately, and incomplete mandatory states shall block final qualification.",
+        "statement": "Local, CI, merge, deployment, post-deployment, consumer-trial, and manual-accessibility states shall be recorded separately; incomplete mandatory states shall block final qualification, while an explicit release-scoped waiver shall remain non-mandatory, visibly unexecuted, and bounded to its recorded release.",
         "subject_id": "shadcn_ui.release_publication"
       },
       {
@@ -2557,7 +2569,8 @@
             "shadcn_ui.progressive_enhancement_baseline",
             "shadcn_ui.consumer_neutral_compatibility",
             "shadcn_ui.native_overlay_platform_runtime",
-            "shadcn_ui.motion_media_capability_css"
+            "shadcn_ui.motion_media_capability_css",
+            "shadcn_ui.waive_manual_accessibility_1_0_release"
           ],
           "id": "shadcn_ui.compatibility_accessibility",
           "kind": "policy",
@@ -3274,7 +3287,8 @@
             "shadcn_ui.transport_neutral_phoenix_package",
             "shadcn_ui.catalogue_driven_documentation",
             "shadcn_ui.consumer_neutral_compatibility",
-            "shadcn_ui.public_hex_1_0_release"
+            "shadcn_ui.public_hex_1_0_release",
+            "shadcn_ui.waive_manual_accessibility_1_0_release"
           ],
           "id": "shadcn_ui.public_documentation",
           "kind": "policy",
@@ -3315,7 +3329,8 @@
           "decisions": [
             "shadcn_ui.fly_gallery_publication",
             "shadcn_ui.public_hex_1_0_release",
-            "shadcn_ui.upstream_provenance"
+            "shadcn_ui.upstream_provenance",
+            "shadcn_ui.waive_manual_accessibility_1_0_release"
           ],
           "id": "shadcn_ui.release_publication",
           "kind": "application",
@@ -5913,7 +5928,7 @@
   "specification_version": "1.0",
   "summary": {
     "decision_parse_errors": 0,
-    "decisions": 31,
+    "decisions": 32,
     "exceptions": 0,
     "findings": 0,
     "requirements": 268,
@@ -16087,7 +16102,7 @@
     "threshold_failures": 0
   },
   "workspace": {
-    "decision_count": 31,
+    "decision_count": 32,
     "spec_count": 27
   }
 }

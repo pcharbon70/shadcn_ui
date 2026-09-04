@@ -6,10 +6,10 @@ Version `1.0.0` is the first public Hex release target and establishes the
 initial stable API. Selecting the version does not reuse or upgrade the earlier
 `0.1.0` candidate evidence: the `1.0.0` archive, isolated consumer, exact-source
 reproducibility, review, final-revision CI, merge, Hex publication, and public
-tag must be recorded independently. Manual
-accessibility remains pending under the existing bounded waiver and is not a
-conformance claim. Hex publication remains pending until the mandatory release
-gates pass.
+tag must be recorded independently. All six human accessibility scenarios
+remain pending and unassessed, but their gate is explicitly waived and
+non-mandatory for `1.0.0`; this is not a conformance claim.
+Hex publication remains pending until the other mandatory release gates pass.
 
 All 38 Milestone F requirements have an implementation/evidence entry in
 `release/records/milestone-f-acceptance.md`. Fly release
@@ -17,7 +17,8 @@ All 38 Milestone F requirements have an implementation/evidence entry in
 `8654f6a4500ce210682d7cae7453553d878a714c` with package and demo identity
 `1.0.0`; service health, canonical smoke, and deployed Chromium checks pass.
 That successful operational deployment does not complete the remaining package
-qualification, review, CI, merge, manual-accessibility, Hex, or tag gates.
+qualification, review, CI, merge, Hex, or tag gates. The manual-accessibility
+waiver changes no automated or isolated-consumer requirement.
 
 ## Historical Milestone F Phase 5 candidate status
 
