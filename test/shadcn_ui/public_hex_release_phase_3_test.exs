@@ -36,12 +36,18 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
     assert review["status"] == "waived"
     refute review["mandatory"]
 
-    for id <- ["actual-archive-consumer", "hex-publication", "public-version-tag"] do
+    for id <- ["hex-publication", "public-version-tag"] do
       assert gates[id]["status"] == "pending"
       assert gates[id]["mandatory"]
     end
 
-    for id <- ["clean-candidate", "specled-main-head", "ci-final-revision", "merge"] do
+    for id <- [
+          "clean-candidate",
+          "actual-archive-consumer",
+          "specled-main-head",
+          "ci-final-revision",
+          "merge"
+        ] do
       assert gates[id]["status"] == "passed"
       assert gates[id]["mandatory"]
     end
@@ -128,6 +134,7 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
     assert plan =~ "- [x] 3.3 Section - Require CI on the exact merged revision."
     assert plan =~ "- [x] 3 Phase - Resolve review, merge, and select the immutable source."
     assert plan =~ "- [x] 4.1 Section - Build `RELEASE_SHA` twice from clean checkouts."
-    assert plan =~ "- [ ] 4.2 Section - Consume the final archive in isolation."
+    assert plan =~ "- [x] 4.2 Section - Consume the final archive in isolation."
+    assert plan =~ "- [ ] 4.3 Section - Make the final go/no-go packet."
   end
 end

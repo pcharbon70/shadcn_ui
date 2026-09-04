@@ -4,7 +4,7 @@
     "package": "shadcn_ui",
     "version": "1.0.0",
     "phase": 4,
-    "status": "section-4.1-complete"
+    "status": "sections-4.1-and-4.2-complete"
   },
   "observedAt": "2026-09-04T16:37:22Z",
   "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
@@ -86,7 +86,37 @@
     }
   },
   "section4_2": {
-    "status": "pending"
+    "status": "passed",
+    "observedAt": "2026-09-04T16:43:48Z",
+    "selectedBuild": "build-a",
+    "archive": "shadcn_ui-1.0.0.tar",
+    "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+    "archiveMatchesComparison": true,
+    "consumerTrialRecordSha256": "fd8851bc239c2a40ee996eeed0fca52f63935a6bad99d393e6a1fb79bd3dabb6",
+    "install": {
+      "kind": "hex-repository-archive",
+      "repository": "candidate",
+      "signedRepository": true,
+      "pathDependency": false
+    },
+    "consumer": {
+      "outsideSourceTree": true,
+      "compiled": true,
+      "testsPassed": 3,
+      "browserPassed": true,
+      "packagedStylesheet": true,
+      "packageMetadataPresent": true,
+      "consumerNodeRequired": false,
+      "consumerTailwindRequired": false,
+      "remoteAssetsRequired": false,
+      "packageJavaScriptRequired": false,
+      "sourceModulesVisible": false
+    },
+    "cleanup": {
+      "disposableConsumerRemoved": true,
+      "temporaryWorktreesRemaining": 0,
+      "retainedOutput": "consumer/consumer-trial.json"
+    }
   },
   "section4_3": {
     "status": "pending"
@@ -94,14 +124,14 @@
   "boundaries": {
     "releaseShaUnchanged": true,
     "finalCleanCandidateGateSatisfied": true,
-    "finalArchiveConsumerGateSatisfied": false,
+    "finalArchiveConsumerGateSatisfied": true,
     "goNoGoPacketComplete": false,
     "publishedToHex": false,
     "tagCreated": false
   },
   "commits": {
     "section4_1": "recorded-in-containing-commit",
-    "section4_2": null,
+    "section4_2": "recorded-in-containing-commit",
     "section4_3": null
   }
 }

@@ -5,14 +5,14 @@
   "qualification": {
     "status": "blocked",
     "qualified": false,
-    "reason": "Mandatory 1.0.0 clean-consumer, Hex publication, and public-tag gates are not all passing."
+    "reason": "The 1.0.0 go/no-go packet, Hex publication, and public tag are not complete."
   },
   "evidence": {
     "workingTreeBaseRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
     "currentSourceRevision": "aa6a2d35474a51ea63248131631ace2b113b99a4",
     "currentArchiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
     "currentArchiveEntries": 63,
-    "currentArchiveStatus": "Two final RELEASE_SHA builds and their actual archives are equivalent and audited; final isolated consumption remains pending for Phase 4 Section 4.2",
+    "currentArchiveStatus": "Two final RELEASE_SHA builds and their actual archives are equivalent and audited; final isolated archive consumption passes",
     "compiledCssSha256": "ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41",
     "historicalPhase6Candidate": {
       "sourceRevision": "3ef5f82e0830d34b9be16a4b6f8945bc7761d93b",
@@ -73,11 +73,11 @@
     },
     "publicReleasePhase4": {
       "path": "release/public-release-phase-4.json",
-      "status": "section-4.1-complete",
+      "status": "sections-4.1-and-4.2-complete",
       "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
       "cleanBuildComparison": "passed",
       "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
-      "isolatedConsumer": "pending",
+      "isolatedConsumer": "passed",
       "goNoGoPacket": "pending"
     },
     "browserEvidenceInput": "release/browser-evidence-inputs.json",
@@ -89,7 +89,7 @@
     {"id": "public-release-phase-1-preflight", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "public-release-phase-2-premerge", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "clean-candidate", "kind": "local", "mandatory": true, "status": "passed"},
-    {"id": "actual-archive-consumer", "kind": "local", "mandatory": true, "status": "pending"},
+    {"id": "actual-archive-consumer", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "phase-5-integration", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "phase-6-publication-artifact", "kind": "local", "mandatory": true, "status": "passed"},
     {"id": "phase-6-operations", "kind": "local", "mandatory": true, "status": "passed"},
@@ -112,7 +112,8 @@
   "diagnostics": {
     "publicReleasePreflight": "Phase 1 passed from synchronized main: the source boundary requires no replacement Fly deployment; package metadata, the release-scoped waiver, authenticated Hex identity pcharbon70, public package-name absence, and the pinned toolchain and locks agree. At that snapshot the later archive, consumer, review-disposition, final-revision CI, merge, Hex, and tag gates remained separate.",
     "phase6LocalIntegration": "Package precommit passed 420 tests, demo precommit passed 168 tests, the R5 rendered comparison passed 10 browser checks, and SpecLed passed locally for the deployed 1.0.0 source. Final exact-source archive, consumer, and reproducibility gates remain separate; manual evidence and independent review remain unexecuted under non-mandatory 1.0.0 waivers.",
-    "cleanCandidate": "Two separate detached builds of RELEASE_SHA aa6a2d35474a51ea63248131631ace2b113b99a4 produced equivalent complete records and byte-identical 63-entry archives at SHA-256 547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da. Inputs, provenance, compiled CSS, 147 documentation files, and 646 gallery files match. The final isolated archive consumer remains a separate pending gate.",
+    "cleanCandidate": "Two separate detached builds of RELEASE_SHA aa6a2d35474a51ea63248131631ace2b113b99a4 produced equivalent complete records and byte-identical 63-entry archives at SHA-256 547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da. Inputs, provenance, compiled CSS, 147 documentation files, and 646 gallery files match.",
+    "cleanConsumer": "The final selected archive was installed through a disposable signed Hex repository outside the source tree. Compilation, 3 tests, browser interaction, packaged stylesheet delivery, package metadata, and no-path/no-package-JavaScript boundaries passed; the recorded checksum exactly matches both final builds.",
     "publicReleasePhase2": "The pre-merge qualification passed 435 package tests, 169 demo tests, warning-free ExDoc, current archive audit, deterministic export and smoke, 552 browser checks across Chromium, Firefox, and WebKit, automated accessibility, release-evidence integrity, formatting, SpecLed, and diff checks. The generated archives and full outputs remain outside Git. Subsequent Phase 3 evidence records the review waiver, merge, and exact-main CI; final RELEASE_SHA reproduction and consumption, Hex publication, and the public tag remain pending.",
     "independentReview": "Qualification PR #52 received zero reviews. The release owner explicitly waived independent source review for 1.0.0 only in signed GitHub comment 5541919512 and accepted the resulting risk. The gate is non-mandatory and waived, not passed or approved; every technical and publication gate remains unchanged.",
     "releaseSha": "Qualification PR #52 passed its required verify check, then merged through GitHub at 2026-09-04T14:05:50Z as aa6a2d35474a51ea63248131631ace2b113b99a4. Its tree 6dc1d3f056196d13be1ec7529fbe2f9d4e59e4e7 exactly matches the PR head tree, and synchronized local main was clean at that revision.",

@@ -9,6 +9,7 @@ defmodule ShadcnUI.PublicHexReleasePhase4Test do
 
   # covers: shadcn_ui.release_publication.deterministic_export
   # covers: shadcn_ui.release_publication.clean_checkout
+  # covers: shadcn_ui.release_publication.clean_consumer_trial
   # covers: shadcn_ui.release_publication.explicit_archive
   # covers: shadcn_ui.release_publication.public_release_target
   # covers: shadcn_ui.release_publication.truthful_gates
@@ -55,23 +56,40 @@ defmodule ShadcnUI.PublicHexReleasePhase4Test do
     refute custody["generatedArtifactsCommitted"]
   end
 
-  test "clean candidate passes without promoting the final consumer" do
+  test "section 4.2 consumes the exact selected archive and removes its workspace" do
     gates = Map.new(@candidate["gates"], &{&1["id"], &1})
+    consumer = @evidence["section4_2"]
 
     assert gates["clean-candidate"]["status"] == "passed"
     assert gates["clean-candidate"]["mandatory"]
-    assert gates["actual-archive-consumer"]["status"] == "pending"
+    assert gates["actual-archive-consumer"]["status"] == "passed"
     assert gates["actual-archive-consumer"]["mandatory"]
+    assert consumer["status"] == "passed"
+    assert consumer["archiveSha256"] == @evidence["section4_1"]["comparison"]["archiveSha256"]
+    assert consumer["archiveMatchesComparison"]
+    assert consumer["install"]["signedRepository"]
+    refute consumer["install"]["pathDependency"]
+    assert consumer["consumer"]["outsideSourceTree"]
+    assert consumer["consumer"]["compiled"]
+    assert consumer["consumer"]["testsPassed"] == 3
+    assert consumer["consumer"]["browserPassed"]
+    assert consumer["consumer"]["packagedStylesheet"]
+    refute consumer["consumer"]["consumerNodeRequired"]
+    refute consumer["consumer"]["consumerTailwindRequired"]
+    refute consumer["consumer"]["remoteAssetsRequired"]
+    refute consumer["consumer"]["packageJavaScriptRequired"]
+    assert consumer["cleanup"]["disposableConsumerRemoved"]
+    assert consumer["cleanup"]["temporaryWorktreesRemaining"] == 0
     assert @evidence["boundaries"]["finalCleanCandidateGateSatisfied"]
-    refute @evidence["boundaries"]["finalArchiveConsumerGateSatisfied"]
+    assert @evidence["boundaries"]["finalArchiveConsumerGateSatisfied"]
     refute @candidate["qualification"]["qualified"]
   end
 
-  test "the plan marks only Phase 4 section 4.1 complete" do
+  test "the plan marks Phase 4 sections 4.1 and 4.2 complete" do
     plan = File.read!(Path.join(@root, ".spec/planning/public-hex-1-0-0-release/README.md"))
 
     assert plan =~ "- [x] 4.1 Section - Build `RELEASE_SHA` twice from clean checkouts."
-    assert plan =~ "- [ ] 4.2 Section - Consume the final archive in isolation."
+    assert plan =~ "- [x] 4.2 Section - Consume the final archive in isolation."
     assert plan =~ "- [ ] 4.3 Section - Make the final go/no-go packet."
   end
 end

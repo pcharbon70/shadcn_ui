@@ -169,7 +169,12 @@ actual 63-entry archives are byte-identical at SHA-256
 the complete build records, archive inventories, compiled CSS, documentation,
 gallery, input-manifest, and provenance identities also match. This passes the
 final clean-candidate and exact-reproducibility gate without promoting the
-still-pending final isolated-consumer result.
+then-pending final isolated-consumer result. Section 4.2 installed the selected
+archive through a disposable signed Hex repository outside the source tree and
+passed compilation, three consumer tests, browser interaction, packaged-
+stylesheet, package-metadata, and runtime-boundary checks. Its recorded archive
+checksum matches the two-build result exactly; the disposable consumer and
+temporary worktrees were removed while the signed result remains external.
 
 ```spec-verification
 - kind: test_file
@@ -246,6 +251,7 @@ still-pending final isolated-consumer result.
   covers:
     - shadcn_ui.release_publication.deterministic_export
     - shadcn_ui.release_publication.clean_checkout
+    - shadcn_ui.release_publication.clean_consumer_trial
     - shadcn_ui.release_publication.explicit_archive
     - shadcn_ui.release_publication.public_release_target
     - shadcn_ui.release_publication.truthful_gates

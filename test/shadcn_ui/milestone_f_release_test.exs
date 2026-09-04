@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Mandatory 1.0.0 clean-consumer, Hex publication, and public-tag gates are not all passing.",
+               "The 1.0.0 go/no-go packet, Hex publication, and public tag are not complete.",
              "status" => "blocked"
            }
 
@@ -93,7 +93,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert evidence["consumer"]["testsPassed"]
     assert evidence["consumer"]["browserPassed"]
     refute evidence["install"]["pathDependency"]
-    assert gates["actual-archive-consumer"] == "pending"
+    assert gates["actual-archive-consumer"] == "passed"
     assert gates["clean-candidate"] == "passed"
   end
 

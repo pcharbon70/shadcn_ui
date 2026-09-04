@@ -175,6 +175,7 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
 
     resolved = [
       "clean-candidate",
+      "actual-archive-consumer",
       "deployment-source-review",
       "merge",
       "specled-main-head",
@@ -202,6 +203,10 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     assert "clean-candidate" in reconciliation["pendingMandatoryGates"]
     assert gates["clean-candidate"]["status"] == "passed"
     assert gates["clean-candidate"]["mandatory"]
+
+    assert "actual-archive-consumer" in reconciliation["pendingMandatoryGates"]
+    assert gates["actual-archive-consumer"]["status"] == "passed"
+    assert gates["actual-archive-consumer"]["mandatory"]
 
     manual = reconciliation["manualAccessibility"]
     assert manual["evidence"] == "pending"

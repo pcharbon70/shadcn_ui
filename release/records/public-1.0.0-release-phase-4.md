@@ -23,3 +23,24 @@ operator-controlled external evidence directory recorded in
 the controlling checkout remained clean. This passes the final clean-candidate,
 exact-reproducibility, and archive-audit boundary. It does not satisfy the
 separate final isolated-consumer gate in Section 4.2.
+
+## Section 4.2 - Consume the final archive
+
+The consumer harness selected build A's final archive and verified that its
+SHA-256 exactly matches the two-build comparison:
+`547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da`.
+It installed `shadcn_ui 1.0.0` through a disposable signed Hex repository—not a
+path dependency—and confirmed installed package metadata outside the source
+tree.
+
+The external Phoenix consumer compiled, passed all 3 tests, exercised native
+focus and dialog behavior in Chromium, and served the packaged stylesheet. It
+required no consumer Node or Tailwind toolchain, package JavaScript, source
+module visibility, or remote runtime asset. The disposable consumer and all
+temporary worktrees were removed; only `consumer/consumer-trial.json` remains
+in the external evidence directory, bound by record SHA-256
+`fd8851bc239c2a40ee996eeed0fca52f63935a6bad99d393e6a1fb79bd3dabb6`.
+
+The final clean-consumer gate now passes. Hex publication and the public tag
+remain pending, and Section 4.3 must still assemble and verify the go/no-go
+packet before publication authorization can be requested.

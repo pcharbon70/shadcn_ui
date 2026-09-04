@@ -47,6 +47,9 @@ The first public Hex release target is `1.0.0`.
   source. Generated archives, build inventories, and disposable-consumer output
   remain outside tracked source; committed summaries record their identities
   and separate gate outcomes.
+- Final consumer evidence shall install the approved archive by its recorded
+  checksum in an isolated project. A passing trial for a different archive,
+  path dependency, or source checkout does not satisfy the public-release gate.
 - Hex publication does not create a marketplace listing, certify a consumer
   platform, or imply official shadcn/ui or unscripted/ui affiliation.
 

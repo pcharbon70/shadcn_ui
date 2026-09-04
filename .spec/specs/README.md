@@ -38,12 +38,13 @@ These accepted specifications now describe the implemented Milestone E surface.
 ## Milestone F contracts
 
 These active specifications describe the implemented documentation and release
-surfaces. Final candidate qualification remains blocked on the final isolated
-archive consumer; exact-revision clean reproducibility, the qualification
-merge, and exact-main CI now pass. Independent source review remains
-unperformed under the explicit `1.0.0` waiver. The six manual scenarios remain
-pending but are explicitly waived and non-mandatory for `1.0.0`; a verification
-target or checked implementation item is never evidence that a gate passed.
+surfaces. Exact-revision clean reproducibility, the final isolated archive
+consumer, the qualification merge, and exact-main CI now pass; final candidate
+qualification remains blocked until its go/no-go packet and later Hex/tag
+operations are resolved. Independent source review remains unperformed under
+the explicit `1.0.0` waiver. The six manual scenarios remain pending but are
+explicitly waived and non-mandatory for `1.0.0`; a verification target or
+checked implementation item is never evidence that a gate passed.
 
 - [Documentation catalogue, search, and information architecture](./documentation_catalogue.spec.md)
 - [Public documentation and integration guidance](./public_documentation.spec.md)
