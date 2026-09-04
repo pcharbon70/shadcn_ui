@@ -72,4 +72,79 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     refute working_tree["credentialsTracked"]
     refute working_tree["evidenceSecretsTracked"]
   end
+
+  test "section 1.2 binds consistent package metadata without claiming publication" do
+    metadata = @preflight["metadataAndToolchain"]["metadata"]
+    project = Mix.Project.config()
+    readme = File.read!(Path.join(@root, "README.md"))
+    changelog = File.read!(Path.join(@root, "CHANGELOG.md"))
+    release = File.read!(Path.join(@root, "RELEASE.md"))
+    notices = File.read!(Path.join(@root, "THIRD_PARTY_NOTICES.md"))
+
+    assert metadata["mixProjectVersion"] == project[:version]
+    assert project[:package][:licenses] == ["MIT"]
+    assert project[:package][:links]["Gallery"] == metadata["links"]["gallery"]
+    assert project[:package][:links]["GitHub"] == metadata["links"]["github"]
+    assert readme =~ "Version `1.0.0` is being prepared"
+    assert readme =~ "is not\n> published yet"
+    assert changelog =~ "## 1.0.0 — unreleased"
+    assert release =~ "pending and unassessed"
+    assert release =~ "waived and\nnon-mandatory for `1.0.0`"
+    assert notices =~ "MIT License"
+    assert File.exists?(Path.join(@root, "priv/provenance/unscripted_ui.json"))
+  end
+
+  test "section 1.2 records authenticated new-package authority without credentials" do
+    authority = @preflight["authority"]
+    encoded = Jason.encode!(@preflight)
+
+    assert authority["hexIdentityVerification"]["status"] == "passed"
+    assert authority["hexIdentityVerification"]["authenticatedIdentity"] == "pcharbon70"
+    assert authority["hexPackageAvailability"]["status"] == "absent"
+    assert authority["hexPackageAvailability"]["result"] == "No package with name shadcn_ui"
+
+    assert authority["permissionAssessment"]["status"] ==
+             "passed-for-new-personal-package-preflight"
+
+    refute encoded =~ "api_key"
+    refute encoded =~ "apiKey"
+    refute encoded =~ "token"
+    refute encoded =~ "secret"
+  end
+
+  test "section 1.2 pins the active toolchain, locks, and browser input relationship" do
+    inputs =
+      @root |> Path.join("release/candidate-inputs.json") |> File.read!() |> Jason.decode!()
+
+    observed = @preflight["metadataAndToolchain"]
+    browser_path = Path.join(@root, inputs["browserEvidence"])
+    browser = browser_path |> File.read!() |> Jason.decode!()
+
+    assert observed["status"] == "passed"
+    assert observed["candidateInputCheck"] == "passed"
+    assert observed["toolchain"]["rebar3Sha256"] == inputs["rebar3"]["sha256"]
+
+    for {name, expected} <- inputs["toolchain"] do
+      assert observed["toolchain"][name] == expected
+    end
+
+    for {relative, expected} <- inputs["locks"] do
+      actual =
+        @root
+        |> Path.join(relative)
+        |> File.read!()
+        |> then(&:crypto.hash(:sha256, &1))
+        |> Base.encode16(case: :lower)
+
+      assert actual == expected
+      assert observed["locks"][relative] == expected
+    end
+
+    assert browser["evidenceType"] == "release-browser-input-linkage-not-browser-outcome"
+    assert browser["lock"]["playwright"] == inputs["toolchain"]["playwright"]
+    assert browser["lock"]["packageLockSha256"] == inputs["locks"]["demo/package-lock.json"]
+    refute browser["lockRelationship"]["browserDependencyGraphChanged"]
+    refute browser["lockRelationship"]["runtimeOrGalleryBehaviorChanged"]
+    assert browser["qualificationBoundary"]["finalBrowserAcceptance"] == "pending-phase-2"
+  end
 end

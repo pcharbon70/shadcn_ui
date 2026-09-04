@@ -12,8 +12,23 @@
     "hexOrganization": null,
     "reviewMethod": "approving GitHub review",
     "independentReviewerRequired": true,
-    "hexIdentityVerification": "pending-section-1.2",
-    "hexPackageAvailability": "pending-section-1.2"
+    "hexIdentityVerification": {
+      "status": "passed",
+      "observedAt": "2026-09-04T12:07:17Z",
+      "command": "mix hex.user whoami",
+      "authenticatedIdentity": "pcharbon70"
+    },
+    "hexPackageAvailability": {
+      "status": "absent",
+      "observedAt": "2026-09-04T12:07:17Z",
+      "command": "mix hex.info shadcn_ui",
+      "result": "No package with name shadcn_ui"
+    },
+    "permissionAssessment": {
+      "status": "passed-for-new-personal-package-preflight",
+      "basis": "The intended personal account authenticated successfully and the public package name is unclaimed.",
+      "finalServerAuthorization": "rechecked-by-publish-dry-run-in-phase-5"
+    }
   },
   "sourceBoundary": {
     "deployedRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
@@ -75,7 +90,41 @@
     "evidenceSecretsTracked": false
   },
   "metadataAndToolchain": {
-    "status": "pending-section-1.2"
+    "status": "passed",
+    "observedAt": "2026-09-04T12:07:17Z",
+    "metadata": {
+      "mixProjectVersion": "1.0.0",
+      "readmeReleaseState": "preparing-not-published",
+      "changelogReleaseState": "unreleased",
+      "license": "MIT",
+      "thirdPartyNotices": "present",
+      "provenance": "present",
+      "manualAccessibility": "pending-waived-not-passed",
+      "links": {
+        "gallery": "https://pcharbon70-shadcn-ui-demo.fly.dev/",
+        "github": "https://github.com/pcharbon70/shadcn_ui"
+      }
+    },
+    "toolchain": {
+      "elixir": "1.20.3",
+      "otp": "29",
+      "erts": "17.0.5",
+      "mix": "1.20.3",
+      "hex": "2.5.1",
+      "node": "22.13.1",
+      "npm": "10.9.2",
+      "tailwindcss": "4.3.3",
+      "playwright": "1.62.1",
+      "axeCore": "4.13.0",
+      "rebar3Sha256": "8dead71212b8008ec830c085607c23ec2997ab1c36a3c91901ac42c9814ee08c"
+    },
+    "locks": {
+      "mix.lock": "ad8e13e7418692f0f768980a7a2d16e3961046953d66c350ba0d3fe5c09ad8bf",
+      "package-lock.json": "e155db35ac11512f0d10b88131b20e22abd2aa8ae92ba6e077ccd4be6bd74075",
+      "demo/package-lock.json": "21cdcd5cfb88432e8cae2e93572e41e64245b31bb7a74def5d6e3656356c5021"
+    },
+    "browserEvidenceInput": "release/browser-evidence-inputs.json",
+    "candidateInputCheck": "passed"
   },
   "ledgerReconciliation": {
     "status": "pending-section-1.3"

@@ -31,3 +31,34 @@ documentation build, credential, or secret evidence file is tracked.
 
 Sections 1.2 and 1.3 remain pending. This record neither qualifies nor
 publishes the release.
+
+## Section 1.2 - Metadata and authority
+
+At `2026-09-04T12:07:17Z`, the manifest-pinned Elixir `1.20.3`, OTP `29`
+(ERTS `17.0.5`), Mix `1.20.3`, Hex `2.5.1`, Node `22.13.1`, npm `10.9.2`, and
+reviewed rebar3 SHA-256 were active. `node scripts/check-candidate-inputs.mjs`
+passed all toolchain, dependency-lock, browser-input, and provenance-linkage
+checks. No toolchain mismatch remains for this section.
+
+The earlier browser evidence retained a pre-`1.0.0` demo lock hash. The current
+lock differs from the later three-engine regression source only in the root
+demo version fields (`0.1.0` to `1.0.0`), without a dependency or behavior
+change. `release/browser-evidence-inputs.json` records that relationship and
+binds the candidate input checker to the current lock without relabelling the
+historical outcomes. Phase 2 browser acceptance remains pending and mandatory.
+
+Package metadata consistently selects `shadcn_ui 1.0.0`, MIT licensing, the
+complete third-party notices and provenance, the public gallery and repository
+links, an unreleased changelog entry, and a README that says the package is not
+yet published. Release guidance preserves the six human scenarios as pending
+and waived, never passed or conformant.
+
+The installed Hex client authenticated as intended personal account
+`pcharbon70`. The official registry query returned
+`No package with name shadcn_ui`; there is no organization target. This is a
+passing new-personal-package authority preflight. The supported publish dry run
+in Phase 5 must recheck final server authorization and package-name
+availability before any irreversible command.
+
+No Hex API key or other credential value was printed into or stored by this
+record. Section 1.3 and every later release gate remain pending.

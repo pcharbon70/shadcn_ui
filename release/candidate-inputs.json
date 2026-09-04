@@ -22,5 +22,5 @@
     "selection": "MIX_REBAR3",
     "sha256": "8dead71212b8008ec830c085607c23ec2997ab1c36a3c91901ac42c9814ee08c"
   },
-  "browserEvidence": "demo/priv/compatibility/milestone_f_engine_evidence.json"
+  "browserEvidence": "release/browser-evidence-inputs.json"
 }

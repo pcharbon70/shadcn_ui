@@ -91,16 +91,16 @@ avoids changing the commit merely to record proof about that commit.
   - [x] Keep the working tree free of generated archives, docs, build output,
     credentials, and evidence secrets.
 
-- [ ] 1.2 Section - Verify release metadata and authority.
+- [x] 1.2 Section - Verify release metadata and authority.
 
-  - [ ] Confirm `mix.exs`, package metadata, README, changelog, license, notices,
+  - [x] Confirm `mix.exs`, package metadata, README, changelog, license, notices,
     provenance, links, and release documentation consistently describe
     `1.0.0` and the bounded accessibility waiver.
-  - [ ] Confirm the configured Hex identity is authenticated and has permission
+  - [x] Confirm the configured Hex identity is authenticated and has permission
     to create or publish the `shadcn_ui` package; never commit the Hex API key.
-  - [ ] Query public Hex immediately before qualification and record that
+  - [x] Query public Hex immediately before qualification and record that
     `shadcn_ui 1.0.0` is not already published.
-  - [ ] Run `node scripts/check-candidate-inputs.mjs` and compare the active
+  - [x] Run `node scripts/check-candidate-inputs.mjs` and compare the active
     Elixir/OTP, Mix, Hex, rebar3, Node, and npm identities with
     `release/candidate-inputs.json`. Any mismatch blocks the release.
 
