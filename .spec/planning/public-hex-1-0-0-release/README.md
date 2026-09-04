@@ -78,41 +78,43 @@ avoids changing the commit merely to record proof about that commit.
 
 ## Phase 1 - Establish release authority and freeze inputs
 
-- [ ] 1.1 Section - Synchronize and define the candidate boundary.
+- [x] 1 Phase - Establish release authority and freeze inputs.
 
-  - [ ] Start from a clean, synchronized `main` and create one `codex/`
+- [x] 1.1 Section - Synchronize and define the candidate boundary.
+
+  - [x] Start from a clean, synchronized `main` and create one `codex/`
     qualification branch.
-  - [ ] Record the branch base, intended review method, publication owner, Hex
+  - [x] Record the branch base, intended review method, publication owner, Hex
     account or organization, package name `shadcn_ui`, and target `1.0.0`.
-  - [ ] Inventory all changes since the deployed gallery revision. If a change
+  - [x] Inventory all changes since the deployed gallery revision. If a change
     affects package runtime, public CSS, gallery output, or version identity,
     require a replacement Fly deployment and canonical smoke. Documentation-
     or evidence-only changes do not by themselves require redeployment.
-  - [ ] Keep the working tree free of generated archives, docs, build output,
+  - [x] Keep the working tree free of generated archives, docs, build output,
     credentials, and evidence secrets.
 
-- [ ] 1.2 Section - Verify release metadata and authority.
+- [x] 1.2 Section - Verify release metadata and authority.
 
-  - [ ] Confirm `mix.exs`, package metadata, README, changelog, license, notices,
+  - [x] Confirm `mix.exs`, package metadata, README, changelog, license, notices,
     provenance, links, and release documentation consistently describe
     `1.0.0` and the bounded accessibility waiver.
-  - [ ] Confirm the configured Hex identity is authenticated and has permission
+  - [x] Confirm the configured Hex identity is authenticated and has permission
     to create or publish the `shadcn_ui` package; never commit the Hex API key.
-  - [ ] Query public Hex immediately before qualification and record that
+  - [x] Query public Hex immediately before qualification and record that
     `shadcn_ui 1.0.0` is not already published.
-  - [ ] Run `node scripts/check-candidate-inputs.mjs` and compare the active
+  - [x] Run `node scripts/check-candidate-inputs.mjs` and compare the active
     Elixir/OTP, Mix, Hex, rebar3, Node, and npm identities with
     `release/candidate-inputs.json`. Any mismatch blocks the release.
 
-- [ ] 1.3 Section - Reconcile the pre-publication ledger.
+- [x] 1.3 Section - Reconcile the pre-publication ledger.
 
-  - [ ] Update `release/candidate-status.json`, readable release records, and
+  - [x] Update `release/candidate-status.json`, readable release records, and
     release guidance only for facts already proved at the branch revision.
-  - [ ] Preserve the manual scenarios as `PENDING`, `mandatory: false`, and
+  - [x] Preserve the manual scenarios as `PENDING`, `mandatory: false`, and
     `waived`; do not convert the waiver into a pass.
-  - [ ] Leave exact-build, consumer, independent review, final-revision CI,
+  - [x] Leave exact-build, consumer, independent review, final-revision CI,
     merge, Hex, and tag gates pending until their own evidence exists.
-  - [ ] Run `mix spec.next`, `mix spec.check --base HEAD`, and
+  - [x] Run `mix spec.next`, `mix spec.check --base origin/main`, and
     `git diff --check` before Phase 2.
 
 ## Phase 2 - Prove the candidate before merge

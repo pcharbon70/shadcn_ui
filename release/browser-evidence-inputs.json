@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "release-browser-input-linkage-not-browser-outcome",
+  "recordedAt": "2026-09-04T12:07:17Z",
+  "candidateVersion": "1.0.0",
+  "lock": {
+    "playwright": "1.62.1",
+    "packageLockSha256": "21cdcd5cfb88432e8cae2e93572e41e64245b31bb7a74def5d6e3656356c5021"
+  },
+  "dependencyPins": {
+    "playwright": "1.62.1",
+    "axeCore": "4.13.0"
+  },
+  "sourceEvidence": [
+    {
+      "path": "demo/priv/compatibility/milestone_f_engine_evidence.json",
+      "role": "historical exact-engine identities and component outcomes",
+      "observedPackageLockSha256": "bc47482d4502896f6dedf9d4e2ff002bd1595e91c1540041cb19f90b0fcbef8a"
+    },
+    {
+      "path": "demo/priv/reference/milestone_g/remediation-r6-regression-evidence.json",
+      "role": "later three-engine regression and pinned axe outcomes",
+      "sourceRevision": "119ba0eaf71a9c656b85a34fe674a9bcd7f37c82"
+    }
+  ],
+  "lockRelationship": {
+    "comparedFromRevision": "119ba0eaf71a9c656b85a34fe674a9bcd7f37c82",
+    "comparedThroughRevision": "42227ebb2892f0b98d0204786c616d0641497c3f",
+    "changedFields": [
+      "demo/package.json root version 0.1.0 to 1.0.0",
+      "demo/package-lock.json root version 0.1.0 to 1.0.0"
+    ],
+    "browserDependencyGraphChanged": false,
+    "runtimeOrGalleryBehaviorChanged": false
+  },
+  "qualificationBoundary": {
+    "status": "input-linkage-only",
+    "finalBrowserAcceptance": "pending-phase-2",
+    "claim": "This record binds candidate input versions to the current lock. It does not replay or relabel historical browser outcomes."
+  }
+}

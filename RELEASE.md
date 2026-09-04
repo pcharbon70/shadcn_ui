@@ -20,6 +20,15 @@ That successful operational deployment does not complete the remaining package
 qualification, review, CI, merge, Hex, or tag gates. The manual-accessibility
 waiver changes no automated or isolated-consumer requirement.
 
+The public-release Phase 1 preflight passes from synchronized main
+`42227ebb2892f0b98d0204786c616d0641497c3f`. It records a non-material
+post-deployment source inventory, consistent package metadata, authenticated
+personal Hex identity `pcharbon70`, no existing public `shadcn_ui` package, and
+a passing exact pinned-toolchain/lock check. See
+`release/public-release-preflight.json`. This does not create an archive,
+select the final `RELEASE_SHA`, publish Hex, or complete any later mandatory
+gate.
+
 ## Historical Milestone F Phase 5 candidate status
 
 The Phase 5 record proved its then-current committed-input build and archive

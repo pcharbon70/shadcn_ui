@@ -38,6 +38,7 @@ surface:
   - test/shadcn_ui/milestone_f_phase1_acceptance_test.exs
   - test/shadcn_ui/milestone_f_phase6_acceptance_test.exs
   - test/shadcn_ui/milestone_f_publication_operations_test.exs
+  - test/shadcn_ui/public_hex_release_phase_1_test.exs
 ```
 
 ## Requirements

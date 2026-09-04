@@ -6,7 +6,9 @@ Status: **BLOCKED — not qualified**.
 
 The implementation, current local package and demo acceptance, SpecLed checks,
 owner-authorized `1.0.0` Fly deployment, canonical smoke, and deployed Chromium
-smoke pass. Qualification is still blocked because the actual `1.0.0` archive,
+smoke pass. The public-release Phase 1 source-boundary, metadata, authenticated
+Hex identity, package-name availability, and pinned-input preflight also pass.
+Qualification is still blocked because the actual `1.0.0` archive,
 isolated consumer, two exact-toolchain reproducible builds, independent source
 approval, final-revision CI, merge, Hex publication, and public tag remain
 pending. All six human accessibility scenarios also remain unexecuted, but are
@@ -17,6 +19,13 @@ language.
 
 ## Recorded evidence
 
+- Phase 1 started from synchronized main
+  `42227ebb2892f0b98d0204786c616d0641497c3f`. Its 34-file change inventory
+  contains only specification/planning, release evidence, validators, and
+  tests, so no replacement Fly deployment is required. The authenticated
+  personal Hex identity is `pcharbon70`, the registry reported no existing
+  `shadcn_ui` package, and the complete pinned input verifier passed. See
+  `release/public-release-preflight.json`.
 - The current evidence working tree is based on committed deployment source
   `8654f6a4500ce210682d7cae7453553d878a714c`; later evidence changes do not
   relabel that immutable deployed source.
@@ -43,6 +52,8 @@ builds produce equivalent `1.0.0` evidence.
 
 ## Blocking and separate gates
 
+- Public release Phase 1 preflight: passed, mandatory. This is metadata and
+  authority evidence only, not candidate qualification or publication.
 - Exact-current-revision two-build reproducibility, actual archive audit, and
   isolated consumer trial: pending, mandatory.
 - Human accessibility scenarios: six pending and unassessed, but explicitly
