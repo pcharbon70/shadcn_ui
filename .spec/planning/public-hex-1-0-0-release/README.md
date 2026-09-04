@@ -140,9 +140,9 @@ avoids changing the commit merely to record proof about that commit.
     archive allowlist and contain the required license, notices, documentation,
     compiled stylesheet, public modules, and Mix metadata only.
 
-- [ ] 2.2 Section - Prove preliminary isolated consumption.
+- [x] 2.2 Section - Prove preliminary isolated consumption.
 
-  - [ ] Install one preliminary archive through the harness's disposable signed
+  - [x] Install one preliminary archive through the harness's disposable signed
     Hex repository, never through a path dependency:
 
     ```console
@@ -151,11 +151,11 @@ avoids changing the commit merely to record proof about that commit.
       --output /absolute/evidence/premerge-consumer
     ```
 
-  - [ ] Require the external Phoenix consumer to compile representative public
+  - [x] Require the external Phoenix consumer to compile representative public
     APIs and controller HEEx, serve the packaged stylesheet, pass its tests and
     browser interaction, and make no consumer Node, Tailwind, remote-asset, or
     package-JavaScript requirement.
-  - [ ] Retain the archive checksum and `consumer-trial.json` together so the
+  - [x] Retain the archive checksum and `consumer-trial.json` together so the
     consumer result cannot be attributed to a different package.
 
 - [ ] 2.3 Section - Complete the qualification PR.

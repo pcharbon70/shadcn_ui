@@ -22,6 +22,7 @@ surface:
   - release/candidate-inputs.json
   - release/candidate-status.json
   - release/consumer-trial-evidence.json
+  - release/preliminary-candidate-evidence.json
   - release/fly-deployment-evidence.json
   - release/records/**
   - demo/operations/gallery-publication.md
@@ -39,6 +40,7 @@ surface:
   - test/shadcn_ui/milestone_f_phase6_acceptance_test.exs
   - test/shadcn_ui/milestone_f_publication_operations_test.exs
   - test/shadcn_ui/public_hex_release_phase_1_test.exs
+  - test/shadcn_ui/public_hex_release_phase_2_test.exs
 ```
 
 ## Requirements
@@ -138,6 +140,10 @@ The later `1.0.0` decision changes only the current release-gate effect of those
 six human scenarios: they remain pending evidence but are waived and
 non-mandatory for `1.0.0`. The isolated archive-consumer trial and every other
 mandatory gate remain unchanged.
+Phase 2 preliminary evidence binds two equivalent clean builds and a disposable
+Hex-repository consumer to one archive checksum. It remains explicitly
+preliminary: the exact merged `RELEASE_SHA` build and consumer gates stay
+pending until their own Phase 4 evidence exists.
 
 ```spec-verification
 - kind: test_file
@@ -187,6 +193,15 @@ mandatory gate remain unchanged.
 
 - kind: test_file
   target: demo/test/milestone_g_remediation_r6_test.exs
+  covers:
+    - shadcn_ui.release_publication.deterministic_export
+    - shadcn_ui.release_publication.clean_checkout
+    - shadcn_ui.release_publication.clean_consumer_trial
+    - shadcn_ui.release_publication.explicit_archive
+    - shadcn_ui.release_publication.truthful_gates
+
+- kind: test_file
+  target: test/shadcn_ui/public_hex_release_phase_2_test.exs
   covers:
     - shadcn_ui.release_publication.deterministic_export
     - shadcn_ui.release_publication.clean_checkout
