@@ -93,16 +93,60 @@ defmodule ShadcnUI.PublicHexReleasePhase2Test do
     refute boundaries["tagCreated"]
     assert gates["clean-candidate"] == "pending"
     assert gates["actual-archive-consumer"] == "pending"
+    assert gates["public-release-phase-2-premerge"] == "passed"
     assert gates["hex-publication"] == "pending"
     assert gates["public-version-tag"] == "pending"
     refute @candidate["qualification"]["qualified"]
   end
 
-  test "the execution plan distinguishes completed consumption from qualification" do
+  test "section 2.3 records complete pre-merge verification" do
+    verification = @evidence["qualificationVerification"]
+
+    assert verification["status"] == "passed"
+
+    assert verification["packagePrecommit"] == %{
+             "failures" => 0,
+             "status" => "passed",
+             "tests" => 435
+           }
+
+    assert verification["demoPrecommit"] == %{
+             "failures" => 0,
+             "status" => "passed",
+             "tests" => 169
+           }
+
+    assert verification["documentation"]["warnings"] == 0
+    assert verification["archiveAudit"]["entries"] == 63
+    assert verification["galleryExport"]["routes"] == 634
+    assert verification["browserAcceptance"]["testInvocations"] == 552
+
+    assert verification["browserAcceptance"]["engines"] == [
+             "chromium",
+             "firefox",
+             "webkit"
+           ]
+
+    assert verification["releaseEvidenceChecks"]["status"] == "passed"
+
+    assert verification["specLed"] == %{
+             "base" => "origin/main",
+             "branchFindings" => 0,
+             "errors" => 0,
+             "status" => "passed",
+             "warnings" => 0
+           }
+
+    assert verification["diffCheck"] == "passed"
+  end
+
+  test "the execution plan distinguishes pre-merge completion from final release" do
     plan = File.read!(Path.join(@root, ".spec/planning/public-hex-1-0-0-release/README.md"))
 
+    assert plan =~ "- [x] 2 Phase - Prove the candidate before merge."
     assert plan =~ "- [x] 2.1 Section - Produce preliminary clean candidate evidence."
     assert plan =~ "- [x] 2.2 Section - Prove preliminary isolated consumption."
-    assert plan =~ "- [ ] 2.3 Section - Complete the qualification PR."
+    assert plan =~ "- [x] 2.3 Section - Complete the qualification PR."
+    assert plan =~ "- [ ] 3.1 Section - Obtain independent source approval."
   end
 end

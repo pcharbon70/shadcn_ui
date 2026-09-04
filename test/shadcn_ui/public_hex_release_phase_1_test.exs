@@ -199,7 +199,7 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     assert plan =~ "- [x] 1.3 Section - Reconcile the pre-publication ledger."
     assert plan =~ "- [x] 2.1 Section - Produce preliminary clean candidate evidence."
     assert plan =~ "- [x] 2.2 Section - Prove preliminary isolated consumption."
-    assert plan =~ "- [ ] 2.3 Section - Complete the qualification PR."
+    assert plan =~ "- [x] 2.3 Section - Complete the qualification PR."
 
     assert Map.new(@candidate["gates"], &{&1["id"], &1["status"]})["hex-publication"] ==
              "pending"

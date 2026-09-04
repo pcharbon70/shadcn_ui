@@ -119,6 +119,8 @@ avoids changing the commit merely to record proof about that commit.
 
 ## Phase 2 - Prove the candidate before merge
 
+- [x] 2 Phase - Prove the candidate before merge.
+
 - [x] 2.1 Section - Produce preliminary clean candidate evidence.
 
   - [x] From the qualification branch head, run two independent clean builds
@@ -158,16 +160,16 @@ avoids changing the commit merely to record proof about that commit.
   - [x] Retain the archive checksum and `consumer-trial.json` together so the
     consumer result cannot be attributed to a different package.
 
-- [ ] 2.3 Section - Complete the qualification PR.
+- [x] 2.3 Section - Complete the qualification PR.
 
-  - [ ] Run package and demo precommit, warning-free docs, archive audit,
+  - [x] Run package and demo precommit, warning-free docs, archive audit,
     automated accessibility/browser acceptance, SpecLed, and release-evidence
     checks required by the current repository.
-  - [ ] Commit each completed plan section separately, then open one
+  - [x] Commit each completed plan section separately, then open one
     qualification PR containing all source and pre-publication record changes.
-  - [ ] Attach or link the preliminary evidence without committing generated
+  - [x] Attach or link the preliminary evidence without committing generated
     archives or secrets.
-  - [ ] Do not publish, tag, or claim final exact-revision qualification from
+  - [x] Do not publish, tag, or claim final exact-revision qualification from
     these preliminary results.
 
 ## Phase 3 - Review, merge, and select the immutable source
