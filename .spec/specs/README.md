@@ -39,10 +39,11 @@ These accepted specifications now describe the implemented Milestone E surface.
 
 These active specifications describe the implemented documentation and release
 surfaces. Final candidate qualification remains blocked on exact-revision clean
-reproducibility, the archive consumer, deployed-source review, and
-final-revision CI. The six manual scenarios remain pending but are explicitly
-waived and non-mandatory for `1.0.0`; a verification target or checked
-implementation item is never evidence that a gate passed.
+reproducibility and the archive consumer. Independent source review remains
+unperformed under the explicit `1.0.0` waiver, while the qualification merge
+and exact-main CI now pass. The six manual scenarios remain pending but are
+explicitly waived and non-mandatory for `1.0.0`; a verification target or
+checked implementation item is never evidence that a gate passed.
 
 - [Documentation catalogue, search, and information architecture](./documentation_catalogue.spec.md)
 - [Public documentation and integration guidance](./public_documentation.spec.md)

@@ -176,6 +176,8 @@ avoids changing the commit merely to record proof about that commit.
 
 ## Phase 3 - Resolve review, merge, and select the immutable source
 
+- [x] 3 Phase - Resolve review, merge, and select the immutable source.
+
 - [x] 3.1 Section - Resolve independent source-review disposition.
 
   - [x] Record that no reviewer other than the change author reviewed the
@@ -199,13 +201,13 @@ avoids changing the commit merely to record proof about that commit.
     substitute for this release qualification merge; independent review is
     separately recorded as waived for `1.0.0`.
 
-- [ ] 3.3 Section - Require CI on the exact merged revision.
+- [x] 3.3 Section - Require CI on the exact merged revision.
 
-  - [ ] Require the configured main-branch CI workflow to pass for
+  - [x] Require the configured main-branch CI workflow to pass for
     `RELEASE_SHA`, not merely for the pre-merge PR head.
-  - [ ] Retain the workflow URL, run and job identifiers, source SHA, toolchain,
+  - [x] Retain the workflow URL, run and job identifiers, source SHA, toolchain,
     and artifact retention location.
-  - [ ] If CI or reviewed content changes, stop, create another reviewed PR,
+  - [x] If CI or reviewed content changes, stop, create another reviewed PR,
     select a new `RELEASE_SHA`, and repeat Phases 2-3.
 
 ## Phase 4 - Reproduce and consume the exact release

@@ -110,7 +110,7 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
     refute File.read!("mix.exs") =~ ~r/{:(dstar|ash|electron),/
   end
 
-  test "publication verification records deployed evidence without pre-claiming CI or merge" do
+  test "publication verification records deployed evidence and exact-main qualification" do
     workflow = File.read!(".github/workflows/gallery.yml")
     status = Jason.decode!(File.read!("release/candidate-status.json"))
     deployment = Jason.decode!(File.read!("release/fly-deployment-evidence.json"))
@@ -124,7 +124,7 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
     assert deployment["canonicalSmoke"]["status"] == "passed"
 
     gates = Map.new(status["gates"], &{&1["id"], &1["status"]})
-    assert gates["ci-final-revision"] == "pending"
+    assert gates["ci-final-revision"] == "passed"
     assert gates["deployment-source-review"] == "waived"
     assert gates["merge"] == "passed"
     assert gates["gallery-deployment"] == "passed"

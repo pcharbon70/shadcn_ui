@@ -39,8 +39,6 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
     for id <- [
           "clean-candidate",
           "actual-archive-consumer",
-          "specled-main-head",
-          "ci-final-revision",
           "hex-publication",
           "public-version-tag"
         ] do
@@ -48,10 +46,44 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
       assert gates[id]["mandatory"]
     end
 
-    assert gates["merge"]["status"] == "passed"
-    assert gates["merge"]["mandatory"]
+    for id <- ["specled-main-head", "ci-final-revision", "merge"] do
+      assert gates[id]["status"] == "passed"
+      assert gates[id]["mandatory"]
+    end
 
     refute @candidate["qualification"]["qualified"]
+  end
+
+  test "section 3.3 binds successful main CI and retained logs to RELEASE_SHA" do
+    ci = @evidence["section3_3"]
+    workflow = ci["workflow"]
+    retention = ci["retention"]
+    release_sha = @evidence["section3_2"]["merge"]["releaseSha"]
+
+    assert @evidence["release"]["status"] == "passed"
+    assert ci["status"] == "passed"
+    assert ci["sourceRevision"] == release_sha
+    assert workflow["event"] == "push"
+    assert workflow["runId"] == 33_881_762_954
+    assert workflow["jobId"] == 101_051_845_295
+    assert workflow["status"] == "completed"
+    assert workflow["conclusion"] == "success"
+    assert workflow["sourceMatchesReleaseSha"]
+    assert workflow["allRequiredStepsPassed"]
+
+    assert ci["toolchain"] == %{
+             "dependencies" => "locked",
+             "elixir" => "1.20.3",
+             "node" => "22.13.1",
+             "otp" => "29.0"
+           }
+
+    assert retention["kind"] == "github-actions-run-and-job-logs"
+    assert retention["days"] == 90
+    refute retention["namedArtifactProduced"]
+    refute ci["contentChangedAfterCi"]
+    assert @evidence["boundaries"]["exactMainCiSatisfied"]
+    assert @candidate["evidence"]["publicReleasePhase3"]["exactMainCi"] == "passed"
   end
 
   test "section 3.2 selects the exact merge whose tree matches the qualification head" do
@@ -98,6 +130,8 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
     assert decision =~ "No independent review was performed"
     assert plan =~ "- [x] 3.1 Section - Resolve independent source-review disposition."
     assert plan =~ "- [x] 3.2 Section - Merge and identify `RELEASE_SHA`."
-    assert plan =~ "- [ ] 3.3 Section - Require CI on the exact merged revision."
+    assert plan =~ "- [x] 3.3 Section - Require CI on the exact merged revision."
+    assert plan =~ "- [x] 3 Phase - Resolve review, merge, and select the immutable source."
+    assert plan =~ "- [ ] 4.1 Section - Build `RELEASE_SHA` twice from clean checkouts."
   end
 end

@@ -4,7 +4,7 @@
     "package": "shadcn_ui",
     "version": "1.0.0",
     "phase": 3,
-    "status": "sections-3.1-and-3.2-complete"
+    "status": "passed"
   },
   "section3_1": {
     "status": "waived",
@@ -63,12 +63,46 @@
       "workingTreeClean": true
     }
   },
+  "section3_3": {
+    "status": "passed",
+    "sourceRevision": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+    "workflow": {
+      "name": "ShadcnUI gallery",
+      "event": "push",
+      "runId": 33881762954,
+      "jobId": 101051845295,
+      "status": "completed",
+      "conclusion": "success",
+      "createdAt": "2026-09-04T14:05:52Z",
+      "startedAt": "2026-09-04T14:05:56Z",
+      "completedAt": "2026-09-04T14:23:35Z",
+      "runUrl": "https://github.com/pcharbon70/shadcn_ui/actions/runs/33881762954",
+      "jobUrl": "https://github.com/pcharbon70/shadcn_ui/actions/runs/33881762954/job/101051845295",
+      "sourceMatchesReleaseSha": true,
+      "allRequiredStepsPassed": true
+    },
+    "toolchain": {
+      "elixir": "1.20.3",
+      "otp": "29.0",
+      "node": "22.13.1",
+      "dependencies": "locked"
+    },
+    "retention": {
+      "kind": "github-actions-run-and-job-logs",
+      "days": 90,
+      "maximumAllowedDays": 90,
+      "namedArtifactProduced": false,
+      "location": "https://github.com/pcharbon70/shadcn_ui/actions/runs/33881762954"
+    },
+    "contentChangedAfterCi": false,
+    "nextPhase": "phase-4-exact-release-reproduction"
+  },
   "boundaries": {
     "reviewGatePassed": false,
     "reviewGateWaived": true,
     "releaseShaSelected": true,
     "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
-    "exactMainCiSatisfied": false,
+    "exactMainCiSatisfied": true,
     "finalArchiveGatesSatisfied": false,
     "publishedToHex": false,
     "tagCreated": false

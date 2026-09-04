@@ -108,9 +108,9 @@ bidirectionally traceable without changing this subject's release contract.
 The current owner-authorized Fly release binds package and demo version `1.0.0`
 to exact source revision `8654f6a4500ce210682d7cae7453553d878a714c`, Fly
 release `rel_76njzd0doog3yko3`, immutable image digest, passing service health,
-canonical smoke, and two deployed Chromium checks. Its source review, CI, and
-merge remain pending, so the successful deployment does not qualify or publish
-the Hex candidate.
+canonical smoke, and two deployed Chromium checks. That deployment does not by
+itself qualify or publish the Hex candidate; its source-review disposition,
+qualification merge, and exact-main CI are recorded independently below.
 
 The category-oriented user guides extend generated ExDoc navigation only. They
 do not change the candidate version, archive allowlist, deployment inputs,
@@ -156,6 +156,11 @@ Qualification PR #52 passed its required pre-merge workflow and merged as
 the exact tree `6dc1d3f056196d13be1ec7529fbe2f9d4e59e4e7`, so that merge is the selected
 `RELEASE_SHA`. Later governance/evidence reconciliation does not replace the
 selected package source; Phase 4 operates on that detached immutable revision.
+GitHub Actions run `33881762954` and verify job `101051845295` passed every
+configured main-branch step for that exact `RELEASE_SHA`, including locked
+package, docs, archive, demo, SpecLed, and Chromium/Firefox/WebKit verification.
+The run and job logs are retained for 90 days; the workflow produced no named
+artifact. Exact-source reproduction and consumption remain Phase 4 gates.
 
 ```spec-verification
 - kind: test_file
