@@ -10,6 +10,7 @@ decisions:
   - shadcn_ui.public_hex_1_0_release
   - shadcn_ui.upstream_provenance
   - shadcn_ui.waive_manual_accessibility_1_0_release
+  - shadcn_ui.waive_independent_review_1_0_release
 surface:
   - mix.exs
   - mix.lock
@@ -23,6 +24,7 @@ surface:
   - release/candidate-status.json
   - release/consumer-trial-evidence.json
   - release/preliminary-candidate-evidence.json
+  - release/public-release-phase-3.json
   - release/fly-deployment-evidence.json
   - release/records/**
   - demo/operations/gallery-publication.md
@@ -41,6 +43,7 @@ surface:
   - test/shadcn_ui/milestone_f_publication_operations_test.exs
   - test/shadcn_ui/public_hex_release_phase_1_test.exs
   - test/shadcn_ui/public_hex_release_phase_2_test.exs
+  - test/shadcn_ui/public_hex_release_phase_3_test.exs
 ```
 
 ## Requirements
@@ -87,12 +90,12 @@ surface:
   stability: stable
 
 - id: shadcn_ui.release_publication.public_release_target
-  statement: The first public Hex release shall use version 1.0.0, adopt Semantic Versioning for later releases, and remain unpublished and untagged until its own archive, consumer, review, CI, merge, gallery-identity, publication, and truthful-gate evidence is complete; this release does not imply a marketplace listing, consumer-platform certification, or official upstream affiliation.
+  statement: The first public Hex release shall use version 1.0.0, adopt Semantic Versioning for later releases, and remain unpublished and untagged until its own archive, consumer, review disposition, CI, merge, gallery-identity, publication, and truthful-gate evidence is complete; this release does not imply a marketplace listing, consumer-platform certification, or official upstream affiliation.
   priority: must
   stability: stable
 
 - id: shadcn_ui.release_publication.truthful_gates
-  statement: Local, CI, merge, deployment, post-deployment, consumer-trial, and manual-accessibility states shall be recorded separately; incomplete mandatory states shall block final qualification, while an explicit release-scoped waiver shall remain non-mandatory, visibly unexecuted, and bounded to its recorded release.
+  statement: Local, CI, merge, deployment, post-deployment, consumer-trial, source-review, and manual-accessibility states shall be recorded separately; incomplete mandatory states shall block final qualification, while every explicit release-scoped waiver shall remain non-mandatory, visibly unexecuted, and bounded to its recorded release.
   priority: must
   stability: stable
 ```
@@ -144,6 +147,10 @@ Phase 2 preliminary evidence binds two equivalent clean builds and a disposable
 Hex-repository consumer to one archive checksum. It remains explicitly
 preliminary: the exact merged `RELEASE_SHA` build and consumer gates stay
 pending until their own Phase 4 evidence exists.
+For `1.0.0`, independent source review was not performed. The release owner's
+accepted waiver binds that unreviewed state to qualification PR #52's exact
+head and changes only the gate's mandatory effect; it does not convert the
+missing review into an approval or weaken any technical release gate.
 
 ```spec-verification
 - kind: test_file
@@ -207,5 +214,11 @@ pending until their own Phase 4 evidence exists.
     - shadcn_ui.release_publication.clean_checkout
     - shadcn_ui.release_publication.clean_consumer_trial
     - shadcn_ui.release_publication.explicit_archive
+    - shadcn_ui.release_publication.truthful_gates
+
+- kind: test_file
+  target: test/shadcn_ui/public_hex_release_phase_3_test.exs
+  covers:
+    - shadcn_ui.release_publication.public_release_target
     - shadcn_ui.release_publication.truthful_gates
 ```

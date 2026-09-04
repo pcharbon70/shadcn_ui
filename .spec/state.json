@@ -398,6 +398,16 @@
       },
       {
         "affects": [
+          "shadcn_ui.release_publication"
+        ],
+        "date": "2026-09-04",
+        "file": ".spec/decisions/waive-independent-review-for-1-0-0.md",
+        "id": "shadcn_ui.waive_independent_review_1_0_release",
+        "status": "accepted",
+        "title": "Waive Independent Source Review For The 1.0.0 Release"
+      },
+      {
+        "affects": [
           "shadcn_ui.compatibility_accessibility",
           "shadcn_ui.public_documentation",
           "shadcn_ui.release_publication"
@@ -2339,7 +2349,7 @@
         "id": "shadcn_ui.release_publication.public_release_target",
         "priority": "must",
         "stability": "stable",
-        "statement": "The first public Hex release shall use version 1.0.0, adopt Semantic Versioning for later releases, and remain unpublished and untagged until its own archive, consumer, review, CI, merge, gallery-identity, publication, and truthful-gate evidence is complete; this release does not imply a marketplace listing, consumer-platform certification, or official upstream affiliation.",
+        "statement": "The first public Hex release shall use version 1.0.0, adopt Semantic Versioning for later releases, and remain unpublished and untagged until its own archive, consumer, review disposition, CI, merge, gallery-identity, publication, and truthful-gate evidence is complete; this release does not imply a marketplace listing, consumer-platform certification, or official upstream affiliation.",
         "subject_id": "shadcn_ui.release_publication"
       },
       {
@@ -2347,7 +2357,7 @@
         "id": "shadcn_ui.release_publication.truthful_gates",
         "priority": "must",
         "stability": "stable",
-        "statement": "Local, CI, merge, deployment, post-deployment, consumer-trial, and manual-accessibility states shall be recorded separately; incomplete mandatory states shall block final qualification, while an explicit release-scoped waiver shall remain non-mandatory, visibly unexecuted, and bounded to its recorded release.",
+        "statement": "Local, CI, merge, deployment, post-deployment, consumer-trial, source-review, and manual-accessibility states shall be recorded separately; incomplete mandatory states shall block final qualification, while every explicit release-scoped waiver shall remain non-mandatory, visibly unexecuted, and bounded to its recorded release.",
         "subject_id": "shadcn_ui.release_publication"
       },
       {
@@ -3288,7 +3298,8 @@
             "shadcn_ui.catalogue_driven_documentation",
             "shadcn_ui.consumer_neutral_compatibility",
             "shadcn_ui.public_hex_1_0_release",
-            "shadcn_ui.waive_manual_accessibility_1_0_release"
+            "shadcn_ui.waive_manual_accessibility_1_0_release",
+            "shadcn_ui.waive_independent_review_1_0_release"
           ],
           "id": "shadcn_ui.public_documentation",
           "kind": "policy",
@@ -3330,7 +3341,8 @@
             "shadcn_ui.fly_gallery_publication",
             "shadcn_ui.public_hex_1_0_release",
             "shadcn_ui.upstream_provenance",
-            "shadcn_ui.waive_manual_accessibility_1_0_release"
+            "shadcn_ui.waive_manual_accessibility_1_0_release",
+            "shadcn_ui.waive_independent_review_1_0_release"
           ],
           "id": "shadcn_ui.release_publication",
           "kind": "application",
@@ -3349,6 +3361,7 @@
             "release/candidate-status.json",
             "release/consumer-trial-evidence.json",
             "release/preliminary-candidate-evidence.json",
+            "release/public-release-phase-3.json",
             "release/fly-deployment-evidence.json",
             "release/records/**",
             "demo/operations/gallery-publication.md",
@@ -3366,7 +3379,8 @@
             "test/shadcn_ui/milestone_f_phase6_acceptance_test.exs",
             "test/shadcn_ui/milestone_f_publication_operations_test.exs",
             "test/shadcn_ui/public_hex_release_phase_1_test.exs",
-            "test/shadcn_ui/public_hex_release_phase_2_test.exs"
+            "test/shadcn_ui/public_hex_release_phase_2_test.exs",
+            "test/shadcn_ui/public_hex_release_phase_3_test.exs"
           ],
           "verification_minimum_strength": null
         },
@@ -5719,6 +5733,16 @@
       },
       {
         "covers": [
+          "shadcn_ui.release_publication.public_release_target",
+          "shadcn_ui.release_publication.truthful_gates"
+        ],
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "test/shadcn_ui/public_hex_release_phase_3_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.stylesheet.canonical_asset",
           "shadcn_ui.stylesheet.pinned_build",
           "shadcn_ui.stylesheet.explicit_sources",
@@ -5944,13 +5968,13 @@
   "specification_version": "1.0",
   "summary": {
     "decision_parse_errors": 0,
-    "decisions": 32,
+    "decisions": 33,
     "exceptions": 0,
     "findings": 0,
     "requirements": 268,
     "scenarios": 0,
     "subjects": 27,
-    "verifications": 194
+    "verifications": 195
   },
   "verification": {
     "claims": [
@@ -15140,6 +15164,28 @@
         "verification_index": 7
       },
       {
+        "cover_id": "shadcn_ui.release_publication.public_release_target",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "test/shadcn_ui/public_hex_release_phase_3_test.exs",
+        "verification_index": 8
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.truthful_gates",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "test/shadcn_ui/public_hex_release_phase_3_test.exs",
+        "verification_index": 8
+      },
+      {
         "cover_id": "shadcn_ui.stylesheet.canonical_asset",
         "file": ".spec/specs/stylesheet.spec.md",
         "kind": "command",
@@ -16168,12 +16214,12 @@
     "strength_summary": {
       "claimed": 5,
       "executed": 38,
-      "linked": 885
+      "linked": 887
     },
     "threshold_failures": 0
   },
   "workspace": {
-    "decision_count": 32,
+    "decision_count": 33,
     "spec_count": 27
   }
 }

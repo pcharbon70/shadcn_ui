@@ -125,7 +125,7 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
 
     gates = Map.new(status["gates"], &{&1["id"], &1["status"]})
     assert gates["ci-final-revision"] == "pending"
-    assert gates["deployment-source-review"] == "pending"
+    assert gates["deployment-source-review"] == "waived"
     assert gates["merge"] == "pending"
     assert gates["gallery-deployment"] == "passed"
     assert gates["post-deploy-smoke"] == "passed"

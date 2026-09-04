@@ -173,10 +173,14 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     assert gates["public-release-phase-1-preflight"]["status"] == "passed"
     assert gates["public-release-phase-1-preflight"]["mandatory"]
 
-    for id <- reconciliation["pendingMandatoryGates"] do
+    for id <- reconciliation["pendingMandatoryGates"] -- ["deployment-source-review"] do
       assert gates[id]["status"] == "pending"
       assert gates[id]["mandatory"]
     end
+
+    assert "deployment-source-review" in reconciliation["pendingMandatoryGates"]
+    assert gates["deployment-source-review"]["status"] == "waived"
+    refute gates["deployment-source-review"]["mandatory"]
 
     manual = reconciliation["manualAccessibility"]
     assert manual["evidence"] == "pending"

@@ -68,8 +68,10 @@ avoids changing the commit merely to record proof about that commit.
   publication authorization.
 - The **implementer** prepares the qualification PR and executes reproducible
   builds and consumer checks without self-approving the source gate.
-- The **independent reviewer** approves the final qualification diff and its
-  release boundary before merge.
+- The **independent reviewer** normally approves the final qualification diff
+  and its release boundary before merge. For `1.0.0`, the release owner has
+  explicitly waived this role and accepted the unreviewed-source risk; the
+  gate remains visibly waived rather than passed.
 - **CI** supplies the exact-main-revision status and retained build logs or
   artifacts.
 - Generated archives and pre-publication evidence remain outside Git. The
@@ -172,18 +174,19 @@ avoids changing the commit merely to record proof about that commit.
   - [x] Do not publish, tag, or claim final exact-revision qualification from
     these preliminary results.
 
-## Phase 3 - Review, merge, and select the immutable source
+## Phase 3 - Resolve review, merge, and select the immutable source
 
-- [ ] 3.1 Section - Obtain independent source approval.
+- [x] 3.1 Section - Resolve independent source-review disposition.
 
-  - [ ] A reviewer other than the change author reviews the complete
-    qualification diff, package boundary, metadata, archive inventory,
-    accessibility limitation, and publication plan.
-  - [ ] Record an approving GitHub review or equivalent signed approval tied to
-    the qualification PR head. Comments without approval do not satisfy this
-    gate.
-  - [ ] Resolve every blocking review finding and rerun affected preliminary
-    checks after the final change.
+  - [x] Record that no reviewer other than the change author reviewed the
+    complete qualification diff, package boundary, metadata, archive inventory,
+    accessibility limitation, or publication plan.
+  - [x] Tie the release owner's explicit `1.0.0`-only waiver and accepted risk
+    to qualification PR head
+    `fa56572ca9e72c04c29ae17b6df4821c1835ebd4` through a signed GitHub comment
+    and an accepted decision.
+  - [x] Keep the gate `waived` and non-mandatory rather than claiming approval;
+    record that no blocking findings exist because no review was performed.
 
 - [ ] 3.2 Section - Merge and identify `RELEASE_SHA`.
 
