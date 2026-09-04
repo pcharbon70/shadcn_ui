@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "release": {
+    "package": "shadcn_ui",
+    "version": "1.0.0",
+    "phase": 4,
+    "status": "section-4.1-complete"
+  },
+  "observedAt": "2026-09-04T16:37:22Z",
+  "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+  "section4_1": {
+    "status": "passed",
+    "execution": {
+      "controllerRevision": "e8ebffbd180a7f8f1b7d82204fc20ec2d7916c98",
+      "controllerBranch": "codex/public-1-0-0-release-phase-4",
+      "controllerWorkingTreeClean": true,
+      "detachedTemporaryWorktrees": 2,
+      "separateOutputDirectories": true,
+      "temporaryWorktreesRemoved": true
+    },
+    "toolchain": {
+      "elixir": "1.20.3",
+      "otp": "29.0.5",
+      "erts": "17.0.5",
+      "mix": "1.20.3",
+      "hex": "2.5.1",
+      "node": "22.13.1",
+      "npm": "10.9.2",
+      "rebar3Sha256": "8dead71212b8008ec830c085607c23ec2997ab1c36a3c91901ac42c9814ee08c"
+    },
+    "builds": [
+      {
+        "id": "build-a",
+        "sourceRevision": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+        "archive": "shadcn_ui-1.0.0.tar",
+        "archiveBytes": 90112,
+        "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+        "archiveEntries": 63,
+        "actualArchiveAudit": "passed",
+        "candidateBuildRecordSha256": "38191c0d7e2a64b73a73065e0e354585ab588e2b8cd68a4157d036224e9d4aa2",
+        "archiveInventorySha256": "cb37a252e3948973e6dcc9cb3a07cb45614c9a7bd35632e6c0ccd1515d536a8d"
+      },
+      {
+        "id": "build-b",
+        "sourceRevision": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+        "archive": "shadcn_ui-1.0.0.tar",
+        "archiveBytes": 90112,
+        "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+        "archiveEntries": 63,
+        "actualArchiveAudit": "passed",
+        "candidateBuildRecordSha256": "38191c0d7e2a64b73a73065e0e354585ab588e2b8cd68a4157d036224e9d4aa2",
+        "archiveInventorySha256": "cb37a252e3948973e6dcc9cb3a07cb45614c9a7bd35632e6c0ccd1515d536a8d"
+      }
+    ],
+    "comparison": {
+      "status": "passed",
+      "equivalent": true,
+      "actualArchivesByteIdentical": true,
+      "sourceRevision": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+      "candidateVersion": "1.0.0",
+      "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+      "archiveEntries": 63,
+      "compiledCssSha256": "ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41",
+      "compiledCssBytes": 54389,
+      "documentationFiles": 147,
+      "galleryFiles": 646,
+      "inputsSha256": "fecd2ceca7125b999c39a6535ffc28787a232341c2a0e636cbf46abee3e09c30",
+      "provenanceSha256": "d109a358ff5c26bc7616ce001f63137eb848e41ed7c7a6037484bb891fb58ca8",
+      "comparisonRecordSha256": "8877133464c00f29e4e32ab661779ed2ec36cd46c6f06c82a67118e6412eb2fa"
+    },
+    "archiveAudit": {
+      "status": "passed",
+      "actualArchivesAudited": 2,
+      "explicitAllowlist": true,
+      "requiredLicense": true,
+      "requiredThirdPartyNotices": true,
+      "requiredDocumentation": true,
+      "requiredCompiledStylesheet": true,
+      "requiredPublicModules": true,
+      "requiredMixMetadata": true
+    },
+    "evidenceCustody": {
+      "generatedArtifactsCommitted": false,
+      "externalEvidenceDirectory": "/tmp/shadcn-ui-phase4.ZSYVVc",
+      "retention": "operator-controlled-until-release-completion"
+    }
+  },
+  "section4_2": {
+    "status": "pending"
+  },
+  "section4_3": {
+    "status": "pending"
+  },
+  "boundaries": {
+    "releaseShaUnchanged": true,
+    "finalCleanCandidateGateSatisfied": true,
+    "finalArchiveConsumerGateSatisfied": false,
+    "goNoGoPacketComplete": false,
+    "publishedToHex": false,
+    "tagCreated": false
+  },
+  "commits": {
+    "section4_1": "recorded-in-containing-commit",
+    "section4_2": null,
+    "section4_3": null
+  }
+}

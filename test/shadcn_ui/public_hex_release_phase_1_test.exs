@@ -173,7 +173,13 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     assert gates["public-release-phase-1-preflight"]["status"] == "passed"
     assert gates["public-release-phase-1-preflight"]["mandatory"]
 
-    resolved = ["deployment-source-review", "merge", "specled-main-head", "ci-final-revision"]
+    resolved = [
+      "clean-candidate",
+      "deployment-source-review",
+      "merge",
+      "specled-main-head",
+      "ci-final-revision"
+    ]
 
     for id <- reconciliation["pendingMandatoryGates"] -- resolved do
       assert gates[id]["status"] == "pending"
@@ -192,6 +198,10 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
       assert gates[id]["status"] == "passed"
       assert gates[id]["mandatory"]
     end
+
+    assert "clean-candidate" in reconciliation["pendingMandatoryGates"]
+    assert gates["clean-candidate"]["status"] == "passed"
+    assert gates["clean-candidate"]["mandatory"]
 
     manual = reconciliation["manualAccessibility"]
     assert manual["evidence"] == "pending"

@@ -25,6 +25,7 @@ surface:
   - release/consumer-trial-evidence.json
   - release/preliminary-candidate-evidence.json
   - release/public-release-phase-3.json
+  - release/public-release-phase-4.json
   - release/fly-deployment-evidence.json
   - release/records/**
   - demo/operations/gallery-publication.md
@@ -161,6 +162,14 @@ configured main-branch step for that exact `RELEASE_SHA`, including locked
 package, docs, archive, demo, SpecLed, and Chromium/Firefox/WebKit verification.
 The run and job logs are retained for 90 days; the workflow produced no named
 artifact. Exact-source reproduction and consumption remain Phase 4 gates.
+Phase 4 then built the selected `RELEASE_SHA` twice from separate detached
+clean worktrees with every pinned runtime and the reviewed rebar3 binary. Both
+actual 63-entry archives are byte-identical at SHA-256
+`547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da`;
+the complete build records, archive inventories, compiled CSS, documentation,
+gallery, input-manifest, and provenance identities also match. This passes the
+final clean-candidate and exact-reproducibility gate without promoting the
+still-pending final isolated-consumer result.
 
 ```spec-verification
 - kind: test_file
@@ -229,6 +238,15 @@ artifact. Exact-source reproduction and consumption remain Phase 4 gates.
 - kind: test_file
   target: test/shadcn_ui/public_hex_release_phase_3_test.exs
   covers:
+    - shadcn_ui.release_publication.public_release_target
+    - shadcn_ui.release_publication.truthful_gates
+
+- kind: test_file
+  target: test/shadcn_ui/public_hex_release_phase_4_test.exs
+  covers:
+    - shadcn_ui.release_publication.deterministic_export
+    - shadcn_ui.release_publication.clean_checkout
+    - shadcn_ui.release_publication.explicit_archive
     - shadcn_ui.release_publication.public_release_target
     - shadcn_ui.release_publication.truthful_gates
 ```

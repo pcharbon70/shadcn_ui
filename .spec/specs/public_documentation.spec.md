@@ -143,6 +143,10 @@ The release ledger now also records qualification PR #52's merge and the
 successful main-branch workflow for its exact selected `RELEASE_SHA`. Public
 documentation remains truthful that final exact-source reproduction, archive
 consumption, Hex publication, and the public tag are still pending.
+The selected `RELEASE_SHA` now has two equivalent clean builds and matching
+actual archives. Release-facing documentation records that exact-source
+reproducibility as passed while keeping the final isolated archive consumer,
+Hex publication, and public tag pending.
 
 ```spec-verification
 - kind: test_file

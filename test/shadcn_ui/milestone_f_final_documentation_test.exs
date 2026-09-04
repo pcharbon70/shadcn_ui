@@ -39,7 +39,7 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
     assert status["evidence"]["milestoneFManualRequirementsPending"] == 1
     refute status["qualification"]["qualified"]
     assert gates["phase-6-local-integration"]["status"] == "passed"
-    assert gates["clean-candidate"]["status"] == "pending"
+    assert gates["clean-candidate"]["status"] == "passed"
     assert gates["actual-archive-consumer"]["status"] == "pending"
     assert gates["manual-accessibility"]["status"] == "waived"
     refute gates["manual-accessibility"]["mandatory"]

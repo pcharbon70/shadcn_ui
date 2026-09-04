@@ -42,6 +42,11 @@ The first public Hex release target is `1.0.0`.
   clean-consumer trial, exact-source reproducibility, review, final-revision CI,
   merge, matching gallery identity, Hex publication, and public tag remain
   separately recorded gates.
+- Evidence recorded after selecting `RELEASE_SHA` shall bind its full source
+  revision and artifact checksums without replacing that immutable package
+  source. Generated archives, build inventories, and disposable-consumer output
+  remain outside tracked source; committed summaries record their identities
+  and separate gate outcomes.
 - Hex publication does not create a marketplace listing, certify a consumer
   platform, or imply official shadcn/ui or unscripted/ui affiliation.
 
