@@ -119,9 +119,9 @@ avoids changing the commit merely to record proof about that commit.
 
 ## Phase 2 - Prove the candidate before merge
 
-- [ ] 2.1 Section - Produce preliminary clean candidate evidence.
+- [x] 2.1 Section - Produce preliminary clean candidate evidence.
 
-  - [ ] From the qualification branch head, run two independent clean builds
+  - [x] From the qualification branch head, run two independent clean builds
     with the exact pinned toolchain and separate absolute output directories:
 
     ```console
@@ -133,10 +133,10 @@ avoids changing the commit merely to record proof about that commit.
       --output /absolute/evidence/premerge-comparison.json
     ```
 
-  - [ ] Require identical source, input, provenance, compiled CSS, gallery,
+  - [x] Require identical source, input, provenance, compiled CSS, gallery,
     documentation, and unpacked archive inventories. Investigate every outer
     archive difference; waive none silently.
-  - [ ] Confirm both actual `shadcn_ui-1.0.0.tar` files pass the explicit
+  - [x] Confirm both actual `shadcn_ui-1.0.0.tar` files pass the explicit
     archive allowlist and contain the required license, notices, documentation,
     compiled stylesheet, public modules, and Mix metadata only.
 
