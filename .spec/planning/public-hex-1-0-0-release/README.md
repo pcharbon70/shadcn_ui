@@ -119,9 +119,11 @@ avoids changing the commit merely to record proof about that commit.
 
 ## Phase 2 - Prove the candidate before merge
 
-- [ ] 2.1 Section - Produce preliminary clean candidate evidence.
+- [x] 2 Phase - Prove the candidate before merge.
 
-  - [ ] From the qualification branch head, run two independent clean builds
+- [x] 2.1 Section - Produce preliminary clean candidate evidence.
+
+  - [x] From the qualification branch head, run two independent clean builds
     with the exact pinned toolchain and separate absolute output directories:
 
     ```console
@@ -133,16 +135,16 @@ avoids changing the commit merely to record proof about that commit.
       --output /absolute/evidence/premerge-comparison.json
     ```
 
-  - [ ] Require identical source, input, provenance, compiled CSS, gallery,
+  - [x] Require identical source, input, provenance, compiled CSS, gallery,
     documentation, and unpacked archive inventories. Investigate every outer
     archive difference; waive none silently.
-  - [ ] Confirm both actual `shadcn_ui-1.0.0.tar` files pass the explicit
+  - [x] Confirm both actual `shadcn_ui-1.0.0.tar` files pass the explicit
     archive allowlist and contain the required license, notices, documentation,
     compiled stylesheet, public modules, and Mix metadata only.
 
-- [ ] 2.2 Section - Prove preliminary isolated consumption.
+- [x] 2.2 Section - Prove preliminary isolated consumption.
 
-  - [ ] Install one preliminary archive through the harness's disposable signed
+  - [x] Install one preliminary archive through the harness's disposable signed
     Hex repository, never through a path dependency:
 
     ```console
@@ -151,23 +153,23 @@ avoids changing the commit merely to record proof about that commit.
       --output /absolute/evidence/premerge-consumer
     ```
 
-  - [ ] Require the external Phoenix consumer to compile representative public
+  - [x] Require the external Phoenix consumer to compile representative public
     APIs and controller HEEx, serve the packaged stylesheet, pass its tests and
     browser interaction, and make no consumer Node, Tailwind, remote-asset, or
     package-JavaScript requirement.
-  - [ ] Retain the archive checksum and `consumer-trial.json` together so the
+  - [x] Retain the archive checksum and `consumer-trial.json` together so the
     consumer result cannot be attributed to a different package.
 
-- [ ] 2.3 Section - Complete the qualification PR.
+- [x] 2.3 Section - Complete the qualification PR.
 
-  - [ ] Run package and demo precommit, warning-free docs, archive audit,
+  - [x] Run package and demo precommit, warning-free docs, archive audit,
     automated accessibility/browser acceptance, SpecLed, and release-evidence
     checks required by the current repository.
-  - [ ] Commit each completed plan section separately, then open one
+  - [x] Commit each completed plan section separately, then open one
     qualification PR containing all source and pre-publication record changes.
-  - [ ] Attach or link the preliminary evidence without committing generated
+  - [x] Attach or link the preliminary evidence without committing generated
     archives or secrets.
-  - [ ] Do not publish, tag, or claim final exact-revision qualification from
+  - [x] Do not publish, tag, or claim final exact-revision qualification from
     these preliminary results.
 
 ## Phase 3 - Review, merge, and select the immutable source

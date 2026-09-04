@@ -57,6 +57,12 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     end
   end
 
+  test "candidate builder excludes development-only tooling from the gallery export" do
+    builder = File.read!(Path.join(@root, "scripts/build-candidate.mjs"))
+
+    assert builder =~ ~s|run("mix", ["gallery.export"], demo, {MIX_ENV: "test"})|
+  end
+
   test "clean consumer recipe requires the candidate Hex repository, never a source path" do
     mixfile = File.read!(Path.join(@root, "integration/clean_consumer/mix.exs"))
     runner = File.read!(Path.join(@root, "scripts/run-clean-consumer.mjs"))

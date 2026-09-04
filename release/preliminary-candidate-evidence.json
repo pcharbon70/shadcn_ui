@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "release": {
+    "package": "shadcn_ui",
+    "version": "1.0.0",
+    "phase": 2,
+    "status": "passed-premerge"
+  },
+  "observedAt": "2026-09-04T13:23:24Z",
+  "preliminaryCandidate": {
+    "sourceRevision": "71d0edba92755f9d273765db79e1176255a4b365",
+    "builds": [
+      {
+        "id": "premerge-a",
+        "archive": "shadcn_ui-1.0.0.tar",
+        "archiveBytes": 90112,
+        "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da"
+      },
+      {
+        "id": "premerge-b",
+        "archive": "shadcn_ui-1.0.0.tar",
+        "archiveBytes": 90112,
+        "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da"
+      }
+    ],
+    "comparison": {
+      "status": "passed",
+      "equivalent": true,
+      "inputsSha256": "fecd2ceca7125b999c39a6535ffc28787a232341c2a0e636cbf46abee3e09c30",
+      "provenanceSha256": "d109a358ff5c26bc7616ce001f63137eb848e41ed7c7a6037484bb891fb58ca8",
+      "compiledCssSha256": "ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41",
+      "galleryFiles": 646,
+      "documentationFiles": 147,
+      "archiveEntries": 63
+    },
+    "archiveAudit": {
+      "status": "passed",
+      "explicitAllowlist": true,
+      "requiredLicense": true,
+      "requiredThirdPartyNotices": true,
+      "requiredDocumentation": true,
+      "requiredCompiledStylesheet": true,
+      "requiredPublicModules": true,
+      "requiredMixMetadata": true
+    }
+  },
+  "isolatedConsumer": {
+    "status": "passed",
+    "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+    "install": {
+      "kind": "hex-repository-archive",
+      "repository": "candidate",
+      "pathDependency": false
+    },
+    "outsideSourceTree": true,
+    "compiled": true,
+    "testsPassed": 3,
+    "browserPassed": true,
+    "packagedStylesheet": true,
+    "consumerNodeRequired": false,
+    "consumerTailwindRequired": false,
+    "remoteAssetsRequired": false,
+    "packageJavaScriptRequired": false,
+    "sourceModulesVisible": false
+  },
+  "qualificationVerification": {
+    "status": "passed",
+    "toolchain": "release/candidate-inputs.json",
+    "packagePrecommit": {
+      "status": "passed",
+      "tests": 435,
+      "failures": 0
+    },
+    "demoPrecommit": {
+      "status": "passed",
+      "tests": 169,
+      "failures": 0
+    },
+    "documentation": {
+      "status": "passed",
+      "warnings": 0
+    },
+    "archiveAudit": {
+      "status": "passed",
+      "entries": 63,
+      "sha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da"
+    },
+    "galleryExport": {
+      "status": "passed",
+      "deterministic": true,
+      "routes": 634,
+      "localAssets": 4
+    },
+    "browserAcceptance": {
+      "status": "passed",
+      "testInvocations": 552,
+      "failures": 0,
+      "engines": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "automatedAccessibility": "passed"
+    },
+    "releaseEvidenceChecks": {
+      "status": "passed",
+      "pinnedReference": "passed",
+      "comparison": "passed",
+      "integration": "passed",
+      "manualRiskBoundary": "passed",
+      "regression": "passed",
+      "deployment": "passed",
+      "acceptance": "passed"
+    },
+    "specLed": {
+      "status": "passed",
+      "base": "origin/main",
+      "errors": 0,
+      "warnings": 0,
+      "branchFindings": 0
+    },
+    "diffCheck": "passed"
+  },
+  "evidenceCustody": {
+    "generatedArchivesCommitted": false,
+    "generatedDocumentationCommitted": false,
+    "credentialsCommitted": false,
+    "fullBuildRecords": "operator-controlled external evidence directory",
+    "reviewRecord": "release/records/public-1.0.0-release-phase-2.md"
+  },
+  "boundaries": {
+    "preliminary": true,
+    "releaseShaSelected": false,
+    "finalCleanCandidateGateSatisfied": false,
+    "finalArchiveConsumerGateSatisfied": false,
+    "publishedToHex": false,
+    "tagCreated": false
+  },
+  "commits": {
+    "section2_1": "71d0edba92755f9d273765db79e1176255a4b365",
+    "section2_2": "461bb6f3d5519ba894280dd4992e04a0c128210e",
+    "section2_3": "recorded-in-containing-commit"
+  }
+}

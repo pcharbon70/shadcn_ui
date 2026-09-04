@@ -16,8 +16,13 @@ const executable = name => {
   if (name === "mix") return "mix.bat";
   return name;
 };
-const run = (name, args, cwd = root) => {
-  const result = spawnSync(executable(name), args, {cwd, stdio: "inherit", env: process.env, shell: process.platform === "win32"});
+const run = (name, args, cwd = root, extraEnv = {}) => {
+  const result = spawnSync(executable(name), args, {
+    cwd,
+    stdio: "inherit",
+    env: {...process.env, ...extraEnv},
+    shell: process.platform === "win32"
+  });
   if (result.status !== 0) throw new Error(`${name} ${args.join(" ")} failed with ${result.status}`);
 };
 const capture = (name, args, cwd = root) => {
@@ -50,7 +55,7 @@ run("mix", ["run", "scripts/check-release-archive.exs"]);
 const demo = resolve(root, "demo");
 run("npm", ["run", "assets:build"], demo);
 run("npm", ["run", "assets:check"], demo);
-run("mix", ["gallery.export"], demo);
+run("mix", ["gallery.export"], demo, {MIX_ENV: "test"});
 run("npm", ["run", "export:check"], demo);
 run("npm", ["run", "export:smoke"], demo);
 
