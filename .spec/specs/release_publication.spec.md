@@ -10,6 +10,7 @@ decisions:
   - shadcn_ui.public_hex_1_0_release
   - shadcn_ui.upstream_provenance
   - shadcn_ui.waive_manual_accessibility_1_0_release
+  - shadcn_ui.waive_independent_review_1_0_release
 surface:
   - mix.exs
   - mix.lock
@@ -23,6 +24,7 @@ surface:
   - release/candidate-status.json
   - release/consumer-trial-evidence.json
   - release/preliminary-candidate-evidence.json
+  - release/public-release-phase-3.json
   - release/fly-deployment-evidence.json
   - release/records/**
   - demo/operations/gallery-publication.md
@@ -41,6 +43,7 @@ surface:
   - test/shadcn_ui/milestone_f_publication_operations_test.exs
   - test/shadcn_ui/public_hex_release_phase_1_test.exs
   - test/shadcn_ui/public_hex_release_phase_2_test.exs
+  - test/shadcn_ui/public_hex_release_phase_3_test.exs
 ```
 
 ## Requirements
@@ -87,12 +90,12 @@ surface:
   stability: stable
 
 - id: shadcn_ui.release_publication.public_release_target
-  statement: The first public Hex release shall use version 1.0.0, adopt Semantic Versioning for later releases, and remain unpublished and untagged until its own archive, consumer, review, CI, merge, gallery-identity, publication, and truthful-gate evidence is complete; this release does not imply a marketplace listing, consumer-platform certification, or official upstream affiliation.
+  statement: The first public Hex release shall use version 1.0.0, adopt Semantic Versioning for later releases, and remain unpublished and untagged until its own archive, consumer, review disposition, CI, merge, gallery-identity, publication, and truthful-gate evidence is complete; this release does not imply a marketplace listing, consumer-platform certification, or official upstream affiliation.
   priority: must
   stability: stable
 
 - id: shadcn_ui.release_publication.truthful_gates
-  statement: Local, CI, merge, deployment, post-deployment, consumer-trial, and manual-accessibility states shall be recorded separately; incomplete mandatory states shall block final qualification, while an explicit release-scoped waiver shall remain non-mandatory, visibly unexecuted, and bounded to its recorded release.
+  statement: Local, CI, merge, deployment, post-deployment, consumer-trial, source-review, and manual-accessibility states shall be recorded separately; incomplete mandatory states shall block final qualification, while every explicit release-scoped waiver shall remain non-mandatory, visibly unexecuted, and bounded to its recorded release.
   priority: must
   stability: stable
 ```
@@ -105,9 +108,9 @@ bidirectionally traceable without changing this subject's release contract.
 The current owner-authorized Fly release binds package and demo version `1.0.0`
 to exact source revision `8654f6a4500ce210682d7cae7453553d878a714c`, Fly
 release `rel_76njzd0doog3yko3`, immutable image digest, passing service health,
-canonical smoke, and two deployed Chromium checks. Its source review, CI, and
-merge remain pending, so the successful deployment does not qualify or publish
-the Hex candidate.
+canonical smoke, and two deployed Chromium checks. That deployment does not by
+itself qualify or publish the Hex candidate; its source-review disposition,
+qualification merge, and exact-main CI are recorded independently below.
 
 The category-oriented user guides extend generated ExDoc navigation only. They
 do not change the candidate version, archive allowlist, deployment inputs,
@@ -144,6 +147,20 @@ Phase 2 preliminary evidence binds two equivalent clean builds and a disposable
 Hex-repository consumer to one archive checksum. It remains explicitly
 preliminary: the exact merged `RELEASE_SHA` build and consumer gates stay
 pending until their own Phase 4 evidence exists.
+For `1.0.0`, independent source review was not performed. The release owner's
+accepted waiver binds that unreviewed state to qualification PR #52's exact
+head and changes only the gate's mandatory effect; it does not convert the
+missing review into an approval or weaken any technical release gate.
+Qualification PR #52 passed its required pre-merge workflow and merged as
+`aa6a2d35474a51ea63248131631ace2b113b99a4`. The merge commit and PR head share
+the exact tree `6dc1d3f056196d13be1ec7529fbe2f9d4e59e4e7`, so that merge is the selected
+`RELEASE_SHA`. Later governance/evidence reconciliation does not replace the
+selected package source; Phase 4 operates on that detached immutable revision.
+GitHub Actions run `33881762954` and verify job `101051845295` passed every
+configured main-branch step for that exact `RELEASE_SHA`, including locked
+package, docs, archive, demo, SpecLed, and Chromium/Firefox/WebKit verification.
+The run and job logs are retained for 90 days; the workflow produced no named
+artifact. Exact-source reproduction and consumption remain Phase 4 gates.
 
 ```spec-verification
 - kind: test_file
@@ -207,5 +224,11 @@ pending until their own Phase 4 evidence exists.
     - shadcn_ui.release_publication.clean_checkout
     - shadcn_ui.release_publication.clean_consumer_trial
     - shadcn_ui.release_publication.explicit_archive
+    - shadcn_ui.release_publication.truthful_gates
+
+- kind: test_file
+  target: test/shadcn_ui/public_hex_release_phase_3_test.exs
+  covers:
+    - shadcn_ui.release_publication.public_release_target
     - shadcn_ui.release_publication.truthful_gates
 ```

@@ -12,6 +12,7 @@ decisions:
   - shadcn_ui.consumer_neutral_compatibility
   - shadcn_ui.public_hex_1_0_release
   - shadcn_ui.waive_manual_accessibility_1_0_release
+  - shadcn_ui.waive_independent_review_1_0_release
 surface:
   - README.md
   - CHANGELOG.md
@@ -113,8 +114,8 @@ Phase 8 publication runbook review is current proof for the documented gallery
 recovery boundary; it does not change the public documentation contract.
 Current documentation preserves dated Pages-era and phase-local snapshots,
 while the candidate ledger separately records the operational Fly pass,
-unreviewed deployed source, ineligible rollback state, and remaining clean,
-manual, review, CI, and merge gates.
+unreviewed deployed source, ineligible rollback state, and distinct release
+gates.
 The R6 accessibility record adds a scoped owner-approved delivery waiver while
 keeping every unexecuted manual scenario pending and explicitly refusing a
 conformance, qualification or deployment claim.
@@ -133,6 +134,15 @@ For `1.0.0`, release-facing documentation records all six human scenarios as
 unexecuted and the manual gate as explicitly waived and non-mandatory. It does
 not turn the scenarios into passes, make a WCAG or assistive-technology claim,
 or waive the automated accessibility and isolated-consumer gates.
+The release ledger also records that qualification PR #52 received no
+independent source review and that the release owner waived that gate for
+`1.0.0` only. This governance record changes no component, installation,
+compatibility, or provenance guidance, and public documentation does not claim
+that the candidate was independently reviewed or approved.
+The release ledger now also records qualification PR #52's merge and the
+successful main-branch workflow for its exact selected `RELEASE_SHA`. Public
+documentation remains truthful that final exact-source reproduction, archive
+consumption, Hex publication, and the public tag are still pending.
 
 ```spec-verification
 - kind: test_file

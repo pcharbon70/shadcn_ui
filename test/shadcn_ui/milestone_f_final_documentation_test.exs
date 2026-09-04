@@ -43,8 +43,9 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
     assert gates["actual-archive-consumer"]["status"] == "pending"
     assert gates["manual-accessibility"]["status"] == "waived"
     refute gates["manual-accessibility"]["mandatory"]
-    assert gates["ci-final-revision"]["status"] == "pending"
-    assert gates["deployment-source-review"]["status"] == "pending"
+    assert gates["ci-final-revision"]["status"] == "passed"
+    assert gates["deployment-source-review"]["status"] == "waived"
+    refute gates["deployment-source-review"]["mandatory"]
     assert gates["gallery-deployment"]["status"] == "passed"
     assert gates["post-deploy-smoke"]["status"] == "passed"
   end

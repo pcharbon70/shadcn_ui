@@ -11,6 +11,7 @@ const deployment = readJson(
 );
 const candidate = readJson("release/candidate-status.json");
 const currentDeployment = readJson("release/fly-deployment-evidence.json");
+const publicReleasePhase3 = readJson("release/public-release-phase-3.json");
 const plan = readFileSync(
   join(
     root,
@@ -64,12 +65,26 @@ assert(
   "the later 1.0.0 manual waiver is not recorded",
 );
 assert(
-  candidate.gates.find((gate) => gate.id === "ci-final-revision")?.status === "pending",
-  "candidate final CI was promoted",
+  candidate.gates.find((gate) => gate.id === "ci-final-revision")?.status === "passed",
+  "candidate exact-main CI does not match the later Phase 3 evidence",
+);
+const currentReviewGate = candidate.gates.find(
+  (gate) => gate.id === "deployment-source-review",
 );
 assert(
-  candidate.gates.find((gate) => gate.id === "deployment-source-review")?.status === "pending",
-  "candidate source review was promoted",
+  currentReviewGate?.status === "waived" && currentReviewGate.mandatory === false,
+  "the later 1.0.0 independent-review waiver is not recorded",
+);
+assert(
+  candidate.gates.find((gate) => gate.id === "merge")?.status === "passed",
+  "candidate qualification merge does not match the later Phase 3 evidence",
+);
+assert(
+  publicReleasePhase3.release.status === "passed" &&
+    publicReleasePhase3.boundaries.exactMainCiSatisfied === true &&
+    publicReleasePhase3.boundaries.reviewGatePassed === false &&
+    publicReleasePhase3.boundaries.reviewGateWaived === true,
+  "current Phase 3 review, merge, and CI evidence drifted",
 );
 
 assert(deployment.status === "passed-reviewed-workflow-deployment-and-smoke", "R6.3 is not passing");
@@ -78,4 +93,6 @@ assert(plan.includes("- [x] R6 Phase"), "R6 phase is not reconciled");
 assert(plan.includes("- [x] R6.3 Section"), "R6.3 is not reconciled");
 assert(plan.includes("- [x] R6.4 Section"), "R6.4 is not reconciled");
 
-console.log("Verified R6.4 acceptance with candidate and Milestone G still blocked.");
+console.log(
+  "Verified historical R6.4 acceptance and current Phase 3 gate reconciliation.",
+);

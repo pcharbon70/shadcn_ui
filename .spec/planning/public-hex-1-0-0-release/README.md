@@ -43,7 +43,7 @@ avoids changing the commit merely to record proof about that commit.
 | --- | --- | --- |
 | [1 - Establish release authority and freeze inputs](#phase-1--establish-release-authority-and-freeze-inputs) | One reviewable release scope and an identified publication owner | Version, metadata, credentials, inputs, and remaining ledger state agree |
 | [2 - Prove the candidate before merge](#phase-2--prove-the-candidate-before-merge) | Reviewable preliminary build, archive, consumer, and verification evidence | Qualification PR is complete and internally green |
-| [3 - Review, merge, and select the immutable source](#phase-3--review-merge-and-select-the-immutable-source) | Independent approval and one exact merged `RELEASE_SHA` | Required review, merge, and CI on `RELEASE_SHA` pass |
+| [3 - Resolve review, merge, and select the immutable source](#phase-3--resolve-review-merge-and-select-the-immutable-source) | Explicit review disposition and one exact merged `RELEASE_SHA` | Review is approved or explicitly waived, and merge plus CI on `RELEASE_SHA` pass |
 | [4 - Reproduce and consume the exact release](#phase-4--reproduce-and-consume-the-exact-release) | Two equivalent builds and one isolated consumer result for `RELEASE_SHA` | All local mandatory gates pass with retained evidence |
 | [5 - Authorize and publish](#phase-5--authorize-and-publish) | The exact candidate is published once to Hex | Explicit final authorization and successful Hex publication |
 | [6 - Verify, tag, and reconcile](#phase-6--verify-tag-and-reconcile) | Public install/docs proof, exact tag, and truthful final ledgers | Public release is independently usable and all records agree |
@@ -68,8 +68,10 @@ avoids changing the commit merely to record proof about that commit.
   publication authorization.
 - The **implementer** prepares the qualification PR and executes reproducible
   builds and consumer checks without self-approving the source gate.
-- The **independent reviewer** approves the final qualification diff and its
-  release boundary before merge.
+- The **independent reviewer** normally approves the final qualification diff
+  and its release boundary before merge. For `1.0.0`, the release owner has
+  explicitly waived this role and accepted the unreviewed-source risk; the
+  gate remains visibly waived rather than passed.
 - **CI** supplies the exact-main-revision status and retained build logs or
   artifacts.
 - Generated archives and pre-publication evidence remain outside Git. The
@@ -172,36 +174,40 @@ avoids changing the commit merely to record proof about that commit.
   - [x] Do not publish, tag, or claim final exact-revision qualification from
     these preliminary results.
 
-## Phase 3 - Review, merge, and select the immutable source
+## Phase 3 - Resolve review, merge, and select the immutable source
 
-- [ ] 3.1 Section - Obtain independent source approval.
+- [x] 3 Phase - Resolve review, merge, and select the immutable source.
 
-  - [ ] A reviewer other than the change author reviews the complete
-    qualification diff, package boundary, metadata, archive inventory,
-    accessibility limitation, and publication plan.
-  - [ ] Record an approving GitHub review or equivalent signed approval tied to
-    the qualification PR head. Comments without approval do not satisfy this
-    gate.
-  - [ ] Resolve every blocking review finding and rerun affected preliminary
-    checks after the final change.
+- [x] 3.1 Section - Resolve independent source-review disposition.
 
-- [ ] 3.2 Section - Merge and identify `RELEASE_SHA`.
+  - [x] Record that no reviewer other than the change author reviewed the
+    complete qualification diff, package boundary, metadata, archive inventory,
+    accessibility limitation, or publication plan.
+  - [x] Tie the release owner's explicit `1.0.0`-only waiver and accepted risk
+    to qualification PR head
+    `fa56572ca9e72c04c29ae17b6df4821c1835ebd4` through a signed GitHub comment
+    and an accepted decision.
+  - [x] Keep the gate `waived` and non-mandatory rather than claiming approval;
+    record that no blocking findings exist because no review was performed.
 
-  - [ ] Require all qualification-PR checks to pass, then merge through the
+- [x] 3.2 Section - Merge and identify `RELEASE_SHA`.
+
+  - [x] Require all qualification-PR checks to pass, then merge through the
     repository's normal protected-main path.
-  - [ ] Synchronize local `main`, require a clean tree, and record the full
+  - [x] Synchronize local `main`, require a clean tree, and record the full
     merged commit as `RELEASE_SHA`.
-  - [ ] Verify the merged tree content is the reviewed candidate content. The
-    waiver PR's merge and prior Fly merge do not substitute for this release
-    qualification merge.
+  - [x] Verify the merged tree content is identical to the qualification PR
+    head. The manual-accessibility waiver PR's merge and prior Fly merge do not
+    substitute for this release qualification merge; independent review is
+    separately recorded as waived for `1.0.0`.
 
-- [ ] 3.3 Section - Require CI on the exact merged revision.
+- [x] 3.3 Section - Require CI on the exact merged revision.
 
-  - [ ] Require the configured main-branch CI workflow to pass for
+  - [x] Require the configured main-branch CI workflow to pass for
     `RELEASE_SHA`, not merely for the pre-merge PR head.
-  - [ ] Retain the workflow URL, run and job identifiers, source SHA, toolchain,
+  - [x] Retain the workflow URL, run and job identifiers, source SHA, toolchain,
     and artifact retention location.
-  - [ ] If CI or reviewed content changes, stop, create another reviewed PR,
+  - [x] If CI or reviewed content changes, stop, create another reviewed PR,
     select a new `RELEASE_SHA`, and repeat Phases 2-3.
 
 ## Phase 4 - Reproduce and consume the exact release
