@@ -86,7 +86,8 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     assert action["packageAndDocumentation"]
     assert action["executeExactlyOnce"]
     assert boundaries["publicationAuthorizationRecorded"]
-    refute boundaries["hexPublishAuthorized"]
+    assert boundaries["hexPublishAuthorized"]
+    assert boundaries["publicationRetryAuthorized"]
     assert boundaries["publicationAttemptExecuted"]
     refute boundaries["publicationAttemptSucceeded"]
     refute boundaries["publishedToHex"]
@@ -116,7 +117,12 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     assert query["apiHttpStatus"] == 404
     refute query["registryMutationObserved"]
 
-    assert recovery["freshExplicitRetryAuthorizationRequired"]
+    refute recovery["freshExplicitRetryAuthorizationRequired"]
+    assert recovery["retryAuthorization"]["status"] == "authorized"
+    assert recovery["retryAuthorization"]["response"] == "yes do so"
+    assert recovery["retryAuthorization"]["command"] == "mix hex.publish --yes"
+    assert recovery["retryAuthorization"]["executeExactlyOnce"]
+    refute recovery["retryAuthorization"]["tagAuthorized"]
     assert recovery["secureInteractiveOtpEntryRequired"]
     assert recovery["replaceForbidden"]
     refute recovery["tagAuthorized"]

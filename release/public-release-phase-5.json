@@ -4,7 +4,7 @@
     "package": "shadcn_ui",
     "version": "1.0.0",
     "phase": 5,
-    "status": "section-5.3-blocked-after-one-attempt"
+    "status": "section-5.3-retry-authorized"
   },
   "observedAt": "2026-09-05T09:10:02Z",
   "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
@@ -187,7 +187,20 @@
       "registryMutationObserved": false
     },
     "recovery": {
-      "freshExplicitRetryAuthorizationRequired": true,
+      "freshExplicitRetryAuthorizationRequired": false,
+      "retryAuthorization": {
+        "status": "authorized",
+        "recordedAt": "2026-09-05T13:29:14Z",
+        "releaseOwner": "pcharbon70",
+        "channel": "Codex task",
+        "response": "yes do so",
+        "command": "mix hex.publish --yes",
+        "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+        "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+        "packageAndDocumentation": true,
+        "executeExactlyOnce": true,
+        "tagAuthorized": false
+      },
       "secureInteractiveOtpEntryRequired": true,
       "replaceForbidden": true,
       "tagAuthorized": false
@@ -197,7 +210,8 @@
     "releaseShaUnchanged": true,
     "dryRunPassed": true,
     "publicationAuthorizationRecorded": true,
-    "hexPublishAuthorized": false,
+    "hexPublishAuthorized": true,
+    "publicationRetryAuthorized": true,
     "publicationAttemptExecuted": true,
     "publicationAttemptSucceeded": false,
     "publishedToHex": false,

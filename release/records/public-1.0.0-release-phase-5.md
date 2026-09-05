@@ -75,3 +75,12 @@ The one-attempt authorization is consumed. A retry requires fresh explicit
 authorization for the same immutable release plus secure interactive OTP entry.
 Never use `--replace`, and do not create the public tag before Phase 6 verifies
 the eventual public package and documentation.
+
+### Retry authorization
+
+At `2026-09-05T13:29:14Z`, the release owner replied `yes do so` and explicitly
+authorized one retry of `mix hex.publish --yes` for the same immutable
+`RELEASE_SHA`, approved archive, public `hexpm` repository, personal owner
+`pcharbon70`, and package-and-documentation payload. The retry must use an
+interactive terminal for secure OTP entry. It does not authorize `--replace`,
+the public tag, or any adjacent distribution claim.

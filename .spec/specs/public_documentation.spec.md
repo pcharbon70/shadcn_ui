@@ -162,7 +162,9 @@ exact package-and-documentation publication attempt, while actual Hex
 publication, public verification, and the tag remain separate pending states.
 That one attempt subsequently failed at Hex's OTP challenge without creating a
 public package or release. A fresh retry authorization and secure interactive
-OTP entry are required before publication can continue.
+OTP entry were required before publication could continue. The release owner
+has now explicitly authorized one retry of the unchanged package-and-
+documentation action; secure interactive OTP entry remains pending.
 
 ```spec-verification
 - kind: test_file

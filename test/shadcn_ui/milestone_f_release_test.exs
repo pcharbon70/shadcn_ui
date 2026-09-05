@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "The authorized Hex publication attempt failed at the OTP challenge; the public package and tag remain absent, and a fresh retry authorization with secure interactive OTP entry is required.",
+               "The first Hex publication attempt failed at the OTP challenge without creating a package; one retry is explicitly authorized and awaits secure interactive OTP entry, while the public tag remains pending.",
              "status" => "blocked"
            }
 

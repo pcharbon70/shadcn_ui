@@ -14,9 +14,11 @@ pass. The release owner has separately authorized one exact execution of
 `mix hex.publish --yes` for the immutable package and documentation payload;
 that attempt failed at Hex's OTP challenge because its non-interactive process
 received EOF. Immediate registry queries confirmed that no public package or
-release was created. Hex publication remains pending and now requires fresh
-retry authorization plus secure interactive OTP entry. The public tag remains
-unauthorized.
+release was created. At that point, Hex publication required fresh retry
+authorization plus secure interactive OTP entry. The owner subsequently
+authorized one retry of the same immutable package-and-documentation action;
+Hex publication remains pending on secure interactive OTP entry. The public tag
+remains unauthorized.
 
 All 38 Milestone F requirements have an implementation/evidence entry in
 `release/records/milestone-f-acceptance.md`. Fly release

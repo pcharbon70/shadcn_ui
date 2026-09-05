@@ -207,6 +207,11 @@ immediate package, release, and API queries confirmed that `shadcn_ui 1.0.0`
 remains absent. The one-attempt authorization is consumed. Retrying requires a
 fresh explicit authorization and secure interactive OTP entry; no retry or tag
 is authorized by the failed attempt.
+At `2026-09-05T13:29:14Z`, the release owner separately and explicitly
+authorized one retry of the same `mix hex.publish --yes` package-and-
+documentation action, bound to the unchanged `RELEASE_SHA` and archive
+checksum. The retry authorization still excludes the public tag and requires
+secure interactive OTP entry.
 
 ```spec-verification
 - kind: test_file

@@ -19,7 +19,9 @@ Public-release Phases 1-4 and Phase 5 Sections 5.1-5.2 now pass their applicable
 gates. The release owner separately authorized one exact package-and-
 documentation publish attempt; it failed at the OTP challenge without creating
 a package or release. Fresh retry authorization and secure interactive OTP
-entry are required. The authorization does not include tagging.
+entry were required. The owner subsequently authorized one retry of the same
+immutable package-and-documentation action; secure interactive OTP entry
+remains pending. The authorization does not include tagging.
 
 Statuses below mean:
 
@@ -85,7 +87,7 @@ Statuses below mean:
 | `shadcn_ui.release_publication.clean_checkout` | PASSED | two detached builds of exact `RELEASE_SHA` produced equivalent complete records and byte-identical archives |
 | `shadcn_ui.release_publication.clean_consumer_trial` | PASSED | final selected archive passed the isolated signed-Hex-repository consumer trial |
 | `shadcn_ui.release_publication.explicit_archive` | PASSED | both final 63-entry archives passed the explicit allowlist and share the approved checksum |
-| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected, all 15 prepublication mandatory gates and the final dry run pass; one authorized publish attempt failed at the OTP challenge, registry queries confirm the package remains absent, and fresh retry authorization plus secure interactive OTP entry are required |
+| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected, all 15 prepublication mandatory gates and the final dry run pass; one publish attempt failed at the OTP challenge without mutation, and one retry is now explicitly authorized pending secure interactive OTP entry |
 | `shadcn_ui.release_publication.truthful_gates` | PASSED | structured candidate status and this ledger |
 
 ## Documentation and regression reconciliation
@@ -124,8 +126,9 @@ authorized execution of `mix hex.publish --yes` for the exact package, personal
 Hex owner, `RELEASE_SHA`, and approved archive reached the OTP challenge, then
 failed because the non-interactive process received EOF. Immediate registry
 queries confirm that no package or release exists. The authorization is
-consumed; a retry requires fresh explicit authorization and secure interactive
-OTP entry. No authorization includes a public tag. After Hex publication,
+consumed; the owner subsequently provided fresh explicit authorization for one
+retry of the same immutable action. Secure interactive OTP entry remains
+pending. No authorization includes a public tag. After Hex publication,
 Phase 6 must independently verify
 the public package before creating the exact tag. Phase evidence is recorded
 in `release/public-release-preflight.json`,

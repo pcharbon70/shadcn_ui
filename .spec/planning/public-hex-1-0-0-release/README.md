@@ -7,7 +7,7 @@ does not imply that a later gate passed.
 
 ## Status
 
-**Phase 5 publication blocked at Hex OTP after one authorized attempt.**
+**Phase 5 publication retry authorized; secure interactive OTP entry pending.**
 
 The following prerequisites are already accepted or operationally proven:
 
@@ -275,8 +275,9 @@ avoids changing the commit merely to record proof about that commit.
   The one authorized attempt ran at `2026-09-05T13:24:17Z` and failed at
   Hex's OTP challenge when the non-interactive process received EOF. Immediate
   CLI and API queries confirmed that the package and release remain absent.
-  Do not retry until the release owner provides fresh explicit authorization
-  and can enter the OTP securely in an interactive terminal.
+  At `2026-09-05T13:29:14Z`, the release owner explicitly authorized one retry
+  of the same immutable package-and-documentation action. The retry must run in
+  an interactive terminal so the owner can enter the OTP securely.
 
   - [ ] Run `mix hex.publish` from the approved detached checkout, using the
     authenticated intended owner and no unreviewed environment override.
