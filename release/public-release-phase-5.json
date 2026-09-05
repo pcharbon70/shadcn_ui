@@ -1,0 +1,152 @@
+{
+  "schemaVersion": 1,
+  "release": {
+    "package": "shadcn_ui",
+    "version": "1.0.0",
+    "phase": 5,
+    "status": "section-5.1-complete"
+  },
+  "observedAt": "2026-09-05T09:10:02Z",
+  "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+  "section5_1": {
+    "status": "passed",
+    "checkout": {
+      "detached": true,
+      "sourceRevision": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+      "externalEvidenceDirectory": "/tmp/shadcn-ui-phase5.qfh5D1",
+      "trackedChanges": false,
+      "retainedForAuthorizedPublication": true
+    },
+    "toolchain": {
+      "elixir": "1.20.3",
+      "otp": "29.0.5",
+      "erts": "17.0.5",
+      "mix": "1.20.3",
+      "hex": "2.5.1",
+      "node": "22.13.1",
+      "npm": "10.9.2",
+      "rebar3Sha256": "8dead71212b8008ec830c085607c23ec2997ab1c36a3c91901ac42c9814ee08c"
+    },
+    "lockedSetup": {
+      "status": "passed",
+      "packageMixDependencies": true,
+      "galleryMixDependencies": true,
+      "packageNpmDependencies": true,
+      "galleryNpmDependencies": true,
+      "candidateInputCheck": "passed"
+    },
+    "build": {
+      "status": "passed",
+      "candidateBuildRecord": "build/candidate-build.json",
+      "candidateBuildRecordSha256": "38191c0d7e2a64b73a73065e0e354585ab588e2b8cd68a4157d036224e9d4aa2",
+      "archiveInventory": "build/archive-inventory.json",
+      "archiveInventorySha256": "cb37a252e3948973e6dcc9cb3a07cb45614c9a7bd35632e6c0ccd1515d536a8d",
+      "archive": "shadcn_ui-1.0.0.tar",
+      "archiveBytes": 90112,
+      "archiveEntries": 63,
+      "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+      "approvedArchiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+      "byteIdenticalToApprovedArchive": true,
+      "archiveAudit": "passed",
+      "compiledCssSha256": "ed0768e9582e980f3fd1b3ca0076afc573fc269514f527aef9dc942d1f8e9f41",
+      "documentationFiles": 147,
+      "galleryFiles": 646,
+      "inputsSha256": "fecd2ceca7125b999c39a6535ffc28787a232341c2a0e636cbf46abee3e09c30",
+      "provenanceSha256": "d109a358ff5c26bc7616ce001f63137eb848e41ed7c7a6037484bb891fb58ca8"
+    },
+    "hexIdentity": {
+      "status": "passed",
+      "command": "mix hex.user whoami",
+      "authenticatedOwner": "pcharbon70",
+      "organization": null,
+      "repository": "hexpm"
+    },
+    "publishDryRun": {
+      "status": "passed",
+      "command": "mix hex.publish --dry-run --yes",
+      "nonPublishing": true,
+      "package": {
+        "app": "shadcn_ui",
+        "name": "shadcn_ui",
+        "version": "1.0.0",
+        "buildTools": [
+          "mix"
+        ],
+        "description": "Transport-neutral Phoenix function components with shadcn-style HTML and CSS.",
+        "elixir": "~> 1.17",
+        "licenses": [
+          "MIT"
+        ],
+        "links": {
+          "Gallery": "https://pcharbon70-shadcn-ui-demo.fly.dev/",
+          "GitHub": "https://github.com/pcharbon70/shadcn_ui"
+        },
+        "dependencies": [
+          {
+            "name": "phoenix_html",
+            "requirement": "~> 4.1"
+          },
+          {
+            "name": "phoenix_live_view",
+            "requirement": "~> 1.2"
+          }
+        ],
+        "archiveEntries": 63
+      },
+      "documentation": {
+        "generated": true,
+        "index": "doc/index.html",
+        "llms": "doc/llms.txt",
+        "epub": "doc/shadcn_ui.epub"
+      }
+    },
+    "publicHexAbsence": {
+      "status": "absent",
+      "observedAt": "2026-09-05T09:10:02Z",
+      "command": "mix hex.info shadcn_ui",
+      "result": "No package with name shadcn_ui",
+      "checkedAfterDryRun": true
+    },
+    "operatorDiagnostics": [
+      {
+        "status": "discarded-before-dry-run",
+        "cause": "The first setup attempt passed a task working-directory option after mix deps.get, so demo dependencies were unavailable when gallery export began.",
+        "candidateDefect": false,
+        "registryMutation": false,
+        "checkoutRemoved": true
+      },
+      {
+        "status": "corrected-before-candidate-build",
+        "cause": "The replacement setup tried an unsupported global Mix working-directory option; setup resumed by invoking mix deps.get from the demo directory, matching the repository runner.",
+        "candidateDefect": false,
+        "registryMutation": false,
+        "trackedChanges": false
+      },
+      {
+        "status": "no-confirmation-no-publication",
+        "cause": "The first dry-run invocation reached Hex's confirmation prompt without a TTY; the registry remained absent before the completed --dry-run --yes invocation.",
+        "candidateDefect": false,
+        "registryMutation": false
+      }
+    ]
+  },
+  "section5_2": {
+    "status": "pending"
+  },
+  "section5_3": {
+    "status": "pending"
+  },
+  "boundaries": {
+    "releaseShaUnchanged": true,
+    "dryRunPassed": true,
+    "publicationAuthorizationRecorded": false,
+    "hexPublishAuthorized": false,
+    "publishedToHex": false,
+    "tagCreated": false
+  },
+  "commits": {
+    "section5_1": "recorded-in-containing-commit",
+    "section5_2": null,
+    "section5_3": null
+  }
+}

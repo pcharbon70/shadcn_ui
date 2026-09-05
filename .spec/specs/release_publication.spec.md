@@ -26,6 +26,7 @@ surface:
   - release/preliminary-candidate-evidence.json
   - release/public-release-phase-3.json
   - release/public-release-phase-4.json
+  - release/public-release-phase-5.json
   - release/fly-deployment-evidence.json
   - release/records/**
   - demo/operations/gallery-publication.md
@@ -45,6 +46,8 @@ surface:
   - test/shadcn_ui/public_hex_release_phase_1_test.exs
   - test/shadcn_ui/public_hex_release_phase_2_test.exs
   - test/shadcn_ui/public_hex_release_phase_3_test.exs
+  - test/shadcn_ui/public_hex_release_phase_4_test.exs
+  - test/shadcn_ui/public_hex_release_phase_5_test.exs
 ```
 
 ## Requirements
@@ -183,6 +186,15 @@ mandatory gates before publication and tagging passes with no stale, missing,
 contradictory, or SHA-mismatched evidence. The resulting go decision allows
 only the Phase 5 dry run and explicit publication-authorization request;
 `mix hex.publish` and the public tag remain pending mandatory gates.
+Section 5.1 then retained a detached checkout at the unchanged `RELEASE_SHA`,
+reinstalled every locked package and gallery dependency, reproduced the exact
+approved 63-entry archive, and passed its allowlist audit. The supported Hex
+dry run reviewed public package `shadcn_ui 1.0.0`, authenticated personal owner
+`pcharbon70`, no organization override, the exact dependency, license, links,
+description, file, and documentation metadata, and completed without registry
+mutation. A post-dry-run query still found no public package. The checkout has
+no tracked change and remains retained only for an explicitly authorized
+publish; authorization, publication, and tagging remain pending.
 
 ```spec-verification
 - kind: test_file
@@ -260,6 +272,14 @@ only the Phase 5 dry run and explicit publication-authorization request;
     - shadcn_ui.release_publication.deterministic_export
     - shadcn_ui.release_publication.clean_checkout
     - shadcn_ui.release_publication.clean_consumer_trial
+    - shadcn_ui.release_publication.explicit_archive
+    - shadcn_ui.release_publication.public_release_target
+    - shadcn_ui.release_publication.truthful_gates
+
+- kind: test_file
+  target: test/shadcn_ui/public_hex_release_phase_5_test.exs
+  covers:
+    - shadcn_ui.release_publication.clean_checkout
     - shadcn_ui.release_publication.explicit_archive
     - shadcn_ui.release_publication.public_release_target
     - shadcn_ui.release_publication.truthful_gates

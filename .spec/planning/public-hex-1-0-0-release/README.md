@@ -7,7 +7,7 @@ does not imply that a later gate passed.
 
 ## Status
 
-**Phase 4 complete; publication remains blocked pending Phase 5 authorization.**
+**Phase 5 dry run complete; publication awaits explicit authorization.**
 
 The following prerequisites are already accepted or operationally proven:
 
@@ -249,17 +249,17 @@ avoids changing the commit merely to record proof about that commit.
 
 ## Phase 5 - Authorize and publish
 
-- [ ] 5.1 Section - Perform the final dry run.
+- [x] 5.1 Section - Perform the final dry run.
 
-  - [ ] Create a fresh detached clean checkout at `RELEASE_SHA`, activate the
+  - [x] Create a fresh detached clean checkout at `RELEASE_SHA`, activate the
     pinned toolchain, install locked dependencies, rebuild, and rerun the actual
     archive audit.
-  - [ ] Run the installed Hex client's supported publish dry-run from that
+  - [x] Run the installed Hex client's supported publish dry-run from that
     checkout and review the exact package name, version, organization/owner,
     files, dependencies, licenses, links, description, and documentation.
-  - [ ] Recheck that `shadcn_ui 1.0.0` is absent from public Hex and that the
+  - [x] Recheck that `shadcn_ui 1.0.0` is absent from public Hex and that the
     archive checksum matches the approved final archive.
-  - [ ] Make no tracked change in the detached checkout.
+  - [x] Make no tracked change in the detached checkout.
 
 - [ ] 5.2 Section - Obtain irreversible-action authorization.
 

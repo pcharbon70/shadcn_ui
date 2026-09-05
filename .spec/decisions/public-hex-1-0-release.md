@@ -53,6 +53,10 @@ The first public Hex release target is `1.0.0`.
 - A complete prepublication go/no-go packet may authorize only the final dry
   run and the request for irreversible-action approval. It does not authorize
   `mix hex.publish`, create a public version tag, or mark either gate passed.
+- The final Hex dry run shall execute from the detached `RELEASE_SHA`, reproduce
+  the approved archive checksum, review the authenticated owner and exact
+  package metadata, and recheck public absence. Passing it is evidence for an
+  authorization request, never publication authorization itself.
 - Hex publication does not create a marketplace listing, certify a consumer
   platform, or imply official shadcn/ui or unscripted/ui affiliation.
 

@@ -154,6 +154,11 @@ prepublication mandatory gates pass without a stale, missing, contradictory,
 or SHA-mismatched item. That decision permits the Phase 5 dry run and
 publication-authorization request only; it does not claim publication or a
 public tag.
+The final detached Hex dry run now also passes for the unchanged
+`RELEASE_SHA`, exact approved archive checksum, intended personal owner, and
+reviewed package/documentation metadata. Release-facing documentation keeps
+the package unpublished while explicit irreversible-action authorization,
+actual Hex publication, public verification, and the tag remain pending.
 
 ```spec-verification
 - kind: test_file

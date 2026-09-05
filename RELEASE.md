@@ -5,22 +5,26 @@
 Version `1.0.0` is the first public Hex release target and establishes the
 initial stable API. Selecting the version does not reuse or upgrade the earlier
 `0.1.0` candidate evidence: the `1.0.0` archive, isolated consumer, exact-source
-reproducibility, review, final-revision CI, merge, Hex publication, and public
-tag must be recorded independently. All six human accessibility scenarios
-remain pending and unassessed, but their gate is explicitly waived and
+reproducibility, review disposition, final-revision CI, merge, Hex publication,
+and public tag must be recorded independently. All six human accessibility
+scenarios remain pending and unassessed, but their gate is explicitly waived and
 non-mandatory for `1.0.0`; this is not a conformance claim.
-Hex publication remains pending until the other mandatory release gates pass.
+All 15 prepublication mandatory gates and the final detached Hex dry run now
+pass. Hex publication remains pending and requires explicit irreversible-action
+authorization; the dry run does not provide it.
 
 All 38 Milestone F requirements have an implementation/evidence entry in
 `release/records/milestone-f-acceptance.md`. Fly release
 `rel_76njzd0doog3yko3` serves exact revision
 `8654f6a4500ce210682d7cae7453553d878a714c` with package and demo identity
 `1.0.0`; service health, canonical smoke, and deployed Chromium checks pass.
-That successful operational deployment does not complete the remaining package
-qualification, review, CI, merge, Hex, or tag gates. The manual-accessibility
-waiver changes no automated or isolated-consumer requirement.
+That successful operational deployment did not itself complete package
+qualification. The exact-source build, consumer, review disposition, CI, merge,
+and dry-run evidence now pass separately; Hex publication and the public tag
+remain pending. The manual-accessibility waiver changes no automated or
+isolated-consumer requirement.
 
-The public-release Phase 1 preflight passes from synchronized main
+The public-release Phase 1 preflight passed from synchronized main
 `42227ebb2892f0b98d0204786c616d0641497c3f`. It records a non-material
 post-deployment source inventory, consistent package metadata, authenticated
 personal Hex identity `pcharbon70`, no existing public `shadcn_ui` package, and
@@ -28,6 +32,14 @@ a passing exact pinned-toolchain/lock check. See
 `release/public-release-preflight.json`. This does not create an archive,
 select the final `RELEASE_SHA`, publish Hex, or complete any later mandatory
 gate.
+
+Public-release Phase 5 Section 5.1 passes from detached
+`RELEASE_SHA aa6a2d35474a51ea63248131631ace2b113b99a4`. The final archive is
+byte-identical to the approved Phase 4 archive, the Hex dry run reviews the
+exact package and documentation metadata under authenticated owner
+`pcharbon70`, and a post-run query confirms the public package is still absent.
+See `release/public-release-phase-5.json`. No publish command is authorized by
+this evidence.
 
 ## Historical Milestone F Phase 5 candidate status
 
