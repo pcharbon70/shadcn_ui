@@ -3363,6 +3363,7 @@
             "release/preliminary-candidate-evidence.json",
             "release/public-release-phase-3.json",
             "release/public-release-phase-4.json",
+            "release/public-release-phase-5.json",
             "release/fly-deployment-evidence.json",
             "release/records/**",
             "demo/operations/gallery-publication.md",
@@ -3381,7 +3382,9 @@
             "test/shadcn_ui/milestone_f_publication_operations_test.exs",
             "test/shadcn_ui/public_hex_release_phase_1_test.exs",
             "test/shadcn_ui/public_hex_release_phase_2_test.exs",
-            "test/shadcn_ui/public_hex_release_phase_3_test.exs"
+            "test/shadcn_ui/public_hex_release_phase_3_test.exs",
+            "test/shadcn_ui/public_hex_release_phase_4_test.exs",
+            "test/shadcn_ui/public_hex_release_phase_5_test.exs"
           ],
           "verification_minimum_strength": null
         },
@@ -5758,6 +5761,18 @@
       },
       {
         "covers": [
+          "shadcn_ui.release_publication.clean_checkout",
+          "shadcn_ui.release_publication.explicit_archive",
+          "shadcn_ui.release_publication.public_release_target",
+          "shadcn_ui.release_publication.truthful_gates"
+        ],
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "test/shadcn_ui/public_hex_release_phase_5_test.exs"
+      },
+      {
+        "covers": [
           "shadcn_ui.stylesheet.canonical_asset",
           "shadcn_ui.stylesheet.pinned_build",
           "shadcn_ui.stylesheet.explicit_sources",
@@ -5989,7 +6004,7 @@
     "requirements": 268,
     "scenarios": 0,
     "subjects": 27,
-    "verifications": 196
+    "verifications": 197
   },
   "verification": {
     "claims": [
@@ -15267,6 +15282,50 @@
         "verification_index": 9
       },
       {
+        "cover_id": "shadcn_ui.release_publication.clean_checkout",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "test/shadcn_ui/public_hex_release_phase_5_test.exs",
+        "verification_index": 10
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.explicit_archive",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "test/shadcn_ui/public_hex_release_phase_5_test.exs",
+        "verification_index": 10
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.public_release_target",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "test/shadcn_ui/public_hex_release_phase_5_test.exs",
+        "verification_index": 10
+      },
+      {
+        "cover_id": "shadcn_ui.release_publication.truthful_gates",
+        "file": ".spec/specs/release_publication.spec.md",
+        "kind": "test_file",
+        "meets_minimum": true,
+        "required_strength": "claimed",
+        "strength": "linked",
+        "subject_id": "shadcn_ui.release_publication",
+        "target": "test/shadcn_ui/public_hex_release_phase_5_test.exs",
+        "verification_index": 10
+      },
+      {
         "cover_id": "shadcn_ui.stylesheet.canonical_asset",
         "file": ".spec/specs/stylesheet.spec.md",
         "kind": "command",
@@ -16295,7 +16354,7 @@
     "strength_summary": {
       "claimed": 5,
       "executed": 38,
-      "linked": 893
+      "linked": 897
     },
     "threshold_failures": 0
   },

@@ -64,7 +64,8 @@ defmodule ShadcnUI.MilestoneFFinalDocumentationTest do
       assert @ledger =~ deferred
     end
 
-    assert @ledger =~ "The `1.0.0` release remains blocked"
+    assert @ledger =~ "Release qualification is still\n**blocked**"
+    assert @ledger =~ "exact `shadcn_ui 1.0.0` archive and documentation are now public"
     refute @ledger =~ ~r/internal candidate (?:is|has been) qualified/i
   end
 end

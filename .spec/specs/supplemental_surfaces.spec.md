@@ -147,3 +147,7 @@ link, client fetch, analytics or interest-invoker behavior.
     - shadcn_ui.supplemental.protected_semantics
     - shadcn_ui.supplemental.shared_contract
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no supplemental-surface contract changes.

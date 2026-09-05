@@ -195,3 +195,7 @@ or warm the same tokens before checking them. Rendering behavior is unchanged.
     - shadcn_ui.forms.meter
     - shadcn_ui.forms.shared_contract
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no form-component contract changes.

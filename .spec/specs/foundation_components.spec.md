@@ -157,3 +157,7 @@ component APIs, presentation and executable proof are unchanged.
     - shadcn_ui.foundation.skeleton
     - shadcn_ui.foundation.shared_contract
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no foundation-component contract changes.

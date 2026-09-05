@@ -6,10 +6,12 @@ It provides 41 components without installing routes, controllers, LiveViews,
 hooks, processes, or application state.
 
 - [Live demo on Fly.io](https://pcharbon70-shadcn-ui-demo.fly.dev/)
-- [Bundled Phoenix demo](demo/README.md)
-- [Component index](docs/components.md)
-- [Installation guide](docs/installation.md)
-- [Compatibility policy](docs/compatibility.md)
+- [Hex package](https://hex.pm/packages/shadcn_ui)
+- [API documentation](https://shadcn-ui.hexdocs.pm/1.0.0/)
+- [Bundled Phoenix demo](https://github.com/pcharbon70/shadcn_ui/blob/main/demo/README.md)
+- [Component index](https://shadcn-ui.hexdocs.pm/1.0.0/components.html)
+- [Installation guide](https://shadcn-ui.hexdocs.pm/1.0.0/installation.html)
+- [Compatibility policy](https://shadcn-ui.hexdocs.pm/1.0.0/compatibility.html)
 
 The repository includes a Phoenix demo application under `demo/` that
 exercises every component category and provides the source for the online
@@ -18,9 +20,8 @@ runtime.
 
 > **Release status**
 >
-> Version `1.0.0` is being prepared as the first public Hex release and is not
-> published yet. Install a reviewed Git revision until publication is
-> explicitly announced.
+> Version `1.0.0` is the first public Hex release and is available from Hex with
+> generated documentation on HexDocs.
 
 ## Features
 
@@ -39,14 +40,12 @@ runtime.
 
 ## Installation
 
-Add a reviewed revision to your dependencies:
+Add ShadcnUI to your dependencies:
 
 ```elixir
 defp deps do
   [
-    {:shadcn_ui,
-     git: "https://github.com/pcharbon70/shadcn_ui.git",
-     ref: "<reviewed-commit-sha>"}
+    {:shadcn_ui, "~> 1.0"}
   ]
 end
 ```
@@ -63,8 +62,8 @@ For sibling development, use a path dependency instead:
 {:shadcn_ui, path: "../shadcn_ui"}
 ```
 
-See the [installation guide](docs/installation.md) for asset-pipeline and CSP
-details.
+See the [installation guide](https://shadcn-ui.hexdocs.pm/1.0.0/installation.html)
+for asset-pipeline and CSP details.
 
 ## Usage
 
@@ -157,19 +156,20 @@ preference.
 
 | Category | Components | Guide |
 | --- | --- | --- |
-| Foundation | Button, Badge, Alert, Card, Avatar, Skeleton | [Foundation](docs/guides/foundation.md) |
-| Forms | Field, Label, Help, Field Errors, Error Summary, Input, Textarea, Checkbox, Radio Group, Switch, Native Select, Enhanced Select, Slider, Progress, Meter | [Forms](docs/guides/forms.md) |
-| Disclosure | Accordion | [Disclosure](docs/guides/disclosure.md) |
-| Navigation | Navigation Menu, Header, Section Header | [Navigation](docs/guides/navigation.md) |
-| Content Surfaces | Scroll Area, Separator, Radio Panels | [Content Surfaces](docs/guides/content-surfaces.md) |
-| Overlays | Dialog, Alert Dialog, Drawer, Popover, Dropdown Actions | [Overlays](docs/guides/overlays.md) |
-| Interactive Surfaces | Tooltip, Hover Card | [Interactive Surfaces](docs/guides/interactive-surfaces.md) |
-| Media | Carousel, Cover Flow, Image Gallery | [Media](docs/guides/media.md) |
-| Motion | Marquee, Stagger, Scroll Indicator | [Motion](docs/guides/motion.md) |
+| Foundation | Button, Badge, Alert, Card, Avatar, Skeleton | [Foundation](https://shadcn-ui.hexdocs.pm/1.0.0/foundation.html) |
+| Forms | Field, Label, Help, Field Errors, Error Summary, Input, Textarea, Checkbox, Radio Group, Switch, Native Select, Enhanced Select, Slider, Progress, Meter | [Forms](https://shadcn-ui.hexdocs.pm/1.0.0/forms.html) |
+| Disclosure | Accordion | [Disclosure](https://shadcn-ui.hexdocs.pm/1.0.0/disclosure.html) |
+| Navigation | Navigation Menu, Header, Section Header | [Navigation](https://shadcn-ui.hexdocs.pm/1.0.0/navigation.html) |
+| Content Surfaces | Scroll Area, Separator, Radio Panels | [Content Surfaces](https://shadcn-ui.hexdocs.pm/1.0.0/content-surfaces.html) |
+| Overlays | Dialog, Alert Dialog, Drawer, Popover, Dropdown Actions | [Overlays](https://shadcn-ui.hexdocs.pm/1.0.0/overlays.html) |
+| Interactive Surfaces | Tooltip, Hover Card | [Interactive Surfaces](https://shadcn-ui.hexdocs.pm/1.0.0/interactive-surfaces.html) |
+| Media | Carousel, Cover Flow, Image Gallery | [Media](https://shadcn-ui.hexdocs.pm/1.0.0/media.html) |
+| Motion | Marquee, Stagger, Scroll Indicator | [Motion](https://shadcn-ui.hexdocs.pm/1.0.0/motion.html) |
 
-The [component index](docs/components.md) lists the defining modules and public
-functions. Generated API documentation is the source of truth for attributes,
-slots, defaults, closed values, and accepted global attributes.
+The [component index](https://shadcn-ui.hexdocs.pm/1.0.0/components.html) lists
+the defining modules and public functions. Generated API documentation is the
+source of truth for attributes, slots, defaults, closed values, and accepted
+global attributes.
 
 ## Design and runtime boundaries
 
@@ -186,7 +186,7 @@ The package deliberately does not add a JavaScript runtime, client-side state
 model, router, focus manager, positioning engine, image service, or transport
 adapter. Dstar and LiveView applications can render the same explicit component
 snapshots without making either framework part of ShadcnUI. See the
-[integration guide](docs/integrations.md).
+[integration guide](https://shadcn-ui.hexdocs.pm/1.0.0/integrations.html).
 
 ## Compatibility and accessibility
 
@@ -200,20 +200,21 @@ CSP, transport, zoom behavior, keyboard flow, forced colors, and assistive
 technology requirements. ShadcnUI does not replace server-side parsing,
 validation, authentication, or authorization.
 
-Read the [compatibility and fallback policy](docs/compatibility.md) and the
-component-specific accessibility guidance before adopting a component.
+Read the
+[compatibility and fallback policy](https://shadcn-ui.hexdocs.pm/1.0.0/compatibility.html)
+and the component-specific accessibility guidance before adopting a component.
 
 ## Documentation
 
-- [Installation, assets, themes, and CSP](docs/installation.md)
-- [Component API and gallery index](docs/components.md)
-- [Category guides](docs/guides/foundation.md)
-- [Phoenix, Dstar, and LiveView integration](docs/integrations.md)
-- [Compatibility and fallbacks](docs/compatibility.md)
-- [Versioning and upgrading](docs/upgrading.md)
-- [Image Gallery](docs/image-gallery.md)
-- [Motion and media](docs/motion-media-guide.md)
-- [Provenance and project identity](docs/provenance.md)
+- [Installation, assets, themes, and CSP](https://shadcn-ui.hexdocs.pm/1.0.0/installation.html)
+- [Component API and gallery index](https://shadcn-ui.hexdocs.pm/1.0.0/components.html)
+- [Category guides](https://shadcn-ui.hexdocs.pm/1.0.0/foundation.html)
+- [Phoenix, Dstar, and LiveView integration](https://shadcn-ui.hexdocs.pm/1.0.0/integrations.html)
+- [Compatibility and fallbacks](https://shadcn-ui.hexdocs.pm/1.0.0/compatibility.html)
+- [Versioning and upgrading](https://shadcn-ui.hexdocs.pm/1.0.0/upgrading.html)
+- [Image Gallery](https://shadcn-ui.hexdocs.pm/1.0.0/image-gallery.html)
+- [Motion and media](https://shadcn-ui.hexdocs.pm/1.0.0/motion-media-guide.html)
+- [Provenance and project identity](https://shadcn-ui.hexdocs.pm/1.0.0/provenance.html)
 
 ## Development
 
@@ -233,11 +234,14 @@ stylesheet. They are not consumer requirements.
 
 ## License and provenance
 
-ShadcnUI is available under the [MIT License](LICENSE). It is an independent
-Phoenix adaptation informed by [unscripted/ui](https://unscripted.janci.dev/)
-and is not an official shadcn/ui or unscripted/ui package.
+ShadcnUI is available under the
+[MIT License](https://shadcn-ui.hexdocs.pm/1.0.0/license.html). It is an
+independent Phoenix adaptation informed by
+[unscripted/ui](https://unscripted.janci.dev/) and is not an official shadcn/ui
+or unscripted/ui package.
 
 Substantially adapted source is mapped to a pinned upstream revision in
 `priv/provenance/unscripted_ui.json`. Required upstream notices are retained in
-[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). See the
-[provenance guide](docs/provenance.md) for the review and update policy.
+[THIRD_PARTY_NOTICES.md](https://shadcn-ui.hexdocs.pm/1.0.0/third_party_notices.html).
+See the [provenance guide](https://shadcn-ui.hexdocs.pm/1.0.0/provenance.html)
+for the review and update policy.

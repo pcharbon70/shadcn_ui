@@ -154,6 +154,28 @@ prepublication mandatory gates pass without a stale, missing, contradictory,
 or SHA-mismatched item. That decision permits the Phase 5 dry run and
 publication-authorization request only; it does not claim publication or a
 public tag.
+The final detached Hex dry run now also passes for the unchanged
+`RELEASE_SHA`, exact approved archive checksum, intended personal owner, and
+reviewed package/documentation metadata. Release-facing documentation keeps
+the package unpublished. The release owner has now explicitly authorized one
+exact package-and-documentation publication attempt, while actual Hex
+publication, public verification, and the tag remain separate pending states.
+That one attempt subsequently failed at Hex's OTP challenge without creating a
+public package or release. A fresh retry authorization and secure interactive
+OTP entry were required before publication could continue. The release owner
+has now explicitly authorized one retry of the unchanged package-and-
+documentation action; secure interactive OTP entry remains pending.
+The public README is portable across GitHub, the Hex package renderer, and
+HexDocs: package guides use explicit versioned HexDocs URLs, repository-only
+demo content uses an explicit GitHub URL, and no `docs/` or `demo/`-relative
+Markdown destination remains. The generated-documentation audit and a focused
+README portability assertion protect this boundary.
+Public Hex and HexDocs now serve `shadcn_ui 1.0.0` with the approved archive
+checksum. The README, installation, upgrade, and changelog surfaces describe
+the public Hex dependency rather than a prepublication Git dependency. The
+first post-publication README correction replaces renderer-dependent relative
+links with the portable destinations above; republishing those corrected docs
+remains an operational documentation update, not a package-archive replacement.
 
 ```spec-verification
 - kind: test_file

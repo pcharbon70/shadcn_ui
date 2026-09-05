@@ -339,3 +339,7 @@ and escaping symlinks are rejected. All A–D component routes remain unchanged.
     - shadcn_ui.gallery.deterministic_assets
     - shadcn_ui.gallery.static_export
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no gallery contract changes.

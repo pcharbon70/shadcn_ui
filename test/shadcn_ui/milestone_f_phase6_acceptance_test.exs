@@ -118,7 +118,7 @@ defmodule ShadcnUI.MilestoneFPhase6AcceptanceTest do
     assert workflow =~ "push:"
     assert workflow =~ "branches: [main]"
     refute workflow =~ "actions/deploy-pages"
-    assert status["evidence"]["finalPhase5Revision"] == nil
+    assert status["evidence"]["finalPhase5Revision"] == "recorded-in-containing-commit"
     assert status["evidence"]["deployedRevision"] == deployment["release"]["sourceRevision"]
     assert deployment["release"]["status"] == "passed"
     assert deployment["canonicalSmoke"]["status"] == "passed"

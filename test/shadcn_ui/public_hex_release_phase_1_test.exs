@@ -74,7 +74,7 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     refute working_tree["evidenceSecretsTracked"]
   end
 
-  test "section 1.2 binds consistent package metadata without claiming publication" do
+  test "section 1.2 metadata remains consistent with current publication docs" do
     metadata = @preflight["metadataAndToolchain"]["metadata"]
     project = Mix.Project.config()
     readme = File.read!(Path.join(@root, "README.md"))
@@ -86,9 +86,10 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     assert project[:package][:licenses] == ["MIT"]
     assert project[:package][:links]["Gallery"] == metadata["links"]["gallery"]
     assert project[:package][:links]["GitHub"] == metadata["links"]["github"]
-    assert readme =~ "Version `1.0.0` is being prepared"
-    assert readme =~ "is not\n> published yet"
-    assert changelog =~ "## 1.0.0 — unreleased"
+    assert readme =~ "Version `1.0.0` is the first public Hex release"
+    assert readme =~ ~s({:shadcn_ui, "~> 1.0"})
+    refute readme =~ "published yet"
+    assert changelog =~ "## 1.0.0 — 2026-09-05"
     assert release =~ "pending and unassessed"
     assert release =~ "waived and\nnon-mandatory for `1.0.0`"
     assert notices =~ "MIT License"
@@ -179,7 +180,8 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
       "deployment-source-review",
       "merge",
       "specled-main-head",
-      "ci-final-revision"
+      "ci-final-revision",
+      "hex-publication"
     ]
 
     for id <- reconciliation["pendingMandatoryGates"] -- resolved do
@@ -218,7 +220,7 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     assert @candidate["qualification"]["status"] == "blocked"
   end
 
-  test "section 1.3 keeps Phase 1 evidence discoverable and publication absent" do
+  test "section 1.3 remains discoverable after the later publication gate passes" do
     preflight = @candidate["evidence"]["publicReleasePreflight"]
     plan = File.read!(Path.join(@root, ".spec/planning/public-hex-1-0-0-release/README.md"))
 
@@ -232,6 +234,6 @@ defmodule ShadcnUI.PublicHexReleasePhase1Test do
     assert plan =~ "- [x] 2.3 Section - Complete the qualification PR."
 
     assert Map.new(@candidate["gates"], &{&1["id"], &1["status"]})["hex-publication"] ==
-             "pending"
+             "passed"
   end
 end

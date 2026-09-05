@@ -159,3 +159,7 @@ surface APIs, semantics, fallbacks and executable proof are unchanged.
     - shadcn_ui.content.radio_fallback
     - shadcn_ui.content.shared_contract
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no content-surface contract changes.

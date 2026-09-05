@@ -133,3 +133,7 @@ explicit; contradictory globals and unsafe destination schemes are rejected.
     - shadcn_ui.popover.protected_semantics
     - shadcn_ui.popover.shared_contract
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no popover contract changes.

@@ -150,3 +150,7 @@ metadata, sitemap entry, ID uniqueness and nonreflecting 404 in the actual outpu
     - shadcn_ui.overlay_gallery.semantic_guidance
     - shadcn_ui.overlay_gallery.release_boundary
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no overlay-gallery contract changes.

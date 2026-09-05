@@ -7,7 +7,7 @@ does not imply that a later gate passed.
 
 ## Status
 
-**Phase 4 complete; publication remains blocked pending Phase 5 authorization.**
+**Phase 5 complete; Phase 6 public verification and tagging are next.**
 
 The following prerequisites are already accepted or operationally proven:
 
@@ -249,35 +249,46 @@ avoids changing the commit merely to record proof about that commit.
 
 ## Phase 5 - Authorize and publish
 
-- [ ] 5.1 Section - Perform the final dry run.
+- [x] 5.1 Section - Perform the final dry run.
 
-  - [ ] Create a fresh detached clean checkout at `RELEASE_SHA`, activate the
+  - [x] Create a fresh detached clean checkout at `RELEASE_SHA`, activate the
     pinned toolchain, install locked dependencies, rebuild, and rerun the actual
     archive audit.
-  - [ ] Run the installed Hex client's supported publish dry-run from that
+  - [x] Run the installed Hex client's supported publish dry-run from that
     checkout and review the exact package name, version, organization/owner,
     files, dependencies, licenses, links, description, and documentation.
-  - [ ] Recheck that `shadcn_ui 1.0.0` is absent from public Hex and that the
+  - [x] Recheck that `shadcn_ui 1.0.0` is absent from public Hex and that the
     archive checksum matches the approved final archive.
-  - [ ] Make no tracked change in the detached checkout.
+  - [x] Make no tracked change in the detached checkout.
 
-- [ ] 5.2 Section - Obtain irreversible-action authorization.
+- [x] 5.2 Section - Obtain irreversible-action authorization.
 
-  - [ ] Present the go/no-go packet and exact `RELEASE_SHA` to the release owner.
-  - [ ] Obtain explicit authorization to execute `mix hex.publish`; earlier
+  - [x] Present the go/no-go packet and exact `RELEASE_SHA` to the release owner.
+  - [x] Obtain explicit authorization to execute `mix hex.publish`; earlier
     authorization to prepare, deploy Fly, merge a PR, or write this plan is not
     publication authorization.
-  - [ ] If authorization is declined or evidence has expired, stop without a
+  - [x] If authorization is declined or evidence has expired, stop without a
     public tag or Hex mutation.
 
-- [ ] 5.3 Section - Publish exactly once.
+- [x] 5.3 Section - Publish exactly once.
 
-  - [ ] Run `mix hex.publish` from the approved detached checkout, using the
+  The one authorized attempt ran at `2026-09-05T13:24:17Z` and failed at
+  Hex's OTP challenge when the non-interactive process received EOF. Immediate
+  CLI and API queries confirmed that the package and release remain absent.
+  At `2026-09-05T13:29:14Z`, the release owner explicitly authorized one retry
+  of the same immutable package-and-documentation action. The retry must run in
+  an interactive terminal so the owner can enter the OTP securely.
+
+  The owner completed the interactive retry. Public Hex recorded
+  `shadcn_ui 1.0.0` at `2026-09-05T14:19:30.545005Z`; the registry checksum is
+  exactly the approved archive SHA-256, and HexDocs is live. Section 5.3 passes.
+
+  - [x] Run `mix hex.publish` from the approved detached checkout, using the
     authenticated intended owner and no unreviewed environment override.
-  - [ ] Capture the command result, package checksum, public release URL,
+  - [x] Capture the command result, package checksum, public release URL,
     timestamp, authenticated owner, and `RELEASE_SHA` without capturing the API
     key.
-  - [ ] Do not retry an ambiguous result until public Hex is queried for
+  - [x] Do not retry an ambiguous result until public Hex is queried for
     `shadcn_ui 1.0.0`; never attempt to overwrite the version.
 
 ## Phase 6 - Verify, tag, and reconcile

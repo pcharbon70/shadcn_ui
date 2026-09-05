@@ -130,3 +130,7 @@ skip-link contracts without changing form semantics.
     - shadcn_ui.form_gallery.content_stress
     - shadcn_ui.form_gallery.browser_behavior
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no form-gallery contract changes.

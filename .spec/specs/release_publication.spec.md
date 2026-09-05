@@ -26,6 +26,7 @@ surface:
   - release/preliminary-candidate-evidence.json
   - release/public-release-phase-3.json
   - release/public-release-phase-4.json
+  - release/public-release-phase-5.json
   - release/fly-deployment-evidence.json
   - release/records/**
   - demo/operations/gallery-publication.md
@@ -45,6 +46,8 @@ surface:
   - test/shadcn_ui/public_hex_release_phase_1_test.exs
   - test/shadcn_ui/public_hex_release_phase_2_test.exs
   - test/shadcn_ui/public_hex_release_phase_3_test.exs
+  - test/shadcn_ui/public_hex_release_phase_4_test.exs
+  - test/shadcn_ui/public_hex_release_phase_5_test.exs
 ```
 
 ## Requirements
@@ -183,6 +186,39 @@ mandatory gates before publication and tagging passes with no stale, missing,
 contradictory, or SHA-mismatched evidence. The resulting go decision allows
 only the Phase 5 dry run and explicit publication-authorization request;
 `mix hex.publish` and the public tag remain pending mandatory gates.
+Section 5.1 then retained a detached checkout at the unchanged `RELEASE_SHA`,
+reinstalled every locked package and gallery dependency, reproduced the exact
+approved 63-entry archive, and passed its allowlist audit. The supported Hex
+dry run reviewed public package `shadcn_ui 1.0.0`, authenticated personal owner
+`pcharbon70`, no organization override, the exact dependency, license, links,
+description, file, and documentation metadata, and completed without registry
+mutation. A post-dry-run query still found no public package. The checkout has
+no tracked change and remains retained only for an explicitly authorized
+publish; authorization, publication, and tagging remain pending.
+The release owner subsequently received the exact go/no-go packet and dry-run
+identity and explicitly authorized one `mix hex.publish --yes` attempt for
+public `shadcn_ui 1.0.0` from the retained `RELEASE_SHA` checkout under personal
+owner `pcharbon70`, with no organization override. That authorization is
+recorded separately from execution, is limited to package and documentation,
+and does not authorize the public tag or any adjacent publication claim.
+The authorized attempt began at `2026-09-05T13:24:17Z` and stopped at Hex's OTP
+challenge because the non-interactive process received EOF. It exited nonzero;
+immediate package, release, and API queries confirmed that `shadcn_ui 1.0.0`
+remains absent. The one-attempt authorization is consumed. Retrying requires a
+fresh explicit authorization and secure interactive OTP entry; no retry or tag
+is authorized by the failed attempt.
+At `2026-09-05T13:29:14Z`, the release owner separately and explicitly
+authorized one retry of the same `mix hex.publish --yes` package-and-
+documentation action, bound to the unchanged `RELEASE_SHA` and archive
+checksum. The retry authorization still excludes the public tag and requires
+secure interactive OTP entry.
+The release owner completed the interactive retry. Public Hex records
+`shadcn_ui 1.0.0` at `2026-09-05T14:19:30.545005Z` under owner `pcharbon70`,
+serves the release page and generated documentation, and reports SHA-256
+`547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da`,
+which exactly matches the approved immutable archive. Phase 5 therefore passes.
+The public-consumer, HexDocs content, and tag checks remain Phase 6 gates; no
+tag was created or authorized by publication.
 
 ```spec-verification
 - kind: test_file
@@ -260,6 +296,14 @@ only the Phase 5 dry run and explicit publication-authorization request;
     - shadcn_ui.release_publication.deterministic_export
     - shadcn_ui.release_publication.clean_checkout
     - shadcn_ui.release_publication.clean_consumer_trial
+    - shadcn_ui.release_publication.explicit_archive
+    - shadcn_ui.release_publication.public_release_target
+    - shadcn_ui.release_publication.truthful_gates
+
+- kind: test_file
+  target: test/shadcn_ui/public_hex_release_phase_5_test.exs
+  covers:
+    - shadcn_ui.release_publication.clean_checkout
     - shadcn_ui.release_publication.explicit_archive
     - shadcn_ui.release_publication.public_release_target
     - shadcn_ui.release_publication.truthful_gates

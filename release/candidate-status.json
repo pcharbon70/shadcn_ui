@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "candidateVersion": "1.0.0",
-  "recordedAt": "2026-09-04",
+  "recordedAt": "2026-09-05",
   "qualification": {
     "status": "blocked",
     "qualified": false,
-    "reason": "All prepublication mandatory gates pass; Hex publication and the public tag remain pending."
+    "reason": "The exact shadcn_ui 1.0.0 package and documentation are public on Hex with the approved checksum; Phase 6 public-consumer verification and the public tag remain pending."
   },
   "evidence": {
     "workingTreeBaseRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
@@ -81,10 +81,25 @@
       "goNoGoPacket": "passed",
       "decision": "go-to-phase-5-dry-run-and-publication-authorization"
     },
+    "publicReleasePhase5": {
+      "path": "release/public-release-phase-5.json",
+      "status": "passed",
+      "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+      "dryRun": "passed",
+      "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+      "authenticatedOwner": "pcharbon70",
+      "publicationAuthorization": "consumed-by-successful-publication",
+      "hexPublication": "passed",
+      "publicPackageAfterAttempt": "published",
+      "publicReleaseUrl": "https://hex.pm/packages/shadcn_ui/1.0.0",
+      "documentationUrl": "https://shadcn-ui.hexdocs.pm/1.0.0/",
+      "registryChecksum": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+      "retryAuthorization": "consumed"
+    },
     "browserEvidenceInput": "release/browser-evidence-inputs.json",
     "deployedRevision": "8654f6a4500ce210682d7cae7453553d878a714c",
     "deployedPackageVersion": "1.0.0",
-    "finalPhase5Revision": null
+    "finalPhase5Revision": "recorded-in-containing-commit"
   },
   "gates": [
     {"id": "public-release-phase-1-preflight", "kind": "local", "mandatory": true, "status": "passed"},
@@ -104,7 +119,7 @@
     {"id": "merge", "kind": "publication", "mandatory": true, "status": "passed"},
     {"id": "gallery-deployment", "kind": "deployment", "mandatory": true, "status": "passed"},
     {"id": "post-deploy-smoke", "kind": "deployment", "mandatory": true, "status": "passed"},
-    {"id": "hex-publication", "kind": "publication", "mandatory": true, "status": "pending"},
+    {"id": "hex-publication", "kind": "publication", "mandatory": true, "status": "passed"},
     {"id": "public-version-tag", "kind": "publication", "mandatory": true, "status": "pending"},
     {"id": "marketplace-listing", "kind": "publication", "mandatory": false, "status": "not-applicable"},
     {"id": "consumer-platform-certification", "kind": "certification", "mandatory": false, "status": "not-applicable"},
@@ -124,6 +139,7 @@
     "r6LocalRegression": "Package and demo precommit, ExDoc, deterministic CSS, archive audit, isolated clean consumer, two current-identity exports, route/fragment/subpath smoke, pinned axe, visual, provenance, license, release-evidence, formatting, and SpecLed gates passed before deployment. Manual accessibility evidence and exact clean-candidate evidence remain separate; the later 1.0.0 waiver changes only the manual gate's blocking effect.",
     "deployment": "Fly release rel_76njzd0doog3yko3 serves exact revision 8654f6a4500ce210682d7cae7453553d878a714c with package and demo identity 1.0.0 from image digest sha256:0f1005b6a445b9585ad7eb0b3dc71458b625f1ef6547254cbcdab8147d0fc23d. Service health and canonical smoke were rechecked for the Phase 4 go/no-go packet and pass. Phase 1 established that later evidence-only changes do not require a replacement deployment.",
     "goNoGo": "The immutable Phase 4 packet links the review and accessibility waivers, exact RELEASE_SHA CI, two final build records, byte-identical archive comparison, both archive audits, exact-archive consumer, current Fly smoke, and a fresh public-Hex absence query. All 15 prepublication mandatory gates pass with no stale, missing, contradictory, or SHA-mismatched item. Phase 5 dry-run preparation may proceed, but mix hex.publish is not yet authorized.",
-    "publication": "Version 1.0.0 is authorized as the first public release target. The Phase 4 go/no-go decision permits only the Phase 5 dry run and publication-authorization request; Hex publication and the public tag remain pending gates. No marketplace listing, platform certification, or upstream affiliation is implied."
+    "dryRun": "A detached checkout at RELEASE_SHA reproduced the byte-identical approved archive, passed the actual archive audit, reviewed exact public Hex package and documentation metadata under authenticated owner pcharbon70, and completed mix hex.publish --dry-run --yes. A post-run query confirmed shadcn_ui remained absent and tracked source remained unchanged.",
+    "publication": "Version 1.0.0 is the first public Hex release. After the final dry run and explicit owner authorization, the initial non-interactive attempt failed at Hex's OTP challenge without mutation. The owner explicitly authorized an interactive retry, and the public registry now serves shadcn_ui 1.0.0 with the exact approved archive checksum and generated documentation. Phase 6 public-consumer verification and the public tag remain pending. No marketplace listing, platform certification, or upstream affiliation is implied."
   }
 }

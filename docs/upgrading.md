@@ -1,9 +1,10 @@
 # Versioning, deprecation, migration, and rollback
 
-ShadcnUI is preparing `1.0.0` as its first public Hex release. It is not
-published yet and has no public release tag. Passing local tests is not proof of
-CI, clean-consumer qualification, gallery deployment, post-deploy smoke, manual
-review, or public availability.
+ShadcnUI `1.0.0` is its first public Hex release. The package and generated
+documentation are publicly available; the public source tag remains a separate
+release gate. Passing local tests is not proof of CI, clean-consumer
+qualification, gallery deployment, post-deploy smoke, manual review, or public
+availability.
 
 ## Version and compatibility floors
 
@@ -14,8 +15,9 @@ review, or public availability.
 - The package supports Elixir `~> 1.17` and the dependency ranges in `mix.exs`;
   an actual consumer must verify its locked Elixir, OTP, Phoenix, and renderer.
 
-Until `1.0.0` is published, every reviewed revision should be pinned by commit
-SHA. Do not depend on a mutable branch.
+Consumers should use the published dependency `{:shadcn_ui, "~> 1.0"}` and
+commit their lockfile. Source-based evaluation should pin a full commit SHA,
+never a mutable branch.
 
 ## Deprecation policy
 
@@ -35,8 +37,9 @@ an accepted ADR and specification change.
 ## Upgrade procedure
 
 1. Review `CHANGELOG.md`, this guide, capability manifests, and provenance
-   changes between the old and proposed commits.
-2. Pin the proposed full commit SHA in a branch of the consuming application.
+   changes between the installed and proposed versions.
+2. Select the proposed semantic version in a branch of the consuming
+   application and commit the resulting lockfile.
 3. Recopy or rebundle `ShadcnUI.stylesheet_path()`; do not mix component source
    from one revision with CSS from another.
 4. Compile with warnings as errors and run the consumer's server, browser,
@@ -51,16 +54,16 @@ Milestones A–E.
 
 ## Version decisions for future changes
 
-After `1.0.0` is published, removing or incompatibly changing a public
-component, attr, slot, closed value, semantic/fallback contract, token, CSS
+After `1.0.0`, removing or incompatibly changing a public component, attr,
+slot, closed value, semantic/fallback contract, token, CSS
 selector contract, capability floor, runtime boundary, or archive path requires
 a new major version, migration guidance, and explicit rollback evidence. A
 backward-compatible public addition increments the minor version; a
-backward-compatible correction increments the patch version. Before
-publication, the `1.0.0` target may be rebuilt only when prior candidate
-evidence is explicitly superseded and no consumer is told that different bytes
-share the same published identity. Exact commit and archive hashes remain
-authoritative.
+backward-compatible correction increments the patch version. Before any future
+version is published, its target may be rebuilt only when
+prior candidate evidence is explicitly superseded and no consumer is told that
+different bytes share the same published identity. Exact commit and archive
+hashes remain authoritative.
 
 Documentation-only wording does not by itself change the package version, but
 documentation that changes a promised contract is not documentation-only.

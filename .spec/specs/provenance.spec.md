@@ -132,3 +132,8 @@ existing complete MIT notice remains unchanged.
     - shadcn_ui.provenance.site_assets_excluded
     - shadcn_ui.provenance.independent_identity
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; provenance and independent-identity claims
+do not change.

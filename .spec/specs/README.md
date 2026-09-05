@@ -40,11 +40,15 @@ These accepted specifications now describe the implemented Milestone E surface.
 These active specifications describe the implemented documentation and release
 surfaces. Exact-revision clean reproducibility, the final isolated archive
 consumer, the qualification merge, exact-main CI, and the Phase 4 go/no-go
-packet now pass. All 15 prepublication mandatory gates are green; final
-candidate qualification remains blocked only by the still-pending Hex
-publication and public tag gates. Independent source review remains unperformed
-under the explicit `1.0.0` waiver. The six manual scenarios remain pending but
-are explicitly waived and non-mandatory for `1.0.0`; a verification target or
+packet now pass. The final detached Hex dry run also reproduces the approved
+archive and reviews the intended owner and package metadata. All 15
+prepublication mandatory gates are green. The release owner completed the
+explicitly authorized interactive retry, and public Hex now serves the exact
+approved `shadcn_ui 1.0.0` archive and generated documentation. Final candidate
+qualification remains blocked by Phase 6 public-consumer/documentation
+verification and the public tag. Independent source review remains unperformed under the
+explicit `1.0.0` waiver. The six manual scenarios remain pending but are
+explicitly waived and non-mandatory for `1.0.0`; a verification target or
 checked implementation item is never evidence that a gate passed.
 
 - [Documentation catalogue, search, and information architecture](./documentation_catalogue.spec.md)

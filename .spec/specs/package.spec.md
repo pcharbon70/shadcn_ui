@@ -173,3 +173,8 @@ qualification, which remains a separately recorded pending gate.
     - shadcn_ui.package.explicit_release_files
     - shadcn_ui.package.no_consumer_asset_toolchain
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; the package contents and runtime contract do
+not change.

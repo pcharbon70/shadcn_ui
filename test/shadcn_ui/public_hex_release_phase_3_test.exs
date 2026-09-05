@@ -36,10 +36,10 @@ defmodule ShadcnUI.PublicHexReleasePhase3Test do
     assert review["status"] == "waived"
     refute review["mandatory"]
 
-    for id <- ["hex-publication", "public-version-tag"] do
-      assert gates[id]["status"] == "pending"
-      assert gates[id]["mandatory"]
-    end
+    assert gates["hex-publication"]["status"] == "passed"
+    assert gates["hex-publication"]["mandatory"]
+    assert gates["public-version-tag"]["status"] == "pending"
+    assert gates["public-version-tag"]["mandatory"]
 
     for id <- [
           "clean-candidate",

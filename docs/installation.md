@@ -1,15 +1,12 @@
 # Installation, assets, themes, and CSP
 
 ShadcnUI is a transport-neutral Phoenix function-component package. Version
-`1.0.0` is the first public Hex release target but is not published yet.
-Consumers should pin a reviewed Git commit until publication; sibling
-development may use a path.
+`1.0.0` is the first public Hex release. Install it from Hex; sibling development
+may use a path dependency.
 
 ```elixir
-# Reviewed internal revision
-{:shadcn_ui,
-  git: "https://github.com/pcharbon70/shadcn_ui.git",
- ref: "<reviewed-commit-sha>"}
+# Published package
+{:shadcn_ui, "~> 1.0"}
 
 # Sibling development only
 {:shadcn_ui, path: "../shadcn_ui"}
