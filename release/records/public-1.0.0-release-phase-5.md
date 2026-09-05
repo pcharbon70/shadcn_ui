@@ -56,3 +56,22 @@ documentation only; it does not authorize a public tag, marketplace listing,
 platform certification, or upstream-affiliation claim. At this record point,
 the authorized command has not run, so Hex publication and the public tag
 remain pending.
+
+## Section 5.3 - Blocked publication attempt
+
+The one authorized `mix hex.publish --yes` attempt began at
+`2026-09-05T13:24:17Z` from the retained clean detached checkout. It rebuilt
+the reviewed package and documentation, then Hex requested an OTP code. The
+non-interactive process received EOF and exited `1` at `2026-09-05T13:24:18Z`.
+No retry was attempted.
+
+Immediate `mix hex.info shadcn_ui 1.0.0` and `mix hex.info shadcn_ui` queries
+reported no release and no package. At `2026-09-05T13:25:38Z`, the public Hex
+API also returned HTTP `404` for `https://hex.pm/api/packages/shadcn_ui`.
+Section 5.3 is therefore blocked, not passed: no registry mutation is observed,
+the package remains unpublished, and the public tag remains unauthorized.
+
+The one-attempt authorization is consumed. A retry requires fresh explicit
+authorization for the same immutable release plus secure interactive OTP entry.
+Never use `--replace`, and do not create the public tag before Phase 6 verifies
+the eventual public package and documentation.

@@ -201,6 +201,12 @@ public `shadcn_ui 1.0.0` from the retained `RELEASE_SHA` checkout under personal
 owner `pcharbon70`, with no organization override. That authorization is
 recorded separately from execution, is limited to package and documentation,
 and does not authorize the public tag or any adjacent publication claim.
+The authorized attempt began at `2026-09-05T13:24:17Z` and stopped at Hex's OTP
+challenge because the non-interactive process received EOF. It exited nonzero;
+immediate package, release, and API queries confirmed that `shadcn_ui 1.0.0`
+remains absent. The one-attempt authorization is consumed. Retrying requires a
+fresh explicit authorization and secure interactive OTP entry; no retry or tag
+is authorized by the failed attempt.
 
 ```spec-verification
 - kind: test_file

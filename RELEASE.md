@@ -12,8 +12,11 @@ non-mandatory for `1.0.0`; this is not a conformance claim.
 All 15 prepublication mandatory gates and the final detached Hex dry run now
 pass. The release owner has separately authorized one exact execution of
 `mix hex.publish --yes` for the immutable package and documentation payload;
-Hex publication remains pending because the command has not yet run, and the
-public tag remains unauthorized.
+that attempt failed at Hex's OTP challenge because its non-interactive process
+received EOF. Immediate registry queries confirmed that no public package or
+release was created. Hex publication remains pending and now requires fresh
+retry authorization plus secure interactive OTP entry. The public tag remains
+unauthorized.
 
 All 38 Milestone F requirements have an implementation/evidence entry in
 `release/records/milestone-f-acceptance.md`. Fly release
@@ -43,7 +46,8 @@ exact package and documentation metadata under authenticated owner
 See `release/public-release-phase-5.json`. No publish command is authorized by
 the dry-run evidence alone; the later explicit authorization is bound in that
 same record to one package-and-documentation attempt and does not include a
-public tag.
+public tag. That attempt is also recorded there as blocked at Hex's OTP
+challenge, with post-attempt registry absence evidence and no retry.
 
 ## Historical Milestone F Phase 5 candidate status
 

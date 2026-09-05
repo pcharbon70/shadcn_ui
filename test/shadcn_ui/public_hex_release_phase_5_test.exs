@@ -62,7 +62,7 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     assert dry_run["documentation"]["generated"]
   end
 
-  test "section 5.2 records one exact publication authorization without publishing" do
+  test "section 5.2 records one exact publication authorization" do
     absence = @evidence["section5_1"]["publicHexAbsence"]
     authorization = @evidence["section5_2"]
     action = authorization["authorizedAction"]
@@ -86,12 +86,40 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     assert action["packageAndDocumentation"]
     assert action["executeExactlyOnce"]
     assert boundaries["publicationAuthorizationRecorded"]
-    assert boundaries["hexPublishAuthorized"]
+    refute boundaries["hexPublishAuthorized"]
+    assert boundaries["publicationAttemptExecuted"]
+    refute boundaries["publicationAttemptSucceeded"]
     refute boundaries["publishedToHex"]
     refute boundaries["tagCreated"]
     assert gates["hex-publication"]["status"] == "pending"
     assert gates["public-version-tag"]["status"] == "pending"
     refute @candidate["qualification"]["qualified"]
+  end
+
+  test "section 5.3 records the blocked OTP attempt and registry absence" do
+    section = @evidence["section5_3"]
+    attempt = section["attempt"]
+    query = section["postAttemptRegistryQuery"]
+    recovery = section["recovery"]
+
+    assert section["status"] == "blocked"
+    assert attempt["command"] == "mix hex.publish --yes"
+    assert attempt["exitStatus"] == 1
+    assert attempt["releaseSha"] == @evidence["releaseSha"]
+    assert attempt["archiveSha256"] == @candidate["evidence"]["currentArchiveSha256"]
+    assert attempt["result"] == "failed-at-otp-challenge-before-release-creation"
+    assert attempt["authorizationConsumed"]
+    refute attempt["retryAttempted"]
+
+    assert query["releaseResult"] == "No release with name shadcn_ui 1.0.0"
+    assert query["packageResult"] == "No package with name shadcn_ui"
+    assert query["apiHttpStatus"] == 404
+    refute query["registryMutationObserved"]
+
+    assert recovery["freshExplicitRetryAuthorizationRequired"]
+    assert recovery["secureInteractiveOtpEntryRequired"]
+    assert recovery["replaceForbidden"]
+    refute recovery["tagAuthorized"]
   end
 
   test "the plan marks Sections 5.1 and 5.2 complete" do
@@ -100,5 +128,6 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     assert plan =~ "- [x] 5.1 Section - Perform the final dry run."
     assert plan =~ "- [x] 5.2 Section - Obtain irreversible-action authorization."
     assert plan =~ "- [ ] 5.3 Section - Publish exactly once."
+    assert plan =~ "failed at\n  Hex's OTP challenge"
   end
 end

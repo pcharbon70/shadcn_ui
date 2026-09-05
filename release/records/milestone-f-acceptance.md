@@ -3,9 +3,9 @@
 This is the current evidence ledger for the ShadcnUI `1.0.0` public release
 target. All requirements have explicit implementation/evidence entries, and
 all 15 mandatory prepublication gates pass. Release qualification is still
-**blocked** because the explicitly authorized Hex publication has not yet run
-and the public tag remains pending. The final detached Hex dry run reproduces
-the approved archive and reviews the intended owner and package metadata. The
+**blocked** because the one authorized Hex publication attempt failed at the
+OTP challenge and the public tag remains pending. The final detached Hex dry
+run reproduces the approved archive and reviews the intended owner and package metadata. The
 qualification merge, exact-main CI, two exact-`RELEASE_SHA` builds, archive
 audit, and isolated consumer pass; independent source review remains
 unperformed under the explicit `1.0.0` owner waiver. The matching `1.0.0` Fly
@@ -17,7 +17,9 @@ evidence remains historical and does not satisfy a `1.0.0` gate. A checked
 planning item or historical run never substitutes for a current gate.
 Public-release Phases 1-4 and Phase 5 Sections 5.1-5.2 now pass their applicable
 gates. The release owner separately authorized one exact package-and-
-documentation publish attempt; that authorization does not include tagging.
+documentation publish attempt; it failed at the OTP challenge without creating
+a package or release. Fresh retry authorization and secure interactive OTP
+entry are required. The authorization does not include tagging.
 
 Statuses below mean:
 
@@ -83,7 +85,7 @@ Statuses below mean:
 | `shadcn_ui.release_publication.clean_checkout` | PASSED | two detached builds of exact `RELEASE_SHA` produced equivalent complete records and byte-identical archives |
 | `shadcn_ui.release_publication.clean_consumer_trial` | PASSED | final selected archive passed the isolated signed-Hex-repository consumer trial |
 | `shadcn_ui.release_publication.explicit_archive` | PASSED | both final 63-entry archives passed the explicit allowlist and share the approved checksum |
-| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected, all 15 prepublication mandatory gates and the final dry run pass; one exact Hex package-and-documentation publish attempt is authorized but unexecuted, and the public tag remains pending |
+| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected, all 15 prepublication mandatory gates and the final dry run pass; one authorized publish attempt failed at the OTP challenge, registry queries confirm the package remains absent, and fresh retry authorization plus secure interactive OTP entry are required |
 | `shadcn_ui.release_publication.truthful_gates` | PASSED | structured candidate status and this ledger |
 
 ## Documentation and regression reconciliation
@@ -117,11 +119,14 @@ Fly identity and canonical smoke also pass. Independent source review and all
 six human scenarios remain unexecuted under their separate, non-blocking
 `1.0.0` waivers; neither is represented as a pass or approval.
 
-The `1.0.0` release remains blocked and unpublished. The release owner has
-explicitly authorized one execution of `mix hex.publish --yes` for the exact
-package, personal Hex owner, `RELEASE_SHA`, and approved archive recorded in
-the Phase 5 evidence; the command has not yet run. The authorization does not
-include a public tag. After Hex publication, Phase 6 must independently verify
+The `1.0.0` release remains blocked and unpublished. The release owner's one
+authorized execution of `mix hex.publish --yes` for the exact package, personal
+Hex owner, `RELEASE_SHA`, and approved archive reached the OTP challenge, then
+failed because the non-interactive process received EOF. Immediate registry
+queries confirm that no package or release exists. The authorization is
+consumed; a retry requires fresh explicit authorization and secure interactive
+OTP entry. No authorization includes a public tag. After Hex publication,
+Phase 6 must independently verify
 the public package before creating the exact tag. Phase evidence is recorded
 in `release/public-release-preflight.json`,
 `release/preliminary-candidate-evidence.json`,

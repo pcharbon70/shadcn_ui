@@ -160,6 +160,9 @@ reviewed package/documentation metadata. Release-facing documentation keeps
 the package unpublished. The release owner has now explicitly authorized one
 exact package-and-documentation publication attempt, while actual Hex
 publication, public verification, and the tag remain separate pending states.
+That one attempt subsequently failed at Hex's OTP challenge without creating a
+public package or release. A fresh retry authorization and secure interactive
+OTP entry are required before publication can continue.
 
 ```spec-verification
 - kind: test_file

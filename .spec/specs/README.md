@@ -45,7 +45,9 @@ archive and reviews the intended owner and package metadata. All 15
 prepublication mandatory gates are green; final candidate qualification
 remains blocked by the still-unexecuted Hex publication and public tag. The
 release owner has explicitly authorized one exact package-and-documentation
-publication attempt. Independent source review remains unperformed under the
+publication attempt. That attempt failed at Hex's OTP challenge, and registry
+queries confirmed no package or release was created; fresh retry authorization
+and secure interactive OTP entry are now required. Independent source review remains unperformed under the
 explicit `1.0.0` waiver. The six manual scenarios remain pending but are
 explicitly waived and non-mandatory for `1.0.0`; a verification target or
 checked implementation item is never evidence that a gate passed.

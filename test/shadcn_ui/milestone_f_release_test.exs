@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "Hex publication is explicitly authorized but not yet executed; Hex publication and the public tag remain pending.",
+               "The authorized Hex publication attempt failed at the OTP challenge; the public package and tag remain absent, and a fresh retry authorization with secure interactive OTP entry is required.",
              "status" => "blocked"
            }
 

@@ -4,7 +4,7 @@
     "package": "shadcn_ui",
     "version": "1.0.0",
     "phase": 5,
-    "status": "sections-5.1-and-5.2-complete"
+    "status": "section-5.3-blocked-after-one-attempt"
   },
   "observedAt": "2026-09-05T09:10:02Z",
   "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
@@ -158,19 +158,54 @@
     }
   },
   "section5_3": {
-    "status": "pending"
+    "status": "blocked",
+    "attempt": {
+      "startedAt": "2026-09-05T13:24:17Z",
+      "finishedAt": "2026-09-05T13:24:18Z",
+      "command": "mix hex.publish --yes",
+      "exitStatus": 1,
+      "authenticatedOwner": "pcharbon70",
+      "repository": "hexpm",
+      "organization": null,
+      "package": "shadcn_ui",
+      "version": "1.0.0",
+      "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+      "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+      "result": "failed-at-otp-challenge-before-release-creation",
+      "error": "Hex requested an OTP code, but the non-interactive process received EOF.",
+      "authorizationConsumed": true,
+      "retryAttempted": false
+    },
+    "postAttemptRegistryQuery": {
+      "observedAt": "2026-09-05T13:25:38Z",
+      "releaseCommand": "mix hex.info shadcn_ui 1.0.0",
+      "releaseResult": "No release with name shadcn_ui 1.0.0",
+      "packageCommand": "mix hex.info shadcn_ui",
+      "packageResult": "No package with name shadcn_ui",
+      "apiUrl": "https://hex.pm/api/packages/shadcn_ui",
+      "apiHttpStatus": 404,
+      "registryMutationObserved": false
+    },
+    "recovery": {
+      "freshExplicitRetryAuthorizationRequired": true,
+      "secureInteractiveOtpEntryRequired": true,
+      "replaceForbidden": true,
+      "tagAuthorized": false
+    }
   },
   "boundaries": {
     "releaseShaUnchanged": true,
     "dryRunPassed": true,
     "publicationAuthorizationRecorded": true,
-    "hexPublishAuthorized": true,
+    "hexPublishAuthorized": false,
+    "publicationAttemptExecuted": true,
+    "publicationAttemptSucceeded": false,
     "publishedToHex": false,
     "tagCreated": false
   },
   "commits": {
     "section5_1": "recorded-in-containing-commit",
     "section5_2": "recorded-in-containing-commit",
-    "section5_3": null
+    "section5_3": "blocked-at-otp-in-containing-commit"
   }
 }
