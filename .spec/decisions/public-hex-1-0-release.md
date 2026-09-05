@@ -57,6 +57,10 @@ The first public Hex release target is `1.0.0`.
   the approved archive checksum, review the authenticated owner and exact
   package metadata, and recheck public absence. Passing it is evidence for an
   authorization request, never publication authorization itself.
+- Explicit publication authorization shall bind the exact publish command,
+  `RELEASE_SHA`, archive checksum, package version, repository, organization,
+  and owner. It authorizes one package-and-documentation attempt only and does
+  not authorize a public tag or any adjacent distribution claim.
 - Hex publication does not create a marketplace listing, certify a consumer
   platform, or imply official shadcn/ui or unscripted/ui affiliation.
 

@@ -43,8 +43,9 @@ consumer, the qualification merge, exact-main CI, and the Phase 4 go/no-go
 packet now pass. The final detached Hex dry run also reproduces the approved
 archive and reviews the intended owner and package metadata. All 15
 prepublication mandatory gates are green; final candidate qualification
-remains blocked by explicit publication authorization, Hex publication, and
-the public tag. Independent source review remains unperformed under the
+remains blocked by the still-unexecuted Hex publication and public tag. The
+release owner has explicitly authorized one exact package-and-documentation
+publication attempt. Independent source review remains unperformed under the
 explicit `1.0.0` waiver. The six manual scenarios remain pending but are
 explicitly waived and non-mandatory for `1.0.0`; a verification target or
 checked implementation item is never evidence that a gate passed.

@@ -7,7 +7,7 @@ does not imply that a later gate passed.
 
 ## Status
 
-**Phase 5 dry run complete; publication awaits explicit authorization.**
+**Phase 5 publication explicitly authorized; execution remains pending.**
 
 The following prerequisites are already accepted or operationally proven:
 
@@ -261,13 +261,13 @@ avoids changing the commit merely to record proof about that commit.
     archive checksum matches the approved final archive.
   - [x] Make no tracked change in the detached checkout.
 
-- [ ] 5.2 Section - Obtain irreversible-action authorization.
+- [x] 5.2 Section - Obtain irreversible-action authorization.
 
-  - [ ] Present the go/no-go packet and exact `RELEASE_SHA` to the release owner.
-  - [ ] Obtain explicit authorization to execute `mix hex.publish`; earlier
+  - [x] Present the go/no-go packet and exact `RELEASE_SHA` to the release owner.
+  - [x] Obtain explicit authorization to execute `mix hex.publish`; earlier
     authorization to prepare, deploy Fly, merge a PR, or write this plan is not
     publication authorization.
-  - [ ] If authorization is declined or evidence has expired, stop without a
+  - [x] If authorization is declined or evidence has expired, stop without a
     public tag or Hex mutation.
 
 - [ ] 5.3 Section - Publish exactly once.

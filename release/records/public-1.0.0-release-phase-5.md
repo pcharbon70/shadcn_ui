@@ -40,3 +40,19 @@ directory, as the repository runner does. The first no-TTY dry-run invocation
 also stopped at Hex's confirmation prompt; the registry absence check passed
 before the completed `--dry-run --yes` execution. None of these attempts
 mutated Hex or tracked source, and none is treated as qualifying proof.
+
+## Section 5.2 - Irreversible-action authorization
+
+At `2026-09-05T13:18:03Z`, the release owner received the exact authorization
+packet and replied `yes you are authorized` in the Codex task. The authorization
+binds one execution of `mix hex.publish --yes` to public repository `hexpm`,
+personal owner `pcharbon70`, no organization override, package
+`shadcn_ui 1.0.0`, immutable
+`RELEASE_SHA aa6a2d35474a51ea63248131631ace2b113b99a4`, and archive SHA-256
+`547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da`.
+
+Section 5.2 therefore passes. Authorization covers the package and generated
+documentation only; it does not authorize a public tag, marketplace listing,
+platform certification, or upstream-affiliation claim. At this record point,
+the authorized command has not run, so Hex publication and the public tag
+remain pending.

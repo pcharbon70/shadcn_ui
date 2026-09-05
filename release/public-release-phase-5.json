@@ -4,7 +4,7 @@
     "package": "shadcn_ui",
     "version": "1.0.0",
     "phase": 5,
-    "status": "section-5.1-complete"
+    "status": "sections-5.1-and-5.2-complete"
   },
   "observedAt": "2026-09-05T09:10:02Z",
   "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
@@ -131,7 +131,31 @@
     ]
   },
   "section5_2": {
-    "status": "pending"
+    "status": "authorized",
+    "recordedAt": "2026-09-05T13:18:03Z",
+    "releaseOwner": "pcharbon70",
+    "channel": "Codex task",
+    "response": "yes you are authorized",
+    "authorizedAction": {
+      "command": "mix hex.publish --yes",
+      "repository": "hexpm",
+      "organization": null,
+      "package": "shadcn_ui",
+      "version": "1.0.0",
+      "owner": "pcharbon70",
+      "releaseSha": "aa6a2d35474a51ea63248131631ace2b113b99a4",
+      "archiveSha256": "547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da",
+      "packageAndDocumentation": true,
+      "executeExactlyOnce": true
+    },
+    "boundaries": {
+      "dryRunEvidencePresented": true,
+      "authorizationExplicit": true,
+      "authorizationDeclined": false,
+      "evidenceExpired": false,
+      "tagAuthorized": false,
+      "marketplaceAuthorized": false
+    }
   },
   "section5_3": {
     "status": "pending"
@@ -139,14 +163,14 @@
   "boundaries": {
     "releaseShaUnchanged": true,
     "dryRunPassed": true,
-    "publicationAuthorizationRecorded": false,
-    "hexPublishAuthorized": false,
+    "publicationAuthorizationRecorded": true,
+    "hexPublishAuthorized": true,
     "publishedToHex": false,
     "tagCreated": false
   },
   "commits": {
     "section5_1": "recorded-in-containing-commit",
-    "section5_2": null,
+    "section5_2": "recorded-in-containing-commit",
     "section5_3": null
   }
 }

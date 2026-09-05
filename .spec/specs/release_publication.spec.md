@@ -195,6 +195,12 @@ description, file, and documentation metadata, and completed without registry
 mutation. A post-dry-run query still found no public package. The checkout has
 no tracked change and remains retained only for an explicitly authorized
 publish; authorization, publication, and tagging remain pending.
+The release owner subsequently received the exact go/no-go packet and dry-run
+identity and explicitly authorized one `mix hex.publish --yes` attempt for
+public `shadcn_ui 1.0.0` from the retained `RELEASE_SHA` checkout under personal
+owner `pcharbon70`, with no organization override. That authorization is
+recorded separately from execution, is limited to package and documentation,
+and does not authorize the public tag or any adjacent publication claim.
 
 ```spec-verification
 - kind: test_file

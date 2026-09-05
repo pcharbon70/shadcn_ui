@@ -10,8 +10,10 @@ and public tag must be recorded independently. All six human accessibility
 scenarios remain pending and unassessed, but their gate is explicitly waived and
 non-mandatory for `1.0.0`; this is not a conformance claim.
 All 15 prepublication mandatory gates and the final detached Hex dry run now
-pass. Hex publication remains pending and requires explicit irreversible-action
-authorization; the dry run does not provide it.
+pass. The release owner has separately authorized one exact execution of
+`mix hex.publish --yes` for the immutable package and documentation payload;
+Hex publication remains pending because the command has not yet run, and the
+public tag remains unauthorized.
 
 All 38 Milestone F requirements have an implementation/evidence entry in
 `release/records/milestone-f-acceptance.md`. Fly release
@@ -39,7 +41,9 @@ byte-identical to the approved Phase 4 archive, the Hex dry run reviews the
 exact package and documentation metadata under authenticated owner
 `pcharbon70`, and a post-run query confirms the public package is still absent.
 See `release/public-release-phase-5.json`. No publish command is authorized by
-this evidence.
+the dry-run evidence alone; the later explicit authorization is bound in that
+same record to one package-and-documentation attempt and does not include a
+public tag.
 
 ## Historical Milestone F Phase 5 candidate status
 

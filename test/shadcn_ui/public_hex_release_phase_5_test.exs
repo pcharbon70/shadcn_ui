@@ -62,8 +62,10 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     assert dry_run["documentation"]["generated"]
   end
 
-  test "dry-run completion preserves the explicit publication authorization boundary" do
+  test "section 5.2 records one exact publication authorization without publishing" do
     absence = @evidence["section5_1"]["publicHexAbsence"]
+    authorization = @evidence["section5_2"]
+    action = authorization["authorizedAction"]
     boundaries = @evidence["boundaries"]
     gates = Map.new(@candidate["gates"], &{&1["id"], &1})
 
@@ -71,8 +73,20 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     assert absence["checkedAfterDryRun"]
     assert absence["result"] == "No package with name shadcn_ui"
     assert boundaries["dryRunPassed"]
-    refute boundaries["publicationAuthorizationRecorded"]
-    refute boundaries["hexPublishAuthorized"]
+    assert authorization["status"] == "authorized"
+    assert authorization["response"] == "yes you are authorized"
+    assert action["command"] == "mix hex.publish --yes"
+    assert action["repository"] == "hexpm"
+    assert action["organization"] == nil
+    assert action["package"] == "shadcn_ui"
+    assert action["version"] == "1.0.0"
+    assert action["owner"] == "pcharbon70"
+    assert action["releaseSha"] == @evidence["releaseSha"]
+    assert action["archiveSha256"] == @candidate["evidence"]["currentArchiveSha256"]
+    assert action["packageAndDocumentation"]
+    assert action["executeExactlyOnce"]
+    assert boundaries["publicationAuthorizationRecorded"]
+    assert boundaries["hexPublishAuthorized"]
     refute boundaries["publishedToHex"]
     refute boundaries["tagCreated"]
     assert gates["hex-publication"]["status"] == "pending"
@@ -80,11 +94,11 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     refute @candidate["qualification"]["qualified"]
   end
 
-  test "the plan marks only Section 5.1 complete" do
+  test "the plan marks Sections 5.1 and 5.2 complete" do
     plan = File.read!(Path.join(@root, ".spec/planning/public-hex-1-0-0-release/README.md"))
 
     assert plan =~ "- [x] 5.1 Section - Perform the final dry run."
-    assert plan =~ "- [ ] 5.2 Section - Obtain irreversible-action authorization."
+    assert plan =~ "- [x] 5.2 Section - Obtain irreversible-action authorization."
     assert plan =~ "- [ ] 5.3 Section - Publish exactly once."
   end
 end

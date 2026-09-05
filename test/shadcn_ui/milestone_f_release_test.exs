@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "The final dry run passes; explicit Hex publication authorization, Hex publication, and the public tag remain pending.",
+               "Hex publication is explicitly authorized but not yet executed; Hex publication and the public tag remain pending.",
              "status" => "blocked"
            }
 

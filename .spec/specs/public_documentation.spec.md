@@ -157,8 +157,9 @@ public tag.
 The final detached Hex dry run now also passes for the unchanged
 `RELEASE_SHA`, exact approved archive checksum, intended personal owner, and
 reviewed package/documentation metadata. Release-facing documentation keeps
-the package unpublished while explicit irreversible-action authorization,
-actual Hex publication, public verification, and the tag remain pending.
+the package unpublished. The release owner has now explicitly authorized one
+exact package-and-documentation publication attempt, while actual Hex
+publication, public verification, and the tag remain separate pending states.
 
 ```spec-verification
 - kind: test_file

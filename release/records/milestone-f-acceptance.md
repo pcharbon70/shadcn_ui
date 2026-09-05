@@ -3,9 +3,9 @@
 This is the current evidence ledger for the ShadcnUI `1.0.0` public release
 target. All requirements have explicit implementation/evidence entries, and
 all 15 mandatory prepublication gates pass. Release qualification is still
-**blocked** because explicit publication authorization, Hex publication, and
-the public tag remain pending. The final detached Hex dry run reproduces the
-approved archive and reviews the intended owner and package metadata. The
+**blocked** because the explicitly authorized Hex publication has not yet run
+and the public tag remains pending. The final detached Hex dry run reproduces
+the approved archive and reviews the intended owner and package metadata. The
 qualification merge, exact-main CI, two exact-`RELEASE_SHA` builds, archive
 audit, and isolated consumer pass; independent source review remains
 unperformed under the explicit `1.0.0` owner waiver. The matching `1.0.0` Fly
@@ -15,9 +15,9 @@ All six manual accessibility scenarios remain pending and unassessed, but are
 explicitly waived and non-mandatory for `1.0.0`. The recorded `0.1.0` archive
 evidence remains historical and does not satisfy a `1.0.0` gate. A checked
 planning item or historical run never substitutes for a current gate.
-Public-release Phases 1-4 and Phase 5 Section 5.1 now pass their applicable
-gates. The dry run permits only the request for explicit publication
-authorization; it does not authorize Hex publication or tagging.
+Public-release Phases 1-4 and Phase 5 Sections 5.1-5.2 now pass their applicable
+gates. The release owner separately authorized one exact package-and-
+documentation publish attempt; that authorization does not include tagging.
 
 Statuses below mean:
 
@@ -83,7 +83,7 @@ Statuses below mean:
 | `shadcn_ui.release_publication.clean_checkout` | PASSED | two detached builds of exact `RELEASE_SHA` produced equivalent complete records and byte-identical archives |
 | `shadcn_ui.release_publication.clean_consumer_trial` | PASSED | final selected archive passed the isolated signed-Hex-repository consumer trial |
 | `shadcn_ui.release_publication.explicit_archive` | PASSED | both final 63-entry archives passed the explicit allowlist and share the approved checksum |
-| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected, all 15 prepublication mandatory gates and the final dry run pass; explicit publication authorization, Hex publication, and the public tag remain pending |
+| `shadcn_ui.release_publication.public_release_target` | PENDING | `1.0.0` selected, all 15 prepublication mandatory gates and the final dry run pass; one exact Hex package-and-documentation publish attempt is authorized but unexecuted, and the public tag remains pending |
 | `shadcn_ui.release_publication.truthful_gates` | PASSED | structured candidate status and this ledger |
 
 ## Documentation and regression reconciliation
@@ -117,10 +117,11 @@ Fly identity and canonical smoke also pass. Independent source review and all
 six human scenarios remain unexecuted under their separate, non-blocking
 `1.0.0` waivers; neither is represented as a pass or approval.
 
-The `1.0.0` release remains blocked and unpublished. This go decision
-does not authorize `mix hex.publish` or a public tag. Phase 5 must still obtain
-explicit irreversible-action authorization; only then may Hex
-publication proceed, and Phase 6 must independently verify
+The `1.0.0` release remains blocked and unpublished. The release owner has
+explicitly authorized one execution of `mix hex.publish --yes` for the exact
+package, personal Hex owner, `RELEASE_SHA`, and approved archive recorded in
+the Phase 5 evidence; the command has not yet run. The authorization does not
+include a public tag. After Hex publication, Phase 6 must independently verify
 the public package before creating the exact tag. Phase evidence is recorded
 in `release/public-release-preflight.json`,
 `release/preliminary-candidate-evidence.json`,
