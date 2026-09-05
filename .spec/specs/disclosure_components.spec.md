@@ -129,3 +129,7 @@ semantics, presentation, fallbacks and executable proof are unchanged.
     - shadcn_ui.disclosure.ownership
     - shadcn_ui.disclosure.shared_contract
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no disclosure contract changes.

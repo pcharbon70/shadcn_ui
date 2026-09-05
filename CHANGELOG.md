@@ -1,13 +1,15 @@
 # Changelog
 
-## 1.0.0 — unreleased
+## 1.0.0 — 2026-09-05
 
 - Select `1.0.0` as the first public Hex release target and adopt Semantic
   Versioning for the stable component, stylesheet, fallback, and package
   contracts.
 - Preserve the earlier `0.1.0` qualification records as historical evidence;
   the `1.0.0` archive, clean-consumer trial, CI, review, gallery identity, Hex
-  publication, and public tag remain distinct release gates.
+  publication, and public tag remain distinct release gates. Publish the
+  checksum-bound package and generated documentation to Hex; retain public tag
+  verification as the separate next gate.
 
 ## Milestone F Phase 6 — unreleased
 

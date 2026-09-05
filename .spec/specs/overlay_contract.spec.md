@@ -167,3 +167,7 @@ focus, dismissal, replacement, or ownership behavior.
     - shadcn_ui.overlay.web_fallback
     - shadcn_ui.overlay.application_boundary
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no overlay contract changes.

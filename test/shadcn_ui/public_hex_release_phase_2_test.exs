@@ -94,7 +94,7 @@ defmodule ShadcnUI.PublicHexReleasePhase2Test do
     assert gates["clean-candidate"] == "passed"
     assert gates["actual-archive-consumer"] == "passed"
     assert gates["public-release-phase-2-premerge"] == "passed"
-    assert gates["hex-publication"] == "pending"
+    assert gates["hex-publication"] == "passed"
     assert gates["public-version-tag"] == "pending"
     refute @candidate["qualification"]["qualified"]
   end

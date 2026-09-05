@@ -212,6 +212,13 @@ authorized one retry of the same `mix hex.publish --yes` package-and-
 documentation action, bound to the unchanged `RELEASE_SHA` and archive
 checksum. The retry authorization still excludes the public tag and requires
 secure interactive OTP entry.
+The release owner completed the interactive retry. Public Hex records
+`shadcn_ui 1.0.0` at `2026-09-05T14:19:30.545005Z` under owner `pcharbon70`,
+serves the release page and generated documentation, and reports SHA-256
+`547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da`,
+which exactly matches the approved immutable archive. Phase 5 therefore passes.
+The public-consumer, HexDocs content, and tag checks remain Phase 6 gates; no
+tag was created or authorized by publication.
 
 ```spec-verification
 - kind: test_file

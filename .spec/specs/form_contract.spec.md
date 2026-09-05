@@ -126,3 +126,7 @@ normalization, accessibility, submission and executable proof are unchanged.
     - shadcn_ui.form.deterministic_relationships
     - shadcn_ui.form.native_submission
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no form contract changes.

@@ -86,24 +86,25 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     assert action["packageAndDocumentation"]
     assert action["executeExactlyOnce"]
     assert boundaries["publicationAuthorizationRecorded"]
-    assert boundaries["hexPublishAuthorized"]
-    assert boundaries["publicationRetryAuthorized"]
+    refute boundaries["hexPublishAuthorized"]
+    refute boundaries["publicationRetryAuthorized"]
     assert boundaries["publicationAttemptExecuted"]
-    refute boundaries["publicationAttemptSucceeded"]
-    refute boundaries["publishedToHex"]
+    assert boundaries["publicationAttemptSucceeded"]
+    assert boundaries["publishedToHex"]
     refute boundaries["tagCreated"]
-    assert gates["hex-publication"]["status"] == "pending"
+    assert gates["hex-publication"]["status"] == "passed"
     assert gates["public-version-tag"]["status"] == "pending"
     refute @candidate["qualification"]["qualified"]
   end
 
-  test "section 5.3 records the blocked OTP attempt and registry absence" do
+  test "section 5.3 preserves the failed attempt and records successful publication" do
     section = @evidence["section5_3"]
     attempt = section["attempt"]
     query = section["postAttemptRegistryQuery"]
     recovery = section["recovery"]
+    publication = section["publication"]
 
-    assert section["status"] == "blocked"
+    assert section["status"] == "passed"
     assert attempt["command"] == "mix hex.publish --yes"
     assert attempt["exitStatus"] == 1
     assert attempt["releaseSha"] == @evidence["releaseSha"]
@@ -118,22 +119,34 @@ defmodule ShadcnUI.PublicHexReleasePhase5Test do
     refute query["registryMutationObserved"]
 
     refute recovery["freshExplicitRetryAuthorizationRequired"]
-    assert recovery["retryAuthorization"]["status"] == "authorized"
+    assert recovery["retryAuthorization"]["status"] == "consumed-by-successful-publication"
     assert recovery["retryAuthorization"]["response"] == "yes do so"
     assert recovery["retryAuthorization"]["command"] == "mix hex.publish --yes"
     assert recovery["retryAuthorization"]["executeExactlyOnce"]
     refute recovery["retryAuthorization"]["tagAuthorized"]
-    assert recovery["secureInteractiveOtpEntryRequired"]
+    refute recovery["secureInteractiveOtpEntryRequired"]
+    assert recovery["completedBySuccessfulInteractivePublication"]
     assert recovery["replaceForbidden"]
     refute recovery["tagAuthorized"]
+
+    assert publication["status"] == "passed"
+    assert publication["command"] == "mix hex.publish --yes"
+    assert publication["releaseSha"] == @evidence["releaseSha"]
+    assert publication["archiveSha256"] == @candidate["evidence"]["currentArchiveSha256"]
+    assert publication["registryChecksumMatchesApprovedArchive"]
+    assert publication["documentationPublished"]
+    assert publication["commandResultVerifiedFromPublicRegistry"]
+    refute publication["apiKeyCaptured"]
+    refute publication["tagCreated"]
   end
 
-  test "the plan marks Sections 5.1 and 5.2 complete" do
+  test "the plan marks all Phase 5 sections complete" do
     plan = File.read!(Path.join(@root, ".spec/planning/public-hex-1-0-0-release/README.md"))
 
     assert plan =~ "- [x] 5.1 Section - Perform the final dry run."
     assert plan =~ "- [x] 5.2 Section - Obtain irreversible-action authorization."
-    assert plan =~ "- [ ] 5.3 Section - Publish exactly once."
+    assert plan =~ "- [x] 5.3 Section - Publish exactly once."
     assert plan =~ "failed at\n  Hex's OTP challenge"
+    assert plan =~ "Section 5.3 passes."
   end
 end

@@ -84,3 +84,19 @@ authorized one retry of `mix hex.publish --yes` for the same immutable
 `pcharbon70`, and package-and-documentation payload. The retry must use an
 interactive terminal for secure OTP entry. It does not authorize `--replace`,
 the public tag, or any adjacent distribution claim.
+
+### Successful publication
+
+The release owner completed the authorized interactive retry. The public Hex
+API records `shadcn_ui 1.0.0` at `2026-09-05T14:19:30.545005Z`, published by
+`pcharbon70`, with checksum
+`547280431c3eddd6cfb2fd92fd691c30b1e905282a0041f27d8d76130434a2da`.
+That checksum exactly matches the immutable approved archive for
+`RELEASE_SHA aa6a2d35474a51ea63248131631ace2b113b99a4`.
+
+The release is public at `https://hex.pm/packages/shadcn_ui/1.0.0`, and HexDocs
+is live at `https://shadcn-ui.hexdocs.pm/1.0.0/`. Public registry verification
+at `2026-09-05T15:45:38Z` confirms the expected version, dependencies, owner,
+documentation presence, and checksum without recording any API key. Section
+5.3 and Phase 5 pass. No `--replace` attempt or public tag occurred; public
+consumer, documentation-content, and tag verification remain Phase 6 work.

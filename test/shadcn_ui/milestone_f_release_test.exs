@@ -24,7 +24,7 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert status["qualification"] == %{
              "qualified" => false,
              "reason" =>
-               "The first Hex publication attempt failed at the OTP challenge without creating a package; one retry is explicitly authorized and awaits secure interactive OTP entry, while the public tag remains pending.",
+               "The exact shadcn_ui 1.0.0 package and documentation are public on Hex with the approved checksum; Phase 6 public-consumer verification and the public tag remain pending.",
              "status" => "blocked"
            }
 
@@ -97,14 +97,14 @@ defmodule ShadcnUI.MilestoneFReleaseTest do
     assert gates["clean-candidate"] == "passed"
   end
 
-  test "public release gates remain pending without adding unrelated claims" do
+  test "Hex publication passes while the tag and unrelated claims stay separate" do
     status = @status |> File.read!() |> Jason.decode!()
     gates = Map.new(status["gates"], &{&1["id"], &1})
 
-    for id <- ["hex-publication", "public-version-tag"] do
-      assert gates[id]["status"] == "pending"
-      assert gates[id]["mandatory"]
-    end
+    assert gates["hex-publication"]["status"] == "passed"
+    assert gates["hex-publication"]["mandatory"]
+    assert gates["public-version-tag"]["status"] == "pending"
+    assert gates["public-version-tag"]["mandatory"]
 
     for id <- [
           "marketplace-listing",

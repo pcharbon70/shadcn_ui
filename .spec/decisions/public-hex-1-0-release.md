@@ -61,6 +61,10 @@ The first public Hex release target is `1.0.0`.
   `RELEASE_SHA`, archive checksum, package version, repository, organization,
   and owner. It authorizes one package-and-documentation attempt only and does
   not authorize a public tag or any adjacent distribution claim.
+- The published README shall use explicit versioned HexDocs destinations for
+  package guides and explicit GitHub destinations for repository-only content.
+  Repository-relative guide or demo links are not portable to the Hex package
+  renderer and shall not be used in the public README.
 - Hex publication does not create a marketplace listing, certify a consumer
   platform, or imply official shadcn/ui or unscripted/ui affiliation.
 

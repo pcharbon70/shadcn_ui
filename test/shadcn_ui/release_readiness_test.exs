@@ -19,7 +19,7 @@ defmodule ShadcnUI.ReleaseReadinessTest do
     assert readme =~ @gallery_url
     assert readme =~ "mix hex.build"
     assert release =~ "Version `1.0.0` is the first public Hex release target"
-    assert release =~ "Hex publication remains pending"
+    assert release =~ "Public Hex now serves `shadcn_ui 1.0.0`"
   end
 
   test "release allowlist excludes repository and gallery tooling" do

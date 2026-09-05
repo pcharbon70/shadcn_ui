@@ -14,11 +14,11 @@ pass. The release owner has separately authorized one exact execution of
 `mix hex.publish --yes` for the immutable package and documentation payload;
 that attempt failed at Hex's OTP challenge because its non-interactive process
 received EOF. Immediate registry queries confirmed that no public package or
-release was created. At that point, Hex publication required fresh retry
-authorization plus secure interactive OTP entry. The owner subsequently
-authorized one retry of the same immutable package-and-documentation action;
-Hex publication remains pending on secure interactive OTP entry. The public tag
-remains unauthorized.
+release was created. The owner subsequently authorized and completed one
+interactive retry of the same immutable package-and-documentation action.
+Public Hex now serves `shadcn_ui 1.0.0` with the exact approved archive
+checksum, and HexDocs is live. Phase 6 public verification and the public tag
+remain pending.
 
 All 38 Milestone F requirements have an implementation/evidence entry in
 `release/records/milestone-f-acceptance.md`. Fly release
@@ -27,8 +27,9 @@ All 38 Milestone F requirements have an implementation/evidence entry in
 `1.0.0`; service health, canonical smoke, and deployed Chromium checks pass.
 That successful operational deployment did not itself complete package
 qualification. The exact-source build, consumer, review disposition, CI, merge,
-and dry-run evidence now pass separately; Hex publication and the public tag
-remain pending. The manual-accessibility waiver changes no automated or
+and dry-run evidence now pass separately; Hex publication also passes, while
+Phase 6 public verification and the public tag remain pending. The
+manual-accessibility waiver changes no automated or
 isolated-consumer requirement.
 
 The public-release Phase 1 preflight passed from synchronized main

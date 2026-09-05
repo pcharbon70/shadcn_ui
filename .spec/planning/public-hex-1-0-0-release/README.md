@@ -7,7 +7,7 @@ does not imply that a later gate passed.
 
 ## Status
 
-**Phase 5 publication retry authorized; secure interactive OTP entry pending.**
+**Phase 5 complete; Phase 6 public verification and tagging are next.**
 
 The following prerequisites are already accepted or operationally proven:
 
@@ -270,7 +270,7 @@ avoids changing the commit merely to record proof about that commit.
   - [x] If authorization is declined or evidence has expired, stop without a
     public tag or Hex mutation.
 
-- [ ] 5.3 Section - Publish exactly once.
+- [x] 5.3 Section - Publish exactly once.
 
   The one authorized attempt ran at `2026-09-05T13:24:17Z` and failed at
   Hex's OTP challenge when the non-interactive process received EOF. Immediate
@@ -279,12 +279,16 @@ avoids changing the commit merely to record proof about that commit.
   of the same immutable package-and-documentation action. The retry must run in
   an interactive terminal so the owner can enter the OTP securely.
 
-  - [ ] Run `mix hex.publish` from the approved detached checkout, using the
+  The owner completed the interactive retry. Public Hex recorded
+  `shadcn_ui 1.0.0` at `2026-09-05T14:19:30.545005Z`; the registry checksum is
+  exactly the approved archive SHA-256, and HexDocs is live. Section 5.3 passes.
+
+  - [x] Run `mix hex.publish` from the approved detached checkout, using the
     authenticated intended owner and no unreviewed environment override.
-  - [ ] Capture the command result, package checksum, public release URL,
+  - [x] Capture the command result, package checksum, public release URL,
     timestamp, authenticated owner, and `RELEASE_SHA` without capturing the API
     key.
-  - [ ] Do not retry an ambiguous result until public Hex is queried for
+  - [x] Do not retry an ambiguous result until public Hex is queried for
     `shadcn_ui 1.0.0`; never attempt to overwrite the version.
 
 ## Phase 6 - Verify, tag, and reconcile

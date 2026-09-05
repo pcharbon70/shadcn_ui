@@ -161,3 +161,7 @@ contracts; the locked three-engine Dialog suite remains the behavioral proof.
     - shadcn_ui.dialog.protected_semantics
     - shadcn_ui.dialog.shared_contract
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no dialog contract changes.

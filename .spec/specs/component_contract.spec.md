@@ -167,3 +167,7 @@ cannot override native identity or accessibility relationships.
     - shadcn_ui.component.progressive_floor
     - shadcn_ui.component.honest_interaction_names
 ```
+
+The root README's publication and navigation correction is cross-renderer
+documentation only. Explicit versioned HexDocs and GitHub destinations replace
+renderer-dependent relative links; no component contract changes.

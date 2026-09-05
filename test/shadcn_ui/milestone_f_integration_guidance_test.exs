@@ -75,8 +75,8 @@ defmodule ShadcnUI.MilestoneFIntegrationGuidanceTest do
 
   test "upgrade guidance separates candidate, public, deployment, manual, and rollback states" do
     for text <- [
-          "preparing `1.0.0` as its first public Hex release",
-          "has no public release tag",
+          "`1.0.0` is its first public Hex release",
+          "public source tag remains a separate release gate",
           "Passing local tests is not proof",
           "manual review",
           "Deprecation policy",

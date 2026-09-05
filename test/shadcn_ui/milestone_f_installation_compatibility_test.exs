@@ -26,7 +26,7 @@ defmodule ShadcnUI.MilestoneFInstallationCompatibilityTest do
       assert @installation =~ text
     end
 
-    assert @readme =~ "docs/installation.md"
+    assert @readme =~ "https://shadcn-ui.hexdocs.pm/1.0.0/installation.html"
     assert File.exists?(ShadcnUI.stylesheet_path())
   end
 
@@ -49,7 +49,18 @@ defmodule ShadcnUI.MilestoneFInstallationCompatibilityTest do
       assert @compatibility =~ text
     end
 
-    assert @readme =~ "docs/compatibility.md"
+    assert @readme =~ "https://shadcn-ui.hexdocs.pm/1.0.0/compatibility.html"
+  end
+
+  test "README links are portable across Hex, HexDocs, and GitHub renderers" do
+    links =
+      ~r/\[[^\]]+\]\(([^)]+)\)/
+      |> Regex.scan(@readme, capture: :all_but_first)
+      |> List.flatten()
+
+    assert links != []
+    assert Enum.all?(links, &String.starts_with?(&1, ["https://", "#"]))
+    refute Enum.any?(links, &String.starts_with?(&1, ["docs/", "demo/"]))
   end
 
   test "package stylesheet contains no remote runtime assets" do
